@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h1>
+            CONECTA 4
+        </h1>
+        <p class = "hidden" id = "next-game">
+            ¿Volver a jugar?
+        </p>
+        <form class = "visible">
+            <label for = "play-alone">Jugar solo</label>
+            <input type = "button" value = "EMPEZAR" name = "play-alone">
+            <label for = "play-two">Jugar dos</label>
+            <input type = "button" value = "EMPEZAR" name = "play-two">
+        </form>
+        <main class = "area visible">
+            <div class = "column">
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+            </div>
+            <div class = "column">
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+            </div>
+            <div class = "column">
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+            </div>
+            <div class = "column">
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+            </div>
+            <div class = "column">
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+            </div>
+            <div class = "column">
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+            </div>
+            <div class = "column">
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+                <div class = "play-circle empty"></div>
+            </div>
+            <form class="hidden">
+                <input type = "button" value="1" name = "first-column" class = "column-button hidden">
+                <input type = "button" value="2" name = "second-column" class = "column-button hidden">
+                <input type = "button" value="3" name = "third-column" class = "column-button hidden">
+                <input type = "button" value="4" name = "forth-column" class = "column-button hidden">
+                <input type = "button" value="5" name = "fifth-column" class = "column-button hidden">
+                <input type = "button" value="6" name = "sixth-column" class = "column-button hidden">
+                <input type = "button" value="7" name = "seventh-column" class = "column-button hidden">
+            </form>
+        </main>
+        <div class = "area hidden">
+            <p>Le toca jugar al color: <strong id = "actual-player">ROJO</strong></p>
+        </div>
+        <form class = "hidden right">
+            <input type = "button" value="REINICAR PARTIDA" name = "reestart-button">
+            <input type = "button" value="TERMINAR PARTIDA" name = "finish-button">
+        </form>
+    </body>
+    <script type="text/javascript" src="main.js"></script>
+</html>
