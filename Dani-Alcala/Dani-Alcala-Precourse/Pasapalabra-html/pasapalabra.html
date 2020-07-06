@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pasapalabra.css">
+        <title>Pasapalabra</title>
+    </head>
+    <body>
+</div>
+<section class="intro">
+    <div class="introText">
+        <p>¡JUEGA AL PASAPALABRA!<br /><br />
+            1. Debes contestar una pregunta por letra.<br />
+            2. Tienes la opción de contestar PASAPALABRA, dejando pendiente de ese modo la letra en cuestión para más adelante.<br />
+            3. Tienes 150 segundos para completar el reto, aunque una vez llegado el reloj a cero podrás contestar a la pregunta en curso y esta contará en tu marcador. Puedes parar el reloj si no te apetece jugar con tiempo limitado.<br />
+            4. Una vez resuelvas el rosco, te aparecerá tu resultado en forma de aciertos y errores, y una clasificación general.<br />
+            5. ¡Juega tantas veces como quieras! Las preguntas van cambiando y hay hasta 3 por cada letra.<br /><br />
+            Nota: Es importante que escribas tus respuestas sin acentos. Puedes emplear mayúsculas o minúsculas. También puedes usar ENTER para enviar la respuesta.
+        </p></div>
+    <div class="profile vhidden"></div>
+    <div class="circle-container">
+        <div class="letter degA">A</div>
+        <div class="letter degB">B</div>
+        <div class="letter degC">C</div>
+        <div class="letter degD">D</div>
+        <div class="letter degE">E</div>
+        <div class="letter degF">F</div>
+        <div class="letter degG">G</div>
+        <div class="letter degH">H</div>
+        <div class="letter degI">I</div>
+        <div class="letter degJ">J</div>
+        <div class="letter degK">K</div>
+        <div class="letter degL">L</div>
+        <div class="letter degM">M</div>
+        <div class="letter degN">N</div>
+        <div class="letter degNY">Ñ</div>
+        <div class="letter degO">O</div>
+        <div class="letter degP">P</div>
+        <div class="letter degQ">Q</div>
+        <div class="letter degR">R</div>
+        <div class="letter degS">S</div>
+        <div class="letter degT">T</div>
+        <div class="letter degU">U</div>
+        <div class="letter degV">V</div>
+        <div class="letter degW">W</div>
+        <div class="letter degX">X</div>
+        <div class="letter degY">Y</div>
+        <div class="letter degZ">Z</div>
+    </div>
+    <div class="author">by Dani Alcalà</div>
+</section>
+<section class="newGame">
+    <button class="newGameButton">¡Comenzar!</button>
+</section>
+<section>
+    <form class="newUser hidden">
+<p>
+    <input class="userRequired" type="text" name="user" placeholder="Escribe aquí tu nombre de usuario">
+</p>
+<p>
+    <input type="submit" class="userButton" value="Enviar">
+</p>
+</form>
+</section>
+<section class="question hidden">
+</section>
+<section class="core hidden">
+    <div class="animation1">A</div>
+    <div class="animation2">R</div>
+    <div class="animation3">B</div>
+    <div class="animation4">A</div>
+    <div class="animation5">L</div>
+    <div class="animation6">A</div>
+    <div class="animation7">P</div>
+    <div class="animation8">A</div>
+    <div class="animation9">S</div>
+    <div class="animation10">A</div>
+    <div class="animation11">P</div>
+    <form class="answer">
+        <input class="infoRequired" type="text" name="answer" placeholder="Escribe aquí tu respuesta">
+        <input type="submit" class="answerButton" value="Enviar">
+    </form>
+    <section class="timeout">
+        <div class="clock"></div>
+        <button class="stop">Parar el reloj</button>
+    </section>
+</section>
+<section class="message hidden"></section>
+<section class="score hidden"></section>
+<section class="rank hidden">
+    <p>El ranking queda de la siguiente manera:</p>
+    <table class="rankTable">
+    </table>
+</section>
+<section class="replay hidden">
+<button class="replayButton">¡Juega de nuevo!</button>
+</section>
+
+</body>
+<script src="pasapalabra-2.js"></script>
+</html>
