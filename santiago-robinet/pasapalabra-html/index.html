@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>EL pasapalabras!</title>
+</head>
+<body onload="showName()">
+    <div>
+        <h1 id="playername"></h1>
+    </div>
+
+
+    <div class="allletters">
+        <p class="letter" id="a">A</p>
+        <p class="letter" id="b">B</p>
+        <p class="letter" id="c">C</p>
+        <p class="letter" id="d">D</p>
+        <p class="letter" id="e">E</p>
+        <p class="letter" id="f">F</p>
+        <p class="letter" id="g">G</p>
+        <p class="letter" id="h">H</p>
+        <p class="letter" id="i">I</p>
+        <p class="letter" id="j">J</p>
+        <p class="letter" id="k">K</p>
+        <p class="letter" id="l">L</p>
+        <p class="letter" id="m">M</p>
+        <p class="letter" id="n">N</p>
+        <p class="letter" id="ñ">Ñ</p>
+        <p class="letter" id="o">O</p>
+        <p class="letter" id="p">P</p>
+        <p class="letter" id="q">Q</p>
+        <p class="letter" id="r">R</p>
+        <p class="letter" id="s">S</p>
+        <p class="letter" id="t">T</p>
+        <p class="letter" id="u">U</p>
+        <p class="letter" id="v">V</p>
+        <p class="letter" id="w">W</p>
+        <p class="letter" id="x">X</p>
+        <p class="letter" id="y">Y</p>
+        <p class="letter" id="z">Z</p>
+    </div>
+
+    <div class="answer">
+      
+        <form>
+        <label for="word">Respuesta</label><br>
+        <input type="text" id="word" name="word" onkeydown="pressEnterKey()">
+      </form>
+
+        <button class="playerbutton" id="enter" onclick="enter()">Enter</button><br>
+        <button class="playerbutton" id="pasapalabra" onclick="pasapalabra()">Pasapalabra</button><br>
+        <button class="playerbutton" id="surrender" onclick="surrender()">Surrender</button>
+
+        
+    </div>
+
+    <div class="screen">
+        <p id="screen">Aca va la pregunta</p>
+    </div>
+
+    <div class="tempo">
+        <p>Seconds</p>
+        <p id="timer">180</p>
+    </div>
+
+    <div class="ranking">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Right</th>
+                <th>Miss</th>
+            </tr>
+            <tr>
+                <td id="firstplacename"></td>
+                <td id="firstplaceright"></td>
+                <td id="firstplacemiss"></td>
+            </tr>
+            <tr>
+                <td id="secondplacename"></td>
+                <td id="secondplaceright"></td>
+                <td id="secondplacemiss"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="start">
+        <button id="start" onclick="start()">start</button>
+    </div>
+
+    
+</body>
+
+<script src="main.js"></script>
+
+</html>
