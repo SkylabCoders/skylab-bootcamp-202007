@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PASAPALABRA</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="img\FAVICON\FAV/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="img\FAVICON\FAV/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="img\FAVICON\FAV/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="img\FAVICON\FAV/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="img\FAVICON\FAV/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="img\FAVICON\FAV/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="img\FAVICON\FAV/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="img\FAVICON\FAV/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img\FAVICON\FAV/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="img\FAVICON\FAV/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img\FAVICON\FAV/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="img\FAVICON\FAV/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img\FAVICON\FAV/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+        .letter {
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 50%;
+            padding: 2px;
+            background: grey;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">PASAPALABRA</h1>
+        <div class="circle">
+            <div class="letter a">A</div>
+            <div class="letter b">B</div>
+            <div class="letter c">C</div>
+            <div class="letter d">D</div>
+            <div class="letter e">E</div>
+            <div class="letter f">F</div>
+            <div class="letter g">G</div>
+            <div class="letter h">H</div>
+            <div class="letter i">I</div>
+            <div class="letter j">J</div>
+            <div class="letter k">K</div>
+            <div class="letter l">L</div>
+            <div class="letter m">M</div>
+            <div class="letter n">N</div>
+            <div class="letter ñ">Ñ</div>
+            <div class="letter o">O</div>
+            <div class="letter p">P</div>
+            <div class="letter q">Q</div>
+            <div class="letter r">R</div>
+            <div class="letter s">S</div>
+            <div class="letter t">T</div>
+            <div class="letter u">U</div>
+            <div class="letter v">V</div>
+            <div class="letter w">W</div>
+            <div class="letter x">X</div>
+            <div class="letter y">Y</div>
+            <div class="letter z">Z</div>
+        </div>
+        <div class="question"></div>
+        <div class="input">
+            <label class="" for="">Respuesta</label>
+            <input class="resp" type="text" />
+        </div>
+        <input id='userName' type="text" placeholder="enter your name" />
+        <button id='enterName'>confirm</button>
+
+        <div></div>
+        <div class="wrapper">
+            <button class="answer">ANSWER</button>
+            <button class="pasap">PASAPALABRA</button>
+            <button class="exit">EXIT</button>
+        </div>
+    </div>
+    <script>
+        var letters = document.getElementsByClassName("letter")
+
+        var angle = 255;
+        for (var i = 0; i < letters.length; i++) {
+            angle += 10
+            letters[i].style.transform = 'rotate(' + angle + 'deg) translate(200px) rotate(' + (-angle) + 'deg)';
+            letters[i].style.transition = '2s';
+        }
+    </script>
+</body>
+
+</html>
