@@ -1,0 +1,12 @@
+p{
+    background-color:blue ;
+    color:white;
+    padding:5px;
+
+}
+#morespecific{
+    background-color: red;
+}
+.specific{
+    background-color: grey;
+}
