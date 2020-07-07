@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <h1>PASAPALABRA </h1>
+        <main id= "letters">
+            <div id="letter-a" class ="unanswered-letter letter">A</div>
+            <div id="letter-b" class ="unanswered-letter letter">B</div>
+            <div id="letter-c" class ="unanswered-letter letter">C</div>
+            <div id="letter-d" class ="unanswered-letter letter">D</div>
+            <div id="letter-e" class ="unanswered-letter letter">E</div>
+            <div id="letter-f" class ="unanswered-letter letter">F</div>
+            <div id="letter-g" class ="unanswered-letter letter">G</div>
+            <div id="letter-h" class ="unanswered-letter letter">H</div>
+            <div id="letter-i" class ="unanswered-letter letter">I</div>
+            <div id="letter-j" class ="unanswered-letter letter">J</div>
+            <div id="letter-k" class ="unanswered-letter letter">K</div>
+            <div id="letter-l" class ="unanswered-letter letter">L</div>
+            <div id="letter-m" class ="unanswered-letter letter">M</div>
+            <br>
+            <div id="letter-n" class ="unanswered-letter letter">N</div>
+            <div id="letter-nn" class ="unanswered-letter letter">Ñ</div>
+            <div id="letter-o" class ="unanswered-letter letter">O</div>
+            <div id="letter-p" class ="unanswered-letter letter">P</div>
+            <div id="letter-q" class ="unanswered-letter letter">Q</div>
+            <div id="letter-r" class ="unanswered-letter letter">R</div>
+            <div id="letter-s" class ="unanswered-letter letter">S</div>
+            <div id="letter-t" class ="unanswered-letter letter">T</div>
+            <div id="letter-u" class ="unanswered-letter letter">U</div>
+            <div id="letter-v" class ="unanswered-letter letter">V</div>
+            <div id="letter-w" class ="unanswered-letter letter">W</div>
+            <div id="letter-x" class ="unanswered-letter letter">X</div>
+            <div id="letter-y" class ="unanswered-letter letter">Y</div>
+            <div id="letter-z" class ="unanswered-letter letter">Z</div>
+        </main>
+        <br>
+        <form id="questions-area">
+            <p id="actual-question"></p>
+            <div id="answer-area">
+                <label for="actual-answer">Respuesta:</label>
+                <input id="actual-answer" type="text" value="" onkeydown="pasapalabraGame.enterKeyEventSubmitAnswer(event)">
+                <input id="button-actual-answer" type="button" class="button" value="Enviar respuesta" onclick="pasapalabraGame.submitAnswer()">
+                <input id="button-actual-answer" type="button" class="button" value="PASAPALABRA" onclick="pasapalabraGame.skipWord()">
+                <input id="button-actual-answer" type="button" class="button" value="TERMINAR" onclick="pasapalabraGame.endGame()">     
+            </div>
+            <div id = "change-player">
+                <div id="wrong-answer-area">
+                    <p>¡Te has equivocado con la letra <strong id="actual-letter"></strong>! la respuesta correcta es <strong id="correct-answer"></strong> </p>
+                </div>
+                <div id="change-player-form">
+                    <form>
+                        <label for="button-change-player"><strong id="new-turn-player" type="text"></strong> empieza tu turno:</label>
+                        <input id="button-change-player" type="button" class="button" value="Listo" onclick="pasapalabraGame.turn()">
+                    </form>                    
+                </div>
+            </div>
+        </form>
+        <div id="ranking-area">
+            <h1>Ranking:</h1>
+            <ol id = "actual-ranking">
+            </ol>
+        </div>
+        <aside id="current-game-info">
+            <div id= "players-area">
+                <form id="enter-players-info">
+                   <label for="player-one-name">Jugador uno:</label>
+                    <input id="player-one-name" type="text" name="player-one" value="unknow">
+                    <input id="button-player- alone-names" type="button" value="Jugar Solo" class="button" onclick="pasapalabraGame.startGamePlayAlone()">
+                    <br>
+                    <label for="player-two-name">Jugador dos:</label>
+                    <input id="player-two-name" type="text" name="player-two" value="unknow" onkeydown="pasapalabraGame.enterKeyEventStartGame(event)">
+                   <input id="button-players-names" type="button" value="Jugar Dos" class="button" onclick="pasapalabraGame.startGame()">
+               </form>
+                   <p id="actual-player-area"> <strong id="actual-player" type="text"></strong> tu tiempo restante es:</p>
+            </div>
+            <div id="timer">--</div>
+            <div id="rules">
+                <p><strong>Normas:</strong><br></p>
+                <ul>
+                    <li>Escribe sin accentos.</li> 
+                    <li>Si quieres pasar a la siguiente palabra pulsa PASAPALABRA.</li>
+                    <li>Si quieres terminar la partida pulsa TERMINAR.</li> 
+                </ul>
+            </div>
+        </aside>
+        <aside id="your-score">
+            <h3>Tus resultados:</h3>
+            <p id="player-one-score"></p>
+            <p id="player-two-score"></p>
+        </aside>
+    </body>
+    <script type="text/javascript" src="index.js"></script>
+</html>

@@ -1,0 +1,64 @@
+
+body{
+    background-color: skyblue;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 30px;
+}
+main{
+    background-color: blue;
+    width: 550px;
+    height: 425px;
+    align-items: center;
+    border-radius: 5px;
+    margin: auto;
+    align-self: center;
+}
+div{
+    vertical-align: middle;
+}
+#actual-player{
+    color: red;
+}
+.column {
+    display: inline-block;
+}
+.play-circle {
+    border-radius: 100px;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+.visible {
+    visibility: visible;
+}
+.hidden {
+    visibility: hidden;
+}
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color:  yellow;
+}
+.empty {
+    background-color: grey;
+}
+.column-button{
+    width: 50px;
+    margin: 10px;
+    background-color: white;
+    border: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+}
+.right {
+    position: absolute;
+    text-align: right;
+    top: 90%;
+    right: 1%;
+}
