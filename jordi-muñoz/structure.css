@@ -4,3 +4,11 @@ aside {
 #line3 {
     font-style: italic;
 }
+.specific {
+    background-color: grey;
+    color: white;
+}
+#morespecific {
+    background-color: red;
+    
+}
