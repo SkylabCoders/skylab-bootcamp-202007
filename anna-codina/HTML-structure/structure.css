@@ -1,6 +1,19 @@
 aside {
     color: blue;
 }
+p {
+    color: white;
+    background-color: blue;
+    padding: 5px;
+}
 .aside-list-item__italic-style {
     font-style:italic;
+}
+.specific {
+    background-color: grey;
+    border: nonte !important;
+}
+#morespecific {
+    background-color: red;  
+    border: black solid 1px;
 }
