@@ -3,5 +3,21 @@ aside {
 }
 /* BEM */
 .aside-list-item__italic-style {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+
+#morespecific {
+    background-color: red;
+    border: 1px solid black;
+}
+
+.specific {
+    background-color: gray;
+    border: none !important;
+}
+
+p {
+    background-color: blue;
+    color: white;
+    padding: 5px;
 }
