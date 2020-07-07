@@ -4,12 +4,18 @@
     <meta name="viewport" content="width=devic">
     <title>HTML structure</title>
     <link rel="stylesheet" href="structure.css">
+    <script>
+        function showDate(){
+            document.getElementById('demo').innerHTML = Date();
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Wake up, Neo</h1>
         <nav>
-            <button type"button" onclick="document.getElementById('demo').innerHTML = Date()">
+            <button type"button" 
+            onclick="showDate()">
                 See date
             </button>
             <p id="demo">Click 'See date' button</p>
