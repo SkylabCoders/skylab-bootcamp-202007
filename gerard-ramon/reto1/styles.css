@@ -1,0 +1,127 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(85, 87, 94);
+}
+
+.navBar__menu {
+    visibility: hidden;
+    position: absolute;
+}
+
+.navBar__menu--visible {
+    visibility: visible;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navBar__anchor {
+    display: inline;
+    margin: 10px;
+}
+
+.navBar__anchor-item {
+    color: whitesmoke;
+}
+
+.navBar__anchor-item--mobile {
+    color: black;
+}
+
+.navBar--left {
+    width: 48%;
+    display: flex;
+    padding-right: 20px;
+}
+
+.navBar--right {
+    width: 48%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navBar__button {
+    background-color: rgb(85, 87, 94);
+    border-radius: 20px;
+    padding: 5px 20px;
+    border: 2px solid rgb(41, 106, 226);
+    color: rgb(41, 106, 226);
+    font-weight: 750;
+}
+
+.nav-bar--right--button:hover {
+    background-color: rgb(132, 133, 139);
+}
+
+.main__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    border: 2px solid rgb(41, 106, 226);
+    border-radius: 20px;
+    background-color: rgb(132, 133, 139);
+}
+
+.main__column__list {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(132, 133, 139, 1) 0%, rgba(221, 222, 233, 1) 100%);
+}
+
+.main__secondElement {
+    width: 85%;
+    margin: auto;
+    padding: 10px;
+    border: 2px solid rgb(41, 106, 226);
+    border-radius: 10px;
+}
+
+.video {
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(85, 87, 94);
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        background: linear-gradient(90deg, rgba(132, 133, 139, 1) 0%, rgba(221, 222, 233, 1) 100%);
+    }
+    .navBar--left {
+        visibility: hidden;
+    }
+    .navBar__menu {
+        visibility: visible;
+    }
+    .navBar__anchor-item {
+        color: black;
+    }
+    .row {
+        flex-direction: column-reverse;
+    }
+}
