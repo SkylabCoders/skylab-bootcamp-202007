@@ -51,6 +51,7 @@ h2{
         width: 7rem;
         height: 3rem;
         background-color: rgb(218, 101, 101);
+        align-items: flex-end;
     }
 
 .section2{
