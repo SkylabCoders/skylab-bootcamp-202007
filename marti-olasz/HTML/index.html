@@ -9,5 +9,16 @@
     <body>
         <p class="para"> Class paragraph </p>
         <p class="para" id="diff"> Class + Id paragraph </p>
+
+        <button type="button" onclick="showDate()">
+            See date
+        </button>
+
+        <div id="date"> </div>
     </body>
+    <script>
+        function showDate(){
+            document.getElementById('date').innerHTML = Date()
+        }
+    </script>
 </html>
