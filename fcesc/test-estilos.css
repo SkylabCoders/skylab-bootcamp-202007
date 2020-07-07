@@ -3,11 +3,15 @@
     margin: 0;
     border: 0;
 }
+body{
+    position: relative;
+}
 ul{
     color: #111111;
     list-style: none;
 }
 li{
+    display: inline;
     background-color: #000066;
     color: #ffffff;
     line-height: 1.75rem;
@@ -19,4 +23,15 @@ li.gris{
 }
 li.rojo{
     background-color: #660000;
+}
+p{
+    margin: 0.25rem;
+}
+.clickable{
+    width: 12rem;
+    margin: 0.5rem 1rem;
+    text-align: center;
+    border: 0;
+    border-radius: 0.2rem;
+    background-color: #bbbbbb;
 }
