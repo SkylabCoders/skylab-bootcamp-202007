@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+ul{
+    color: #111111;
+    list-style: none;
+}
+li{
+    background-color: #000066;
+    color: #ffffff;
+    line-height: 1.75rem;
+    padding-left: 2.5rem;
+    width: 12rem;
+}
+li.gris{
+    background-color: #555555;
+}
+li.rojo{
+    background-color: #660000;
+}
