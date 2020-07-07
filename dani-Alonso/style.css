@@ -11,4 +11,8 @@
 
     p {
         color: white;
+        background-color: blue;
+    }
+    #demo{
+        color: black;
     }
