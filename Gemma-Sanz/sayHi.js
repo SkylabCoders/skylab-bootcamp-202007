@@ -4,6 +4,5 @@ function sayHi(){
     if(name){
         greeting = confirm(`Hello ${name}`);
         document.getElementById("demo").innerHTML = greeting;
-
     }
 }
