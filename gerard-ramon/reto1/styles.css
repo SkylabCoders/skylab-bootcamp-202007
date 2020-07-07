@@ -124,4 +124,7 @@ footer {
     .row {
         flex-direction: column-reverse;
     }
+    .main__column__image {
+        display: none;
+    }
 }
