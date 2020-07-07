@@ -1,0 +1,6 @@
+aside{
+    color: blue;
+}
+aside .list-style{
+    font-style: italic;
+}
