@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML Structure</title>
     <link rel="stylesheet" href="structure.css" type="text/css" />
-    <script>
-        function showDate() {
-            document.getElementById('demo').innerHTML = Date();
-        }
-    </script>
+
 </head>
 
 <body>
@@ -18,7 +14,8 @@
         <h1>Wake up, Neo...</h1>
         <nav>
             <button type="button" onclick="showDate()">See date</button>
-            <p id="demo">Click 'See date' button</p>
+            <p id="demo">Click 'ANY' button</p>
+            <button type="button" onclick="sayHi()">Greeting!</button>
         </nav>
 
     </header>
@@ -40,6 +37,10 @@
             <p>Skylab Coders Academy</p>
         </address>
     </footer>
+    <script src="showDate.js">
+    </script>
+    <script src="sayHi.js">
+    </script>
 </body>
 
 </html>
