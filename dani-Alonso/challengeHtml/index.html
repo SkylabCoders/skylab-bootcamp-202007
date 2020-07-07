@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge HTML</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark header__nav--links">
+            <button class="nav__hidden">button</button>
+            <ul class="navlinks">
+                <a href="google.es">Link1</a>
+                <a href="google.es">Link2</a>
+                <a href="google.es">Link3</a>
+            </ul>
+            <button onclick="login()" class="nav--button">Login</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <section class="col-sm imageSection">
+                <img src="http://31.media.tumblr.com/9fb93d6c7dc8d5bd20dedb00ffb18daf/tumblr_mvk1q0HiCP1sr9emmo1_250.gif"
+                    alt="funnygif" width=71% height="215px">
+                <div class="imageSection__imageDescription">
+                    <h2>Dancing</h2>
+                    <p>Dancing is funny</p>
+                    <button>BUTTON</button>
+                </div>
+            </section>
+            <section class="col-sm videoSection">
+                <video src="video1.mp4" width="71% " height="215px" controls>
+                    <p>Tu navegador no admite el elemento.</p>
+                </video>
+            </section>
+
+            <section class="col-sm list">
+                <h2>LIST</h2>
+                <ol>
+                    <ul>List1</ul>
+                    <ul>List2</ul>
+                    <ul>List3</ul>
+                    <ul>List4</ul>
+                    <ul>List5</ul>
+                </ol>
+            </section>
+        </div>
+    </div>
+
+    <div class="loremText">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam delectus, expedita saepe,
+            recusandae eum maiores <b>asperiores</b> illo sit <strong>assumenda</strong> nesciunt perferendis architecto
+            dolorum eius
+            dolor modi
+            obcaecati omnis, dolore facilis.</p>
+    </div>
+
+    <footer class="footer">Design by Dani Alonso!!!!</footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
