@@ -1,0 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.aside-list-item-italic-style{
+    font-style: italic;
+}
