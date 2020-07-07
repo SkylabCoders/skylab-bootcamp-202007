@@ -1,0 +1,30 @@
+aside {
+    color: blue;
+}
+
+.aside-list-item__italic-style {
+   font-style: italic;
+   background-color: wheat;
+}
+
+body {
+    background-color: darkcyan;
+    color: whitesmoke;
+}
+
+ul {
+    background-color: violet;
+}
+
+p{
+    background-color: teal;
+    padding: 5px;
+}
+
+.specific {
+    background-color: tomato;
+}
+
+#morespecific{
+    background-color: yellowgreen;
+}

@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1,0" />
-       <title>HTML Structure</title>
-    </head>
-    <body>
-        <header>  
-            <h1>Wake up, Neo...</h1>
-            <nav></nav> 
-        </header>
-        <main>
-            <aside>
-                <div>
-                    <ul>
-                        <li>This</li>
-                        <li>Is an</li>
-                        <li>is unordered list</li>
-                    </ul>
-                </div>
-            </aside>
-        </main>
-        <footer>
-            <address>
-                <p>Skylab Coders Academy</p>
-            </address>
-        </footer>
-    </body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Structure</title>
+    <link rel="stylesheet" href="structure.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <h1>Wake up, Neo...</h1>
+        <nav></nav>
+    </header>
+    <main>
+        <aside>
+            <ul>
+                <li>This</li>
+                <li>is an</li>
+                <li class="aside-list-item__italic-style">is unordered list</li>
+                
+            </ul>
+            <p>Standard Peregraph</p>
+                <p class="specific">Paragraph Specific</p>
+                <p id="morespecific">Paragraph More Specific</p>
+        </aside>
+    </main>
+    <footer>
+        <address>
+            <p>Skylab Coders Academy</p>
+        </address>
+    </footer>
+</body>
+
 </html>
