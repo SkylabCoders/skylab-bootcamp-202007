@@ -1,6 +1,14 @@
+.li {
+    font-style: italic;
+    color: blue;
+}
 .first-paragraph {
-background-color: grey;
-}
-.second-paragraph{
-background-color:red !important;
-}
+    background-color: grey;
+    }
+    .second-paragraph{
+    background-color:red !important;
+    }
+
+    p {
+        color: white;
+    }
