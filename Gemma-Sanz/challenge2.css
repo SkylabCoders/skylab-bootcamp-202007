@@ -6,24 +6,47 @@ h1{
     text-align: right;
 }
 
-footer{
-text-align: center;
-}
-
-.nav{
+.nav_menu{
     background-color: lightgray;
-    padding: 5px;
-    display: inline-flex;
+    padding: 20px;
 }
 
-.nav__link{
-    color: black;
-}
+    .nav_menu__link{
+        color: black;
+    }
 
-.nav__link--special{
-    border-radius: 50%;
-    background-color: solid red;
-}
+    .nav_menu__link--special{
+        border: none;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        background-color: rgb(218, 101, 101);
+    }
+
 .col-sm{
     text-align: center;
+}
+#last_col{
+    background: linear-gradient(lightyellow ,rgb(228, 100, 100))
+}
+.figure1{
+    border: 1px solid black;
+}
+    .figure1_button{
+        border: none;
+        border-radius: 50%;
+        width: 7rem;
+        height: 7rem;
+        background-color: rgb(218, 101, 101);
+    }
+    
+.section2{
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+}
+
+footer{
+text-align: center;
+padding: 15px;
 }
