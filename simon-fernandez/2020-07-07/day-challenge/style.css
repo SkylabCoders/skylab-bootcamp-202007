@@ -26,7 +26,9 @@ button{
     margin-left:50%;
     background-color: red;
 }
-
+li{
+    margin: 4%;
+}
 .redSmallBox{
     margin-left: 5%;
     height: 7vh;
