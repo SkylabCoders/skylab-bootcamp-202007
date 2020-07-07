@@ -9,6 +9,15 @@
    .hide {
        display: none;
    }
+   .desktopLink{
+    display: none;
+   }
+
+}
+@media (min-width:480px){
+    .hamLink{
+        display: none;
+    }
 }
 a{
  color: white;
@@ -16,6 +25,12 @@ a{
 button{
     margin-left:50%;
     background-color: red;
+}
+
+.redSmallBox{
+    margin-left: 5%;
+    height: 7vh;
+    width: 7vh;
 }
 .round-button{
     height: 4rem;
