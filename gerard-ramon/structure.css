@@ -12,12 +12,12 @@ aside {
 }
 
 .specific {
-    background-color: grey;
+    background-color: gray;
     border: none !important;
 }
 
 p {
-    background-color: blue;
     color: white;
+    background-color: blue;
     padding: 5px;
 }

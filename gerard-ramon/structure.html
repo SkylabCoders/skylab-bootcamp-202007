@@ -11,6 +11,12 @@
 <body>
     <header>
         <h1>My first bootcamp HTML file</h1>
+        <nav>
+            <button onclick="document.getElementById('demo').innerHTML = Date()">
+                See date
+            </button>
+            <p id="demo">Click 'See Date' button</p>
+        </nav>
     </header>
     <main>
         <aside>
@@ -20,9 +26,10 @@
                 <li class="aside-list-item__italic-style">unordered list</li>
             </ul>
         </aside>
-
-        <p class="specific">Paragraph</p>
-        <p class="specific" id="morespecific">Paragraph with id!</p>
+        <div>
+            <p class="specific">Paragraph</p>
+            <p class="specific" id="morespecific">Paragraph with id!</p>
+        </div>
     </main>
     <footer>
         <address>
