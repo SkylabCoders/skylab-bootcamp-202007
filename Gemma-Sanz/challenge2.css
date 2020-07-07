@@ -44,9 +44,8 @@ h1{
 }
     .figure1_button{
         border: none;
-        border-radius: 50%;
         width: 7rem;
-        height: 7rem;
+        height: 3rem;
         background-color: rgb(218, 101, 101);
     }
 
