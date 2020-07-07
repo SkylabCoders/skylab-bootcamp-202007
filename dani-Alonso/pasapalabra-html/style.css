@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("/img/back.jpg");
+}
+
+.letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left:50%;
+  top:70%;
+  width: 40px;
+  height: 40px;
+  border: solid 1px;
+  border-radius: 100%;
+  background-color: grey;
+  text-align: center;
+  padding: 2px;
+}
+.question {
+  position: relative;
+  margin: auto;
+  margin-bottom: 30px;
+  width: 80%;
+  height: 90px;
+  background-color: honeydew;
+  border: solid 1px;
+}
+.answer {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.buttons {
+  margin: auto;
+  text-align: center;
+}

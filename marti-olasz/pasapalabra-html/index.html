@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Pasapalabra</title>
+</head>
+
+<body>
+    <div class="title">
+        Welcome to PASAPALABRA!
+    </div>
+
+    <table>
+    <!-- Cuadricula abecedario + timer -->
+       <tr>
+            <td id="a"> A </td>
+            <td id="b"> B </td>
+            <td id="c"> C </td>
+            <td id="d"> D </td>
+            <td id="e"> E </td>
+        </tr>
+        <tr>
+            <td id="f"> F </td>
+            <td id="g"> G </td>
+            <td id="h"> H </td>
+            <td id="i"> I </td>
+            <td id="j"> J </td>
+        </tr>
+        <tr>
+            <td id="k"> K </td>
+            <td id="l"> L </td>
+            <td id="m"> M </td>
+            <td id="n"> N </td>
+            <td id="ñ"> Ñ </td>
+        </tr>
+        <tr>
+            <td id="o"> O </td>
+            <td id="p"> P </td>
+            <td id="q"> Q </td>
+            <td id="r"> R </td>
+            <td id="s"> S </td>
+        </tr>
+        <tr>
+            <td id="t"> T </td>
+            <td id="u"> U </td>
+            <td id="v"> V </td>
+            <td id="w"> W </td>
+            <td id="x"> X </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td id="y"> Y </td>
+            <td id="timer"> </td>
+            <td id="z"> Z </td>
+            <td> </td>
+        </tr>
+    </table>
+
+    <!-- Boton newGame -->
+    <div id="newgame">
+        <button class="float" onclick="newGame()">¿ Nueva partida ?</button>
+    </div>
+
+    <!-- Input name -->
+    <div id="name">
+        <input class="float" id="input_name" type="text">
+        <button class="float send" type="button" onclick="sendName()"> Send </button>
+    </div>
+
+    <!-- Input answer + boton pasapalabra + boton endGame -->
+    <div id="answer">
+        <input class="float" id="input_answer" type="text">
+        <button class="float send" type="button" onclick="sendAnswer()"> Send </button>
+        <button class="float" onclick="pasapalabra()"> Pasapalabra! </button>
+        <button class="float" onclick="endGame()"> Acabar la partida </button>
+    </div>
+
+    <!-- Info -->
+    <div id="info">
+        ¿Queires jugar una partida?
+    </div>
+    
+    <!-- Rank -->
+    <div id="rank">
+
+    </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>

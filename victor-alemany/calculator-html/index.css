@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: whitesmoke;
+}
+
+.title {
+    text-align: center;
+    color: rgb(119, 119, 119);
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    font-size: 18px;
+    color: black;
+}
+
+.result {
+    font-size: 35px;
+    text-align: right;
+    background-color: rgb(77, 104, 88);
+    color: white;
+    width: 255px;
+    height: 75px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.operators {
+    background-color: rgba(145, 57, 57, 0.322);
+    font-size: 25px;
+    width: 60px;
+    height: 40px;
+    padding: 5px;
+    margin: 2px;
+}
+.operators:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.numbers{
+    background-color: rgba(116, 155, 143, 0.322);
+    font-size: 25px;
+    width: 60px;
+    height: 40px;
+    padding: 5px;
+    margin: 2px;
+}
+
+.numbers:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.extraButtons{
+    background-color: rgb(185, 185, 185);
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    width: 60px;
+    height: 40px;
+    padding: 5px;
+    margin: 2px;
+}
+
+.extraButtons:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+#equal{
+    height: 87px;
+}
+
+#num0{
+    width:125px;
+}
