@@ -65,8 +65,22 @@ padding: 15px;
 font-style: italic;
 }
 
-@media (min-width: 400px) {
-    body{
-        background-color: red;
+.nav_hidden{
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .row{
+        flex-direction: column-reverse;
     }
-  }
+    .list {
+        background-image: linear-gradient(green, yellow);
+    }
+    .nav_links{
+        display: none;
+    }
+    .nav_hidden{
+        display: block;
+        background-color: rgb(218, 101, 101);
+    }
+}
