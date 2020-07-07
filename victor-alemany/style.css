@@ -6,3 +6,18 @@
 .aside-list-item-italic-style{
     font-style: italic;
 }
+
+p {
+    margin: 1%;
+}
+
+#aside-paragraph-item-background-style-id{
+    background-color: grey;
+    color: white;
+    border: solid 1px black;
+}
+
+.aside-paragraph-item-background-style-class{
+    background-color: red !important;
+    color: white;
+}
