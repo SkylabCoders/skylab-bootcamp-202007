@@ -1,0 +1,10 @@
+.bg-gradient-blue {
+    background: linear-gradient(to bottom, #00ccff 0%, #0066ff 100%);
+}
+
+
+@media (max-width: 480px) {
+    .col-4 {
+        width: 100%;
+    }
+}
