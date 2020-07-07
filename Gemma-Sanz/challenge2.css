@@ -60,3 +60,9 @@ text-align: center;
 padding: 15px;
 font-style: italic;
 }
+
+@media (min-width: 400px) {
+    .facet_sidebar {
+      display: none;
+    }
+  }

@@ -1,5 +1,5 @@
-var button1 = document.getElementsByClassName("button1").innerHTML
+var button = document.getElementsByClassName("button1").innerHTML
 
 function changeButton() {
-    button1.innerHTML = "Log out";
+    button.innerHTML = "Log out";
 }
