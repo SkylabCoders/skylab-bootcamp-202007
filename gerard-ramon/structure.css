@@ -21,3 +21,9 @@ p {
     background-color: blue;
     padding: 5px;
 }
+
+.user-name-button {
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+}
