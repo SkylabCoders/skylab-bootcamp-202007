@@ -1,18 +1,21 @@
 h1{
     text-align: left;
-    font-size: 5px;
+    font-size: 10px;
 }
+
 .b1{
     text-align: right;
 }
 
 .nav_menu{
     background-color: lightgray;
-    padding: 20px;
+    padding: 5px;
+    line-height: 4rem;
 }
 
     .nav_menu__link{
         color: black;
+        margin: 10px;
     }
 
     .nav_menu__link--special{
@@ -25,9 +28,16 @@ h1{
 
 .col-sm{
     text-align: center;
+    vertical-align: middle;
 }
 #last_col{
-    background: linear-gradient(lightyellow ,rgb(228, 100, 100))
+    background: linear-gradient(lightyellow ,rgb(228, 100, 100));
+    vertical-align: middle;
+
+}
+
+.container_main{
+    margin: 75px;
 }
 .figure1{
     border: 1px solid black;
@@ -39,7 +49,7 @@ h1{
         height: 7rem;
         background-color: rgb(218, 101, 101);
     }
-    
+
 .section2{
     background-color: lightgray;
     padding: 20px;
@@ -49,4 +59,5 @@ h1{
 footer{
 text-align: center;
 padding: 15px;
+font-style: italic;
 }

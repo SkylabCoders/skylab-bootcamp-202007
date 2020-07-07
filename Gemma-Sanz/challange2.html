@@ -9,16 +9,20 @@
 </head>
 <body>
 <header>
-    <nav class="nav_menu">
-        <a class="nav_menu__link" href="https:soajd.com">Link 1</a>
-        <a class="nav_menu__link" href="https:asdsa.com">Link 2</a>
-        <a class="nav_menu__link" href="https:hisads.com">Link 3</a>
-        <button class="nav_menu__link--special" class="button1" onclick="changeButton()">Log in</button>
+    <nav class="row nav_menu">
+        <section class="col-sm-11">
+            <a class="nav_menu__link" href="https:soajd.com">Link 1</a>
+            <a class="nav_menu__link" href="https:asdsa.com">Link 2</a>
+            <a class="nav_menu__link" href="https:hisads.com">Link 3</a>
+        </section>
+        <section class="col-sm">
+            <button class="nav_menu__link--special" class="button1" onclick="changeButton()">Log in</button>
+        </section>
     </nav>
 </header>
 
 <main>
-    <section class="container.fluid" width: 100%>
+    <section class="container.fluid container_main" width: 100%>
         <section class="row">
             <section class="col-sm">
                 <figure>
@@ -54,7 +58,7 @@
     </section>
 </main>
 <footer>
-<p>Design by Pepito</p>
+<p>Design by Pepito Flores</p>
 </footer>
 
 </body>
