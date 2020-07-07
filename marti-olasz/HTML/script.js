@@ -5,5 +5,7 @@ function showDate(){
 function showName(){
     var name = prompt("Cual es tu nombre?", "Martí");
 
-    document.getElementById("name").innerHTML = "Hello " + name;
+    if(name){
+        document.getElementById("name").innerHTML = "Hello " + name;
+    }
 }
