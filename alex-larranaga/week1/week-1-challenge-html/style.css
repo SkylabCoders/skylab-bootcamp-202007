@@ -1,0 +1,51 @@
+@media (max-width: 600px) {
+    .link-class{
+      display: block;
+    }
+  }
+
+  header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: gray;
+      background-origin: padding-box;
+      padding-left: 5%;
+      padding-right: 5%;
+  }
+
+  #login-button {
+      border-radius: 100%;
+      padding-left: 0%;
+  }
+
+  .video-class{
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+  }
+
+  .image-class{
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      float: left;
+      position: relative;
+      left: 2%;
+  }
+
+  .list-class{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      float: right;
+  }
+
+
+
+
+
+
+
+
+
