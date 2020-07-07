@@ -5,22 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="structure.css" type="text/css">
-
+    <script>
+        function showDate(){
+            document.getElementById('demo').innerHTML = Date();
+        }
+    </script>
 </head>
 <body>
     <main>
         <header>
-            <h1>Hi all</h1>
+            <h1>Wake up Neo</h1>
         </header>
+        <nav>
+            <button type ="button" onclick= "showDate()">
+                See date
+            </button>
+            <p id='demo'>Click 'See date' button!</p>
+        </nav>
         <div>
         <p class="specific">Parragraph</p>
         <p class="specific" id="morespecific">Parragraph with id!</p>   
         </div>
         <aside>
             <ul>
-                <li>For you</li>
-                <li class="aside-list-item__italic-style">and you</li>
-                <li>and you</li>
+                <li>This</li>
+                <li class="aside-list-item__italic-style">is an</li>
+                <li>unordened list</li>
             </ul>
         </aside>
     </main>
