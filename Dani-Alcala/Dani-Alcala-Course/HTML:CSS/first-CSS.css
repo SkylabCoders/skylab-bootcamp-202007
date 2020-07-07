@@ -1,0 +1,7 @@
+aside {
+    color: salmon;
+}
+/* BEM */
+.aside-list-item__italic-style {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
