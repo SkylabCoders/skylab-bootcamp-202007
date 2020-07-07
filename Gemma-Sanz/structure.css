@@ -6,14 +6,14 @@ aside .list-style{
 }
 p{
     color: white;
-    background-color: red;
+    background-color: blue;
     padding: 5px;
-
 }
 .specific{
-    border: none !important;
     background-color: gray;
+    border: none !important;
 }
 #morespecific{
     background-color: red;
+    border: 1px solid black
 }
