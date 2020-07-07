@@ -1,7 +1,11 @@
 aside{
-    color: red;
+    color: white;
     
 }
 .italic{
-    font-style: italic;
+    background-color: red;
+}
+
+#greybg{
+    background-color: grey;
 }
