@@ -1,0 +1,495 @@
+* {
+    font-family: monospace;
+    font-size: 18px;
+}
+
+body {
+    background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+.intro {
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 25% 75%;
+    border: 2px solid gray;
+
+}
+
+.newGame {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.newUser {
+    background-color: sandybrown;
+    text-align: center;
+    margin-top: 10px;
+    border: 2px solid gray;
+}
+
+.userName {
+    text-align: center;
+    font-size: 32px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.question {
+    background-color: khaki;
+    text-align: center;
+    border: 2px solid gray;
+    grid-column: 1/3;
+    margin-top: .5em;
+    padding: .5em;
+}
+
+.answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0 5em;
+}
+
+.score {
+    background-color: wheat;
+    padding: .5em;
+    margin-top: .5em;
+    text-align: center;
+    border: 2px solid gray;
+}
+
+.rank {
+    text-align: center;
+    background-color: wheat;
+    padding: .5em;
+    border: 2px solid gray;
+    margin-top: .5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+.vhidden {
+    visibility: hidden;
+}
+
+.letter {
+    background: #f0f33f;
+    border: 1px solid gray;
+    width: 1em;
+    border-radius: 50%;
+    padding: .15em;
+}
+
+.right {
+    background-color: lawngreen;
+    border: 1px solid gray;
+    width: 1em;
+    border-radius: 50%;
+    padding: .15em;
+    /* background-image: linear-gradient(white,lawngreen); */
+}
+
+.wrong {
+    color: yellow;
+    background-color: indianred;
+    border: 1px solid gray;
+    width: 1em;
+    border-radius: 50%;
+    padding: .15em;
+    /* background-image: linear-gradient(orange,red); */
+}
+
+.replay {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.circle-container {
+    position: relative;
+}
+
+.circle-container div {
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 35%; left: 46%;
+}
+
+@media screen and (max-width: 900px) {
+    .intro {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .circle-container {
+        height: 250px;
+    }
+}
+
+.degA { transform: rotate(270deg) translate(5em) rotate(-270deg); }
+.degB { transform: rotate(283.333deg) translate(5em) rotate(-283.333deg); }
+.degC { transform: rotate(296.666deg) translate(5em) rotate(-296.666deg); }
+.degD { transform: rotate(310deg) translate(5em) rotate(-310deg); }
+.degE { transform: rotate(323.333deg) translate(5em) rotate(-323.333deg); }
+.degF { transform: rotate(336.666deg) translate(5em) rotate(-336.666deg); }
+.degG { transform: rotate(350deg) translate(5em) rotate(-350deg); }
+.degH { transform: rotate(3.333deg) translate(5em) rotate(-3.333deg); }
+.degI { transform: rotate(16.666deg) translate(5em) rotate(-16.666deg); }
+.degJ { transform: rotate(30deg) translate(5em) rotate(-30deg); }
+.degK { transform: rotate(43.333deg) translate(5em) rotate(-43.333deg); }
+.degL { transform: rotate(56.666deg) translate(5em) rotate(-56.666deg); }
+.degM { transform: rotate(70deg) translate(5em) rotate(-70deg); }
+.degN { transform: rotate(83.333deg) translate(5em) rotate(-83.333deg); }
+.degNY { transform: rotate(96.666deg) translate(5em) rotate(-96.666deg); }
+.degO { transform: rotate(110deg) translate(5em) rotate(-110deg); }
+.degP { transform: rotate(123.333deg) translate(5em) rotate(-123.333deg); }
+.degQ { transform: rotate(136.666deg) translate(5em) rotate(-136.666deg); }
+.degR { transform: rotate(150deg) translate(5em) rotate(-150deg); }
+.degS { transform: rotate(163.333deg) translate(5em) rotate(-163.333deg); }
+.degT { transform: rotate(176.666deg) translate(5em) rotate(-176.666deg); }
+.degU { transform: rotate(190deg) translate(5em) rotate(-190deg); }
+.degV { transform: rotate(203.333deg) translate(5em) rotate(-203.333deg); }
+.degW { transform: rotate(216.666deg) translate(5em) rotate(-216.666deg); }
+.degX { transform: rotate(230deg) translate(5em) rotate(-230deg); }
+.degY { transform: rotate(243.333deg) translate(5em) rotate(-243.333deg); }
+.degZ { transform: rotate(256.666deg) translate(5em) rotate(-256.666deg); }
+
+.core {
+    grid-template-columns: 70% 30%;
+    background-color: sandybrown;
+    margin-top: .5em;
+    border: 2px solid gray;
+    padding: 6% 2%;
+    position: relative;
+}
+
+.infoRequired {
+    width: 70%;
+    text-align: left;
+    height: 1.5em;
+    border: outset;
+    border-radius: 6px;
+}
+
+.userRequired {
+    width: 30%;
+    text-align: left;
+    height: 1.5em;
+    border: outset;
+    border-radius: 6px;
+}
+
+.message {
+    grid-column: 1/3;
+    text-align: center;
+    background-color: khaki;
+    padding: .5em;
+    margin-top: .5em;
+    border: 2px solid gray;
+}
+
+.profile {
+    font-family: cursive;
+    display: inline-block;
+    grid-row: 1;
+    text-align: center;
+    margin: 1.5em auto 0 auto;
+    font-size: 24px;
+    color: white;
+    border: inset;
+    border-radius: 6px;
+    height: 1.5rem;
+    background-color: indianred;
+    padding: 0 0.3rem 0.4rem 0.3rem;
+    overflow: hidden;
+}
+
+.author {
+    font-family: cursive;
+    display: inline-block;
+    position: relative;
+    grid-row: 3;
+    text-align: left;
+    padding-left: 1em;
+    font-size: 12px;
+    color: black;
+    border-radius: 6px;
+    bottom: 1.7em;
+}
+
+.introText {
+    grid-row: 1/3;
+    grid-column-start: 2;
+}
+
+.rankTable {
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 0.9em;
+    min-width: 300px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden; /*to remove default border-radius*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.rankTable thead tr {
+    background-color: indianred;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.rankTable th,
+.rankTable td {
+    padding: 8px 10px;
+}
+
+.rankTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.rankTable tbody tr:nth-of-type(2n) {
+    background-color: white;
+}
+
+.rankTable tbody tr:nth-of-type(2n+1) {
+    background-color: lightyellow;
+}
+
+.rankTable tbody tr:last-of-type {
+    border-bottom: 2px solid indianred;
+}
+
+.timeout {
+    display: flex;
+    align-items: center;
+}
+
+.clock {
+    font-family: serif;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: indianred;
+    color: ivory;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 12px;
+    margin-bottom: .3em;
+    margin-right: 1em;
+    padding: .2em;
+}
+
+button {
+    /*efecte 3d*/
+    border: outset;
+    border-radius: 12px;
+}
+
+button:focus {
+    outline: 0;
+    border: none;
+}
+
+.userButton {
+    height: 1.5em;
+    width: 5em;
+    margin-top: 1em;
+    border: outset;
+    border-radius: 12px;
+}
+
+.userButton:focus {
+    outline: 0;
+    border: none;
+}
+
+.answerButton {
+    height: 1.5em;
+    width: 5em;
+    margin-top: 1em;
+    border: outset;
+    border-radius: 12px;
+}
+
+.answerButton:focus {
+    outline: 0;
+    border: none;
+}
+
+.replayButton {
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 30px;
+    z-index: 1; 
+}
+
+.replayButton:hover {
+ animation: animate 8s linear infinite;
+}
+
+@keyframes animate {
+ 0% {
+  background-position: 0%;
+ }
+ 100% {
+  background-position: 400%;
+ }
+}
+
+.replayButton::before {
+ content: '';
+ position: absolute;
+ top: -5px;
+ bottom: -5px;
+ right: -5px;
+ left: -5px;
+ z-index: -1;
+ background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+ background-size: 400%;
+ border-radius: 40px;
+ filter: blur(20px);
+ opacity: 0;
+ transition: 0.5s;
+}
+
+.replayButton:hover::before {
+ filter: blur(20px);
+ opacity: 1;
+ animation: animate 8s infinite;
+}
+
+@keyframes move1 {
+  0% {transform: translatex(0vw);}
+  35% {transform: translatex(93vw);}
+  40% {transform: translatex(93vw) rotate(90deg);}
+  45% {transform: translatex(93vw) translatey(13vw) rotate(90deg);}
+  60% {transform: translatex(93vw) translatey(13vw);}
+  70% {transform: translatex(0vw) translatey(13vw);}
+  80% {transform: translatex(0vw) translatey(13vw) rotate(-90deg);}
+  85% {transform: translatex(0vw) rotate(-90deg);}
+  100% {transform: translatex(0vw) translatey(0vw);}
+}
+
+.animation1 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-timing-function: cubic-bezier(0, 0, 0.88, 0.1);
+}
+
+.animation2 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: .2s;
+}
+
+.animation3 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: .4s;
+}
+
+.animation4 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: .6s;
+}
+
+.animation5 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: .8s;
+}
+
+.animation6 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: 1s;
+}
+
+.animation7 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: 1.2s;
+}
+
+.animation8 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: 1.4s;
+}
+
+.animation9 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: 1.6s;
+}
+
+.animation10 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: 1.8s;
+}
+
+.animation11 {
+  position: absolute;
+  top: 1vw;
+  grid-column: 1/5;
+  color: yellow;
+  font-size: 2vw;
+  animation: move1 30s linear infinite;
+  animation-delay: 2s;
+}

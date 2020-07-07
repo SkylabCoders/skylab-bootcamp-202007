@@ -1,0 +1,288 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(19, 175, 226);
+}
+
+h1 {
+    text-align: center;
+}
+
+.allletters {
+    top: 10%;
+    left: 31%;
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.letter {
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    border: rgb(228, 152, 40) 2px solid;
+    border-radius: 100%;
+    padding: 15px;
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(5, 70, 92);
+    color: rgb(228, 152, 40);
+}
+
+#a {
+    transform: rotate(270deg) translate(270px) rotate(90deg);
+}
+
+
+#b {
+    transform: rotate(283deg) translate(272px) rotate(78deg);
+}
+
+
+#c {
+    transform: rotate(296deg) translate(273px) rotate(65deg);
+}
+
+
+#d {
+    transform: rotate(309deg) translate(274px) rotate(51deg);
+}
+
+
+#e {
+    transform: rotate(322deg) translate(276px) rotate(38deg);
+}
+
+
+#f {
+    transform: rotate(335deg) translate(277px) rotate(25deg);
+}
+
+
+#g {
+    transform: rotate(348deg) translate(279px) rotate(15deg);
+}
+
+
+#h {
+    transform: rotate(1deg) translate(280px) rotate(359deg);
+}
+
+
+#i {
+    transform: rotate(14deg) translate(282px) rotate(346deg);
+}
+
+#j {
+    transform: rotate(27deg) translate(283px) rotate(333deg);
+}
+
+
+#k {
+    transform: rotate(40deg) translate(284px) rotate(320deg);
+}
+
+
+#l {
+    transform: rotate(53deg) translate(284px) rotate(307deg);
+}
+
+
+#m {
+    transform: rotate(66deg) translate(283px) rotate(294deg);
+}
+
+
+#n {
+    transform: rotate(79deg) translate(282px) rotate(281deg);
+}
+
+
+#ñ {
+    transform: rotate(92deg) translate(281px) rotate(268deg);
+}
+
+
+#o {
+    transform: rotate(105deg) translate(280px) rotate(255deg);
+}
+
+
+#p {
+    transform: rotate(118deg) translate(278px) rotate(242deg);
+}
+
+
+#q {
+    transform: rotate(133deg) translate(277px) rotate(229deg);
+}
+
+
+#r {
+    transform: rotate(148deg) translate(275px) rotate(216deg);
+}
+
+
+#s {
+    transform: rotate(163deg) translate(273px) rotate(203deg);
+}
+
+
+#t {
+    transform: rotate(177deg) translate(272px) rotate(184deg);
+}
+
+
+#u {
+    transform: rotate(191deg) translate(270px) rotate(172deg);
+}
+
+
+#v {
+    transform: rotate(204deg) translate(270px) rotate(156deg);
+}
+
+
+#w {
+    transform: rotate(217deg) translate(270px) rotate(144deg);
+}
+
+
+#x {
+    transform: rotate(230deg) translate(270px) rotate(132deg);
+}
+
+
+#y {
+    transform: rotate(243deg) translate(270px) rotate(114deg);
+}
+
+
+#z {
+    transform: rotate(257deg) translate(270px) rotate(103deg);
+}
+
+.screen p{
+    font-size: 20px;
+    color: rgb(224, 215, 215);
+    display: inline-block;
+    position: absolute;
+    top: 22%;
+    left: 2%;
+    height: 270px;
+    width: 350px;
+    background-color: rgb(10, 105, 136);
+    box-sizing: content-box;
+    text-align: center;
+    padding: 30px 15px;
+
+}
+
+.answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 39.5%;
+    top: 24%;
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    margin: 5px auto;
+    border-radius: 100%;
+    background-color: rgb(19, 175, 226);
+    z-index: 5;
+
+}
+
+.tempo {
+    font-size: 30px;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: 75%;
+    color: rgb(224, 215, 215);
+    background-color: rgb(10, 105, 136);
+    width: 250px;
+    height: 100px;
+    line-height: 5px;
+}
+
+.ranking {
+    display: inline-block;
+    position: absolute;
+    top: 42%;
+    left: 75%;
+    width: 250px;
+    height: 200px;
+    color: rgb(224, 215, 215);
+    background-color: rgb(10, 105, 136);
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+table{
+    width: 100%;
+}
+
+.start {
+    display: inline-block;
+    position: absolute;
+    top: 15%;
+    left: 11%;
+}
+
+#start {
+    
+    text-transform: uppercase;
+    font-size: 30px;
+    border-radius: 5px;    
+    color: rgb(228, 152, 40);
+    background-color: rgb(0, 79, 105);
+    border: rgb(228, 152, 40) 2px solid;
+}
+
+#start:hover{
+    color: whitesmoke;
+    border: rgb(228, 152, 40) 2px inset;
+    background-color: rgb(0, 139, 185);
+}
+
+label{
+    font-size: 22px;
+    color: rgb(143, 96, 25);
+}
+
+#word{
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 25px;
+}
+
+.playerbutton{
+    
+    color: rgb(228, 152, 40);
+    background-color: rgb(0, 79, 105);
+    border: rgb(228, 152, 40) 2px solid;
+    text-transform: uppercase;
+    font-size: 30px;
+    border-radius: 5px;
+    margin: 20px auto;
+
+}
+
+.playerbutton:hover{    
+    color: whitesmoke;
+    border: rgb(228, 152, 40) 2px inset;
+    background-color: rgb(0, 139, 185);
+}

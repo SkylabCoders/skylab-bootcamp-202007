@@ -1,0 +1,71 @@
+* {
+    font-family: monospace;
+    font-size: 35px;
+}
+#output {
+    background-color: rgb(56, 43, 43);
+    color: white;
+    font-size: 40px;
+    width: 550px;
+    height: 1.2cm;
+}
+.number {
+    background-color: azure;
+    color: black;
+    width: 100%;
+}
+.number:hover {
+    background-color: lightblue;
+}
+.number:focus {
+    background-color: lightblue;
+}
+.operator {
+    background-color: coral;
+    color: rgb(255, 255, 255);
+    width: 3.5cm;
+    width: 100%;
+}
+.operator:hover {
+    background-color: orangered;
+}
+.operator:focus {
+    background-color: orangered;
+}
+td {
+    border: 5px solid rgb(190, 207, 211);
+}
+table {
+    border: 3px solid gray;
+    /*trec l'ample q té per defecte el table*/
+    table-layout: fixed;
+    width: 600px;
+    /* si volguès treure les linies blanques entre cel·les:
+    border-spacing: 0px;*/
+}
+th {
+    text-align: right;
+    padding: 20px;
+    padding-right: 14px;
+    background-color: black;
+    height: 1.6cm;
+}
+button {
+    height: 2cm;
+    /*efecte 3d*/
+    border: outset;
+}
+button:focus {
+    outline: 0;
+    border: none;
+}
+#ac {
+    width: 100%;
+}
+#zero {
+    width: 100%;
+}
+div {
+    /*amaga el text que excedeix l'amplada del div*/
+    overflow: hidden;
+}
