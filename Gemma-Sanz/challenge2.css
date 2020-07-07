@@ -1,10 +1,14 @@
-h1{
+h2{
     text-align: left;
     font-size: 10px;
 }
 
 .b1{
     text-align: right;
+}
+
+.button1{
+    font-size: 15px;
 }
 
 .nav_menu{
@@ -62,7 +66,7 @@ font-style: italic;
 }
 
 @media (min-width: 400px) {
-    .facet_sidebar {
-      display: none;
+    body{
+        background-color: red;
     }
   }
