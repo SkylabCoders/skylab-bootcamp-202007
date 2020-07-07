@@ -1,0 +1,10 @@
+.para{
+    background: gray;
+    color: white;
+    border: 0px !important;
+}
+
+#diff{
+    background: red;
+    border: 2px solid black ;
+}
