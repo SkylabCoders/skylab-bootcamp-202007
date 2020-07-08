@@ -71,6 +71,8 @@ nav>ul>li a {
     margin-right: auto;
     display: flex;
     flex-direction: row;
+    flex: 100%;
+    width: 100%;
 }
 
 .leftmenu {
@@ -98,15 +100,14 @@ nav>ul>li a {
 /*Footer*/
 footer {
     clear: both;
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    bottom: 0%;
 }
 .rowFlex{
     display: flex;
     flex-direction: row;
-/*    align-items: center;*/
 }
 
 .flex-row{
