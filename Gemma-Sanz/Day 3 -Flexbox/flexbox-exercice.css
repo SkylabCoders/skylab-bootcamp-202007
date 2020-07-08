@@ -1,0 +1,58 @@
+.flexbox-container{
+    display: flex;
+    flex-direction: column;
+}
+    .flex-box1{
+        display: flex;
+        flex-direction: row;
+    }
+        .cuadrado{
+            border: none;
+            width: 10rem;
+            height: 10rem;
+            border: 1px solid black;
+            background-color: gray;
+            margin: 15px;
+        }
+        .flex-box1-item2{
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+        }
+        .container-mini{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .redonda{
+            border: none;
+            width: 5rem;
+            height: 5rem;
+            background-color: gray;
+            border-radius: 50%;
+        }
+.flex-box3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+    .container-trig1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        .triangulo1{
+            height: 3rem;
+            width: 3rem;
+            background-color: gray;
+        }
+        .triangulo2{
+            height: 3rem;
+            width: 3rem;
+            background-color: gray;
+        }
+        .triangulo3{
+            height: 3rem;
+            width: 3rem;
+            background-color: gray;
+        }
