@@ -8,7 +8,6 @@
     .bg-gradient-blue {
       background: blue;
     }
-<<<<<<< HEAD
     .col {
         display: block;
     }
@@ -16,11 +15,6 @@
   }
 
   .btn-circle .btn-xl {
-=======
-  }
-
-  .btn-circle.btn-xl {
->>>>>>> origin
     width: 70px;
     height: 70px;
     padding: 10px 16px;
