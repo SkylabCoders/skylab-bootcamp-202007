@@ -4,6 +4,7 @@
 let bname = document.querySelector('#button_name');
 let bpname = document.querySelector('#button_pname');
 let bdate = document.querySelector('#button_date');
+let bajax = document.querySelector('#button_ajax');
 let adate = document.querySelector('#date_area');
 let btitle = document.querySelector('#button_title');
 let listItems = document.querySelector('#dynamic_list');
@@ -46,3 +47,17 @@ btitle.addEventListener('click', () => {
     }
 })
 
+bajax.addEventListener('click', fetchData());
+
+async function fetchData (){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState = 4 && this.status === 200){
+            document.querySelector('#async_area').innerHTML = this.responseText;
+        }
+    };
+    xhttp.open('GET', 'ajax_info.txt', true);
+    let data = await xhttp.send();
+    console.log(data);
+    return data;
+}
