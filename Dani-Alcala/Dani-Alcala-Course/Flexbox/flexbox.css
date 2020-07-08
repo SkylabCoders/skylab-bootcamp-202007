@@ -1,0 +1,39 @@
+.flexbox-container {
+    background-color: gray;
+    border: 1px dashed;
+    padding: 12px;
+    display: flex;
+}
+
+.flexbox-items {
+    display: flex;
+    background-color: lime;
+    min-height: 300px;
+    flex-direction: row;
+}
+
+.flex-item {
+    border: 1px solid;
+    background-color: red;
+    margin: 12px;
+    min-width: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-ball {
+    background-color: mediumaquamarine;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-item-item {
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+}
+
+.hard {
+    display: flex;
+    flex-direction: column;
+}
