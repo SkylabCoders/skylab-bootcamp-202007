@@ -31,6 +31,16 @@
     align-items: center;
 }
 
+.main__img__description {
+    border: 1px solid;;
+}
+
+.main__img__description__button {
+    background-color: red;
+    
+
+}
+
 .text {
     padding:20px;
     background-color:rgb(196, 196, 196)
