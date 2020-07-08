@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function getDate() {
+            document.getElementById("demo").innerHTML=Date();
+        }
+    </script>
+</head>
+<body>
+    <nav>
+ <button id="demo" onclick="getDate()">Click to get Date</button>
+ <button onclick="sayHi()">Hello!</button>
+ <p id="Hi"></p>
+    </nav>
+
+    <aside>
+        <ul>
+            <li>this</li>
+            <li>is an</li>
+            <li class="">unordered list</li>
+        </ul>
+    </aside>
+    <div>
+    <p class="specific">paragraph</p>
+    <p class="specific" id="morespecific">paragraph more specific</p>
+    </div>
+    <footer>
+        <p>Skylab Coders Academy</p>
+    </footer>
+    <script src="sayHi.js"></script>
+</body>
+
+</html>
