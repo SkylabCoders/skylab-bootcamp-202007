@@ -1,7 +1,6 @@
 .top {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: center;
 }
 
@@ -9,14 +8,14 @@
     flex-direction: row;
 }
 
-.top {
+.description__top {
     display: flex;
     flex-direction: row;
     height: 100%;
     width: 100%;
 }
 
-.top__top {
+.description__top__heading {
     margin: 20px;
     display: flex;
     flex-direction: row;
@@ -24,7 +23,7 @@
     width: 50%;
     
 }
-.top__top__circle {
+.description__top__heading__circle {
     border: 1px solid black;
     padding: 10px;
     border-radius: 50%;
@@ -33,12 +32,12 @@
     color: white;
 }
 
-.top__top__title {
+.description__top__heading__title {
     padding: 20px;
 }
 
 
-.date {
+.description__top__date {
     display: flex;
     justify-content: flex-end;
     width: 50%;
