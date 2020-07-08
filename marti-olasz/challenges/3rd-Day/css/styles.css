@@ -1,0 +1,107 @@
+.mainContent{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent-top{
+    display: flex;
+    flex-direction: row;
+}
+
+.leftmenu{
+    display: flex;
+    flex-direction: column;
+}
+
+.leftmenu-item{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*Main Area*/
+body {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6e4d9;
+    background-image: url('../images/pattern.png');
+}
+
+.mainheader {
+    background-color: #a593c2;
+}
+
+/*Top Menu*/
+
+nav {
+    height: 60px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: start;
+}
+
+
+.nav > a{
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+/*Side Menu*/
+
+.mainContent div{ /**/
+    padding-inline-start: 2px;
+    margin-right: 1.5rem;
+}
+
+.mainContent ul>a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.leftmenu-item > a{
+    background-color: #B43110;
+    border: 3px solid white;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+/*Main Content*/
+
+
+.pageTitle{
+    font-size:35px;
+    color:#a593c2;
+}
+
+/*Footer*/
+footer {
+    clear: both;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 599px){
+    
+}
+
+
+@media screen and (min-width: 600px){
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+}
