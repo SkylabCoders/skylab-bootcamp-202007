@@ -4,6 +4,32 @@
     /* justify-content: space-between; */
     align-items: center;
 }
+
+.top__top {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.top__circle {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 50%;
+    display: inline;
+    font-size: 50px;
+    color: white;
+}
+
+.top__top__title {
+    float: right;
+    padding: 20px;
+}
+
+p {
+    margin: 20px;
+}
+
 .flexbox-container {
     background-color: gray;
     border: 1px solid;
