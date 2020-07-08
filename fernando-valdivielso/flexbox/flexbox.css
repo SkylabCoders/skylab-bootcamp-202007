@@ -1,9 +1,16 @@
+.top {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+}
 .flexbox-container {
     background-color: gray;
     border: 1px solid;
     padding: 12px;
     display: flex;
     flex-direction: column;
+    /* justify-content: start; */
 
 }
 
@@ -18,5 +25,7 @@
 
 .flexbox-items {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 300px;
 }
