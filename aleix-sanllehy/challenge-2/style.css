@@ -15,7 +15,7 @@ ul {
     background-color: #333333;
 }
 
-li.menu {
+.h-menu {
     display: inline;
 }
 
@@ -29,6 +29,7 @@ li.menu a {
     }
 
 .sidebar {
+    background-color:lime;
     display: none;
 }
 
@@ -49,7 +50,7 @@ li.menu a {
     align-items: center;
 }
 
-.column {
+.row-column {
     text-align: center;
     width: 100%;
 }
@@ -86,7 +87,6 @@ article {
 }
 
 .main {
-    background: linear-gradient(rgba(103, 103, 103, 0.47), rgba(55, 55, 55));
     padding-bottom: 13vw;
     text-align: center;
     width: 90%;
@@ -96,9 +96,11 @@ article {
     background-color: red;
 }
 
-ul.column-list {
-    background-color: plum;
+.column-list {
+    background: linear-gradient(343deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
+
+
 
 #login {
     float: right;
@@ -119,8 +121,6 @@ footer {
 
 @media only screen and (max-width: 480px) {
     body {
-        background: rgb(34,193,195);
-        background: linear-gradient(343deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
         background-attachment: fixed;
         height: 100%;    
     }
@@ -133,7 +133,7 @@ footer {
         display: inline;
     }
 
-    li.menu a {
+    .h-menu {
         display: none;
     }
 
@@ -141,7 +141,16 @@ footer {
         flex-direction: column-reverse;
     }
 
+    .left-column {
+        display: none;
+    }
+    
     .column {
         width: 100%;
     }
+
+    .column-list {
+        background: yellow;
+    }
+
 }
