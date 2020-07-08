@@ -1,2 +1,0 @@
-# skylab_recurs
-skylab

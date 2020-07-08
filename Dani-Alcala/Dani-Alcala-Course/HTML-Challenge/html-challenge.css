@@ -1,0 +1,36 @@
+.top {
+    display: flex;
+    background-color: lightgrey;
+    color: black;    
+}
+
+nav {
+    width: 95%;
+}
+
+.text, footer {
+    background-color: lightgrey;
+}
+
+footer {
+    text-align: center;
+}
+
+.hello {
+    background-color: red;
+}
+
+.col-md-2 {
+    background: rgb(34,193,195);
+    background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  }
+
+@media only screen and (max-width: 600px) {
+    .col-md-2 {
+      background: lightyellow;
+    }
+    img, h1, h3, .hello, .text {
+        display: none;
+    }
+
+  }

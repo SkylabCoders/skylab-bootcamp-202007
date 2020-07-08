@@ -1,0 +1,22 @@
+body{
+    margin: 10px;
+}
+aside{
+    color: blue;
+}
+aside .list-style{
+    font-style: italic;
+}
+p{
+    color: white;
+    background-color: blue;
+    padding: 5px;
+}
+.specific{
+    background-color: gray;
+    border: none !important;
+}
+#morespecific{
+    background-color: red;
+    border: 1px solid black
+}
