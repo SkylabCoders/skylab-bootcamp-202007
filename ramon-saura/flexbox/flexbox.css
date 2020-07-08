@@ -11,8 +11,10 @@
 }
 .container1-square{
     border: 1px solid;
-    width: 20rem;
-    height: 20rem;
+    max-width: 10rem;
+    min-width: 10rem;
+    max-height: 10rem;
+    min-height: 10rem;
 }
 .container1-column{
     margin: 10px;
@@ -45,4 +47,7 @@
         border-left: 25px solid transparent;
         border-right: 25px solid transparent;
         border-bottom: 50px solid #555;
+}
+.element-title{
+    text-align: center;
 }
