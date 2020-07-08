@@ -52,10 +52,6 @@ nav>ul>li a {
 
 /*Side Menu*/
 
-.leftmenu img {
-    width: 100%;
-}
-
 .mainContent ul {
     padding-inline-start: 2px;
     margin-right: 1.5rem;
@@ -91,6 +87,10 @@ nav>ul>li a {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.leftmenu img {
+    width: 100%;
 }
 
 
@@ -130,5 +130,12 @@ footer {
     }
     .mainContent ul {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 160px) {
+    nav>ul {
+        display: flex;
+        flex-direction: column;
     }
 }
