@@ -1,0 +1,19 @@
+.flexbox-container{
+    background-color: orange;
+    border: 3px solid black;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.flexbox-item{
+    background-color: red;
+    border: 1px dashed black;
+    margin-top: 15px;
+
+    text-align: center;
+
+    min-width: 50px;
+    min-height: 50px;
+}
