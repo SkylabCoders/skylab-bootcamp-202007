@@ -1,0 +1,159 @@
+html, body {
+    margin: 0 auto;
+    width: 100vw;
+    height: 550px;
+}
+
+header{
+    width: 100%;
+    height: 10%; 
+    background-color: lightgrey;
+    display: flex !important;
+    justify-content: space-between;
+    padding-right: 50px;
+    align-items: center;
+}
+
+.hide-div {
+    display: none;
+}
+
+.toggle-div {
+    display: block;
+    color: green;
+}
+
+#header-p {
+    margin: 0 auto;
+}
+
+nav {
+    margin-left: 0;
+}
+
+#navigation-bar ul{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+#navigation-bar ul li{
+    padding-left: 30px;
+    list-style: none;
+}
+
+#list-button {
+    display: none;
+}
+
+#header-button{
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+
+}
+
+
+#main-container{
+    padding-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    
+}
+
+#image-container {
+    width: 33%;
+    height: 407px;
+}
+
+#image-container img{
+    width: 100%;
+}
+
+#image-description {
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-top: 10px;
+}
+
+
+#list-container{
+    height: 407px;
+    background: rgb(250,0,0);
+    background: linear-gradient(87deg, rgba(250,0,0,0) 0%, rgba(87,3,3,1) 61%, rgba(255,0,0,0.2976540958180147) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#list-container li {
+    padding-top: 30px;
+}
+
+#last-text-container {
+    height: 18%;
+    padding-top: 60px;
+}
+
+#last-text {
+    background-color: lightgrey;
+    width: 90vw;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    width: 100vw;
+    height: 10%;
+    background-color: lightgrey;
+    margin-top: 100px; 
+}
+
+@media only screen and (max-width: 480px)  {
+
+    #header{
+        padding: 0 !important;
+    }
+
+    .list-hide {
+        display: none;
+    }
+
+    #list-button {
+        display: block;
+    }
+
+    #image-container, #last-text-container{
+        display: none;
+    }
+    #main-container {
+        padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+        padding-right: 30px;
+    }
+
+    #video-container, #list-container, header, #change-iframe{
+        width: 95vw !important;
+        padding: 0;
+    }
+
+    #main-container aside {
+        padding-top: 30px;
+    }
+
+    #list-container{
+        width: 100%;
+    }
+}
