@@ -1,4 +1,5 @@
 /*Main Area*/
+
 body {
     margin-top: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,11 +13,14 @@ body {
     background-color: #a593c2;
 }
 
+
 /*Top Menu*/
 
 nav {
-    height: 60px;
-    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin: 0 auto 20px;
 }
 
@@ -40,14 +44,25 @@ nav>ul>li a {
     font-weight: bold;
 }
 
-/*Side Menu*/
-
-.mainContent ul{
-    padding-inline-start: 2px;
-    margin-right: 1.5rem;
+.main-top-content {
+    display: flex;
+    flex-direction: row;
 }
 
-.mainContent ul>a>li{
+
+/*Side Menu*/
+
+.leftmenu img {
+    width: 100%;
+}
+
+.mainContent ul {
+    padding-inline-start: 2px;
+    margin-right: 1.5rem;
+    width: 25vw;
+}
+
+.mainContent ul>a>li {
     background-color: #cf4522;
     color: #fff;
     list-style: none;
@@ -57,42 +72,48 @@ nav>ul>li a {
     margin-bottom: 2px;
 }
 
-.mainContent ul>a>li:hover{
+.mainContent ul>a>li:hover {
     background-color: #B43110;
 }
 
-.mainContent ul>a{
+.mainContent ul>a {
     text-decoration: none;
     color: #fff;
 }
 
-.mainContent{
-    width:1000px;
-    margin-left: auto;
-    margin-right: auto;
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
 }
 
 .leftmenu {
-    float: left;
-    width: 30%;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 
 /*Main Content*/
 
 .main {
-    float: right;
-    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin-bottom: 20px;
+    padding: 24px;
 }
 
-.pageTitle{
-    font-size:35px;
-    color:#a593c2;
+.pageTitle {
+    font-size: 35px;
+    color: #a593c2;
 }
+
 
 /*Footer*/
+
 footer {
-    clear: both;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
