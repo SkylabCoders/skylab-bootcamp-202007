@@ -81,6 +81,7 @@ nav>ul>li a {
 .firstcontent{
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
 }
 
 .leftmenu {
