@@ -1,0 +1,63 @@
+.flexbox-container {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    margin: 10px;
+    border: 1px solid;
+    padding: 12px;
+}
+
+
+.flexbox-item{
+    margin: 10px;
+    padding: 10px;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#circle{
+
+    margin: 0px;
+    margin-top: 35px;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: lightgreen;
+}
+#square{
+    width: 500px; 
+    height: 50px; 
+    background: #428bca;
+    margin: 20px;
+    
+}
+
+.flex-justify-between{
+    justify-content: space-between;
+}
+.display_block{
+    display: block;
+    margin: 20px;
+}
+
+#circle_large{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: lightgreen;
+}
+
+h3{
+    color: grey;
+}
+h3 , h2{
+    text-align: center;
+}
