@@ -23,15 +23,14 @@ nav{
   nav{
     flex-direction: column-reverse;
   }
-  nav > ul > li {
-    display: block;
-  }
+
 }
 nav > ul > li {
   display: inline;
   text-align: center;
   background-color: #2a2a2a;
   padding: 0.5rem 1rem;
+  margin: 1rem 0;
 }
 nav > ul > li:hover {
   background-color: #5d0000;
@@ -59,7 +58,7 @@ body{
   #main_container_grid{
     display: grid;
     position: relative;
-    width: 95wh;
+    width: 95vw;
     margin: auto;
     grid-template-columns: repeat(3, 33.33%);
     justify-items: stretch;
@@ -71,6 +70,9 @@ body{
     visibility: hidden;
   }
   #main_nav_horizontal{
+    visibility: visible;
+  }
+  .main_nav_hamburguer_items{
     visibility: visible;
   }
 }
@@ -153,4 +155,7 @@ blockquote{
   text-align: center;
   color: #eeeeee;
   text-decoration: dotted;
+}
+#main_container{
+  margin: 0 2rem;
 }

@@ -34,7 +34,13 @@ buttonGoFarther.addEventListener('click', ()=> {
 let headerBoard = document.querySelector('#header_messages');
 
 let hamburguerMenu = document.querySelector('#main_nav_hamburguer');
+let menuItems = document.querySelector('#main_nav_horizontal');
+let menuItemsSingle = document.querySelector('.main_nav_hamburguer_items');
+
 hamburguerMenu.addEventListener('click', () => {
-    let menuItems = document.querySelector('#main_nav_horizontal');
-    menuItems.
+    if (menuItems.style.visibility === 'visible'){
+        menuItems.style.visibility = 'hidden';
+    } else {
+        menuItems.style.visibility = 'visible';
+    }
 });
