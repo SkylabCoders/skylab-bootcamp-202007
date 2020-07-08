@@ -5,14 +5,26 @@
     align-items: center;
 }
 
+.description {
+    flex-direction: row;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
 .top__top {
     margin: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 50%;
     
 }
-.top__circle {
+.top__top__circle {
     border: 1px solid black;
     padding: 10px;
     border-radius: 50%;
@@ -22,8 +34,16 @@
 }
 
 .top__top__title {
-    float: right;
     padding: 20px;
+}
+
+
+.date {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+
+    
 }
 
 p {
@@ -53,5 +73,4 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    min-height: 300px;
 }
