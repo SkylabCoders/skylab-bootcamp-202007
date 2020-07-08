@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css">
-    
+
 </head>
 
 <body>
-   <header class="top-header">
+    <header class="top-header">
         <nav class="header">
             <div class="link-class">
                 <a href="http://www.google.es">Google</a>
@@ -30,35 +30,48 @@
         </nav>
         <button type="button" id="login-button" onclick="changeButton()">Login</button>
     </header>
-    <main>
-        <div class="video-class">
-            <iframe width="420" height="315" src="https://www.youtube.com/embed/K8ZW0dfsGWc">
-            </iframe>
-        </div>
+    <div class="wrapper">
+        <div class="row">
+            <main>
 
-        <div class="image-class">
-            <image width="420" height="315"
-                src="https://static1.abc.es/media/deportes/2019/04/24/SaenchaiSorKingstar-kAaH--620x349@abc.jpg">
-            </image>
-            <h1><strong>G.O.A.T</strong></h1>
-            <p>This is Saenchai, the Greatest Of All Time when it comes to muay thai</p>
-        </div>
-    </main>
-    <aside>
-        <div class="list-class">
-            <h1>Most valuable strikes</h1>
-            <ol>
-                <li>Spinning Elbows</li>
-                <li>FLying Knees</li>
-                <li>High Kicks</li>
-                <li>Sweeps</li>
-            </ol>
-        </div>
-    </aside>
-    <p class="last-p">Last Paragrap</p>
-    <footer>
+                <div class="column">
+                    <div class="video-class">
+                        <iframe width="420" height="315" src="https://www.youtube.com/embed/K8ZW0dfsGWc">
+                        </iframe>
+                    </div>
+                </div>
+                <div class=column>
+                    <div class="image-class">
+                        <image width="420" height="315"
+                            src="https://static1.abc.es/media/deportes/2019/04/24/SaenchaiSorKingstar-kAaH--620x349@abc.jpg">
+                        </image>
+                        <h1><strong>G.O.A.T</strong></h1>
+                        <p>This is Saenchai, the Greatest Of All Times when it comes to muay thai</p>
+                    </div>
+                </div>
 
-    </footer>
-    <script src="main.js"></script>
+
+            </main>
+            <aside>
+                <div class="column">
+                    <div class="list-class">
+                        <h1>Most valuable strikes</h1>
+                        <ol>
+                            <li>Spinning Elbows</li>
+                            <li>FLying Knees</li>
+                            <li>High Kicks</li>
+                            <li>Sweeps</li>
+                        </ol>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <p class="last-p">Last Paragrap</p>
+        <footer>
+
+        </footer>
+
 </body>
+<script src="main.js"></script>
+
 </html>
