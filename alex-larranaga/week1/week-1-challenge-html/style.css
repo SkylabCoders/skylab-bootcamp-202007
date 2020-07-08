@@ -18,6 +18,7 @@
       border-radius: 100%;
       padding-left: 0%;
   }
+  
   /*
   .video-class{
       display: flex;
@@ -41,6 +42,7 @@
       float: right;
   }
   */
+  
   some-page-wrapper {
     display: flex;
     margin: 15px;
