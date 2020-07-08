@@ -42,7 +42,7 @@ body {
     width: 100%;
 }
 .list {
-    background-image: linear-gradient(to bottom right, white, #3bb884);
+    background-image: linear-gradient(to bottom right, white, rgb(171, 179, 169));
     height: 319px;
     width: 158px;
     padding-top: 20px;
