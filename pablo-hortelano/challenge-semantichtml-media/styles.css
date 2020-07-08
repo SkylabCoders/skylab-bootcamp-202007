@@ -2,7 +2,6 @@ html, body {
     margin: 0 auto;
     width: 100vw;
     height: 550px;
-  
 }
 
 header{
@@ -43,6 +42,10 @@ nav {
 #navigation-bar ul li{
     padding-left: 30px;
     list-style: none;
+}
+
+#list-button {
+    display: none;
 }
 
 #header-button{
@@ -117,11 +120,16 @@ footer{
 
 @media only screen and (max-width: 480px)  {
 
-    #navigation-bar {
-        display: none;
-    }
     #header{
         padding: 0 !important;
+    }
+
+    .list-hide {
+        display: none;
+    }
+
+    #list-button {
+        display: block;
     }
 
     #image-container, #last-text-container{
