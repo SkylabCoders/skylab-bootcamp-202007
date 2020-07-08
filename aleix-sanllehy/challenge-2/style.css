@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+    background-color: lightblue;
+    display: block;
+}
+
+ul {
+    padding: 20px;
+    list-style-type: none;
+    background-color: #333333;
+}
+
+li.menu {
+    display: inline;
+}
+
+li.menu a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+    li a:hover {
+        background-color: #111111;
+    }
+
+.sidebar {
+    display: none;
+}
+
+#sidebar-open {
+    display: none;
+}
+
+#sidebar-close {
+    display: none;
+}
+
+.icon {
+    width: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.column {
+    text-align: center;
+    width: 100%;
+}
+
+.column:nth-child(2n-1) {
+    background-color: teal;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.stock-img1 {
+    width: 100%;
+}
+
+.stock-img2 {
+    width: 66.66%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-left: 90%
+
+}
+
+article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    background: linear-gradient(rgba(103, 103, 103, 0.47), rgba(55, 55, 55));
+    padding-bottom: 13vw;
+    text-align: center;
+    width: 90%;
+}
+
+.navbar-nav {
+    background-color: red;
+}
+
+ul.column-list {
+    background-color: plum;
+}
+
+#login {
+    float: right;
+}
+
+.audio {
+    width: 100%;
+}
+
+footer {
+    background-color: #aaa;
+    bottom: 0;
+    padding: 1em;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        background: rgb(34,193,195);
+        background: linear-gradient(343deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        background-attachment: fixed;
+        height: 100%;    
+    }
+
+    #sidebar-open {
+        display: inline;
+    }
+    
+    #sidebar-open {
+        display: inline;
+    }
+
+    li.menu a {
+        display: none;
+    }
+
+    .row  {
+        flex-direction: column-reverse;
+    }
+
+    .column {
+        width: 100%;
+    }
+}
