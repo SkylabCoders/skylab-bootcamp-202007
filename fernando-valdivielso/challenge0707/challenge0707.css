@@ -32,13 +32,19 @@
 }
 
 .main__img__description {
-    border: 1px solid;;
+    border: 1px solid;
+    width: 200px;
+    padding: 10px;
 }
 
 .main__img__description__button {
     background-color: red;
     
 
+}
+
+.main.list {
+    border: 1px solid;
 }
 
 .text {
