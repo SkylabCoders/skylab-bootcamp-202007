@@ -65,3 +65,11 @@ section {
     border-right: 25px solid transparent;
     border-bottom: 50px solid #555;
 }
+
+@media screen and (max-width: 600px) {
+    .top__article {
+        flex-direction: column;
+    }
+
+  
+}
