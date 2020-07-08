@@ -1,0 +1,64 @@
+header{
+    background-color: grey;
+    width: 100%;
+    padding: 1rem;
+}
+.menu__link{
+    color: honeydew;
+    margin: 10px;
+    line-height: 4rem;
+}
+.menu__button{
+    border: none;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+}
+.main{
+    text-align: center;
+    margin: 3rem;
+    padding: 1rem;
+}
+img{
+    width: 100%;
+}
+video{
+    width: 100%;
+}
+.main__list{
+    background: linear-gradient(0deg, red 0%, orange 100%);
+    text-align: center;
+}
+.main__button{
+    background-color: red;
+    color: honeydew;
+    text-size-adjust: auto;
+}
+footer{
+    background-color: gray;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    color: honeydew;
+}
+.text{
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+.button__hidden{
+    margin-left: 5%;
+    height: 7vh;
+    width: 7vh;
+    display: none;
+    color: red;
+    }
+}
+@media(min-width:680px){
+    .button__hidden{
+        display: grid;
+    }
+    .main{
+        flex-direction: column-reverse;
+    }
+}
