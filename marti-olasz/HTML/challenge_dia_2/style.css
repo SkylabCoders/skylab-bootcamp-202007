@@ -29,7 +29,8 @@ img, video{
     width: 100%;
 }
 
-.container{
+.container-fluid{
+    margin-top: 20px;
     padding: 10px;
     justify-content: center;
     align-items: center;
