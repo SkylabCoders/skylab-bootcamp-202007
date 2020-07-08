@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 header{
     background-color: grey;
     width: 100%;
@@ -53,12 +56,14 @@ footer{
     display: none;
     color: red;
     }
-}
-@media(min-width:680px){
+@media (max-width:680px){
     .button__hidden{
         display: grid;
     }
     .main{
         flex-direction: column-reverse;
+    }
+    .menu__links{
+        display: none;
     }
 }
