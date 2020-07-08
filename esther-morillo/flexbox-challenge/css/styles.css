@@ -12,6 +12,10 @@ body {
     background-color: #a593c2;
 }
 
+img {
+    width: 100%;
+}
+
 /*Top Menu*/
 
 nav {
@@ -41,6 +45,12 @@ nav>ul>li a {
 }
 
 /*Side Menu*/
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    min-width: 90%;
+}
 
 .mainContent ul{
     padding-inline-start: 2px;
@@ -73,7 +83,8 @@ nav>ul>li a {
 }
 
 .leftmenu {
-    float: left;
+    display: flex;
+    flex-direction: column;
     width: 30%;
     margin-bottom: 20px;
 }
@@ -81,7 +92,8 @@ nav>ul>li a {
 /*Main Content*/
 
 .main {
-    float: right;
+    display: flex;
+    flex-direction: column;
     width: 70%;
     margin-bottom: 20px;
 }
@@ -95,4 +107,17 @@ nav>ul>li a {
 footer {
     clear: both;
     width: 100%;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .main-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-logo {
+        display: none;
+    }
 }
