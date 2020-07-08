@@ -15,8 +15,7 @@ body {
 /*Top Menu*/
 
 nav {
-    height: 60px;
-    width: 1000px;
+ 
     margin: 0 auto 20px;
 }
 
@@ -67,22 +66,29 @@ nav>ul>li a {
 }
 
 .mainContent{
-    width:1000px;
+    display: flex;
+    flex-direction: column;
+    
     margin-left: auto;
     margin-right: auto;
 }
 
+.mainContent-flex{
+display: flex;
+flex-direction: row;
+}
+
 .leftmenu {
-    float: left;
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+
     margin-bottom: 20px;
 }
 
 /*Main Content*/
 
 .main {
-    float: right;
-    width: 70%;
+   
     margin-bottom: 20px;
 }
 
@@ -94,5 +100,14 @@ nav>ul>li a {
 /*Footer*/
 footer {
     clear: both;
-    width: 100%;
+   
+}
+
+@media screen and (max-width: 600px){
+
+    .mainContent-flex{
+        display: flex;
+        flex-direction: column;
+        }
+
 }
