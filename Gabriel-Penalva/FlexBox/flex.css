@@ -63,3 +63,10 @@ h3{
 h3 , h2{
     text-align: center;
 }
+
+@media screen and (max-width: 600px){
+    .sm{
+        flex-direction: column;
+        align-self: center;
+    }
+}
