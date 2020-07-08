@@ -1,0 +1,19 @@
+.flexbox-container{
+    background-color: grey;
+    border: 1px dashed;
+    padding: 12px;
+}
+
+.flexbox-item {
+    border: 1px solid;
+    background-color: red;
+    margin: 12px;
+    min-width: 50px;
+    min-height: 50px;
+    text-align: center;
+}
+
+.flexbox-items{
+    display: flex;
+    flex-direction: column;
+}
