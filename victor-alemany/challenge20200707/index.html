@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" media="(max-width: 480px)" href="style.css" />
     <title>Challenge</title>
 </head>
 
@@ -26,35 +25,31 @@
         </nav>
     </header>
     <main  class="main">
+        <section>
            <div class="container">
                 <div class="row container__row">
                     <div class="col-sm">
-                        <section>
                             <figure>
-                                <img src="yellawolfconcert.jpg" alt="Yellow in concert">
+                                <img src="yellawolfconcert.jpg" class="img" alt="Yellow in concert">
                                 <h5>Yellawolf in concert</h5>
                                 <button>Go to Yellawolf website</button>
-                            </figure>
-                        </section>
+                            </figure> 
                     </div>
                     <div class="col-sm">
-                        <section>
-                            <video src="concert.mp4" class="container__video" controls alt="no se puede mostrar video"></video>
-                        </section>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Ndpryp2OlUQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="col-sm div__section--flex-center">
-                        <section>
                             <ol>
                                 <li>listado 1</li>
                                 <li>listado 2</li>
                                 <li>listado 3</li>
                                 <li>listado 4</li>
                             </ol>
-                        </section>
                     </div>
                 </div>
             </div>
-        <article>
+        </section>
+        <article class="article">
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when
                 looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
                 of letters, as opposed to using 'Content here, content here', making it look like readable English. Many
@@ -63,7 +58,7 @@
                 evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
         </article>
     </main>
-    <footer>
+    <footer class="footer">
         <small>&copy; Design by Victor Alemany</small>
     </footer>
 
