@@ -1,0 +1,10 @@
+.flexbox-container{
+    background-color: gray;
+    border: 1px dashed;
+    padding: 12px;
+}
+.flex-item{
+    border: 1px solid;
+    background-color: red;
+    margin: auto;
+}
