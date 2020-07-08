@@ -6,8 +6,13 @@
 }
 
 .nav-bar__button {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
     border-radius: 50%;
     padding: 10px;
+    font-size: 1.25;
     background-color: red;
     color:white;
 }
