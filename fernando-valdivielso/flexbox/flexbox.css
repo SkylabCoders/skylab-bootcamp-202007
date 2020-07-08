@@ -79,7 +79,26 @@ p {
 
 .flexbox-items {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.bottom-heading {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     
+}
+
+h3 {
+    color: black;
+    margin: 0px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: rgb(184, 179, 179);
 }
