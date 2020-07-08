@@ -1,3 +1,11 @@
+@media only screen and (min-width: 480px) {
+    /* main__list changes whole background!!! */
+   .list__ordered {
+       background-color: rgb(196, 196, 196);
+    } 
+       
+}
+
 .nav-bar {
     text-align: center;
     margin: auto;
