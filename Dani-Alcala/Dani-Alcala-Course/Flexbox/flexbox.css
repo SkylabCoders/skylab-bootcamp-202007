@@ -1,39 +1,63 @@
-.flexbox-container {
-    background-color: gray;
-    border: 1px dashed;
-    padding: 12px;
+body {
     display: flex;
+    flex-direction: column;
 }
 
-.flexbox-items {
+.profile {
     display: flex;
-    background-color: lime;
-    min-height: 300px;
     flex-direction: row;
 }
 
-.flex-item {
+.profile-box {
+    height: 80px;
+    width: 80px;
     border: 1px solid;
-    background-color: red;
-    margin: 12px;
-    min-width: 60px;
     display: flex;
     flex-direction: column;
 }
 
-.flex-ball {
-    background-color: mediumaquamarine;
+.profile-main {
     display: flex;
     flex-direction: column;
 }
 
-.flex-item-item {
+.profile-bio {
     display: flex;
-    flex-direction: column;
-    background-color: lightblue;
+    flex-direction: row;
 }
 
-.hard {
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.title {
     display: flex;
     flex-direction: column;
+    border: 1px solid green;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.triangle {
+    display: flex;
+    flex-direction: column;
+}
+
+.triangle-item {
+    border: 1px dashed;
+    border-radius: 50%;
+    height: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .triangle-item {
+        background-color: green;
+    }
 }
