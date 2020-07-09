@@ -15,22 +15,19 @@ body {
 /*Top Menu*/
 
 nav {
- 
+ display: flex;
+
     margin: 0 auto 20px;
 }
 
-nav>ul {
+nav> div {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-nav>ul>li {
-    float: left;
-}
-
-nav>ul>li a {
+nav> a {
     display: block;
     color: white;
     text-align: center;
@@ -95,7 +92,31 @@ justify-content: center;
     font-size:35px;
     color:#a593c2;
 }
+.flex-spacer{
 
+    flex: 1; 
+}
+
+.allCards > div > img{
+width: 100%;
+}
+.allCards > div > div{
+    display: flex;
+    flex-direction: row;
+}
+
+.allCards > div > div > div{
+    display: flex;
+    flex-direction: column;
+}
+.allCards > div > div > div > div{
+   
+    flex: 1;
+}
+
+.allCards-card{
+    width: 80%;
+}
 /*Footer*/
 footer {
     clear: both;
@@ -115,15 +136,4 @@ footer {
         
 }
 
-@media screen and (max-width: 1024px){
 
-        .mainContent-flex{
-            display: flex;
-            flex-direction: column;
-            }
-            .logo{
-                width: 50%;
-            }
-    
-    }
-}
