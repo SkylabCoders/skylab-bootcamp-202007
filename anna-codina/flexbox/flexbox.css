@@ -1,0 +1,62 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+section {
+    display: flex;
+    flex-direction: row;
+    padding: 24px;
+}
+.profile-picture {
+    border: 1px solid;
+    height: 150px;
+    width: 150px;
+}
+.profile-details {
+    display: flex;
+    flex-direction: row;
+}
+.profile-title {
+    Display: flex;
+    flex-direction: column;
+    border: 1px solid;
+}
+section.description {
+    text-align: justify;
+    border: 1px dashed;
+}
+section.skills {
+    justify-content: space-around;
+}
+.skill-item{
+    display: flex;
+    flex-direction: column;
+
+}
+.skill-item-triange {
+    border: 1px solid;
+    height: 90px;
+    width: 90px;
+}
+
+@media screen and (max-width: 600px){
+    section.skills {
+        flex-direction: column;
+    }
+    .skill-item-triange {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 800px){
+    .skill-item-triange {
+        width: 200px;
+        background-color: lightblue;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .skill-item-triange {
+        width: 400px;
+        background-color: lightcyan;
+    }
+}

@@ -1,0 +1,172 @@
+ 
+/*Main Area*/
+body {
+    margin-top: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6e4d9;
+    background-image: url('../images/pattern.png');
+}
+
+.mainContent{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.main-content-body{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.leftmenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: ;
+    
+}
+
+
+img {
+    width: 100%;
+}
+
+
+.leftmenu img{
+    width: 100%;
+}
+
+.main-imagen{
+    width: 100%;
+}
+
+
+#mainheader {
+    background-color: #a593c2;
+}
+
+/*Top Menu*/
+
+nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto 20px;
+}
+
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav>ul>li {
+    float: left;
+}
+
+nav>ul>li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*Side Menu*/
+
+.mainContent ul{
+    padding-inline-start: 2px;
+    margin-right: 1.5rem;
+    width: 25vw;
+}
+
+.mainContent ul>a>li{
+    background-color: #cf4522;
+    color: #fff;
+    list-style: none;
+    padding: 14px 25px;    display: block;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.mainContent ul>a>li:hover{
+    background-color: #B43110;
+}
+
+.mainContent ul>a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.mainContent{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leftmenu {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+/*Main Content*/
+
+    .main {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.pageTitle{
+    font-size:35px;
+    color:#a593c2;
+}
+
+/*Footer*/
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width: 920px){
+
+    
+    .mainContent{
+        align-items: center;
+    }
+
+ 
+    .main-content-body{
+       
+        flex-direction: column;
+        align-items: center;
+    
+    }
+
+    .leftmenu{
+        align-items: center;
+    }
+
+   
+    img {
+        width: 80%;
+    }
+
+    .mainContent ul{
+        width: 100%;
+    }
+
+    
+}
+
+@media screen and (max-width: 450px){
+    nav>ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}

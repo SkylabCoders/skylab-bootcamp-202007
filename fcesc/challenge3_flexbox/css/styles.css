@@ -1,0 +1,156 @@
+/*Main Area*/
+body {
+    margin-top: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e6e4d9;
+    background-image: url('../images/pattern.png');
+}
+
+/* REVISADO */
+#mainheader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #a593c2;
+}
+img#header_logo{
+    width: 55px;
+}
+img{
+    width: 100%;
+}
+figure{
+    margin: 0;
+    width: 100%;
+    display: block;
+}
+figcaption{
+    font-style: italic;
+}
+
+/*Top Menu*/
+
+nav {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+}
+
+/* REVISADOS */
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*overflow: hidden;*/
+}
+nav>ul>li {
+    display: inline;
+    /*float: left;*/
+}
+nav>ul>li a {
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav>ul>li a:hover {
+    color: darkred;
+}
+
+/*Side Menu*/
+
+.mainContent ul{
+    padding-inline-start: 2px;
+    margin-right: 1.5rem;
+}
+
+.mainContent ul>a>li{
+    background-color: #cf4522;
+    color: #fff;
+    list-style: none;
+    padding: 14px 25px;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 2px;
+}  
+
+.mainContent ul>a{
+    text-decoration: none;
+    color: #fff;
+}
+
+@media screen and (min-width: 480px){
+    .mainContent{
+        width: 90%;
+        max-width: 1000px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .leftmenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 30%;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 479px){
+    .mainContent{
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .leftmenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 95%;
+        margin-bottom: 20px;
+    }
+}
+
+.aside_menuItems{
+    width: 100%;
+    display: inline-block;
+}
+
+/*Main Content*/
+
+.main {
+    float: right;
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.pageTitle{
+    text-align: center;
+    font-size:35px;
+    color:#a593c2;
+}
+
+/*Footer*/ /* REVISADO */
+footer {
+    width: 90%;
+    max-width: 1000px;
+    text-align: left;
+    clear: both;
+    width: 100%;
+}
+
+/* SUPERCONTAINER */
+.supercontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
