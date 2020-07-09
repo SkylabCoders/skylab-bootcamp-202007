@@ -105,3 +105,12 @@ footer {
         width: 50%;
     }
 }
+@media screen and (max-width: 1024px) {
+    .mainContent-flex {
+        display: flex;
+        flex-direction: column;
+    }
+    .logo {
+        width: 50%;
+    }
+}
