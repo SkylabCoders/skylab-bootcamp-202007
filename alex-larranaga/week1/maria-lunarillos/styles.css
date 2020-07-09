@@ -19,6 +19,14 @@ body {
         margin: 10vh 10vw;
 }
 
+.header-icon-login {
+    width: 27px;
+    height: 27px;
+    background: url(usuario.png) 0 0 no-repeat;
+    margin: 10px;
+}
+}
+
 
 
 
