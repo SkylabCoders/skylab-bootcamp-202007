@@ -100,7 +100,7 @@ nav>ul>li a {
     flex-direction: column;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
     .mainContent {
       width: auto;
       margin-top: 0;
