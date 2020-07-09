@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    width: 100%;
+}
+
+video {
+    width: 100%;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+    .description {
+        font-size: .8rem;
+    }
+
+
+/* Hamburger menu */
+    /* Fondo */
+    .top-bar {
+        background-color: rgb(199, 199, 199);
+    }
+
+    /* Cuadradito de la hamburguesa */
+    .icon-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    /* Barritas */
+    .icon-menu__bar {
+        background-color: red;
+        width: 30px;
+        height: 4px;
+        border-radius: 15px;
+        position: relative;
+    }
+
+        .icon-menu__bar::after, .icon-menu__bar::before  {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 4px;
+            border-radius: 15px;
+            top: -.5rem;
+            background-color: red;
+        }
+
+        .icon-menu__bar::after {
+            top: .5rem;
+        }
+
+
+    /* Menu lista */
+    .main-menu {
+        background-color: rgb(199, 199, 199);
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
+        /* Jugar con la transición para que el menú se mueva */
+        transform: translateX(-100%);
+        transition: transform .3s;
+        position: absolute;
+        z-index: 10;
+    }
+
+        .main-menu--show {
+            transform: translateX(0);
+        }
+
+    .menu__item {
+        padding: 1rem;
+        border-bottom: 1px solid white;
+        color: red;
+        line-height: 2rem;
+        cursor: pointer;
+    }
+        .menu__item:hover {
+            color: white;
+        }
+
+    .menu__button {
+        background-color: red;
+        margin-right: 2rem;
+        color: #fff;
+        border: none;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 90%;
+        font-size: .8rem;
+    }
+
+
+/* Container */
+.main-container {
+    text-align: center;
+    margin: .5rem .3rem;
+    margin-top: 2rem;
+}
+
+    .section-image {
+        text-align: start;
+    }    
+
+        .card__button {
+            background-color: red;
+            border: none;
+        }
+
+    .main-list {
+        background: linear-gradient(0deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+        color: white;
+        margin-top: 1rem;
+    }
+
+    li {
+        text-align: left;
+        margin-left: 5%;
+        color: white;
+    }
+
+    .section-text {
+        margin: 2rem .8rem 0 .8rem;
+        text-transform: uppercase;
+        font-size: .8rem;
+    }
+
+
+.footer {
+    background-color:  red;
+    text-align: center;
+    color: white;
+}
+
+
+@media screen and (min-width: 480px) {
+    .main-menu {
+        display: inline-flex;
+        width: 100vw;
+        justify-content: start;
+        transform: translateX(0);
+        position: fixed;
+        top: 0;
+    }
+
+    .top-bar {
+        display: none;
+    }
+
+    .menu__item {
+        border-bottom: none;
+    }
+
+    .main-list {
+        background: red;
+    }
+
+    .menu__button {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1rem;
+        z-index: 15;
+    }
+
+    .main-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 5rem;
+    }
+    
+}
