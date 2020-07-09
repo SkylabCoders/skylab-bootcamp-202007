@@ -1,0 +1,41 @@
+.content-layout {
+    display: flex;
+    flex-direction: column;
+    margin: 15vw;
+    height: 500px;
+    justify-content: space-evenly;
+}
+
+.content-layout-box {
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.content-layout-box1 {
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/moldesdereposteria.jpg);
+}
+
+.content-layout-box2 {
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/utensiliosbasicos.jpg);
+}
+
+.content-layout-box3 {
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/pequenoelectrodomestico2.jpg);
+}
+
+.content-layout-text {
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    opacity: 0.7;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (width-max: 600px) {
+    
+}
