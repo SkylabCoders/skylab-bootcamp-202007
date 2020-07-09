@@ -9,6 +9,10 @@ body {
     display: flex;
     flex-direction: column;
 }
+img{
+    width: 100%;
+    height: auto;
+}
 
 #mainheader {
     background-color: #a593c2;
@@ -75,13 +79,15 @@ nav>ul>li a {
 }
 
 .mainContent{
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    width: auto;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
     flex-direction: column;
 }
 .firstcontent{
+    width: auto;
     display: flex;
     flex-direction: row;
     margin-top: 10px;
@@ -96,21 +102,38 @@ nav>ul>li a {
 /*Main Content*/
 
 .main {
-    width: auto;
+    width: 100%;
     margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .pageTitle{
     font-size:35px;
     color:#a593c2;
 }
+article{
+    width: auto;
+}
+.cake{
+    width: 300px;
+    height: 350px;
+    background-color: salmon;
+    margin: 1%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 
 /*Footer*/
 footer {
     clear: both;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 @media screen and (max-width: 800px){
@@ -127,10 +150,6 @@ footer {
  }
  nav{
     margin: 0 auto 2px auto;
- }
- img{
-     width: 100%;
-     height: auto;
  }
 }
 
