@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /*Main Area*/
 body {
     margin-top: 0px;
@@ -36,6 +42,7 @@ nav>ul {
 
 .main-menu {
     display: flex;
+    margin: 0 4rem;
 }
 
 nav>ul>li a {
@@ -136,10 +143,44 @@ footer {
 }
 
     .card__item {
-        border: 1px solid black;
+        background-color: whitesmoke;
         margin: .5rem;
-        width: 100%;
     }
+
+        .card__item > img {
+            width: 100%;
+            padding: .3rem;  
+        }
+
+        .card__text {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .card__title {
+            margin-left: 1rem;
+        }
+
+        .card__title > h5{
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .card__title > p{
+            font-size: .9rem;
+            color: gray;
+            margin-top: 0.2rem;
+            margin-bottom: .8rem;
+        }
+
+        .flex-spacer {
+            flex: 1 1 0;
+        }
+
+        .card__text div small {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
 
 /* Medias */
 @media screen and (max-width: 600px) {
@@ -176,6 +217,10 @@ footer {
 
     .video {
         width: 100%;
+    }
+
+    .image-logo {
+        transform: scale(.7);
     }
 
 }
