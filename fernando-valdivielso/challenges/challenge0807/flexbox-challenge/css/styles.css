@@ -78,7 +78,7 @@ nav>ul>li a {
 
 .leftmenu {
     /* float: left; */
-    width: 30%;
+    /* width: 30%; */
     margin-bottom: 20px;
 }
 
@@ -110,10 +110,15 @@ nav>ul>li a {
 
     .leftmenu {
         min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
-
+.leftimg{
+    /* width: ; */
+}
 /*Footer*/
 footer {
     clear: both;
