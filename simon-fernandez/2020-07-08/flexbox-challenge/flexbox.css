@@ -1,0 +1,26 @@
+figcaption{
+    display: flex;
+    justify-content: center;
+}
+.flexbox-container{
+    display: flex;
+    flex-direction: column;
+}
+.flexbox-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.flexbox-header-title{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.flexbox-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.flexbox-main{
+    padding: 5%;
+}
