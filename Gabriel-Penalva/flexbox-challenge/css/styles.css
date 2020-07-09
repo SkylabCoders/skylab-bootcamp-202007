@@ -44,7 +44,6 @@ nav>ul>li a {
 
 .mainContent ul{
     padding-inline-start: 2px;
-    margin-right: 1.5rem;
 }
 
 .mainContent ul>a>li{
@@ -98,6 +97,7 @@ footer {
 .flex-column{
     display: flex;
     flex-direction: column;
+    margin: 10px;
 
 }
 .flex-row{
