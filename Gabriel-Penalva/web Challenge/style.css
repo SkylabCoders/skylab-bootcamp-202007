@@ -1,0 +1,48 @@
+*, html {
+    margin:0;
+    padding:0;  
+}
+
+.flex-column{
+    display:flex;
+    flex-direction: column;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-container{
+    display: flex;
+}
+.flex-justify{
+    justify-content: center;
+}
+
+#square_inv{
+    width: 50px;
+    height: 50px;
+}
+#square{
+    width: 50px;
+    height: 50px;
+    background-color: lightsalmon;
+    border-width: 1px;
+    border-color: lightslategrey;
+    border-style: dashed;
+
+}
+
+#header {
+    background-color: lightpink;
+    margin: 0px;
+}
+
+#main-container{
+    justify-content: space-around;
+}
+#image{
+    align-self: stretch;
+}
+#image img {
+    width: 100%;
+}
