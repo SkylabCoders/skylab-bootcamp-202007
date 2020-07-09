@@ -91,4 +91,10 @@ nav {
     .mainContent-top{
         flex-direction: column;
     }
+    .leftmenu{
+        width: auto;
+    }
+    .main{
+        width: auto;
+    }
 }
