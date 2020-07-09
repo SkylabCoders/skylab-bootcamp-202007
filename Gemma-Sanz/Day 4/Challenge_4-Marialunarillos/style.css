@@ -63,7 +63,8 @@
     position: absolute;
     background-color: rgba(245, 245, 245, 0.747);
     padding: 16px;
-    z-index: 3;
+    z-index: 7;
+    
 }
 .limited>img {
     object-fit: cover;
@@ -71,5 +72,6 @@
     width: 340px;
     height: 140px;
     position: relative;
-
+    top: 100px;
+    
 }
