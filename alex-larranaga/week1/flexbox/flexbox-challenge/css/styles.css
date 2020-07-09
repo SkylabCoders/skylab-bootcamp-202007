@@ -132,10 +132,11 @@ footer {
 .pieContainer{
     border-color: black;
     background-color: white;
-    border: dashed;
-    margin: auto;
-    width: auto;
+    border: 1px solid;
+    flex-basis: auto;
     height: auto;
+    flex-grow: 2;
+    text-align: center;
 }
 
 @media screen and (max-width: 1000px){
