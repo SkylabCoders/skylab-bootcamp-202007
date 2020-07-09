@@ -6,6 +6,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
 .nav-menu{
     display: flex;
@@ -55,3 +56,158 @@ main{
 .main-slider img{
     width: 100%;
 }
+
+.slider-circles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.slider-circles__grey{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(175, 167, 167);
+}
+
+.slider-circles__red{
+    background-color: rgb(228, 84, 84);
+}
+
+.utencillos-section{
+    display: flex;
+    justify-content: center;
+}
+.utencillos-section img{
+    margin: 3rem auto;
+    height: 125px;
+}
+
+.logo-section-header{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    width: 70%;
+}
+
+.logo-section-header h2{
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 10px;
+}
+
+.weird-three-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.weird-card__size{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.weird-card__size img{
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 140px;
+}
+
+.over-paragraph{
+    position: absolute;
+    background-color: rgba(255,255,255,0.8);
+    font-size: 25px;
+    font-weight: 700;
+    max-width: 200px;
+    margin-top: 22px;
+}
+
+.over-paragraph p{
+    padding: 10px;
+    color: #67635F;
+    
+}
+
+.button-vermas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-vermas button{
+    background-color: #FF5959;
+    font-size: 20px;
+    border: none;
+    text-transform: uppercase;
+    padding: 15px;
+    color: whitesmoke;
+    margin-top: 55px;
+
+}
+
+.blog-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 8%;
+    width: 340px;
+}
+
+.blog-card img{
+    width: 100%;
+    height: auto;
+}
+
+.blog-post-owner{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.blog-card p{
+    font-size: 20px;
+    color: #67625f;
+    margin: 10px 5px;
+   
+}
+
+.blog-post-owner img{
+    height: 61px;
+    width: 70px;
+}
+
+.blog-post-owner p{
+
+    font-size: 12px;
+    margin: 3px;
+}
+
+#name{
+    font-size: 20px; 
+    color: tomato;
+}
+
+footer{
+    background-color: #FF5959;
+    height: 3rem;
+    text-align: center;
+    
+}
+
+footer p{
+    margin: auto;
+    color: white;
+}
+
