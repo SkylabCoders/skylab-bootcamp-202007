@@ -129,7 +129,7 @@ nav>ul>li a {
     flex-wrap: wrap;
     padding: 5px;
     justify-content: space-between;
-    background-color: whitesmoke;
+    background-color: rgb(224, 224, 231);
     border: 2px solid black;
 }
 
@@ -142,6 +142,7 @@ nav>ul>li a {
     align-items: center;
     margin: 5px 0;
     width: 24%;
+    background-color: rgb(197, 197, 214);
 }
 
 .main-pie img {
