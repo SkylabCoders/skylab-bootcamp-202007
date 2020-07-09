@@ -126,7 +126,7 @@ footer {
 .mainTable {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;  
+    justify-content: space-around;  
 }
 
 .pieContainer{
@@ -134,9 +134,13 @@ footer {
     background-color: white;
     border: 1px solid;
     flex-basis: auto;
-    height: auto;
+    flex: 1 1 0px;
     flex-grow: 2;
     text-align: center;
+}
+
+.pieContainer small{
+   font-weight: 900;
 }
 
 @media screen and (max-width: 1000px){
@@ -144,6 +148,7 @@ footer {
         justify-content: space-between;
         width: 100%;
     }
+
 
 @media screen and (max-width: 600px){
  .container{
@@ -169,5 +174,14 @@ footer {
      width: 100%;
      height: auto;
  }
+ .pieContainer{
+    border-color: black;
+    background-color: white;
+    border: 1px solid;
+    flex-basis: auto;
+    
+    flex-grow: 2;
+    text-align: center;
+}
 }
 }
