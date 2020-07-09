@@ -123,6 +123,21 @@ footer {
     width: 100%;
 }
 
+.mainTable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  
+}
+
+.pieContainer{
+    border-color: black;
+    background-color: white;
+    border: dashed;
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
 @media screen and (max-width: 1000px){
     #mainheader{
         justify-content: space-between;
@@ -141,6 +156,7 @@ footer {
  .leftmenu {
      margin: auto;
      width: 100%;
+     order: 1;
  }
  .mainContent{
      width: auto;
@@ -152,5 +168,5 @@ footer {
      width: 100%;
      height: auto;
  }
- 
+}
 }
