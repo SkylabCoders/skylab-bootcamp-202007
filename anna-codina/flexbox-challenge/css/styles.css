@@ -19,7 +19,7 @@ body {
 nav {
     height: 60px;
     width: 100%;
-    margin: 0 auto 2px 400px;
+    margin: auto;
     display: flex;
     flex-direction: row;
 }
@@ -28,9 +28,9 @@ nav>ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 nav>ul>li {
@@ -43,6 +43,9 @@ nav>ul>li a {
     padding: 16px;
     text-decoration: none;
     font-weight: bold;
+}
+.flex-spacer {
+    flex: 1 1 0;
 }
 
 /*Side Menu*/
