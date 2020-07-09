@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(243, 237, 229);
+    display:flex;
+    flex-direction: column; 
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    margin-right: 5%;
+    background-color: rgba(255, 255, 255, 0.904);
+}
+
+.sliderContainer{
+        height: 40vh;
+        background: url("https://static3.marialunarillos.com/media/custom/advancedslider/resized/slide-5c2f5c969f181-png/1080X600.png");
+        background-size: contain;
+        margin: 10vh 10vw;
+}
+
+
+
+
+
+
+
