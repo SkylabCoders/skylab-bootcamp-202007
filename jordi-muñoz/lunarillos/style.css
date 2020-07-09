@@ -1,0 +1,46 @@
+body {
+    margin: 0 auto;
+}
+
+.nav {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: lightgray;
+}
+.nav img {
+    width: 40px;
+    height: 40px;
+}
+.number {
+    font-weight: 14px;
+    font-style: oblique;
+    background-color: red;
+    width: 40px;
+    height: 40px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+}
+.slider img {
+    width: 100%
+}
+.icon-uten {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px ;
+    margin-bottom: 30px;
+}
+.icon-uten img{
+    width: 70px;
+}
+.icon-title {
+    margin: auto;
+    width: 200px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
