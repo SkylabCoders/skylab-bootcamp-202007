@@ -38,9 +38,9 @@ nav > ul {
 
 }
 
-nav > ul > li {
-  /* float: left;  */
-}
+/* nav > ul > li {
+  float: left; 
+} */
 
 nav > ul > li a {
   display: block;
@@ -115,6 +115,12 @@ nav > ul > li a {
   flex-direction: column;
 }
 
+.cake {
+  border: 1px solid;
+  display: flex;
+  
+}
+
 @media screen and (max-width: 599px) {
   /* nav > ul {
     display: flex;
@@ -154,6 +160,8 @@ nav > ul > li a {
     width: 100%;
     /* align-self: center; */
   }
+
+  
 }
 
 @media screen and (max-width: 768px) {
