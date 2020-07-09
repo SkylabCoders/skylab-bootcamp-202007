@@ -16,7 +16,6 @@ body {
 
 nav {
   height: 60px;
-  /* width: 1000px; */
   margin: 0 auto 20px;
 }
 
@@ -26,21 +25,15 @@ nav > ul {
   padding: 0;
   display: flex;
   flex-direction: row;
-
 }
 
 .spacer {
- flex: 1;
+  flex: 1;
 }
 
 .icon {
   justify-self: center;
-
 }
-
-/* nav > ul > li {
-  float: left; 
-} */
 
 nav > ul > li a {
   display: block;
@@ -49,7 +42,6 @@ nav > ul > li a {
   padding: 16px;
   text-decoration: none;
   font-weight: bold;
-  
 }
 
 /*Side Menu*/
@@ -79,7 +71,6 @@ nav > ul > li a {
 }
 
 .mainContent {
-  /* width: 1000px; */
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -88,15 +79,12 @@ nav > ul > li a {
 }
 
 .leftmenu {
-  /* float: left; */
-  /* width: 30%; */
   margin-bottom: 20px;
 }
 
 /*Main Content*/
 
 .main {
-  /* float: right; */
   width: 70%;
   margin-bottom: 20px;
 }
@@ -116,26 +104,41 @@ nav > ul > li a {
 }
 
 .cake {
+  background-color: #f3f2eb;
   border: 1px solid;
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
   display: flex;
-  
+  flex-direction: column;
+}
+
+.cake > div > img {
+  width: -webkit-fill-available;
+}
+
+span {
+  padding: 10px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.price {
+  align-self: flex-end;
 }
 
 @media screen and (max-width: 599px) {
-  /* nav > ul {
-    display: flex;
-    justify-content: space-between;
-  } */
-
   .mainContent {
-    /* width: 100vh; */
     margin-top: 0;
     display: flex;
     flex-direction: column;
   }
 
   .leftmenu {
-    /* min-width: 300px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,9 +150,9 @@ nav > ul > li a {
 
   .main {
     text-align: center;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
   }
@@ -158,18 +161,34 @@ nav > ul > li a {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    /* align-self: center; */
   }
 
-  
+  .cake {
+    border: 1px solid;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
+
+  .cake > div > img {
+    width: -webkit-fill-available;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .price {
+    align-self: flex-end;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  /* nav > ul {
-    display: flex;
-    justify-content: space-between;
-  } */
-
   .img {
     width: 100%;
     margin-left: auto;
@@ -177,14 +196,12 @@ nav > ul > li a {
   }
 
   .mainContent {
-    /* width: 100vh; */
     margin-top: 0;
     display: flex;
     flex-direction: column;
   }
 
   .leftmenu {
-    /* min-width: 300px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -192,11 +209,34 @@ nav > ul > li a {
 
   .main {
     text-align: center;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
     margin-left: auto;
     margin-right: auto;
+  }
+  .cake {
+    border: 1px solid;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cake > div > img {
+    width: -webkit-fill-available;
+  }
+
+  span {
+    padding: 10px;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .price {
+    align-self: flex-end;
   }
 }
 
