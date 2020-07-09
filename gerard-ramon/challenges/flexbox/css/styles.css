@@ -19,9 +19,17 @@ body {
 nav {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     margin: 0 auto 20px;
+}
+
+.nav-logo {
+    margin: 5px;
+}
+
+.flex-spacer {
+    flex: 1;
 }
 
 nav>ul {
@@ -115,6 +123,52 @@ nav>ul>li a {
     height: 100%;
 }
 
+.main-pie-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    border: 2px solid black;
+}
+
+.main-pie {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+    border: 1px solid;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    width: 24%;
+}
+
+.main-pie img {
+    margin-top: 3px;
+}
+
+.pie-main-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.pie-main-info h5 {
+    margin-right: 10px;
+}
+
+.main-pie p {
+    text-align: center;
+    margin-top: 0;
+}
+
+.main-pie img {
+    width: 60%;
+}
+
 
 /*Footer*/
 
@@ -123,13 +177,61 @@ footer {
     flex-direction: column;
 }
 
-@media screen and (max-width: 600px) {
+
+/* Media Queries */
+
+@media screen and (max-width: 1024px) {
     .main-top-content {
         flex-direction: column;
         align-items: center;
     }
     .mainContent ul {
         width: 100%;
+    }
+    footer {
+        align-items: center;
+    }
+    .main-pie h5 {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-top-content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .mainContent ul {
+        width: 100%;
+    }
+    nav {
+        margin: 0 auto 0px;
+    }
+    .pageTitle {
+        margin: 0 0 10px 0;
+    }
+    footer {
+        align-items: center;
+    }
+    .leftmenu img {
+        width: 50%;
+    }
+    .leftmenu>a {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .mainContent {
+        padding: 12px;
+    }
+    .main {
+        padding: 12px;
+    }
+    .main-pie p {
+        text-align: center;
+    }
+    .main-pie h5 {
+        text-align: center;
     }
 }
 
