@@ -6,11 +6,14 @@
 .mainContent-top{
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .leftmenu{
     display: flex;
     flex-direction: column;
+
+    width: 20%;
 }
 
 .leftmenu-item{
@@ -22,13 +25,14 @@
 .main{
     display: flex;
     flex-direction: column;
+    width: 30%;
 }
 
 
 /*Main Area*/
 body {
     margin-top: 0px;
-    margin-left: auto;
+    margin-left: auto ;
     margin-right: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e6e4d9;
@@ -48,8 +52,6 @@ nav {
 .nav{
     display: flex;
     flex-direction: row;
-
-    justify-content: start;
 }
 
 
@@ -61,7 +63,7 @@ nav {
 
 /*Side Menu*/
 
-.mainContent div{ /**/
+.mainContent div{
     padding-inline-start: 2px;
     margin-right: 1.5rem;
 }
@@ -80,28 +82,13 @@ nav {
 }
 
 /*Main Content*/
-
-
 .pageTitle{
     font-size:35px;
     color:#a593c2;
 }
 
-/*Footer*/
-footer {
-    clear: both;
-    width: 100%;
-}
-
-
 @media screen and (max-width: 599px){
-    
-}
-
-
-@media screen and (min-width: 600px){
-    body{
-        display: flex;
+    .mainContent-top{
         flex-direction: column;
     }
 }
