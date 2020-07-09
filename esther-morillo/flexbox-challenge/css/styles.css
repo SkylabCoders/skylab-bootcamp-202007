@@ -152,4 +152,8 @@ footer {
         transform: scale(.8);
     }
 
+    .video {
+        width: 100%;
+    }
+
 }
