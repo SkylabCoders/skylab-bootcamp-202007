@@ -12,7 +12,7 @@ body {
     background-color: #a593c2;
 }
 
-img {
+.image-article{
     width: 100%;
 }
 
@@ -49,8 +49,20 @@ nav>ul>li a {
 
 /*Side Menu*/
 
-.mainContent{
+.mainContent {
     margin: 2rem;
+    /* para prueba test wrap, etc */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* test */
+.mainContent .box {
+    min-width: 80px;
+    height: 80px;
+    margin: 12px;
+    background-color: red;
 }
 
 .main-content {
@@ -60,12 +72,12 @@ nav>ul>li a {
     width: 90%;
 }
 
-.mainContent ul{
+.mainContent ul {
     padding-inline-start: 2px;
     margin-right: 1.5rem;
 }
 
-.mainContent ul>a>li{
+.mainContent ul>a>li {
     background-color: #cf4522;
     color: #fff;
     list-style: none;
@@ -75,11 +87,11 @@ nav>ul>li a {
     margin-bottom: 2px;
 }
 
-.mainContent ul>a>li:hover{
+.mainContent ul>a>li:hover {
     background-color: #B43110;
 }
 
-.mainContent ul>a{
+.mainContent ul>a {
     text-decoration: none;
     color: #fff;
 }
@@ -106,9 +118,9 @@ nav>ul>li a {
     margin-left: 2rem;
 }
 
-.pageTitle{
-    font-size:35px;
-    color:#a593c2;
+.pageTitle {
+    font-size: 35px;
+    color: #a593c2;
 }
 
 /*Footer*/
@@ -116,8 +128,21 @@ footer {
     width: 100%;
 }
 
+/* Cards */
+.card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+    .card__item {
+        border: 1px solid black;
+        margin: .5rem;
+        width: 100%;
+    }
+
 /* Medias */
-@media screen and (max-width: 600px) {  
+@media screen and (max-width: 600px) {
     .main-content {
         display: flex;
         flex-direction: column;
@@ -127,20 +152,17 @@ footer {
 
     .main {
         width: 90%;
+        order: -1;
     }
 
     .mainheader {
         width: 90%;
     }
 
-    .image-logo {
-        display: none;
+    .bck-menu {
+        width: 90%;
     }
 
-    .bck-menu {
-        width: 80%;
-    }
-    
     .leftmenu {
         width: 100%;
         flex-direction: column;
