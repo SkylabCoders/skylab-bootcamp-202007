@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-carrousel {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrousel-img {
+    width: 100%;
+}
+
+.carrousel-paging {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 16px 50px;
+}
+
+.carrousel-paging-page {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #BBB8B6;
+}
+
+.carrousel-paging-page--red {
+    background-color: #FF5959;
+}
+
+.separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.separator-img {
+    height: 125px;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 25px;
+    padding: 12px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+.main-utensilios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.utensilios-item-container {
+    position: relative;
+}
+
+.utensilios-item img {
+    width: 340px;
+    height: 140px;
+    z-index: 0;
+}
+
+.utensilios-item-info {
+    width: 170px;
+    height: 76px;
+    background-color: #d1d0cdda;
+    z-index: 20;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.utensilios-item-info-paragraph {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
