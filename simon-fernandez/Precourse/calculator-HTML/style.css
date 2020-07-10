@@ -1,0 +1,50 @@
+/*.box{
+    margin: auto;
+    background-color: violet;
+    width: 40%;
+    height: 75%;
+} */
+.box{
+
+}
+.screen{
+    background-color: black;
+    color: white;
+    text-align: right;
+    height: 40%;
+    width: 100%;
+    border: none;
+}
+.spacers{
+    margin: 0;
+    padding: 0;
+    height: 15%;
+}
+.largeButton{
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    border: none;
+
+}
+.smallButton{
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    border: none;
+}
+.reverse{
+    background: url(refresh-black-18dp.svg);
+    width: 25%;
+    height: 15%;
+    border: none;
+}
+.calculations{
+    width: 25%;
+    height: 15%;
+    border: none;
+
+}
+h1{
+    color: pink;
+}
