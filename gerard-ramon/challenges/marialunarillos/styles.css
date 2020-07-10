@@ -1,0 +1,271 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 250px;
+}
+
+.header-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: whitesmoke;
+    height: 50px;
+    padding: 0 40px;
+}
+
+.navbar-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
+
+.navbar-user {
+    height: 32px;
+    margin: 0 50px;
+}
+
+.flex-separator {
+    flex: 1;
+}
+
+.navbar-search {
+    background-color: #BBB8B6;
+    height: 50px;
+}
+
+.navbar-item-count {
+    background-color: #FF5959;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+.header-logo-extra {
+    display: none;
+}
+
+.main-carrousel {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrousel-img {
+    width: 100%;
+}
+
+.carrousel-paging {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 16px 50px;
+}
+
+.carrousel-paging-page {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #BBB8B6;
+}
+
+.carrousel-paging-page--red {
+    background-color: #FF5959;
+}
+
+.separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.separator-img {
+    height: 125px;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 25px;
+    padding: 12px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+.main-utensilios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+
+.utensilios-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.utensilios-item-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: relative;
+    padding: 3px 5px;
+}
+
+.utensilios-item-container img {
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 100%;
+    height: 140px;
+}
+
+.utensilios-item-info {
+    background-color: #d1d0cdda;
+    width: 50%;
+    height: 76px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+}
+
+.utensilios-item-info-big {
+    width: 72%;
+}
+
+.utensilios-item-info-paragraph {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/*
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 66px;
+    right: 0;
+    bottom: 0;
+}
+*/
+
+.main-cards {
+    margin: 40px;
+}
+
+.cards-title {
+    background-color: #FF5959;
+    padding: 5px;
+}
+
+.cards-title h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img {
+    margin-top: 12px;
+    width: 325px;
+}
+
+.card-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+}
+
+.card-footer {
+    padding-left: 15px;
+    background-color: whitesmoke;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.card-info-text--red {
+    color: #FF5959;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF5959;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 601px) {
+    .header-logo {
+        justify-content: space-around;
+    }
+    .header-logo-extra {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .logo-extra {
+        margin-right: 20px;
+        padding: 5px 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: whitesmoke;
+    }
+    .logo-extra-green {
+        background-color: #9faa4d;
+    }
+    .logo-extra-purple {
+        background-color: #8e789d;
+    }
+    .carrousel-paging {
+        justify-self: center;
+    }
+    .main-utensilios {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .utensilios-item-container img {
+        height: 100%;
+    }
+    .utensilios-item-info-big {
+        width: 60%;
+    }
+}

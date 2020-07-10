@@ -1,12 +1,13 @@
 /*Main Area*/
 body {
-    margin-top: 0px;
+    margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e6e4d9;
     background-image: url('../images/pattern.png');
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
+
 }
 
 #mainheader {
@@ -17,7 +18,7 @@ body {
 
 nav {
     margin: 0 auto 20px;
-    width: 100%;
+    width: 100vw;
 }
 
 nav>ul {
@@ -26,8 +27,6 @@ nav>ul {
     padding: 0;
     overflow: hidden;
     display: flex;
-    justify-content: flex-start;
-    padding-left: 400px;
 }
 
 nav>ul>li>a {
@@ -35,16 +34,19 @@ nav>ul>li>a {
         text-align: center;
         text-decoration: none;
         color: white;
-        padding-left: 20px;
         font-weight: bold;
       }
 
 nav>ul>li a {
     color: white;
     text-align: center;
-    padding: 16px;
+    padding-right: 80px;
     text-decoration: none;
     font-weight: bold;
+}
+
+.bigger-list-item {
+    flex-grow: 1;
 }
 
 /*Side Menu*/
@@ -74,7 +76,7 @@ nav>ul>li a {
 }
 
 .mainContent{
-    width: 100%;
+    width: 50vw;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -111,9 +113,21 @@ nav>ul>li a {
 
 /*Footer*/
 footer {
-    clear: both;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
 }
+
+footer address {
+    width: 100vw !important;
+    text-align: center;
+}
+
+/*
+IPHONE
+*/
 
 @media screen and (max-width: 480px) {
     nav > ul {
@@ -130,8 +144,18 @@ footer {
         flex-direction: row;
 
     }
+
+    nav>ul>li a {
+        padding-right: 40px;
+    }
+
+    nav>ul>li:nth-child(2) {
+        padding-left: 40px;
+    }
+    
     .leftmenu {
-        width: 100vw;
+        width: 30vw;
+        padding-right: 100px;
     }
 
     .leftmenu ul{
@@ -146,12 +170,17 @@ footer {
 
     .leftmenu ul a{
         border: 1px solid black;
-        width: 100%vw;
+        width: 100vw;
     }
 
     .hide-mobile {
         display:none;
     }
+
+    .mainContent{
+        width: 100vw;
+    }
+
 
     .main img{
         width:100%;
@@ -194,7 +223,10 @@ footer {
         text-size-adjust: 1em;
         text-align: left;
     }
-
+    .main-allpies img {
+        padding-right: 100px;
+        width: 380px;
+    }
 
     iframe{
         width:  100vw;
@@ -204,7 +236,61 @@ footer {
         width: 100vw
     }
 
+    .main-allpies figure {
+        width: 100vw;
+    }
+
+    .main-allpies figure img {
+        width: 100vw;
+    }
+
     table {
         width: 80vw !important;
+    }
+}
+/*
+IPAD
+*/
+
+@media screen and (min-width:480px) and (max-width:769px) {
+    body{
+        width: 100vw;
+    }
+
+    .mainContent ul{
+        margin-left: 1.5rem;
+    }
+
+    .mainContent {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftmenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        order: 2;
+        width: 100vw;
+    }
+
+    .leftmenu a {
+        margin: auto
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mainContent{
+        width: 100vw;
+    }
+
+    .main .middle-article, footer {
+        width: 90vw;
+        text-align: center;
     }
 }
