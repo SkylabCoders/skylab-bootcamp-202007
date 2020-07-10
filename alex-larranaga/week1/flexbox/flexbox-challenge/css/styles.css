@@ -123,11 +123,32 @@ footer {
     width: 100%;
 }
 
+.mainTable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  
+}
+
+.pieContainer{
+    border-color: black;
+    background-color: white;
+    border: 1px solid;
+    flex-basis: auto;
+    flex: 1 1 0px;
+    flex-grow: 2;
+    text-align: center;
+}
+
+.pieContainer small{
+   font-weight: 900;
+}
+
 @media screen and (max-width: 1000px){
     #mainheader{
         justify-content: space-between;
         width: 100%;
     }
+
 
 @media screen and (max-width: 600px){
  .container{
@@ -141,6 +162,7 @@ footer {
  .leftmenu {
      margin: auto;
      width: 100%;
+     order: 1;
  }
  .mainContent{
      width: auto;
@@ -152,5 +174,14 @@ footer {
      width: 100%;
      height: auto;
  }
- 
+ .pieContainer{
+    border-color: black;
+    background-color: white;
+    border: 1px solid;
+    flex-basis: auto;
+    
+    flex-grow: 2;
+    text-align: center;
+}
+}
 }

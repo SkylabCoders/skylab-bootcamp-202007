@@ -1,0 +1,154 @@
+.mainContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.mainNav {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
+.mainNav img{
+    width: auto;
+    height: 30px;
+    width: auto;
+    padding: 0 20px;
+}
+.lastNav{
+    background-color: lightcoral;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.slider{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.point{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: grey;
+    justify-content: space-between;
+}
+.flexrow div:nth-child(3){
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: lightcoral;
+}
+.flex-row>h2{
+    font-weight: bold;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 8px;
+}
+
+.limited{
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 5px;
+
+}
+.white-box{
+    position: absolute;
+    background-color: rgba(255,255,255,0.8);
+    height: 60%px;
+    width: 50%;
+    padding-left: 12px;;    
+}
+.limited>img {
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 140px;
+    top: 180px;
+    z-index: -1;
+    margin: 5px;    
+}
+.white-box>p{
+    display:none;
+    margin: 5px;    
+
+}
+.seemore{
+    display:block;
+    padding: 15px;
+    color: white;
+    background-color: lightcoral;
+    bottom:50px;
+    margin-top: 100px;
+}
+.seemore:nth-child(2){
+    margin-top: 0%;
+}
+.blogicon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media (min-width: 1024px){
+    /*box modification*/
+    .main-box{
+        display: flex;
+        flex-direction: row;
+    }
+    .box-row{
+        display: flex;
+        flex-direction: row;
+    }
+    .box-column{
+        display: flex;
+        flex-direction: column;
+    }
+    .limited>img {
+        width: 100%;
+        height: 100%;  
+    }
+    .limited>div>h3::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255,255,255,0.8);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
+        z-index: -1;
+
+    }
+    
+    .white-box>p{
+        display:block;
+    }
+    .white-box{
+        position: absolute;
+        background-color: rgba(255,255,255,0.8);
+        height: 150px;
+        width: 50%;
+        padding-left: 12px;
+        margin: 5px;    
+    
+    }
+
+}

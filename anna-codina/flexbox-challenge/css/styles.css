@@ -8,6 +8,12 @@ body {
     background-image: url('../images/pattern.png');
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+img{
+    width: 100%;
+    height: auto;
 }
 
 #mainheader {
@@ -19,7 +25,7 @@ body {
 nav {
     height: 60px;
     width: 100%;
-    margin: 0 auto 2px 400px;
+    margin: auto;
     display: flex;
     flex-direction: row;
 }
@@ -28,9 +34,9 @@ nav>ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 nav>ul>li {
@@ -43,6 +49,9 @@ nav>ul>li a {
     padding: 16px;
     text-decoration: none;
     font-weight: bold;
+}
+.flex-spacer {
+    flex: 1 1 0;
 }
 
 /*Side Menu*/
@@ -72,13 +81,16 @@ nav>ul>li a {
 }
 
 .mainContent{
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    width: auto;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
     flex-direction: column;
+    flex: 1 1 0;
 }
 .firstcontent{
+    width: auto;
     display: flex;
     flex-direction: row;
     margin-top: 10px;
@@ -93,40 +105,62 @@ nav>ul>li a {
 /*Main Content*/
 
 .main {
-    width: auto;
+    width: 100%;
     margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
 }
 
 .pageTitle{
     font-size:35px;
     color:#a593c2;
 }
+article{
+    width: auto;
+}
+.cake{
+    width: 350px;
+    height: auto;
+    background-color: salmon;
+    margin: 1%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+}
 
 /*Footer*/
 footer {
     clear: both;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 800px){
+ .firstcontent{
+     flex-direction: column;
+     margin-left: auto;
+     margin-right: auto;
+    }
+    .leftmenu {
+        margin: auto;
+    }
+    .mainContent{
+        width: auto;
+    }
+    nav{
+        margin: 0 auto 2px auto;
+    }
 }
 
 @media screen and (max-width: 600px){
- .firstcontent{
-     flex-direction: column;
-     margin-left: 15px;
-     margin-right: 15px;
- }
- .leftmenu {
-     margin: auto;
- }
- .mainContent{
-     width: auto;
- }
- nav{
-    margin: 0 auto 2px auto;
- }
- img{
-     width: 100%;
-     height: auto;
- }
+    .main{
+        order: -1;
+    }
 }
