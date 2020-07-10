@@ -95,6 +95,9 @@
     margin: 5px;    
 
 }
+.last-white-box{
+    width: 65%;
+}
 .seemore{
     display:block;
     padding: 15px;
@@ -153,7 +156,6 @@
         padding-left: 12px;
         margin: 5px;
     }
-    
 }
 @media (min-width: 600px) and (max-width: 1024px){
     .main-box{
@@ -164,24 +166,27 @@
         width: 100%;
         height: 100%;  
     }
-    
+
     .white-box>p{
         display:block;
     }
-    .box-column>.white-box{
+    .box-column>.limited>.white-box{
         position: absolute;
         background-color: rgba(255,255,255,0.8);
         height: 100%;
-        width: 50%;
+        width: 47.5%;
         padding-left: 12px;
         margin: 5px;
     }
-    .flex-column>.white-box{
+    .box-row>.limited>.white-box{
         position: absolute;
         background-color: rgba(255,255,255,0.8);
-        height: 150px;
-        width: 50%;
+        height: 50%;
+        width: 96%;
         padding-left: 12px;
         margin: 5px;
+    }
+    .last-white-box{
+        align-self: flex-end;
     }
 }
