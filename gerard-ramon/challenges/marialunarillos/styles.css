@@ -112,11 +112,17 @@ body {
     margin: 40px;
 }
 
+.utensilios-right {
+    display: flex;
+    flex-direction: column;
+}
+
 .utensilios-item-container {
-    justify-content: flex-end;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
     position: relative;
-    width: 100%;
-    padding: 2px 0;
+    padding: 3px 5px;
 }
 
 .utensilios-item-container img {
@@ -133,6 +139,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: absolute;
 }
 
 .utensilios-item-info-big {
@@ -145,6 +152,8 @@ body {
     text-align: center;
 }
 
+
+/*
 .overlay {
     position: absolute;
     left: 0;
@@ -152,6 +161,7 @@ body {
     right: 0;
     bottom: 0;
 }
+*/
 
 .main-cards {
     margin: 40px;
@@ -247,5 +257,15 @@ body {
     }
     .carrousel-paging {
         justify-self: center;
+    }
+    .main-utensilios {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .utensilios-item-container img {
+        height: 100%;
+    }
+    .utensilios-item-info-big {
+        width: 60%;
     }
 }
