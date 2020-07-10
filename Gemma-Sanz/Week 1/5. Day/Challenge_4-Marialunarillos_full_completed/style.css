@@ -118,8 +118,8 @@
 .card>img{
    height: 75vh;
 }
-.card{
-    margin: auto;
+.card>p{
+    align-items: flex-start;
 }
 
 @media (min-width: 1024px){
