@@ -65,10 +65,26 @@ h2{
     height: 60%;
     position: absolute;
 }
+.container-items__white-box p{
+    display: none;
+}
 h3{
     font-size: 1rem;
-    padding: 1rem;
+    padding: 0 0 0 1rem;
     color: rgb(82, 79, 79);
+}
+/*boton rojo*/
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.showmore{
+    background-color: red;
+    border: transparent;
+    color: white;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
 }
 @media screen and (min-width:600px){
     .container-desck{
@@ -85,5 +101,65 @@ h3{
         object-fit: none;
         width: 100%;
         height: 100%;
+    }
+    .container-items__white-box h3{
+        height: 20%;
+        font-size: 16px;
+        padding: 0 0 0 0.5rem;
+    }
+    .container-items__white-box p{
+        display: flex;
+        padding: 0 0 0 0.5rem;
+        font-size: 12px;
+        height: 80%;
+    }
+    .end-col{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .start-row{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .end-row{
+        height: 100%;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+    }
+}
+@media screen and (min-width:1024px){
+    .end-col{
+        height: 150px;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+    }
+    .start-row{
+        height: 150px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+    }
+    .end-row{
+        height: 150px;
+        width: calc(50% - 100px);
+        left: 50%;
+    }
+    .container-items__white-box::after{
+       content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255,255,255,0.7);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
     }
 }
