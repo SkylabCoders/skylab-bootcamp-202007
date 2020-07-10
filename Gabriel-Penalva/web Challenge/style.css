@@ -79,6 +79,7 @@
     }
     .card{
         width: 70%;
+        height: 100%;
     }
     #side-col{
         height: 450px;
