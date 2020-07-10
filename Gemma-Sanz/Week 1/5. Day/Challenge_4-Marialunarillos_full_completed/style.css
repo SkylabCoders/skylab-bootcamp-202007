@@ -185,6 +185,9 @@
         padding-left: 12px;
         margin: 5px;
     }
+    .main-cards{
+        align-items: baseline;
+        }
     .card_1,.card_2,.card_3{
         display: flex;
         flex-direction: column;
@@ -255,7 +258,6 @@
     .main-brands>img{
         margin: 25px;
         filter: grayscale();
-
     }
     .main-brands>img:hover{
         filter: none;
