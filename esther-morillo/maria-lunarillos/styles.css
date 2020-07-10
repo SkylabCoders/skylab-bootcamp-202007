@@ -269,6 +269,14 @@ span {
     display: none;
 }
 
+.color-bar {
+    display: none;
+}
+
+.main-box p {
+    display: none;
+}
+
 /* Media Queries */
 @media screen and (min-width: 600px) {
     .cards {
@@ -297,21 +305,28 @@ span {
 
     .box-image {
         /* QUITAR imagen vertical "cortada" */
-        object-fit: none;
+        /* object-fit: none; */
         width: 100%;
         height: 100%;
     }
 
     .white-box {
-        height: 50%;
-        
+        height: 150px;
     }
 
-    .white-height {
-        width: 100%;
-        height: 25%;
+    .white-box::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255,255,255,0.7);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
     }
 
+    
     .card-three {
         display: block;
     }
@@ -328,4 +343,19 @@ span {
             width: 100%;
             height: 500px;
     }
+
+    .main-box p {
+        display: block;
+    }
+    
+    
+
+    /* .color-bar {
+        display: flex;
+    }
+        .color-box:nth-child(1) {
+            background-color: #ff5959;
+            width: 100px;
+            height: 300px;
+        } */
 }
