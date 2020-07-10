@@ -62,9 +62,9 @@
 }
 .limited>div>h3{
     position: absolute;
-    background-color: rgba(255, 247, 247, 0.747);
+    background-color: rgba(255,255,255,0.8);
     padding: 16px;
-    width: 150px;
+    width: 190px;
     color: rgb(83, 81, 81);
 }
 .limited>img {
@@ -91,4 +91,36 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+@media (min-width: 1024px){
+    /*box modification*/
+    .main-box{
+        display: flex;
+        flex-direction: row;
+    }
+    .box-row{
+        display: flex;
+        flex-direction: row;
+    }
+    .box-column{
+        display: flex;
+        flex-direction: column;
+    }
+    .limited>img {
+        width: 100%;
+        height: 100%;  
+    }
+    .limited>div>h3::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255,255,255,0.8);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
+        z-index: -1;
+    }
 }
