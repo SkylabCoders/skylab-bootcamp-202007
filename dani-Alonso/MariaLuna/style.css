@@ -59,6 +59,11 @@ a {
     width: 100%;
 }
 
+.images-right {
+    display: flex;
+    flex-direction: column;
+}
+
 .image-text {
     z-index: 1;
     position: absolute;
@@ -117,6 +122,7 @@ a {
 }
 
 .logo-text {
+    display: none;
     height: 20px;
     width: 20%;
     display: flex;
@@ -137,8 +143,20 @@ a {
     width: 70%;
 }
 
-@media screen and(min-width: 600px) {
+@media only screen and (min-width: 600px) {
     .logo-text {
         display: block;
+    }
+    .images {
+        display: flex;
+        flex-direction: row;
+    }
+    .images-right {
+        display: flex;
+        flex-direction: column;
+    }
+    .image1 img {
+        min-height: 600px;
+        min-width: 300px;
     }
 }
