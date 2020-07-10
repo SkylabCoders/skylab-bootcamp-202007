@@ -1,54 +1,144 @@
-
-a{
+a {
     text-decoration: none;
     width: 100%;
 }
-.header{
 
+.header {
     height: 5vh;
-    width: 100%;
-    }
-.header img{
-    height: 100%;
-    width: auto;
+    width: 50%;
+    display: flex;
 }
-.header-units{
+
+.header img {
+    height: 100%;
+    width: 50%;
+}
+
+.header-units {
     background-color: red;
     color: white;
     width: auto;
     text-align: center;
-    width: 28.5px;
+    width: 206.5px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
 }
+
 .slider img {
-   
     width: 92%;
 }
 
-.logo img{
-    width: 75%;
-margin: 12%;
-
-}
-
-.utensilios{
+.utensilios {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.utensilios img{
+.utensilios img {
     width: 20%;
-    
 }
-.utensilios h2{
+
+.utensilios h2 {
     display: flex;
     border-top: 2px solid;
     border-bottom: 2px solid;
     height: 50px;
     align-items: center;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+}
+
+.images img {
+    height: 25vh;
+    width: 100%;
+}
+
+.image-text {
+    z-index: 1;
+    position: absolute;
+    margin-top: -69px;
+    width: 50%;
+    background-color: white;
+    opacity: 0.7;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 92%;
+}
+
+.raul img {
+    width: 25%;
+}
+
+.raul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.blog {
+    color: white;
+    background-color: #FF5959;
+    width: 30%;
+    height: 41px;
+    text-align: center;
+    margin: auto;
+    padding-top: 33px;
+}
+
+.footer {
+    background-color: #FF5959;
+    height: 44px;
+    text-align: center;
+    padding-top: 26px;
+    color: white;
+    margin-top: 12px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo img {
+    width: 35%;
+    margin: 12%;
+}
+
+.logo-text {
+    height: 20px;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+}
+
+.novedades {
+    background-color: #9faa4d;
+    color: white;
+    height: 20px;
+    width: 88%;
+}
+
+.ofertas {
+    background-color: #8e789d;
+    color: white;
+    height: 20px;
+    width: 70%;
+}
+
+@media screen and(min-width: 600px) {
+    .logo-text {
+        display: block;
+    }
 }
