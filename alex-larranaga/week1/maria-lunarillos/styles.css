@@ -11,6 +11,7 @@ body {
     justify-content:flex-end;
     margin-right: 5%;
     background-color: rgba(255, 255, 255, 0.904);
+
 }
 
 .sliderContainer{
@@ -20,13 +21,15 @@ body {
         margin: 10vh 10vw;
 }
 
-.header-icon-login {
-    width: 27px;
-    height: 27px;
-    background: url(usuario.png) 0 0 no-repeat;
-    margin: 10px;
+.navigation-container ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-decoration: none;
+    margin: 0 !important;
+    padding: 0 !important;
 }
-}
+
 
 
 
