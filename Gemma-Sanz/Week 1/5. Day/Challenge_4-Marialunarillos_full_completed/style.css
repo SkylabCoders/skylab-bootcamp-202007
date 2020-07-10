@@ -41,6 +41,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    ;
 }
 .slider{
     width: 100%;
@@ -113,6 +114,12 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.card>img{
+   height: 75vh;
+}
+.card{
+    margin: auto;
 }
 
 @media (min-width: 1024px){
