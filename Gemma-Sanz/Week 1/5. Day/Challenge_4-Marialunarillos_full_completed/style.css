@@ -115,6 +115,7 @@
 }
 .card_1>img, .card_2>img, .card_3>img{
    height: 75vh;
+   margin: 10px;
 }
 .card_1>p{
     align-items: flex-start;
@@ -131,6 +132,10 @@
 }
 .cards--hidden{
     display: none;
+}
+.img_autor{
+    height: 60px;
+    width: 71px;
 }
 
 @media (min-width: 1024px){
@@ -173,6 +178,10 @@
         width: 50%;
         padding-left: 12px;
         margin: 5px;
+    }
+    .card_1,.card_2,.card_3{
+        display: flex;
+        flex-direction: column;
     }
 }
 @media (min-width: 600px) and (max-width: 1024px){
