@@ -130,7 +130,9 @@
     color: palevioletred;
     font-weight: bold;
 }
-
+.cards--hidden{
+    display: none;
+}
 @media (min-width: 1024px){
     /*box modification*/
     .main-box{
@@ -182,7 +184,6 @@
         width: 100%;
         height: 100%;  
     }
-
     .white-box>p{
         display:block;
     }
@@ -205,4 +206,5 @@
     .last-white-box{
         align-self: flex-end;
     }
+
 }
