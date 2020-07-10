@@ -315,4 +315,17 @@ span {
     .card-three {
         display: block;
     }
+
+    .button-blog {
+        width: 80%;
+        text-align: center;
+    }
+
+    .slider {
+            /* imagen vertical "cortada" */
+            object-fit: cover;
+            object-position: 0;
+            width: 100%;
+            height: 500px;
+    }
 }
