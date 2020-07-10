@@ -161,6 +161,8 @@ nav {
   height: 136px;
 
   padding: 7px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .list-first,
@@ -277,7 +279,6 @@ input,
     width: calc(50% - 7.5px);
     height: calc(100% - 4.25px);
 
-    right: 0;
     bottom: 0;
   }
   .title {
@@ -289,24 +290,21 @@ input,
     color: #67635f;
     padding-left: 10px;
     display: block;
+
+    padding: 20px;
   }
+  .right{
+    right: 0;
+  }
+  .left{
+    left: 0;
+  }
+
 }
 
 @media only screen and (min-width: 800px) {
   .card3 {
     display: inline;
-  }
-
-  .text-box {
-    content: "";
-    display: inline-block;
-    width: 70%;
-
-    border-bottom: 150px solid rgba(255, 255, 255, 0.8);
-    border-right: 100px solid transparent;
-    position: absolute;
-    right: -100px;
-    top: 0;
   }
 
   .list-first > .img {
@@ -317,6 +315,32 @@ input,
     width: 715px;
     height: 300px;
   }
-}
+  .list-first > .text-box {
+    width: 70%;
+    height: 125px;
 
-width: calc(50% - 115px);
+    left: 0;
+    bottom: 0;
+  }
+  .list-second > .text-box {
+    width: 50%;
+    height: 125px;
+
+    bottom: 0;
+  }
+  .right{
+    right: 80px;
+  }
+
+  .text-box::after{
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-bottom: 150px solid rgba(255,255,255,0.8);
+    border-right: 100px solid transparent;
+    position: absolute;
+    right: -100px;
+    top: 0;
+  }
+}
