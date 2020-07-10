@@ -17,6 +17,25 @@
 .flex-justify{
     justify-content: center;
 }
+.card{
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+}
+.card img{
+    position:absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+}
+.slide-column{
+    width:100%;
+}
 
 #square_inv{
     width: 50px;
@@ -40,9 +59,32 @@
 #main-container{
     justify-content: space-around;
 }
-#image{
-    align-self: stretch;
-}
+
 #image img {
+    margin-top: 50px;
     width: 100%;
+}
+#logo {margin-top: 50px;}
+
+#layer-container{
+    width: 90%;
+    align-self:center;
+
+}
+
+@media screen and (min-width: 600px){
+
+    .sm{
+        flex-direction: row;
+    }
+    .card{
+        width: 70%;
+    }
+    #side-col{
+        height: 450px;
+    }
+    #side-row{
+        width: 100%;
+    }
+ 
 }
