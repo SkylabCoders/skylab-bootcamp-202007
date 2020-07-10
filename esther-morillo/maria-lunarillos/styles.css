@@ -21,7 +21,7 @@ body {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    width: 70%;
+    width: 90%;
     height: 3rem;
     line-height: 3.3rem;
 }
@@ -32,20 +32,24 @@ body {
     cursor: pointer;
 }
 
-.nav-icon:nth-child(2) {
-    flex-grow: 2;
+.login {
+    flex-grow: .9;
     text-align: center;
 }
 
-.nav-icon:nth-child(3) {
+.search {
     background-color: #bbb8b6;
 }
 
-.nav-icon:nth-child(4) {
+.cart {
     background-color: #fff;
 }
 
-.nav-icon:nth-child(5) {
+    .cart:hover {
+        background-color: #ff5959;
+    }
+
+.icon-number {
     background-color: #ff5959;
 }
 
@@ -59,11 +63,13 @@ body {
 /* Icons */
 .login {
     position: relative;
+    /* justify-content: flex-end; */
     top: 8px;
 }
 
 .img-login {
     position: absolute;
+    margin-bottom: 1rem;
 }
 
 .search {
@@ -135,9 +141,14 @@ h1 {
         display: flex;
         flex-direction: column-reverse;
         position: relative;
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
+        margin-left: .5rem;
         cursor: pointer;
     }
+
+        .margin-extra {
+            margin-right: .5rem;
+        }
 
     .box-image {
         /* imagen vertical "cortada" */
@@ -148,7 +159,8 @@ h1 {
     }
 
     /* Posición absoluta para que esté encima de la imaen */
-    .white-box {
+    .white-box,
+    .direction-right {
         background-color: rgba(255, 255, 255, .7);
         width: 50%;
         height: 60%;
@@ -159,7 +171,7 @@ h1 {
         font-size: 1rem;
         font-weight: 700;
         padding: 1rem;
-        color: rgb(82, 79, 79);
+        color: #646464;
     }
     
     .button-main {
@@ -198,13 +210,13 @@ h1 {
     padding: 1rem;
 }
 
-
 .button-blog {
     background-color: #ff5959;
     color: #fff;
     width: 340px;
     padding: 15px 30px;
     cursor: pointer;
+    text-align: center;
 }
 
 .blog-image {
@@ -233,9 +245,10 @@ h1 {
 }
 
 .author-title, p {
-    color: rgb(70, 69, 69); 
+    color: #646464;
     font-size: .85rem;
     padding-left: 1rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -265,7 +278,7 @@ span {
 
 
 /* Display none */
-.card-two, .card-three {
+.card-center, .card-right {
     display: none;
 }
 
@@ -277,6 +290,22 @@ span {
     display: none;
 }
 
+.links {
+    display: none;
+}
+
+.login > p {
+    display: none;
+}
+
+.color {
+    display: none;
+}
+
+.enter > p {
+    display: none;
+}
+
 /* Media Queries */
 @media screen and (min-width: 600px) {
     .cards {
@@ -284,11 +313,243 @@ span {
         flex-direction: row;
     }
 
-    .card-two {
+    .card-center {
         display: block;
         margin: 0 1rem;
     }
+
+    /* Colors box logo */
+    .color {
+        display: block;
+    }
+
+    .red {
+        margin-right: .3rem;
+        width: 70px;
+        height: 150px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/maria-lunarillos.png) #FF5959 bottom center no-repeat;
+    }
+
+    .blue {
+        margin-right: .3rem;
+        width: 70px;
+        height: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/cucute.png) #6199AF bottom center no-repeat;
+    }
+
+        .blue:hover {
+            height: 150px;            
+        }
+    
+    .yellow {
+        width: 70px;
+        height: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/mumuchu.png) #F6B436 bottom center no-repeat;
+    }
+
+        .yellow:hover {
+            height: 150px;            
+        }
+
+    .icon-burger {
+        display: none;
+    }
+
+    /* Spacer button */
+    .spacer {
+        flex-grow: 2;
+    }
+
+    .spacer-fixed {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Socials buttons nav */
+    .socials {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+    }
+
+    .socials li {
+        height: 50px;
+    }
+
+    .socials li a {
+        width: 25px;
+        height: 20px;
+        margin: 15px 7px 0;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) transparent 0 0 no-repeat;
+        text-indent: -3000px;
+        display: block;
+        text-indent: -3000px;
+    }
+
+        .socials li .facebook {
+            background-position: -4px -540px;
+        }
+
+        .socials li .twitter {
+            background-position: -40px -540px;
+        }
+
+        .socials li .instagram {
+            background-position: -75px -540px;
+        }
+
+        .socials li .pinterest {
+            background-position: -110px -540px;
+        }
+
+        .socials li .youtube {
+            background-position: -180px -540px;
+        }
+
+    /* Parte navegador de logo y botones */
+    .nav-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 180px;
+        margin-bottom: 1.5rem;
+    }
+
+    .container-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttons-links {
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    .buttons-menu {
+        background-color: #f2f2f2;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 80px;
+        height: 80px;
+        margin: 0 .15rem;
+    }
+
+    .buttons-menu:nth-child(1) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/utensiliosML.png);
+        background-size: 50%;
+        
+    }  
+
+    .buttons-menu:nth-child(2) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/magdalena.png);
+        background-size: 50%;
+        
+    }  
+
+    .buttons-menu:nth-child(3) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/tarta-cumpleanos.png);
+        background-size: 50%;
+        
+    }  
+
+    .buttons-menu:nth-child(4) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/delantal.png);
+        background-size: 70%;
+    }   
+
+    .buttons-menu:nth-child(5) {
+        display: none;
+    }  
+    
+    .buttons-menu:nth-child(6) {
+        background-image: url(https://www.marialunarillos.com/blog/wp-content/uploads/2017/09/icono-blog.png);
+        background-size: 60%;
+    } 
+
+
+        .buttons-menu:nth-child(1):hover {
+            background-color: #ff5959;
+        } 
+
+        .buttons-menu:nth-child(2):hover {
+            background-color: #ff5959;
+        } 
+
+        .buttons-menu:nth-child(3):hover {
+            background-color: #ff5959;
+        } 
+
+        .buttons-menu:nth-child(4):hover {
+            background-color: #ff5959;
+        } 
+
+        .btn-red {
+            background-color: #ff5959;
+        }
+            
+            .btn-red:hover {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+
+
+    /* Novedades y ofertas */
+    .buttons-links {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .buttons-bar {
+        width: 130px;
+        height: 30px;
+        text-align: start;
+        padding: 0 .1rem;
+        line-height: 30px;
+        color: #fff;
+        font-size: .85rem;
+        margin: 0 .2rem;
+        margin-bottom: 1rem;
+    }
+
+    .news {
+        background-color: #9faa4d;
+    }
+
+        .news::before {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -244px 4px no-repeat;
+            content: '';
+            float: left;
+        }
+
+        .offers::before {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -274px 4px no-repeat;
+            content: '';
+            float: left;
+        }
+
+    .offers {
+        background-color: #8e789d;
+    }
+
+    .input,
+    .bnt-search {
+        display: none;
+    }
+
+    /* Hidden none */
+    .nav-logo {
+        display: none;
+    }
+
+
 }
+
 
 @media screen and (min-width: 1024px) {
     .box-row {
@@ -312,6 +573,7 @@ span {
 
     .white-box {
         height: 150px;
+        width: 250px;
     }
 
     .white-box::after {
@@ -327,12 +589,12 @@ span {
     }
 
     
-    .card-three {
+    .card-right {
         display: block;
     }
 
     .button-blog {
-        width: 80%;
+        width: 1050px;
         text-align: center;
     }
 
@@ -348,14 +610,32 @@ span {
         display: block;
     }
     
-    
-
-    /* .color-bar {
-        display: flex;
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        padding: 1rem;
+        padding-bottom: .8rem;
+        color: #646464;
     }
-        .color-box:nth-child(1) {
-            background-color: #ff5959;
-            width: 100px;
-            height: 300px;
-        } */
+
+    .direction-right {
+        left: 365px;
+    }
+
+    /* Texto login */
+    .login {
+        display: flex;
+        align-items: center;
+    }
+
+    .enter > p {
+        display: block;
+        color: #000;
+        font-size: .7rem;
+        margin: 1.3rem;
+    }
+
+    .links {
+        display: block;
+    }
 }
