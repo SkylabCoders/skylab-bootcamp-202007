@@ -1,6 +1,6 @@
 body {
   font: 12px/1.55 "Source Sans Pro", sans-serif;
-  min-width: 300px;
+  min-width: 300pxgi;
 }
 
 header {
@@ -243,14 +243,16 @@ footer {
 input,
 .card2,
 .card3,
-.subtitle {
+.subtitle,
+.header > div > p{
   display: none;
 }
 
 @media only screen and (min-width: 600px) {
   input,
   .card2,
-  .subtitle {
+  .subtitle,
+  .header > div > p{
     display: inline;
   }
   .list {
@@ -315,8 +317,6 @@ input,
     width: 715px;
     height: 300px;
   }
-
 }
-
 
 width: calc(50% - 115px);
