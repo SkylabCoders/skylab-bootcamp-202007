@@ -1,0 +1,132 @@
+/*Main Area*/
+body {
+    margin-top: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e6e4d9;
+    background-image: url('../images/pattern.png');
+    display: flex;
+    flex-direction: column;
+}
+
+#mainheader {
+    background-color: #a593c2;
+}
+
+/*Top Menu*/
+
+nav {
+    height: 60px;
+    width: 100%;
+    margin: 0 auto 2px 400px;
+    display: flex;
+    flex-direction: row;
+}
+
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+nav>ul>li {
+    display: flex;
+}
+
+nav>ul>li a {
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*Side Menu*/
+
+.mainContent ul{
+    padding-inline-start: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent ul>a>li{
+    background-color: #cf4522;
+    color: #fff;
+    list-style: none;
+    padding: 14px 25px;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.mainContent ul>a>li:hover{
+    background-color: #B43110;
+}
+
+.mainContent ul>a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.mainContent{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+.firstcontent{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.leftmenu {
+    width: 30%;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+/*Main Content*/
+
+.main {
+    width: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pageTitle{
+    font-size:35px;
+    color:#a593c2;
+}
+
+/*Footer*/
+footer {
+    clear: both;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px){
+ .firstcontent{
+     flex-direction: column;
+     margin-left: 15px;
+     margin-right: 15px;
+ }
+ .leftmenu {
+     margin: auto;
+ }
+ .mainContent{
+     width: auto;
+ }
+ nav{
+    margin: 0 auto 2px auto;
+ }
+ img{
+     width: 100%;
+     height: auto;
+ }
+}

@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-box {
+    height: 80px;
+    width: 80px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-bio {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-picture {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.triangle {
+    display: flex;
+    flex-direction: column;
+}
+
+.triangle-item {
+    border: 1px dashed;
+    border-radius: 50%;
+    height: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .triangle-item {
+        background-color: green;
+    }
+}
