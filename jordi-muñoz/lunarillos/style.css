@@ -17,6 +17,13 @@ body {
     width: 40px;
     height: 40px;
 }
+.nav-right {
+    display: flex;
+    justify-content: space-evenly;
+}
+.icons {
+    margin-right: 20px;
+}
 .space {
     height: 100px;
 }
@@ -31,8 +38,29 @@ body {
 }
 .logo {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     height: 150px;
+}
+.logo-right {
+    display: none;
+}
+.logo-right-up {
+    display: flex;
+    justify-content: center;
+}
+.mini-icons {
+    display: flex;
+    justify-content: center;
+}
+.mini-icons-pics {
+    margin-left: 4px;
+    height: 80px;
+    width: 80px;
+    background-color: rgb(240, 240, 240);
+}
+.mini-icons-pics img {
+    height: 70px;
+    width: 70px;
 }
 .slider img {
     width: 100%
@@ -104,7 +132,9 @@ body {
 
 .blog-pic img {
     width: 340px;
-
+}
+.blog-pic {
+    margin-right: 5px;
 }
 .blog-title {
     background-color: tomato;
@@ -146,6 +176,9 @@ body {
     font-weight: bolder;
     align-self: center;
 }
+.hidden1, .hidden2 {
+    display: none;
+}
 .footer-content {
     display: flex;
     flex-direction: column;
@@ -168,6 +201,9 @@ body {
 }
 .color-lila {
     background-color: purple;
+}
+.brands {
+    display: none;
 }
 
 
@@ -229,21 +265,54 @@ body {
     }
     .red {
         height: 140px;
-        background-color: red;
+        background-color: rgb(238, 76, 76);
     }
     .blue{
-        background-color: blue;
+        background-color: rgb(97, 97, 235);
         margin-left: 4px;
     }
     .yellow {
-        background-color: yellow;
+        background-color: rgb(235, 235, 65);
         margin-left: 4px;
     }
     .blue:hover, .yellow:hover {
         cursor: pointer;
         height: 140px;
     }
+    .nav-right {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .blog-three-pics {
+        display: flex;
+        justify-content: space-between;
+    }
+    .hidden1 {
+        display: block;
+    }
+    .brands {
+        margin-top: 20px;
+        min-width: 500px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .single-brands {
+        margin: 5px;
+    }
+    .single-brands img {
+        filter: grayscale(100%);
+        width: 70%;
+    }
+    .single-brands img:hover {
+        filter: none;
+    }
+    .logo-right {
+        display: flex;
+        flex-direction: column;
+    }
 }
+
 @media screen and (min-width: 1024px) {
     .title-pic::after {
         content: '';
@@ -271,5 +340,8 @@ body {
     .right {
         height: 50%;
         width: 50%;
+    }
+    .hidden2 {
+        display: block;
     }
 }
