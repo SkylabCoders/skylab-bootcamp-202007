@@ -100,3 +100,91 @@ h2 {
     color: #2E2925;
     font-family: sans-serif;
 }
+
+.main-section-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    margin: 10px;
+    width: 300px;
+    height: 125px;
+    display: flex;
+    align-content: flex-end;
+}
+.box-bg {
+    display: flex;
+    align-items: center;
+    align-content: flex-end;
+    width: 50%;
+    height: 60%;
+    background-color: rgba(255,255,255,0.8);
+}
+.box-bg p {
+    font:'Source Sans Pro', sans-serif;
+    color: #67635F;
+    align-items: center;
+    justify-content: center;
+
+}
+.section-container-boxTop{
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/moldesdereposteria.jpg);
+    display: flex;
+    align-items: flex-end;
+}
+
+.section-container-boxBottom {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.section-container-boxBottom1 {
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/utensiliosbasicos.jpg);
+    align-items: flex-end;
+}
+
+.section-container-boxBottom2 {
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/pequenoelectrodomestico2.jpg);
+    align-items: flex-end;
+}
+
+@media screen and (min-width: 600px) {
+
+    .main-section-1 {
+        flex-direction: row;
+    }
+    .section-container-boxBottom {
+        flex-direction: row;
+    }
+    .box {
+        width: 125px;
+        height: 300px;
+    }
+    .box p {
+        
+
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .main-section-1 {
+        flex-direction: row;
+    }
+    .section-container-boxBottom {
+        flex-direction: column;
+        }
+    
+    .box-h {
+        width: 300px;
+        height: 125px;
+    }
+    .box-v {
+        width: 125px;
+        height: 300px;
+    }
+}
