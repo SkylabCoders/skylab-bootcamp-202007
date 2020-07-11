@@ -17,6 +17,7 @@ body {
     background-color: #f8f8f8;
     width: 100%;
     position: fixed;
+    top: 0;
     z-index: 500;
 }
 
@@ -268,7 +269,6 @@ span {
     margin-bottom: 7rem;
 }
 
-
 /* Footer */
 .footer {
     background-color: #ff5959;
@@ -314,7 +314,7 @@ span {
 }
 
 /* Media Queries */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
     .cards {
         display: flex;
         flex-direction: row;
@@ -368,10 +368,14 @@ span {
     }
 
     .nav-button {
-        margin: 0 auto;
-        padding-bottom: 1rem;
+        display: flex;
         width: 80%;
     }
+
+    .logo-text {
+        align-self: flex-end;
+    }
+
 
     /* Spacer entre logo y botones grandes */
     .flex-spacer {
@@ -431,9 +435,8 @@ span {
 
     /* Parte navegador de logo y botones */
     .nav-button {
-        display: flex;
-        flex-direction: row;
-        padding-top: 180px;
+        margin: 0 auto;
+        margin-top: 180px;
         margin-bottom: 1.5rem;
     }
 
@@ -445,6 +448,7 @@ span {
     .buttons-links {
         display: flex;
         flex-direction: row;
+        padding-bottom: 1.3rem;
     }
 
 
@@ -573,12 +577,18 @@ span {
     .input,
     .bnt-search {
         display: none;
-    }
+    }   
 
     /* Hidden none */
     .nav-logo {
         display: none;
     }
+
+    .top {
+        display: none;
+    }
+
+    /* Arreglar el main tablet */
 
 
 }
@@ -678,4 +688,34 @@ span {
     .links {
         display: block;
     }
+
+    .top {
+        display: flex;
+    }
+
+    /* Input search */
+    .input,
+    .bnt-search {
+        display: flex;
+    }
+
+    .bnt-search {
+        background-color: #bbb8b6;
+        width: 50px;
+        display: block;
+        float: right;
+        width: 49px;
+        height: 28px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -303px 2px no-repeat #BBB8B6;
+        border: none;
+    }
+
+    .input {
+        flex-grow: 2;
+    }
+
+    .nav-button {
+        margin-top: 100px;
+    }
+
 }
