@@ -34,3 +34,31 @@ body>a>svg{
 .lens>img{
     width: 30px;
 }
+.main-section--carousel{
+display: flex;
+flex-direction: row ;
+justify-content: space-around;
+overflow: hidden;
+min-width: 1024px;
+
+}
+.main-section--carousel>div{
+    margin: 0.3%;
+}
+.main-section--carousel>div>a>img{
+    width: 100%;
+    height: 100%;
+}
+@media (max-width:599px){
+    .carousel-mobile--display-none{
+        display: none;
+    }
+}
+@media (max-width:1023px){
+    .carousel-tablet--display-none{
+        display: none;
+    }
+}
+@media (min-width:1024){
+
+}
