@@ -1,0 +1,119 @@
+/*
+** HEADER **
+*/
+
+div, section{
+    max-width:100%; /*KEY ONE */
+}
+
+html, body {
+    margin: 0 auto;
+    display: initial;
+    max-width:100%;
+    background-color: black;
+    color: white;
+    list-style: none;
+    text-decoration: none;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    width: 100vw;
+    max-width:100%;
+    border: 1px solid red;
+    background-color: black;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .8) 0, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .4) 50%, transparent 100%)
+}
+
+.header-left-container, .header-left-container nav, .header-left-container nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-left-container img {
+    height: 50px;
+    padding: 5px;
+}
+
+.header-right-container, .header-right-container ul {
+    display: flex;
+    flex-direction: row;
+    display: none;
+}
+
+/*
+** MAIN **
+*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    width: 100vw;
+    max-width:100%;
+    height: 75vh;
+    border: 1px solid blue;
+}
+
+.main-slider {
+    width: 100%;
+    height: 20vh;
+    background: url("./images/harriet-4k-slider-1593528621-width1920-quality80.jpeg") no-repeat center center ; 
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: auto;
+}
+
+.movies-container, .movies-individual-selector, .movies-container-images  {
+    width: 100vw;
+    height: 100%;
+}
+
+.tittle-main {
+    color: white;
+    width: 100vw;
+    background-color: black;
+}
+
+.movies-individual-selector {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.movies-container-images {
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.movies-container-images ul {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*
+** FOOTER **
+*/
+
+footer {
+    display: flex;
+    flex-direction: row;
+    height:15vh;
+    width: 100vw;
+    max-width:100%;
+    border: 1px solid green;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
