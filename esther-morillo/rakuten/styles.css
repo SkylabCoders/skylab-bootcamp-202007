@@ -96,11 +96,11 @@ body {
     flex-direction: row;
     margin: 1.5rem;
     margin-left: .5rem;
+    /* overflow: hidden; */
 }
 
 .container-main__premiere img {
     transform: scale(.95);
-    
 }
 
 
@@ -114,6 +114,10 @@ body {
         display: block;
     }
 
+    .slider {
+        margin-top: 60px;
+    }
+
     .slider__img {
         overflow: visible;
     }
@@ -125,6 +129,7 @@ body {
     /* Menú nav */
     .main-nav {
         background-color: #000;
+        top: 0;
         height: 60px;
         padding: 0 20px;
     }
