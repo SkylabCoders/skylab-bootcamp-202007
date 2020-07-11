@@ -24,8 +24,13 @@ header {
 }
 
 .logo {
-  width: 10%; 
+    width: 140px; 
 }
+.logo img{
+    height: auto;
+    width: 100%;
+}
+
 
 .menu {
     display: flex;
@@ -89,4 +94,45 @@ header {
     padding: 0 8px;
 }
 
+.search-icon-responsive {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+}
+
+
+
 /* --------- Main --------- */
+
+/* Tablet */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    header {
+        width: 100%;
+        height: 50px;
+        background: #000;
+        background: linear-gradient(to bottom,rgba(0,0,0,.8) 0,rgba(0,0,0,.7) 20%,rgba(0,0,0,.4) 50%,transparent 100%);
+        z-index: 200;
+    }
+    .menu {
+        display: none;
+    }
+    .search {
+        display: none;
+    }
+    .user {
+        display: none;
+    }
+    .search-icon-responsive img {
+        justify-content: flex-end;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 768px) {
+    .search-icon-responsive {
+        display: none;
+    }
+}
+
