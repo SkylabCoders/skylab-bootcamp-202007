@@ -1,0 +1,50 @@
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.main-carousel{
+    position: relative;
+}
+.main-carousel-image{
+    width: 100%;
+    height: auto;
+}
+.point{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: lightslategray;
+}
+.point:nth-child(6){
+    background-color: white;
+}
+.main-points{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 120px;
+    position: absolute;
+    left: 50%;
+	top: 89%;
+	transform: translate(-50%, 0);
+}
+.carousel-other{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.artwork__image{
+    width:33vh;
+    margin: 3px;
+    counter-increment: artwork__image;
+}
+.artwork__image:before {
+    display: block;
+    text-align: center;
+    content: counter(artwork__image);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  }
