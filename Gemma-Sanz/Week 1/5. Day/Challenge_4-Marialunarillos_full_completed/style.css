@@ -51,6 +51,9 @@
     margin: auto;
     width: 75%;
 }
+.header-icons{
+    display: none;
+}
 .slider{
     width: 100%;
     position: relative;
@@ -81,7 +84,6 @@
     display: flex;
     flex-direction: column-reverse;
     margin: 5px;
-
 }
 .white-box{
     position: absolute;
@@ -102,7 +104,6 @@
 .white-box>p{
     display:none;
     margin: 5px;    
-
 }
 .last-white-box{
     width: 65%;
