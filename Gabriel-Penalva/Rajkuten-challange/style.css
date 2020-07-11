@@ -1,38 +1,89 @@
-body{
-    background-color: black;
-    margin: 0px;
+body {
+  background-color: black;
+  margin: 0px;
 }
-.flex-row{
-    display: flex;
-    flex-direction: row;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-item {
+  display: flex;
+}
+.header {
+  position: fixed;
+  display: flex;
+  width: -webkit-fill-available;
 }
 .icon.lupa {
-    width: 20px;
-    height: 20px;
-    border: 4px solid white;
-    border-radius: 50%;
-    position: relative;
-    padding-left: 2px;
-    margin-right: 1em;
-  }
-  
-  .icon.lupa:after {
-    position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 4px solid white;
+  border-radius: 50%;
+  position: relative;
+  padding-left: 2px;
+  margin-right: 1em;
+}
+
+.icon.lupa:after {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  display: block;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: rotate(45deg);
+  transform-origin: -2px 15px;
+}
+.logo_header {
+  width: -webkit-fill-available;
+  justify-content: space-between;
+  height: 3em;
+  padding: 10px;
+}
+.logo_header img {
+  height: inherit;
+}
+.slayer-top {
+  align-items: center;
+  width: 100%;
+  height: 15em;
+}
+.slayer-top img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+}
+.bot-nav{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 5em;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
-    height: 4px;
-    background-color: white;
-    display: block;
-    content: "";
-    top: 50%;
-    left: 50%;
-    transform: rotate(45deg);
-    transform-origin: -2px 15px;
-  }
-  .logo_header{
-      justify-content: space-between;
-      height: 3em;
-      padding: 3px;
-  }
-  .logo_header img{
-      height: inherit;
-  }
+}
+
+.icon-nav{
+    padding: 10px;
+    align-items: center;
+
+}
+.icon-nav img{
+    width: 55px;
+}
+.flex-item p{
+    color: skyblue;
+    margin: 2px
+}
+
+.icon-nav span{
+    color: lightskyblue;
+}
