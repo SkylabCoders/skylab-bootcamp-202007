@@ -1,0 +1,155 @@
+@font-face{
+    font-family: NotoSans-Regular;
+    src: url(https://prod0-kraken-cloudfront.rakuten.tv/fonts/NotoSans-Regular-21f6235482.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: NotoSans-Regular,Arial,sans-serif;
+    background-color:rgb(16, 16, 16);
+}
+ul{
+    list-style: none;
+}
+li{
+    font-size: 14px;
+    font-weight: bold;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.display-in-large{
+    display: none;
+}
+.flex-spacer{
+    flex-grow: 1;
+}
+.rakuten-logo{
+    width: 122px;
+    height: auto;
+    justify-self: flex-start;
+}
+.nav-submenu{
+    display: none;
+}                                                                            
+
+/*Nav bar*/
+
+nav{
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    margin-top: 0;
+    overflow: visible;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .8) 0, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .4) 50%, transparent 100%)
+}
+.nav-items{
+    width: 100%;
+    max-width: 1640px;
+}
+.nav-icon-button-item{
+    padding: 22px 0 22px 0;
+}
+.nav-icons__left{
+    display: inline-block;
+}
+.nav-icon-button-item:hover, .nav-submenu-item:hover{
+    color: #ffe300;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 1025px){
+    .display-in-large{
+        display: flex;
+    }
+    .hiden-in-large{
+        display:none;
+    }
+
+/*NAV BAR*/
+    nav {
+        background-color: black;
+        position: fixed;
+        border-bottom: solid grey 1px;
+    }
+
+    .nav-icon-button{
+        color: white;
+        text-align: center;
+        margin: 0 15px 0 20px;
+    }
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 5px solid white;
+        align-self: center;        
+    }
+    .nav-icons__right>ul>li:nth-child(3)>.nav-icon-button-item{
+        background-color:rgb(240, 213, 0);
+        color: black;
+        width: 108px;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 2px;
+        font-weight: bold;
+        padding: 12px 0 12px 0;
+    }
+    .nav-icons__left .nav-icon-button:nth-child(1){
+        width: 70px;
+    }
+    .nav-submenu{
+        width: 170px;
+        height: 78px;
+        padding: 0 15px;
+        margin-left: -8px;
+        background-color: black;
+        justify-content: space-around;
+    }
+    .nav-submenu-item{
+        font-weight: 200;
+        text-align: left;
+        padding: 15px 0 10px 0;
+    }
+    .desplegable-button:nth-child(3){
+        width: 104px;
+    }
+    .desplegable-button:nth-child(3)>.nav-submenu{
+        width: 150px;
+        margin-left: -15px;
+    }
+    .desplegable-button:hover>ul{
+        display: flex;
+    }
+    .nav-icon-button:hover .triangle{
+        width: 0;
+        height: 0;
+        border-top: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 5px solid rgb(240, 213, 0);
+        align-self: center;        
+    }
+    /*SEARCH BAR*/
+    input{
+        width: 300px;
+        height: 40px;
+        background-color:rgb(51, 51, 51);
+        color:rgb(156, 156, 156);
+        border-radius: 2px;
+        margin-top: 10px;
+        padding-left: 10px;
+    }
+    input:focus{
+        background-color:white;
+    }
+}
