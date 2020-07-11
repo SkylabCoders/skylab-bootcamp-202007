@@ -170,15 +170,72 @@
 
 }
 .footer_contact{
-    background-color: rgb(226, 225, 222);
+    background-color: rgb(245, 245, 245);
     width: 100%;
 }
 /*problems with footer*/
-.follow_us{
+.follow_us_icons{
     margin-bottom: 1px solid black;
 }
+ul{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+.follow{
+    display: flex;
+    flex-direction: row;
+    width: 33px;
+    height: 32px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) no-repeat transparent;
+}
+.follow:nth-child(1){
+    background-position: 0 -494px;
+}
+.follow:nth-child(1):hover{
+    background-position: 0 -574px;
+}
+.follow:nth-child(2){
+    background-position: -35px -494px;
+}
+.follow:nth-child(2):hover{
+    background-position: -35px -574px;
+}
+.follow:nth-child(3){
+    background-position: -70px -494px;
+}
+.follow:nth-child(3):hover{
+    background-position: -70px -574px;
+}
+.follow:nth-child(4){
+    background-position: -106px -494px;
+}
+.follow:nth-child(4):hover{
+    background-position: -106px -574px;
+}
+.follow:nth-child(5){
+    background-position: -176px -494px;
+}
+.follow:nth-child(5):hover{
+    background-position: -176px -574px;
+}
+
 .news{
     margin-bottom: 1px solid black;
+}
+.news_email{
+    height: 40px;
+    width: 45vh;
+}
+.news_text{
+    display:block;
+    padding: 15px;
+    color: white;
+    background-color: lightcoral;
+    bottom:50px;  
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
 }
 .copyright{
     background-color: lightcoral;
