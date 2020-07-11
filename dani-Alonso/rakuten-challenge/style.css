@@ -1,0 +1,21 @@
+body {
+    background-color: #171717;
+}
+
+.slider-img {
+    width: 100%;
+}
+
+.first-carousel {
+    display: flex;
+    flex-direction: row;
+}
+
+.carousel-img img {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.carousel-img {
+    margin-right: 5px;
+}
