@@ -237,6 +237,35 @@ ul{
     text-align: center;
     font-weight: bold;
 }
+.contact_terms_icons{
+    display: flex;
+    flex-direction: row;
+    width: 100vh;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+.terms_icon_1{
+    width: 30px;
+    height: 31px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -207px no-repeat
+}
+.terms_icon_2{
+    width: 30px;
+    height: 31px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -246px no-repeat
+}
+.terms_icon_3{
+    width: 30px;
+    height: 31px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -285px no-repeat
+}
+.term_info{
+    color: lightcoral;
+}
+.term_info:hover{
+    color: lightcoral;
+    text-decoration: underline;
+}
 .copyright{
     background-color: lightcoral;
     color: white;
