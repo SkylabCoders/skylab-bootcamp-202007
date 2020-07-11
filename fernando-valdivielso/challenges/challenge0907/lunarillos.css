@@ -79,8 +79,8 @@ nav {
 
 .logo {
   display: flex;
-  justify-content: center;
-  margin: 30px;
+  justify-self: flex-start;
+  margin: 80px 0 50px
 
 }
 
