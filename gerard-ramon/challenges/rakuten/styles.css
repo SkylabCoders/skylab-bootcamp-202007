@@ -252,6 +252,46 @@ body {
 /* ############################### */
 
 
+/* ######### FOOTER SECTION #########*/
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+}
+
+.footer__logo__img {
+    height: 25px;
+}
+
+.footer__anchors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__anchors__item {
+    color: #CCCCCC;
+    text-decoration: none;
+    margin: 4px 10px;
+    text-align: center;
+}
+
+.footer__copy p {
+    margin: 15px 0;
+    color: #737373;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* ############################### */
+
+
 /* ######### MEDIA QUERIES #########*/
 
 @media screen and (min-width: 601px) {
