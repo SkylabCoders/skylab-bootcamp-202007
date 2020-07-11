@@ -89,6 +89,47 @@ body {
 .movies {
     margin-top: -10px;
 }
+.generos-pic {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    margin: 0 25px
+}
+.generos-pic img {
+    max-width: 50px;
+}
+.generos-pic img:hover {
+    cursor: pointer;
+    filter: invert(0.4);
+}
+.generos {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+.nav-down {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: grey;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    background-color: black;
+    top: 85vh;
+    padding: 8px;
+}
+.nav-down-pics {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 @media screen and (min-width: 1024px) {
     .slider-logo {
@@ -150,5 +191,7 @@ body {
     .title h4 {
         display: block;
     }
-    
+    .nav-down {
+        display: none;
+    }
 }
