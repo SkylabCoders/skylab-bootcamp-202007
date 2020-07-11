@@ -27,6 +27,11 @@ body {
   border-radius: 2px;
 }
 
+.premiere-movie:hover {
+  border: 4px solid rgb(245, 245, 41);
+  margin: 1px;
+}
+
 .category-title {
   display: flex;
   flex-direction: row;
@@ -76,15 +81,97 @@ body {
     transparent 100%
   );
 }
-.header-nav-mobile svg{
-    margin-left: 8px;
-    margin-top: 8px;
+
+.header-nav-mobile svg {
+  margin-left: 8px;
+  margin-top: 8px;
 }
+
 .header-nav-mobile img {
   width: 30px;
   height: 30px;
   margin: 8px;
 }
+
+.header-nav-desktop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-desktop {
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+.search-nav img {
+  height: 20px;
+  width: 20px;
+}
+
+.link-list {
+  width: 30%;
+  margin: auto 10px;
+}
+
+.link-list ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+  list-style: none;
+}
+
+.search-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+  background-color: grey;
+  border-radius: 4px;
+  padding: 0;
+  height: 38px;
+}
+
+.search-nav input {
+  height: 25px;
+  border-radius: 2px;
+  border: none;
+  background-color: transparent;
+  width: 70%;
+}
+
+.search-nav img {
+  margin: auto 3px;
+}
+
+.nav-user-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 13%;
+  width: 20%;
+  font-weight: 700;
+}
+
+.nav-user-login a {
+  text-decoration: none;
+}
+
+.nav-user-login a:nth-child(1) {
+  color: white;
+}
+
+.nav-user-login a:nth-child(2) {
+  display: inline-block;
+  color: black;
+  background-color: yellow;
+  padding: 8px;  
+  border-radius: 4px;
+}
+
 @media screen and (min-width: 599px) {
   .title-arrow {
     display: none;
@@ -107,11 +194,13 @@ body {
 }
 
 @media screen and (min-width: 1023px) {
-  /* .premiere-movie__desktop {
-    display: none;
-  } */
-
   .header-nav-mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header-nav-desktop {
     display: none;
   }
 }
