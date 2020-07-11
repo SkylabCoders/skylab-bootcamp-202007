@@ -2,30 +2,88 @@ body {
   margin: 0;
   background-color: #1d1d1b;
   color: white;
-  font-family: NotoSans-Bold,Arial,sans-serif;
+  font-family: NotoSans-Bold, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  
+  box-sizing: border-box;
+
+  overflow: hidden;
 }
 
-main{
+header.transparent {
+  display: flex;
+  justify-content: space-between;
 
+  position: absolute;
+
+  width: 100%;
+  height: 30px;
+
+  background: linear-gradient(to bottom,rgba(0,0,0,.8) 0,rgba(0,0,0,.7) 20%,rgba(0,0,0,.4) 50%,transparent 100%);
+}
+
+.transparent-box{
+  display: flex;
+  justify-content: space-between;
+
+  width: 90%;
+  margin: 0 auto;
+}
+
+.transparent-box > img {
+  height: 80%;
+  width: auto;
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%;
+}
+
+.dots {
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+
+  margin-top: 265px;
+}
+
+.dot {
+  height: 7px;
+  width: 7px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+
+  margin: 1px 6px;
+}
+
+main {
   margin-left: 20px;
 }
 
-.main-carousel{
-  width: 100%;
+.main-carousel {
   position: relative;
 
   display: flex;
   flex-direction: row;
   overflow: hidden;
+
+  width: 100%;
+  height: 20%;
 }
 
-.main-carousel-item{
+.main-carousel-item {
   margin: 4px 5px;
 }
 
-.main-carousel-item:hover{
+.main-carousel-item:hover {
   margin: 0 1px;
   border: 4px solid yellow;
 }
@@ -47,29 +105,6 @@ main{
   overflow: hidden;
 
   position: relative;
-
-  margin: 0 20px;
-}
-
-.right {
-  right: 30px;
-}
-
-.left {
-  transform: rotate(180deg);
-  left: 30px;
-}
-
-.generos-carrusel-arrow {
-  position: absolute;
-  margin: auto;
-  
-  width: 30px;
-  top: 40px;
-}
-
-.generos-carrusel-arrow:hover {
-  filter: brightness(0.5);
 }
 
 .generos-carrusel-item {
@@ -78,7 +113,7 @@ main{
   align-items: center;
 
   margin: 0 10px;
-  
+
   width: 95px;
   height: 192px;
 
@@ -98,20 +133,20 @@ main{
   font-size: 18px;
 }
 
-.info{
+.info {
   background-color: #101010;
   padding: 25px;
   width: 100%;
 }
 
-.info > h1{
+.info > h1 {
   margin-top: 15px;
   color: #fff;
   font-size: 22px;
   text-align: center;
 }
 
-.info > p{
+.info > p {
   margin: 20px auto;
   width: 50%;
   color: #ccc;
@@ -120,43 +155,44 @@ main{
   line-height: 160%;
 }
 
-.info-item{
+.info-item {
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
 
   margin: 50px 0;
 }
 
-div[class^="info-item__"]{
+div[class^="info-item__"] {
   display: flex;
   flex-direction: column;
-  
+
   align-items: center;
 
   width: 20%;
 }
 
-.paytype{
+.paytype {
   display: flex;
 }
 
-.info-img{
+.info-img {
   height: 50px;
   margin: 0 10px;
 }
 
-.gray{
+.gray {
   filter: grayscale() invert();
 }
 
 .footer-nav {
   display: flex;
   justify-content: space-evenly;
-  
+
   height: 60px;
 
   background-color: black;
-  
+
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -166,7 +202,7 @@ div[class^="info-item__"]{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   margin-top: 5px;
 }
 
@@ -184,13 +220,12 @@ div[class^="info-item__"]{
   flex-direction: column;
 
   align-items: center;
-  
 }
 
-.footer-top{
+.footer-top {
   display: flex;
   flex-direction: column;
-  
+
   align-items: center;
   width: 100%;
 }
@@ -222,14 +257,39 @@ div[class^="info-item__"]{
   text-align: start;
 }
 
+/* Hidden */
+
 .generos-button__generos,
 .generos-button__vertodo,
 .info {
   display: none;
 }
 
-.invert{
+/* Generic */
+
+.invert {
   filter: invert(1);
+}
+
+.right {
+  right: 30px;
+}
+
+.left {
+  transform: rotate(180deg);
+  left: 30px;
+}
+
+.arrow {
+  position: absolute;
+  margin: auto;
+
+  width: 30px;
+  top: 50%;
+}
+
+.arrow:hover {
+  filter: brightness(0.5);
 }
 
 @media screen and (min-width: 730px) {
@@ -237,29 +297,28 @@ div[class^="info-item__"]{
   .generos-button__vertodo {
     display: inline;
   }
-  
-  .generos-button__arrow{
-    display: none ;
+
+  .generos-button__arrow {
+    display: none;
   }
 }
 
 @media screen and (min-width: 1025px) {
-  .footer-nav{
+  .footer-nav,
+  header.transparent {
     display: none;
   }
 
-  .info{
+  .info {
     display: block;
   }
 
-  
-  .footer-top{
+  .footer-top {
     flex-direction: row;
     justify-content: start;
-
   }
-  
-  .footer{
+
+  .footer {
     align-items: start;
     margin-left: 50px;
   }
