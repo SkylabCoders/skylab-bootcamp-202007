@@ -55,7 +55,7 @@ body {
 }
 
 .slider__img img {
-    height: 280px;
+    height: 100%;
 }
 
 .slider__points {
@@ -96,12 +96,38 @@ body {
     flex-direction: row;
     margin: 1.5rem;
     margin-left: .5rem;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .container-main__premiere img {
     transform: scale(.95);
 }
+
+/* Section 2 */
+.container__film {
+    display: flex;
+}
+
+.container__title p {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    padding-bottom: .5rem;
+}
+
+.container__title span {
+    padding-left: .5rem;    
+}
+
+.container__film--items {
+    padding: .3rem;
+    border: 3px;
+}
+
+
+
+
+
+
 
 
 
@@ -193,6 +219,38 @@ body {
         height: 36px;
         line-height: 13px;
     }
+
+    /* Hover */
+
+    .nav-link a:hover {
+        color: #ffe300;
+        cursor: pointer;
+    }
+
+    .enter:hover{
+        color: #ffe300;
+        cursor: pointer;
+    }
+
+    .help:hover{
+        color: #ffe300;
+        cursor: pointer;
+    }
+
+    .register:hover{
+        background-color: #f0d500;
+        cursor: pointer;
+    }
+
+    /* Quitar el overflow para que ya se vean todas las imágnes del premier  */
+    .container-main {
+        overflow: visible;
+    }
+
+    .container-main__premiere img {
+        width: 100%;
+    }
+    
 
     /* Hidden */
     .main-nav__less {
