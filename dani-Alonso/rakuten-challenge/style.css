@@ -2,6 +2,11 @@ body {
     background-color: #171717;
 }
 
+a {
+    text-decoration: none;
+    color: #999999;
+}
+
 .slider-img {
     width: 100%;
 }
@@ -9,6 +14,8 @@ body {
 .first-carousel {
     display: flex;
     flex-direction: row;
+    overflow: hidden;
+    width: 120%;
 }
 
 .carousel-img img {
@@ -29,12 +36,159 @@ body {
     right: 20px;
 }
 
+.second-arrow {
+    filter: invert(1);
+    width: 6%;
+    position: absolute;
+    z-index: 1;
+    align-self: center;
+    right: 20px;
+}
+
+.second-carousel {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 120%;
+}
+
+.second-carousel-img img {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.second-carousel-img {
+    margin-right: 5px;
+}
+
 .carousel-text {
     color: white;
     display: flex;
     flex-direction: row;
 }
 
-@media only screen and (min-width: 600px) {}
+.text--ver-todo {
+    display: none;
+}
 
-@media only screen and (min-width: 1024px) {}
+.text-arrow-desktop {
+    display: none;
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.categories-all img {
+    width: 95px;
+    height: 95px;
+}
+
+.categories-all-img {
+    display: none;
+}
+
+.categories-all-text {
+    color: white;
+    text-align: center;
+}
+
+.hidden-text {
+    display: none;
+}
+
+.footer {
+    background-color: #0D0D0D;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.footer-all {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-all img {
+    width: 20%;
+}
+
+.footer-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 8%;
+}
+
+.footer-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footer-text a {
+    margin: 4px 10px
+}
+
+.copyright {
+    color: #464646;
+    text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+    .carousel-text {
+        justify-content: space-between;
+    }
+    .text-arrow {
+        display: none;
+    }
+    .text--ver-todo {
+        display: block;
+    }
+    .text-arrow-desktop {
+        display: block;
+    }
+    .todo {
+        display: flex;
+    }
+    .hidden-img {
+        display: block;
+    }
+    .hidden-tablet {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .first-carousel {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .carousel-img :hover {
+        border: 2px solid yellow;
+        margin: 0;
+    }
+    .second-carousel-img :hover {
+        border: 2px solid yellow;
+    }
+    .categories-all :hover {
+        filter: invert(0.3);
+    }
+    .categories-all-img {
+        display: block;
+    }
+    .hidden-text {
+        display: block;
+    }
+}
