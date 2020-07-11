@@ -304,10 +304,10 @@ footer{
     height: 60px;
     background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat;
 }
-.delibery-mode:nth-child(1)>:hover{
+.delibery-mode:hover>p, .delibery-mode:hover>h5 {
     color: #FF5959;
 }
-.delibery-mode:nth-child(1)>.delibery-img:hover{
+.delibery-mode:nth-child(1):hover>.delibery-img{
     background-position: 0 -109px;
 }
 .delibery-mode:nth-child(2)>.delibery-img{
