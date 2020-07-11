@@ -11,6 +11,10 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 10px;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    padding: 5px 0;
+    align-items: center;
 }
 .mainNav img{
     width: auto;
@@ -20,7 +24,7 @@
 }
 .lastNav{
     background-color: lightcoral;
-    padding: 20px;
+    padding: 12px 15px;
     color: white;
     font-weight: bold;
 }
@@ -30,17 +34,19 @@
     justify-content: center;
     margin-top: 40px;
 }
-.flex-row-point{
+.flex-rows-point{
     display: flex;
     flex-direction: row;
     justify-content: space-around ;
     margin-top: 40px;
+    width: 400px;
 }
 .flex-column{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin: auto;
+    width: 75%;
 }
 .slider{
     width: 100%;
@@ -48,15 +54,15 @@
     overflow: hidden;
 }
 .point{
-    height: 10px;
-    width: 10px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     background-color: grey;
-    justify-content: space-between;
 }
-.flexrow div:nth-child(3){
-    height: 5px;
-    width: 5px;
+
+.point:nth-child(3){
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     background-color: lightcoral;
 }
@@ -143,6 +149,40 @@
 .see-final{
     display: none;
 }
+.blank{
+    height: 150px;
+    width: 300px;
+}
+/*problems with adding icons*/
+.footer{
+    background-color: rgb(207, 207, 207);
+    z-index: -1;
+    width: 100%;
+}
+.footer_camion{
+    width: 50vh;
+    height: 100px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat fixed center;
+
+}
+.footer_contact{
+    background-color: rgb(226, 225, 222);
+    width: 100%;
+}
+/*problems with footer*/
+.follow_us{
+    margin-bottom: 1px solid black;
+}
+.news{
+    margin-bottom: 1px solid black;
+}
+.copyright{
+    background-color: lightcoral;
+    color: white;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+}
 
 @media (min-width: 1024px){
     /*box modification*/
@@ -213,6 +253,12 @@
     .main-box{
         display: flex;
         flex-direction: row;
+    }
+    .mainNav{
+        justify-content: space-evenly;
+    }
+    .blank-box{
+        flex: 1;
     }
     .limited>img {
         width: 100%;
