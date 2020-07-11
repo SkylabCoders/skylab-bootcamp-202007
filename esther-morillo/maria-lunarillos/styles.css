@@ -9,6 +9,9 @@ body {
 }
 
 /* Header */
+.header {
+    margin: 0 auto;
+}
 
 .nav-container {
     background-color: #f8f8f8;
@@ -306,6 +309,10 @@ span {
     display: none;
 }
 
+.nav-button {
+    display: none;
+}
+
 /* Media Queries */
 @media screen and (min-width: 600px) {
     .cards {
@@ -353,6 +360,22 @@ span {
 
     .icon-burger {
         display: none;
+    }
+
+    /* Nav */
+    .main-nav {
+        width: 80%;
+    }
+
+    .nav-button {
+        margin: 0 auto;
+        padding-bottom: 1rem;
+        width: 80%;
+    }
+
+    /* Spacer entre logo y botones grandes */
+    .flex-spacer {
+        flex: 1 1 0;
     }
 
     /* Spacer button */
@@ -410,7 +433,6 @@ span {
     .nav-button {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         padding-top: 180px;
         margin-bottom: 1.5rem;
     }
@@ -483,6 +505,7 @@ span {
         .buttons-menu:nth-child(4):hover {
             background-color: #ff5959;
         } 
+        
 
         .btn-red {
             background-color: #ff5959;
@@ -492,6 +515,16 @@ span {
                 background-color: #f2f2f2;
                 cursor: pointer;
             }
+
+    .buttons-menu > div {
+        font-size: .73rem;
+        text-align: center;
+        line-height: 11.5rem;
+    }
+
+        .btn-red {
+            color: #ff5959;
+        }        
 
 
     /* Novedades y ofertas */
@@ -552,6 +585,13 @@ span {
 
 
 @media screen and (min-width: 1024px) {
+
+.buttons-menu:nth-child(5) {
+    display: block;
+    width: 40px;
+    background-color: #fff;
+} 
+
     .box-row {
         display: flex;
         flex-direction: row;
