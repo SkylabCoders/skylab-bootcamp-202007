@@ -9,13 +9,19 @@ a{
     width: auto;
 }
 hr{
-   border-top: 2px solid #2E2925;
+    border-top: 2px solid #2E2925;
 }
 .main-nav{
     height: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+h2{
+    text-align: center;
+}
+h4{
+    color:red;
 }
 .main-nav img{
     width: auto;
@@ -72,6 +78,7 @@ hr{
     flex-direction: column;
     width: 80%;
     align-items: center;
+    margin: 2vh;
 }
 .row > .moldes-reposteria{
     width: 30%;
@@ -108,6 +115,23 @@ hr{
     font-weight: bold;
     color: white;
     margin-top: 2vh ;
+}
+.blog-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ultimas-entradas{
+    background-color: #ff5959;
+    width: 60%
+}
+.ultimas-entradas>h2{
+    color: #f8f8f8;
+}
+@media (max-width:599px){
+    .div--display-none{
+        display: none;
+    }
 }
 @media (min-width:600px){
     .row{
