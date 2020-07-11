@@ -48,7 +48,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
     width: 75%;
 }
 .header-icons{
@@ -237,6 +236,11 @@ ul{
     text-align: center;
     font-weight: bold;
 }
+.news_row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .contact_terms_icons{
     display: flex;
     flex-direction: row;
@@ -265,6 +269,10 @@ ul{
 .term_info:hover{
     color: lightcoral;
     text-decoration: underline;
+}
+.contact-row{
+    display: flex;
+    flex-direction: row;
 }
 .copyright{
     background-color: lightcoral;
@@ -353,6 +361,40 @@ ul{
     .main-brands>img:hover{
         filter: none;
     }
+    .footer_contact{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .follow-section{
+        width: 20vh;
+        margin: 50px;
+    }
+    .news{
+        width: 60vh;
+        margin: 100px;
+    }
+    .news_row{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .contact-section{
+        width: 250px;
+        margin:5
+        0px;
+    }
+    .contact_terms_icons{
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        justify-content: space-evenly;
+        list-style-type: none;
+    }
+    .contact-row{
+        display: flex;
+        flex-direction: row;
+    }
     
 }
 @media (min-width: 600px) and (max-width: 1024px){
@@ -427,6 +469,11 @@ ul{
     }
     .main-brands{
         display: none;
+    }
+    .news_row{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 
 }
