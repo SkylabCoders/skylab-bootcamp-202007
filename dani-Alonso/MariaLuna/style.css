@@ -1,214 +1,215 @@
-                a {
-                text-decoration: none;
-                width: 100%;
-            }
-            
-            .header {
-                height: 5vh;
-                width: 50%;
-                display: flex;
-            }
-            
-            .header img {
-                height: 100%;
-                width: 50%;
-            }
-            
-            .header-units {
-                background-color: red;
-                color: white;
-                width: auto;
-                text-align: center;
-                width: 206.5px;
-            }
-            
-            .container {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .slider img {
-                width: 92%;
-            }
-            
-            .utensilios {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .utensilios img {
-                width: 20%;
-            }
-            
-            .utensilios h2 {
-                display: flex;
-                border-top: 2px solid;
-                border-bottom: 2px solid;
-                height: 50px;
-                align-items: center;
-            }
-            
-            .images {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .images img {
-                width: 100%;
-                object-fit: cover;
-                object-position: 50% 0;
-                width: 340px;
-                height: 140px;
-            }
-            
-            .images-right {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .image-text {
-                z-index: 1;
-                position: absolute;
-                margin-top: -69px;
-                width: 20%;
-                background-color: white;
-                opacity: 0.7;
-                height: 65px;
-            }
-            
-            .card {
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .card img {
-                width: 92%;
-            }
-            
-            .card--2 {
-                display: none;
-            }
-            
-            .card--3 {
-                display: none;
-            }
-            
-            .raul img {
-                width: 25%;
-            }
-            
-            .raul {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            .blog {
-                color: white;
-                background-color: #FF5959;
-                width: 30%;
-                height: 41px;
-                text-align: center;
-                margin: auto;
-                padding-top: 33px;
-            }
-            
-            .footer {
-                background-color: #FF5959;
-                height: 44px;
-                text-align: center;
-                padding-top: 26px;
-                color: white;
-                margin-top: 12px;
-            }
-            
-            .logo {
-                display: flex;
-                flex-direction: row;
-            }
-            
-            .logo img {
-                width: 35%;
-                margin: 12%;
-            }
-            
-            .logo-text {
-                display: none;
-                height: 20px;
-                width: 20%;
-                display: flex;
-                flex-direction: row;
-            }
-            
-            .novedades {
-                background-color: #9faa4d;
-                color: white;
-                height: 20px;
-                width: 88%;
-            }
-            
-            .ofertas {
-                background-color: #8e789d;
-                color: white;
-                height: 20px;
-                width: 70%;
-            }
-            
-            @media only screen and (min-width: 600px) {
-                .card--2 {
-                    display: block;
-                }
-                .card img {
-                    width: 100%;
-                }
-                .raul img {
-                    width: 25%;
-                }
-                .card {
-                    display: flex;
-                    flex-direction: row;
-                }
-            }
-            
-            @media only screen and (min-width: 1024px) {
-                .logo-text {
-                    display: block;
-                }
-                .images {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                }
-                .images img {
-                    width: 100%;
-                    /*object-fit: cover;
+                        a {
+                        text-decoration: none;
+                        width: 100%;
+                    }
+                    
+                    .header {
+                        height: 5vh;
+                        width: 50%;
+                        display: flex;
+                    }
+                    
+                    .header img {
+                        height: 100%;
+                        width: 50%;
+                    }
+                    
+                    .header-units {
+                        background-color: red;
+                        color: white;
+                        width: auto;
+                        text-align: center;
+                        width: 206.5px;
+                    }
+                    
+                    .container {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    
+                    .slider img {
+                        width: 92%;
+                    }
+                    
+                    .utensilios {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    
+                    .utensilios img {
+                        width: 20%;
+                    }
+                    
+                    .utensilios h2 {
+                        display: flex;
+                        border-top: 2px solid;
+                        border-bottom: 2px solid;
+                        height: 50px;
+                        align-items: center;
+                    }
+                    
+                    .images {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    
+                    .images img {
+                        width: 100%;
+                        object-fit: cover;
+                        object-position: 50% 0;
+                        width: 340px;
+                        height: 140px;
+                    }
+                    
+                    .images-right {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    
+                    .image-text {
+                        z-index: 1;
+                        position: absolute;
+                        margin-top: -69px;
+                        width: 20%;
+                        background-color: white;
+                        opacity: 0.7;
+                        height: 65px;
+                    }
+                    
+                    .card {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    
+                    .card img {
+                        width: 92%;
+                    }
+                    
+                    .card--2 {
+                        display: none;
+                    }
+                    
+                    .card--3 {
+                        display: none;
+                    }
+                    
+                    .raul img {
+                        width: 25%;
+                    }
+                    
+                    .raul {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                    }
+                    
+                    .blog {
+                        color: white;
+                        background-color: #FF5959;
+                        width: 30%;
+                        height: 41px;
+                        text-align: center;
+                        margin: auto;
+                        padding-top: 33px;
+                    }
+                    
+                    .footer {
+                        background-color: #FF5959;
+                        height: 44px;
+                        text-align: center;
+                        padding-top: 26px;
+                        color: white;
+                        margin-top: 12px;
+                    }
+                    
+                    .logo {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                    
+                    .logo img {
+                        width: 35%;
+                        margin: 12%;
+                    }
+                    
+                    .logo-text {
+                        display: none;
+                        height: 20px;
+                        width: 20%;
+                        display: flex;
+                        flex-direction: row;
+                    }
+                    
+                    .novedades {
+                        background-color: #9faa4d;
+                        color: white;
+                        height: 20px;
+                        width: 88%;
+                    }
+                    
+                    .ofertas {
+                        background-color: #8e789d;
+                        color: white;
+                        height: 20px;
+                        width: 70%;
+                    }
+                    
+                    @media only screen and (min-width: 600px) {
+                        .card--2 {
+                            display: block;
+                        }
+                        .card img {
+                            width: 100%;
+                        }
+                        .raul img {
+                            width: 25%;
+                        }
+                        .card {
+                            display: flex;
+                            flex-direction: row;
+                        }
+                    }
+                    
+                    @media only screen and (min-width: 1024px) {
+                        .logo-text {
+                            display: block;
+                        }
+                        .images {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                        }
+                        .images img {
+                            width: 100%;
+                            /*object-fit: cover;
         object-position: 50% 0;
         width: 340px;*/
-                    height: 100%;
-                }
-                .images-right {
-                    display: flex;
-                    flex-direction: column;
-                }
-                .card--2 {
-                    display: block;
-                }
-                .card--3 {
-                    display: block;
-                }
-                .card img {
-                    width: 100%;
-                }
-                .raul img {
-                    width: 25%;
-                }
-                .card {
-                    display: flex;
-                    flex-direction: row;
-                }
-                .container--images {
-                    margin: 0 auto;
-                    width: 76%;
-                }
+                            height: 100%;
+                        }
+                        .images-right {
+                            display: flex;
+                            flex-direction: column;
+                            margin-left: 5px;
+                        }
+                        .card--2 {
+                            display: block;
+                        }
+                        .card--3 {
+                            display: block;
+                        }
+                        .card img {
+                            width: 100%;
+                        }
+                        .raul img {
+                            width: 25%;
+                        }
+                        .card {
+                            display: flex;
+                            flex-direction: row;
+                        }
+                        .container--images {
+                            margin: 0 auto;
+                            width: 76%;
+                        }
