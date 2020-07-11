@@ -8,7 +8,7 @@
 }
 body{
     font-family: NotoSans-Regular,Arial,sans-serif;
-    background-color:rgb(16, 16, 16);
+    background-color:#171717;
 }
 ul{
     list-style: none;
@@ -25,9 +25,7 @@ li{
     display: flex;
     flex-direction: column;
 }
-.display-in-large{
-    display: none;
-}
+
 .flex-spacer{
     flex-grow: 1;
 }
@@ -48,7 +46,11 @@ nav{
     justify-content: center;
     margin-top: 0;
     overflow: visible;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .8) 0, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .4) 50%, transparent 100%)
+    padding: 10px 20px 0 20px ;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .8) 0, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .4) 50%, transparent 100%);
+    z-index: 2;
+    position: absolute;
+
 }
 .nav-items{
     width: 100%;
@@ -64,13 +66,56 @@ nav{
     color: #ffe300;
     cursor: pointer;
 }
+.search-icon{
+    background: url(https://image.flaticon.com/icons/svg/2089/2089805.svg) no-repeat;
+    height: 33px;
+    width: 21px;
+    filter: invert(1);
+    margin: 10px 20px 0 0; 
+}
+.search-icon-container{
+    padding: 10px 20px 0 0; 
+}
+.display-in-large, .display-in-max{
+    display: none;
+}
+
+/*PRINCIPAL BANNER*/
+.principal-banner{
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    align-items: center;
+}
+.principal-banner>img{
+    width: 100%;
+    flex-shrink: 1;
+}
+.arrow-left, .arrow-right{
+    display: none;
+    width: 60px;
+    height: 60px;
+    filter: invert(1);
+    position: absolute;
+}
+.arrow-left{
+    background: url(https://image.flaticon.com/icons/svg/860/860790.svg) no-repeat;
+}
+.arrow-right{
+    background: url(https://image.flaticon.com/icons/svg/860/860828.svg) no-repeat;
+    right: 0;
+}
+.principal-banner:hover .arrow-left, .principal-banner:hover .arrow-right{
+    display: flex;
+}
+
 
 
 @media screen and (min-width: 1025px){
     .display-in-large{
         display: flex;
     }
-    .hiden-in-large{
+    .hidden-in-large{
         display:none;
     }
 
@@ -148,8 +193,20 @@ nav{
         border-radius: 2px;
         margin-top: 10px;
         padding-left: 10px;
+        flex-shrink: 1;
     }
     input:focus{
         background-color:white;
+    }
+    .principal-banner{
+        padding-top: 71px;
+    }
+
+
+}
+@media screen and (min-width: 1250px){
+    .display-in-max{
+        display: flex;
+        color: #999;
     }
 }
