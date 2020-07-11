@@ -14,14 +14,14 @@ header{
     width: 100%;
 }
 .logo-rakuten{
-    position: relative;
-    left: 0;
+    left:0;
     height: 4vh;
 }
 .blank{
     flex:1;
 }
 .main-carousel{
+    position: relative;
     margin-bottom: 5px;
     z-index: -1;
 }
