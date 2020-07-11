@@ -11,6 +11,21 @@ body {
 }
 
 /* --------- Header ----------- */
+.header-container {
+    margin: 0 auto;
+}
+
+.header-container-carrousel {
+    max-width: 1680px;
+    display: flex;
+    object-fit: contain;
+}
+
+.header-container-carrousel img {
+    width: 100%;
+    height: auto;
+}
+
 
 header {
     display: flex;
