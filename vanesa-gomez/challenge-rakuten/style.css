@@ -1,0 +1,92 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: NotoSans-Bold,Arial,sans-serif;
+}
+
+.position-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --------- Header ----------- */
+
+header {
+    display: flex;
+    max-width: 1680px;
+    height: 60px;
+    padding: 0 13px;
+    background-color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+}
+
+.logo {
+  width: 10%; 
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    width: 22%;
+}
+
+.search {
+    display: flex;
+    flex-grow: 1;
+}
+
+.search-items {
+    display: flex;
+    align-items: center;
+    width: 53%;
+    justify-content: flex-start;
+    background-color: #333333;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2px;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    width: 10%;
+}
+
+.search-input {
+    color: #757575;
+    font-size: 16px;
+    padding-left: 10px;
+    width: 90%;
+}
+
+.user {
+    width: 28%;
+    justify-content: flex-end;
+}
+
+.help {
+    color: #757575;
+    width: 51%;
+}
+
+.login {
+    color: white;
+    width: 23%;
+}
+
+.register {
+    background-color: #F0D500;
+    width: 28%;
+    height: 36px;
+    border-radius: 2px;
+    padding: 0 8px;
+}
+
+/* --------- Main --------- */
