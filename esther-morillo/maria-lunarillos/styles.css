@@ -589,18 +589,10 @@ span {
     }
 
     /* Arreglar el main tablet */
-
-
+.main-box {
+    margin: 0 auto;
+    width: 80%;
 }
-
-
-@media screen and (min-width: 1024px) {
-
-.buttons-menu:nth-child(5) {
-    display: block;
-    width: 40px;
-    background-color: #fff;
-} 
 
     .box-row {
         display: flex;
@@ -620,6 +612,40 @@ span {
         width: 100%;
         height: 100%;
     }
+
+    .img-vert {
+        width: 100%;
+        height: 50%;
+    }
+
+    .img-top {
+        height: 100%;
+        width: 50%;
+    }
+
+    .img-bottom {
+        height: 100%;
+        width: 50%;
+    }    
+
+    .main-box p {
+        display: block;
+        padding-right: 1rem;
+        font-size: .8rem;
+        font-weight: lighter;
+    }
+
+}
+
+
+@media screen and (min-width: 1024px) {
+
+.buttons-menu:nth-child(5) {
+    display: block;
+    width: 40px;
+    background-color: #fff;
+} 
+
 
     .white-box {
         height: 150px;
