@@ -6,9 +6,24 @@ body{
     font-family: 'Roboto', sans-serif;
     background-color: #101010;
 }
-.main-carousel{
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+}
+.logo-rakuten{
     position: relative;
+    left: 0;
+    height: 4vh;
+}
+.blank{
+    flex:1;
+}
+.main-carousel{
     margin-bottom: 5px;
+    z-index: -1;
 }
 .main-carousel-image{
     width: 100%;
