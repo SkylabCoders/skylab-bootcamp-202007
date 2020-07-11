@@ -58,11 +58,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .header__slider__image {
     width: 120%;
-    overflow: hidden;
 }
 
 .header__slider__paging {
@@ -135,11 +135,117 @@ body {
     border-radius: 2px;
 }
 
-.upperslider__movie__link {}
-
 .upperslider__movie__link__img {
     border-radius: 2px;
     height: 125px;
+}
+
+.bottomslider {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    align-items: center;
+    position: relative;
+}
+
+.bottomslider__movie__link {
+    width: 100%;
+}
+
+.bottomslider__movie__link__img {
+    border-radius: 2px;
+    width: 165px;
+}
+
+.bottomslider__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bottomslider__title p {
+    color: white;
+    padding-left: 15px;
+    font-weight: bold;
+}
+
+.arrow--little {
+    color: white;
+    height: 10px;
+    transform: rotate(180deg);
+    margin-left: 5px;
+}
+
+.watch-all {
+    display: none;
+}
+
+.watch-all:hover {
+    color: #E6E6E6;
+    cursor: pointer;
+}
+
+.bottomslider__arrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    width: 60px;
+}
+
+.header__slider__arrow--right--bottom {
+    position: absolute;
+    transform: rotate(180deg);
+    right: 10px;
+}
+
+.generos {
+    display: flex;
+    flex-direction: column;
+}
+
+.generos__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.generos__title p {
+    color: white;
+    padding-left: 15px;
+    font-weight: bold;
+}
+
+.generos__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30px 40px;
+    overflow: hidden;
+}
+
+.generos__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.generos__item__img {
+    height: 70px;
+    width: 70px;
+}
+
+.generos__item__img:hover {
+    filter: invert(0.3);
+    cursor: pointer;
+}
+
+.generos__item p {
+    color: white;
+    text-align: center;
 }
 
 
@@ -151,6 +257,10 @@ body {
 @media screen and (min-width: 601px) {
     .upperslider__movie__link__img {
         height: 135px;
+    }
+    .bottomslider__movie__link__img {
+        border-radius: 2px;
+        width: 180px;
     }
 }
 
@@ -237,6 +347,13 @@ body {
     }
     .upperslider__movie__link__img {
         height: 150px;
+    }
+    .watch-all {
+        display: inline;
+        margin-right: 10px;
+    }
+    .arrow--little {
+        margin-right: 20px;
     }
 }
 
