@@ -7,18 +7,6 @@
 
 /* header */
 
-/* .nav__items__glass {
-  margin-top: 15px;
-  position: absolute;
-  right: 10px;
-
-
-} */
-/* 
-.nav__items__menu {
-  position: fixed;
-  bottom: 0;
-} */
 
 
 
@@ -61,8 +49,19 @@
     min-width: 150px;
   }
 
-  .search-box-input {
-    background-color: #999;
+  .search__box__input {
+    background-color: #333;
+    height: 30px;
+    position: relative;
+    top: -15px
+  }
+
+  .nav__items__register {
+    background-color: #FFE300;
+    color: black;
+    padding: 5px;
+    position: relative;
+    top: -12px;
   }
   
 }
