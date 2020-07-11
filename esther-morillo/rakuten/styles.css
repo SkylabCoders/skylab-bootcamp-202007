@@ -29,6 +29,7 @@ body {
 
 .main-nav__logo svg {
     width: 122px;
+    padding-top: 8px;
 }
 
 .flex-spacer {
@@ -54,7 +55,7 @@ body {
 }
 
 .slider__img img {
-    height: 260px;
+    height: 280px;
 }
 
 .slider__points {
@@ -76,4 +77,129 @@ body {
 
 .btn-red {
     background-color: crimson;
+}
+
+/* Hidden */
+.nav-link,
+.nav-input,
+.enter,
+.register,
+.help {
+    display: none;
+}
+
+
+/* MAIN */
+/* Section 1 */
+.container-main {
+    display: flex;
+    flex-direction: row;
+    margin: 1.5rem;
+    margin-left: .5rem;
+}
+
+.container-main__premiere img {
+    transform: scale(.95);
+    
+}
+
+
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 1024px) {
+    .nav-link,
+    .nav-input,
+    .enter,
+    .register {
+        display: block;
+    }
+
+    .slider__img {
+        overflow: visible;
+    }
+
+    .slider__img img {
+        height: 100%;
+    }
+
+    /* Menú nav */
+    .main-nav {
+        background-color: #000;
+        height: 60px;
+        padding: 0 20px;
+    }
+
+    .nav-link a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        padding: .8rem;
+        margin-left: .5rem;
+    }
+
+    .nav-input {
+        display: flex;
+        align-items: center;
+        background-color: #333;
+        width: 220px;
+        height: 40px;
+        border-radius: 3px;
+        margin-left: .8rem;
+    }
+
+    .nav-input__img {
+        padding-left: .6rem;
+    }
+
+    .nav-input img {
+        filter: invert(.5);
+        width: 20px;
+    }
+
+    .nav-input input {
+        background-color: #333;
+        color: #999;
+        border: none;
+        margin-left: .5rem;
+        font-size: 1.2rem;
+    }
+
+    .nav-input input:focus {
+        /* quitar borde azul del focus */
+        outline: none;
+    }
+
+    /* Enter & Register */
+    .enter,
+    .register {
+        font-size: 14px;
+        padding: .8rem;
+    }
+
+    .enter {
+        margin-right: .5rem;
+    }
+
+    .register {
+        background-color: #ffe300;
+        color: #000;
+        border-radius: 3px;
+        font-weight: 700;
+        height: 36px;
+        line-height: 13px;
+    }
+
+    /* Hidden */
+    .main-nav__less {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    .help {
+        display: block;
+        font-size: 14px;
+        padding: .8rem;
+        color: #999;
+    }    
 }
