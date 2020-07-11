@@ -161,24 +161,14 @@ body {
     margin: 10px;
 }
 
-
-/*
-.overlay {
-    position: absolute;
-    left: 0;
-    top: 66px;
-    right: 0;
-    bottom: 0;
-}
-*/
-
 .main-cards {
-    margin: 40px;
+    margin: 15px 40px 40px 40px;
 }
 
 .cards-title {
     background-color: #FF5959;
     padding: 5px;
+    margin: 0px 40px;
 }
 
 .cards-title h2 {
@@ -192,11 +182,12 @@ body {
 .card {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .card-img {
     margin-top: 12px;
-    width: 325px;
+    width: 100%;
 }
 
 .card-description {
@@ -207,13 +198,19 @@ body {
 }
 
 .card-footer {
-    padding-left: 15px;
+    align-self: flex-start;
+    width: 100%;
     background-color: whitesmoke;
+}
+
+.card-footer>p {
+    padding-left: 15px;
 }
 
 .card-info {
     display: flex;
     flex-direction: row;
+    padding-left: 15px;
 }
 
 .card-info-text {
@@ -228,6 +225,18 @@ body {
 
 .card-info-text--red {
     color: #FF5959;
+}
+
+.card-info img {
+    height: 60px;
+}
+
+.card-tablet {
+    display: none;
+}
+
+.card-desktop {
+    display: none;
 }
 
 .footer {
@@ -295,6 +304,16 @@ body {
     .carrousel-paging-page {
         margin: 0px 15px;
     }
+    .main-cards {
+        display: flex;
+        flex-direction: row;
+    }
+    .card {
+        padding: 0 5px;
+    }
+    .card-tablet {
+        display: flex;
+    }
 }
 
 @media screen and (min-width: 1025px) {
@@ -331,6 +350,7 @@ body {
         background-size: 188px 221px;
         width: 30px;
         height: 50px;
+        display: flex;
     }
     .carrousel-right-button {
         background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/light-skin-1-retina.png);
@@ -339,11 +359,15 @@ body {
         background-size: 188px 221px;
         width: 30px;
         height: 50px;
+        display: flex;
     }
     .carrousel-img {
         width: 80%;
     }
-}
-
-
+    .card {
+        padding: 0 5px;
+    }
+    .card-desktop {
+        display: flex;
+    }
 }
