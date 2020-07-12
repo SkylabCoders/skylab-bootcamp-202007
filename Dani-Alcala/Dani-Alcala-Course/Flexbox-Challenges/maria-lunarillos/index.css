@@ -10,7 +10,10 @@ nav {
   justify-content: space-around;
   margin-bottom: 20px;
   background-color: lightgrey;
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200;
 }
 
 .dropdown {
@@ -52,6 +55,7 @@ nav {
 
 .logo {
   margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 .imgbanner,

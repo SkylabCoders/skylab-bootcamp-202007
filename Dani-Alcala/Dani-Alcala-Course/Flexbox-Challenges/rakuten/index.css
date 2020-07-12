@@ -1,5 +1,5 @@
 * {
-  font-family: NotoSans-Bold, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 14px;
   margin: 0;
   padding: 0;
@@ -405,12 +405,12 @@ header {
 
   .iconed-action--trailer:after {
       left: 15px;
-      content: "\e621";
+      content: "\00BB";
       position: absolute;
     top: calc(50% - 7px);
     left: 11px;
     font-size: 14px;
-    font-family: Glyphs;
+    /* font-family: Glyphs; */
   }
 
   .iconed-action--wishlist {
@@ -439,6 +439,10 @@ header {
     margin-left: 10px;
   }
 
+  .iconed-action--wishlist:before {
+    content: '\e615';
+    left: 15px;
+  }
   .tooltip__meta {
     color: #fff;
     margin: 0;
