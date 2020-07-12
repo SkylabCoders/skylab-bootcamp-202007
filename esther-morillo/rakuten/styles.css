@@ -6,9 +6,10 @@
 
 body {
     font-family: 'Noto Sans', sans-serif;
-    background-color: #000;
+    background-color: #171717;
     color: #fff;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 
@@ -45,17 +46,17 @@ body {
 .slider {
     margin: 0 auto;
     position: relative;
-    width: 100%;
 }
 
 .slider__img {
     display: flex;
     justify-content: center;
-    overflow: hidden;
 }
 
 .slider__img img {
-    height: 100%;
+    display: block;
+    width: 133%;
+    margin: 0 -28%;
 }
 
 .slider__points {
@@ -94,20 +95,25 @@ body {
 .container-main {
     display: flex;
     flex-direction: row;
-    margin: 1.5rem;
-    margin-left: .5rem;
-    overflow: hidden;
+    justify-content: flex-start;
+    padding: 1rem .5rem;
+    min-width: 1550px;
 }
 
 .container-main__premiere img {
-    transform: scale(.95);
+    width: 100%;
+    padding: .4rem;
 }
+
+    .container-main__premiere img:hover {
+        /* Borde interno sobre las imágnes */
+        outline: .32rem solid #ffe300;
+        outline-offset: -.2rem;
+        /* Redondear border solo para mozilla, en chrome no funciona */
+        -moz-outline-radius: .3rem;
+    }
 
 /* Section 2 */
-.container__film {
-    display: flex;
-}
-
 .container__title p {
     font-size: 1.1rem;
     padding-left: 1rem;
@@ -118,20 +124,112 @@ body {
     padding-left: .5rem;    
 }
 
+.container__film {
+    display: flex;
+    min-width: 1600px;
+}
+
 .container__film--items {
     padding: .3rem;
     border: 3px;
 }
 
+.container__film--items img {
+    width: 100%;
+}
 
+    .container__film--items img:hover {
+        width: 100%;
+        outline: .32rem solid #ffe300;
+        outline-offset: -.2rem;
+        -moz-outline-radius: .3rem;
+    }
 
+/* Section 3 */
+.container__gender {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+}
 
+.container__gender--items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 152px;
+}
 
+.container__gender--items img {
+    width: 95px;
+    height: 95px;
+    padding: 1rem;
+}
 
+.container__gender--items p {
+    font-size: .8rem;
+    text-align: center;
+    font-weight: lighter;
+}
 
+.container__gender--text p {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    padding-bottom: .5rem;
+}
+
+.container__gender--text span {
+    padding-left: .5rem;    
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer__logo svg {
+    width: 122px;
+    filter: invert(.3);
+}
+
+.footer__text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: .5rem 0;
+}
+
+.text {
+    padding: 0 .5rem;
+}
+
+.text a {
+    text-decoration: none;
+    color: rgb(190, 190, 190);
+    font-size: .85rem;
+}
+
+.copy {
+    font-size: .85rem;
+    color: rgb(104, 104, 104);
+}
 
 
 /* MEDIA QUERIES */
+@media screen and (min-width: 910px) {
+    .container-main__premiere img:hover {
+        outline: .4rem solid #ffe300;
+    }
+
+    .slider__img img {
+        display: hidden;
+        width: 100%;
+    }
+    
+}
+
 @media screen and (min-width: 1024px) {
     .nav-link,
     .nav-input,
@@ -249,6 +347,13 @@ body {
 
     .container-main__premiere img {
         width: 100%;
+        margin: 0 .4rem;
+        padding-left: .5rem;
+    }
+
+    /* Hover imágenes premiere */
+    .container-main__premiere img:hover {
+        outline: .3rem solid #ffe300;
     }
     
 
