@@ -122,3 +122,53 @@ min-width: 1024px;
 .icon-container--titles{
     text-align: center;
 }
+.small-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 6vh;
+}
+.small-footer>div{
+    margin: auto;
+}
+.footer--links{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.footer--links>p{
+    margin: 2%;
+}
+.footer--nav{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   position: fixed;
+   bottom: 0px;
+   height: 7vh;
+   background-color: #101010;
+}
+.footer--nav>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.footer--nav div{
+    height: 50%;
+    margin-top: 7px;
+}
+
+.footer--nav p{
+    text-align: center;
+    color: #fff;
+}
+.footer--nav a{
+    text-decoration: none;
+}
+.footer--nav img{
+    filter: invert(0.7);
+    width: 100%;
+    height: 100%;
+}
