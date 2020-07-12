@@ -4,6 +4,7 @@ body{
     width: 100%;
     align-items: center;
     font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
     background-color: #101010;
     overflow-x: hidden;
 }
@@ -55,7 +56,7 @@ header{
     padding: 10px;
     position: absolute;
     right: 20px;
-	top: 40%;
+	top: 50%;
     transform: rotate(-45deg);
     border-radius: 12%;
 }
@@ -65,7 +66,7 @@ header{
     padding: 10px;
     position: absolute;
     left: 20px;
-	top: 40%;
+	top: 50%;
     transform: rotate(135deg);
     border-radius: 12%;
 }
@@ -130,6 +131,7 @@ a{
 /*    position: absolute; */
     overflow: visible;
     display: block;
+    height: 100%;
 }
 .label--top-left{
     position: relative;
