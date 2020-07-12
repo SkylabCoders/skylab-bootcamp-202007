@@ -7,6 +7,7 @@ body{
     letter-spacing: 0.5px;
     background-color: #101010;
     overflow-x: hidden;
+    margin: 0%;
 }
 /*Header*/
 header{
@@ -110,6 +111,7 @@ a{
     text-decoration: none;
     font-weight: bold;
     margin-top: 18px;
+    margin-left: 40px;
 }
 /* correct in order to fit well, if not do with text ">"
 .white__arrow-text{
@@ -150,6 +152,7 @@ a{
     align-self: flex-start;
     width: 100%;
     position: relative;
+    margin: 0 14px;
 }
 .white__arrow-vertical {
     border: 5px solid rgb(255, 255, 255);
@@ -218,6 +221,13 @@ a{
     justify-content: flex-start;
     background-color: #0d0d0d;
     align-items: center;
+}
+.contact-main-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #0d0d0d;
+    align-items: center;
     padding: 40px;
 }
 .mini-rakuten-logo{
@@ -228,13 +238,18 @@ a{
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 20px;
+    margin: 20px 0;
+    font-size: 15px;
 }
 .other-info>p{
     color: rgb(179, 179, 179);
     margin: 10px;
     letter-spacing: 0px;
     line-height: 2px;
+    border: 0px;
+}
+.copyright{
+    color: rgb(138, 136, 136);
 }
 
 /*Media queries*/
@@ -295,3 +310,46 @@ a{
         padding: 2px 5px;
     }
 }
+@media (min-width:1024px){
+    .artwork__image{
+        width: 18.3vw;
+    }
+    .carousel-other{
+        justify-content: center;
+    }
+    .artwork{
+        margin: 5px;
+        height: 100%;
+        width: fit-content;
+    }
+    .white__arrow{
+        display: none;
+    }
+    .contact-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: #0d0d0d;
+        align-items: flex-start;
+    }
+    .other-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+    .mini-rakuten-logo{
+        align-self: center;
+    }
+    .contact-main-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #0d0d0d;
+        align-items: flex-start;
+        padding: 40px;
+    }
+    .copyright{
+        margin-top: 2px;
+    }
+}
+
