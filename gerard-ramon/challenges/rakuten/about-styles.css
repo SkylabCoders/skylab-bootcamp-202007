@@ -135,6 +135,31 @@
     padding: 15px;
 }
 
+.social__spacer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0;
+    background-color: #f1f1f1;
+}
+
+.social__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border: 1px solid #d9d9d9;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 3px;
+}
+
+.social__container img {
+    height: 15px;
+}
+
 @media screen and (min-width: 1024px) {
     .movie {
         margin-top: 67px;
