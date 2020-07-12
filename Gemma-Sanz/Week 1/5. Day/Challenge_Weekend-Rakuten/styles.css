@@ -5,7 +5,7 @@ body{
     align-items: center;
     font-family: 'Roboto', sans-serif;
     background-color: #101010;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 header{
     display: flex;
@@ -83,6 +83,7 @@ a{
     width: 100%;
     text-decoration: none;
     font-weight: bold;
+    margin-top: 18px;
 }
 /* correct in order to fit well, if not do with text ">"
 .white__arrow-text{
@@ -105,13 +106,13 @@ a{
 }
 .artwork__image-vertical{
     width: 40vw;
-    position: absolute;
+/*    position: absolute; */
     overflow: visible;
     display: block;
 }
 .label--top-left{
     position: relative;
-    top: 3px;
+    bottom:55vw;
     left: 6px;
     font-size: 11px;
     padding: 2px 5px;
@@ -122,19 +123,74 @@ a{
     align-self: flex-start;
     width: 100%;
 }
-
+.artwork-vertical{
+    margin: 5px;
+}
+.artwork-vertical:hover{
+    border-radius: 2px;
+    box-shadow: 0 0 0 5px yellow;
+}
+.white__arrow-vertical {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+	top: 70%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+}
 @media (min-width:560px){
     .artwork__image{
         width: 38vw;
+    }
+    .artwork__image-vertical{
+        width: 26.5vw;
+    /*    position: absolute; */
+        overflow: visible;
+        display: block;
+    }
+    .label--top-left{
+        position: relative;
+        bottom:36.6vw;
+        left: 6px;
+        font-size: 11px;
+        padding: 2px 5px;
     }
 }
 @media (min-width:730px){
     .artwork__image{
         width: 28vw;
     }
+    .artwork__image-vertical{
+        width: 20vw;
+    /*    position: absolute; */
+        overflow: visible;
+        display: block;
+    }
+    .label--top-left{
+        position: relative;
+        bottom:27.6vw;
+        left: 6px;
+        font-size: 11px;
+        padding: 2px 5px;
+    }
 }
 @media (min-width:910px){
     .artwork__image{
         width: 21vw;
+    }
+    .artwork__image-vertical{
+        width: 17vw;
+    /*    position: absolute; */
+        overflow: visible;
+        display: block;
+    }
+    .label--top-left{
+        position: relative;
+        bottom:23.3vw;
+        left: 6px;
+        font-size: 11px;
+        padding: 2px 5px;
     }
 }
