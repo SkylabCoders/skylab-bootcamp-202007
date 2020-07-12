@@ -21,6 +21,25 @@ body {
     position: absolute;
     height: 45px;
 }
+.points {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-self: flex-end;
+    margin-top: -20px;
+}
+.points-circle {
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 100%;
+    margin: 5px;
+}
+.points-circle-special {
+    background-color: white;
+}
 .arrow-left {
     left:5px;
 }
