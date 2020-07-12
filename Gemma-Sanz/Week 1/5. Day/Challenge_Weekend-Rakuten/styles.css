@@ -49,6 +49,26 @@ header{
 	top: 89%;
 	transform: translate(-50%, 0);
 }
+.white__arrow-right {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+	top: 40%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+}
+.white__arrow-left {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+	top: 40%;
+    transform: rotate(135deg);
+    border-radius: 12%;
+}
 .carousel-other{
     display: flex;
     flex-direction: row;
@@ -141,6 +161,26 @@ a{
     border-radius: 2px;
     box-shadow: 0 0 0 5px yellow;
 }
+.genres{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+.genreicon{
+    display: flex;
+    flex-direction: column;
+}
+.genreicon__round{
+    width: 95px;
+    height: 95px;
+    background-size: auto;
+    border-radius: 50%;
+    background: center center no-repeat;
+    background-image: url(https://images-0.wuaki.tv/assets/genres/all-cb781ac….png);
+
+}
+
 @media (min-width:560px){
     .artwork__image{
         width: 38vw;
