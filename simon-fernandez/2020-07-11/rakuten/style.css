@@ -142,7 +142,6 @@ min-width: 1024px;
 .footer--nav{
    display: flex;
    flex-direction: row;
-   justify-content: space-around;
    position: fixed;
    bottom: 0px;
    height: 7vh;
@@ -156,7 +155,6 @@ min-width: 1024px;
 }
 .footer--nav div{
     height: 50%;
-    margin: auto;
     margin-top: 7px;
 }
 
