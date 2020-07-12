@@ -76,6 +76,34 @@ body {
     margin: 0 .3rem;
 }
 
+.arrows {
+    display: block;
+}
+
+    .slider:hover + .arrows {
+        display: block;
+        filter: invert(1);
+    }
+
+.slider__arrow {
+    position: absolute;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+    font-size: 2.5rem;
+    transform: scaleY(2);
+}
+
+.left {
+    left: 2%;
+    top: 50%;
+}
+
+.right {
+    right: 2%;
+    top: 50%;
+}
+
+
 .btn-red {
     background-color: crimson;
 }
@@ -146,6 +174,21 @@ body {
         -moz-outline-radius: .3rem;
     }
 
+/* Flecha */
+.container-carrousel {
+    position: relative;
+}
+
+.carrousel__arrow {
+    position: absolute;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+    font-size: 2.5rem;
+    transform: scaleY(2);
+    right: 2%;
+    top: 50%
+}    
+
 /* Section 3 */
 .container__gender {
     display: flex;
@@ -183,6 +226,19 @@ body {
     padding-bottom: .2rem;
 }
 
+/* Flecha */
+.container-gender {
+    position: relative;
+}
+.gender__arrow {
+    position: absolute;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+    font-size: 2.5rem;
+    transform: scaleY(2);
+    right: 2%;
+    top: 30%
+} 
 
 /* Footer */
 .footer {
@@ -276,7 +332,8 @@ body {
 .register,
 .help,
 .container__gender--text div:nth-child(3),
-.container__title div:nth-child(3) {
+.container__title div:nth-child(3),
+.box-info {
     display: none;
 }
 
@@ -533,6 +590,17 @@ body {
     /* Margen del footer para que el nav-footer fixed no tape. Ahora hay que tirarlo */
     .footer {
         margin-bottom: 0px;
+    }
+
+    /* Cuadro de info que aparece */
+
+    /* .box-info {
+        display: block;
+    } */
+
+    .container__film--items a img:hover + .box-info {
+        display: block;
+        position: absolute;
     }
 }
 
