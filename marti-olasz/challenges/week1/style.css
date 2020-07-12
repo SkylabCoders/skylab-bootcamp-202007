@@ -39,6 +39,42 @@ header.transparent {
   width: 122px;
 }
 
+.header-menus > input {
+  padding-left: 40px;
+  height:35px;
+  background-color: #333;
+  border-radius: 2px;
+
+  color: white;
+}
+
+.flex-space{
+  flex: 1;
+}
+
+.login{
+  background: transparent;
+  border: none;
+
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.login:hover{
+  color: yellow;
+}
+
+.register{
+  background-color: yellow;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.register:hover{
+  background-color: #f0d500;
+}
+
 .header-menus {
   display: flex;
 }
@@ -245,6 +281,8 @@ div[class^="info-item__"] {
   position: fixed;
   bottom: 0;
   width: 100%;
+
+  background-color: black;
 }
 
 .footer-nav-item {
@@ -398,7 +436,7 @@ div[class^="info-item__"] {
   padding: 10px;
   letter-spacing: 1px;
 
-  font-family: NotoSans-Bold,Arial,sans-serif;
+  font-family: NotoSans-Bold, Arial, sans-serif;
 }
 
 /* items del menu */
@@ -442,24 +480,24 @@ div[class^="info-item__"] {
   display: block;
 }
 
-.menu-arrow::after{
+.menu-arrow::after {
   display: inline-block;
-  content: '▼';
+  content: "▼";
   position: relative;
   bottom: 1px;
   margin-left: 4px;
   font-size: 10px;
 }
 
-.menu-arrow:hover::after{
+.menu-arrow:hover::after {
   display: inline-block;
-  content: '▲';
+  content: "▲";
   position: relative;
   bottom: 1px;
   margin-left: 4px;
-  font-size: 10px; 
+  font-size: 10px;
 }
 
-.yellow:hover{
+.yellow:hover {
   color: yellow;
 }
