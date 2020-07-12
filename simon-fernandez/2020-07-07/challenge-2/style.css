@@ -1,0 +1,10 @@
+p{
+    border: none;
+    width: 25vh;
+}
+.specific{
+    background-color: red;
+}
+#morespecific{
+    background-color: grey;
+}

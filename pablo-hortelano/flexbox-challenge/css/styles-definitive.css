@@ -1,0 +1,296 @@
+/*Main Area*/
+body {
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6e4d9;
+    background-image: url('../images/pattern.png');
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+
+}
+
+#mainheader {
+    background-color: #a593c2;
+}
+
+/*Top Menu*/
+
+nav {
+    margin: 0 auto 20px;
+    width: 100vw;
+}
+
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+nav>ul>li>a {
+        line-height: 60px;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+
+nav>ul>li a {
+    color: white;
+    text-align: center;
+    padding-right: 80px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bigger-list-item {
+    flex-grow: 1;
+}
+
+/*Side Menu*/
+
+.mainContent ul{
+    padding-inline-start: 2px;
+    margin-right: 1.5rem;
+}
+
+.mainContent ul>a>li{
+    background-color: #cf4522;
+    color: #fff;
+    list-style: none;
+    padding: 14px 25px;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.mainContent ul>a>li:hover{
+    background-color: #B43110;
+}
+
+.mainContent ul>a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.mainContent{
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-allpies{
+    width: 100vw;
+}
+
+.leftmenu {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+/*Main Content*/
+
+.main {
+    margin-bottom: 20px;
+}
+.main-about {
+    margin: 0 auto;
+}
+
+.pageTitle{
+    font-size:35px;
+    color:#a593c2;
+}
+
+.middle-article {
+    width: 70%;
+}
+
+/*Footer*/
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
+}
+
+footer address {
+    width: 100vw !important;
+    text-align: center;
+}
+
+/*
+IPHONE
+*/
+
+@media screen and (max-width: 480px) {
+    nav > ul {
+        padding-left: 0;
+    }
+    .mainContent {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    nav>ul>li a {
+        padding-right: 40px;
+    }
+
+    nav>ul>li:nth-child(2) {
+        padding-left: 40px;
+    }
+    
+    .leftmenu {
+        width: 30vw;
+        padding-right: 100px;
+    }
+
+    .leftmenu ul{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch !important;
+        align-items: stretch;
+        border: 1px solid black;
+
+    }
+
+    .leftmenu ul a{
+        border: 1px solid black;
+        width: 100vw;
+    }
+
+    .hide-mobile {
+        display:none;
+    }
+
+    .mainContent{
+        width: 100vw;
+    }
+
+
+    .main img{
+        width:100%;
+        margin: 0 auto;
+    }
+
+    .main h1{
+        width: 100%;
+    }
+
+    .middle-article{
+        margin: 0 auto;
+    }
+
+    #promos{
+        width: 100%;
+        text-align: center;
+    }
+
+    #promos h3, #promos h4{
+        margin: 0 auto;
+    }
+
+    footer{
+        text-align: center;
+    }
+
+    .main-about{
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-about p {
+        text-size-adjust: 1em;
+        text-align: left;
+    }
+
+    .main-about h1 {
+        padding-right: 50px;
+        text-size-adjust: 1em;
+        text-align: left;
+    }
+    .main-allpies img {
+        padding-right: 100px;
+        width: 380px;
+    }
+
+    iframe{
+        width:  100vw;
+    }
+
+    .main-allpies{
+        width: 100vw
+    }
+
+    .main-allpies figure {
+        width: 100vw;
+    }
+
+    .main-allpies figure img {
+        width: 100vw;
+    }
+
+    table {
+        width: 80vw !important;
+    }
+}
+/*
+IPAD
+*/
+
+@media screen and (min-width:480px) and (max-width:769px) {
+    body{
+        width: 100vw;
+    }
+
+    .mainContent ul{
+        margin-left: 1.5rem;
+    }
+
+    .mainContent {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftmenu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        order: 2;
+        width: 100vw;
+    }
+
+    .leftmenu a {
+        margin: auto
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mainContent{
+        width: 100vw;
+    }
+
+    .main .middle-article, footer {
+        width: 90vw;
+        text-align: center;
+    }
+}
