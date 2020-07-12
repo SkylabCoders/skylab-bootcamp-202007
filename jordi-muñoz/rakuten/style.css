@@ -108,7 +108,7 @@ body {
     display: flex;
     justify-content: start;
     overflow: hidden;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 .nav-down {
     display: flex;
@@ -122,6 +122,7 @@ body {
     background-color: black;
     top: 85vh;
     padding: 8px;
+    
 }
 .nav-down-pics {
     font-size: 10px;
@@ -132,7 +133,38 @@ body {
 .tooltip__wrapper {
     display: none;
 }
-
+.footer-mobile {
+    margin-bottom: 70px;
+    padding: 20px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-mobile-row {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: rgb(175, 174, 174);
+    font-size: 14px;
+    width: 100%;
+}
+.footer-mobile-row p {
+    margin-right: 14px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+.footer-mobile-end {
+    font-size: 14px;
+    color: grey;
+}
+.footer-desktop {
+    display: none;
+}
+.footer-desktop-anex {
+    display: none;
+}
 
 @media screen and (min-width: 1024px) {
     .slider-logo {
@@ -231,6 +263,7 @@ body {
         display: flex;
     }
     .trailer {
+        text-align: center;
         border: 2px solid white;
         background-color: black;
         border-radius: 30px;
@@ -244,6 +277,57 @@ body {
     .tooltip__wrapper-yellow {
         font-weight: bold;
         color: rgb(241, 241, 42);
+    }
+    .footer-mobile {
+        display: none;
+    }
+    .footer-desktop {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(34, 34, 34);
+    }
+    .footer-desktop p {
+        color: rgb(172, 169, 169);
+    }
+    .footer-desktop-up {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px;
+        width: 50%;
+    }
+    .footer-desktop-down {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px;
+        text-align: center;
+    }
+    .footer-desktop-down-each {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-desktop-anex {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        background-color: black;
+    }
+    .footer-desktop-anex-up {
+        display: flex;
+        color: rgb(175, 174, 174);
+        font-size: 14px;
+    }
+    .footer-desktop-anex-up p{
+        margin-left: 25px;
+    }
+    .footer-desktop-anex-down {
+        font-size: 14px;
+        color: grey;
     }
 
 }
