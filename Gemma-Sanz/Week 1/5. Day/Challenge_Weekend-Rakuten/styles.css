@@ -215,6 +215,7 @@ a{
  ...
 }
 */
+/*Contact info*/
 .contact-info{
     display: flex;
     flex-direction: column;
@@ -228,7 +229,7 @@ a{
     justify-content: flex-start;
     background-color: #0d0d0d;
     align-items: center;
-    padding: 40px;
+    padding: 20px;
 }
 .mini-rakuten-logo{
     width: 122px;
@@ -250,6 +251,45 @@ a{
 }
 .copyright{
     color: rgb(138, 136, 136);
+}
+/*Footer*/
+.nav-menu{
+    display: inline-flex;
+    flex-direction: row;
+    height: fit-content;
+    list-style: none;
+    width: 100vw;
+    justify-content: space-around;
+    padding: 0%;
+    margin-bottom: unset;
+}
+.footer{
+    border-top: 1px solid grey;
+    height: min-content;
+}
+.home-img{
+    filter: invert(0.4);
+    height: 25px;
+}
+.home-img:hover{
+    height: 25px;
+}
+.nav-menu>li{
+    display: flex;
+    flex-direction: column;
+}
+.nav-menu>li>a{
+    margin: 0px;
+    text-align: center;
+    color: rgb(179, 179, 179);
+    border-bottom: 0px;
+    font-size: 10px;
+    cursor: pointer;
+}
+.nav-menu>li>a:hover{
+    color: rgb(246, 250, 25);
+    filter: contrast(40%) sepia(1) hue-rotate(20deg) saturate(1000%);
+
 }
 
 /*Media queries*/
