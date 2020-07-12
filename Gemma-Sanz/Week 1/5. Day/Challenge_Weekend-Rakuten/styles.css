@@ -175,7 +175,8 @@ a{
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
-    position: relative
+    position: relative;
+    margin: 10px;
 }
 .genreicon{
     display: flex;
@@ -204,12 +205,37 @@ a{
 }
 .genreicon>p{
     text-align: center;
+    font-weight: lighter;
 }
 /* Don't know how to delete the white circle around the img's
 .container-genreicon{
-
+ ...
 }
 */
+.contact-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #0d0d0d;
+    align-items: center;
+    padding: 40px;
+}
+.mini-rakuten-logo{
+    width: 122px;
+}
+.other-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.other-info>p{
+    color: rgb(179, 179, 179);
+    margin: 10px;
+    letter-spacing: 0px;
+    line-height: 2px;
+}
 
 /*Media queries*/
 /*560 - 730px*/
