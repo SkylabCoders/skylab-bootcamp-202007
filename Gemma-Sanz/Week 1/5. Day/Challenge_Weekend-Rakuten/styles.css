@@ -19,6 +19,9 @@ header{
     padding-top: 15px;
     background: linear-gradient(black, transparent)
 }
+nav{
+    display: none;
+}
 .logo-rakuten{
     left:0;
     height: 4vh;
@@ -363,6 +366,24 @@ a{
     }
 }
 @media (min-width:1024px){
+    header{
+        display: none;
+    }
+    nav{
+        display: block;
+    }
+    .main-nav-contents{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style-type: none;
+        width: 100vw;
+        align-items: center;
+        margin: 0px;
+    }
+    .main-nav-contents>li>p{
+        color: white;
+    }
     .artwork__image{
         width: 18.3vw;
     }
