@@ -13,12 +13,17 @@ body {
 }
 
 /*Top Menu*/
+.logo{
+    display: flex;
+    margin-right: auto;
+    
+}
 
 
-nav {
+.menu-header{
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-end;
     height: 60px;
     width: 1000px;
     margin: 0 auto 20px;
@@ -97,9 +102,15 @@ nav>ul>li a {
 .main {
     display:flex;
     flex-direction: column;
-    float: right;
+    justify-content: space-around;
+    flex-wrap: wrap;
     width: 70%;
     margin-bottom: 20px;
+    
+}
+img{
+    min-width: 300px;
+    min-height:200px;
 }
 
 .pageTitle{
@@ -114,9 +125,33 @@ footer {
     clear: both;
     width: 100%;
 }
-@media screen and (max-width:600px){
+@media screen and (max-width:1024px){
     .section2{
         flex-direction: column;
         justify-content: space-around;
+}
+}
+@media screen and (max-width:600px){
+    .section2{
+        flex-direction: column-reverse;
+        justify-content: space-around;
     }
-} 
+}
+.card{
+    border: 2px solid black;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    justify-content: space-around;
+    width:100%;
+    min-width: 350px;
+    min-height: 350px;
+    
+    background-color: cornsilk;
+}
+.flex-space{
+    display:flex;
+    order: -1;
+    width:300px;
+}
+ 
