@@ -1,39 +1,6 @@
-.mainContent{
-    display: flex;
-    flex-direction: column;
-}
-
-.mainContent-top{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.leftmenu{
-    display: flex;
-    flex-direction: column;
-
-    width: 20%;
-}
-
-.leftmenu-item{
-    display: flex;
-    flex-direction: column;
-}
-
-
-.main{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-}
-
-
 /*Main Area*/
 body {
-    margin-top: 0px;
-    margin-left: auto ;
-    margin-right: auto;
+    margin: 0 auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e6e4d9;
     background-image: url('../images/pattern.png');
@@ -47,30 +14,57 @@ body {
 
 nav {
     height: 60px;
-}
-
-.nav{
+    
     display: flex;
     flex-direction: row;
+    
+    margin: 0 25%;
 }
 
+nav > div{
+    flex: 1;
+}
 
-.nav > a{
+nav > a{
     padding: 20px;
     color: white;
     text-decoration: none;
 }
 
+/*Main*/
+
+.mainContent{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /*Side Menu*/
 
-.mainContent div{
-    padding-inline-start: 2px;
-    margin-right: 1.5rem;
-}
+
 
 .mainContent ul>a{
     text-decoration: none;
     color: #fff;
+}
+
+.leftmenu{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.leftmenu-item{
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
 }
 
 .leftmenu-item > a{
@@ -82,19 +76,73 @@ nav {
 }
 
 /*Main Content*/
-.pageTitle{
-    font-size:35px;
+.main > strong{
+    font-size:25px;
     color:#a593c2;
+    padding-bottom: 50px;
 }
 
-@media screen and (max-width: 599px){
+.main{
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    min-width: 350px;
+}
+
+.main > div{
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid black;
+    background-color: lightgray;
+    margin-bottom: 10px;
+    padding: 20px;
+
+    width: 80%;
+}
+
+.main > div > img{
+    width: 90%;
+    margin: 15px auto;
+}
+
+.main > div > div{
+    display: flex;
+    flex-direction: row;
+
+    align-content: flex-start;
+}
+
+.main > div > div > div{
+    flex: 1;
+}
+
+footer{
+    text-align: center;
+}
+
+figure{
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1024px){
     .mainContent-top{
         flex-direction: column;
     }
-    .leftmenu{
-        width: auto;
-    }
+
     .main{
-        width: auto;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .mainContent-top{
+        flex-direction: column-reverse;
+    }
+
+    .main{
+        margin: 0 auto;
     }
 }

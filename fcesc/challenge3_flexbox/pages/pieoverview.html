@@ -14,8 +14,8 @@
 <body>
     <header id="mainheader">
         <nav>
+            <img id="header_logo" src="../images/pie.png"/>
             <ul>
-                <li><img id="header_logo" src="../images/pie.png"/></li>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="pieoverview.html">All pies</a></li>
                 <li><a href="about.html">About</a></li>
@@ -25,7 +25,7 @@
     <div class="supercontainer">
         <div class="mainContent">
             <aside class="leftmenu">
-                <a href="index.html"><img src="../images/bethanylogo.png" /></a>
+                <a href="../index.html"><img class="aside-left__img" src="../images/bethanylogo.png" /></a>
                 <header>
                     <h4 style="text-align: center;">Browse our pies</h4>
                 </header>
@@ -37,88 +37,98 @@
                 </ul>
             </aside>
             <main class="main">
-                <table border="1"
-                    style="width:100%;border: 1px solid black;border-collapse: collapse; padding: 20px;border-spacing: 5px;">
-                    <caption>
-                        Our delicious selection of pies for you to enjoy!
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Pie name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="../images/products/cheesecakesmall.jpg" width="100"></td>
-                            <td>Cheese cake</td>
-                            <td>Plain cheese cake. Plain pleasure.</td>
-                            <td>$12.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/applepiesmall.jpg" width="100"></td>
-                            <td><a href="applepie.html">Apple pie</a></td>
-                            <td>Our famous apple pie</td>
-                            <td>$14.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/cranberrypiesmall.jpg" width="100"></td>
-                            <td>Cranberry pie</td>
-                            <td>A Christmas favorite</td>
-                            <td>$18.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/cherrypiesmall.jpg" width="100"></td>
-                            <td>Cherry pie</td>
-                            <td>A summer classic!</td>
-                            <td>$18.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/peachpiesmall.jpg" width="100"></td>
-                            <td>Peach pie</td>
-                            <td>Sweet as peach</td>
-                            <td>$18.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/pumpkinpiesmall.jpg" width="100"></td>
-                            <td>Pumpkin pie</td>
-                            <td>Our Halloween favorite</td>
-                            <td>$18.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/christmasapplepiesmall.jpg" width="100"></td>
-                            <td>Christmas apple pie</td>
-                            <td>Happy holidays with this pie!</td>
-                            <td>$19.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/blueberrycheesecakesmall.jpg" width="100"></td>
-                            <td>Blueberry cheese cake</td>
-                            <td>You'll love it!</td>
-                            <td>$17.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/rhubarbpiesmall.jpg" width="100"></td>
-                            <td>Rhubarb Pie</td>
-                            <td>My God, so sweet!</td>
-                            <td>$21.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/strawberrypiesmall.jpg" width="100"></td>
-                            <td>Strawberry Pie</td>
-                            <td>Our delicious strawberry pie!</td>
-                            <td>$18.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/strawberrycheesecakesmall.jpg" width="100"></td>
-                            <td>Strawberry Cheese Cake</td>
-                            <td>One of the best cheese cakes you'll ever find!</td>
-                            <td>$18.95</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <ul class="list">
+                    <li class="list-item">
+                        <img src="../images/products/cheesecakesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Cheese cake</h5>
+                            <p>Plain cheese cake. Plain pleasure.</p>
+                            <small>$12.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">
+                        <a href="applepie.html">
+                            <img src="../images/products/applepiesmall.jpg"  >
+                        </a>
+                        <div class="list-item__subtitle">
+                            <h5><a href="applepie.html">Apple pie</a></h5>
+                            <p>Our famous apple pie</p>
+                            <small>$14.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/cranberrypiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Cranberry pie</h5>
+                            <p>A Christmas favorite</p>
+                            <small>$18.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/cherrypiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Cherry pie</h5>
+                            <p>A summer classic!</p>
+                            <small>$18.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/peachpiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Peach pie</h5>
+                            <p>Sweet as peach</p>
+                            <small>$18.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/pumpkinpiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Pumpkin pie</h5>
+                            <p>Our Halloween favorite</p>
+                            <small>$18.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/christmasapplepiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Christmas apple pie</h5>
+                            <p>Happy holidays with this pie!</p>
+                            <small>$19.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/blueberrycheesecakesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Blueberry cheese cake</h5>
+                            <p>You'll love it!</p>
+                            <small>$17.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/rhubarbpiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Rhubarb Pie</h5>
+                            <p>My God, so sweet!</p>
+                            <small>$21.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/strawberrypiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Strawberry Pie</h5>
+                            <p>Our delicious strawberry pie!</p>
+                            <small>$18.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/strawberrycheesecakesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Strawberry Cheese Cake</h5>
+                            <p>One of the best cheese cakes you'll ever find!</p>
+                            <small>$18.95</small>
+                        </div>
+                    </li>
+                </ul>
             </main>
         </div>
         <footer>

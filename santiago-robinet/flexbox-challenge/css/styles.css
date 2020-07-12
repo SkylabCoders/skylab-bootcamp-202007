@@ -1,7 +1,7 @@
  
 /*Main Area*/
 body {
-    margin-top: 0px;
+    margin: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #e6e4d9;
     background-image: url('../images/pattern.png');
@@ -22,13 +22,7 @@ body {
 .leftmenu {
     display: flex;
     flex-direction: column;
-    justify-content: ;
     
-}
-
-
-img {
-    width: 100%;
 }
 
 
@@ -50,7 +44,10 @@ img {
 nav {
     display: flex;
     flex-direction: row;
-    margin: 0 auto 20px;
+    align-items: center;
+}
+.flex-spacer{
+    flex: 1;
 }
 
 nav>ul {
@@ -65,12 +62,15 @@ nav>ul>li {
 }
 
 nav>ul>li a {
-    display: block;
     color: white;
     text-align: center;
     padding: 16px;
     text-decoration: none;
     font-weight: bold;
+}
+
+.logo{
+    margin-left: 1rem;
 }
 
 /*Side Menu*/
@@ -131,7 +131,48 @@ footer {
     align-items: center;
 }
 
-@media screen and (max-width: 920px){
+.main-cacke-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+}
+
+.cake-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center; 
+    width: 28%; 
+    border: 2px solid;
+    padding: 1rem;
+    background-color: rgb(167, 166, 166);
+    margin: 1rem;
+
+    
+}
+
+.cake-container p{
+    text-align: center;
+}
+
+.cake-name-price h5{
+    margin-right: 10%;
+    text-align: center;
+}
+
+.cake-name-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.cake-container img{
+    width: 100%;
+
+}
+
+@media screen and (max-width: 1024px){
 
     
     .mainContent{
@@ -151,7 +192,7 @@ footer {
     }
 
    
-    img {
+    .main-imagen {
         width: 80%;
     }
 
@@ -159,14 +200,25 @@ footer {
         width: 100%;
     }
 
+    figure{
+        margin: 0;
+    }
     
 }
 
-@media screen and (max-width: 450px){
-    nav>ul{
+@media screen and (max-width: 600px){
+    .leftmenu{
+        order: 1;
+    }
+
+    body{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        width: 100%;
     }
+
+    .mainContent{
+        justify-content: center;
+        text-align: center;
+    }
+
 }

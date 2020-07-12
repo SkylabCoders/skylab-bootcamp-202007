@@ -14,8 +14,8 @@
 <body>
     <header id="mainheader">
         <nav>
+            <img id="header_logo" src="../images/pie.png"/>
             <ul>
-                <li><img id="header_logo" src="images/pie.png"/></li>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="pieoverview.html">All pies</a></li>
                 <li><a href="about.html">About</a></li>
@@ -24,49 +24,37 @@
     </header>
     <div class="supercontainer">
         <div class="mainContent">
-            <div class="mainContent">
-                <aside class="leftmenu">
-                    <a href="index.html"><img src="../images/bethanylogo.png" /></a>
-                    <header>
-                        <h4 style="text-align: center;">Browse our pies</h4>
-                    </header>
-                    <ul>
-                        <a class="aside_menuItems" href="pieoverview.html"><li>All pies</li></a>
-                        <a class="aside_menuItems" href="cheesecakes.html"><li>Cheese cakes</li></a>
-                        <a class="aside_menuItems" href="fruitpies.html"><li>Fruit pies</li></a>
-                        <a class="aside_menuItems" href="seasonalpies.html"><li>Seasonal pies</li></a>
-                    </ul>
-                </aside>
+            <aside class="leftmenu">
+                <a href="../index.html"><img class="aside-left__img" src="../images/bethanylogo.png" /></a>
+                <header>
+                    <h4 style="text-align: center;">Browse our pies</h4>
+                </header>
+                <ul>
+                    <a class="aside_menuItems" href="pieoverview.html"><li>All pies</li></a>
+                    <a class="aside_menuItems" href="cheesecakes.html"><li>Cheese cakes</li></a>
+                    <a class="aside_menuItems" href="fruitpies.html"><li>Fruit pies</li></a>
+                    <a class="aside_menuItems" href="seasonalpies.html"><li>Seasonal pies</li></a>
+                </ul>
+            </aside>
             <main class="main">
-                <table border="1"
-                    style="width:100%;border: 1px solid black;border-collapse: collapse; padding: 20px;border-spacing: 5px;">
-                    <caption>
-                        Our delicious selection of pies for you to enjoy!
-                    </caption>
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Pie name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td><img src="../images/products/pumpkinpiesmall.jpg" width="100"></td>
-                            <td>Pumpkin pie</td>
-                            <td>Our Halloween favorite</td>
-                            <td>$18.95</td>
-                        </tr>
-                        <tr>
-                            <td><img src="../images/products/christmasapplepiesmall.jpg" width="100"></td>
-                            <td>Christmas apple pie</td>
-                            <td>Happy holidays with this pie!</td>
-                            <td>$19.95</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <ul class="list">
+                    <li class="list-item">    
+                        <img src="../images/products/pumpkinpiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Pumpkin pie</h5>
+                            <p>Our Halloween favorite</p>
+                            <small>$18.95</small>
+                        </div>
+                    </li>
+                    <li class="list-item">    
+                        <img src="../images/products/christmasapplepiesmall.jpg"  >
+                        <div class="list-item__subtitle">
+                            <h5>Christmas apple pie</h5>
+                            <p>Happy holidays with this pie!</p>
+                            <small>$19.95</small>
+                        </div>
+                    </li>
+                </ul>
             </main>
         </div>
         <footer>
