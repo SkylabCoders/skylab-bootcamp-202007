@@ -1,13 +1,13 @@
 body{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.5px;
     background-color: #101010;
     overflow-x: hidden;
-    margin: 0%;
+    margin: 0 10px;
 }
 /*Header*/
 header{
@@ -371,6 +371,8 @@ a{
     }
     nav{
         display: block;
+        position: fixed;
+        z-index: 400;
     }
     .main-nav-contents{
         display: flex;
@@ -381,6 +383,7 @@ a{
         align-items: center;
         margin: 0px 10px;
         padding: 4px;
+        background-color: black;
     }
     .nav-rakuten-logo{
         height: 29px;
