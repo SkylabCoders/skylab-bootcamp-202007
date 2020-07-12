@@ -1,6 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
 header {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 nav {
@@ -8,12 +23,12 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 20px;
   background-color: lightgrey;
   position: fixed;
-  top: 0;
-  width: 100%;
+  width: 110%;
   z-index: 200;
+  padding: 0 5vw;
+  margin-left: -5vw;
 }
 
 .dropdown {
@@ -55,7 +70,7 @@ nav {
 
 .logo {
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 90px;
 }
 
 .imgbanner,
@@ -90,27 +105,36 @@ nav {
 .content-layout {
   display: flex;
   flex-direction: column;
-  margin: 15vw;
+  padding: 20px;
   height: 500px;
-  justify-content: space-evenly;
+  width: 340px;
 }
 
 .content-layout-box {
-  height: 140px;
   display: flex;
   align-items: flex-end;
+  margin: 10px;
 }
 
 .content-layout-box1 {
   background-image: url(https://static3.marialunarillos.com/media/wysiwyg/moldesdereposteria.jpg);
+  height: 30%;
+}
+
+.content-layout-wrapper {
+  height: 60%;
 }
 
 .content-layout-box2 {
   background-image: url(https://static3.marialunarillos.com/media/wysiwyg/utensiliosbasicos.jpg);
+  display: flex;
+  justify-content: flex-start;
+  height: 50%;
 }
 
 .content-layout-box3 {
   background-image: url(https://static3.marialunarillos.com/media/wysiwyg/pequenoelectrodomestico2.jpg);
+  height: 50%;
 }
 
 .content-layout-text {
@@ -120,13 +144,18 @@ nav {
   opacity: 0.8;
   color: black;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
+  padding: 15px;
   display: flex;
   align-items: center;
 }
 
+.content-layout-text-description {
+  display: none;
+}
+
 .cards {
-  margin: 15vw;
+  margin: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -142,6 +171,7 @@ nav {
   color: white;
   text-align: center;
   padding: 10px;
+  width: 100%;
 }
 
 .card2 {
@@ -195,7 +225,7 @@ footer {
 
   .dropdown {
     display: flex;
-    padding-left: 40px;
+    padding-left: 80px;
     position: absolute;
     top: 0;
     left: 0;
@@ -213,72 +243,123 @@ footer {
     text-indent: -9999px;
     display: block;
     width: 70px;
-    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/maria-lunarillos.png) #ff5959 bottom center
-      no-repeat;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/maria-lunarillos.png)
+      #ff5959 bottom center no-repeat;
     height: 125px;
   }
 
   .cucute {
-    font: 12px/1.55 'Source Sans Pro', sans-serif;
+    font: 12px/1.55 "Source Sans Pro", sans-serif;
     list-style: none;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #FF5959;
+    color: #ff5959;
     text-decoration: none;
     cursor: pointer;
     text-indent: -9999px;
     display: block;
     height: 70px;
-    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/cucute.png) #6199AF bottom center no-repeat;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/cucute.png)
+      #6199af bottom center no-repeat;
     width: 70px;
   }
 
   .cucute:hover {
-      height: 125px;
+    height: 125px;
   }
 
   .mumuchu {
-    font: 12px/1.55 'Source Sans Pro', sans-serif;
+    font: 12px/1.55 "Source Sans Pro", sans-serif;
     list-style: none;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #FF5959;
+    color: #ff5959;
     text-decoration: none;
     cursor: pointer;
     text-indent: -9999px;
     display: block;
     height: 70px;
-    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/mumuchu.png) #F6B436 bottom center no-repeat;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/mumuchu.png)
+      #f6b436 bottom center no-repeat;
     width: 70px;
   }
 
   .mumuchu:hover {
     height: 125px;
-}
+  }
 
   .counter {
     margin-right: 40px;
   }
 
   .content-layout {
+    display: flex;
     flex-direction: row;
-    height: 300px;
+    height: 380px;
+    width: 625px;
   }
 
   .content-layout-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    height: 100%;
+    width: 65%;
+    position: relative;
+  }
+
+  .content-layout-box {
+    height: 100%;
   }
 
   .content-layout-box1 {
     height: 100%;
+    width: 30%;
+  }
+
+  .content-layout-box2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 50%;
+  }
+
+  .content-layout-box3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 50%;
   }
 
   .content-layout-text {
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+    padding: 15px;
+    text-align: left;
+  }
+
+  .content-layout-text-description {
+    display: block;
+  }
+
+  .content-layout-text1 {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+  }
+
+  .content-layout-text2 {
+    width: 50%;
+    height: 100%;
+  }
+
+  .content-layout-text3 {
+    width: 50%;
+    height: 100%;
   }
 
   .card {
@@ -292,8 +373,51 @@ footer {
 }
 
 @media screen and (min-width: 1024px) {
+  * {
+    font-size: 16px;
+  }
+
+  .content-layout {
+    width: 965px;
+  }
+
   .card3 {
     display: block;
     flex-basis: 220px;
   }
+
+  /* .content-layout-box1:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-right: 100px solid transparent;
+    border-bottom: 150px solid yellow;
+    opacity: 0.8;
+    position: absolute;
+  } */
+
+  .content-layout-box2:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-right: 100px solid transparent;
+    border-bottom: 150px solid white;
+    opacity: 0.8;
+    position: absolute;
+    left: 300px;
+  }
+
+  /* .content-layout-box3:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-right: 100px solid transparent;
+    border-bottom: 150px solid yellow;
+    opacity: 0.8;
+    position: absolute;
+    left: 1020px;
+  } */
 }
