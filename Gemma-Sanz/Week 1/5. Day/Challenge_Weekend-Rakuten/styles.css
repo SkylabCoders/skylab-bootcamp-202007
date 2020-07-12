@@ -5,6 +5,7 @@ body{
     align-items: center;
     font-family: 'Roboto', sans-serif;
     background-color: #101010;
+    overflow: hidden;
 }
 header{
     display: flex;
@@ -56,7 +57,7 @@ header{
     position: relative;
 }
 .artwork{
-    margin: 10px;
+    margin: 5px;
 }
 .artwork__image{
     width: 54vw;
@@ -83,12 +84,45 @@ a{
     text-decoration: none;
     font-weight: bold;
 }
-.label{
+/* correct in order to fit well, if not do with text ">"
+.white__arrow-text{
+    border: 1px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 5px;
     position: absolute;
+    left: 40vw;
+	top: 40%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+   
 }
-.artwork__image-vertical>.label{
+ */
+.label{
+    background-color: rgb(255, 204, 0);
+    border-radius: 10%;
+    color: rgb(0, 0, 0);
+    
+}
+.artwork__image-vertical{
+    width: 40vw;
+    position: absolute;
+    overflow: visible;
+    display: block;
+}
+.label--top-left{
     position: relative;
+    top: 3px;
+    left: 6px;
+    font-size: 11px;
+    padding: 2px 5px;
 }
+.vertical-carousel{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    width: 100%;
+}
+
 @media (min-width:560px){
     .artwork__image{
         width: 38vw;
