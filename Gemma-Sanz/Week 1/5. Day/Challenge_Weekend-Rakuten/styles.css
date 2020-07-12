@@ -78,6 +78,7 @@ header{
 }
 .artwork{
     margin: 5px;
+    height: 100%;
 }
 .artwork__image{
     width: 54vw;
@@ -122,8 +123,8 @@ a{
     background-color: rgb(255, 204, 0);
     border-radius: 10%;
     color: rgb(0, 0, 0);
-    
 }
+
 .artwork__image-vertical{
     width: 40vw;
 /*    position: absolute; */
@@ -155,6 +156,7 @@ a{
     border-radius: 12%;
 }
 .artwork-vertical{
+    height: 265px;
     margin: 5px;
 }
 .artwork-vertical:hover{
