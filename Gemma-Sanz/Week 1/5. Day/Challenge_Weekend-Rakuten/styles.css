@@ -13,9 +13,11 @@ body{
 header{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     position: absolute;
     width: 100%;
+    padding-top: 15px;
+    background: linear-gradient(black, transparent)
 }
 .logo-rakuten{
     left:0;
@@ -23,6 +25,11 @@ header{
 }
 .blank{
     flex:1;
+}
+.lupa{
+    filter: invert(1);
+    height: 3vh;
+    margin-right: 20px;
 }
 /*Main carousel*/
 .main-carousel{
