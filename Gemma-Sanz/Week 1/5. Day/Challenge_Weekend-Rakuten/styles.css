@@ -445,16 +445,24 @@ a{
     /*Info rakuten*/
     .main-info-rakuten{
         background-color: rgb(37, 37, 37);
-        width: 100vw;
+        width: 98vw;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         flex-wrap: wrap;
+        padding: 20px 0;
     }
     .info-row{
         display: flex;
         flex-direction: row;
+    }
+    .info-row-column{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
     }
     .devices{
         width: 100px;
@@ -467,8 +475,11 @@ a{
     .help-img{
         width: 100px;
     }
-    .info-row-column p,.info-row-column h1{
+    .info-row-column p{
         color: rgb(207, 204, 204);
+    }
+    .info-row-column h1{
+        color: white;
     }
     .info-rakuten p{
         color: rgb(207, 204, 204);
