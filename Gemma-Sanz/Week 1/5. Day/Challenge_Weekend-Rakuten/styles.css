@@ -8,6 +8,7 @@ body{
     background-color: #101010;
     overflow-x: hidden;
 }
+/*Header*/
 header{
     display: flex;
     flex-direction: row;
@@ -22,6 +23,7 @@ header{
 .blank{
     flex:1;
 }
+/*Main carousel*/
 .main-carousel{
     position: relative;
     margin-bottom: 5px;
@@ -70,6 +72,7 @@ header{
     transform: rotate(135deg);
     border-radius: 12%;
 }
+/*Other carousel*/
 .carousel-other{
     display: flex;
     flex-direction: row;
@@ -99,6 +102,7 @@ header{
     transform: rotate(-45deg);
     border-radius: 12%;
 }
+/*Vertical carousel*/
 a{
     color: white;
     background-color: transparent;
@@ -158,33 +162,57 @@ a{
     border-radius: 12%;
 }
 .artwork-vertical{
-    height: 265px;
+    height: 100%;
     margin: 5px;
 }
 .artwork-vertical:hover{
     border-radius: 2px;
     box-shadow: 0 0 0 5px yellow;
 }
+/*Genres*/
 .genres{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
+    position: relative
 }
 .genreicon{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 4px;
+}
+.white__arrow-genres {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
 }
 .genreicon__round{
     width: 95px;
     height: 95px;
-    background-size: auto;
-    border-radius: 50%;
-    background: center center no-repeat;
-    background-image: url(https://images-0.wuaki.tv/assets/genres/all-cb781ac….png);
+}
+.container-genreicon{
+    width: 95px;
+    height: 95px;
+    border-radius: 100%;
+}
+.genreicon>p{
+    text-align: center;
+}
+/* Don't know how to delete the white circle around the img's
+.container-genreicon{
 
 }
+*/
 
+/*Media queries*/
+/*560 - 730px*/
 @media (min-width:560px){
     .artwork__image{
         width: 38vw;
@@ -203,6 +231,7 @@ a{
         padding: 2px 5px;
     }
 }
+/*730 - 910px*/
 @media (min-width:730px){
     .artwork__image{
         width: 28vw;
@@ -221,6 +250,7 @@ a{
         padding: 2px 5px;
     }
 }
+/*910 - max*/
 @media (min-width:910px){
     .artwork__image{
         width: 21vw;
