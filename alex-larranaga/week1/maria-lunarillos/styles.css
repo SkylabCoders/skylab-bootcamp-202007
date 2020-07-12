@@ -4,17 +4,6 @@ body {
     flex-direction: column; 
 }
 
-/*.header {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    justify-content:flex-end;
-    margin-right: 5%;
-    background-color: rgba(255, 255, 255, 0.904);
-
-}
-*/
-
 .sliderContainer{
         height: 40vh;
         background: url("https://static3.marialunarillos.com/media/custom/advancedslider/resized/slide-5c2f5c969f181-png/1080X600.png");
@@ -37,12 +26,49 @@ body {
 .mainContainer{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: center;
+    
 }
 
 .row{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.row > .moldes-reposteria{
+    flex-grow: 1;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;;
+}
+
+.moldes-reposteria{
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.moldes-reposteria p{
+    position: absolute;
+    justify-content: end;
+}
+
+.moldes-reposteria img{
+    height: 100%;
+    border: 1px black;
+
+}
+
+.submain-img{
+    display: flex;
+    justify-content: center;
+}
+
+#utensilios {
+    width: 5px;
+    height: 5px;
 }
 
 
