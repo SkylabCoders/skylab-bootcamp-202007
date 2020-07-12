@@ -3,6 +3,7 @@
   font-family: "Noto Sans", sans-serif;
   color: white;
   font-weight: 600;
+  margin: 0;
 }
 
 /* NAVIGATION*/
@@ -60,7 +61,7 @@
     display: flex;
     height: 50px;
     justify-content: space-around;
-    overflow: hidden;
+    overflow: q;
   }
 
   .nav__items__glass {
@@ -68,7 +69,6 @@
   }
 
   .nav__items__left__list {
-   
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -132,22 +132,28 @@
   margin-top: 20px;
 }
 
- .header__img {
-   width: 100%;
- }
+.header__img {
+  width: 100vw;
+}
 
- /* MAIN */
+/* MAIN */
 
- .carousel {
+.carousel {
   display: flex;
-  /* width: 100%;; */
-  justify-content: space-evenly;
-  overflow: hidden;
-  margin: auto;
- }
+  width: 100vw;
+  justify-content: flex-start;
+  overflow: scroll;
+  margin: 0 10px;
+}
 
- .carousel * {
-   margin: 5px;
-   width: 100%;
- }
- 
+.carousel * {
+  margin: 5px;
+  width: 250px;
+  border-radius: 2px;
+  border: 2px solid black;
+}
+
+.carousel *:hover {
+    border: 2px solid #ffe300;
+  
+}
