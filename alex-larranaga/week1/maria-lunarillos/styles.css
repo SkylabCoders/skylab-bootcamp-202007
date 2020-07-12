@@ -13,18 +13,25 @@ body {
 .header > ul > li > img{
     max-width: 50px;
     max-height: 50px;
+    margin: 20px;
+}
+
+.user-icon{
+    padding-right: 10vh;
+}
+.search-icon{
+    background-color: grey;
 }
 
 .menu-header{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-end;
 }
 .sliderContainer{
-        height: 40vh;
+        height: 100vh;
         background: url("https://static3.marialunarillos.com/media/custom/advancedslider/resized/slide-5c2f5c969f181-png/1080X600.png");
         background-size: contain;
-        margin: 10vh 10vw;
 }
 
 .navigation-container ul{
@@ -81,13 +88,24 @@ body {
     width: 150px;
     flex-direction: column;
     margin: 0 auto;
+    margin-top: 10%;
+    border-bottom: 10px solid black;
+
 }
 
+.submain-img > h2 {
+    padding-top: 5vh;
+    border-top: 10px solid black;
 
-
+}
 .submain-img > img{
     max-width: 100%;
     max-height: 100%;
+}
+
+.empty-icon {
+    background-color: grey;
+
 }
 
 
