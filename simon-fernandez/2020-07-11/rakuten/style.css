@@ -56,6 +56,7 @@ min-width: 1024px;
 }
 .main-section--carousel>div{
     margin: 0.3%;
+    border: 2px solid transparent;
 }
 .main-section--carousel>div>a>img{
     width: 100%;
@@ -70,6 +71,7 @@ min-width: 1024px;
 
 .portrait-section--carrousel>div{
     margin: 0.3%;
+    border: 2px solid transparent;
 }
 .portrait-section--carrousel>div:hover{
     border: 2px solid yellow;
@@ -90,20 +92,33 @@ min-width: 1024px;
     text-decoration: none;
     color: #fff;
 }
+/*
 .icon-container--icons{
     display: flex;
     flex-direction: row;
     justify-content: start;
+    min-width: 1024px;
 }
 .icon-container--icons>div{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 2%;
-    text-align: center;
+    width: 6vw;
  
 }
+.icon-container--icons>div>div{
+    width: 100%;
+}
+.icon-container--icons p{
+    font-size: small;
+}
 .icon-container--icons img{
-   
-    min-width: calc(100vw/7);
+    height: 100%;
+    width: 100%;
+
+}
+*/
+.icon-container--titles{
+    text-align: center;
 }
