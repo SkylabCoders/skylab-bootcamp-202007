@@ -30,7 +30,9 @@ li:hover, h4:hover{
     display: flex;
     flex-direction: column;
 }
-
+header{
+    overflow: hidden;
+}
 .flex-spacer{
     flex-grow: 1;
 }
