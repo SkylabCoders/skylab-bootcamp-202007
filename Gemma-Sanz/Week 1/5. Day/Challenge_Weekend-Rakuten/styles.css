@@ -1,7 +1,7 @@
 body{
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.5px;
@@ -225,6 +225,9 @@ a{
  ...
 }
 */
+.main-info-rakuten{
+    display: none;
+}
 /*Contact info*/
 .contact-info{
     display: flex;
@@ -439,6 +442,42 @@ a{
     .white__arrow{
         display: none;
     }
+    /*Info rakuten*/
+    .main-info-rakuten{
+        background-color: rgb(37, 37, 37);
+        width: 100vw;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .info-row{
+        display: flex;
+        flex-direction: row;
+    }
+    .devices{
+        width: 100px;
+        filter: invert();
+    }
+    .payment-img{
+        width: 100px;
+        filter: grayscale() invert();
+    }
+    .help-img{
+        width: 100px;
+    }
+    .info-row-column p,.info-row-column h1{
+        color: rgb(207, 204, 204);
+    }
+    .info-rakuten p{
+        color: rgb(207, 204, 204);
+    }
+    .info-rakuten{
+        width: 500px;
+        color: white;
+    }
+    /**/
     .contact-info{
         display: flex;
         flex-direction: row;
