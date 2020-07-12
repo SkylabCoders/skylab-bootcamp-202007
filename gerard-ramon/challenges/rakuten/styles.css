@@ -6,7 +6,6 @@
 body {
     background-color: #171717;
     font-family: 'Noto Sans', sans-serif;
-    font-weight: bold;
 }
 
 
@@ -311,6 +310,9 @@ body {
     align-items: center;
     background-color: black;
     padding: 20px;
+    font-weight: normal;
+    font-size: 12px;
+    margin-bottom: 50px;
 }
 
 .footer__logo__img {
@@ -470,6 +472,9 @@ body {
     }
     .header__bottom__bar {
         display: none;
+    }
+    .footer {
+        margin-bottom: 0px;
     }
 }
 
