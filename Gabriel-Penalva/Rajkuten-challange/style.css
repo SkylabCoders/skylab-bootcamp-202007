@@ -50,8 +50,9 @@ body {
   height: inherit;
 }
 .slayer-top {
-  align-items: center;
+  align-items: space-between;
   width: 100%;
+  justify-content: center;
   
 }
 .slayer-top img {
@@ -59,7 +60,20 @@ body {
   object-fit: cover;
   object-position: center;
   height: 100%;
-  min-height: 10em;
+  min-height: 13em;
+}
+.slayer-top button{
+    position:absolute;
+    
+}
+.w3-black{
+    opacity: 10%;
+}
+.w3-black:hover{
+    opacity: 60%;
+}
+.flex-item-left{
+    right: 0;
 }
 .bot-nav{
     position: fixed;
@@ -70,6 +84,7 @@ body {
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    background-color: black;
 }
 
 .icon-nav{
@@ -96,7 +111,7 @@ body {
     display:none;
     height: inherit;
     width: -webkit-fill-available;
-    
+    z-index: 1;
     
 }
 .top-nav img{
@@ -120,7 +135,7 @@ body {
     font-size: large;
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
-    padding:10px;
+    padding:8px;
     background-color: #ffe300 ;
     border-radius: 10px;
     margin-right: 10px;
@@ -129,7 +144,38 @@ body {
 .top-nav_register:hover{
     background-color: #e6cb01;
 }
+/*Slider mid*/
 
+.slyder-mid-container{
+    max-height: 550px;
+    min-height: 50px;
+    width: 100%;
+    z-index: -1;
+}
+
+.slyders-mid-item{
+    flex:none;
+    height: inherit;
+    background-color: blue;
+    width: 235px;
+    height: 300px;
+    margin: 5px;
+}
+.slyder-mid-item:hover {
+    border-style: solid;
+    border-width: 3px;
+    border-color: yellow;
+}
+.slyder-mid_parent{
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px ;
+}
+
+.slyder-mid_parent button{
+    position:absolute;
+    z-index: 1;
+}
 /* serchbar */
 
 form{
@@ -199,7 +245,7 @@ form:hover .fa{
     .bot-nav{
         bottom:unset;
         top:0;
-        height: 3em;
+        height: 4em;
         background-color: black;
         padding: 5px;
 
@@ -209,9 +255,10 @@ form:hover .fa{
     }
     .top-nav{
         display:flex;
+        background-color: black;
         flex-direction: row;
     }
     .logo_header{display:none;}
-    .slayer-top{margin-top: 56px;;}
+    .slayer-top{margin-top: 56px;}
 
 }
