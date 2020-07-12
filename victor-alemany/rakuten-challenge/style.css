@@ -1,4 +1,4 @@
-/* reset default navigator styles */
+/* reset default navigator styles and default element styles*/
 * {
     margin: 0;
     padding-bottom: 0;
@@ -7,8 +7,9 @@
 body{
     overflow-x: hidden;
     background-color: #101010;;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1;
+    color: #fff;
+    font-family: NotoSans-Regular,Arial,sans-serif;
 }
 
 header{
@@ -17,16 +18,34 @@ header{
 }
 
 main{
-    background-color: black;
+    background-color: #101010;
 }
 
 .subtitles{
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #101010;
 }
 
 h2{
-    font-size: 15px;
+    font-size: 20px;
     margin: 5px 5px 5px 5px;
+    background-color: #101010;
+}
+
+a{
+    text-decoration:none;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+
+li{
+    list-style:none;
 }
 
 /* header styles */
@@ -45,16 +64,56 @@ h2{
     height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
+.nav__items__logo{
+    width: 125px;
+}
+
 .nav__items__logo svg {
-    width: 60%;
+    width: 100%;
+}
+
+.nav__items__menu{
+    display: none;
+}
+
+.search__box{
+    display: none;
 }
 
 .nav__items__search{
     width: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.nav__items__search img{
+    filter: invert(1);
+    width: 25px;
+    box-shadow: black;
+
+}
+
+.nav__items__user__anchor{
+    display: none;
+}
+
+.nav__items__user, .nav__items__user--notlogged{
+    display: none;
+}
+
+.button__contents__call{
+    background-color: #ffe300;
+    color: black;
+    font-size: 12px;
+}
+
+.input-container{
+    display:none;
 }
 
 /* slider styles */
@@ -72,7 +131,7 @@ h2{
 .slider-items img{
     display:block;
     margin:0 -28%;
-    width:154%;
+    width:150%;
 }
 
 
@@ -118,6 +177,29 @@ h2{
 .genre-section{
     min-width: 1250px;
     margin-top: 25px;
+    background-color: #101010;
+}
+
+.item-image{
+    margin-bottom: 10px;
+}
+
+.item-image img:hover{
+    filter: grayscale(0.5);
+}
+
+.item-text{
+    height: 30px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.item-text p {
+    text-align: center;
+    white-space: normal;
+    line-height: 140%;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
 }
 
 .genre-wrapper{
@@ -125,8 +207,8 @@ h2{
     flex-wrap: nowrap;
     background-color: #101010;;
     justify-content: start;
-    align-items: center;
     box-sizing: border-box;
+    margin-top: 25px;
    
 }
 
@@ -157,10 +239,6 @@ h2{
         width:100%;
     } 
 
-    header{
-        position: relative;
-    }
-   
 }
 
 @media screen and (min-width: 1024px){
@@ -172,6 +250,76 @@ h2{
 
     header{
         position: relative;
+    }
+
+    .nav__items{
+        justify-content: flex-start;
+    }
+
+    .nav__items__menu{
+       display: contents;
+    }
+
+    .nav__items__menu ul{
+        display: flex;
+        flex-direction: row;
+        margin-left: -30px;
+        margin-right: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .nav__items__menu ul li{
+        margin: 0 10px;
+    }
+
+    .nav__items__menu ul li:hover{
+        color:yellow;
+    }
+
+
+    .search__box{
+        display: contents;
+    }
+    
+    .nav__items__search{
+        display: none;
+    }
+    
+    .nav__items__user{
+        display: contents;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .nav__items__user button{
+        margin: 0 10px;
+        background-color: yellow;
+        border-radius: 2px;
+        color: black;
+        height: 36px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: 0;
+    }
+
+    .input-container{
+        display: contents;
+        display: flex;
+        flex-grow: 2;
+    }
+
+    .input{
+        padding-left: 40px;
+        height: 40px;
+        background-color: #333;
+        border-radius: 2px;
+        border: 0;
     }
    
 }
