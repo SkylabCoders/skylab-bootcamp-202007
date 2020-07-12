@@ -129,6 +129,9 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.tooltip__wrapper {
+    display: none;
+}
 
 
 @media screen and (min-width: 1024px) {
@@ -161,11 +164,18 @@ body {
         font-weight: bold;
         font-size: 14px;
     }
+    .nav-p:hover {
+        cursor: pointer;
+        color: rgb(241, 241, 42);
+    }    
     .register {
         color: black;
         background-color: rgb(241, 241, 42);
         border-radius: 5px;
         padding: 10px;
+    }
+    .register:hover{
+        color: black;
     }
     .search__box__input {
         margin-left: 8px;
@@ -194,4 +204,46 @@ body {
     .nav-down {
         display: none;
     }
+    .special-movie:hover + .tooltip__wrapper {
+        color: #fff;
+        white-space: normal;
+        margin: 0;
+        border: 0;
+        font: inherit;
+        vertical-align: baseline;
+        box-sizing: border-box;
+        outline: 0;
+        border-radius: 8px;
+        position: absolute;     
+        right: 500px;
+        left: 225px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 1px 0 0 rgba(255,255,255,.1),0 2px 2px -1px rgba(0,0,0,.6);
+        padding: 20px;
+        background: linear-gradient(to right,#000 3%,rgba(0,0,0,.8) 20%);
+    }
+    .tooltip__wrapper-bottoms {
+        font-size: 10px;
+        font-weight: bold;
+        display: flex;
+    }
+    .trailer {
+        border: 2px solid white;
+        background-color: black;
+        border-radius: 30px;
+        margin: 5px;
+        padding: 4px 20px;
+    }
+    .tooltip__wrapper-paragraph {
+        font-size: 13px;
+        text-align: justify;
+    }
+    .tooltip__wrapper-yellow {
+        font-weight: bold;
+        color: rgb(241, 241, 42);
+    }
+
 }
