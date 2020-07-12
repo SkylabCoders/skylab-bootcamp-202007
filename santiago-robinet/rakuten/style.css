@@ -215,6 +215,10 @@ body {
   padding: 20px;
 }
 
+.footer-about-logo img {
+  width: 127px;
+}
+
 .footer-about-links ul {
   display: flex;
   flex-flow: wrap row;
@@ -264,6 +268,55 @@ body {
   color: #999;
 }
 
+.copyright {
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 66px;
+}
+
+.footer-payment-methods {
+  display: flex;
+  flex-direction: column;
+  background-color: #212121;
+}
+
+.footer-payment-methods h1,
+h2,
+p {
+  color: #cccccc;
+  text-align: center;
+}
+
+.footer-payment-methods p {
+  font-size: 15px;
+}
+
+.footer-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
+
+.footer-title p {
+  margin: 5px auto;
+  width: 50%;
+}
+
+.footer-user-support {
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+}
+
+.user-support-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media screen and (min-width: 599px) {
   .title-arrow {
     display: none;
@@ -285,11 +338,40 @@ body {
     display: none;
   }
 
-  
+  .footer-nav-mobile {
+    display: none;
+  }
+
+  .footer-about {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer-about-links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .footer-about-links ul li {
+    align-items: center;
+    line-height: 56px;
+  }
+
+  .copyright {
+    justify-content: flex-start;
+  }
+
+  .copyright p {
+    margin-left: 74px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .header-nav-desktop {
+    display: none;
+  }
+
+  .footer-payment-methods{
     display: none;
   }
 }
