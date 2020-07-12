@@ -7,6 +7,7 @@ body {
   background-color: #101010;
   font-family: "Noto Sans", sans-serif;
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -14,7 +15,7 @@ body {
 
 .premiere-movies-slider {
   display: flex;
-  flex-flow: nowrap row;
+  flex-flow: row;
   justify-content: flex-start;
   overflow: hidden;
   margin: 10px;
@@ -23,8 +24,9 @@ body {
 .premiere-movie {
   width: 100%;
   margin: 5px;
-  /* overflow: hidden; */
+  overflow: hidden;
   border-radius: 2px;
+  min-width: 161px;
 }
 
 .premiere-movie:hover {
@@ -66,6 +68,7 @@ body {
 
 .main-movie-slider {
   margin-top: 0;
+  width: 100%;
 }
 
 .header-nav-mobile {
@@ -100,8 +103,8 @@ body {
 }
 
 .logo-desktop {
-  margin-top: 7px;
-  margin-left: 7px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .search-nav img {
@@ -315,6 +318,31 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.user-support-link-icon img{
+  height: 77px;
+}
+
+.slider-arrow{
+  position: absolute;
+  right: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0.7) 20%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  height: 234px;
+}
+
+.slider-arrow img {
+  position: relative;
+  height:60px;
+  top: 80px;
 }
 
 @media screen and (min-width: 599px) {
@@ -364,6 +392,11 @@ p {
   .copyright p {
     margin-left: 74px;
   }
+    
+  .slider-arrow img {
+    top: 140px;
+  }
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -374,4 +407,5 @@ p {
   .footer-payment-methods{
     display: none;
   }
+
 }
