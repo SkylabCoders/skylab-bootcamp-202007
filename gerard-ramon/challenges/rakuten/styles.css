@@ -396,7 +396,7 @@ body {
         content: '▼';
         position: relative;
         bottom: 1px;
-        margin-left: 4px;
+        margin-left: 1px;
         font-size: 10px;
     }
     .nav__items__search {
