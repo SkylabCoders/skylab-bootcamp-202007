@@ -262,10 +262,15 @@ a{
     justify-content: space-around;
     padding: 0%;
     margin-bottom: unset;
+    margin-top: 3px;
 }
 .footer{
     border-top: 1px solid grey;
     height: min-content;
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+
 }
 .home-img{
     filter: invert(0.4);
@@ -390,6 +395,9 @@ a{
     }
     .copyright{
         margin-top: 2px;
+    }
+    .footer{
+        display: none;
     }
 }
 
