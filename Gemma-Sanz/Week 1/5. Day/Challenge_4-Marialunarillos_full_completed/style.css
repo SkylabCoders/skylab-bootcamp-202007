@@ -160,13 +160,21 @@
 .footer{
     background-color: rgb(207, 207, 207);
     z-index: -1;
-    width: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    height: 350px;
 }
+.camion-icon{
+    height: 20px;
+    width: auto;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat fixed center;
+}
+
 .footer_camion{
+    text-align: center;
     width: 50vh;
     height: 100px;
-    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat fixed center;
-
 }
 .footer_contact{
     background-color: rgb(245, 245, 245);
@@ -235,6 +243,7 @@ ul{
     width: 200px;
     text-align: center;
     font-weight: bold;
+    margin: 5px;
 }
 .news_row{
     display: flex;
@@ -361,6 +370,9 @@ ul{
     .main-brands>img:hover{
         filter: none;
     }
+    /*Footer background gray*/
+
+    /**/
     .footer_contact{
         display: flex;
         flex-direction: row;
@@ -371,8 +383,13 @@ ul{
         margin: 50px;
     }
     .news{
-        width: 60vh;
-        margin: 100px;
+        width: 90vh;
+        border-left: 1px solid gray;
+        border-right: 1px solid gray;
+    }
+    .news>p{
+        align-self: flex-start;
+        margin-left: 30px;
     }
     .news_row{
         display:flex;
@@ -381,8 +398,7 @@ ul{
     }
     .contact-section{
         width: 250px;
-        margin:5
-        0px;
+        margin-left: 5px;
     }
     .contact_terms_icons{
         display: flex;
