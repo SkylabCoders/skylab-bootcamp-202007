@@ -10,7 +10,7 @@ function strictEquals(a,b) {
   } else {
     return false;
   }
+}
     
     
 
-}
