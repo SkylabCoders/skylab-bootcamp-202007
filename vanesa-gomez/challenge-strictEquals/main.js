@@ -1,0 +1,4 @@
+function strictEquals (a,b) {
+
+}
+
