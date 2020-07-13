@@ -399,6 +399,7 @@ a{
     }
     .row:hover>p:hover{
         color: yellow;
+        cursor: pointer;
     }
     .row:hover>.triangle {
     border-bottom: 10px solid yellow;
@@ -434,6 +435,10 @@ a{
         color: white;
         font-size: 13px;
         font-weight: bold;
+    }
+    .main-nav-contents>li>p:hover{
+        color: rgb(255, 227, 0);
+        cursor: pointer
     }
     .artwork__image{
         width: 18.3vw;
