@@ -5,6 +5,7 @@
     align-items: center;
     margin: auto;
 }
+/*Nav*/
 .mainNav {
     height: 5vh;
     display: flex;
@@ -22,6 +23,9 @@
     width: auto;
     padding: 0 20px;
 }
+.alternative-nav{
+    display:none;
+}
 .lastNav{
     background-color: lightcoral;
     padding: 12px 15px;
@@ -34,6 +38,7 @@
     justify-content: center;
     margin-top: 40px;
 }
+/*Header*/
 .header-offers,.header-news{
     display: none;
 }
@@ -52,6 +57,9 @@
 }
 .header-icons{
     display: none;
+}
+.other-img{
+    display:none;
 }
 .slider{
     width: 100%;
@@ -308,6 +316,92 @@ ul{
     width: 100%;
     text-align: center;
 }
+@media (min-width: 600px) and (max-width: 1024px){
+    .main-box{
+        display: flex;
+        flex-direction: row;
+    }
+    .mainNav{
+        justify-content: space-evenly;
+    }
+    .blank-box{
+        flex: 1;
+    }
+    .header-tablet{
+        display: flex;
+    }
+    .flex-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .header-news{
+        display: flex;
+        background-color: green;
+        color: white;
+        font-weight: bold;
+        padding: 5px 20px;
+    }
+    .other-img{
+        display: flex;
+    }
+    .main-img{
+        display: none;
+    }
+    .header-offers{
+        display: flex;
+        background-color: purple;
+        color: white;
+        font-weight: bold;
+        padding: 5px 20px;
+    }
+    .blank-div{
+        width: 5px;
+    }
+    .limited>img {
+        width: 100%;
+        height: 100%;  
+    }
+    .white-box>p{
+        display:block;
+    }
+    .box-column>.limited>.white-box{
+        position: absolute;
+        background-color: rgba(255,255,255,0.8);
+        height: 100%;
+        width: 47.5%;
+        padding-left: 12px;
+        margin: 5px;
+    }
+    .box-row>.limited>.white-box{
+        position: absolute;
+        background-color: rgba(255,255,255,0.8);
+        height: 50%;
+        width: 96%;
+        padding-left: 12px;
+        margin: 5px;
+    }
+    .last-white-box{
+        align-self: flex-end;
+    }
+    .card_1,.card_2{
+        display: flex;
+        flex-direction: column;
+    }
+    .card_3{
+        display: none;
+    }
+    .main-brands{
+        display: none;
+    }
+    .news_row{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+}
 
 @media (min-width: 1024px){
     /*box modification*/
@@ -319,24 +413,75 @@ ul{
         display: flex;
         flex-direction: row;
     }
+    /*This doesn't work*/
+    .header-row{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .other-img{
+        display: flex;
+    }
+    .main-img{
+        display: none;
+    }
+    /*Nav*/
+    .mainNav{
+        justify-content: space-evenly;
+    }
+    .row-nav{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .row-nav p{
+        font-size: 13px;
+    }
+    .alternative-nav{
+        display: flex;
+        align-items: center;
+    }
+    .alternative-nav>img{
+        padding: 8px;
+        width: 1.8vw;
+    }
+    .alternative-nav>a{
+        width: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/maria-lunarillos.png) #FF5959 bottom center no-repeat;
+        height: 200px;
+    }
+    .nav_hidden{
+        display:none;
+    }
+    /**/
     .box-column{
         display: flex;
         flex-direction: column;
     }
     .header-tablet{
         display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        overflow: visible;
     }
     .header-column{
         display: flex;
         flex-direction: column;
-        
+        position: relative;
+        left: 120px;
     }
     .header-icons{
+        display: inline-block;
+        justify-content: flex-end;
         height: 80px;
         width: 80px;
+        text-align: center;
     }
     .header-icons>p{
-        text-align:justify
+        text-align:justify;
+        text-align: center;
+        font-size: 13px;
     }
     .limited>img {
         width: 100%;
@@ -440,84 +585,4 @@ ul{
         flex-direction: row;
     }
     
-}
-@media (min-width: 600px) and (max-width: 1024px){
-    .main-box{
-        display: flex;
-        flex-direction: row;
-    }
-    .mainNav{
-        justify-content: space-evenly;
-    }
-    .blank-box{
-        flex: 1;
-    }
-    .header-tablet{
-        display: flex;
-    }
-    .flex-header{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-    }
-    .header-news{
-        display: flex;
-        background-color: green;
-        color: white;
-        font-weight: bold;
-        padding: 5px 20px;
-    }
-    .header-offers{
-        display: flex;
-        background-color: purple;
-        color: white;
-        font-weight: bold;
-        padding: 5px 20px;
-    }
-    .blank-div{
-        width: 5px;
-    }
-    .limited>img {
-        width: 100%;
-        height: 100%;  
-    }
-    .white-box>p{
-        display:block;
-    }
-    .box-column>.limited>.white-box{
-        position: absolute;
-        background-color: rgba(255,255,255,0.8);
-        height: 100%;
-        width: 47.5%;
-        padding-left: 12px;
-        margin: 5px;
-    }
-    .box-row>.limited>.white-box{
-        position: absolute;
-        background-color: rgba(255,255,255,0.8);
-        height: 50%;
-        width: 96%;
-        padding-left: 12px;
-        margin: 5px;
-    }
-    .last-white-box{
-        align-self: flex-end;
-    }
-    .card_1,.card_2{
-        display: flex;
-        flex-direction: column;
-    }
-    .card_3{
-        display: none;
-    }
-    .main-brands{
-        display: none;
-    }
-    .news_row{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
 }
