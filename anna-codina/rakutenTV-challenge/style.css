@@ -19,7 +19,7 @@ li{
     font-size: 14px;
     font-weight: bold;
 }
-li:hover, h4:hover{
+li:hover, h4:hover, .usage-info-other:hover, .nav-icon-button-item:hover, .nav-submenu-item:hover{
     cursor: pointer;
 }
 .flex-row{
@@ -86,7 +86,6 @@ nav{
 }
 .nav-icon-button-item:hover, .nav-submenu-item:hover{
     color: #ffe300;
-    cursor: pointer;
 }
 .search-icon{
     background: url(https://image.flaticon.com/icons/svg/2089/2089805.svg) no-repeat;
@@ -107,6 +106,7 @@ nav{
     position: relative;
     align-items: center;
     margin:0 -28%;
+    justify-content: normal;
 }
 .principal-banner>img{
     width: 100%;
@@ -126,6 +126,7 @@ nav{
 }
 .arrow-left{
     background: url(https://image.flaticon.com/icons/svg/860/860790.svg) no-repeat;
+    left: 0;
 }
 .arrow-right{
     background: url(https://image.flaticon.com/icons/svg/860/860828.svg) no-repeat;
@@ -351,7 +352,7 @@ footer{
 .display-in-large, .display-in-max{
     display: none;
 }
-@media screen and (min-width: 1025px){
+@media only screen and (min-width: 1025px){
     .display-in-large{
         display: flex;
     }
@@ -609,9 +610,6 @@ footer{
     }
     .usage-info img {
         max-height: 80px;
-    }
-    .usage-info-other:hover{
-        cursor: pointer;
     }
     .usage-info-home p{
         max-width: 815px;
