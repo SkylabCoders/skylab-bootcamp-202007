@@ -155,10 +155,6 @@ main {
 
 }
 
-.genresList {
-    padding-top: 30px;
-}
-
 .genresList-title {
     display: flex;
     align-items: flex-start;
@@ -183,7 +179,11 @@ main {
 .scrollable_items {
     overflow-x: auto;
     display: flex;
-    padding: 30px 20px;
+    padding: 10px 20px;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .scrollable_items_box {
@@ -339,6 +339,9 @@ footer {
 }
 
 
+/* Mobile */
+
+
 /* Tablet */
 @media screen and (min-width: 480px) and (max-width: 768px) {
     header {
@@ -360,6 +363,9 @@ footer {
     .search-icon-responsive img {
         justify-content: flex-end;
     }
+    .footer_header {
+        display: none;
+    }
 }
 
 /* Desktop */
@@ -368,4 +374,3 @@ footer {
         display: none;
     }
 }
-
