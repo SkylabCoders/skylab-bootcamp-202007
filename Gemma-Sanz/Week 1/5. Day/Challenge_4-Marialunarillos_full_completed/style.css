@@ -156,7 +156,7 @@
     height: 150px;
     width: 300px;
 }
-/*problems with adding icons*/
+/*Footer*/
 .footer{
     background-color: rgb(207, 207, 207);
     z-index: -1;
@@ -164,18 +164,36 @@
     display: flex;
     flex-direction: row;
     height: 350px;
+    padding: 30px 0px;
+    justify-content: center;
+}
+.footer-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 .camion-icon{
-    height: 20px;
+    height: 10vh;
     width: auto;
     background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat fixed center;
 }
-
+.footer_camion>p{
+    font-weight: bold;
+    color: rgb(71, 71, 71)
+}
+.footer_camion>p:nth-child(3){
+    font-size: 13px;
+    font-weight: lighter;
+}
 .footer_camion{
+    margin: auto;
     text-align: center;
     width: 50vh;
     height: 100px;
 }
+
 .footer_contact{
     background-color: rgb(245, 245, 245);
     width: 100%;
@@ -377,6 +395,16 @@ ul{
         display: flex;
         flex-direction: row;
         justify-content: center;
+    }
+    .footer-column{
+        flex-direction: row;
+        justify-content: flex-end;
+        margin: auto;
+    }
+    .footer_camion{
+        height: 100px;
+        width: fit-content;
+        margin: 50px;
     }
     .follow-section{
         width: 20vh;
