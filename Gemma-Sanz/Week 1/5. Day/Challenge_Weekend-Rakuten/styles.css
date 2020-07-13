@@ -402,7 +402,7 @@ a{
     .triangle:hover{
         border-bottom: 10px solid rgb(255, 227, 0);
         cursor: pointer;
-
+        transform: rotate(240deg);
     }
 
     .input{
