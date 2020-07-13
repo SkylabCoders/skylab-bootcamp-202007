@@ -397,20 +397,10 @@ header {
     transition: color 0.1s ease, border 0.1s ease, background-color 0.1s ease;
     cursor: pointer;
     overflow: hidden;
-    padding: 10px 20px 10px 36px;
+    padding: 10px 20px 10px 21px;
     height: 36px;
     font-size: 12px;
     border-radius: 18px;
-  }
-
-  .iconed-action--trailer:after {
-      left: 15px;
-      content: "\00BB";
-      position: absolute;
-    top: calc(50% - 7px);
-    left: 11px;
-    font-size: 14px;
-    /* font-family: Glyphs; */
   }
 
   .iconed-action--wishlist {
@@ -432,17 +422,13 @@ header {
     transition: color 0.1s ease, border 0.1s ease, background-color 0.1s ease;
     cursor: pointer;
     overflow: hidden;
-    padding: 10px 20px 10px 36px;
+    padding: 10px 20px 10px 21px;
     height: 36px;
     font-size: 12px;
     border-radius: 18px;
     margin-left: 10px;
   }
 
-  .iconed-action--wishlist:before {
-    content: '\e615';
-    left: 15px;
-  }
   .tooltip__meta {
     color: #fff;
     margin: 0;
