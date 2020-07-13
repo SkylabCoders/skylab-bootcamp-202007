@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -9,7 +8,6 @@ body {
   flex-direction: column;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
-  margin: 1rem;
 }
 .nav-menu {
   display: flex;
@@ -123,8 +121,8 @@ main {
 .weird-card__size img {
   object-fit: cover;
   object-position: 50% 0;
-  width: 340px;
-  height: 150px;
+  width: 100%;
+  height: auto;
 }
 
 .over-paragraph {
@@ -159,18 +157,19 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 }
 .blog-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-  width: 100%;
+  padding: 7.5px;
+  width: 100vw;
+  min-width: 305px;
+  max-width: 350px;
 }
 
 .blog-card img {
-  width: 340px;
-  height: auto;
+  width: 100%;
 }
 
 .blog-post-owner {
@@ -207,7 +206,6 @@ footer {
 }
 
 footer p {
-  margin: auto;
   color: white;
 }
 
@@ -260,24 +258,18 @@ footer p {
   .weird-card__size {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    position: relative;
   }
 
-  .weird-card__size img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .weird-card__margin__top {
+  .weird-card__top {
     margin-top: 4px;
   }
-  .weird-card__margin__bot {
+  .weird-card__bot {
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
   }
 
-  .blog-card {
-    margin: 15px auto;
-  }
 
   .all-blog-cards {
     display: flex;
@@ -299,12 +291,26 @@ footer p {
 
   .over-paragraph {
     position: absolute;
+    display: flex;
     background-color: rgba(255, 255, 255, 0.8);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .card-desktop {
     display: flex;
+  }
+}
+
+@media screen and (max-width: 600px){
+  
+  .weird-card__size img {
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 150px;
   }
 }
