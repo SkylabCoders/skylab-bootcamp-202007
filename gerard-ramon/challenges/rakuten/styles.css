@@ -428,7 +428,7 @@ body {
         background: rgb(61, 61, 61);
     }
     .progress-bar {
-        height: 3px;
+        height: 4px;
         background: #ffe100;
         width: 0%;
     }
