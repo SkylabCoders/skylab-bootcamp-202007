@@ -116,6 +116,7 @@ li{
     display:none;
 }
 
+
 /* slider styles */
 
 
@@ -232,6 +233,33 @@ li{
     text-align: center;
 }
 
+/* footer styles */
+
+footer{
+    margin-top: 50px;
+}
+
+.main-footer{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.secondary-footer{
+    height: 200px;
+    background-color: lightblue;
+}
+
+.footer-logo{
+    position: fixed;
+    height: 76px;
+    z-index: 1px;
+}
+
+
 @media screen and (min-width: 600px) and (max-width: 1023px){
     .slider-items img{
         display:block;
@@ -250,6 +278,12 @@ li{
 
     header{
         position: relative;
+    }
+
+    .nav__container{
+        position: fixed;
+        z-index: 1;
+        background-color: black;
     }
 
     .nav__items{
