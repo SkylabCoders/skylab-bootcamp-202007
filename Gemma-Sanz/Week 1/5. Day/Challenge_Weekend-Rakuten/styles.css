@@ -138,8 +138,8 @@ a{
  */
 
  .label--top-left{
-     position: relative;
-     bottom:55vw;
+     position: absolute;
+     bottom:51.3vw;
      left: 6px;
      font-size: 11px;
      padding: 2px 5px;
@@ -177,6 +177,7 @@ a{
 .artwork-vertical{
     height: 100%;
     margin: 5px;
+    position: relative;
 }
 .artwork-vertical:hover{
     border-radius: 2px;
@@ -322,8 +323,8 @@ a{
         display: block;
     }
     .label--top-left{
-        position: relative;
-        bottom:36.6vw;
+        position: absolute;
+        bottom:33vw;
         left: 6px;
         font-size: 11px;
         padding: 2px 5px;
@@ -340,8 +341,8 @@ a{
         display: block;
     }
     .label--top-left{
-        position: relative;
-        bottom:27.6vw;
+        position: absolute;
+        bottom:25.3vw;
         left: 6px;
         font-size: 11px;
         padding: 2px 5px;
@@ -358,8 +359,8 @@ a{
         display: block;
     }
     .label--top-left{
-        position: relative;
-        bottom:23.3vw;
+        position: absolute;
+        bottom:21.3vw;
         left: 6px;
         font-size: 11px;
         padding: 2px 5px;
@@ -389,23 +390,30 @@ a{
         height: 29px;
     }
     .triangle{
-        width: 0;
-        height: 0;
+        content: "";
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
         border-bottom: 10px solid white;
         transform: rotate(180deg);
+        margin: 2px;
     }
-    .despleg:after{
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-bottom: 10px solid white;
-        transform: rotate(180deg);
+    .row:hover>p:hover{
+        color: yellow;
     }
-    .triangle:hover{
-        border-bottom: 10px solid rgb(255, 227, 0);
+    .row:hover>.triangle {
+    border-bottom: 10px solid yellow;
+    transform: rotate(0deg);
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .despleg:hover{
+        color: 10px solid rgb(255, 227, 0);
         cursor: pointer;
-        transform: rotate(240deg);
     }
     .input{
         background-color: rgba(157, 168, 168, 0.2);
@@ -426,10 +434,6 @@ a{
         color: white;
         font-size: 13px;
         font-weight: bold;
-    }
-    .main-nav-contents>li>p:hover{
-        color: rgb(255, 227, 0);
-        cursor: pointer
     }
     .artwork__image{
         width: 18.3vw;
