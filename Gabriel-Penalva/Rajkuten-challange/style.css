@@ -238,7 +238,7 @@ form:hover input{
     display: block;
 }
 
-form:hover .fa{
+form .fa{
     background: #07051a;
     color: white;
 }
