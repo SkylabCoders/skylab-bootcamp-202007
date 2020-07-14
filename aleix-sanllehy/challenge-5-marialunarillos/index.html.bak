@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="header-nav-left">
+        <div class="header-list">
+          <img
+            src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/burger_menu.png"
+            alt=""
+          />
+        </div>
+        <div class="header-marialunarillos"></div>
+        <div class="header-cucute"></div>
+        <div class="header-mumuchu"></div>
+      </nav>
+
+
+
+
+
+      <div class="header-login"></div>
+      <div class="header-search"></div>
+      <div class="header-cart"></div>
+      <div class="header-cart-count">
+        <p>0</p>
+      </div>
+    </header>
+
+    <div class="subheader">
+      <img
+        src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/logo-small.svg"
+        alt=""
+      />
+    </div>
+
+    <section class="slideshow">
+      <img
+        class="slideshow-img"
+        src="https://static3.marialunarillos.com/media/custom/advancedslider/resized/slide-5e5f6bc382391-png/1080X600.png"
+        alt=""
+      />
+    </section>
+
+    <!-- <section class="slideshow">
+
+        <div class="slideshow-left">
+            <div class="slideshow-text">text</div>
+            <div class="slideshow-button">button</div>
+        </div>
+
+        <div class="slideshow-right">
+            <div class="slideshow-img"><img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/carrot-cake.jpg" alt=""></div>
+        </div>
+
+    </section> -->
+
+    <section class="divider">
+      <div class="divider-element">
+        <img
+          class="divider-icon"
+          src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/utensiliosML.png"
+          alt=""
+        />
+      </div>
+      <div class="divider-element">
+        <p class="divider-text">UTENSILIOS</p>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="main-content-box box box1-bg">
+        <div class="box-innerdata">
+          <div class="box-text">
+            <p class="box-header">MOLDES DE REPOSTERÍA</p>
+            <p class="box-details">
+              Moldes metálicos, de silicona o cerámica, de las mejores marcas.
+            </p>
+          </div>
+        </div>
+        <div class="box-triangle"></div>
+      </div>
+      <div class="main-content-container">
+        <div class="main-content-box box box2-bg">
+          <div class="box-innerdata">
+            <div class="box-text">
+              <p class="box-header">UTENSILIOS BÁSICOS</p>
+              <p class="box-details">
+                Rodillos, liras, espátulas, tapetes, bandejas, rejillas, mangas
+                y boquillas... ¡Los imprescindibles!
+              </p>
+            </div>
+          </div>
+          <div class="box-triangle"></div>
+        </div>
+        <div class="main-content-box box box3-bg">
+          <div class="box-innerdata">
+            <div class="box-text">
+              <p class="box-header">PEQUEÑO ELECTRODOMÉSTICO</p>
+              <p class="box-details">
+                Robots KitchenAid, batidoras de varillas, panificadoras,
+                aerógrafos...
+              </p>
+            </div>
+          </div>
+          <div class="box-triangle"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="main-content-container">
+        <div class="main-content-box box box2-bg">
+          <div class="box-innerdata">
+            <div class="box-text">
+              <p class="box-header">UTENSILIOS BÁSICOS</p>
+              <p class="box-details">
+                Rodillos, liras, espátulas, tapetes, bandejas, rejillas, mangas
+                y boquillas... ¡Los imprescindibles!
+              </p>
+            </div>
+          </div>
+          <div class="box-triangle"></div>
+        </div>
+        <div class="main-content-box box box3-bg">
+          <div class="box-innerdata">
+            <div class="box-text">
+              <p class="box-header">PEQUEÑO ELECTRODOMÉSTICO</p>
+              <p class="box-details">
+                Robots KitchenAid, batidoras de varillas, panificadoras,
+                aerógrafos...
+              </p>
+            </div>
+          </div>
+          <div class="box-triangle"></div>
+        </div>
+      </div>
+      <div class="main-content-box box box1-bg">
+        <div class="box-innerdata">
+          <div class="box-text">
+            <p class="box-header">MOLDES DE REPOSTERÍA</p>
+            <p class="box-details">
+              Moldes metálicos, de silicona o cerámica, de las mejores marcas.
+            </p>
+          </div>
+        </div>
+        <div class="box-triangle"></div>
+      </div>
+    </section>
+
+    <!-- <section class="main-content">
+      <div class="main-content-box2">
+        <div class="main-content-box2_1 box2 box4-bg">
+          <div class="box-bg">
+            <p class="box-header">CAPSULAS PARA MAGDALENAS</p>
+          </div>
+          <div class="box-triangle"></div>
+        </div>
+        <div class="main-content-box2_1 box3 box5-bg">
+          <div class="box-bg">
+            <p class="box-header">CAJAS Y BASES</p>
+          </div>
+          <div class="box-triangle"></div>
+        </div>
+      </div>
+      <div class="main-content-box1 box1 box6-bg">
+        <div class="box-bg">
+          <p class="box-header">CORTADORES DE GALLETAS</p>
+        </div>
+        <div class="box-triangle"></div>
+      </div>
+    </section> -->
+
+    <section class="divider">
+      <div class="divider-element">
+        <img
+          class="divider-icon"
+          src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/magdalena.png"
+          alt=""
+        />
+      </div>
+      <div class="divider-element">
+        <p class="divider-text">INGREDIENTES</p>
+      </div>
+    </section>
+
+    <section class="divider">
+      <div class="divider-element">
+        <img
+          class="divider-icon"
+          src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/tarta-cumpleanos.png"
+          alt=""
+        />
+      </div>
+      <div class="divider-element">
+        <p class="divider-text">FIESTAS</p>
+      </div>
+    </section>
+
+    <section class="divider">
+      <div class="divider-element">
+        <img
+          class="divider-icon"
+          src="https://static3.marialunarillos.com/media/wysiwyg/blog.svg"
+          alt=""
+        />
+      </div>
+      <div class="divider-element">
+        <p class="divider-text">BLOG</p>
+      </div>
+    </section>
+
+    <section class="blog">
+      <div class="blog-button blog-last">
+        <p>ÚLTIMAS ENTRADAS EN EL BLOG</p>
+      </div>
+
+      <div class="blog-container">
+        <div class="blog-card">
+          <div class="blog-picture">
+            <img
+              class="blog-picture-img"
+              src="https://www.marialunarillos.com/blog/wp-content/uploads/2020/06/receta-tarta-lima-albahaca-1.jpg"
+              alt="Tarta de lima y albahaca"
+            />
+          </div>
+          <div class="blog-description">
+            <a href="">Tarta de lima y albahaca</a>
+          </div>
+
+          <div class="blog-author">
+            <div class="blog-avatar"></div>
+            <img
+              class="blog-avatar-img"
+              src="https://www.marialunarillos.com/blog/wp-content/uploads/userphoto/17.thumbnail.jpg"
+              alt=""
+            />
+            <div class="blog-text">
+              <p>por</p>
+              <p>RAUL</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-picture">
+            <img
+              class="blog-picture-img"
+              src="https://www.marialunarillos.com/blog/wp-content/uploads/2020/05/receta-tarta-manzana-verde-0.jpg"
+              alt="Tarta de manzana verde y fresa"
+            />
+          </div>
+          <div class="blog-description">
+            <a href="">Tarta de manzana verde y fresa</a>
+          </div>
+
+          <div class="blog-author">
+            <div class="blog-avatar"></div>
+            <img
+              class="blog-avatar-img"
+              src="https://www.marialunarillos.com/blog/wp-content/uploads/userphoto/9.thumbnail.jpg"
+              alt=""
+            />
+            <div class="blog-text">
+              <p>por</p>
+              <p>MIRIAM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-picture">
+            <img
+              class="blog-picture-img"
+              src="https://www.marialunarillos.com/blog/wp-content/uploads/2020/05/receta-tarta-queso-fernando-alcala-1.jpg"
+              alt="Tarta de lima y albahaca"
+            />
+          </div>
+          <div class="blog-description">
+            <a href="">Tarta de lima y albahaca</a>
+          </div>
+
+          <div class="blog-author">
+            <div class="blog-avatar"></div>
+            <img
+              class="blog-avatar-img"
+              src="https://www.marialunarillos.com/blog/wp-content/uploads/userphoto/17.thumbnail.jpg"
+              alt=""
+            />
+            <div class="blog-text">
+              <p>por</p>
+              <p>RAUL</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-button blog-goto">IR AL BLOG</div>
+    </section>
+
+    <section class="prefooter">
+      <div class="prefooter-column">
+        <div class="prefooter-element">
+          <div class="prefooter-freeshipping"></div>
+          <p>ENVÍO GRATIS</p>
+          <p>PEDIDOS SUPERIORES A 70€</p>
+        </div>
+        <div class="prefooter-element">
+          <div class="prefooter-fastdelivery"></div>
+          <p>ENVÍO 24-48 HORAS</p>
+          <p>HAZ TU PEDIDO ANTES DE LAS 18:00</p>
+        </div>
+      </div>
+      <div class="prefooter-column">
+        <div class="prefooter-element">
+          <div class="prefooter-return"></div>
+          <p>DEVOLUCIONES</p>
+          <p>30 DÍAS PARA DEVOLVER TU COMPRA</p>
+        </div>
+        <div class="prefooter-element">
+          <div class="prefooter-payment"></div>
+          <p>CONTRA REEMBOLSO</p>
+          <p>SIN COMISIÓN</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="prefooter2">
+      <div class="prefooter2-row">
+        <p>SÍGUENOS</p>
+        <p>img img img img img</p>
+      </div>
+      <div class="prefooter2-row"></div>
+      <div class="prefooter2-row prefooter2-row2">
+        <p>Recibe las novedades en tu e-mail</p>
+        <input type="text" />
+        <div class="prefooter2-checkbox">
+          <input type="checkbox" />
+          <label for="checkbox"
+            >Acepto la <a href="">política de privacidad</a></label
+          >
+        </div>
+        <p>SUSCRÍBETE</p>
+      </div>
+
+      <div class="prefooter2-row prefooter2-row3">
+        <div class="prefooter2-row3_1">
+          <p>image</p>
+          <p>CONTACTO</p>
+        </div>
+        <div class="prefooter2-row3_1">
+          <p>image</p>
+          <p>SOBRE NOSOTROS</p>
+        </div>
+        <div class="prefooter2-row3_1">
+          <p>image</p>
+          <p>CONDICIONES DE VENTA</p>
+        </div>
+      </div>
+    </section> -->
+
+    <footer class="foot">
+      <p>Copyright ©2020 María Lunarillos</p>
+    </footer>
+  </body>
+</html>
