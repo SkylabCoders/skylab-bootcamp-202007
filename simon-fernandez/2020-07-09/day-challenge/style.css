@@ -9,13 +9,19 @@ a{
     width: auto;
 }
 hr{
-   border-top: 2px solid #2E2925;
+    border-top: 2px solid #2E2925;
 }
 .main-nav{
     height: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+h2{
+    text-align: center;
+}
+h4{
+    color:red;
 }
 .main-nav img{
     width: auto;
@@ -70,9 +76,15 @@ hr{
 .image-container{
     display: flex;
     flex-direction: column;
+    width: 80%;
+    align-items: center;
+    margin: 2vh;
+}
+.row > .moldes-reposteria{
+    width: 30%;
 }
 .moldes-reposteria{
-    height: 20vh;
+
     position: relative;
     display: flex;
     flex-direction: column-reverse;
@@ -80,8 +92,7 @@ hr{
 .moldes-reposteria img {
     object-fit: cover;
     object-position: 50% 0;
-    width: 340px;
-    height: 140px;
+
 }
 .moldes-reposteria>div{
     position: absolute;
@@ -105,12 +116,29 @@ hr{
     color: white;
     margin-top: 2vh ;
 }
+.blog-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ultimas-entradas{
+    background-color: #ff5959;
+    width: 60%
+}
+.ultimas-entradas>h2{
+    color: #f8f8f8;
+}
+@media (max-width:599px){
+    .div--display-none{
+        display: none;
+    }
+}
 @media (min-width:600px){
     .row{
         display: flex;
         flex-direction: row;
-        align-items: center;
-      justify-content: center;
+        width: 100%;
+        justify-content: center;
     }
     .row>div{
         height: 100%;

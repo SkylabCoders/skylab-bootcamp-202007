@@ -10,38 +10,67 @@
 </head>
 
 <body>
-
     <header class="header">
-        <div class="header-navbar">
-            <div class="navbar-item">
-                <img src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/burger_menu.png" alt="BurgerMenu">
+        <div class="header-navbar-container">
+            <div class="header-navbar">
+                <div class="mainicons">
+                    <div class="icon-shrink icon-red">
+                        <img src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/maria-lunarillos.png" alt="icon">
+                    </div>
+                    <div class="icon-shrink icon-blue">
+                        <img src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/cucute.png" alt="icon">
+                    </div>
+                    <div class="icon-shrink icon-yellow">
+                        <img src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/mumuchu.png" alt="icon">
+                    </div>
+                </div>
+
+                <div class="navbar-item navbar-hamburger">
+                    <img src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/burger_menu.png" alt="BurgerMenu">
+                </div>
+                <div class="flex-separator-big"></div>
+                <div class="navbar-item">
+                    <span class="navbar-user"></span>
+                </div>
+                <div class="navbar-item navbar-item-login">
+                    <span class="navbar-login">ENTRA | REGISTRATE</span>
+                    <img src="assets/social.png" alt="">
+                </div>
+                <div class="flex-separator-small"></div>
+                <div class="navbar-item navbar-search">
+                    <span class="navbar-search-img"></span>
+                </div>
+                <div class="navbar-item">
+                    <span class="navbar-cart"></span>
+                </div>
+                <div class="navbar-item navbar-item-count">0</div>
+                <div></div>
             </div>
-            <div class="flex-separator"></div>
-            <div class="navbar-item">
-                <img class="navbar-user" src="assets/users_black.png" alt="User">
-            </div>
-            <div class="flex-separator"></div>
-            <div class="navbar-item navbar-search">
-                <img src="assets/search.png" alt="Search" class="navbar-search-img">
-            </div>
-            <div class="navbar-item">
-                <img class="navbar-user" src="assets/shopping-cart.png" alt="User">
-            </div>
-            <div class="navbar-item navbar-item-count">0</div>
-            <div></div>
         </div>
         <div class="header-logo">
             <img src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/logo-small.svg" alt="Logo">
             <div class="header-logo-extra">
                 <p class="logo-extra logo-extra-green">NOVEDADES</p>
                 <p class="logo-extra logo-extra-purple">OFERTAS</p>
+                <div class="logo-extra-search">
+                    <div class="search-textbox">¿QUÉ BUSCAS?</div>
+                    <div class="navbar-item navbar-search search-icon"></div>
+                </div>
             </div>
+        </div>
+        <div class="header-logo-desktop">
+            <img src="https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/logo.svg" alt="" class="logo-desktop">
+            <img src="assets/divDesktop.png" alt="" class="div-desktop">
         </div>
     </header>
 
     <main class="main">
         <section class="main-carrousel">
-            <img class="carrousel-img" src="https://static3.marialunarillos.com/media/custom/advancedslider/resized/slide-5c2f5ea8a9d45-png/1080X600.png" alt="Cakes" class="carrousel-img">
+            <div class="carrousel-container">
+                <div class="carrousel-button carrousel-left-button"></div>
+                <img class="carrousel-img" src="https://static3.marialunarillos.com/media/custom/advancedslider/resized/slide-5c2f5ea8a9d45-png/1080X600.png" alt="Cakes" class="carrousel-img">
+                <div class="carrousel-button carrousel-right-button"></div>
+            </div>
             <div>
                 <div class="carrousel-paging">
                     <div class="carrousel-paging-page"></div>
@@ -70,8 +99,9 @@
         <section class="main-utensilios">
             <div class="utensilios-item-container">
                 <img src="https://static3.marialunarillos.com/media/wysiwyg/moldesdereposteria.jpg" alt="MOLDES DE REPOSTERIA" class="utensilios-item-img">
-                <div class="utensilios-item-info">
+                <div class="utensilios-item-info utensilios-item-info-vert">
                     <p href="#" class="utensilios-item-info-paragraph">MOLDES DE REPOSTERÍA</p>
+                    <p class="utensilios-item-info-description"> Some random info about the utensilio </p>
                 </div>
             </div>
             <div class="utensilios-right">
@@ -79,12 +109,14 @@
                     <img src="https://static3.marialunarillos.com/media/wysiwyg/utensiliosbasicos.jpg" alt="utensilios-item-img" class="utensilios-item-img">
                     <div class="utensilios-item-info">
                         <p href="#" class="utensilios-item-info-paragraph">UTENSILIOS BÁSICOS</p>
+                        <p class="utensilios-item-info-description"> Some random info about the utensilio </p>
                     </div>
                 </div>
                 <div class="utensilios-item-container">
                     <img src="https://static3.marialunarillos.com/media/wysiwyg/pequenoelectrodomestico2.jpg" alt="UTENSILIOS BÁSICOS" class="">
-                    <div class="utensilios-item-info utensilios-item-info-big">
+                    <div class="utensilios-item-info">
                         <p href="#" class="utensilios-item-info-paragraph">PEQUEÑO ELECTRODOMÉSTICO</p>
+                        <p class="utensilios-item-info-description"> Some random info about the utensilio </p>
                     </div>
                 </div>
             </div>
@@ -100,32 +132,61 @@
         </div>
 
 
+        <div class="cards-title">
+            <h2>ÚLTIMAS ENTRADAS EN EL BLOG</h2>
+        </div>
         <section class="main-cards">
-            <div class="cards-title">
-                <h2>ÚLTIMAS ENTRADAS EN EL BLOG</h2>
-            </div>
             <div class="card">
                 <img src="https://www.marialunarillos.com/blog/wp-content/uploads/2020/06/receta-tarta-lima-albahaca-1.jpg" alt="Receta tarta de lima y albahaca" class="card-img">
                 <div class="card-footer">
                     <p class="card-description">TARTA DE LIMA Y ALBAHCA</p>
                     <div class="card-info">
                         <div>
-                            <img src="https://www.marialunarillos.com/blog/wp-content/uploads/userphoto/17.thumbnail.jpg" alt="">
+                            <img src="https://ca.slack-edge.com/T0SJKHBFZ-U015M6DTLDN-5965c1fd9ed1-512" alt="">
                         </div>
                         <div class="card-info-text">
                             <span>por</span>
-                            <span class="card-info-text--red">RAÚL</span>
+                            <span class="card-info-text--red">GILBE.CAO</span>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="card card-tablet">
+                <img src="https://www.marialunarillos.com/blog/wp-content/uploads/2020/05/receta-tarta-manzana-verde-0.jpg" alt="Receta tarta de lima y albahaca" class="card-img">
+                <div class="card-footer">
+                    <p class="card-description">TARTA DE LIMA Y ALBAHCA</p>
+                    <div class="card-info">
+                        <div>
+                            <img src="https://ca.slack-edge.com/T0SJKHBFZ-UBF77EC4C-c620e9dc7f35-512" alt="">
+                        </div>
+                        <div class="card-info-text">
+                            <span>por</span>
+                            <span class="card-info-text--red">DIANA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-desktop">
+                <img src="https://www.marialunarillos.com/blog/wp-content/uploads/2020/05/receta-tarta-queso-fernando-alcala-1.jpg" alt="Receta tarta de lima y albahaca" class="card-img">
+                <div class="card-footer">
+                    <p class="card-description">TARTA DE LIMA Y ALBAHCA</p>
+                    <div class="card-info">
+                        <div>
+                            <img src="https://ca.slack-edge.com/T0SJKHBFZ-U0SJKHBHD-114b2b2e3eaf-512" alt="">
+                        </div>
+                        <div class="card-info-text">
+                            <span>por</span>
+                            <span class="card-info-text--red">PADRE FUNDADOR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
         <p class="footer-paragraph">Copyright &copy; Maria Lunarillos</p>
     </footer>
-
-    <script src="main.js"></script>
 </body>
 
 </html>
