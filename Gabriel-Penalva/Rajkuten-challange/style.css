@@ -18,6 +18,7 @@ nav{
 }
 .header {
   position: fixed;
+  z-index: 3;
   display: flex;
   width: -webkit-fill-available;
 }
@@ -153,7 +154,7 @@ nav{
     max-height: 550px;
     min-height: 50px;
     width: 100%;
-    z-index: 1;
+    z-index: 0;
 }
 
 .slyders-mid-item{
@@ -165,13 +166,14 @@ nav{
     margin: 5px;
 }
 
-#move img:hover {
+.slyders-mid-item:hover {
     border-style: solid;
     border-width: 3px;
     border-color: yellow;
 
 }
 .slyder-mid_parent{
+    overflow: scroll;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px ;
@@ -183,7 +185,10 @@ nav{
     z-index: 2;
 }
 /* serchbar */
-
+.footer{
+    align-items: center;
+    flex-wrap: wrap;
+}
 form{
     position: relative;
     top: 50%;
@@ -238,7 +243,7 @@ form:hover input{
     display: block;
 }
 
-form:hover .fa{
+form .fa{
     background: #07051a;
     color: white;
 }
@@ -249,11 +254,13 @@ form:hover .fa{
     }
 
     .bot-nav{
+        position: fixed;
         bottom:unset;
         top:0;
         height: 4em;
         background-color: black;
         padding: 5px;
+        z-index: 3;
 
     }
     .icon-nav{
