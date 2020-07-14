@@ -249,31 +249,65 @@ h4 {
   color: #ff5959
 }
 
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+  background-color: rgb(232, 230, 229);
+}
+
+.info__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.info__bottom {
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.info__info {
+  font-size: 0.8em;
+  text-align: center;
+  color: #67625f;
+}
+
+.info__subs {
+  font-size: 0.6em;
+  text-align: center;
+  color: #67625f;
+}
+
 .info__delivery {
   background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat transparent;
   height: 60px;
   width: 85px;
-  margin: 0 auto 25px; 
+  margin: 10px  50px; 
 }
 
 .info__clock {
   background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -90px -38px no-repeat transparent;
   height: 60px;
   width: 55px;
-  margin: 0 auto 25px; 
+  margin: 10px  50px; 
 }
 
 .info__returns {
   background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -150px -36px no-repeat transparent;
   height: 60px;
   width: 68px;
-  margin: 0 auto 25px;  
+  margin: 10px 50px;  
 }
 
 .info__payment {
   background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -223px -38px no-repeat transparent;
   height: 60px;
   width: 77px;
-  margin: 0 auto 25px;  
+  margin: 10px 50px ;  
 }
 
