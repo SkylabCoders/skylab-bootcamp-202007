@@ -47,7 +47,7 @@ a {
 
 .carousel-img img {
     width: 100%;
-    margin-right: 5px;
+    margin: 5px;
 }
 
 .carousel-img {
@@ -105,8 +105,7 @@ a {
 .categories {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
+    width: 2000px;
 }
 
 .categories::-webkit-scrollbar {
@@ -116,6 +115,7 @@ a {
 .categories-all img {
     width: 85px;
     height: 79px;
+    padding: 8 13px;
 }
 
 .categories-all-img {
@@ -224,11 +224,14 @@ a {
         width: 100%;
     }
     .carousel-img :hover {
-        border: 2px solid yellow;
-        margin: 0;
+        border-radius: 2px;
+        box-shadow: 0 0 0 5px yellow;
+        z-index: 50;
     }
     .second-carousel-img :hover {
-        border: 2px solid yellow;
+        border-radius: 2px;
+        box-shadow: 0 0 0 5px yellow;
+        z-index: 50;
     }
     .categories-all :hover {
         filter: invert(0.3);
@@ -282,19 +285,26 @@ a {
     }
     .header-right {
         display: flex;
-        margin-left: 18%;
         align-items: center;
+        justify-content: flex-end;
     }
     .header-right-text {
         color: #3C3C3C;
+        display: flex;
+        width: 190px;
+        margin-left: 5px;
     }
     .header-left-text {
+        width: 100%;
         display: flex;
-        margin-left: 2%;
         align-items: center;
         margin-bottom: 6px;
+        margin-top: 4px;
     }
     .header-text-margin {
         margin-right: 11px;
+    }
+    .spacer {
+        width: 50%;
     }
 }
