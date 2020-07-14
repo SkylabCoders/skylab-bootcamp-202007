@@ -29,7 +29,7 @@ console.log(name===station.Owner.name);
 //Da un error porque en staion.owner es undefined y no puede aparecer nada despues del punto JS deja de ejecutarse.
 /*OTHER EX*/
 let music = {
-    taste: "classical";
+    taste: "classical"
     };
 let onion = music;
 console.log(music.taste); // "classical"
