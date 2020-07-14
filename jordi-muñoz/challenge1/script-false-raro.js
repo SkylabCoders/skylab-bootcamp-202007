@@ -1,11 +1,13 @@
+"use strict";
 var button = document.querySelector('.nav__button');
-var status = "1";
+var status = false;
 button.addEventListener('click', function() {
-    if (status === "1") {
+    debugger;
+    if (!status) {
         button.innerHTML = 'Logout';
-        status = "0";
+        status = true;
     } else {
         button.innerHTML = 'Login';
-        status = "1";
+        status = false;
     }
 });
