@@ -9,8 +9,19 @@ function strictEquals (a, b) {
         if(a == NaN && b == NaN) {
             return false;
         }
-    }     
+    }  
     return Object.is(a, b);
 }
 
-strictEquals (3, 's');
+strictEquals (NaN, NaN);
+
+
+let burger
+let rapper = {
+    beef: 'veggie'
+};
+
+rapper.beef = 'legit'
+console.log(burger.beef); //veggie
+burger = rapper;
+console.log(burger.beef); //legit
