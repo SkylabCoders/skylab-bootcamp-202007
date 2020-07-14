@@ -3,6 +3,7 @@
     padding: 0px;
 }
 body {
+    background-color: #000000;
     font-family: NotoSans-Bold,Arial,sans-serif;
 }
 
@@ -24,29 +25,6 @@ body {
     object-fit: contain;
     position: relative;
 }
-
- .arrow {
-    position: absolute;
-    width: 33px;
-    top: 50%;
-    margin: 0;
-    padding: 0;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    opacity: 0;
-    transition: opacity .3s ease;
-    will-change: opacity;
-    z-index: 10;
-}
-
-.arrow-left {
-    margin-left: 5px;
-}
-
-.arrow-right {
-    margin-right: 5px;
-} 
 
 .header-container-carrousel img {
     width: 100%;
@@ -90,6 +68,7 @@ header {
     font-size: 14px;
     font-weight: bold;
     position: relative;
+
 }
 
 .logo {
@@ -145,11 +124,6 @@ header {
     justify-content: flex-end;
 }
 
-.help {
-    color: #757575;
-    width: 51%;
-}
-
 .login {
     color: white;
     width: 23%;
@@ -171,8 +145,6 @@ header {
     padding-right: 30px;
 }
 
-
-
 /* --------- Main --------- */
 
 main {
@@ -187,7 +159,6 @@ main {
     justify-content: space-between;
     margin-left: 20px;
     margin: 0 20px;
- 
 }
 
 .genresList-title-link {
@@ -263,11 +234,6 @@ main {
 }
 
 /* --------- Footer --------- */
-
-footer {
-
-}
-
 .footer_header {
     background-color: #212121;
     height: 374px;
@@ -327,6 +293,7 @@ footer {
     flex-direction: column;
     padding: 0px 40px 0px 40px;
 }
+
 .payment span {
     font-size: 22px;
     font-weight: bold;
@@ -340,6 +307,7 @@ footer {
     flex-direction: column;
     padding: 0px 40px 0px 40px;
 }
+
 .info span {
     font-size: 22px;
     font-weight: bold;
@@ -347,7 +315,7 @@ footer {
 
 .footer_mini {
     background-color: #0D0D0D;
-    height: 188px;
+    height: 136px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -372,14 +340,11 @@ footer {
     margin-top: 10px;
 }
 
-
-/* Mobile */
-@media screen and (max-width: 480px) {
-
-}
-
 /* Tablet */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1024px) {
+    body {
+        background-color: transparent;
+    }
     header {
         width: 100%;
         height: 50px;
@@ -398,6 +363,9 @@ footer {
     }
     .search-icon-responsive img {
         justify-content: flex-end;
+    }
+    .scrollable_items {
+        padding: 22px 20px;
     }
     .footer_header {
         display: none;
@@ -465,12 +433,21 @@ footer {
 }
 
 /* Desktop */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1025px) {
     .search-icon-responsive {
         display: none;
     }
 
     .footer-menu {
         display: none;
+    }
+    /* .help {
+        display: none;
+    } */
+    .register {
+        width: 37%;
+    }
+    .login {
+        width: 30%; 
     }
 }
