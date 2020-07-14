@@ -19,7 +19,7 @@ li{
     font-size: 14px;
     font-weight: bold;
 }
-li:hover, h4:hover, .usage-info-other:hover, .nav-icon-button-item:hover, .nav-submenu-item:hover{
+li:hover, h4:hover, .usage-info__other:hover, .button__item:hover, .submenu__item:hover{
     cursor: pointer;
 }
 .flex-row{
@@ -41,7 +41,7 @@ header{
     height: auto;
     justify-self: flex-start;
 }
-.nav-submenu{
+.button__submenu{
     display: none;
 }
 .ultra-hd-box{
@@ -73,18 +73,18 @@ nav{
     position: absolute;
 
 }
-.nav-items{
+.nav__upper-menu{
     width: 100%;
     max-width: 1640px;
     margin: 0 20px 0 20px ;
 }
-.nav-icon-button-item{
+.button__item{
     padding: 22px 0 22px 0;
 }
-.nav-icons__left{
+.upper-menu__icons--left{
     display: inline-block;
 }
-.nav-icon-button-item:hover, .nav-submenu-item:hover{
+.button__item:hover, .submenu__item:hover{
     color: #ffe300;
 }
 .search-icon{
@@ -94,13 +94,13 @@ nav{
     filter: invert(1);
     margin: 10px 20px 0 0; 
 }
-.search-icon-container{
+.upper-menu__search-icon{
     padding: 10px 20px 0 0; 
 }
 
 
 /*PRINCIPAL BANNER*/
-.principal-banner{
+.main__principal-banner{
     max-width: 1680px;
     z-index: 1;
     position: relative;
@@ -108,7 +108,7 @@ nav{
     margin:0 -28%;
     justify-content: normal;
 }
-.principal-banner>img{
+.main__principal-banner>img{
     width: 100%;
     height: auto;
     flex-shrink: 1;
@@ -119,7 +119,7 @@ nav{
     height: 60px;
     filter: invert(1);
 }
-.principal-banner .arrow-left, .principal-banner .arrow-right{
+.main__principal-banner .arrow-left, .main__principal-banner .arrow-right{
     display: none;
     filter: invert(1);
     position: absolute;
@@ -133,18 +133,18 @@ nav{
     right: 0;
     align-self: center
 }
-.principal-banner:hover .arrow-left, .principal-banner:hover .arrow-right{
+.main__principal-banner:hover .arrow-left, .main__principal-banner:hover .arrow-right{
     display: flex;
 }
-.carrousel-points{
+.principal-banner__carrousel-points{
     width: 20vw;
     height: 2vw;
     position: absolute;
     justify-content: space-evenly;
-    margin-left: 40%;
+    margin-left: 44%;
     align-self: flex-end;
 }
-.carrousel-points-item {
+.carrousel-points__item {
     background-color: white;
     opacity: 0.7;
     border-radius: 50px;
@@ -168,50 +168,50 @@ main{
     position: absolute;
 }
 /*Principal sections*/
-.principal-sections-item{
+.principal-sections__item{
     margin: 0 1% 0 1%;
     height: 140px;
     width: auto;
 }
 
-.principal-sections-item img{
+.principal-sections__item img{
     height: 140px;
     width: auto;
 }
-.movie-box{
+.movie-list__box{
     position: relative;
 }
-.movie-box>a>img, .movie-box>img{
+.movie-list__box>a>img, .movie-list__box>img{
     border: solid transparent 4px;
     border-radius: 5px;
 }
-.movie-box:hover>a>img, .movie-box:hover>img, .trailer-button:hover, .add-button:hover{
+.movie-list__box:hover>a>img, .movie-list__box:hover>img, .trailer-button:hover, .add-button:hover{
     border-color: yellow;
     cursor: pointer;
     color: yellow;
 }
 /*Movie list*/
-.movie-list{
+.main__movie-list{
     color: white;
     text-align: left;
     padding: 15px 15px 30px 15px;
     max-height: 340px;
 }
-.movie-list .movie-box img{
+.main__movie-list .movie-list__box img{
     max-width: 221px;
     margin: 
     0 5px 0 5px 0;
 }
-.movie-list h3 {
+.main__movie-list h3 {
     margin-left: 5px;
     font-size: 22px;
 }
 /*TOPIC*/
-.topics{
+.main__topics{
     color: white;
     padding: 0 10px 30px 15px;
 }
-.section-title .arrow-right{
+.section__title .arrow-right{
     align-self: center;
     display: flex;
     height: 17px;
@@ -219,75 +219,75 @@ main{
     margin-bottom: 5px;
     
 }
-.topic-item{
+.topics__item{
     margin: 0 5px 10px 5px;
     font-weight: 100;
 }
-.topic-item:hover, h4:hover{
+.topics__item:hover, h4:hover{
     opacity: 0.8;
 }
-.topic-item div{
+.topics__item div{
     width: 95px;
     height: 95px;
     background-position: center center;
     border-radius: 50%;
     background-size: 115%;
 }
-.topic-all{
+.topic__all{
     background: url(https://images-0.wuaki.tv/assets/genres/all-cb781ac8669959b586ff362be895a182d31a7f5865c80b3a2870da8d1d338a09.png) no-repeat;
 }
-.topic-accion{
+.topic__accion{
     background: url(https://images-2.wuaki.tv/system/brandable_photos/6231/original/1453732413-1453732413.png) no-repeat;
 }
-.topic-animation{
+.topic__animation{
     background: url(https://images-2.wuaki.tv/system/brandable_photos/6349/original/1461242197-1461242197.png) no-repeat;
 }
-.topic-adventure{
+.topic__adventure{
     background: url(https://images-1.wuaki.tv/system/brandable_photos/6352/original/1461242555-1461242555.png) no-repeat;
 }
-.topic-war{
+.topic__war{
     background: url(https://images-3.wuaki.tv/system/brandable_photos/6353/original/1461242646-1461242646.png) no-repeat;
 }
-.topic-cify{
+.topic__cify{
     background: url(https://images-0.wuaki.tv/system/brandable_photos/6354/original/1461243145-1461243145.png) no-repeat;
 }
-.topic-author{
+.topic__author{
     background: url(https://images-0.wuaki.tv/system/brandable_photos/6351/original/1461242480-1461242480.png) no-repeat;
 }
-.topic-spanish{
+.topic__spanish{
     background: url(https://images-1.wuaki.tv/system/brandable_photos/6356/original/1461243368-1461243368.png) no-repeat;
 }
-.topic-family{
+.topic__family{
     background: url(https://images-2.wuaki.tv/system/brandable_photos/6357/original/1461243437-1461243437.png) no-repeat;
 }
-.topic-clasic{
+.topic__clasic{
     background: url(https://images-0.wuaki.tv/system/brandable_photos/6358/original/1461243499-1461243499.png) no-repeat;
 }
-.topic-comedy{
+.topic__comedy{
     background: url(https://images-1.wuaki.tv/system/brandable_photos/6359/original/1461243667-1461243667.png) no-repeat;
 }
-.topic-romantic{
+.topic__romantic{
     background: url(https://images-2.wuaki.tv/system/brandable_photos/6360/original/1461243740-1461243740.png) no-repeat;
 }
-.topic-disney{
+.topic__disney{
     background: url(https://images-3.wuaki.tv/system/brandable_photos/6362/original/1461244009-1461244009.png) no-repeat;
 }
-.topic-documental{
+.topic__documental{
     background: url(https://images-3.wuaki.tv/system/brandable_photos/6363/original/1461244445-1461244445.png) no-repeat;
 }
-.topic-drama{
+.topic__drama{
     background: url(https://images-2.wuaki.tv/system/brandable_photos/6364/original/1461244827-1461244827.png) no-repeat;
 }
 
 
 
 /*FOOTER*/
-/*about*/
+/*footer__about*/
 footer{
     max-width: 1680px;
     background-color: rgb(33, 33, 33);;
 }
-.about {
+.footer__about {
     align-items: center;
     color: #ccc;
     height: 155px;
@@ -299,32 +299,32 @@ footer{
     
 
 }
-.about ul  {
+.footer__about ul  {
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
 
 }
-.about .rakuten-logo{
+.footer__about .rakuten-logo{
     margin-bottom: 20px;
     align-self: center;
 }
-.about li {
+.footer__about li {
     margin-left: 15px;
 }
-.about p {
+.footer__about p {
     font-weight: 100;
 }
-.about>p{
+.footer__about>p{
     color: #737373;
 }
 
-.about-item:hover{
+.about__item:hover{
     color: white;
 }
 
 /*bottom menu*/
-.bottom-menu{
+.footer__bottom-menu{
     width: 100%;
     height: 56px;
     background-color: black;
@@ -334,17 +334,17 @@ footer{
     position: fixed;
     bottom: 0px;
 }
-.bottom-menu-item:hover {
+.bottom-menu__item:hover {
     color: yellow;
 }
-.bottom-menu-item{
+.bottom-menu__item{
     align-items: center;
     justify-content: space-evenly;
     font-size: 10px;
     font-weight: bold;
     padding: 8px 0 8px 0;
 }
-.bottom-menu-item-img{
+.bottom-menu__item-img{
     filter: invert(1);
     height: 20px;
     width: 20px;
@@ -367,7 +367,7 @@ footer{
         border-bottom: solid grey 1px;
     }
 
-    .nav-icon-button{
+    .icons__button{
         color: white;
         text-align: center;
         margin: 0 15px 0 20px;
@@ -380,7 +380,7 @@ footer{
         border-top: 5px solid white;
         align-self: center;        
     }
-    .nav-icons__right>ul>li:nth-child(3)>.nav-icon-button-item{
+    .upper-menu__icons--right>ul>li:nth-child(3)>.button__item{
         background-color:rgb(240, 213, 0);
         color: black;
         width: 108px;
@@ -390,10 +390,10 @@ footer{
         font-weight: bold;
         padding: 12px 0 12px 0;
     }
-    .nav-icons__left .nav-icon-button:nth-child(1){
+    .upper-menu__icons--left .icons__button:nth-child(1){
         width: 70px;
     }
-    .nav-submenu{
+    .button__submenu{
         width: 170px;
         height: 78px;
         padding: 0 15px;
@@ -401,7 +401,7 @@ footer{
         background-color: black;
         justify-content: space-around;
     }
-    .nav-submenu-item{
+    .submenu__item{
         font-weight: 200;
         text-align: left;
         padding: 15px 0 10px 0;
@@ -409,14 +409,14 @@ footer{
     .desplegable-button:nth-child(3){
         width: 104px;
     }
-    .desplegable-button:nth-child(3)>.nav-submenu{
+    .desplegable-button:nth-child(3)>.button__submenu{
         width: 150px;
         margin-left: -15px;
     }
     .desplegable-button:hover>ul{
         display: flex;
     }
-    .nav-icon-button:hover .triangle{
+    .icons__button:hover .triangle{
         width: 0;
         height: 0;
         border-top: 0;
@@ -437,10 +437,10 @@ footer{
         flex-shrink: 1;
         padding-left: 30px;
     }
-    .search-box{
+    .upper-meu__search-box{
         position: relative;
     }
-    .search-box-icon{
+    .search-box__icon{
         background: url(https://image.flaticon.com/icons/svg/2089/2089805.svg) no-repeat;
         background-size: 100%;
         position: absolute;
@@ -458,28 +458,32 @@ footer{
     
     /*Main*/
     /*principal*/
-    .principal-banner{
+    .main__principal-banner{
         padding-top: 60px;
         max-width: 1680px;
         height: auto;
         margin: 0;
     }
-    .principal-sections img, .principal-sections-item {
+    .main__principal-sections img, .principal-sections__item {
         width: 100%;
         height: auto;
         flex-shrink: 1;
     }
+    .principal-banner__carrousel-points {
+        margin-left: 40%;
+    }
 
     /*principal sections*/
-    .principal-sections-item {
+    .principal-sections__item {
         max-width: 20%;
     }
-    /*movie-list*/
-    .movie-info-box{
+    /*main__movie-list*/
+    .movie-info__box--hover{
         display: none;
         position: absolute;
         height: 87%;
         background: black url(https://images-0.wuaki.tv/system/shots/200970/original/the-invisible-man-1594130962-width480-quality30.jpeg) center no-repeat;
+        background-size: 110%;
         z-index: 10;
         margin-left: 100%;
         min-width: 470px;
@@ -488,26 +492,26 @@ footer{
         border-radius: 25px;
         padding: 20px;
     }
-    .movie-box:hover .movie-info-box{
+    .movie-list__box:hover .movie-info__box--hover{
         display: flex;
     }
-    .movie-info-box h3, .movie-info-box p, .movie-info-box div{
+    .movie-info__box--hover h3, .movie-info__box--hover p, .movie-info__box--hover div{
         position: relative;
     }
-    .movie-info-box-content{
+    .movie-info__box--hover-content{
         padding: 20 px;
     }
-    .movie-info-box h3{
+    .movie-info__box--hover h3{
         padding-bottom: 15px;
     }
-    .movie-info-box-info {
+    .movie-info__box--hover-info {
         font-size: 11px;
         font-weight: 100;     
     }
-    .movie-info-box-content{
+    .movie-info__box--hover-content{
         font-weight: 100;  
     }
-    .movie-info-box::before{
+    .movie-info__box--hover::before{
         content: "";
         position: absolute;
         background-color: black;
@@ -515,9 +519,11 @@ footer{
         left: 0;
         bottom: 0;
         right: 0;
-        opacity: 0.9;
+        opacity: 0.8;
+        border-radius: 25px;
+        overflow: hidden;
     }
-    .movie-info-box-buttons, .movie-info-box-info{
+    .movie-info__box--hover-buttons, .movie-info__box--hover-info{
         justify-content: center;
         margin-bottom: 30px;
     }
@@ -528,7 +534,7 @@ footer{
         font-size: 12px;
         background-color: black;
     }
-    .movie-info-box img {
+    .movie-info__box--hover img {
         width: 12px;
         height: 12px;
         filter: invert(1);
@@ -573,7 +579,7 @@ footer{
         font-size: 10px;
         margin-left: 5px;
     }
-    .movie-info-box::after{
+    .movie-info__box--hover::after{
         content: "";
         width: 0;
         height: 0;
@@ -587,11 +593,11 @@ footer{
     
 
     /*MOVIE PAGE*/
-    .principal-banner-movie-page{
+    .main__principal-banner-movie-page{
         max-height: 620px;
         align-items: self-end;
     }
-    .principal-banner-movie-page{
+    .main__principal-banner-movie-page{
         overflow: hidden;
         
     }
@@ -600,33 +606,33 @@ footer{
     }
 
     /* FOOTER */
-    /* usage-info*/
-    .usage-info{
+    /* footer__usage-info*/
+    .footer__usage-info{
         padding: 25px;
         color: rgb(204, 204, 204);;
         text-align: center;
         align-items: center;
         margin-top: 15px;
     }
-    .usage-info img {
+    .footer__usage-info img {
         max-height: 80px;
     }
-    .usage-info-home p{
+    .usage-info__home p{
         max-width: 815px;
         margin: 10px 0 10px 0;
     }
-    .usage-info-other>div{
+    .usage-info__other>div{
         max-width: 419px;
         margin: 0 35px 25px 35px
     }
-    /* about */
-    .about{
+    /* footer__about */
+    .footer__about{
         height: 66px;
         flex-wrap: wrap;
         align-items: flex-start;
 
     }
-    .about>div{
+    .footer__about>div{
         flex-direction: row;
         align-items: flex-start
     }
