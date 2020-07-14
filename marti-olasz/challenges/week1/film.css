@@ -1,0 +1,268 @@
+body {
+  margin: 0;
+  background-color: #171717;
+  color: white;
+  font-family: NotoSans-Bold, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+.header {
+  height: 60px;
+  padding: 0 20px;
+
+  justify-content: start;
+  align-items: center;
+}
+
+.header > svg {
+  width: 122px;
+}
+
+.header-menus > input {
+  padding-left: 40px;
+  height: 35px;
+  background-color: #333;
+  border-radius: 2px;
+
+  color: white;
+}
+
+.flex-space {
+  flex: 1;
+}
+
+.login {
+  background: transparent;
+  border: none;
+
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.login:hover {
+  color: yellow;
+}
+
+.register {
+  background-color: yellow;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.register:hover {
+  background-color: #f0d500;
+}
+
+.header-menus {
+  display: flex;
+}
+
+/*Header menu*/
+
+.header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* enlaces del menu */
+
+.header ul a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px;
+  letter-spacing: 1px;
+
+  font-family: NotoSans-Bold, Arial, sans-serif;
+}
+
+/* items del menu */
+
+.header ul li {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+/* menu desplegable */
+
+.header ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #eee;
+  padding: 0;
+}
+
+/* items del menu desplegable */
+
+.header ul ul li {
+  float: none;
+  width: 150px;
+  background-color: #171717;
+}
+
+/* enlaces de los items del menu desplegable */
+
+.header ul ul a {
+  line-height: 120%;
+  padding: 10px 15px;
+}
+
+/* items del menu desplegable al pasar el ratón */
+
+.header ul li:hover > ul {
+  display: block;
+}
+
+.menu-arrow::after {
+  display: inline-block;
+  content: "▼";
+  position: relative;
+  bottom: 1px;
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+.menu-arrow:hover::after {
+  display: inline-block;
+  content: "▲";
+  position: relative;
+  bottom: 1px;
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+header.transparent {
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+
+  width: 100%;
+  height: 30px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0.7) 20%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+.transparent-box {
+  display: flex;
+  justify-content: space-between;
+
+  width: 90%;
+  margin: 0 auto;
+}
+
+.transparent-box > img {
+  height: 80%;
+  width: auto;
+}
+
+.banner {
+  background-image: url(https://images-1.wuaki.tv/system/shots/199562/original/snapshot-1590667852-width1920-quality80.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  height: 570px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.banner *{
+  margin: 20px 0;
+}
+
+.banner-circle{
+  display: flex;
+  justify-content: center;
+}
+
+.circle{
+  width: 80px;
+  height: 80px;
+  background: black;
+  border-radius: 50%;
+  opacity: 0.8;
+
+  margin: 30px;
+
+  text-align: center;
+}
+
+.circle img{
+  width: 50px;
+  height: 50px;
+
+  margin: 15px;
+}
+
+.banner-circle-item{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.banner-title{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+.banner-title *{
+  margin: 0px;
+  padding: 0px;
+
+  margin-top: 15%;
+}
+
+
+
+/*Generic*/
+.invert {
+  filter: invert(1);
+}
+
+.header {
+  display: none;
+}
+
+@media screen and (min-width: 730px) {
+}
+
+@media screen and (min-width: 1025px) {
+  .transparent {
+    display: block;
+  }
+
+  header.transparent {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+  }
+  .header-input {
+    display: none;
+  }
+}

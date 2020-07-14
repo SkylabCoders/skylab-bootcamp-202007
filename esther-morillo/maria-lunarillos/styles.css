@@ -1,0 +1,747 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Header */
+.header {
+    margin: 0 auto;
+}
+
+.nav-container {
+    background-color: #f8f8f8;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 500;
+}
+
+.main-nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 90%;
+    height: 3rem;
+    line-height: 3.3rem;
+}
+
+.nav-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.login {
+    flex-grow: .9;
+    text-align: center;
+}
+
+.search {
+    background-color: #bbb8b6;
+}
+
+.cart {
+    background-color: #fff;
+}
+
+    .cart:hover {
+        background-color: #ff5959;
+    }
+
+.icon-number {
+    background-color: #ff5959;
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+/* Icons */
+.login {
+    position: relative;
+    /* justify-content: flex-end; */
+    top: 8px;
+}
+
+.img-login {
+    position: absolute;
+    margin-bottom: 1rem;
+}
+
+.search {
+    position: relative;
+}
+
+.img-search {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
+.cart {
+    position: relative;
+}
+
+.img-cart {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}
+
+.nav-icon {
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.slider {
+    width: 100%;
+}
+
+/* Main */
+/* 1part */
+.sublogo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 3rem;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.header-text {
+    border-top: 2px solid rgb(70, 69, 69);    
+    border-bottom: 2px solid rgb(70, 69, 69);  
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 1.3rem;
+    color: rgb(70, 69, 69);
+}
+
+    /* 2part */
+    .main-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Posición relativa para montar el cuadro encima */
+    .box {
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+        margin-bottom: 1rem;
+        margin-left: .5rem;
+        cursor: pointer;
+    }
+
+        .margin-extra {
+            margin-right: .5rem;
+        }
+
+    .box-image {
+        /* imagen vertical "cortada" */
+        object-fit: cover;
+        object-position: 50% 0;
+        width: 340px;
+        height: 140px;
+    }
+
+    /* Posición absoluta para que esté encima de la imaen */
+    .white-box,
+    .direction-right {
+        background-color: rgba(255, 255, 255, .7);
+        width: 50%;
+        height: 60%;
+        position: absolute;
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 1rem;
+        color: #646464;
+    }
+    
+    .button-main {
+        background-color: #ff5959;
+        margin-top: 2.5rem;
+        color: #fff;
+        padding: 15px 30px;
+        cursor: pointer;
+    }
+
+/* 3 Part */
+
+.main-blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sublogo-blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 3rem;
+}
+
+.logo-blog {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.header-text-blog {
+    border-top: 2px solid rgb(70, 69, 69);    
+    border-bottom: 2px solid rgb(70, 69, 69);  
+    padding: 1rem;
+}
+
+.button-blog {
+    background-color: #ff5959;
+    color: #fff;
+    width: 340px;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.blog-image {
+    width: 340px;
+    height: 529px;
+    margin: 1rem 0;
+}
+
+/* Author */
+.author {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+}
+
+.author-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.author-footer img {
+    cursor: pointer;
+}
+
+.author-title, p {
+    color: #646464;
+    font-size: .85rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+span {
+    color: #ff5959;
+}
+
+.button-blog-go {
+    background-color: #ff5959;
+    color: #fff;
+    padding: 15px 30px;
+    cursor: pointer;
+    margin-top: 3rem;
+    margin-bottom: 7rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #ff5959;
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: .9rem
+}
+
+
+/* Display none */
+.card-center, .card-right {
+    display: none;
+}
+
+.color-bar {
+    display: none;
+}
+
+.main-box p {
+    display: none;
+}
+
+.links {
+    display: none;
+}
+
+.login > p {
+    display: none;
+}
+
+.color {
+    display: none;
+}
+
+.enter > p {
+    display: none;
+}
+
+.nav-button {
+    display: none;
+}
+
+/* Media Queries */
+@media screen and (min-width: 750px) {
+    .cards {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card-center {
+        display: block;
+        margin: 0 1rem;
+    }
+
+    /* Colors box logo */
+    .color {
+        display: block;
+    }
+
+    .red {
+        margin-right: .3rem;
+        width: 70px;
+        height: 150px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/maria-lunarillos.png) #FF5959 bottom center no-repeat;
+    }
+
+    .blue {
+        margin-right: .3rem;
+        width: 70px;
+        height: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/cucute.png) #6199AF bottom center no-repeat;
+    }
+
+        .blue:hover {
+            height: 150px;            
+        }
+    
+    .yellow {
+        width: 70px;
+        height: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/mumuchu.png) #F6B436 bottom center no-repeat;
+    }
+
+        .yellow:hover {
+            height: 150px;            
+        }
+
+    .icon-burger {
+        display: none;
+    }
+
+    /* Nav */
+    .main-nav {
+        width: 80%;
+    }
+
+    .nav-button {
+        display: flex;
+        width: 80%;
+    }
+
+    .logo-text {
+        align-self: flex-end;
+    }
+
+
+    /* Spacer entre logo y botones grandes */
+    .flex-spacer {
+        flex: 1 1 0;
+    }
+
+    /* Spacer button */
+    .spacer {
+        flex-grow: 2;
+    }
+
+    .spacer-fixed {
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Socials buttons nav */
+    .socials {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+    }
+
+    .socials li {
+        height: 50px;
+    }
+
+    .socials li a {
+        width: 25px;
+        height: 20px;
+        margin: 15px 7px 0;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) transparent 0 0 no-repeat;
+        text-indent: -3000px;
+        display: block;
+        text-indent: -3000px;
+    }
+
+        .socials li .facebook {
+            background-position: -4px -540px;
+        }
+
+        .socials li .twitter {
+            background-position: -40px -540px;
+        }
+
+        .socials li .instagram {
+            background-position: -75px -540px;
+        }
+
+        .socials li .pinterest {
+            background-position: -110px -540px;
+        }
+
+        .socials li .youtube {
+            background-position: -180px -540px;
+        }
+
+    /* Parte navegador de logo y botones */
+    .nav-button {
+        margin: 0 auto;
+        margin-top: 180px;
+        margin-bottom: 1.5rem;
+    }
+
+    .container-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttons-links {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 1.3rem;
+    }
+
+
+    .buttons-menu {
+        background-color: #f2f2f2;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 80px;
+        height: 80px;
+        margin: 0 .15rem;
+    }
+
+    .buttons-menu:nth-child(1) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/utensiliosML.png);
+        background-size: 50%;
+        
+    }  
+
+    .buttons-menu:nth-child(2) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/magdalena.png);
+        background-size: 50%;
+        
+    }  
+
+    .buttons-menu:nth-child(3) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/tarta-cumpleanos.png);
+        background-size: 50%;
+        
+    }  
+
+    .buttons-menu:nth-child(4) {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/delantal.png);
+        background-size: 70%;
+    }   
+
+    .buttons-menu:nth-child(5) {
+        display: none;
+    }  
+    
+    .buttons-menu:nth-child(6) {
+        background-image: url(https://www.marialunarillos.com/blog/wp-content/uploads/2017/09/icono-blog.png);
+        background-size: 60%;
+    } 
+
+
+        .buttons-menu:nth-child(1):hover {
+            background-color: #ff5959;
+        } 
+
+        .buttons-menu:nth-child(2):hover {
+            background-color: #ff5959;
+        } 
+
+        .buttons-menu:nth-child(3):hover {
+            background-color: #ff5959;
+        } 
+
+        .buttons-menu:nth-child(4):hover {
+            background-color: #ff5959;
+        } 
+        
+
+        .btn-red {
+            background-color: #ff5959;
+        }
+            
+            .btn-red:hover {
+                background-color: #f2f2f2;
+                cursor: pointer;
+            }
+
+    .buttons-menu > div {
+        font-size: .73rem;
+        text-align: center;
+        line-height: 11.5rem;
+    }
+
+        .btn-red {
+            color: #ff5959;
+        }        
+
+
+    /* Novedades y ofertas */
+    .buttons-links {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .buttons-bar {
+        width: 130px;
+        height: 30px;
+        text-align: start;
+        padding: 0 .1rem;
+        line-height: 30px;
+        color: #fff;
+        font-size: .85rem;
+        margin: 0 .2rem;
+        margin-bottom: 1rem;
+    }
+
+    .news {
+        background-color: #9faa4d;
+    }
+
+        .news::before {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -244px 4px no-repeat;
+            content: '';
+            float: left;
+        }
+
+        .offers::before {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -274px 4px no-repeat;
+            content: '';
+            float: left;
+        }
+
+    .offers {
+        background-color: #8e789d;
+    }
+
+    .input,
+    .bnt-search {
+        display: none;
+    }   
+
+    /* Hidden none */
+    .nav-logo {
+        display: none;
+    }
+
+    .top {
+        display: none;
+    }
+
+    /* Arreglar el main tablet */
+.main-box {
+    margin: 0 auto;
+    width: 80%;
+}
+
+    .box-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .box-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box-image {
+        /* QUITAR imagen vertical "cortada" */
+        /* object-fit: none; */
+        width: 100%;
+        height: 100%;
+    }
+
+    .img-vert {
+        width: 100%;
+        height: 50%;
+    }
+
+    .img-top {
+        height: 100%;
+        width: 50%;
+    }
+
+    .img-bottom {
+        height: 100%;
+        width: 50%;
+    }    
+
+    .main-box p {
+        display: block;
+        padding-right: 1rem;
+        font-size: .8rem;
+        font-weight: lighter;
+    }
+
+}
+
+
+@media screen and (min-width: 1024px) {
+
+.buttons-menu:nth-child(5) {
+    display: block;
+    width: 40px;
+    background-color: #fff;
+} 
+
+
+    .white-box {
+        height: 150px;
+        width: 250px;
+    }
+
+    .white-box::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255,255,255,0.7);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
+    }
+
+    
+    .card-right {
+        display: block;
+    }
+
+    .button-blog {
+        width: 1050px;
+        text-align: center;
+    }
+
+    .slider {
+            /* imagen vertical "cortada" */
+            object-fit: cover;
+            object-position: 0;
+            width: 100%;
+            height: 500px;
+    }
+
+    .main-box p {
+        display: block;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        padding: 1rem;
+        padding-bottom: .8rem;
+        color: #646464;
+    }
+
+    .direction-right {
+        left: 365px;
+    }
+
+    /* Texto login */
+    .login {
+        display: flex;
+        align-items: center;
+    }
+
+    .enter > p {
+        display: block;
+        color: #000;
+        font-size: .7rem;
+        margin: 1.3rem;
+    }
+
+    .links {
+        display: block;
+    }
+
+    .top {
+        display: flex;
+    }
+
+    /* Input search */
+    .input,
+    .bnt-search {
+        display: flex;
+    }
+
+    .bnt-search {
+        background-color: #bbb8b6;
+        width: 50px;
+        display: block;
+        float: right;
+        width: 49px;
+        height: 28px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -303px 2px no-repeat #BBB8B6;
+        border: none;
+    }
+
+    .input {
+        flex-grow: 2;
+    }
+
+    .nav-button {
+        margin-top: 100px;
+    }
+
+}

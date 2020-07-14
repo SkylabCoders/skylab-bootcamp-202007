@@ -1,0 +1,153 @@
+
+
+body{
+    background-color: #f8f8f8;
+}
+a{
+    text-decoration: none;
+    height: 60%;
+    width: auto;
+}
+hr{
+    border-top: 2px solid #2E2925;
+}
+.main-nav{
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+h2{
+    text-align: center;
+}
+h4{
+    color:red;
+}
+.main-nav img{
+    width: auto;
+    height: 100%;
+}
+.cart-number{
+    background-color: #FF5959;
+    height: 100%;
+    padding: 0 2vh;
+    align-content: space-around;
+}
+.maincontent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+  
+    margin-top: 5vh ;
+}
+.carrusel-layout{
+    margin: auto;
+    margin-top: 5vh;
+
+}
+.carrusel-layout img{
+    width: 100%;
+    height: 100%;
+}
+.icon-layer{
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-layer img{
+    height: 60%;
+}
+.title-header{
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-direction: column;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+}
+.image-container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    margin: 2vh;
+}
+.row > .moldes-reposteria{
+    width: 30%;
+}
+.moldes-reposteria{
+
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.moldes-reposteria img {
+    object-fit: cover;
+    object-position: 50% 0;
+
+}
+.moldes-reposteria>div{
+    position: absolute;
+    background-color: #f8f8f8;
+    opacity: 80%;
+    height: 40%;
+}
+.moldes-reposteria p{
+    width: 30%;
+    padding: auto;
+    text-align: center;
+    font-weight: bold ;
+    margin: auto;
+}
+.button--ver-mas{
+    background-color: #FF5959;
+    border: none;
+    height: 6vh;
+    width: 20vh;
+    font-weight: bold;
+    color: white;
+    margin-top: 2vh ;
+}
+.blog-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ultimas-entradas{
+    background-color: #ff5959;
+    width: 60%
+}
+.ultimas-entradas>h2{
+    color: #f8f8f8;
+}
+@media (max-width:599px){
+    .div--display-none{
+        display: none;
+    }
+}
+@media (min-width:600px){
+    .row{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    .row>div{
+        height: 100%;
+    }
+    .col{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (min-width:1024px){
+
+}

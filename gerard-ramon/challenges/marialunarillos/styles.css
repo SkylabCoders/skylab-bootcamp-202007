@@ -1,0 +1,520 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 250px;
+}
+
+.mainicons {
+    display: none;
+}
+
+.header-navbar-container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    margin-bottom: 25px;
+}
+
+.header-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: whitesmoke;
+    height: 50px;
+    padding: 0 40px;
+}
+
+.navbar-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.navbar-user {
+    width: 27px;
+    height: 27px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 0 no-repeat;
+    margin: 10px;
+}
+
+.navbar-item-login {
+    display: none;
+}
+
+.flex-separator-small {
+    display: flex;
+    flex: 1;
+}
+
+.flex-separator-big {
+    display: flex;
+    flex: 1;
+}
+
+.navbar-search {
+    float: right;
+    width: 50px;
+    height: 50px;
+    text-indent: -99999px;
+    background: #BBB8B6 url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -304px 12px no-repeat;
+}
+
+.navbar-cart {
+    background: #fff url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -66px 10px no-repeat;
+    margin: 0;
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-item-count {
+    background-color: #FF5959;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #F8F8F8;
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
+
+.header-logo-extra {
+    display: none;
+}
+
+.logo-extra-search {
+    display: none;
+}
+
+.header-logo-desktop {
+    display: none;
+}
+
+.main-carrousel {
+    display: flex;
+    flex-direction: column;
+}
+
+.carrousel-button {
+    display: none;
+}
+
+.carrousel-img {
+    width: 100%;
+}
+
+.carrousel-paging {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 16px 50px;
+}
+
+.carrousel-paging-page {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #BBB8B6;
+}
+
+.carrousel-paging-page--red {
+    background-color: #FF5959;
+}
+
+.separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.separator-img {
+    height: 125px;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 25px;
+    padding: 12px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+.main-utensilios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+
+.utensilios-right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.utensilios-item-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    padding: 4px 0;
+    ;
+}
+
+.utensilios-item-container img {
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 100%;
+    height: 140px;
+}
+
+.utensilios-item-info {
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 76px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+}
+
+.utensilios-item-info-description {
+    display: none;
+}
+
+.utensilios-item-info-paragraph {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: left;
+    margin: 10px;
+}
+
+.main-cards {
+    margin: 15px 40px 40px 40px;
+}
+
+.cards-title {
+    background-color: #FF5959;
+    padding: 5px;
+    margin: 0px 40px;
+}
+
+.cards-title h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-img {
+    margin-top: 12px;
+    width: 100%;
+}
+
+.card-description {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+}
+
+.card-footer {
+    align-self: flex-start;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+.card-footer>p {
+    padding-left: 15px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+}
+
+.card-info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.card-info-text--red {
+    color: #FF5959;
+}
+
+.card-info img {
+    height: 60px;
+}
+
+.card-tablet {
+    display: none;
+}
+
+.card-desktop {
+    display: none;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF5959;
+    height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 601px) {
+    .header-logo {
+        justify-content: space-around;
+    }
+    .header-logo-extra {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .logo-extra {
+        display: flex;
+        align-items: center;
+        margin: auto;
+        margin-right: 20px;
+        padding: 5px 15px 5px 5px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: whitesmoke;
+    }
+    .logo-extra-green {
+        background-color: #9faa4d;
+    }
+    .logo-extra-green::before {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -244px 4px no-repeat;
+        content: '';
+    }
+    .logo-extra-purple {
+        background-color: #8e789d;
+    }
+    .logo-extra-purple::before {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -274px 4px no-repeat;
+        content: '';
+    }
+    .main-utensilios {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .utensilios-item-container {
+        width: unset;
+        padding: 5px;
+    }
+    .utensilios-item-container img {
+        height: 100%;
+    }
+    .utensilios-item-info-big {
+        width: 60%;
+    }
+    .utensilios-item-info {
+        height: 100%;
+        width: 50%;
+    }
+    .utensilios-item-info-vert {
+        width: 100%;
+        height: 50%;
+    }
+    .utensilios-item-info-description {
+        display: flex;
+    }
+    .carrousel-paging {
+        justify-content: center;
+    }
+    .carrousel-paging-page {
+        margin: 0px 15px;
+    }
+    .main-cards {
+        display: flex;
+        flex-direction: row;
+    }
+    .card {
+        padding: 0 5px;
+    }
+    .card-tablet {
+        display: flex;
+    }
+    .flex-separator-big {
+        flex: 10;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .utensilios-item-info {
+        height: 150px;
+        width: calc(50% - 115px);
+    }
+    .utensilios-item-info-vert {
+        width: calc(100% - 115px);
+        height: 150px;
+    }
+    .utensilios-item-info::after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255, 255, 255, 0.8);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
+    }
+    .carrousel-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #A6CD9A;
+    }
+    .carrousel-left-button {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/light-skin-1-retina.png);
+        background-position: -113px -19px;
+        background-repeat: no-repeat;
+        background-size: 188px 221px;
+        width: 30px;
+        height: 50px;
+        display: flex;
+    }
+    .carrousel-right-button {
+        background-image: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/light-skin-1-retina.png);
+        background-position: -113px -99px;
+        background-repeat: no-repeat;
+        background-size: 188px 221px;
+        width: 30px;
+        height: 50px;
+        display: flex;
+    }
+    .carrousel-img {
+        width: 80%;
+    }
+    .card {
+        padding: 0 5px;
+    }
+    .card-desktop {
+        display: flex;
+    }
+    .header-logo img {
+        display: none;
+    }
+    .navbar-hamburger {
+        display: none;
+    }
+    .mainicons {
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .icon-shrink {
+        width: 75px;
+        height: 90px;
+        margin: 2px;
+        display: flex;
+        align-items: flex-end;
+        cursor: pointer;
+    }
+    .icon-red {
+        height: 212px;
+        background-color: #FF5959;
+    }
+    .icon-blue {
+        background-color: #6199AF;
+    }
+    .icon-blue:hover {
+        height: 212px;
+    }
+    .icon-yellow {
+        background-color: #F6B436;
+    }
+    .icon-yellow:hover {
+        height: 212px;
+    }
+    .logo-extra-search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .search-textbox {
+        color: #BBB8B6;
+        padding: 10px;
+        border: 1px solid #BBB8B6;
+    }
+    .search-icon {
+        display: flex;
+        align-items: center;
+        height: 40.6px;
+        background: #BBB8B6 url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -304px 12px no-repeat;
+    }
+    .header-logo {
+        justify-content: flex-end;
+        margin-right: 50px;
+    }
+    .flex-separator-big {
+        flex: 1;
+    }
+    .navbar-item-login {
+        width: unset;
+        display: flex;
+    }
+    .navbar-login {
+        display: inline;
+        margin-left: 5px;
+        font-size: 14px;
+    }
+    .navbar-item-login img {
+        height: 50px;
+        margin-left: 40px;
+    }
+    .header-logo-desktop {
+        display: flex;
+        align-items: flex-start;
+        margin: 0px 50px 20px 50px;
+        justify-content: space-between;
+    }
+    .div-desktop {
+        height: 110px;
+        margin-left: ;
+    }
+}
