@@ -1,0 +1,533 @@
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.5px;
+    background-color: #101010;
+    overflow-x: hidden;
+    margin: 0 10px;
+}
+/*Header*/
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    padding-top: 15px;
+    background: linear-gradient(black, transparent)
+}
+nav{
+    display: none;
+}
+.logo-rakuten{
+    left:0;
+    height: 4vh;
+}
+.blank{
+    flex:1;
+}
+.lupa{
+    filter: invert(1);
+    height: 3vh;
+    margin-right: 20px;
+}
+/*Main carousel*/
+.main-carousel{
+    position: relative;
+    margin-bottom: 5px;
+    z-index: -1;
+}
+.main-carousel-image{
+    width: 100%;
+    height: auto;
+}
+.point{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: lightslategray;
+}
+.point:nth-child(6){
+    background-color: white;
+}
+.main-points{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 120px;
+    position: absolute;
+    left: 50%;
+	top: 89%;
+	transform: translate(-50%, 0);
+}
+.white__arrow-right {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+	top: 50%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+}
+.white__arrow-left {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+	top: 50%;
+    transform: rotate(135deg);
+    border-radius: 12%;
+}
+/*Other carousel*/
+.carousel-other{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    width: 100%;
+    position: relative;
+}
+.artwork{
+    margin: 5px;
+    height: 100%;
+}
+.artwork__image{
+    width: 54vw;
+    overflow: visible;
+}
+.artwork:hover{
+    border-radius: 2px;
+    box-shadow: 0 0 0 5px yellow;
+}
+.white__arrow {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+	top: 40%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+}
+/*Vertical carousel*/
+a{
+    color: white;
+    background-color: transparent;
+    width: 100%;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-left: 40px;
+}
+/* correct in order to fit well, if not do with text ">"
+.white__arrow-text{
+    border: 1px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 5px;
+    position: absolute;
+    left: 40vw;
+	top: 40%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+   
+}
+ */
+
+ .label--top-left{
+     position: absolute;
+     bottom:51.3vw;
+     left: 6px;
+     font-size: 11px;
+     padding: 2px 5px;
+ }
+.label{
+    background-color: rgb(255, 204, 0);
+    border-radius: 10%;
+    color: rgb(0, 0, 0);
+}
+
+.artwork__image-vertical{
+    width: 40vw;
+    overflow: visible;
+    display: block;
+    height: 100%;
+}
+.vertical-carousel{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    width: 100%;
+    position: relative;
+    margin: 0 14px;
+}
+.white__arrow-vertical {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 40%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+}
+.artwork-vertical{
+    height: 100%;
+    margin: 5px;
+    position: relative;
+}
+.artwork-vertical:hover{
+    border-radius: 2px;
+    box-shadow: 0 0 0 5px yellow;
+}
+/*Genres*/
+.genres{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+    margin: 10px;
+}
+.genreicon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
+}
+.white__arrow-genres {
+    border: 5px solid rgb(255, 255, 255);
+    border-width: 0 5px 5px 0;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: rotate(-45deg);
+    border-radius: 12%;
+}
+.genreicon__round{
+    width: 95px;
+    height: 95px;
+}
+.container-genreicon{
+    width: 95px;
+    height: 95px;
+    border-radius: 100%;
+}
+.genreicon>p{
+    text-align: center;
+    font-weight: lighter;
+}
+/* Don't know how to delete the white circle around the img's
+.container-genreicon{
+ ...
+}
+*/
+.main-info-rakuten{
+    display: none;
+}
+/*Contact info*/
+.contact-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #0d0d0d;
+    align-items: center;
+}
+.contact-main-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #0d0d0d;
+    align-items: center;
+    padding: 20px;
+}
+.mini-rakuten-logo{
+    width: 122px;
+}
+.other-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    font-size: 15px;
+}
+.other-info>p{
+    color: rgb(179, 179, 179);
+    margin: 10px;
+    letter-spacing: 0px;
+    line-height: 2px;
+    border: 0px;
+}
+.copyright{
+    color: rgb(138, 136, 136);
+}
+/*Footer*/
+.nav-menu{
+    display: inline-flex;
+    flex-direction: row;
+    height: fit-content;
+    list-style: none;
+    width: 100vw;
+    justify-content: space-around;
+    padding: 0%;
+    margin-bottom: unset;
+    margin-top: 3px;
+}
+.footer{
+    border-top: 1px solid grey;
+    height: min-content;
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+
+}
+.home-img{
+    filter: invert(0.4);
+    height: 25px;
+}
+.home-img:hover{
+    height: 25px;
+}
+.nav-menu>li{
+    display: flex;
+    flex-direction: column;
+}
+.nav-menu>li>a{
+    margin: 0px;
+    text-align: center;
+    color: rgb(179, 179, 179);
+    border-bottom: 0px;
+    font-size: 10px;
+    cursor: pointer;
+}
+.nav-menu>li>a:hover{
+    color: rgb(246, 250, 25);
+    filter: contrast(40%) sepia(1) hue-rotate(20deg) saturate(1000%);
+
+}
+
+/*Media queries*/
+/*560 - 730px*/
+@media (min-width:560px){
+    .artwork__image{
+        width: 38vw;
+    }
+    .artwork__image-vertical{
+        width: 26.5vw;
+        overflow: visible;
+        display: block;
+    }
+    .label--top-left{
+        position: absolute;
+        bottom:33vw;
+        left: 6px;
+        font-size: 11px;
+        padding: 2px 5px;
+    }
+}
+/*730 - 910px*/
+@media (min-width:730px){
+    .artwork__image{
+        width: 28vw;
+    }
+    .artwork__image-vertical{
+        width: 20vw;
+        overflow: visible;
+        display: block;
+    }
+    .label--top-left{
+        position: absolute;
+        bottom:25.3vw;
+        left: 6px;
+        font-size: 11px;
+        padding: 2px 5px;
+    }
+}
+/*910 - max*/
+@media (min-width:910px){
+    .artwork__image{
+        width: 21vw;
+    }
+    .artwork__image-vertical{
+        width: 17vw;
+        overflow: visible;
+        display: block;
+    }
+    .label--top-left{
+        position: absolute;
+        bottom:21.3vw;
+        left: 6px;
+        font-size: 11px;
+        padding: 2px 5px;
+    }
+}
+@media (min-width:1024px){
+    header{
+        display: none;
+    }
+    nav{
+        display: block;
+        position: fixed;
+        z-index: 400;
+    }
+    .main-nav-contents{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style-type: none;
+        width: 100vw;
+        align-items: center;
+        margin: 0px 10px;
+        padding: 4px;
+        background-color: black;
+    }
+    .nav-rakuten-logo{
+        height: 29px;
+    }
+    .triangle{
+        content: "";
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 10px solid white;
+        transform: rotate(180deg);
+        margin: 2px;
+    }
+    .row:hover>p:hover{
+        color: yellow;
+        cursor: pointer;
+    }
+    .row:hover>.triangle {
+    border-bottom: 10px solid yellow;
+    transform: rotate(0deg);
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .despleg:hover{
+        color: 10px solid rgb(255, 227, 0);
+        cursor: pointer;
+    }
+    .input{
+        background-color: rgba(157, 168, 168, 0.2);
+        border: 0px;
+        padding: 12px;
+        border-radius: 2px;
+        color: white;
+    }
+    .last-main-nav{
+        background-color: rgb(255, 227, 0);
+        color: black;
+        padding: 7px;
+        border-radius: 2px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .main-nav-contents>li>p{
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .main-nav-contents>li>p:hover{
+        color: rgb(255, 227, 0);
+        cursor: pointer
+    }
+    .artwork__image{
+        width: 18.3vw;
+    }
+    .carousel-other{
+        justify-content: center;
+    }
+    .artwork{
+        margin: 5px;
+        height: 100%;
+        width: fit-content;
+    }
+    .white__arrow{
+        display: none;
+    }
+    /*Info rakuten*/
+    .main-info-rakuten{
+        background-color: rgb(37, 37, 37);
+        width: 98vw;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 20px 0;
+    }
+    .info-row{
+        display: flex;
+        flex-direction: row;
+    }
+    .info-row-column{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .devices{
+        width: 100px;
+        filter: invert();
+    }
+    .payment-img{
+        width: 100px;
+        filter: grayscale() invert();
+    }
+    .help-img{
+        width: 100px;
+    }
+    .info-row-column p{
+        color: rgb(207, 204, 204);
+    }
+    .info-row-column h1{
+        color: white;
+    }
+    .info-rakuten p{
+        color: rgb(207, 204, 204);
+    }
+    .info-rakuten{
+        width: 500px;
+        color: white;
+    }
+    /**/
+    .contact-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: #0d0d0d;
+        align-items: flex-start;
+    }
+    .other-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+    .mini-rakuten-logo{
+        align-self: center;
+    }
+    .contact-main-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #0d0d0d;
+        align-items: flex-start;
+        padding: 40px;
+    }
+    .copyright{
+        margin-top: 2px;
+    }
+    .footer{
+        display: none;
+    }
+}
