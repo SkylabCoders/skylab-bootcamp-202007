@@ -1,0 +1,270 @@
+body {
+  background-color: black;
+  margin: 0px;
+}
+nav{
+    z-index: 3;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-item {
+  display: flex;
+}
+.header {
+  position: fixed;
+  display: flex;
+  width: -webkit-fill-available;
+}
+.icon.lupa {
+  width: 20px;
+  height: 20px;
+  border: 4px solid white;
+  border-radius: 50%;
+  position: relative;
+  padding-left: 2px;
+  margin-right: 1em;
+}
+
+.icon.lupa:after {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  display: block;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: rotate(45deg);
+  transform-origin: -2px 15px;
+}
+.logo_header {
+  width: -webkit-fill-available;
+  justify-content: space-between;
+  height: 3em;
+  padding: 10px;
+}
+.logo_header img {
+  height: inherit;
+}
+.slayer-top {
+  align-items: space-between;
+  width: 100%;
+  justify-content: center;
+  
+}
+.slayer-top img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  min-height: 13em;
+}
+.slayer-top button{
+    position:absolute;
+    
+}
+.w3-black{
+    opacity: 10%;
+}
+.w3-black:hover{
+    opacity: 60%;
+}
+.flex-item-left{
+    right: 0;
+}
+.bot-nav{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 5em;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+}
+
+.icon-nav{
+    padding: 10px;
+    align-items: center;
+    width: 10%;
+
+}
+.icon-nav img{
+    min-width: 20px;
+    max-width: 55px;
+    width: 100%;
+}
+.flex-item p{
+    color: skyblue;
+    margin: 2px;
+    font-size:x-small;
+}
+
+.icon-nav span{
+    color: lightskyblue;
+}
+.top-nav{
+    display:none;
+    height: inherit;
+    width: -webkit-fill-available;
+    z-index: 1;
+    
+}
+.top-nav img{
+    height: inherit;
+}
+.top-nav_words{
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    padding: 10px;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.top-bar_menu{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+}
+.top-nav_register{
+    font-size: large;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:8px;
+    background-color: #ffe300 ;
+    border-radius: 10px;
+    margin-right: 10px;
+    align-self: center;
+}
+.top-nav_register:hover{
+    background-color: #e6cb01;
+}
+/*Slider mid*/
+
+.slyder-mid-container{
+    max-height: 550px;
+    min-height: 50px;
+    width: 100%;
+    z-index: 1;
+}
+
+.slyders-mid-item{
+    flex:none;
+    height: inherit;
+    background-color: blue;
+    width: 235px;
+    height: 300px;
+    margin: 5px;
+}
+
+#move img:hover {
+    border-style: solid;
+    border-width: 3px;
+    border-color: yellow;
+
+}
+.slyder-mid_parent{
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px ;
+    z-index: -1;
+}
+
+.slyder-mid_parent button{
+    position:absolute;
+    z-index: 2;
+}
+/* serchbar */
+
+form{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+form:hover input{
+    display: block;
+}
+
+form:hover .fa{
+    background: #07051a;
+    color: white;
+}
+
+@media screen and  (min-width:1024px){
+    .header{
+        position: unset;
+    }
+
+    .bot-nav{
+        bottom:unset;
+        top:0;
+        height: 4em;
+        background-color: black;
+        padding: 5px;
+
+    }
+    .icon-nav{
+        display:none;
+    }
+    .top-nav{
+        display:flex;
+        background-color: black;
+        flex-direction: row;
+    }
+    .logo_header{display:none;}
+    .slayer-top{margin-top: 56px;}
+
+}
