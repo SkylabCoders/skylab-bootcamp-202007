@@ -22,11 +22,22 @@ body {
     display: flex;
     align-items: center;
     object-fit: contain;
+    position: relative;
 }
 
-/* .arrow {
-    position: relative;
-    height: 45px;
+ .arrow {
+    position: absolute;
+    width: 33px;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity .3s ease;
+    will-change: opacity;
+    z-index: 10;
 }
 
 .arrow-left {
@@ -35,7 +46,7 @@ body {
 
 .arrow-right {
     margin-right: 5px;
-} */
+} 
 
 .header-container-carrousel img {
     width: 100%;
@@ -194,6 +205,14 @@ main {
     overflow-x: auto;
     display: flex;
     padding: 10px 20px;
+}
+
+.scrollable_items_movie a {
+    border: transparent solid 4px;
+}
+
+.scrollable_items_movie a:hover {
+    border: #FFE301 solid 4px;
 }
 
 ::-webkit-scrollbar {
@@ -355,10 +374,12 @@ footer {
 
 
 /* Mobile */
+@media screen and (max-width: 480px) {
 
+}
 
 /* Tablet */
-@media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (max-width: 750px) {
     header {
         width: 100%;
         height: 50px;
@@ -410,6 +431,36 @@ footer {
         font-family: NotoSans-Bold,Arial,sans-serif;
         text-align: center;
         color: #999999
+    }
+    .footer_mini {
+        background-color: #0D0D0D;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 60px;
+        padding: 35px 55px;
+        margin-bottom: 40px;
+    }
+    .footer_mini_company {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer_mini_company div a {
+        color: #999999;
+    }
+    .footer_mini_company img {
+        display: block;
+        margin: 0 auto 20px;
+        width: 122px;
+        background-size: contain;
+        background-position: center center;
+    }
+    .footer_mini-copyright {
+        align-self: center;
+        margin-bottom: 20px;
     }
 }
 
