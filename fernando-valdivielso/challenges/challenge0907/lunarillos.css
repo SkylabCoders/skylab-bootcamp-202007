@@ -20,7 +20,8 @@ nav {
 
 .nav__left {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  width: 60vw;
 }
 
 .nav__left__burger {
@@ -80,7 +81,7 @@ nav {
 
 .logo {
   display: flex;
-  justify-self: flex-start;
+  justify-content: center;
   margin: 80px 0 50px;
 }
 
@@ -311,3 +312,14 @@ justify-content: center;
   margin: 10px 50px ;  
 }
 
+
+@media screen and (min-width: 666px) {
+  .nav__left {
+    justify-content: space-between;
+  }
+
+  .logo {
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
+}
