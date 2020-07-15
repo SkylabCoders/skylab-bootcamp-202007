@@ -14,14 +14,3 @@ function strictEquals (a, b) {
 }
 
 strictEquals (NaN, NaN);
-
-
-let burger
-let rapper = {
-    beef: 'veggie'
-};
-
-rapper.beef = 'legit'
-console.log(burger.beef); //veggie
-burger = rapper;
-console.log(burger.beef); //legit
