@@ -6,7 +6,7 @@ function strictEquals (a, b) {
         if(a == -0 && b == 0) {
             return true;
         }
-        if(a == NaN && b == NaN) {
+        if(isNaN(a) && isNaN(b)) {
             return false;
         }
     }  
