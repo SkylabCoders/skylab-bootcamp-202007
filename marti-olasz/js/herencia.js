@@ -38,3 +38,5 @@ let SpidermanPrototype = {
 
 let miles = {__proto__: SpidermanPrototype };
 miles.lookOut();
+
+///////////////////////////////////////////
