@@ -1,3 +1,17 @@
+// As a...  student
+// I want... learn how the array methods work
+// So that... I learn and become a pro
+
+
+
+// Given... an array with any given arguments 
+// and a function 
+
+// When... I pass both arguments to the map function
+
+// Then... I get a new array with the altered elements
+
+
 function map(array, func) {
   let newArray = [];
   for (let i = 0; i < array.length; i++) {
@@ -7,6 +21,16 @@ function map(array, func) {
 }
 
 map( [1,2,3], function (x) { return x = x * 2} );
+
+
+// Given... an array with any given arguments 
+// and a function 
+
+// When... I pass both arguments to the filter function
+
+// Then... I get an array with the elements that satisfy 
+// the condition given in the function
+
 
 
 
@@ -33,6 +57,16 @@ filter(['john', 'ringo', 'paul', 'george'], function (element) {
 });
 
 
+// Given... an array with any given arguments 
+// and a function 
+
+// When... I pass both arguments to the find function
+
+// Then... I get the first element that satisfies the condition
+// given in the function
+
+
+
 
 function find(array, func) {
   let newArray = [];
@@ -40,8 +74,8 @@ function find(array, func) {
     if (func(array[i]) === true) {
       return array[i];
     }
-
   }
+  return undefined;
 }
 
 find([2, 4, 50, 6, 89, 120], function (element) { element > 600})
