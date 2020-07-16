@@ -73,6 +73,10 @@ td:hover {
     cursor: pointer;
 }
 
+.display--none {
+    display: none;
+}
+
 .footer {
     position: fixed;
     bottom: 0;

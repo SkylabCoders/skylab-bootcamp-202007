@@ -41,7 +41,7 @@ function pasaPalabra() {
 
     while (gameRuning) {
 
-        for (i in questions) {
+        for (var i in questions) {
             if (questions[i].status == 0) {
                 //var entry = prompt(questions[i].question, "Pasapalabra").toLowerCase();
                 var entry = prompt(questions[i].question, "A").toLowerCase();
@@ -124,7 +124,7 @@ function processPrompt(entry) {
 }
 
 function checkFinish() {
-    for (i in questions) {
+    for (var i in questions) {
         if (questions[i].status == 0) {
             return false;
         }
