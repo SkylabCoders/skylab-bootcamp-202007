@@ -1,3 +1,5 @@
+//methods done in functions inside an object
+
 //User stories on methods.txt
 
 'use strict'
@@ -184,3 +186,20 @@ bowlWithCallbacks.find([4, 3, null, -1, 3], function(number) {
         return false;
     }
 });
+
+//quiere que hagamos una función constructora Bowl y prototype pollution
+function Bowl() {}
+
+Bowl.prototype.length = 0;
+Bowl.prototype.forEach = function () {
+    for (let i = 0; i < this.length; i++) {
+        console.log(this[i]);      
+    }
+};
+
+const myBowl = new Bowl();
+
+console.log(myBowl.length)
+
+
+
