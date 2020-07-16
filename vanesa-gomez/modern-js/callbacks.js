@@ -11,7 +11,7 @@ const decrement = function (value) {
 };
 
 function fnUpAndDown(value, callback) {
-  callback(value);
+  return callback(value);
 }
 
 fnUpAndDown(2, increment);
