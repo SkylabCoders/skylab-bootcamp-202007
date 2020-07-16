@@ -29,17 +29,17 @@ const BOWL = {
         }
     },
     findi: function (z) {
+
+        let arry = [];
+        let inArry = 0;
         for (let i = 0; i < this.arrai.length; i++) {
-            let arry = [];
-            let inArry = 0;
-            for (let i = 0; i < this.arrai.length; i++) {
-                if (z === this.arrai[i]) {
-                    arry[inArry] = this.arrai[i];
-                    inArry++;
-                }
+            if (z === this.arrai[i]) {
+                arry[inArry] = this.arrai[i];
+                inArry++;
             }
-            return arry;
         }
+        return arry;
+
     },
 
     arrai: []

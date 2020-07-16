@@ -7,7 +7,7 @@
         return Object.is(a,b);
     }
 }
-console.log(isEqual(NaN,0/0));
+console.log(isEqual(NaN,0/-0));
 
 console.log(isEqual(0,0));
 
