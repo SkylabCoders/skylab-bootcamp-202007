@@ -1,15 +1,14 @@
 'use strict';
 
+//map
 /* 
+As a developer
+I want to create a new function
+So that think about how start and read documentation
 
-As a 
-I want to 
-So that 
-
-Given.. 
-When.. 
-Then..
-
+Given.. an array
+When.. call a function
+Then.. change de values of the array depending de callback function
 */
 
 const bowl = {
