@@ -52,11 +52,15 @@ a {
 .images {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .images img {
-    height: 25vh;
     width: 100%;
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 140px;
 }
 
 .images-right {
@@ -68,9 +72,10 @@ a {
     z-index: 1;
     position: absolute;
     margin-top: -69px;
-    width: 50%;
+    width: 20%;
     background-color: white;
     opacity: 0.7;
+    height: 65px;
 }
 
 .card {
@@ -80,6 +85,14 @@ a {
 
 .card img {
     width: 92%;
+}
+
+.card--2 {
+    display: none;
+}
+
+.card--3 {
+    display: none;
 }
 
 .raul img {
@@ -144,19 +157,62 @@ a {
 }
 
 @media only screen and (min-width: 600px) {
+    .card--2 {
+        display: block;
+    }
+    .card img {
+        width: 100%;
+    }
+    .raul img {
+        width: 25%;
+    }
+    .card {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
     .logo-text {
         display: block;
     }
     .images {
         display: flex;
         flex-direction: row;
+        justify-content: center;
     }
-    .images-right {
-        display: flex;
-        flex-direction: column;
+    .images img {
+        width: 100%;
     }
-    .image1 img {
-        min-height: 600px;
-        min-width: 300px;
-    }
+}
+
+
+/*object-fit: cover;
+
+height: 100%;
+}
+.images-right {
+display: flex;
+flex-direction: column;
+margin-left: 5px;
+}
+.card--2 {
+display: block;
+}
+.card--3 {
+display: block;
+}
+.card img {
+width: 100%;
+}
+.raul img {
+width: 25%;
+}
+.card {
+display: flex;
+flex-direction: row;
+}
+.container--images {
+margin: 0 auto;
+width: 76%;
 }
