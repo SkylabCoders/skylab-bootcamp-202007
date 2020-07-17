@@ -138,18 +138,139 @@ if (typeof myOperation === 'function') {
 
 //callback
 
-const myPrivateLog =(value)=> {
+const myPrivateLog = (value) => {
     console.log('result', value);
 }
 
-const increment =(value)=> {
-    myPrivateLog(value+1);
+const increment = (value) => {
+    myPrivateLog(value + 1);
 }
-const decrement =(value)=> {
-    myPrivateLog(value-1);
+const decrement = (value) => {
+    myPrivateLog(value - 1);
 }
 
-function upAnDown(value, callback){
+function upAnDown(value, callback) {
     callback(value);
 }
 upAnDown(5, increment);
+
+
+//CHALLENGE
+//map
+
+
+
+function Bowl() {
+    this.items = [1, 2, 3, 4, 5, 6, 7];
+    this.map = function(callback) {
+        let newArray = [];
+        for (let i = 0; i < this.items.length; i++) {
+            newArray[newArray.length] = callback(this.items[i]);
+        }
+        return newArray;
+    };
+
+    this.filter = function(callback) {
+        let newArray = [];
+        for (let i = 0; i < this.items.length; i++) {
+            if (callback(this.items[i])) {
+
+                newArray[newArray.length] = this.items[i];
+            }
+
+        }
+        return newArray;
+    };
+
+    this.find = function(callback) {
+        let newArray = [];
+        for (let i = 0; i < this.items.length; i++) {
+            if (callback(this.items[i])) {
+
+                newArray[newArray.length] = this.items[i];
+                return newArray;
+            }
+
+        }
+
+    };
+
+    this.findIndex = function(callback) {
+        let newArray = [];
+        for (let i = 0; i < this.items.length; i++) {
+            if (callback(this.items[i])) {
+
+                newArray[newArray.length] = i;
+                return newArray;
+            }
+
+        }
+
+    };
+    //si esta dentreo del array devuelve true
+    this.some = function(callback) {
+        for (let i = 0; i < this.items.length; i++) {
+            if (callback(this.items[i])) {
+                return true;
+            } else { return false; }
+        }
+    };
+
+
+    this.every = function(callback) {
+        for (let i = 0; i < this.items.length; i++) {
+            if (!callback(this.items[i])) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    this.fill = function(number, start, finish) {
+        if (start === undefined) start = 0;
+        if (finish === undefined) finish = this.items.length;
+
+        let newArray = [];
+        for (let i = start; i < this.items.finish; i++) {
+            myArray[i] = number;
+
+        }
+        return myArray;
+    };
+
+    this.recuce = function(number, start, finish) {
+
+        let newArray = [];
+        for (let i = start; i < this.items.finish; i++) {
+            myArray[i] = number;
+
+        }
+        return myArray;
+    };
+
+}
+
+
+
+const myBowl = new Bowl();
+
+console.log(myBowl.map(function(value) { return value * 2; }));
+console.log(myBowl.filter(function(value) {
+    return value % 2 === 0;
+}));
+console.log(myBowl.find(function(value) {
+    return value % 2 === 0;
+}));
+console.log(myBowl.findIndex(function(value) {
+    return value % 2 === 0;
+}));
+console.log(myBowl.some(function(value) {
+    return value === 8;
+}));
+console.log(myBowl.every(function(value) {
+    return value > 0;
+}));
+console.log(myBowl.fill(9, 2));
+console.log(myBowl.reduce(function(a, b) {
+    return a + b;
+}));
