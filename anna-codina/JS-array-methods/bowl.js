@@ -1,4 +1,13 @@
-
+//As a devveloper I want  to create my own array methods so that I no depend on them and I can underestand them better,
+//GIVEN an array of numbers WHEN I use the bowl.map() method THEN I want to create a new array whit the modofiqued items with the process of the callback
+//GIVEN an array of numbers WHEN I use the bowl.filter() method THEN I want to create a new array of the items that matches the criteria of the callback
+//GIVEN an array of numbers WHEN I use the boel.find() method THEN I want to find the first item valor that matches my callback criteria,
+//GIVEN an array of numbers WHEN I use the boel.findIndex() method THEN I want to find the first item index that matches my callback criteria,
+//GIVEN an array of numbers WHEN I use the boel.fill() method THEN I want to change some part of my array whit a new valor that I can indicate: the newvalue, the first index and the last index of my changes.
+//GIVEN an array of numbers WHEN I use the boel.copyWithin() method THEN I want to copy some part of my array in the same array that I can indicate: where start and end of the copy area and the first index of my modifiqued area without modifique the array length
+//GIVEN an array of numbers WHEN I use the boel.some() method THEN I want to know with a booleans if in the array some item matches the callback criteria
+//GIVEN an array of numbers WHEN I use the boel.every() method THEN I want to know with a booleans if in the array all items matches the callback criteria
+//GIVEN an array of numbers WHEN I use the boel.reduce() method THEN I want in return a sigle valor creathed by the union of all the array elements using the callback criteria.
 
 function bowl() {
   this.items = [];
@@ -109,9 +118,10 @@ function bowl() {
   this.some = function (callback) {
     let responceFunction;
     for (let i = 0; i < this.items.length; i++) {
-      let myBoolean = callback(this.items[i])
+      let myBoolean = callback(this.items[i]);
       if (myBoolean) {
         responceFunction = true;
+        break;
       }
     }
     if (responceFunction === undefined) {
@@ -120,11 +130,13 @@ function bowl() {
     return responceFunction;
   };
   this.every = function (callback) {
+    debugger;
     let responceFunction = null;
     for (let i = 0; i < this.items.length; i++) {
-      let myBoolean = callback(this.items[i])
-      if (myBoolean) {
+      let myBoolean = callback(this.items[i]);
+      if (!myBoolean) {
         responceFunction = false;
+        break;
       }
     }
     if (responceFunction === null) {
@@ -149,9 +161,9 @@ myBowl.items.push(3);
 
 /* FOREACH */
 let myCallbackForEach = function (value) {
-   console.log(value*2);
+  console.log(value * 2);
 };
-console.log('My foreach: ')
+console.log("My foreach: ");
 myBowl.forEach(myCallbackForEach);
 
 /* MAP */
@@ -177,7 +189,7 @@ console.log("My copyWithin: " + myBowl.copyWithin(1, -1));
 
 /* SOME AND EVERY */
 let myCallbackSome = function (value) {
-  return value = 1;
+  return (value < 10);
 };
 console.log("My some: " + myBowl.some(myCallbackSome));
 console.log("My every: " + myBowl.every(myCallbackSome));
