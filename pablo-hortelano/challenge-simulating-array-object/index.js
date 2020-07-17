@@ -71,26 +71,26 @@ function Bowl(arguments) {
   };
   this.find = function (whatToDo) {
     for (let elem of this.elements) {
-        if(whatToDo(elem) === elem) {
-            return elem
-        }
+      if (whatToDo(elem) === elem) {
+        return elem;
+      }
     }
   };
   this.findIndex = function (whatToDo) {
     let cont = 0;
     for (let elem of this.elements) {
-        if(whatToDo(elem) === elem) {
-            return cont
-        }
-        cont ++;
+      if (whatToDo(elem) === elem) {
+        return cont;
+      }
+      cont++;
     }
   };
 }
 const myBowl = new Bowl([1, 2, 3, 4, 5]);
 
-/* 
-*** TRY ONE BY ONE
-*/
+/*
+ *** TRY ONE BY ONE
+ */
 
 /*
 myBowl.map(function (elem) {
