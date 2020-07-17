@@ -1,0 +1,19 @@
+body {
+    margin: 0 auto;
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header {
+    text-align: center;
+}
+.panel {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    background-color: burlywood;
+}
+.panel__box {
+    border: 2px solid grey;
+    width: 10px;
+    height: 10px;
+}
