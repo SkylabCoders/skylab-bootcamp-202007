@@ -23,7 +23,6 @@ console.log(bowl(arr2, mul));
 //function > 5
 const biggerThanFive = (num) => num > 5 ? true : false;
 
-
 function bowl2 (arr, fn) {
     let copyArr = [];
     for (let i = 0; i < arr.length ; i++) {
