@@ -189,7 +189,7 @@ console.log("My copyWithin: " + myBowl.copyWithin(1, -1));
 
 /* SOME AND EVERY */
 let myCallbackSome = function (value) {
-  return (value < 10);
+  return value < 10;
 };
 console.log("My some: " + myBowl.some(myCallbackSome));
 console.log("My every: " + myBowl.every(myCallbackSome));
