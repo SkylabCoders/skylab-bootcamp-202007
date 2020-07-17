@@ -69,7 +69,6 @@ filter(['john', 'ringo', 'paul', 'george'], function (element) {
 
 
 function find(array, func) {
-  let newArray = [];
   for (let i = 0; i < array.length; i++) {
     if (func(array[i]) === true) {
       return array[i];
@@ -80,3 +79,30 @@ function find(array, func) {
 
 find([2, 4, 50, 6, 89, 120], function (element) { element > 600})
 
+
+function findIndex(func) {
+  let count = 0;
+  for (let i = 0; i < this.items.length; i++) {
+    if (func(array[i]) === true) {
+      count++
+      return count;
+    }
+  }
+  return undefined;
+}
+
+
+
+function Bowl() {
+  this.items = [];
+  this.map = function map( func) {
+    let newArray = [];
+    for (let i = 0; i < this.items.length; i++) {
+      newArray[i] = func(this.items[i]); 
+    }
+    return newArray;
+  };
+}
+
+let myB = new Bowl();
+console.log(myB);
