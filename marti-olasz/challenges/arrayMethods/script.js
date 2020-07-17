@@ -23,6 +23,7 @@ function bowl() {
   };
 
   this.filter = function (func) {
+    debugger
     let result = [];
     let j = 0;
     for (let i = 0; i < this.length; i++) {
@@ -139,7 +140,6 @@ calc.push(2);
 calc.push(4);
 calc.push(8);
 
-/*
 calc.forEach(function (num) {
   console.log("forEach", num);
 });
@@ -196,4 +196,3 @@ console.log(
     return acc * num;
   })
 );
-*/
