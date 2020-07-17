@@ -1,0 +1,4 @@
+Objetos agrupan datos y codigo
+Funciones se usan para referirse a un codigo
+
+Valores primitivos == expresiones literales (son inmutables no se pueden cambiar)
