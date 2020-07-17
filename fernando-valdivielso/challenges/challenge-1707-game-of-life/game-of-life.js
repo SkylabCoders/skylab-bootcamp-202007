@@ -1,0 +1,3 @@
+function gameOfLife (array) {
+    
+}
