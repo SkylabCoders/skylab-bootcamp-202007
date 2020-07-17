@@ -13,15 +13,17 @@
 
 // console.log(person.fullName());
 
-function Person(first, last) { //constructora
-    this.firstName = first;
-    this.lastName = last;
-    this.fullName = function () {
-        return this.firstName + " " + this.lastName;
-    };
-}
+// function Person(first, last) { //constructora
+//     this.firstName = first;
+//     this.lastName = last;
+//     this.fullName = function () {
+//         return this.firstName + " " + this.lastName;
+//     };
+// }
 
-const fer = new Person('Fer', 'Nandez')
-console.log(fer)
+// const fer = new Person('Fer', 'Nandez')
+// console.log(fer)
+
+
 
 
