@@ -45,7 +45,7 @@ function airlines() {
     // #################################
     function printFlights() {
         var strEscala = "";
-        for (i in flights) {
+        for (var i in flights) {
             if (flights[i].scale == true) {
                 strEscala = "Realiza escalas.";
             } else {
@@ -64,7 +64,7 @@ function airlines() {
     function avgCost() {
         var sum = 0;
         var count = 0;
-        for (i in flights) {
+        for (var i in flights) {
             sum += flights[i].cost;
             count++;
         }
@@ -73,7 +73,7 @@ function airlines() {
 
     function countScales() {
         var count = 0;
-        for (i in flights) {
+        for (var i in flights) {
             if (flights[i].scale == true) {
                 count++;
             }
@@ -83,7 +83,7 @@ function airlines() {
 
     function printLast() {
         var lastFlights = [];
-        for (i in flights) {
+        for (var i in flights) {
             if (i >= flights.length - 5) {
                 lastFlights.push(flights[i].to);
             }
@@ -105,7 +105,6 @@ function airlines() {
         while (keepAsking && _id <= 15) {
 
             if ((prompt(`Deseas introducir un nuevo vuelo? Hay ${_id}/15 guardados (s/n)`, "s").toLowerCase() == "s")) {
-                keepAsking = true;
                 _id++;
                 if (_id > 15) {
                     id--;
@@ -156,7 +155,6 @@ function airlines() {
         var entryValue = "";
         var entryAction = "";
         var bucle = true;
-        var flightID = 0;
         do {
             entryValue = parseInt(prompt("Introduce un valor"));
             entryAction = prompt("Deseas buscar vuelos con un precio mayor, menor, o igual al valor anterior?.\nIntroduce 'mayor', 'menor' o 'igual'").toLowerCase();
@@ -268,10 +266,5 @@ function airlines() {
         console.log(`Has elegido el vuelo con ID ${buyFlight}`);
         console.log(`Origen: ${foundFlights[buyIndex].from}, Destino: ${foundFlights[buyIndex].to}, Coste: ${foundFlights[buyIndex].cost}`);
         return true;
-    }
-
-
-    function findCostIndex(value) {
-        return flights.map(function(item) { return item.cost; }).indexOf(value);
     }
 }
