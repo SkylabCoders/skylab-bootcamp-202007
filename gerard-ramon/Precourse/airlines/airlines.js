@@ -28,7 +28,7 @@ printLast();
 
 function printFlights() {
     var strEscala = "";
-    for (i in flights) {
+    for (var i in flights) {
         if (flights[i].scale == true) {
             strEscala = "Realiza escalas.";
         } else {
@@ -41,7 +41,7 @@ function printFlights() {
 function avgCost() {
     var sum = 0;
     var count = 0;
-    for (i in flights) {
+    for (var i in flights) {
         sum += flights[i].cost;
         count++;
     }
@@ -50,7 +50,7 @@ function avgCost() {
 
 function countScales() {
     var count = 0;
-    for (i in flights) {
+    for (var i in flights) {
         if (flights[i].scale == true) {
             count++;
         }
@@ -60,7 +60,7 @@ function countScales() {
 
 function printLast() {
     var lastFlights = [];
-    for (i in flights) {
+    for (var i in flights) {
         if (i >= flights.length - 5) {
             lastFlights.push(flights[i].to);
         }

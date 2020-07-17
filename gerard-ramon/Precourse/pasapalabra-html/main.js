@@ -3,7 +3,7 @@ var start = false;
 var transactionDone = false;
 
 var playerName = "";
-var time = 150;
+var gameTime = 150;
 var timerControl = null;
 var correctCount = 0;
 var incorrectCount = 0;
@@ -122,7 +122,7 @@ startButton.addEventListener("click", function() {
     inputMenu.value = "";
 });
 
-answerButton.addEventListener("click", function() {;
+answerButton.addEventListener("click", function() {
     checkAnswer();
     answerInput.value = "";
     answerInput.focus();
@@ -159,9 +159,9 @@ function checkForm() {
 
 // The tick of each iteration of the setInterval
 function timerTick() {
-    time--;
-    timer.innerHTML = time;
-    if (time <= 0) {
+    gameTime--;
+    timer.innerHTML = gameTime;
+    if (gameTime <= 0) {
         //clearInterval(timerControl);
     }
 }
@@ -184,7 +184,7 @@ function resetGame() {
     correctCount = 0;
     incorrectCount = 0;
     currentQuestion = 0;
-    time = 150;
+    gameTime = 150;
 
     timer.innerHTML = 150;
     correctDisplay.innerHTML = 0;
@@ -263,9 +263,9 @@ function endGame() {
     answerButton.disabled = true;
     cancelButton.disabled = true;
 
-    questionText.innerHTML = `El jugador: ${playerName} acaba con ${correctCount} aciertos, ${incorrectCount} fallos y ${time} segundos restantes.`
+    questionText.innerHTML = `El jugador: ${playerName} acaba con ${correctCount} aciertos, ${incorrectCount} fallos y ${gameTime} segundos restantes.`
 
-    var tempPlayer = new Player(playerName, correctCount, incorrectCount, time);
+    var tempPlayer = new Player(playerName, correctCount, incorrectCount, gameTime);
     localStorage.setItem(playerName, JSON.stringify(tempPlayer));
 
     writeRanking();
