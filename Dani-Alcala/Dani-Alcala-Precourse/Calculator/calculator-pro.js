@@ -22,10 +22,10 @@ function calculatorpro(passedNumbers) {
             results = ["ResultSquareRoot = " + " " + sqrRoot];
         } else {
             for (var j = 1; j < passedNumbers.length; j++) {
-                var sum = Math.round((sum + passedNumbers[j]) * 1000) / 1000;
-                var subs = Math.round((subs - passedNumbers[j]) * 1000) / 1000;
-                var prod = Math.round((prod * passedNumbers[j]) * 1000) / 1000;
-                var div = Math.round((div / passedNumbers[j]) * 1000) / 1000;
+                sum = Math.round((sum + passedNumbers[j]) * 1000) / 1000;
+                subs = Math.round((subs - passedNumbers[j]) * 1000) / 1000;
+                prod = Math.round((prod * passedNumbers[j]) * 1000) / 1000;
+                div = Math.round((div / passedNumbers[j]) * 1000) / 1000;
             }
             results = ["ResultSum = " + " " + sum, " " + "ResultSubstraction =" + " " + subs, " " + "ResultProduct =" + " " + prod, " " + "ResultDivision =" + " " + div];
         }
