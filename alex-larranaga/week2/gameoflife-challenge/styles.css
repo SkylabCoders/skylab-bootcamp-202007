@@ -15,6 +15,8 @@ header {
     height: 12vh;
 }
 
+
+
 .section_game {
     display: flex;
     flex-direction: column;
@@ -24,7 +26,11 @@ header {
 .column {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+   /*  margin-left: 200px;
+    margin-right: 200px; */
+
+    
 }
 
 
@@ -35,6 +41,10 @@ header {
     border-color: rgba(70, 8, 114, 0.418);
 }
 
+.section_game div {
+   
+}
+
 
 
  .section_game > div > div {
@@ -42,6 +52,7 @@ header {
     border-color: lawngreen;
     width: 60px;
     height: 60px;
+    margin: 0%
 } 
 
 .filled {

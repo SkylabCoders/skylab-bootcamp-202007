@@ -27,5 +27,5 @@ document.body.appendChild(c)
 const ctx = c.getContext('2d')
 
 drawBoard(ctx, step)
-drawPieces(ctx, step * 3,'red', step)
+drawPieces(ctx, step * 3,'red', step) 
 drawPieces(ctx, step * 9, 'blue', step)
