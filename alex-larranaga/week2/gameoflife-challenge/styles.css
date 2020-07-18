@@ -28,10 +28,28 @@ header {
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
   }
+
+
   
   .grid-item {
-    width: 5px;
-    height: 5px;
+    width: 0px;
+    height: 0px;
+    padding: 2em;
+    border: 10px solid #ddd;
+    text-align: center;
+  }
+
+  .grid-item-true {
+    width: 0px;
+    height: 0px;
+    padding: 2em;
+    border: 10px solid #ddd;
+    text-align: center;
+  }
+
+  p {
+    width: 0px;
+    height: 0px;
     padding: 2em;
     border: 10px solid #ddd;
     text-align: center;
