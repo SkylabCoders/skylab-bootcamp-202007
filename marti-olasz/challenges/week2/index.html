@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Life</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h2>Turn: <p class="turn"></p>
+        </h2>
+        <h1>Conway's Game of Life</h1>
+        <div>
+            <button onclick="game.turn()">
+                <h3>Next turn</h3>
+            </button>
+            <button onclick="setTimeout(game.turn(), 500)">
+                <h3>Start</h3>
+            </button>
+            <button onclick="clearTimeout(timer)">
+                <h3>Stop</h3>
+            </button>
+
+        </div>
+    </header>
+    <section>
+        <div class="col1">
+            <div class="c1r1"></div>
+            <div class="c1r2"></div>
+            <div class="c1r3"></div>
+            <div class="c1r4"></div>
+            <div class="c1r5"></div>
+            <div class="c1r6"></div>
+            <div class="c1r7"></div>
+            <div class="c1r8"></div>
+            <div class="c1r9"></div>
+            <div class="c1r10"></div>
+        </div>
+        <div class="col2">
+            <div class="c2r1"></div>
+            <div class="c2r2"></div>
+            <div class="c2r3"></div>
+            <div class="c2r4"></div>
+            <div class="c2r5"></div>
+            <div class="c2r6"></div>
+            <div class="c2r7"></div>
+            <div class="c2r8"></div>
+            <div class="c2r9"></div>
+            <div class="c2r10"></div>
+        </div>
+        <div class="col3">
+            <div class="c3r1"></div>
+            <div class="c3r2"></div>
+            <div class="c3r3"></div>
+            <div class="c3r4"></div>
+            <div class="c3r5"></div>
+            <div class="c3r6"></div>
+            <div class="c3r7"></div>
+            <div class="c3r8"></div>
+            <div class="c3r9"></div>
+            <div class="c3r10"></div>
+        </div>
+        <div class="col4">
+            <div class="c4r1"></div>
+            <div class="c4r2"></div>
+            <div class="c4r3"></div>
+            <div class="c4r4"></div>
+            <div class="c4r5"></div>
+            <div class="c4r6"></div>
+            <div class="c4r7"></div>
+            <div class="c4r8"></div>
+            <div class="c4r9"></div>
+            <div class="c4r10"></div>
+        </div>
+        <div class="col5">
+            <div class="c5r1"></div>
+            <div class="c5r2"></div>
+            <div class="c5r3"></div>
+            <div class="c5r4"></div>
+            <div class="c5r5"></div>
+            <div class="c5r6"></div>
+            <div class="c5r7"></div>
+            <div class="c5r8"></div>
+            <div class="c5r9"></div>
+            <div class="c5r10"></div>
+        </div>
+        <div class="col6">
+            <div class="c6r1"></div>
+            <div class="c6r2"></div>
+            <div class="c6r3"></div>
+            <div class="c6r4"></div>
+            <div class="c6r5"></div>
+            <div class="c6r6"></div>
+            <div class="c6r7"></div>
+            <div class="c6r8"></div>
+            <div class="c6r9"></div>
+            <div class="c6r10"></div>
+        </div>
+        <div class="col7">
+            <div class="c7r1"></div>
+            <div class="c7r2"></div>
+            <div class="c7r3"></div>
+            <div class="c7r4"></div>
+            <div class="c7r5"></div>
+            <div class="c7r6"></div>
+            <div class="c7r7"></div>
+            <div class="c7r8"></div>
+            <div class="c7r9"></div>
+            <div class="c7r10"></div>
+        </div>
+        <div class="col8">
+            <div class="c8r1"></div>
+            <div class="c8r2"></div>
+            <div class="c8r3"></div>
+            <div class="c8r4"></div>
+            <div class="c8r5"></div>
+            <div class="c8r6"></div>
+            <div class="c8r7"></div>
+            <div class="c8r8"></div>
+            <div class="c8r9"></div>
+            <div class="c8r10"></div>
+        </div>
+        <div class="col9">
+            <div class="c9r1"></div>
+            <div class="c9r2"></div>
+            <div class="c9r3"></div>
+            <div class="c9r4"></div>
+            <div class="c9r5"></div>
+            <div class="c9r6"></div>
+            <div class="c9r7"></div>
+            <div class="c9r8"></div>
+            <div class="c9r9"></div>
+            <div class="c9r10"></div>
+        </div>
+        <div class="col10">
+            <div class="c10r1"></div>
+            <div class="c10r2"></div>
+            <div class="c10r3"></div>
+            <div class="c10r4"></div>
+            <div class="c10r5"></div>
+            <div class="c10r6"></div>
+            <div class="c10r7"></div>
+            <div class="c10r8"></div>
+            <div class="c10r9"></div>
+            <div class="c10r10"></div>
+        </div>
+
+    </section>
+</body>
+<script src="script.js"></script>
+
+</html>
