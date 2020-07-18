@@ -1,0 +1,56 @@
+body {
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: rgb(54, 54, 54);
+    border: 2px solid;
+    border-color: greenyellow;
+    width: 100%;
+    height: 12vh;
+}
+
+
+
+.section_game {
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+    margin: 100;
+    border: 2px solid greenyellow;
+    
+}
+
+.column {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+
+    
+}
+
+
+
+.header__flex-container__title{
+    margin-top: 20%;
+    border: 4px solid;
+    border-color: rgba(70, 8, 114, 0.418);
+}
+ .section_game > div > div {
+    border: 1px solid;
+    border-color: lawngreen;
+    width: 60px;
+    height: 60px;
+    margin: 0%
+} 
+
+.filled {
+    background-color: yellowgreen;
+}
