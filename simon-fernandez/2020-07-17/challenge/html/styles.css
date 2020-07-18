@@ -1,0 +1,16 @@
+table{
+    margin: auto;
+}
+tr{
+    border: 2px solid black;
+}
+#startGame{
+    width: 100%;
+    margin: auto;
+}
+.white{
+    background-color: white;
+}
+.black{
+    background-color: black;
+}

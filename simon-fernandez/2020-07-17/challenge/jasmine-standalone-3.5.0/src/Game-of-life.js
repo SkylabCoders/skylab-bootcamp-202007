@@ -1,20 +1,21 @@
 function Game (blinkerStart,blinkerEnd,toadStart,toadEnd,beaconStart,beaconEnd) {
     this.blinkerStart=function () {
+        debugger
         return gameOfLife(blinkerStart);
     },
-    this.blinkerEnd==function () {
+    this.blinkerEnd=function () {
         return gameOfLife(blinkerEnd);
     },
-    this.toadStart==function () {
+    this.toadStart=function () {
         return gameOfLife(toadStart);
     },
-    this.toadEnd==function () {
+    this.toadEnd=function () {
         return gameOfLife(toadEnd);
     },
-    this.beaconStart==function () {
+    this.beaconStart=function () {
         return gameOfLife(beaconStart);
     },
-    this.beaconEnd==function () {
+    this.beaconEnd=function () {
         return gameOfLife(beaconEnd);
     },
     this
