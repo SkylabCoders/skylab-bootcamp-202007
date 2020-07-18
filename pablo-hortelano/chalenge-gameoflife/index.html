@@ -14,16 +14,20 @@
         <main class="mainContainer">
         
         </main>
+        <h2 class="game-text">Round nº</h2>
         <section class="button-pannel">
             <div>
-                <label for="number-columns">Número de filas</label>
-                <input id="number-columns" type="number">
+                <label for="number-rows">Número de filas</label>
+                <input id="number-rows" type="number" min="0" max="40">
                 <div><label for="number-columns">Número de columnas</label>
-                <input id="number-rows" type="number" label="columnas">
+                <input id="number-columns" type="number" min="0" max="40">
             </div>
+            <button onclick="setGame()">Set</button>
             <button onclick="startGame()">Jugar</button>
         </section>
-        <footer></footer>
+        <footer>
+            <h2 class="warnings">Please set both values and use them with a max value of 40</h2>
+        </footer>
         <script src="./index.js" async defer></script>
     </body>
 </html>

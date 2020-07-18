@@ -10,11 +10,11 @@ function ConstructBoard(ySize, xSize) {
       let rowSelector;
       selector = document.querySelector(".mainContainer");
       row = document.createElement("section");
-      row.setAttribute("class", `game-row game-row-${i}`);
+      row.setAttribute("class", `game-row game-row-${i}`); //Giving each row two classNames
       selector.appendChild(row);
       for (let j = 0; j < this.ySize; j++) {
         column = document.createElement("div");
-        column.setAttribute("class", `game-column game-row-${i}-column-${j}`);
+        column.setAttribute("class", `game-column game-row-${i}-column-${j}`); //Giving each cell two classNames
         rowSelector = document.querySelector(`.game-row-${i}`);
         rowSelector.appendChild(column);
       }
@@ -28,31 +28,31 @@ function RandomizeGrid(testBoard) {
   this.setInitialLiveCells = function () {
     for (let i = 0; i < this.grid[0]; i++) {
       let individualObject = {};
-      individualObject = {
+      individualObject = { //Defining the object row that contains all the object-columns
         row: `${i}`,
         elements: [],
       };
       this.state.push(individualObject);
       for (let j = 0; j < this.grid[1]; j++) {
-        this.state[i].elements.push({
+        this.state[i].elements.push({ //Defining each individual cell of each row and giving them some properties
           column: `${i}`,
           class: `game-row-${i}-column-${j}`,
-          live: this.randomLiveOrDead(),
+          live: this.randomLiveOrDead() //Random function to determine if the cell is alive or not
         });
       }
     }
   };
-  this.randomLiveOrDead = function () {
+  this.randomLiveOrDead = function () { //Change this method code to alter proportion of live cells in the board
     let max = 2;
     let min = 0;
-    let binary = Math.floor(Math.random() * (max - min)) + min;
+    let binary = Math.floor(Math.random() * (max - min)) + min; 
     return binary === 1 ? true : false;
   };
 }
 
 function paintInitialBoard(arrayOfObjects) {
   this.arrayOfObjects = arrayOfObjects;
-  this.filterLiveCells = function () {
+  this.filterLiveCells = function () { //This method take an array of all the elements and return just an array of classNames
     let newRow;
     let temporalArr = [];
     let definitiveArr = [];
@@ -67,7 +67,7 @@ function paintInitialBoard(arrayOfObjects) {
     }
     return definitiveArr;
   };
-  this.paintRightClasses = function (classNamesOfcellsToPaint) {
+  this.paintRightClasses = function (classNamesOfcellsToPaint) { //This method take an array of classNames, search for the elements with these classNames and paint them
     for (let elem of classNamesOfcellsToPaint) {
       let selector = document.querySelector(`.${elem}`);
       let newClass = selector.classList.value;
@@ -79,19 +79,35 @@ function paintInitialBoard(arrayOfObjects) {
 
 //newBoardSet.state[0].elements.filter(elem => elem.live)
 
-function startGame(rowNumber = 40, columnNumber = 40) {
-  var elements = document.getElementsByClassName("game-row");
+function setGame(rowNumber = 40, columnNumber = 40) {
+  rowNumber = document.querySelector("#number-rows").value;
+  columnNumber = document.querySelector("#number-columns").value;
+
+  if ((rowNumber || columnNumber) >= 41) {
+    rowNumber = 40;
+    columnNumber = 40;
+  }
+  document.querySelector(".game-text").textContent = "Round nº";
+
+  let elements = document.getElementsByClassName("game-row");
   while (elements.length > 0) {
     elements[0].parentNode.removeChild(elements[0]);
-  }
+  } //This while delete the previous board (if there are a previous one)
   let testBoard = new ConstructBoard(rowNumber, columnNumber); //Just require the desire number of rows and columns
   testBoard.createBoard();
 
   let newBoardSet = new RandomizeGrid(testBoard.grid); //Require and array, the first position of the array is the number of rows, second one number of coumns
   newBoardSet.setInitialLiveCells(); //This method configure which cells have an initial state of live true and wich not
   let blankBoard = new paintInitialBoard(newBoardSet.state); //
-  let classNamesOfcellsToPaint = blankBoard.filterLiveCells(); // It returns an array of objects with the class names of cells to paint
-  blankBoard.paintRightClasses(classNamesOfcellsToPaint);
+  let classNamesOfcellsToPaint = blankBoard.filterLiveCells(); // It returns an array of classNames of cells that are alive
+  blankBoard.paintRightClasses(classNamesOfcellsToPaint); //Send the list of classNames of cells that are live and paint them
+}
+
+function StartGame() {
+  this.displayRound = function(value = 0) {
+    document.querySelector(".game-text").textContent = `Round nº ${value}`;
+  }
+  this.createMatrixForEachCell = function() {}
 }
 /*
 function makeChanges(selector, ) {
