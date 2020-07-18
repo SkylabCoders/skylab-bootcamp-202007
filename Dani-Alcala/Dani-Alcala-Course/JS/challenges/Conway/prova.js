@@ -11,6 +11,7 @@ let j;
 
 function prova() {
     for (i = 0; i < initialGrid[0].length; i++) {
+        debugger
         for (j = 0; j < initialGrid.length; j++) {
             cont++
         }

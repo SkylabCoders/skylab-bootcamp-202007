@@ -1,23 +1,26 @@
 'use strict'
 
 const initialGrid = 
-        [[0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]]
+        [[0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 1, 1, 0],
+        [0, 0, 0, 0, 0, 0]]
 
 let finalGrid =
-        [[0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]]
+        [[0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]]
 
 let i;
 let j;
 let counter;
 
+/* runs the game */
 function conway() {
     for (i = 0; i < initialGrid[0].length; i++) {
         for (j = 0; j < initialGrid.length; j++) {
@@ -34,20 +37,23 @@ function conway() {
     return finalGrid;
 }
 
+/* checks the neighbours */
 function aliveNeighbours() { 
     counter = 0;
 
-    if(typeof(initialGrid[i][j+1]) === 'number') {counter += initialGrid[i][j+1]}
-    if(typeof(initialGrid[i][j-1]) === 'number') {counter += initialGrid[i][j-1]}
-    if(typeof(initialGrid[i+1]) === 'number') {
-        if(typeof(initialGrid[i+1][j]) === 'number') {counter += initialGrid[i+1][j]}
-        if(typeof(initialGrid[i+1][j+1]) === 'number') {counter += initialGrid[i+1][j+1]}
-        if(typeof(initialGrid[i+1][j-1]) === 'number') {counter += initialGrid[i+1][j-1]}
+    if(typeof(initialGrid[i][j+1]) !== 'undefined') {counter += initialGrid[i][j+1]}
+    if(typeof(initialGrid[i][j-1]) !== 'undefined') {counter += initialGrid[i][j-1]}
+    
+    if(typeof(initialGrid[i+1]) !== 'undefined') {
+        if(typeof(initialGrid[i+1][j]) !== 'undefined') {counter += initialGrid[i+1][j]}
+        if(typeof(initialGrid[i+1][j+1]) !== 'undefined') {counter += initialGrid[i+1][j+1]}
+        if(typeof(initialGrid[i+1][j-1]) !== 'undefined') {counter += initialGrid[i+1][j-1]}
     }
-    if(typeof(initialGrid[i-1]) === 'number') {
-    if(typeof(initialGrid[i-1][j]) === 'number') {counter += initialGrid[i-1][j]}
-    if(typeof(initialGrid[i-1][j+1]) === 'number') {counter += initialGrid[i-1][j+1]}
-    if(typeof(initialGrid[i-1][j-1]) === 'number') {counter += initialGrid[i-1][j-1]}
+    
+    if(typeof(initialGrid[i-1]) !== 'undefined') {
+        if(typeof(initialGrid[i-1][j]) !== 'undefined') {counter += initialGrid[i-1][j]}
+        if(typeof(initialGrid[i-1][j+1]) !== 'undefined') {counter += initialGrid[i-1][j+1]}
+        if(typeof(initialGrid[i-1][j-1]) !== 'undefined') {counter += initialGrid[i-1][j-1]}
     }
     return counter;        
 }
