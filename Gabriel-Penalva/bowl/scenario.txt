@@ -1,0 +1,19 @@
+Description:
+As a Developer
+I want to build a functions map filter and find
+So that I will find the numbers I want.
+
+Scenarios:
+Given an array 
+When the property is called
+Then return an array acording to a function delivered on a call.
+
+given a function 
+when i unput a number
+then a decrement is showed on console.
+
+number  decrement
+1       0
+2       1
+5       4   
+12      11
