@@ -8,4 +8,5 @@
     }
 }
 
-
+let array = [0,0,0,0,0];
+console.log(array[-1]);

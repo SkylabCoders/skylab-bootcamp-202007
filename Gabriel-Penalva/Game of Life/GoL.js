@@ -1,42 +1,110 @@
 
 const HEIGHT = 5;
 const WIDTH = 5;
-let grid =[[],[]];
+var gridState = [];
 
-function SuperCell(initial = 0,xPos,ypos){
+function SuperCell(yPos, xPos,initialState = 0) {
+    //Propierties:
     this.xPos = xPos;
-    this.yPos = ypos;
-    this.initialState = initial;
-    this.nextState = function (){
-        if (this.initialState === 0 && this.numberOfNeig === 3){
-            return 1;
-        }
-        if (this.initialState === 1 && (this.numberOfNeig === 2 || this.numberOfNeig === 3)){
-            return 1;
-        }
-        return 0;
-    };
+    this.yPos = yPos;
+    this.initialState = initialState;
     this.numberOfNeig = 0;
-    this.calcNumberOfNeig = function (){
+
+    //SETTERS
+    this.setInitialState = function (gridState) {
+        this.initialState = (gridState[yPos][xPos])
+        return this.initialState;
+    };
+    this.setNumberOfNeig = function (gridState) {
         let nAlive = 0;
-        for (let i = this.yPos-1; i <= this.yPos +1; i++){
-            for (let j = this.xPos-1; j <= this.xPos +1; j++){
-                if (x !== this.xPos || y !== this.yPos){
-                    if (grid[x][y] !== undefined){
-                        if(grid[x][y].initialState === 1){
+        for (let i = this.yPos - 1; i <= this.yPos + 1; i++) {
+            for (let j = this.xPos - 1; j <= this.xPos + 1; j++) {
+                if ((i >= 0) && (j >= 0) && (i < HEIGHT) && (j < WIDTH)) {
+                    if (j !== this.xPos || i !== this.yPos) {
+                        if (gridState[i][j] === 1) {
                             nAlive++;
                         }
                     }
-                } 
+                }
             }
         }
-        return nAlive;
-
+        this.numberOfNeig = nAlive;
     };
-    this.askNeig = function (x,y){
-        if (grid[x][y] !== undefined)
-            return grid[x][y].initialState;
-        return undefined;
+
+    //GETTERS
+    this.getNextState = function () {
+        
+        if (this.initialState === 0 && this.numberOfNeig === 3) {
+         
+            this.numberOfNeig = 0;
+            return 1;
+        }
+        if (this.initialState === 1 && (this.numberOfNeig === 2 || this.numberOfNeig === 3)) {
+            
+            this.numberOfNeig = 0;
+            return 1;
+        }
+        this.numberOfNeig =0;
+        return 0;
+    };
+    
+}
+
+ class GoL{
+    //Constructor 
+    constructor (gridInitialState) {
+        let GridSCA = [];
+        let GridSCB = [];
+        for (let i = 0; i < WIDTH; i++) {
+            for (let j = 0; j < HEIGHT; j++) {
+                GridSCA.push(new SuperCell(i, j,gridInitialState[i][j]));
+            }
+            GridSCB.push(GridSCA);
+            GridSCA = [];
+        }
+    
+        this.gridCell = GridSCB;
+        this.gridState = gridInitialState;
     }
 
+    setNewState() {
+        for (let i = 0; i < WIDTH; i++) {
+            for (let j = 0; j < HEIGHT; j++) {
+                this.gridCell[i][j].setInitialState(this.gridState);
+            }
+        }
+        for (let i = 0; i < WIDTH; i++) {
+            for (let j = 0; j < HEIGHT; j++) {
+                this.gridCell[i][j].setNumberOfNeig(this.gridState);
+            }
+        }
+        for (let i = 0; i < WIDTH; i++) {
+            for (let j = 0; j < HEIGHT; j++) {
+                this.gridState[i][j] = this.gridCell[i][j].getNextState();
+            }
+        }
+        return this.gridState;
+    }
 }
+
+
+gridState =
+    [
+        [0, 1, 0, 0, 0],
+        [0, 1, 0, 0, 0],
+        [0, 1, 0, 0, 1],
+        [0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 1]];
+
+console.log(gridState);
+
+let Game = new GoL(gridState);
+
+console.log(Game.setNewState());
+console.log(Game.setNewState());
+console.log(Game.setNewState());
+console.log(Game.setNewState());
+console.log(Game.setNewState());
+console.log(Game.setNewState());
+console.log(Game.setNewState());
+console.log(Game.setNewState());
