@@ -95,7 +95,7 @@ function bingo() {
 
     // Comprueba si el numero esta dentro del array que recibe.
     function isRepeated(numbersArray, number) {
-        for (i in numbersArray) {
+        for (var i in numbersArray) {
             if (number == numbersArray[i]) {
                 return true;
             }
@@ -104,7 +104,7 @@ function bingo() {
     }
 
     function generateCarton() {
-        var carton = [
+        var cartonFunction = [
             { number: generateCartonNumber(), matched: false },
             { number: generateCartonNumber(), matched: false },
             { number: generateCartonNumber(), matched: false },
@@ -124,7 +124,7 @@ function bingo() {
             { number: generateCartonNumber(), matched: false }
         ];
 
-        return carton;
+        return cartonFunction;
     }
 
     // Comprueba si el numero generado esta en el carton y cambia ese numero por una X
@@ -148,7 +148,7 @@ function bingo() {
 
     function printCarton(userCarton) {
         var count = 0;
-        strCarton = "";
+        var strCarton = "";
         for (var i = 0; i < userCarton.length; i++) {
             if (!userCarton[i].matched) {
                 strCarton += `${userCarton[i].number}, `;
