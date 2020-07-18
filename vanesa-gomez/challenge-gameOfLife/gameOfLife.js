@@ -1,7 +1,7 @@
 let initialState = [
     [0,0,0,0,0],
-    [0,1,1,0,0],
-    [0,1,1,1,0],
+    [0,0,1,0,0],
+    [0,0,1,0,0],
     [0,0,1,0,0],
     [0,0,0,0,0]
 ];
@@ -27,7 +27,7 @@ function playGame(){
 function countNeighbors(i, j) {
     let count = 0;
 
-    for(let x = 0; x < initialState.length; x++){
+    for(let x = 0; x < initialState.length; x++) {
         for(let y = 0; y < initialState[x].length; y++){
             if(x == i-1 && y == j-1) {
                 if(initialState[x][y] == 1 ) count++
@@ -55,22 +55,7 @@ function countNeighbors(i, j) {
             }
           }
       }
-
-    
     return count;
-
     }
 
 playGame();
-
-
-function calculateAliveNeighbours() {
-    [i+1][j]
-    [i-1][j]
-    [i] [j+1]
-    [i] [j-1]
-    [i+1] [j-1]
-    [i+1] [j+1]
-    [i-1] [j+1]
-    [i-1] [j-1]
-}
