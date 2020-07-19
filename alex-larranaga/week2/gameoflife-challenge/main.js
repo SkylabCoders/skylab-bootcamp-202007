@@ -1,11 +1,13 @@
 //THE LOGIC THAT PERFORMS THE GAME ITESELF ----- TODO:: Need to add second arg for second generation
+
+const container = document.getElementById('container')
 var playerArray = [
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -27,51 +29,78 @@ var emptyArray = [
 //console.log(createEmptyBoard(4, 4));
 
 function doMagic(inputArray, outputArray) {
-  for (let i = 1; i < inputArray.length - 1; i++) {
-    for (let j = -1; j < inputArray[i].length - 1; j++) {
-      let neighbors = 0;
-      neighbors += inputArray[i - 1][j - 1];
-      neighbors += inputArray[i - 1][j];
-      neighbors += inputArray[i - 1][j + 1];
-      neighbors += inputArray[i][j - 1];
-      neighbors += inputArray[i][j + 1];
-      neighbors += inputArray[i + 1][j - 1];
-      neighbors += inputArray[i + 1][j];
-      neighbors += inputArray[i + 1][j + 1];
-      if (inputArray[i][j] === 0) {
-        switch (neighbors) {
-          case 3:
-            outputArray[i][j] = 1;
-            break;
-          default:
-            outputArray[i][j] = 0;
-        }
-      } else if (inputArray[i][j] === 1) {
-        switch (neighbors) {
-          case 0:
-          case 1:
-            outputArray[i][j] = 0;
-            break;
-          case 2:
-          case 3:
-            outputArray[i][j] = 1;
-            break;
-          case 4:
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-            outputArray[i][j] = 0;
-            break;
-          default:
-            outputArray[i][j] = 0;
-        }
-      }
-    }
-  }
-  return console.log(outputArray);
+	emptyArray = [
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	]
+	for (let i = 1; i < inputArray.length - 1; i++) {
+		for (let j = -1; j < inputArray[i].length - 1; j++) {
+			let neighbors = 0
+			neighbors += inputArray[i - 1][j - 1]
+			neighbors += inputArray[i - 1][j]
+			neighbors += inputArray[i - 1][j + 1]
+			neighbors += inputArray[i][j - 1]
+			neighbors += inputArray[i][j + 1]
+			neighbors += inputArray[i + 1][j - 1]
+			neighbors += inputArray[i + 1][j]
+			neighbors += inputArray[i + 1][j + 1]
+			if (inputArray[i][j] === 0) {
+				switch (neighbors) {
+					case 3:
+						outputArray[i][j] = 1
+						break
+					default:
+						outputArray[i][j] = 0
+				}
+			} else if (inputArray[i][j] === 1) {
+				switch (neighbors) {
+					case 0:
+					case 1:
+						outputArray[i][j] = 0
+						break
+					case 2:
+					case 3:
+						outputArray[i][j] = 1
+						break
+					case 4:
+					case 5:
+					case 6:
+					case 7:
+					case 8:
+						outputArray[i][j] = 0
+						break
+					default:
+						outputArray[i][j] = 0
+				}
+			}
+		}
+	}
+	playerArray = outputArray
+	drawNexgtGeneration(playerArray)
+	return console.log(outputArray)
 }
-const container = document.getElementById('container')
+
+function drawNexgtGeneration(nextGeneration) {	
+let newDivArray = Array.from(document.getElementsByClassName('grid-item'))
+console.log(newDivArray)
+console.log(nextGeneration)
+	for (let i = 0; i < nextGeneration.length; i++)
+		if (nextGeneration[i] === 1) {
+			newDivArray[i].style.backgroundColor('red')
+		} else {
+			newDivArray[i].style.backgroundColor('white')
+		}
+}
+
+
 
 //Draw Grid and add event listener to each div for: When clicked, change backgroud to red
 //											  : Return all array every click, and change class to the clicked one/s
@@ -90,7 +119,7 @@ const drawBoard = function (rows, cols) {
 				// Split in group of 3 items
 				var dividedArray = chunkArray(mutateToBinary(divArray), 10)
 				playerArray = dividedArray
-				return console.logplayerArray
+				return playerArray
 			})
 		) /*  */
 		cell.innerText = c + 1
@@ -98,7 +127,7 @@ const drawBoard = function (rows, cols) {
 	}
 }
 let submitButton = document.getElementById('createButton')
-submitButton.addEventListener('submit', drawBoard(10, 10))
+submitButton.addEventListener('click', drawBoard(10, 10))
 
 //Create Empty Array for second state of the game
 const createEmptyBoard = function (row, cell) {
@@ -133,7 +162,7 @@ function chunkArray(myArray, chunk_size) {
 
 	for (index = 0; index < arrayLength; index += chunk_size) {
 		myChunk = myArray.slice(index, index + chunk_size)
-		// Do something if you want with the group
+
 		tempArray.push(myChunk)
 	}
 
