@@ -13,13 +13,13 @@ main {
 }
 .panel {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    background-color: burlywood;
-    width: 120px;
-    padding: 40px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    background-color: white;
+    width: 190px;
+
     margin: 0;
-    border-radius: 10px;
+ 
 }
 .color {
     background-color: rgb(44, 43, 43);
@@ -28,13 +28,19 @@ main {
     border: 1px solid grey;
     width: 18px;
     height: 18px;
+    padding: 2px;
 }
 .panel > div:hover {
-    background-color: rgb(190, 159, 119);
+    background-color: rgb(233, 229, 229);
     cursor: pointer;
 }
+.buttons {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
 button {
-    margin-top: 10px;
+    margin: 10px;
     color: white;
     background-color: rgb(10, 94, 124);
     border: none;
@@ -43,4 +49,8 @@ button {
     padding: 12px 18px;
     font-size: 16px;
     width: 120px;
+}
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
