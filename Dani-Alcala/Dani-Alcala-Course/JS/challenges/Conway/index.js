@@ -19,52 +19,116 @@ let finalGrid =
 let i;
 let j;
 let counter;
-let classes = document.querySelectorAll('.grid');
+const classes = document.querySelectorAll('.grid');
 
+
+function conway () {
+    hideElements();
+    switchGrid();
+    reloadWeb();
+    generateInitialState();
+    run();
+}
 
 conway();
 
 
-function conway () {
-    generateInitialState();
-    printSecondState();
+function switchGrid () {
+    const switchGrid = document.querySelector('.switch');
+    
+    switchGrid.addEventListener('click', function (event) {
+        event.preventDefault();              
+        showElements();
+    })
+}
+
+function hideElements () {
+    for (let k = 0; k < initialGrid[0].length; k++) {
+        for (let l = 0; l < initialGrid.length; l++) {
+            if(k === 0) {
+                classes[k + l * initialGrid[0].length].classList.add('hidden');
+            }
+            if(l === 0) {
+                classes[k + l * initialGrid[0].length].classList.add('hidden');
+            }
+        }
+    }
+}
+
+function showElements () {
+    for (let k = 0; k < initialGrid[0].length; k++) {
+        for (let l = 0; l < initialGrid.length; l++) {
+            if(k === 0) {
+                classes[k + l * initialGrid[0].length].classList.add('show');
+            }
+            if(l === 0) {
+                classes[k + l * initialGrid[0].length].classList.add('show');
+            }
+        }
+    }
+}
+
+function reloadWeb () {
+    const reloadWeb = document.querySelector('.reload');
+    
+    reloadWeb.addEventListener('click', function (event) {
+        event.preventDefault();              
+        location.reload();
+    })
 }
 
 function generateInitialState () {
     for (let k = 0; k < initialGrid[0].length; k++) {
         for (let l = 0; l < initialGrid.length; l++) {
-            classes[k * initialGrid[0].length + l].addEventListener('click', function (e) {
+            classes[k + l * initialGrid[0].length].addEventListener('click', function (event) {
                 event.preventDefault();
-                classes[k * initialGrid[0].length + l].classList.add('paint');
-                initialGrid[l][k] = 1;
+                classes[k + l * initialGrid[0].length].classList.add('paint');
+                initialGrid[k][l] = 1;
             })
         }
     }
 }
 
-function printSecondState() {
-    let run = document.querySelector('.run');
+function run() {
+    const run = document.querySelector('.run');
     
-    run.addEventListener('click', function (e) {
-        debugger
+    run.addEventListener('click', function (event) {
         event.preventDefault();
-        generateSecondState();
-        
-        for (let k = 0; k < initialGrid[0].length; k++) {
-            for (let l = 0; l < initialGrid.length; l++) {
-                if(finalGrid[k][l] === 1) {
-                    classes[k + l * initialGrid[0].length].classList.add('paint');
-                }
-                else {
-                    classes[k + l * initialGrid[0].length].classList.remove('paint');
-                }
-            }
-        }     
+        generateNextState();
+        printSecondState();
     })
 }
 
+function printSecondState () {
+    for (let k = 0; k < initialGrid[0].length; k++) {
+        for (let l = 0; l < initialGrid.length; l++) {
+            if(finalGrid[k][l] === 1) {
+                classes[k + l * initialGrid[0].length].classList.add('paint');
+            }
+            else {
+                classes[k + l * initialGrid[0].length].classList.remove('paint');
+            }
+        }
+    }
+    setTimeout(autoNextState, 1000);
+}
 
-function generateSecondState() {
+function autoNextState() {
+    initialGrid = finalGrid;
+
+    finalGrid =
+    [[0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]]
+
+    generateNextState();
+    printSecondState();
+}
+
+function generateNextState() {
     for (i = 0; i < initialGrid[0].length; i++) {
         for (j = 0; j < initialGrid.length; j++) {
             switch(initialGrid[i][j]) {
@@ -103,4 +167,3 @@ function aliveNeighbours() {
     }
     return counter;        
 }
-
