@@ -10,6 +10,13 @@ body{
     padding: 1%;
     color:white;
     background-color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 5px;
+}
+
+h1{
+    margin: 30px;
+    text-shadow: 5px 5px black;
 }
 
 main{
@@ -32,14 +39,26 @@ button{
     margin: 5px;
     width: 100px;
     height: 50px;
+    color: black;
+    background-color: gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+    outline: none;
 }
 
-table{
+button:hover{
+    background-color: orange;
+    color: black;
+
+}
+
+.table{
     width: 50%;
     border: solid 1px white;
     margin: 10px;
     border-collapse: collapse;
     background-color: white;
+    box-shadow: 5px 5px gray;
 }
 
 

@@ -7,6 +7,8 @@ let initialTable = function (columns, rows, time) {
 	this.time = time
 }
 
+
+
 // Blinker
 
 let blinkerInitial = [
@@ -22,7 +24,7 @@ let blinkerInitial = [
 	[0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0],
 	[0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0],
-]
+];
 
 function nextGeneration(input) {
 	printResult(blinkerInitial)
@@ -86,11 +88,11 @@ function nextMutation(output, input) {
 let start = null
 
 document.querySelector('.initGame').addEventListener('click', function (event) {
-	event.preventDefault()
+	event.preventDefault();
 	if (start === null) {
 		start = setInterval(function () {
-			nextGeneration(blinkerInitial)
-		}, 2000)
+            nextGeneration(blinkerInitial);	
+		}, 1000)
 	}
 })
 
@@ -104,7 +106,7 @@ document.querySelector('.stopGame').addEventListener('click', function (event) {
 
 document.querySelector('.resetGame').addEventListener('click', function (event) {
 	event.preventDefault()
-		window.location.reload();
+	window.location.reload();
 })
 
 function printResult(blinkerInitial) {
@@ -122,3 +124,27 @@ function printResult(blinkerInitial) {
 		}
 	}
 }
+
+
+function createRandomInput(){
+    let rows = 12;
+    let columns = 12;
+	let randomArray = [];
+
+	for (let i = 0; i < rows; i++) {
+		randomArray[i] = []
+		for (let j = 0; j < columns; j++) {
+            let aleatory = Math.random();
+            if(aleatory<0.5){
+            aleatory =Math.floor(aleatory);
+            }
+            else{
+            aleatory= Math.ceil(aleatory);
+            }
+			randomArray[i].push(aleatory);
+		}
+	}
+    return blinkerInitial = randomArray;
+}
+
+createRandomInput();
