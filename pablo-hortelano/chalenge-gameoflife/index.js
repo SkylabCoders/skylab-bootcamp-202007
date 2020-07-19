@@ -178,11 +178,3 @@ function setGridToCalculateLifes(state,   i, j, maxSize) {
   console.log(state[i].elements[j].liveCelssAround);
 }
 
-/* let one = state[i - 1].elements[j - 1].live
-              let two = state[i - 1].elements[j].live
-              let three = state[i - 1].elements[j + 1]
-              let fourth = state[i].elements[j - 1]
-              let five = state[i].elements[j + 1]
-              let six = state[i + 1].elements[j - 1]
-              let seven = state[i + 1].elements[j]
-              let eight = state[i + 1].elements[j + 1]  */
