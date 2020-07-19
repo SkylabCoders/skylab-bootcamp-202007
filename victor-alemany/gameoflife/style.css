@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+table{
+    width: 60%;
+    height: 60%;
+    border: 1px solid red;
+}
+
+tr{
+    border: solid 1px blue;
+}
