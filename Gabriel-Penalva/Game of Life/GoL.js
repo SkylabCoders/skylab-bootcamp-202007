@@ -1,6 +1,6 @@
-
-const HEIGHT = 25;
-const WIDTH = 40;
+//Developed by Gabriel Penalva
+const HEIGHT = 100;
+const WIDTH = 100;
 
 // prints the Grid on HTML
 let grand = document.getElementById("grand");
@@ -13,103 +13,71 @@ for (let i = 0; i < WIDTH; i++) {
     for (let j = 0; j < HEIGHT; j++) {
         let childDiv = document.createElement('div');
         childDiv.style.backgroundColor = "white";
-        childDiv.onclick = function () { 
-            if(childDiv.style.backgroundColor === "white"){
-                childDiv.style.backgroundColor = "black" 
-            }else{
-                childDiv.style.backgroundColor = "white"}};
+        childDiv.onclick = function () {
+            if (childDiv.style.backgroundColor === "white") {
+                childDiv.style.backgroundColor = "black"
+            } else {
+                childDiv.style.backgroundColor = "white"
+            }
+        };
         childDiv.className = 'child';
         childDiv.id = "" + i + "" + j;
         fatherDiv.appendChild(childDiv);
     }
 }
 
-
-function SuperCell(yPos, xPos, initialState = 0) {
-    //Propierties:
-    this.xPos = xPos;
-    this.yPos = yPos;
-    this.initialState = initialState;
-    this.numberOfNeig = 0;
-
-    //SETTERS
-    this.setInitialState = function (gridState) {
-        this.initialState = (gridState[yPos][xPos])
-        return this.initialState;
-    };
-    this.setNumberOfNeig = function (gridState) {
+function SuperCell(gridState) {
+    let actGridState = gridState;
+    let newGridState = [];
+    
+    let setNumberOfNeig = function (yPos, xPos) {
         let nAlive = 0;
-        for (let i = this.yPos - 1; i <= this.yPos + 1; i++) {
-            for (let j = this.xPos - 1; j <= this.xPos + 1; j++) {
+        for (let i = yPos - 1; i <= yPos + 1; i++) {
+            for (let j = xPos - 1; j <= xPos + 1; j++) {
                 if ((i >= 0) && (j >= 0) && (i < WIDTH) && (j < HEIGHT)) {
-                    if (j !== this.xPos || i !== this.yPos) {
-                        if (gridState[i][j] === 1) {
+                    if (j !== xPos || i !== yPos) {
+                        if (actGridState[i][j] === 1) {
                             nAlive++;
                         }
                     }
                 }
             }
         }
-        this.numberOfNeig = nAlive;
+        return nAlive;
     };
 
-    //GETTERS
-    this.getNextState = function () {
+    let getNextState = function (numberOfNeig, yPos, xPos) {
 
-        if (this.initialState === 0 && this.numberOfNeig === 3) {
+        if (actGridState[yPos][xPos] === 0 && numberOfNeig === 3) {
 
-            this.numberOfNeig = 0;
+            numberOfNeig = 0;
             return 1;
         }
-        if (this.initialState === 1 && (this.numberOfNeig === 2 || this.numberOfNeig === 3)) {
+        if (actGridState[yPos][xPos] === 1 && (numberOfNeig === 2 || numberOfNeig === 3)) {
 
-            this.numberOfNeig = 0;
+            numberOfNeig = 0;
             return 1;
         }
-        this.numberOfNeig = 0;
         return 0;
     };
 
-}
-
-class GoL {
-    //Constructor 
-    constructor(gridInitialState) {
-        let GridSCA = [];
-        let GridSCB = [];
+    let getNewState = function () {
+        let row = [];
+        let neig = 0;
+        let newState = 0;
         for (let i = 0; i < WIDTH; i++) {
             for (let j = 0; j < HEIGHT; j++) {
-                GridSCA.push(new SuperCell(i, j, gridInitialState[i][j]));
+                neig = setNumberOfNeig(i, j);
+                newState = getNextState(neig, i, j);
+                row.push(newState);
             }
-            GridSCB.push(GridSCA);
-            GridSCA = [];
+            newGridState.push(row);
+            row = [];
         }
-
-        this.gridCell = GridSCB;
-        this.gridState = gridInitialState;
+        return newGridState;
     }
-
-    setNewState() {
-        for (let i = 0; i < WIDTH; i++) {
-            for (let j = 0; j < HEIGHT; j++) {
-                this.gridCell[i][j].setInitialState(this.gridState);
-            }
-        }
-        for (let i = 0; i < WIDTH; i++) {
-            for (let j = 0; j < HEIGHT; j++) {
-                this.gridCell[i][j].setNumberOfNeig(this.gridState);
-            }
-        }
-        for (let i = 0; i < WIDTH; i++) {
-            for (let j = 0; j < HEIGHT; j++) {
-                this.gridState[i][j] = this.gridCell[i][j].getNextState();
-            }
-        }
-        return this.gridState;
-    }
+    return getNewState;
 }
-
-
 
 //Gets the initial state from HTML
 function getHtmlState() {
@@ -142,15 +110,13 @@ function setHtmlState(newGridState) {
     }
 };
 
-
-function startGame () {
-    let grid = getHtmlState();
-    game = new GoL(grid);
+function startGame() {
 
     setInterval('y()', 300);
-
 }
 function y() {
-    setHtmlState(game.setNewState());
+    let newState = getHtmlState();
+    let game = SuperCell(newState);
+    setHtmlState(game());
 }
 
