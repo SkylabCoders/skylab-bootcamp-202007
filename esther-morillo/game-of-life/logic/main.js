@@ -20,10 +20,11 @@ let squareBlack = document.querySelectorAll('.black');
 let board = document.querySelector('.board');
 let fragment = document.createDocumentFragment();
 let squares = 81;
-let start = document.querySelector('.start')
+let startBtn = document.querySelector('.start');
+let stopBtn = document.querySelector('.stop');
 
 
-//Create board
+//CREATE BOARD
 function createBoard() {
     for (let i = 0; i < squares; i++) {
         let generateSquare = document.createElement('DIV');
@@ -34,16 +35,30 @@ function createBoard() {
 }
 
 createBoard();
+//Declaro la propiedad después de haber creado los divs con la clase, sino no sabe de qué le hablo
 let square = document.querySelectorAll('.square');
 
-//Square buttons
+
+//BOTONES
+//Square buttons - cada clic del usuario ponemos la clase black
 board.addEventListener('click', function (e) {
     e.target.classList.add('black');
 })
 
 //Create initialState
-start.addEventListener('click', function () {
-    let countPosition = 0;
+startBtn.addEventListener('click', function () {
+    createArray();
+});
+
+stopBtn.addEventListener('click', function () {
+    location.reload(true);
+});
+
+
+
+//Create the initial array looking at the drawing
+function createArray() {
+let countPosition = 0;
 
     while (initialState.length < 9) {
         let arrayForCreateRows = [];
@@ -61,8 +76,7 @@ start.addEventListener('click', function () {
     }
 
     getNeighbour();
-});
-
+}
 
 
 
@@ -73,15 +87,12 @@ start.addEventListener('click', function () {
 //0 Count 3 ==> 1
 
 
-
 function getNeighbour() {
-
-    for (let i = 2; i < initialState.length - 2; i++) {
-        for (let j = 2; j < initialState[i].length - 2; j++) {
+    for (let i = 1; i < initialState.length - 1; i++) {
+        for (let j = 1; j < initialState[i].length - 1; j++) {
             countNeighbour(i, j);
         }
     }
-    
     paintFinalState();
 }
 
@@ -116,7 +127,7 @@ function countNeighbour(i, j) {
     count = 0;
 }
 
-//Cogemos el array final y cambiado colores
+//Cogemos el array final y cambiamos colores
 function paintFinalState() {
     let countFinalState = 0;
 
@@ -131,23 +142,28 @@ function paintFinalState() {
             }
         }
     }
+    setTimeout(paintInitialForLoop, 1000);
 }
 
-function paintInitialState() {
+//Pintamos el array incial
+function paintInitialForLoop() {
     let countInitialState = 0;
-    
-        for (let i = 0; i < initialState.length; i++) {
-            for (let j = 0; j < initialState[i].length; j++) {
-                if (initialState[i][j] === 1) {
-                   square[countInitialState].classList.add('black');
-                   countInitialState++;
-                } else {
-                    square[countInitialState].classList.remove('black');
-                    countInitialState++;
-                }
+
+    for (let i = 0; i < initialState.length; i++) {
+        for (let j = 0; j < initialState[i].length; j++) {
+            if (initialState[i][j] === 1) {
+               square[countInitialState].classList.add('black');
+               countInitialState++;
+            } else {
+                square[countInitialState].classList.remove('black');
+                countInitialState++;
             }
         }
+    }
+    setTimeout(paintFinalState, 1000);
 }
+
+
 
 
 

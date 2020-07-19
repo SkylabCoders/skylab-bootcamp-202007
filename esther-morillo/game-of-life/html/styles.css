@@ -33,9 +33,16 @@ body {
     background-color: black;
 }
 
+.buttons {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 300px;
+}
+
 .start {
-    background-color: coral;
-    width: 10rem;
+    background-color: rgb(117, 55, 241);
+    width: 8rem;
     padding: .5rem;
     text-align: center;
     margin: 0 auto;
@@ -43,5 +50,18 @@ body {
     cursor: pointer;
 }
     .start:hover {
-        background-color: rgb(228, 95, 47);
+        background-color: rgb(91, 41, 190);
+    }
+
+.stop {
+    background-color: rgb(117, 55, 241);
+    width: 8rem;
+    padding: .5rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+    .stop:hover {
+        background-color: rgb(91, 41, 190);
     }
