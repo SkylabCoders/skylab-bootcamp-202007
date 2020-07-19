@@ -16,23 +16,26 @@ let gameOfLife = [
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ]
+let myInterval = null;
+
 const rowCellList = document.getElementsByClassName('row__cell')
 const drawLife = function () {
 	let actualCell = 0;
 	for (let i = 0; i < gameOfLife.length; i++) {
 		for (let j = 0; j < gameOfLife[i].length; j++) {
-			if (gameOfLife[i][j] === 0) {
-				document.getElementsByClassName('row__cell')[actualCell].classList.remove('live-cell');
-				document.getElementsByClassName('row__cell')[actualCell].classList.add('dead-cell');
-			} else {
-				document.getElementsByClassName('row__cell')[actualCell].classList.remove('dead-cell');
-				document.getElementsByClassName('row__cell')[actualCell].classList.add('live-cell');
+			if (document.getElementsByClassName('row__cell')[actualCell]) {
+				if (gameOfLife[i][j] === 0) {
+					document.getElementsByClassName('row__cell')[actualCell].classList.remove('live-cell');
+					document.getElementsByClassName('row__cell')[actualCell].classList.add('dead-cell');
+				} else {
+					document.getElementsByClassName('row__cell')[actualCell].classList.remove('dead-cell');
+					document.getElementsByClassName('row__cell')[actualCell].classList.add('live-cell');
+				}
+				actualCell++;
 			}
-			actualCell++;
 		}
 	}
 }
-
 drawLife();
 const gameOfLifeTurn = function (newGame) {
 	let myNewGameStage = [];
@@ -83,13 +86,10 @@ const neighboursCounter = function (newGame, actualRow, actualColumn){
 	}
 	return neighbours;
 }
-
 const playAlone = function () {
 	gameOfLife = gameOfLifeTurn(gameOfLife);
 	drawLife();
 }
-let myInterval = null;
-
 /* Change cell state before start game */
 const changeCellStateHtml = function (cell) {
 	if (cell.classList.contains('dead-cell')) {
@@ -122,14 +122,16 @@ for (let i = 0; i < rowCellList.length; i++) {
 		changeCellState(event.target);
 	})
 }
-document.getElementsByTagName('li')[0].addEventListener('click', function (event) {
-	event.preventDefault();
-	if (myInterval === null) {
-		myInterval = setInterval(playAlone, 1000);
-	}
-})
-document.getElementsByTagName('li')[1].addEventListener('click', function (event) {
-	event.preventDefault();
-	clearInterval(myInterval);
-	myInterval = null;
-})
+if (document.getElementsByTagName('li')[0] || document.getElementsByTagName('li')[1]) {
+	document.getElementsByTagName('li')[0].addEventListener('click', function (event) {
+		event.preventDefault();
+		if (myInterval === null) {
+			myInterval = setInterval(playAlone, 1000);
+		}
+	});
+	document.getElementsByTagName('li')[1].addEventListener('click', function (event) {
+		event.preventDefault();
+		clearInterval(myInterval);
+		myInterval = null;
+	});
+}
