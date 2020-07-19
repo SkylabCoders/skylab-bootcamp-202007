@@ -6,6 +6,13 @@ let speedSlider = document.querySelector(".speed-container__slider");
 let startButton = document.querySelector(".nav__button--start");
 let pauseButton = document.querySelector(".nav__button--pause");
 
+let iterationDOM = document.querySelector(".iterations");
+
+let deadCellColor = "#dadce0";
+let liveCellColor = 0;
+
+let liveCellColorEvolution = ["#23036A", '#30009C', '#3700B3', '#5600E8', '#6200EE', '#7F39FB', '#985EFF'];
+
 function Game() {
 
     this.initialState = [];
@@ -121,10 +128,10 @@ function Game() {
         let cellCol = gameObj.obtainPositionFromClassName(cellClassName.split('_')[2]);
         if (gameObj.initialState[cellRow - 1][cellCol - 1] === 0) {
             gameObj.initialState[cellRow - 1][cellCol - 1] = 1;
-            cell.style.backgroundColor = 'black';
+            cell.style.backgroundColor = liveCellColorEvolution[liveCellColor];
         } else {
             gameObj.initialState[cellRow - 1][cellCol - 1] = 0;
-            cell.style.backgroundColor = 'white';
+            cell.style.backgroundColor = deadCellColor;
         }
     }
 
@@ -157,9 +164,9 @@ function Game() {
                 currentCell = `.r${i + 1}__c${j + 1}`;
                 tempHTMLCell = document.querySelector(currentCell)
                 if (table[i][j] === 0) {
-                    tempHTMLCell.style.backgroundColor = 'white';
+                    tempHTMLCell.style.backgroundColor = deadCellColor;
                 } else {
-                    tempHTMLCell.style.backgroundColor = 'black';
+                    tempHTMLCell.style.backgroundColor = liveCellColorEvolution[liveCellColor];
                 }
             }
         }
@@ -167,10 +174,9 @@ function Game() {
 }
 
 const game = new Game();
+let iterationCount = 0;
 
-let timer = setInterval(function() {
-    game.applyRulesToCells();
-}, speedSlider.value);
+let timer = setUpTimer();
 
 clearInterval(timer);
 
@@ -180,9 +186,8 @@ game.createBoardInDOM(sizeSlider.value, sizeSlider.value, game);
 // #### EVENT LISTENERS ####
 
 startButton.addEventListener("click", function() {
-    timer = setInterval(function() {
-        game.applyRulesToCells();
-    }, Number(speedSlider.value));
+    clearInterval(timer);
+    timer = setUpTimer();
     pauseButton.innerHTML = "Pause";
 });
 
@@ -192,26 +197,45 @@ pauseButton.addEventListener('click', function() {
         pauseButton.innerHTML = 'Reset';
         pauseButton.style.backgroundColor = "#ff7300";
     } else {
-        pauseButton.innerHTML = 'Pause';
-        pauseButton.style.backgroundColor = "#ffd000";
-        game.initialState = [];
-        game.secondState = [];
-        game.createGameBoard(sizeSlider.value, sizeSlider.value);
-        game.createBoardInDOM(sizeSlider.value, sizeSlider.value, game);
+
+        resetGame();
     }
 })
 
 sizeSlider.addEventListener('change', function() {
     clearInterval(timer)
-    game.initialState = [];
-    game.secondState = [];
-    game.createGameBoard(sizeSlider.value, sizeSlider.value);
-    game.createBoardInDOM(sizeSlider.value, sizeSlider.value, game);
+    resetGame();
 });
 
 speedSlider.addEventListener('change', function() {
     clearInterval(timer);
-    timer = setInterval(function() {
-        game.applyRulesToCells();
-    }, Number(speedSlider.value));
+    timer = setUpTimer();
 })
+
+// #### FUNCTIONS ####
+
+function setUpTimer() {
+    let timer = setInterval(function() {
+        game.applyRulesToCells();
+        iterationCount++;
+        iterationDOM.innerHTML = `Generations: ${iterationCount}`;
+        if (iterationCount % 50 === 0 && liveCellColor < 6) {
+            liveCellColor++;
+        }
+
+    }, Number(speedSlider.value));
+
+    return timer;
+}
+
+function resetGame() {
+    liveCellColor = 0;
+    game.initialState = [];
+    game.secondState = [];
+    game.createGameBoard(sizeSlider.value, sizeSlider.value);
+    game.createBoardInDOM(sizeSlider.value, sizeSlider.value, game);
+    pauseButton.innerHTML = 'Pause';
+    pauseButton.style.backgroundColor = "#ffd000";
+    iterationCount = 0;
+    iterationDOM.innerHTML = `Generations: ${iterationCount}`;
+}
