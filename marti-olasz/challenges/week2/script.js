@@ -1,7 +1,7 @@
 function start() {
 	interval = setInterval(function () {
 		game.turn(game.actualBoard)
-	}, 200)
+	}, 500)
 }
 
 function pause() {
@@ -10,6 +10,7 @@ function pause() {
 
 var interval = null
 const game = new gameOfLife()
+game.createBoard(game.size)
 game.perform()
 game.actualBoard = game.newBoard()
 game.draw(game.actualBoard)
