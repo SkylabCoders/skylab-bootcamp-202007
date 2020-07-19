@@ -6,8 +6,8 @@ describe('Life', function () {
     expect(life).toBeTruthy();
   });
 
-  it('should call next without arguments', function () {
-    expect(life.next()).toBeTruthy();
+  it('should not call next without initial state', function () {
+    expect(life.next()).not.toBeDefined();
   });
 
   it('should call next with Blinker initial state', function () {
