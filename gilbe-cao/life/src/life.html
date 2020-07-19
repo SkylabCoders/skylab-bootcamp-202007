@@ -11,9 +11,13 @@
   <body>
     <div class="container">
       <h1>Conway's Game of Life</h1>
-      <button onclick="life.play()">Play</button>
-      <button onclick="life.stop()">Stop</button>
-      <button onclick="life.clear()">Clear</button>
+      <button onclick="life.play()" id="life__play">Play</button>
+      <button style="display: none;" onclick="life.stop()" id="life__stop">
+        Stop
+      </button>
+      <button onclick="life.clear()" id="life__clear">
+        Clear
+      </button>
       <form>
         <table class="life-table">
           <tr class="life-table__row">

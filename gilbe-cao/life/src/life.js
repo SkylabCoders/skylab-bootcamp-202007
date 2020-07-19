@@ -2,8 +2,21 @@ const rowColumSeparator = '--';
 
 function Life() {
   let isPlaying;
+  let playButton = document.getElementById('life__play');
+  let stopButton = document.getElementById('life__stop');
+  let clearButton = document.getElementById('life__clear');
+
+  function toggleInlineElement() {
+    if (this.style.display === 'none') {
+      this.style.display = 'inline';
+    } else {
+      this.style.display = 'none';
+    }
+  }
 
   function play() {
+    toggleInlineElement.call(playButton);
+    toggleInlineElement.call(stopButton);
     let currentState = setInitialState();
 
     currentState = this.next(currentState);
@@ -17,6 +30,8 @@ function Life() {
     if (isPlaying) {
       clearInterval(isPlaying);
       isPlaying = null;
+      toggleInlineElement.call(playButton);
+      toggleInlineElement.call(stopButton);
     }
   }
 
@@ -26,6 +41,8 @@ function Life() {
     for (let i = 0; i < lifeForm.length; i++) {
       lifeForm[i].checked = false;
     }
+
+    clearButton.disabled = true;
   }
 
   function convertToMatrix(accumulator, current) {
@@ -116,5 +133,5 @@ function Life() {
     return neighbours || 0;
   }
 
-  return { next, play, stop, clear };
+  return { next, play, stop, clear, isPlaying };
 }
