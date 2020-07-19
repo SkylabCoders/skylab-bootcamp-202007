@@ -1,0 +1,639 @@
+@font-face{
+    font-family: NotoSans-Regular;
+    src: url(https://prod0-kraken-cloudfront.rakuten.tv/fonts/NotoSans-Regular-21f6235482.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: NotoSans-Regular,Arial,sans-serif;
+    height: 100%;
+    text-align: -webkit-center;
+    background-color: #101010;
+}
+ul{
+    list-style: none;
+}
+li{
+    font-size: 14px;
+    font-weight: bold;
+}
+li:hover, h4:hover, .usage-info-other:hover, .nav-icon-button-item:hover, .nav-submenu-item:hover{
+    cursor: pointer;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+header{
+    overflow: hidden;
+}
+.flex-spacer{
+    flex-grow: 1;
+}
+.rakuten-logo{
+    width: 122px;
+    height: auto;
+    justify-self: flex-start;
+}
+.nav-submenu{
+    display: none;
+}
+.ultra-hd-box{
+    background-color: rgb(255, 204, 0);
+    left: 6px;
+    top: 6px;
+    width: 25px;
+    height: 11px;
+    padding: 3px 4px 3px 4px;
+    vertical-align: baseline;
+    font-size: 11px;
+    color: black;
+    border-radius: 5px;
+    z-index: 10px;
+    position: absolute;
+}
+
+
+/*Nav bar*/
+
+nav{
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    margin-top: 0;
+    overflow: visible;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .8) 0, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .4) 50%, transparent 100%);
+    z-index: 2;
+    position: absolute;
+
+}
+.nav-items{
+    width: 100%;
+    max-width: 1640px;
+    margin: 0 20px 0 20px ;
+}
+.nav-icon-button-item{
+    padding: 22px 0 22px 0;
+}
+.nav-icons__left{
+    display: inline-block;
+}
+.nav-icon-button-item:hover, .nav-submenu-item:hover{
+    color: #ffe300;
+}
+.search-icon{
+    background: url(https://image.flaticon.com/icons/svg/2089/2089805.svg) no-repeat;
+    height: 33px;
+    width: 21px;
+    filter: invert(1);
+    margin: 10px 20px 0 0; 
+}
+.search-icon-container{
+    padding: 10px 20px 0 0; 
+}
+
+
+/*PRINCIPAL BANNER*/
+.principal-banner{
+    max-width: 1680px;
+    z-index: 1;
+    position: relative;
+    align-items: center;
+    margin:0 -28%;
+    justify-content: normal;
+}
+.principal-banner>img{
+    width: 100%;
+    height: auto;
+    flex-shrink: 1;
+}
+
+.arrow-left, .arrow-right{
+    width: 60px;
+    height: 60px;
+    filter: invert(1);
+}
+.principal-banner .arrow-left, .principal-banner .arrow-right{
+    display: none;
+    filter: invert(1);
+    position: absolute;
+}
+.arrow-left{
+    background: url(https://image.flaticon.com/icons/svg/860/860790.svg) no-repeat;
+    left: 0;
+}
+.arrow-right{
+    background: url(https://image.flaticon.com/icons/svg/860/860828.svg) no-repeat;
+    right: 0;
+    align-self: center
+}
+.principal-banner:hover .arrow-left, .principal-banner:hover .arrow-right{
+    display: flex;
+}
+.carrousel-points{
+    width: 20vw;
+    height: 2vw;
+    position: absolute;
+    justify-content: space-evenly;
+    margin-left: 40%;
+    align-self: flex-end;
+}
+.carrousel-points-item {
+    background-color: white;
+    opacity: 0.7;
+    border-radius: 50px;
+    width: 5%;
+    height: 50%;
+    z-index: 10;
+}
+
+/*MAIN*/
+main{
+    height: 100%;
+    overflow: hidden;
+    background-color:#171717;
+    max-width: 1680px;
+}
+.carrousel-list{
+    position: relative;
+}
+.carrousel-list .arrow-right{
+    display: flex;
+    position: absolute;
+}
+/*Principal sections*/
+.principal-sections-item{
+    margin: 0 1% 0 1%;
+    height: 140px;
+    width: auto;
+}
+
+.principal-sections-item img{
+    height: 140px;
+    width: auto;
+}
+.movie-box{
+    position: relative;
+}
+.movie-box>a>img, .movie-box>img{
+    border: solid transparent 4px;
+    border-radius: 5px;
+}
+.movie-box:hover>a>img, .movie-box:hover>img, .trailer-button:hover, .add-button:hover{
+    border-color: yellow;
+    cursor: pointer;
+    color: yellow;
+}
+/*Movie list*/
+.movie-list{
+    color: white;
+    text-align: left;
+    padding: 15px 15px 30px 15px;
+    max-height: 340px;
+}
+.movie-list .movie-box img{
+    max-width: 221px;
+    margin: 
+    0 5px 0 5px 0;
+}
+.movie-list h3 {
+    margin-left: 5px;
+    font-size: 22px;
+}
+/*TOPIC*/
+.topics{
+    color: white;
+    padding: 0 10px 30px 15px;
+}
+.section-title .arrow-right{
+    align-self: center;
+    display: flex;
+    height: 17px;
+    width: 13px;
+    margin-bottom: 5px;
+    
+}
+.topic-item{
+    margin: 0 5px 10px 5px;
+    font-weight: 100;
+}
+.topic-item:hover, h4:hover{
+    opacity: 0.8;
+}
+.topic-item div{
+    width: 95px;
+    height: 95px;
+    background-position: center center;
+    border-radius: 50%;
+    background-size: 115%;
+}
+.topic-all{
+    background: url(https://images-0.wuaki.tv/assets/genres/all-cb781ac8669959b586ff362be895a182d31a7f5865c80b3a2870da8d1d338a09.png) no-repeat;
+}
+.topic-accion{
+    background: url(https://images-2.wuaki.tv/system/brandable_photos/6231/original/1453732413-1453732413.png) no-repeat;
+}
+.topic-animation{
+    background: url(https://images-2.wuaki.tv/system/brandable_photos/6349/original/1461242197-1461242197.png) no-repeat;
+}
+.topic-adventure{
+    background: url(https://images-1.wuaki.tv/system/brandable_photos/6352/original/1461242555-1461242555.png) no-repeat;
+}
+.topic-war{
+    background: url(https://images-3.wuaki.tv/system/brandable_photos/6353/original/1461242646-1461242646.png) no-repeat;
+}
+.topic-cify{
+    background: url(https://images-0.wuaki.tv/system/brandable_photos/6354/original/1461243145-1461243145.png) no-repeat;
+}
+.topic-author{
+    background: url(https://images-0.wuaki.tv/system/brandable_photos/6351/original/1461242480-1461242480.png) no-repeat;
+}
+.topic-spanish{
+    background: url(https://images-1.wuaki.tv/system/brandable_photos/6356/original/1461243368-1461243368.png) no-repeat;
+}
+.topic-family{
+    background: url(https://images-2.wuaki.tv/system/brandable_photos/6357/original/1461243437-1461243437.png) no-repeat;
+}
+.topic-clasic{
+    background: url(https://images-0.wuaki.tv/system/brandable_photos/6358/original/1461243499-1461243499.png) no-repeat;
+}
+.topic-comedy{
+    background: url(https://images-1.wuaki.tv/system/brandable_photos/6359/original/1461243667-1461243667.png) no-repeat;
+}
+.topic-romantic{
+    background: url(https://images-2.wuaki.tv/system/brandable_photos/6360/original/1461243740-1461243740.png) no-repeat;
+}
+.topic-disney{
+    background: url(https://images-3.wuaki.tv/system/brandable_photos/6362/original/1461244009-1461244009.png) no-repeat;
+}
+.topic-documental{
+    background: url(https://images-3.wuaki.tv/system/brandable_photos/6363/original/1461244445-1461244445.png) no-repeat;
+}
+.topic-drama{
+    background: url(https://images-2.wuaki.tv/system/brandable_photos/6364/original/1461244827-1461244827.png) no-repeat;
+}
+
+
+
+/*FOOTER*/
+/*about*/
+footer{
+    max-width: 1680px;
+    background-color: rgb(33, 33, 33);;
+}
+.about {
+    align-items: center;
+    color: #ccc;
+    height: 155px;
+    background-color: rgb(13, 13, 13);
+    margin-bottom: 0;
+    padding:35px 55px 90px 55px;
+    font-size: 14px;
+    text-align: center;
+    
+
+}
+.about ul  {
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+
+}
+.about .rakuten-logo{
+    margin-bottom: 20px;
+    align-self: center;
+}
+.about li {
+    margin-left: 15px;
+}
+.about p {
+    font-weight: 100;
+}
+.about>p{
+    color: #737373;
+}
+
+.about-item:hover{
+    color: white;
+}
+
+/*bottom menu*/
+.bottom-menu{
+    width: 100%;
+    height: 56px;
+    background-color: black;
+    color:white;
+    justify-content: space-evenly;
+    align-self: flex-end;
+    position: fixed;
+    bottom: 0px;
+}
+.bottom-menu-item:hover {
+    color: yellow;
+}
+.bottom-menu-item{
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 8px 0 8px 0;
+}
+.bottom-menu-item-img{
+    filter: invert(1);
+    height: 20px;
+    width: 20px;
+}
+.display-in-large, .display-in-max{
+    display: none;
+}
+@media only screen and (min-width: 1025px){
+    .display-in-large{
+        display: flex;
+    }
+    .hidden-in-large{
+        display:none !important;
+    }
+
+/*NAV BAR*/
+    nav {
+        background-color: black;
+        position: fixed;
+        border-bottom: solid grey 1px;
+    }
+
+    .nav-icon-button{
+        color: white;
+        text-align: center;
+        margin: 0 15px 0 20px;
+    }
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 5px solid white;
+        align-self: center;        
+    }
+    .nav-icons__right>ul>li:nth-child(3)>.nav-icon-button-item{
+        background-color:rgb(240, 213, 0);
+        color: black;
+        width: 108px;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 2px;
+        font-weight: bold;
+        padding: 12px 0 12px 0;
+    }
+    .nav-icons__left .nav-icon-button:nth-child(1){
+        width: 70px;
+    }
+    .nav-submenu{
+        width: 170px;
+        height: 78px;
+        padding: 0 15px;
+        margin-left: -8px;
+        background-color: black;
+        justify-content: space-around;
+    }
+    .nav-submenu-item{
+        font-weight: 200;
+        text-align: left;
+        padding: 15px 0 10px 0;
+    }
+    .desplegable-button:nth-child(3){
+        width: 104px;
+    }
+    .desplegable-button:nth-child(3)>.nav-submenu{
+        width: 150px;
+        margin-left: -15px;
+    }
+    .desplegable-button:hover>ul{
+        display: flex;
+    }
+    .nav-icon-button:hover .triangle{
+        width: 0;
+        height: 0;
+        border-top: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 5px solid rgb(240, 213, 0);
+        align-self: center;        
+    }
+    /*SEARCH BAR*/
+    input{
+        width: 300px;
+        height: 40px;
+        background-color:rgb(51, 51, 51);
+        color:rgb(156, 156, 156);
+        border-radius: 2px;
+        margin-top: 10px;
+        padding-left: 10px;
+        flex-shrink: 1;
+        padding-left: 30px;
+    }
+    .search-box{
+        position: relative;
+    }
+    .search-box-icon{
+        background: url(https://image.flaticon.com/icons/svg/2089/2089805.svg) no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        top: 20px;
+        left: 3px;
+        z-index: 10;
+        filter: invert(1);
+        opacity: 0.7;
+    }
+    input:focus{
+        background-color:white;
+    }
+    
+    /*Main*/
+    /*principal*/
+    .principal-banner{
+        padding-top: 60px;
+        max-width: 1680px;
+        height: auto;
+        margin: 0;
+    }
+    .principal-sections img, .principal-sections-item {
+        width: 100%;
+        height: auto;
+        flex-shrink: 1;
+    }
+
+    /*principal sections*/
+    .principal-sections-item {
+        max-width: 20%;
+    }
+    /*movie-list*/
+    .movie-info-box{
+        display: none;
+        position: absolute;
+        height: 87%;
+        background: black url(https://images-0.wuaki.tv/system/shots/200970/original/the-invisible-man-1594130962-width480-quality30.jpeg) center no-repeat;
+        z-index: 10;
+        margin-left: 100%;
+        min-width: 470px;
+        text-align: center;
+        align-content: center;
+        border-radius: 25px;
+        padding: 20px;
+    }
+    .movie-box:hover .movie-info-box{
+        display: flex;
+    }
+    .movie-info-box h3, .movie-info-box p, .movie-info-box div{
+        position: relative;
+    }
+    .movie-info-box-content{
+        padding: 20 px;
+    }
+    .movie-info-box h3{
+        padding-bottom: 15px;
+    }
+    .movie-info-box-info {
+        font-size: 11px;
+        font-weight: 100;     
+    }
+    .movie-info-box-content{
+        font-weight: 100;  
+    }
+    .movie-info-box::before{
+        content: "";
+        position: absolute;
+        background-color: black;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.9;
+    }
+    .movie-info-box-buttons, .movie-info-box-info{
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .box-info-buttoms-item {
+        border: white solid 2px;
+        border-radius: 50px;
+        padding: 10px 20px 10px 36px;
+        font-size: 12px;
+        background-color: black;
+    }
+    .movie-info-box img {
+        width: 12px;
+        height: 12px;
+        filter: invert(1);
+    }
+    .trailer-button .add-button{
+        position: relative;
+    }
+    .trailer-button div{
+        background: url(https://image.flaticon.com/icons/svg/860/860768.svg) no-repeat;
+        background-size: 100%;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        filter: invert(1);
+        left: 22px;
+    }
+    .add-button div{
+        background: url(https://image.flaticon.com/icons/svg/17/17489.svg) no-repeat;
+        background-size: 100%;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        filter: invert(1);
+        left: 22px;
+    }
+    .movie-age {
+        border: white solid 1px;
+        padding: 1px;
+        border-radius: 2px;
+    }
+    .rent-info {
+        color: yellow;
+        font-weight: bold;
+        justify-content: center;
+    }
+    .points-icon{
+        background-color: yellow;
+        width: 12px;
+        height: 12px;
+        border-radius: 50px;
+        color: black;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+    .movie-info-box::after{
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-right: 20px solid black;
+        border-bottom: 20px solid transparent;
+        margin-left: -40px;
+        top: 40%;
+        position: absolute;
+    }
+    
+
+    /*MOVIE PAGE*/
+    .principal-banner-movie-page{
+        max-height: 620px;
+        align-items: self-end;
+    }
+    .principal-banner-movie-page{
+        overflow: hidden;
+        
+    }
+    .main-movie-page {
+        background-color: #f1f1f1;
+    }
+
+    /* FOOTER */
+    /* usage-info*/
+    .usage-info{
+        padding: 25px;
+        color: rgb(204, 204, 204);;
+        text-align: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    .usage-info img {
+        max-height: 80px;
+    }
+    .usage-info-home p{
+        max-width: 815px;
+        margin: 10px 0 10px 0;
+    }
+    .usage-info-other>div{
+        max-width: 419px;
+        margin: 0 35px 25px 35px
+    }
+    /* about */
+    .about{
+        height: 66px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+
+    }
+    .about>div{
+        flex-direction: row;
+        align-items: flex-start
+    }
+}
+@media screen and (min-width: 1250px){
+    .display-in-max{
+        display: flex;
+        color: #999;
+    }
+}
