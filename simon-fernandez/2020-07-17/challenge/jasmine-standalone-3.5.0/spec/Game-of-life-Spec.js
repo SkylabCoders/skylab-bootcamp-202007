@@ -1,80 +1,76 @@
 describe('Game', function (){
-    let blinkerStart;
-    let blinkerEnd;
-    let game;
+    let blinkerStart=null,blinkerEnd=null,toadStart=null,toadEnd=null,beaconStart=null,beaconEnd=null;
+    let game=null;
+    
     beforeAll(function(){
-        blinkerStart=
-        [
-            [0,0,0,0,0]
-            [0,0,0,0,0]
-            [0,1,1,1,0]
-            [0,0,0,0,0]
-            [0,0,0,0,0]
-        ];
-        blinkerEnd=
-        [
-            [0,0,0,0,0]
-            [0,0,1,0,0]
-            [0,0,1,0,0]
-            [0,0,1,0,0]
+        ;
+        blinkerStart=[
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+            [0,1,1,1,0],
+            [0,0,0,0,0],
             [0,0,0,0,0]
         ];
-        toadStart=
-        [
-            [0,0,0,0,0,0]
-            [0,0,0,0,0,0]
-            [0,0,1,1,1,0]
-            [0,1,1,1,0,0]
-            [0,0,0,0,0,0]
+        blinkerEnd=[
+            [0,0,0,0,0],
+            [0,0,1,0,0],
+            [0,0,1,0,0],
+            [0,0,1,0,0],
+            [0,0,0,0,0]
+        ];
+        toadStart=[
+            [0,0,0,0,0,0],
+            [0,0,0,0,0,0],
+            [0,0,1,1,1,0],
+            [0,1,1,1,0,0],
+            [0,0,0,0,0,0],
             [0,0,0,0,0,0]
         ];
-        toadEnd=
-        [
-            [0,0,0,0,0,0]
-            [0,0,0,1,0,0]
-            [0,1,0,0,1,0]
-            [0,1,0,0,1,0]
-            [0,0,1,0,0,0]
+        toadEnd=[
+            [0,0,0,0,0,0],
+            [0,0,0,1,0,0],
+            [0,1,0,0,1,0],
+            [0,1,0,0,1,0],
+            [0,0,1,0,0,0],
             [0,0,0,0,0,0]
         ];
-        beaconStart=
-        [
+        beaconStart=[
+            [0,0,0,0,0,0],
+            [0,1,1,0,0,0],
+            [0,1,1,0,0,0],
+            [0,0,0,1,1,0],
+            [0,0,0,1,1,0],
             [0,0,0,0,0,0]
-            [0,1,1,0,0,0]
-            [0,1,1,0,0,0]
-            [0,0,0,1,1,0]
-            [0,0,0,1,1,0]
+        ];
+        beaconEnd=[
+            [0,0,0,0,0,0],
+            [0,1,1,0,0,0],
+            [0,1,0,0,0,0],
+            [0,0,0,0,1,0],
+            [0,0,0,1,1,0],
             [0,0,0,0,0,0]
         ]
-        beaconEnd=
-        [
-            [0,0,0,0,0,0]
-            [0,1,1,0,0,0]
-            [0,1,0,0,0,0]
-            [0,0,0,0,1,0]
-            [0,0,0,1,1,0]
-            [0,0,0,0,0,0]
-        ]
+    
         game= new Game(blinkerStart,blinkerEnd,toadStart,toadEnd,beaconStart,beaconEnd);
     })
-
+    
     it('Blinker first period should be', function(){
-        expect(game.gameOfLife().toBe(blinkerEnd));
+        expect(game.blinkerStart()).toEqual(blinkerEnd);
     })
     it('Blinker second period should be',function(){
-        expect(Game.blinkerStart().toBe(blinkerStart));
+        expect(game.blinkerEnd()).toEqual(blinkerStart);
     })
     it('Toad first period should be', function(){
-        expect(Game.toadEnd().toBe(toadEnd));
+        expect(game.toadStart()).toEqual(toadEnd);
     })
     it('Toad second period should be',function(){
-        expect(Game.toadStart().toBe(toadStart));
+        expect(game.toadEnd()).toEqual(toadStart);
     })
     it('Beacon first period should be', function(){
-        expect(Game.baconEnd().toBe(beaconEnd));
+        expect(game.beaconStart()).toEqual(beaconEnd);
     })
     it('Beacon second period should be',function(){
-        expect(Game.beaconStart().toBe(beaconStart));
+        expect(game.beaconStart()).toEqual(beaconEnd);
     })
     
 })

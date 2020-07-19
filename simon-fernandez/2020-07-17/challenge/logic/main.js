@@ -105,6 +105,7 @@ function gameOfLife(inputArray) {
         };
         
     }
+    
     //console.log(inputArray);
     //console.log(gameArray);
     inputArray=gameArray;
@@ -177,7 +178,7 @@ function changeHTML(calcArray,allElements) {
 const mainContainer = document.getElementById('main-container__table');
 const buttonsElements = document.querySelectorAll("button");
 var calcArray=[];
-let heightNumber=15, widthNumber=15;
+let heightNumber=20, widthNumber=20;
 
 insertHtmlCode(heightNumber,widthNumber)
 const allElements = document.querySelectorAll('td');
