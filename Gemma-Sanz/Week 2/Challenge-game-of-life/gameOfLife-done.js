@@ -126,6 +126,6 @@ function printResult (originalStage){
 
 
 */
-
+newStage()
 
 //cel.addEventListener("click", function () => ??);
