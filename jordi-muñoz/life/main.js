@@ -42,112 +42,18 @@ function start() {
         }
     }
 }
-
+let countR1 = 0;
+let countR4 = 0;
 function playGame() {
-    let countR1 = 0;
-    let countR4 = 0;
+    
     for (let row = 0; row < initialPanel.length; row++) {
         for (let col = 0; col < initialPanel[row].length; col++) {
             if (initialPanel[row][col].status === 1) {
                 //rule 1 and 3
-                try {
-                    if (initialPanel[row][col - 1].status === 1) {
-                        countR1++;
-                    }
-                } catch {}
-                try {
-                    if (initialPanel[row - 1][col - 1].status === 1) {
-                        countR1++;
-                    }
-                } catch {}
-                try {
-                    if (initialPanel[row - 1][col].status === 1) {
-                        countR1++;
-                    }
-                } catch {}             
-                try {
-                    if (initialPanel[row - 1][col + 1].status === 1) {
-                        countR1++;
-                    }
-                } catch {}              
-                try {
-                    if (initialPanel[row][col + 1].status === 1) {
-                        countR1++;
-                    }
-                } catch {}                
-                try {
-                    if (initialPanel[row + 1][col + 1].status === 1) {
-                        countR1++;
-                    }
-                } catch {}               
-                try {
-                    if (initialPanel[row + 1][col].status === 1) {
-                        countR1++;
-                    }
-                } catch {}             
-                try {
-                    if (initialPanel[row + 1][col - 1].status === 1) {
-                        countR1++;
-                    }
-                } catch {}
-                if (countR1 < 2 || countR1 > 3) {
-                    finalPanel[row][col].status = 0;
-                    currentPosition = finalPanel[row][col].position;
-                    document.querySelector('.' + currentPosition).style.backgroundColor = colorOff;
-                } else {
-                    finalPanel[row][col].status = 1;
-                    currentPosition = finalPanel[row][col].position;
-                    document.querySelector('.' + currentPosition).style.backgroundColor = colorOn;
-                }
-                countR1 = 0;
+                ruleAlive(row, col);
             } else if (initialPanel[row][col].status === 0) {
                 //rule 4
-                try {
-                    if (initialPanel[row][col - 1].status === 1) {
-                        countR4++;
-                    }
-                } catch{}
-                try {
-                    if (initialPanel[row - 1][col - 1].status === 1) {
-                        countR4++;
-                    }
-                } catch{}
-                try{
-                    if (initialPanel[row - 1][col].status === 1) {
-                        countR4++;
-                    }
-                }catch{}
-                try{
-                    if (initialPanel[row - 1][col + 1].status === 1) {
-                        countR4++;
-                    }
-                }catch{}
-                try{
-                    if (initialPanel[row][col + 1].status === 1) {
-                        countR4++;
-                    }
-                }catch{}
-                try{
-                    if (initialPanel[row + 1][col + 1].status === 1) {
-                        countR4++;
-                    }
-                }catch{}
-                try{
-                    if (initialPanel[row + 1][col].status === 1) {
-                        countR4++;
-                    }
-                }catch{}
-                try{
-                    if (initialPanel[row + 1][col - 1].status === 1) {
-                        countR4++;
-                    }
-                }catch{}
-                if (countR4 === 3) {
-                    finalPanel[row][col].status = 1;
-                    currentPosition = finalPanel[row][col].position;
-                    document.querySelector('.' + currentPosition).style.backgroundColor = colorOn;
-                }
-                countR4 = 0;
+                ruleDead(row, col);
             }
         }
     }
@@ -165,17 +71,105 @@ function reset() {
     }
 }
 
-function ruleOne() {
-
+function ruleAlive(row, col) {
+    try {
+        if (initialPanel[row][col - 1].status === 1) {
+            countR1++;
+        }
+    } catch {}
+    try {
+        if (initialPanel[row - 1][col - 1].status === 1) {
+            countR1++;
+        }
+    } catch {}
+    try {
+        if (initialPanel[row - 1][col].status === 1) {
+            countR1++;
+        }
+    } catch {}             
+    try {
+        if (initialPanel[row - 1][col + 1].status === 1) {
+            countR1++;
+        }
+    } catch {}              
+    try {
+        if (initialPanel[row][col + 1].status === 1) {
+            countR1++;
+        }
+    } catch {}                
+    try {
+        if (initialPanel[row + 1][col + 1].status === 1) {
+            countR1++;
+        }
+    } catch {}               
+    try {
+        if (initialPanel[row + 1][col].status === 1) {
+            countR1++;
+        }
+    } catch {}             
+    try {
+        if (initialPanel[row + 1][col - 1].status === 1) {
+            countR1++;
+        }
+    } catch {}
+    if (countR1 < 2 || countR1 > 3) {
+        finalPanel[row][col].status = 0;
+        currentPosition = finalPanel[row][col].position;
+        document.querySelector('.' + currentPosition).style.backgroundColor = colorOff;
+    } else {
+        finalPanel[row][col].status = 1;
+        currentPosition = finalPanel[row][col].position;
+        document.querySelector('.' + currentPosition).style.backgroundColor = colorOn;
+    }
+    countR1 = 0;
 }
-function ruleTwo() {
-
-}
-function ruleThree() {
-
-}
-function ruleFour() {
-
+function ruleDead(row, col) {
+    try {
+        if (initialPanel[row][col - 1].status === 1) {
+            countR4++;
+        }
+    } catch{}
+    try {
+        if (initialPanel[row - 1][col - 1].status === 1) {
+            countR4++;
+        }
+    } catch{}
+    try{
+        if (initialPanel[row - 1][col].status === 1) {
+            countR4++;
+        }
+    }catch{}
+    try{
+        if (initialPanel[row - 1][col + 1].status === 1) {
+            countR4++;
+        }
+    }catch{}
+    try{
+        if (initialPanel[row][col + 1].status === 1) {
+            countR4++;
+        }
+    }catch{}
+    try{
+        if (initialPanel[row + 1][col + 1].status === 1) {
+            countR4++;
+        }
+    }catch{}
+    try{
+        if (initialPanel[row + 1][col].status === 1) {
+            countR4++;
+        }
+    }catch{}
+    try{
+        if (initialPanel[row + 1][col - 1].status === 1) {
+            countR4++;
+        }
+    }catch{}
+    if (countR4 === 3) {
+        finalPanel[row][col].status = 1;
+        currentPosition = finalPanel[row][col].position;
+        document.querySelector('.' + currentPosition).style.backgroundColor = colorOn;
+    }
+    countR4 = 0;
 }
 
 for (let click of eachBox) {
