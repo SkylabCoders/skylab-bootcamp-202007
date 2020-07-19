@@ -1,28 +1,13 @@
-let currentState = [
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-let nextState = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
+let currentState = [];
+let nextState = []
+for(let i=0; i<10; i++){
+  currentState.push([]);
+  nextState.push([]);
+  for(let j=0; j<10; j++){
+    currentState[i].push(0);
+    nextState[i].push(0);
+  }
+}
 
 let counter = 0;
 
@@ -89,8 +74,11 @@ function countNeighbors(i, j) {
 }
 
 function changeCell(i, j) {
-  // let cell = document.getElementById(`${i}${j}`);
-  currentState[i][j] == 0 ? (currentState[i][j] = 1) : (currentState[i][j] = 0);
+  if(currentState[i][j] == 0) {
+    currentState[i][j] = 1 
+  } else {
+    currentState[i][j] = 0;
+  }
   printCurrentState();
 }
 
@@ -108,6 +96,19 @@ function printCurrentState() {
   }
 }
 
+// function startGame() {
+//   let playGame = null
+   
+//   document.querySelector('#button_playGame').addEventListener('click', function (event) {
+//   event.preventDefault()
+//   if (playGame === null) {
+//   playGame = setInterval(function () {
+//   playGame(currentState)
+//    }, 1000)
+//    }
+//   })
+
+// }
 
 // function createGrid() {
 //     for (let i = 0; i < currentState.length; i++) {
