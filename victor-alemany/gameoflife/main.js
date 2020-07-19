@@ -34,46 +34,17 @@ function nextMutation(output,input) {
     
     for (let i = 0; i < input.length; i++) {
         for (let j = 0; j < input[i].length; j++) {
-                if (input[i] !== undefined && input[i][j - 1] === 1) {
-                    vecinos++;
-                }
-                if (input[i] !== undefined && input[i][j + 1] === 1) {
-                    vecinos++;
-                }
-                if (
-                    input[i - 1] !== undefined && input[i - 1][j] === 1) {
-                    vecinos++;
-                }
-                if (
-                    input[i - 1] !== undefined && input[i - 1][j - 1] === 1) {
-                    vecinos++;
-                }
-                if (
-                    input[i - 1] !== undefined && input[i - 1][j + 1] === 1) {
-                    vecinos++;
-                }
-                if (
-                    input[i + 1] !== undefined && input[i + 1][j] === 1) {
-                    vecinos++;
-                }
-                if (
-                    input[i + 1] !== undefined && input[i + 1][j - 1] === 1) {
-                    vecinos++;
-                }
-                if (input[i + 1] !== undefined && input[i + 1][j + 1] === 1 ) {
-                    vecinos++;
-                }
-                if (vecinos === 3) {
-                    output[i][j] = 1;
-                }
-                    
-                if(vecinos < 2 ){
-                    output[i][j] = 0;
-                }
-
-                if(vecinos > 3){
-                    output[i][j] = 0;
-                }
+                if (input[i] !== undefined && input[i][j - 1] === 1) {vecinos++;}
+                if (input[i] !== undefined && input[i][j + 1] === 1) {vecinos++;}
+                if (input[i - 1] !== undefined && input[i - 1][j] === 1) {vecinos++;}
+                if (input[i - 1] !== undefined && input[i - 1][j - 1] === 1) {vecinos++;}
+                if (input[i - 1] !== undefined && input[i - 1][j + 1] === 1) {vecinos++;}
+                if (input[i + 1] !== undefined && input[i + 1][j] === 1) {vecinos++;}
+                if (input[i + 1] !== undefined && input[i + 1][j - 1] === 1) {vecinos++;}
+                if (input[i + 1] !== undefined && input[i + 1][j + 1] === 1 ) {vecinos++;}
+                if (vecinos === 3) {output[i][j] = 1;}    
+                if(vecinos < 2 ){output[i][j] = 0;}
+                if(vecinos > 3){output[i][j] = 0;}
                 vecinos = 0;
         }     
     }
@@ -82,6 +53,36 @@ function nextMutation(output,input) {
     return console.log(output);
 }
 
-let start = setInterval(function(){nextGeneration(blinkerInitial);},2000);
+let start = null;
 
-clearInterval(start);
+document.querySelector('.initGame').addEventListener("click", function (event){
+    event.preventDefault();
+    printResult(blinkerInitial);
+    setInterval(function(){nextGeneration(blinkerInitial);},2000);
+    start = setInterval(function(){nextGeneration(blinkerInitial);},2000);
+    start=null;    
+});
+
+
+document.querySelector('.stopGame').addEventListener('click',function(event){
+    event.preventDefault();
+    clearInterval(start);
+    start= null;
+});
+
+
+function printResult(blinkerInitial){
+    let table = document.querySelectorAll('.box');
+    let counter = 0;   
+    
+    for (let i = 0; i < blinkerInitial.length; i++) {
+            for (let j = 0; j < blinkerInitial.length; j++) {
+                if(blinkerInitial[i][j] === 1){
+                    table[counter].style.backgroundColor="#FFFFFF";
+                }
+                counter++;
+            }
+            
+        }
+}
+
