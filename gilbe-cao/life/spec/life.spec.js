@@ -1,6 +1,11 @@
 describe('Life', function () {
-  const initialStateIndex = 0;
-  const life = new Life();
+  let initialStateIndex;
+  let life;
+
+  beforeEach(function () {
+    initialStateIndex = 0;
+    life = new Life();
+  });
 
   it('should create', function () {
     expect(life).toBeTruthy();
@@ -10,21 +15,21 @@ describe('Life', function () {
     expect(life.next()).not.toBeDefined();
   });
 
-  fit('should call next with Blinker initial state', function () {
-    expect(life.next(lifeStateList.blinker[initialStateIndex])).toBe(
-      lifeStateList.blinker[initialStateIndex++]
+  it('should call next with Blinker initial state', function () {
+    expect(life.next(lifeStateList.blinker[initialStateIndex])).toEqual(
+      lifeStateList.blinker[initialStateIndex + 1]
     );
   });
 
   it('should call next with Toad initial state', function () {
-    expect(life.next(lifeStateList.toad[initialStateIndex])).toBe(
-      lifeStateList.toad[initialStateIndex++]
+    expect(life.next(lifeStateList.toad[initialStateIndex])).toEqual(
+      lifeStateList.toad[initialStateIndex + 1]
     );
   });
 
   it('should call next with Beacon initial state', function () {
-    expect(life.next(lifeStateList.beacon[initialStateIndex])).toBe(
-      lifeStateList.beacon[initialStateIndex++]
+    expect(life.next(lifeStateList.beacon[initialStateIndex])).toEqual(
+      lifeStateList.beacon[initialStateIndex + 1]
     );
   });
 });
