@@ -34,12 +34,21 @@ body {
     width: 50px;
     height: 50px;
     cursor: pointer;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.spacer {
+    flex-grow: 2;
 }
 
 .login {
+    display: flex;
+    align-items: center;
     flex-grow: .9;
     text-align: center;
-}
+} 
 
 .search {
     background-color: #bbb8b6;
@@ -65,16 +74,11 @@ body {
 }
 
 /* Icons */
-.login {
-    position: relative;
-    /* justify-content: flex-end; */
-    top: 8px;
-}
-
 .img-login {
-    position: absolute;
-    margin-bottom: 1rem;
-}
+    width: 27px;
+    height: 27px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 0 no-repeat;
+} 
 
 .search {
     position: relative;
@@ -94,12 +98,6 @@ body {
     position: absolute;
     top: 12px;
     left: 10px;
-}
-
-.nav-icon {
-    color: #fff;
-    text-align: center;
-    font-size: 1.5rem;
 }
 
 .slider {
