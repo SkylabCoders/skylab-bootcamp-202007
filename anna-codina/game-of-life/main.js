@@ -126,7 +126,7 @@ if (document.getElementsByTagName('li')[0] || document.getElementsByTagName('li'
 	document.getElementsByTagName('li')[0].addEventListener('click', function (event) {
 		event.preventDefault();
 		if (myInterval === null) {
-			myInterval = setInterval(playAlone, 1000);
+			myInterval = setInterval(playAlone, 500);
 		}
 	});
 	document.getElementsByTagName('li')[1].addEventListener('click', function (event) {
