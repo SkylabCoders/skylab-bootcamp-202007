@@ -7,45 +7,184 @@
     <title>Game of life v.1</title>
 </head>
 <body>
-    <button class="initGame" value="start" name="start" type="button">Start</button>
-    <button class="stopGame">Stop</button>
+<main>
+    <div class="game__buttons">
+        <button class="initGame">Start</button>
+        <button class="stopGame">Pause</button>
+        <button class="resetGame">Reset</button>
+    </div>
+    
 <table>
-<tr>
-    <td class="box">casilla 1</td>
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
 </tr>
-<tr>
-    <td class="box">casilla 2</td>
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
 </tr>
-<tr>
-    <td class="box">casilla 3</td>
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
 </tr>
-<tr>
-    <td class="box">casilla 4</td>
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
 </tr>
-<tr>
-    <td class="box">casilla 5</td>
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
-    <td class="box">casilla 1</td>  
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
+</tr>
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
+</tr>
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
+</tr>
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
+</tr>
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
+</tr>
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
+</tr>
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
+</tr>
+<tr class="box-row">
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>  
+    <td class="box"></td>
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td> 
+    <td class="box"></td>
+    <td class="box"></td>  
+    <td class="box"></td> 
+    <td class="box"></td> 
 </tr>
 </table>
+</main>
 </body>
 <script src="main.js" type="text/javascript"></script>
 </html>
