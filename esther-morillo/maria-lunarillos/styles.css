@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    width: 100vw;
 }
 
 /* Header */
@@ -15,7 +16,10 @@ body {
 
 .nav-container {
     background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
     width: 100%;
+    height: 50px;
     position: fixed;
     top: 0;
     z-index: 500;
@@ -24,9 +28,8 @@ body {
 .main-nav {
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
-    width: 90%;
-    height: 3rem;
+    justify-content: center;
+    width: 80%;
     line-height: 3.3rem;
 }
 
@@ -46,6 +49,7 @@ body {
 .login {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     flex-grow: .9;
     text-align: center;
 } 
@@ -88,16 +92,12 @@ body {
     position: absolute;
     top: 14px;
     left: 14px;
+    filter: invert(1);
 }
 
 .cart {
-    position: relative;
-}
-
-.img-cart {
-    position: absolute;
-    top: 12px;
-    left: 10px;
+    background: #fff url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -66px 10px no-repeat;
+    margin: 0;
 }
 
 .slider {
@@ -267,8 +267,74 @@ span {
     margin-bottom: 7rem;
 }
 
-/* Footer */
-.footer {
+/* FOOTER */
+/* Icons */
+.footer-icons {
+    background-color: #e8e6e5;
+    color: #676259;
+    width: 100%;
+    height: 440px;
+    padding: 0 24%;
+}
+
+.box-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 160px;
+    padding: 40px 0;
+}
+
+
+h4 {    
+    padding-top: 1.9rem;
+}
+
+.icons-left {
+    display: flex;
+}
+
+.icons-right {
+    display: flex;
+}
+
+.icons-left .box-icon:nth-child(1) .icon {
+    width: 85px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat transparent;
+}
+
+.icons-left .box-icon:nth-child(2) .icon {
+    width: 55px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -90px -38px no-repeat transparent;
+}
+
+.icons-right .box-icon:nth-child(1) .icon {
+    width: 68px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -150px -36px no-repeat transparent;
+}
+
+.icons-right .box-icon:nth-child(2) .icon {
+    width: 77px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -223px -38px no-repeat transparent;
+}
+
+.box-icon h4 {
+    font-size: 12px;
+}
+
+.box-icon h5 {
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+
+.footer-direction {
     background-color: #ff5959;
     color: #fff;
     width: 100%;
@@ -279,40 +345,95 @@ span {
 
 
 /* Display none */
-.card-center, .card-right {
+.card-center, 
+.card-right,
+.color-bar,
+.main-box p,
+.links,
+.login > p,
+.color,
+.enter > p,
+.nav-button,
+.nav-logo-left,
+.buttons-links,
+.buttons-links-big {
     display: none;
 }
 
-.color-bar {
-    display: none;
-}
-
-.main-box p {
-    display: none;
-}
-
-.links {
-    display: none;
-}
-
-.login > p {
-    display: none;
-}
-
-.color {
-    display: none;
-}
-
-.enter > p {
-    display: none;
-}
-
-.nav-button {
-    display: none;
-}
 
 /* Media Queries */
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 667px) {
+    .nav-logo img,
+    .logo-text,
+    .top,
+    input {
+        display: none;
+    } 
+
+
+    .main-nav {
+        width: 95%;
+        height: 50px;
+    }
+
+    .nav-logo-left {
+        display: flex;
+        width: 100%;
+    }
+
+    
+    /* Buttons news & offers */
+    .nav-button {
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: -50px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .container-buttons {
+        display: flex;
+        width: 100%;
+    }
+    .buttons-links {
+        display: flex;
+        line-height: 1.9rem;
+    }
+    .news,
+    .offers {
+        background-color: #9faa4d;
+        width: 130px;
+        height: 30px;
+        color: #fff;
+        font-size: .85rem;
+    }
+
+    .offers {
+        background-color: #8e789d;
+    }
+
+        .news::before {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -244px 4px no-repeat;
+            content: '';
+            float: left;
+            padding-right: .1rem;
+        }
+
+        .offers::before {
+            display: inline-flex;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -274px 4px no-repeat;
+            content: '';
+            float: left;
+            padding-right: .4rem;
+        }
+}
+
+@media screen and (min-width: 770px) {
     .cards {
         display: flex;
         flex-direction: row;
@@ -368,10 +489,16 @@ span {
     .nav-button {
         display: flex;
         width: 80%;
+        margin-top: 50px;
     }
 
     .logo-text {
+        display: flex;
         align-self: flex-end;
+    }
+
+    .nav-logo-left {
+        display: none;
     }
 
 
@@ -432,23 +559,19 @@ span {
         }
 
     /* Parte navegador de logo y botones */
-    .nav-button {
-        margin: 0 auto;
+    /* .nav-button {
         margin-top: 180px;
-        margin-bottom: 1.5rem;
-    }
+    } */
 
     .container-buttons {
         display: flex;
         flex-direction: column;
     }
 
-    .buttons-links {
+    .container-buttons {
         display: flex;
-        flex-direction: row;
-        padding-bottom: 1.3rem;
+        flex-direction: column;
     }
-
 
     .buttons-menu {
         background-color: #f2f2f2;
@@ -529,68 +652,16 @@ span {
         }        
 
 
-    /* Novedades y ofertas */
-    .buttons-links {
-        display: flex;
-        justify-content: flex-end;
-    }
-    .buttons-bar {
-        width: 130px;
-        height: 30px;
-        text-align: start;
-        padding: 0 .1rem;
-        line-height: 30px;
-        color: #fff;
-        font-size: .85rem;
-        margin: 0 .2rem;
-        margin-bottom: 1rem;
-    }
-
-    .news {
-        background-color: #9faa4d;
-    }
-
-        .news::before {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -244px 4px no-repeat;
-            content: '';
-            float: left;
-        }
-
-        .offers::before {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -274px 4px no-repeat;
-            content: '';
-            float: left;
-        }
-
-    .offers {
-        background-color: #8e789d;
-    }
-
-    .input,
-    .bnt-search {
-        display: none;
-    }   
-
     /* Hidden none */
-    .nav-logo {
-        display: none;
-    }
-
     .top {
         display: none;
     }
 
     /* Arreglar el main tablet */
-.main-box {
-    margin: 0 auto;
-    width: 80%;
-}
+    .main-box {
+        margin: 0 auto;
+        width: 80%;
+    }
 
     .box-row {
         display: flex;
@@ -633,17 +704,20 @@ span {
         font-weight: lighter;
     }
 
+    /* Footer */
+    .footer-icons {
+        padding: 0 10%;
+    }
+
 }
 
 
 @media screen and (min-width: 1024px) {
-
-.buttons-menu:nth-child(5) {
-    display: block;
-    width: 40px;
-    background-color: #fff;
-} 
-
+    .buttons-menu:nth-child(5) {
+        display: block;
+        width: 40px;
+        background-color: #fff;
+    } 
 
     .white-box {
         height: 150px;
@@ -742,4 +816,18 @@ span {
         margin-top: 100px;
     }
 
+     .nav-logo {
+        display: none;
+    }
+
+    /* Footer */
+    .footer-icons {
+        display: flex;
+        justify-content: space-around;
+        height: 220px;
+    }
+
+    .box-icon {
+        margin: 0 55px;
+    }
 }
