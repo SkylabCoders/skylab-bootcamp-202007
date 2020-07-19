@@ -1,27 +1,6 @@
-// const [casilla1, casilla2, casilla3] = document.querySelectorAll('.casillas');
-// const allCasillas = [casilla1, casilla2, casilla3];
-// for (let i = 0; i < allCasillas.length; i++) {
-//     allCasillas[i].addEventListener('click', function() {
-//         //pintar casilla
-//     });
-// }
-
-let initialPanel = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
-];
-let finalPanel = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
-];
+'use strict';
+let initialPanel = [[],[],[],[],[],[]];
+let finalPanel = [[],[],[],[],[],[]];
 let currentPosition = '';
 let colorOn = 'rgb(44, 43, 43)';
 let colorOff = ' burlywood';
@@ -69,7 +48,7 @@ function playGame() {
     for (let row = 0; row < initialPanel.length; row++) {
         for (let col = 0; col < initialPanel[row].length; col++) {
             if (initialPanel[row][col].status === 1) {
-                //rule 1
+                //rule 1 and 3
                 try {
                     if (initialPanel[row][col - 1].status === 1) {
                         countR1++;
@@ -110,10 +89,14 @@ function playGame() {
                         countR1++;
                     }
                 } catch {}
-                if (countR1 < 2) {
+                if (countR1 < 2 || countR1 > 3) {
                     finalPanel[row][col].status = 0;
                     currentPosition = finalPanel[row][col].position;
                     document.querySelector('.' + currentPosition).style.backgroundColor = colorOff;
+                } else {
+                    finalPanel[row][col].status = 1;
+                    currentPosition = finalPanel[row][col].position;
+                    document.querySelector('.' + currentPosition).style.backgroundColor = colorOn;
                 }
                 countR1 = 0;
             } else if (initialPanel[row][col].status === 0) {
@@ -167,8 +150,10 @@ function playGame() {
             }
         }
     }
+    console.log(finalPanel);
     reset();
     console.log(finalPanel);
+    console.log(initialPanel);
 }
 function reset() {
     initialPanel = finalPanel;
