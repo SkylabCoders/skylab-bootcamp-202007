@@ -1,6 +1,6 @@
 const container = document.getElementById('container')
 
-const Game {}
+
 
 const makeDivsAlivefunction = function () {
 	cell.style.backgroundColor = 'red'

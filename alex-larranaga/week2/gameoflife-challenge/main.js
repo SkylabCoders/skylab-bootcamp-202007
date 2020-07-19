@@ -1,11 +1,14 @@
 const container = document.getElementById('container')
 
-const makeDivsAlivefunction = function () {
+/* const makeDivsAlivefunction = function () {
 	cell.style.backgroundColor = 'red'
 	let divArray = Array.from(document.getElementsByClassName('grid-item'))
 	console.log(divArray)
 }
-
+ */
+//Draw Grid and add event listener to each div for: When clicked, change backgroud to red
+//											  : Return all array every click, and change class to the clicked one/s
+//											  : Call chunk function
 const drawBoard = function (rows, cols) {
 	container.style.setProperty('--grid-rows', rows)
 	container.style.setProperty('--grid-cols', cols)
@@ -16,14 +19,11 @@ const drawBoard = function (rows, cols) {
 			(returnBoard = function () {
 				cell.style.backgroundColor = 'red'
 				let divArray = Array.from(document.getElementsByClassName('grid-item'))
-				console.log(divArray)
-				deconstructedArray = []
 				cell.classList.add('true')
-				for (let i = 0; i < divArray.length; i++) {
-                    deconstructedArray.push(divArray[i].className)
-                    console.log(deconstructedArray[i])
-				}
-				return divArray
+				// Split in group of 3 items
+				var dividedArray = chunkArray(mutateToBinary(divArray), 10)
+				console.log(dividedArray)
+				return dividedArray
 			})
 		)
 		cell.innerText = c + 1
@@ -33,6 +33,7 @@ const drawBoard = function (rows, cols) {
 let submitButton = document.getElementById('createButton')
 submitButton.addEventListener('submit', drawBoard(10, 10))
 
+//Create Empty Array for second state of the game
 const game = {
 	createBoard: function (row, cell) {
 		let gameBoard = []
@@ -47,21 +48,36 @@ const game = {
 	},
 }
 
-function chunk(arr) {
+//Functin to transtale divs into binary array: clicked div = 1, non-cliked div = 0
+function mutateToBinary(arr) {
 	let boardMutatedArray = []
-	while (arr.length > 0) {
-		for (let i = 0; i < arr.length; i++) {
-			if (arr[i] === 'div#true.grid-item') {
-				boardMutatedArray[i].push(1)
-			} else {
-				boardMutatedArray[i].push(0)
-			}
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i].className === 'grid-item true') {
+			boardMutatedArray.push(1)
+		} else {
+			boardMutatedArray.push(0)
 		}
-		chunk = boardMutatedArray.splice(0, 10)
-
-		console.log(chunk)
 	}
+	return boardMutatedArray
 }
-function mutateArray() {}
+//Chunk the array into smaller arrays, in a big array wrapping all of them
+function chunkArray(myArray, chunk_size) {
+	var index = 0
+	var arrayLength = myArray.length
+	var tempArray = []
 
-console.log(element)
+	for (index = 0; index < arrayLength; index += chunk_size) {
+		myChunk = myArray.slice(index, index + chunk_size)
+		// Do something if you want with the group
+		tempArray.push(myChunk)
+	}
+
+	return tempArray
+}
+
+
+function gameOfLife(){
+
+}
+
+
