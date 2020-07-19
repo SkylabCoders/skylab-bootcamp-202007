@@ -5,14 +5,23 @@
 }
 
 body {
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.title {
+    color: rgb(117, 55, 241);
+    text-align: center;
+    margin-top: 10%;
+}
+
+.title h1 {
+    font-size: 1.9rem;
 }
 
 .board {
     display: grid;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 2rem;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
     justify-content: center;
@@ -40,8 +49,10 @@ body {
     width: 300px;
 }
 
-.start {
+.start,
+.stop {
     background-color: rgb(117, 55, 241);
+    color: #fff;
     width: 8rem;
     padding: .5rem;
     text-align: center;
@@ -53,15 +64,6 @@ body {
         background-color: rgb(91, 41, 190);
     }
 
-.stop {
-    background-color: rgb(117, 55, 241);
-    width: 8rem;
-    padding: .5rem;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 2rem;
-    cursor: pointer;
-}
     .stop:hover {
         background-color: rgb(91, 41, 190);
     }

@@ -1,11 +1,9 @@
 function Game(initialState, finalState) {
-  this.name = name;
-  this.trophies = trophies;
-  this.lastName = lastName;
-  this.countTrophies = function () {
-    return this.trophies.gold + this.trophies.silver + this.trophies.bronze;
+  this.start = function () {
+    return gameOfLife(initialState);
   };
-  this.fullName = function () {
-    return `${this.name} ${this.lastName}`;
+
+  this.final = function () {
+    return gameOfLife(finalState);
   };
 }
