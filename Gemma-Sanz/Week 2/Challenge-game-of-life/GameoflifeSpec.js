@@ -5,7 +5,7 @@ describe('Game of life testing', function () {
 		[0,0,1,1,1,0,0],
 		[0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0]
-	],
+	];
 	let finalStage = [
 
 		[0,0,0,0,0,0,0],
@@ -13,7 +13,7 @@ describe('Game of life testing', function () {
         [0,0,0,1,0,0,0],
         [0,0,0,1,0,0,0],
         [0,0,0,0,0,0,0]
-	],
+	];
 	let neightbours = 3
 
 	it('should have a finalStage', function () {
@@ -21,6 +21,6 @@ describe('Game of life testing', function () {
 	})
 
 	it('should have a number of neightbours', function () {
-		expect(runStage(inialStage, 1, 3)).toBe(neightbours)
+		expect(runStage(initialStage, 1, 3)).toBe(neightbours)
 	})
 })
