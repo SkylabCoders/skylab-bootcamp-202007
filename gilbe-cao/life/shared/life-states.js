@@ -1,4 +1,4 @@
-export const lifeStates = {
+const lifeStateList = {
   blinker: [
     [
       [0, 0, 0, 0, 0],
