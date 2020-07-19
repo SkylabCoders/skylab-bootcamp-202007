@@ -1,20 +1,32 @@
 'use strict'
 
 let initialGrid = 
-        [[0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0]]
+    [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 let finalGrid =
-        [[0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0]]
+    [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
 let i;
 let j;
@@ -42,32 +54,29 @@ function switchGrid () {
     })
 }
 
+/* Initial grid is 6x6, so we hide the other cells */
 function hideElements () {
     for (let k = 0; k < initialGrid[0].length; k++) {
         for (let l = 0; l < initialGrid.length; l++) {
-            if(k === 0) {
-                classes[k + l * initialGrid[0].length].classList.add('hidden');
-            }
-            if(l === 0) {
+            if(k < (initialGrid[0].length) / 2 || l < (initialGrid[0].length) / 2) {
                 classes[k + l * initialGrid[0].length].classList.add('hidden');
             }
         }
     }
 }
 
+/* If required, we will show the 12*12 grid */
 function showElements () {
     for (let k = 0; k < initialGrid[0].length; k++) {
         for (let l = 0; l < initialGrid.length; l++) {
-            if(k === 0) {
-                classes[k + l * initialGrid[0].length].classList.add('show');
-            }
-            if(l === 0) {
-                classes[k + l * initialGrid[0].length].classList.add('show');
-            }
+            classes[k + l * initialGrid[0].length].style.height = '2.5vw';
+            classes[k + l * initialGrid[0].length].style.width = '2.5vw';
+            classes[k + l * initialGrid[0].length].classList.add('show');
         }
     }
 }
 
+/* clears the game reloading the page if required */
 function reloadWeb () {
     const reloadWeb = document.querySelector('.reload');
     
@@ -113,21 +122,28 @@ function printSecondState () {
     setTimeout(autoNextState, 1000);
 }
 
+/* from the third state to infinite */
 function autoNextState() {
     initialGrid = finalGrid;
-
     finalGrid =
-    [[0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]]
+        [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
     generateNextState();
     printSecondState();
 }
 
+/* The 4 conditions of the game are taken into account*/
 function generateNextState() {
     for (i = 0; i < initialGrid[0].length; i++) {
         for (j = 0; j < initialGrid.length; j++) {

@@ -58,6 +58,10 @@ main {
 );
 }
 
+.grid:hover {
+    cursor: pointer;
+}
+
 .paint {
     background: repeating-radial-gradient(
     circle,
@@ -106,6 +110,7 @@ aside {
 
 .run:hover, .switch:hover, .reload:hover {
     background-color: pink;
+    cursor: pointer;
 }
 
 .run:focus, .switch:focus, .reload:focus {
