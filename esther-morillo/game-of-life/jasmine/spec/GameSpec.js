@@ -1,5 +1,8 @@
-describe('Running Game of Life', function () {
-	let initialState = [
+describe('Player', function () {
+	let initialState = null;
+	let finalState = null;
+	
+	initialState = [
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -14,7 +17,7 @@ describe('Running Game of Life', function () {
 	let finalState = [
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
-		[0, 0, 0, 0, 1, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 1, 0, 0, 0, 0],
 		[0, 0, 0, 0, 1, 0, 0, 0, 0],
 		[0, 0, 0, 0, 1, 0, 0, 0, 0],
@@ -24,8 +27,8 @@ describe('Running Game of Life', function () {
 	];
 
 
-	it('should print this final state', function () {
-		expect(initialState).toEqual(finalState);
+	it('should print a new state', function () {
+		expect(player.name).toEqual(personConfig.name)
 	});
 
-})
+});

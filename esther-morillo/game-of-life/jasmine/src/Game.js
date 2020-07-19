@@ -1,4 +1,4 @@
-function Player(name, trophies, lastName) {
+function Game(initialState, finalState) {
   this.name = name;
   this.trophies = trophies;
   this.lastName = lastName;
