@@ -3,9 +3,9 @@ var playerArray = [
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -24,50 +24,52 @@ var emptyArray = [
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ]
 
+//console.log(createEmptyBoard(4, 4));
+
 function doMagic(inputArray, outputArray) {
-	for (let i = 1; i < inputArray.length - 1; i++) {
-		for (let j = -1; j < inputArray[i].length - 1; j++) {
-			let neighbors = 0
-			neighbors += inputArray[i - 1][j - 1]
-			neighbors += inputArray[i - 1][j]
-			neighbors += inputArray[i - 1][j + 1]
-			neighbors += inputArray[i][j - 1]
-			neighbors += inputArray[i][j + 1]
-			neighbors += inputArray[i + 1][j - 1]
-			neighbors += inputArray[i + 1][j]
-			neighbors += inputArray[i + 1][j + 1]
-			if (inputArray[i[j]] === 0) {
-				switch (neighbors) {
-					case 3:
-						outputArray[i][j] = 1
-						break
-					default:
-						outputArray[i][j] = 0
-				}
-			} else if (inputArray[i][j] === 1) {
-				switch (neighbors) {
-					case 0:
-					case 1:
-						outputArray[i][j] = 0
-						break
-					case 2:
-					case 3:
-						outputArray[i][j] = 1
-						break
-					case 4:
-					case 5:
-					case 6:
-					case 7:
-					case 8:
-						outputArray[i][j] = 0 //die of overcrowding
-						break
-					default:
-						outputArray[i][j] = 0 //
-				}
-			}
-		}
-	}
-	 return outputArray
+  for (let i = 1; i < inputArray.length - 1; i++) {
+    for (let j = -1; j < inputArray[i].length - 1; j++) {
+      let neighbors = 0;
+      neighbors += inputArray[i - 1][j - 1];
+      neighbors += inputArray[i - 1][j];
+      neighbors += inputArray[i - 1][j + 1];
+      neighbors += inputArray[i][j - 1];
+      neighbors += inputArray[i][j + 1];
+      neighbors += inputArray[i + 1][j - 1];
+      neighbors += inputArray[i + 1][j];
+      neighbors += inputArray[i + 1][j + 1];
+      if (inputArray[i][j] === 0) {
+        switch (neighbors) {
+          case 3:
+            outputArray[i][j] = 1;
+            break;
+          default:
+            outputArray[i][j] = 0;
+        }
+      } else if (inputArray[i][j] === 1) {
+        switch (neighbors) {
+          case 0:
+          case 1:
+            outputArray[i][j] = 0;
+            break;
+          case 2:
+          case 3:
+            outputArray[i][j] = 1;
+            break;
+          case 4:
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+            outputArray[i][j] = 0;
+            break;
+          default:
+            outputArray[i][j] = 0;
+        }
+      }
+    }
+  }
+  return console.log(outputArray);
 }
 const container = document.getElementById('container')
 
