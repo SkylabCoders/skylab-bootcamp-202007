@@ -1,7 +1,8 @@
-const gameOfLife = function (board) {
-	this.actualBoard = board
+const gameOfLife = function () {
+	this.actualBoard = null
+	this.size = 10
 	this.turns = 0
-	this.neighbors = function (row, col) {
+	this.neighbors = function (row, col, board) {
 		let neighborsAlive = 0
 		let startCol = col - 1
 		let endCol = col + 1
@@ -21,72 +22,51 @@ const gameOfLife = function (board) {
 		}
 		for (let i = startRow; i <= endRow; i++) {
 			for (let j = startCol; j <= endCol; j++) {
-				if (this.actualBoard[i][j] === 1) {
+				if (board[i][j] === 1) {
 					neighborsAlive++
 				}
 			}
 		}
-		if (this.actualBoard[row][col] === 1) {
+		if (board[row][col] === 1) {
 			neighborsAlive--
 		}
 		return neighborsAlive
 	}
-	this.turn = function () {
+	this.turn = function (beforeBoard) {
 		this.turns++
 		document.querySelector('.turn').textContent = this.turns
-		const neighborsBoard = [
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		]
-		for (let i = 0; i < 10; i++) {
-			for (let j = 0; j < 10; j++) {
-				neighborsBoard[i][j] = this.neighbors(i, j)
+		const neighborsBoard = this.newBoard()
+		for (let i = 0; i < this.size; i++) {
+			for (let j = 0; j < this.size; j++) {
+				neighborsBoard[i][j] = this.neighbors(i, j, beforeBoard)
 			}
 		}
-		const nextBoard = [
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		]
-		for (let i = 0; i < neighborsBoard.length; i++) {
-			for (let j = 0; j < neighborsBoard[i].length; j++) {
+		console.log(neighborsBoard)
+		const nextBoard = this.newBoard()
+		for (let i = 0; i < this.size; i++) {
+			for (let j = 0; j < this.size; j++) {
 				if (
-					this.actualBoard[i][j] === 1 &&
+					beforeBoard[i][j] === 1 &&
 					(neighborsBoard[i][j] === 2 || neighborsBoard[i][j] === 3)
 				) {
 					nextBoard[i][j] = 1
 				} else {
-					if (this.actualBoard[i][j] === 0 && neighborsBoard[i][j] === 3) {
+					if (beforeBoard[i][j] === 0 && neighborsBoard[i][j] === 3) {
 						nextBoard[i][j] = 1
 					}
 				}
 			}
 		}
+		this.draw(nextBoard)
 		this.actualBoard = nextBoard
-		this.draw(this.actualBoard)
-		return this.actualBoard
 	}
-	this.draw = function () {
+	this.draw = function (board) {
 		let pos = ''
-		for (let i = 0; i < 10; i++) {
-			for (let j = 0; j < 10; j++) {
+		for (let i = 0; i < this.size; i++) {
+			for (let j = 0; j < this.size; j++) {
 				pos = '.c' + (i + 1) + 'r' + (j + 1)
-				if (this.actualBoard[i][j] === 1) {
+
+				if (board[j][i] === 1) {
 					document.querySelector(pos).style.backgroundColor = 'black'
 				} else {
 					document.querySelector(pos).style.backgroundColor = 'white'
@@ -94,19 +74,53 @@ const gameOfLife = function (board) {
 			}
 		}
 	}
+	this.perform = function () {
+		let pos = ''
+		for (let i = 0; i < this.size; i++) {
+			for (let j = 0; j < this.size; j++) {
+				pos = '.c' + (i + 1) + 'r' + (j + 1)
+				document.querySelector(pos).addEventListener('click', function () {
+					game.revive(this.className)
+				})
+			}
+		}
+	}
+	this.revive = function (pos) {
+		if (document.querySelector('.' + pos).style.backgroundColor === 'black') {
+			document.querySelector('.' + pos).style.backgroundColor = 'white'	
+			this.actualBoard[pos[3] - 1][pos[1] - 1] = 0
+		}
+		else{
+			document.querySelector('.' + pos).style.backgroundColor = 'black'
+			this.actualBoard[pos[3] - 1][pos[1] - 1] = 1
+
+		}
+	}
+	this.newBoard = function () {
+		let board = []
+		for (let i = 0, col = []; i < this.size; i++) {
+			let col = []
+			for (let j = 0; j < this.size; j++) {
+				col.push(0)
+			}
+			board.push(col)
+		}
+		return board
+	}
 }
 
-let timer = null
-const game = new gameOfLife([
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-])
-game.draw()
+function start() {
+	interval = setInterval(function () {
+		game.turn(game.actualBoard)
+	}, 200)
+}
+
+function pause() {
+	clearInterval(interval)
+}
+
+var interval = null
+const game = new gameOfLife()
+game.perform()
+game.actualBoard = game.newBoard()
+game.draw(game.actualBoard)
