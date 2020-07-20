@@ -8,10 +8,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>GAME OF LIFE</h1>
     <main id="main-container">
         <table id="main-container__table"></table>
-        <button id="startGame">Start</button>
+        <div class="button-row">
+            <button id="reset" onClick="window.location.reload();">Reset</button>
+            <button id="startGame">Start</button>
+            <button id="skylab">Activate Skylab Mode</button>
+        </div>
     </main>
+    <footer>Coded by @simonbesteiro</footer>
     <script src="../logic/main.js"></script>
 </body>
 </html>

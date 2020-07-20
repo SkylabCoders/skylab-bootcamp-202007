@@ -1,16 +1,44 @@
+body{
+    background-color: rgb(87, 143, 143);
+}
 table{
     margin: auto;
 }
-tr{
-    border: 2px solid black;
+td{
+    border: 2px solid #30343F;
+    height: 2vh;
+    width: 2vw;
+    margin: 0;
 }
 #startGame{
-    width: 100%;
+ 
     margin: auto;
 }
 .white{
-    background-color: white;
+    background-color: #FEFCFD;
 }
 .black{
-    background-color: black;
+    background-color: #30343F;
 }
+.button-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5% 30%;
+}
+.button-row>button{
+    border-radius: 12%;
+
+    padding: 5%;
+}
+footer{
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+}
+h1{
+margin-top: 0;
+    padding: 3%;
+    color: #FEFCFD;
+text-align: center;
+background: radial-gradient(circle, rgba(0,0,0,0.8911939775910365) 35%, rgba(87,143,143,0) 100%);}

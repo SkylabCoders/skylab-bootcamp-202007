@@ -1,29 +1,17 @@
 function gameOfLife(inputArray) {
     //var gameArray=[...inputArray];
-    //modo dios beto activated
+    //modo dios Beto activated
+
     var gameArray = JSON.parse(JSON.stringify(inputArray));
     for (let i = 0; i < inputArray.length; i++) {
         for (let j = 0; j < inputArray[i].length; j++) {
             let counter=0;
             
-            //La celula esta viva
-            /*
-            [i-1][j-1]
-            [i-1][j]
-            [i-1][j+1]
             
-            [i][j-1]
-            [i][j+1]
-            
-            [i+1][j-1]
-            [i+1][j]
-            [i+1][j+1]
-            */
-           
-           if (inputArray[i-1]!==undefined) {
-               if (inputArray[i-1][j-1]!==undefined) {
-                   if (inputArray[i-1][j-1]===1) {
-                       counter++;
+            if (inputArray[i-1]!==undefined) {
+                if (inputArray[i-1][j-1]!==undefined) {
+                    if (inputArray[i-1][j-1]===1) {
+                        counter++;
                     }
                 }  
             }
@@ -77,12 +65,13 @@ function gameOfLife(inputArray) {
                 }  
             }
             if (inputArray[i][j]===1) {
+                //La celula esta viva
                 if (counter<2) {
                     gameArray[i][j]=0;
                 }else if (counter>3) {
-                    inputArray;
+                    
                     gameArray[i][j]=0;
-                    inputArray;
+                    
                 }
                 
             }else{
@@ -106,12 +95,8 @@ function gameOfLife(inputArray) {
         
     }
     
-    //console.log(inputArray);
-    //console.log(gameArray);
     inputArray=gameArray;
-    //  console.log(inputArray);
-    return inputArray
-    //return "hola aun no funciono pero pronto si ;)";   
+    return inputArray   
 }
 function modifyClass(position) {
     if (position.className==="white") {
@@ -127,11 +112,11 @@ function insertHtmlCode(heightNumber,widthNumber) {
         buffer += '<tr>';
         for (let j = 0; j < widthNumber; j++) {
             //LA I ES LINEA Y J COLUMNA
-            buffer += '<td class=white id='+i+'-'+j+'>'+j+'</td>';
+            buffer += '<td class=white id='+i+'-'+j+'></td>';
         }
         buffer += '</tr>';
     }
-    mainContainer.innerHTML=buffer;
+    if(mainContainer.innerHTML!==null)mainContainer.innerHTML=buffer;
     
 }
 function saveArray(allElements,widthNumber) {
@@ -178,7 +163,37 @@ function changeHTML(calcArray,allElements) {
 const mainContainer = document.getElementById('main-container__table');
 const buttonsElements = document.querySelectorAll("button");
 var calcArray=[];
-let heightNumber=20, widthNumber=20;
+let heightNumber=prompt('height?'), widthNumber=prompt('width?');
+let interval=null;
+const skylabArray=[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+[0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0],
+[0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+[0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+[0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+[0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+[0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0],
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+//TODO controlar que Jasmne no entre cuando este y otro valores de html sea null
+
+
+
 
 insertHtmlCode(heightNumber,widthNumber)
 const allElements = document.querySelectorAll('td');
@@ -189,12 +204,27 @@ for (let i = 0; i < allElements.length; i++) {
         event.preventDefault();
        modifyClass(allElements[i]);});
 }
-//console.log(buttonsElements);
-buttonsElements[0].addEventListener('click',function (event){
+buttonsElements[1].addEventListener('click',function (event){
     event.preventDefault();
-    changeHTML(gameOfLife(saveArray(allElements, widthNumber)),allElements);
-    //debugger;
+    if (interval===null) {
+        
+        interval=setInterval(() => {
+            changeHTML(gameOfLife(saveArray(allElements, widthNumber)),allElements);
+        }, 200);
+        buttonsElements[1].innerHTML="Stop";
+    }else{
+        clearInterval(interval);
+        interval=null;
+        buttonsElements[1].innerHTML="Start";
+    }
+    //changeHTML(gameOfLife(saveArray(allElements, widthNumber)),allElements);
+
 })
+buttonsElements[2].addEventListener('click',function (event){
+    event.preventDefault();
+    changeHTML(skylabArray,allElements);
+})
+
 //console.log(calcArray);
 /*
 for (let i = 0; i < allElements.length; i++) {
