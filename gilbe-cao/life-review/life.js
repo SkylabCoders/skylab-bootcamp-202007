@@ -43,19 +43,22 @@ function Life() {
         const isCellAlive = initialState[rowIndex][columnIndex] === isAlive;
         const position = { row: rowIndex, column: columnIndex };
         const neighbours = countNeighbours(position, initialState);
-
+        let nextGenerationLife;
         if (isCellAlive) {
           /*  
             Any live cell with fewer than two live neighbours dies, as if by underpopulation.
             Any live cell with two or three live neighbours lives on to the next generation.
             Any live cell with more than three live neighbours dies, as if by overpopulation.
         */
-          nextState[rowIndex][columnIndex] =
+          nextGenerationLife =
             neighbours < 2 || neighbours > 3 ? isDead : isAlive;
         } else {
           // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
-          if (neighbours === 3) nextState[rowIndex][columnIndex] = isAlive;
+          if (neighbours === 3) nextGenerationLife = isAlive;
         }
+
+        nextState[rowIndex][columnIndex] = nextGenerationLife;
+        writeCell(position, nextGenerationLife);
       }
     }
 
@@ -69,7 +72,6 @@ function Life() {
     // call next again after an interval of time with the new state
     interval = setInterval(() => {
       currentState = this.next(currentState);
-      console.log(currentState);
     }, 500);
   }
 
@@ -77,8 +79,11 @@ function Life() {
     clearInterval(interval);
   }
 
+  function clear() {
+    console.log('Function to be implemented!!!');
+  }
+
   function readCells() {
-    debugger;
     let matrix = [];
     const formElement = document.getElementsByTagName('form')[0];
     for (
@@ -99,10 +104,15 @@ function Life() {
     return matrix;
   }
 
+  function writeCell({ row = 0, column = 0 }, isAlive) {
+    console.log(!!isAlive);
+    document.getElementById(`cell--${row}--${column}`).checked = !!isAlive;
+  }
+
   function getRowAndColumn(elementId) {
     const [, row, column] = elementId.split(idSeparator);
     return { row, column };
   }
 
-  return { next, play, stop, isAlive };
+  return { next, play, stop, clear, isAlive };
 }
