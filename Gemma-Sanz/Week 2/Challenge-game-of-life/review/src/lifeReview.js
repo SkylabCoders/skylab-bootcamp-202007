@@ -2,19 +2,15 @@
 
 let output;
 
-let originalStage =[[0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0],
-                    [0,0,1,1,1,0,0],
-                    [0,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,0]];
+let initialState;
 
-//Create output identical to the originalStage
-function newStage(){
+//Create output identical to the initialState
+function life(){
      let input;
     if(output === undefined){
 
         output = [];
-        input = originalStage;
+        input = initialState;
     } else {
         input = output;
         output = []
@@ -35,7 +31,7 @@ function runStage (output, input){
     for (let i = 0; i < input.length; i++) {
         for (let j = 0; j < input[i].length; j++) {
             let neightbours = 0;
-//Compare the neightbours of the input and print into the output
+//Compare the neightbour of the input and print into the output
             if(input[i] !== undefined && input[i][j + 1] === 1){
                 neightbours++;
             }
@@ -84,14 +80,14 @@ function changeNum (neightbours, inputCel){
 
 
 //set interval
-//setInterval(function ({newStage()}), 3000);
+//setInterval(function ({life()}), 3000);
 
 let start = null;
 document.querySelector(".start").addEventListener("click", function(){
     event.preventDefault(event);
     if(start === null){
         start = setInterval(function(){
-            newStage(originalStage)
+            life(initialState)
         },2000);
     }
 })

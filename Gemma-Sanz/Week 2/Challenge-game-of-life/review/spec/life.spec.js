@@ -1,11 +1,12 @@
-describe('life', function () {
+describe('Life', function () {
 	let life;
+
 	beforeEach(function (){
 		life = new Life();
 	});
 
 	it('should create', function () {
-		expect(life).toBeTruty();
+		expect(life).toBeTruthy();
 	});
 //Vamos recreanto los escenarios del README.md, este es el Scenario#1
 	it('should remain stable when no initialState', function () {
