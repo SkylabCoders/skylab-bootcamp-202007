@@ -26,4 +26,10 @@ describe('Life', function () {
   it('should work with Beacon states', function () {
     expect(life.next(beacon.initialState)).toEqual(beacon.secondState);
   });
+
+  it('should work with Beacon corner states', function () {
+    expect(life.next(beaconCorner.initialState)).toEqual(
+      beaconCorner.secondState
+    );
+  });
 });
