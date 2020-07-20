@@ -78,7 +78,8 @@ describe('life', function () {
 		[0, 0, 0, 1, 1, 0],
 		[0, 0, 0, 0, 0, 0]
 	];
-	
+
+	/*
 	let neightbours = 3
 
 	it('should have a finalStage', function () {
@@ -88,4 +89,6 @@ describe('life', function () {
 	it('should have a number of neightbours', function () {
 		expect(runStage(initialStage, 1, 3)).toBe(neightbours)
 	})
+*/	
 })
+

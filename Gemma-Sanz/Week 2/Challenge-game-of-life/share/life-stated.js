@@ -13,7 +13,7 @@ const blinker = {
         [0, 0, 1, 0, 0],
         [0, 0, 0, 0, 0]
     ]
-}
+},
 const toad = {
 
     initialState:[
