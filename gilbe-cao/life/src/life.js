@@ -120,17 +120,18 @@ function Life() {
     const nextRow = state[row + 1] || [];
     const previousColumn = column - 1;
     const nextColumn = column + 1;
-    let neighbours =
-      previousRow[previousColumn] +
-      previousRow[column] +
-      previousRow[nextColumn] +
-      state[row][previousColumn] +
-      state[row][nextColumn] +
-      nextRow[nextColumn] +
-      nextRow[column] +
-      nextRow[previousColumn];
 
-    return neighbours || 0;
+    let neighbours =
+      +!!previousRow[previousColumn] +
+      +!!previousRow[column] +
+      +!!previousRow[nextColumn] +
+      +!!state[row][previousColumn] +
+      +!!state[row][nextColumn] +
+      +!!nextRow[nextColumn] +
+      +!!nextRow[column] +
+      +!!nextRow[previousColumn];
+
+    return neighbours;
   }
 
   return { next, play, stop, clear, isPlaying };

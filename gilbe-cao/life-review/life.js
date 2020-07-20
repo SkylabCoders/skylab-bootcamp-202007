@@ -8,16 +8,16 @@ function Life() {
     const rowAfter = state[row + 1] || [];
 
     let neighbourCounter =
-      rowBefore[column - 1] +
-      rowBefore[column] +
-      rowBefore[column + 1] +
-      state[row][column - 1] +
-      state[row][column + 1] +
-      rowAfter[column - 1] +
-      rowAfter[column] +
-      rowAfter[column + 1];
+      +!!rowBefore[column - 1] +
+      +!!rowBefore[column] +
+      +!!rowBefore[column + 1] +
+      +!!state[row][column - 1] +
+      +!!state[row][column + 1] +
+      +!!rowAfter[column - 1] +
+      +!!rowAfter[column] +
+      +!!rowAfter[column + 1];
 
-    return neighbourCounter || 0;
+    return neighbourCounter;
   }
 
   function next(initialState) {
