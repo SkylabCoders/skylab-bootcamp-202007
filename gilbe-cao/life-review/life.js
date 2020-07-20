@@ -1,8 +1,10 @@
 'use strict';
 
 function Life() {
+  const idSeparator = '--';
   const isAlive = 1;
   const isDead = 0;
+  let interval = null;
 
   function countNeighbours({ row = 0, column = 0 }, state) {
     const rowBefore = state[row - 1] || [];
@@ -60,5 +62,47 @@ function Life() {
     return nextState;
   }
 
-  return { next };
+  function play() {
+    // get initial state from html inputs
+    let currentState = readCells();
+
+    // call next again after an interval of time with the new state
+    interval = setInterval(() => {
+      currentState = this.next(currentState);
+      console.log(currentState);
+    }, 500);
+  }
+
+  function stop() {
+    clearInterval(interval);
+  }
+
+  function readCells() {
+    debugger;
+    let matrix = [];
+    const formElement = document.getElementsByTagName('form')[0];
+    for (
+      let controlIndex = 0;
+      controlIndex < formElement.elements.length;
+      controlIndex++
+    ) {
+      const { row, column } = getRowAndColumn(
+        formElement.elements[controlIndex].id
+      );
+      if (matrix[row]) {
+        matrix[row][column] = +formElement.elements[controlIndex].checked;
+      } else {
+        matrix = [...matrix, [+formElement.elements[controlIndex].checked]];
+      }
+    }
+
+    return matrix;
+  }
+
+  function getRowAndColumn(elementId) {
+    const [, row, column] = elementId.split(idSeparator);
+    return { row, column };
+  }
+
+  return { next, play, stop, isAlive };
 }
