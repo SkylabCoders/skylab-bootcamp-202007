@@ -11,7 +11,9 @@ let iterationDOM = document.querySelector(".iterations");
 let deadCellColor = "#dadce0";
 let liveCellColor = 0;
 
-let liveCellColorEvolution = ["#23036A", '#30009C', '#3700B3', '#5600E8', '#6200EE', '#7F39FB', '#985EFF'];
+const liveCellColorEvolution = ["#23036A", '#30009C', '#3700B3', '#5600E8', '#6200EE', '#7F39FB', '#985EFF'];
+
+const characterString = 'むかしむかし月の上を飛ぶ猫がいた彼は軽いスピードで旅行できる熟練した哲学者でした子猫の知識の根源でありその翼は柔軟でしたЛюдирешилиотправитьсвиньювдальнийкосмосвкачествесвоегопослаàaáèeéìiíòoóùuúâêîôûäëïöüqwertyuiopasdfghjklñzxcvbnmç{}[]^`".:;,-_¨()/&%$·!¿?¿ºª1234567890העוגיותבצנצנתהימתוקותעבורהמדען竹子像风一样流淌着甜美根茎坚固叶绿किसीदिनसमययात्रासंभवहोसकतीहै।ومنثم،فإناللونالطبيعيللدقةيتضاءلبسببالتقعسElataquedeloskoalasempezóel23deseptiembrede2346,cuando1548293animaleshicieronestragosenNuevaYorkΟΣωκράτηςδενέτρωγεφασόλιακάθεΚυριακήσύμφωναμεπρόσφαταευρήματαειδικών';
 
 function Game() {
 
@@ -79,6 +81,11 @@ function Game() {
 
     this.setCellValue = function(row, col, value) {
         this.secondState[row][col] = value;
+    }
+
+    this.setRandomChar = function(cell) {
+        let random = Math.floor(Math.random() * characterString.length);
+        cell.innerHTML = characterString[random];
     }
 
     this.resetInitialState = function() {
@@ -165,8 +172,10 @@ function Game() {
                 tempHTMLCell = document.querySelector(currentCell)
                 if (table[i][j] === 0) {
                     tempHTMLCell.style.backgroundColor = deadCellColor;
+                    tempHTMLCell.innerHTML = '';
                 } else {
                     tempHTMLCell.style.backgroundColor = liveCellColorEvolution[liveCellColor];
+                    this.setRandomChar(tempHTMLCell);
                 }
             }
         }
