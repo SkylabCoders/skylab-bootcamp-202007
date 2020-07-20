@@ -36,12 +36,10 @@ function gameOfLife() {
     }
 
     createBoard();
-    //Declaro la propiedad después de haber creado los divs con la clase, sino no sabe de qué le hablo
     let square = document.querySelectorAll('.square');
 
 
     //BOTONES
-    //Square buttons - cada clic del usuario ponemos la clase black
     board.addEventListener('click', function (e) {
         e.target.classList.add('black');
     })
@@ -50,11 +48,12 @@ function gameOfLife() {
     startBtn.addEventListener('click', function () {
         //Cuando hago clic llamo a una función cada medio segundo donde empieza todo mi código.
         //No vuelve a este lugar porque cuando da una vuelta, copio array y empieza desde el recorrido de vecinos, no desde crear el array.
+        createArray();
         setInterval(play, 500);
     });
-
+    
     function play () {
-        createArray();
+        getNeighbour();
     }
 
     stopBtn.addEventListener('click', function () {
@@ -103,8 +102,20 @@ function gameOfLife() {
 
         paintFinalState();
         //Pinto el finalState y luego cambio un array por otro:
-        // [initialState, finalState] = [finalState, initialState];
-        initialState = finalState;
+        //[initialState, finalState] = [finalState, initialState];
+        //initialState = finalState;
+        initialState = [...finalState];
+        finalState = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ];
     }
 
     function countNeighbour(i, j) {
@@ -149,12 +160,10 @@ function gameOfLife() {
                     countFinalState++;
                 }
             }
-        }
-       
+        }       
     }
     
 }
-
 
 gameOfLife();
 
