@@ -1,44 +1,48 @@
-body{
-    background-color: rgb(87, 143, 143);
+body {
+	background-color: rgb(87, 143, 143);
 }
-table{
-    margin: auto;
+table {
+	margin: auto;
 }
-td{
-    border: 2px solid #30343F;
-    height: 2vh;
-    width: 2vw;
-    margin: 0;
+td {
+	border: 2px solid #30343f;
+	height: 2vh;
+	width: 2vw;
+	margin: 0;
 }
-#startGame{
- 
-    margin: auto;
+#startGame {
+	margin: auto;
 }
-.white{
-    background-color: #FEFCFD;
+.white {
+	background-color: #fefcfd;
 }
-.black{
-    background-color: #30343F;
+.black {
+	background-color: #30343f;
 }
-.button-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 5% 30%;
+.button-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 5% 30%;
 }
-.button-row>button{
-    border-radius: 12%;
+.button-row > button {
+	border-radius: 12%;
 
-    padding: 5%;
+	padding: 5%;
 }
-footer{
-    font-size: medium;
-    font-weight: bold;
-    text-align: center;
+footer {
+	font-size: medium;
+	font-weight: bold;
+	text-align: center;
 }
-h1{
-margin-top: 0;
-    padding: 3%;
-    color: #FEFCFD;
-text-align: center;
-background: radial-gradient(circle, rgba(0,0,0,0.8911939775910365) 35%, rgba(87,143,143,0) 100%);}
+h1 {
+	margin-top: 0;
+	padding: 3%;
+	color: #fefcfd;
+	text-align: center;
+	background: radial-gradient(
+		circle,
+		rgba(0, 0, 0, 0.8911939775910365) 35%,
+		rgba(87, 143, 143, 0) 100%
+	);
+}
