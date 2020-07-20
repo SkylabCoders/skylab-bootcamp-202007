@@ -14,19 +14,17 @@ let counter = 0;
 function playGame() {
   for (let i = 0; i < currentState.length; i++) {
     for (let j = 0; j < currentState[i].length; j++) {
-      let numberOfNeighbors = countNeighbors(i, j);
+      let numberOfneighbours = countneighbours(i, j);
       if (currentState[i][j] === 1) {
         // SI ESTA VIVA
-        if (numberOfNeighbors === 2 || numberOfNeighbors === 3) {
+        if (numberOfneighbours === 2 || numberOfneighbours === 3) {
           nextState[i][j] = 1;
         } else {
           nextState[i][j] = 0;
         }
       } else {
         //SI ESTA MUERTA
-        if (numberOfNeighbors === 3) {
-          nextState[i][j] = 1;
-        }
+        if (numberOfneighbours === 3) nextState[i][j] = 1;
       }
     }
   }
@@ -38,7 +36,7 @@ function playGame() {
   printCurrentState();
 }
 
-function countNeighbors(i, j) {
+function countneighbours(i, j) {
   let count = 0;
 
   for (let x = 0; x < currentState.length; x++) {
@@ -95,6 +93,18 @@ function printCurrentState() {
   }
 }
 
+// let start = null
+ 
+// document.querySelector('.initGame').addEventListener('click', function (event) {
+// event.preventDefault()
+// if (start === null) {
+// start = setInterval(function () {
+// nextGeneration(blinkerInitial)
+//  }, 2000)
+//  }
+// })
+
+
 // function startGame() {
 //   let playGame = null
    
@@ -106,7 +116,6 @@ function printCurrentState() {
 //    }, 1000)
 //    }
 //   })
-
 // }
 
 // function createGrid() {
