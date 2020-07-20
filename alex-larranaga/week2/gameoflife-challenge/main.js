@@ -41,8 +41,8 @@ function doMagic(inputArray, outputArray) {
 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	]
-	for (let i = 1; i < inputArray.length - 1; i++) {
-		for (let j = -1; j < inputArray[i].length - 1; j++) {
+	for (let i = 1; i < inputArray.length -1; i++) {
+		for (let j = 1; j < inputArray[i].length -1; j++) {
 			let neighbors = 0
 			neighbors += inputArray[i - 1][j - 1]
 			neighbors += inputArray[i - 1][j]
@@ -85,22 +85,22 @@ function doMagic(inputArray, outputArray) {
 	}
 	playerArray = outputArray
 	drawNexgtGeneration(playerArray)
-	return outputArray
+	return console.log(outputArray)
 }
+var newDivArray = document.getElementsByClassName('grid-item')
 
 function drawNexgtGeneration(nextGeneration) {
-	var newDivArray = Array.from(document.getElementsByClassName('grid-item'))	
+	//var newDivArray = Array.from(document.getElementsByClassName('grid-item'))
+	//var newDivArray = document.getElementsByClassName('grid-item')
 	console.log(newDivArray)
 	console.log(nextGeneration)
-	var counter = 0;
+	var counter = 0
 	for (let i = 0; i < nextGeneration.length; i++) {
 		for (let j = 0; j < nextGeneration[i].length; j++) {
 			if (nextGeneration[i][j] === 1) {
-				newDivArray[counter].style.setProperty.backgroundColor = 'red'
-				
+				newDivArray[counter].style.backgroundColor = 'red'
 			} else {
-				newDivArray[counter].style.setProperty.backgroundColor = 'white'
-				
+				newDivArray[counter].style.backgroundColor = 'white'
 			}
 			counter++
 		}
@@ -132,7 +132,7 @@ const drawBoard = function (rows, cols) {
 	}
 }
 let submitButton = document.getElementById('createButton')
-submitButton.addEventListener('click', drawBoard(10, 10))
+event.preventDefault(submitButton.addEventListener('click', drawBoard(10, 10)))
 
 //Create Empty Array for second state of the game
 const createEmptyBoard = function (row, cell) {
