@@ -1,6 +1,6 @@
 //Developed by Gabriel Penalva
-const HEIGHT = 100;
-const WIDTH = 100;
+const HEIGHT = 500;
+const WIDTH = 500;
 
 // prints the Grid on HTML
 let grand = document.getElementById("grand");

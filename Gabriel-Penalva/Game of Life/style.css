@@ -89,8 +89,8 @@ button{
     justify-content: center;
     overflow: scroll;
     align-self: center;
-    width: 85%;
-    height: 650px;
+    max-width: 85%;
+    max-height: 650px;
     border-style: inset;
 
 }
