@@ -1,3 +1,5 @@
+'use strict';
+
 const isAlive = 1;
 const isDead = 0;
 function Life() {
