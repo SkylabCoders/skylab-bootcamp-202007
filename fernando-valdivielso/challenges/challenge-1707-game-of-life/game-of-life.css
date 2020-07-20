@@ -17,15 +17,21 @@ h2:first-of-type {
     margin-top: 0.5em;
 }
 
+button {
+    margin-top: 25px;
+}
+
+
 table,
 tr,
 td {
     border: 1px solid black;
+    
 }
 
 table {
     border-collapse: collapse;
-    margin: 0 auto;
+    margin: 25px auto;
 }
 
 tr {
