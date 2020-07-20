@@ -1,28 +1,27 @@
 "use strict"
 
-let output;
+var output;
 
-let initialState;
+var initialState = blinker.initialState;
+console.log(initialState);
 
 //Create output identical to the initialState
-function life(){
-     let input;
-    if(output === undefined){
+function Life(initialState){
+   
 
+        var input = initialState;
         output = [];
-        input = initialState;
-    } else {
-        input = output;
-        output = []
-    }
-    printResult(input)
+    
+        printResult(input);
+    
     for (let i = 0; i < input.length; i++) {
         output.push([]);
         for (let j = 0; j < input[i].length; j++) {
             output[i].push(input[i][j]);                
         }
     }    
-    runStage(output, input);
+
+    return runStage(output, input);
 
 //Prints stage 2
 };
@@ -60,7 +59,7 @@ function runStage (output, input){
         }
         
     }
-    return(console.log(output))
+    return output;
 };
 //Funcition that revive or kill cels
 function changeNum (neightbours, inputCel){

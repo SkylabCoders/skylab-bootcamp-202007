@@ -2,7 +2,13 @@ describe('Life', function () {
 	let life;
 
 	beforeEach(function (){
-		life = new Life();
+		life =  Life([
+			[0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0],
+			[0, 1, 1, 1, 0],
+			[0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0]
+			]);
 	});
 
 	it('should create', function () {
@@ -18,7 +24,13 @@ describe('Life', function () {
 	});
 //Scenario #2
 	it('should work with Blinker states', function () {
-		expect(life.next(blinker.initialState)).toEqual(blinker.secondState);
+		expect(life).toEqual( [
+			[0, 0, 0, 0, 0],
+			[0, 0, 1, 0, 0],
+			[0, 0, 1, 0, 0],
+			[0, 0, 1, 0, 0],
+			[0, 0, 0, 0, 0]
+		]);
 	});
 
 	it('should work with Toad states', function () {
@@ -30,17 +42,5 @@ describe('Life', function () {
 		expect(life.next(beacon.initialState)).toEqual(beacon.secondState);
 	});
 
-
-	/*
-	let neightbours = 3
-
-	it('should have a finalStage', function () {
-		expect(newStage).toEqual(finalStage)
-	})
-
-	it('should have a number of neightbours', function () {
-		expect(runStage(initialStage, 1, 3)).toBe(neightbours)
-	})
-*/	
 })
 
