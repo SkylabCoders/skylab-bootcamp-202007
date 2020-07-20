@@ -1,6 +1,6 @@
 //Developed by Gabriel Penalva
-const HEIGHT = 500;
-const WIDTH = 500;
+const HEIGHT = 200;
+const WIDTH = 200;
 
 // prints the Grid on HTML
 let grand = document.getElementById("grand");
@@ -50,12 +50,10 @@ function SuperCell(gridState) {
 
         if (actGridState[yPos][xPos] === 0 && numberOfNeig === 3) {
 
-            numberOfNeig = 0;
             return 1;
         }
         if (actGridState[yPos][xPos] === 1 && (numberOfNeig === 2 || numberOfNeig === 3)) {
 
-            numberOfNeig = 0;
             return 1;
         }
         return 0;
@@ -95,7 +93,7 @@ function getHtmlState() {
         grid = [];
     }
     return gredIn;
-};
+}
 
 function setHtmlState(newGridState) {
 
@@ -108,7 +106,7 @@ function setHtmlState(newGridState) {
             } else { childs[j].style.backgroundColor = "white" }
         }
     }
-};
+}
 
 function startGame() {
 
@@ -119,4 +117,3 @@ function y() {
     let game = SuperCell(newState);
     setHtmlState(game());
 }
-
