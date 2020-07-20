@@ -5,9 +5,9 @@ let finalState = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -46,10 +46,16 @@ function gameOfLife() {
         e.target.classList.add('black');
     })
 
-    //Create initialState
+    //Create initialState al clicar el botón, según lo que ha pintado el usuario
     startBtn.addEventListener('click', function () {
-        createArray();
+        //Cuando hago clic llamo a una función cada medio segundo donde empieza todo mi código.
+        //No vuelve a este lugar porque cuando da una vuelta, copio array y empieza desde el recorrido de vecinos, no desde crear el array.
+        setInterval(play, 500);
     });
+
+    function play () {
+        createArray();
+    }
 
     stopBtn.addEventListener('click', function () {
         location.reload(true);
@@ -59,7 +65,7 @@ function gameOfLife() {
 
     //Create the initial array looking at the drawing
     function createArray() {
-    let countPosition = 0;
+        let countPosition = 0;
 
         while (initialState.length < 9) {
             let arrayForCreateRows = [];
@@ -94,7 +100,11 @@ function gameOfLife() {
                 countNeighbour(i, j);
             }
         }
+
         paintFinalState();
+        //Pinto el finalState y luego cambio un array por otro:
+        // [initialState, finalState] = [finalState, initialState];
+        initialState = finalState;
     }
 
     function countNeighbour(i, j) {
@@ -108,16 +118,12 @@ function gameOfLife() {
         if (initialState[i + 1][j + 1] === 1) count++;
         
         if (initialState[i][j] === 1) {
-            if (count < 2) {
+            if (count < 2 || count > 3) {
                 finalState[i][j] = 0;
             }
 
             if (count === 2 || count === 3) {
                 finalState[i][j] = 1;
-            }
-
-            if (count > 3) {
-                finalState[i][j] = 0;
             }
         } else {
             if (count === 3) {
@@ -126,6 +132,7 @@ function gameOfLife() {
         }
         
         count = 0;
+
     }
 
     //Cogemos el array final y cambiamos colores
@@ -143,30 +150,12 @@ function gameOfLife() {
                 }
             }
         }
-        setTimeout(paintInitialForLoop, 1000);
+       
     }
-
-    //Pintamos el array incial
-    function paintInitialForLoop() {
-        let countInitialState = 0;
-
-        for (let i = 0; i < initialState.length; i++) {
-            for (let j = 0; j < initialState[i].length; j++) {
-                if (initialState[i][j] === 1) {
-                square[countInitialState].classList.add('black');
-                countInitialState++;
-                } else {
-                    square[countInitialState].classList.remove('black');
-                    countInitialState++;
-                }
-            }
-        }
-        setTimeout(paintFinalState, 1000);
-    }
+    
 }
 
+
 gameOfLife();
-
-
 
 

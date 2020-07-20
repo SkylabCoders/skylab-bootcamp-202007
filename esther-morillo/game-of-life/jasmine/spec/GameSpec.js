@@ -1,6 +1,6 @@
 describe('Player', function () {
-	let initialState = null;
-	let finalState = null;
+	let initialState;
+	let finalState;
 	
 	initialState = [
 		[0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -28,7 +28,7 @@ describe('Player', function () {
 
 	game = new Game (initialState, finalState);
 
-	xit('should print a initial state', function () {
+	it('should print a initial state', function () {
 		expect(game.start()).toEqual(initialState);
 	});
 
