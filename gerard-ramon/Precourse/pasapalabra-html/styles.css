@@ -8,6 +8,10 @@ body {
     font-size: 18px;
 }
 
+.display--none {
+    display: none;
+}
+
 .menu {
     display: flex;
     justify-content: center;
@@ -221,7 +225,6 @@ li span {
     border: solid 0.1em whitesmoke;
     border-radius: 50%;
     background-color: #1186ec;
-    justify-content: center;
     align-items: center;
     font-size: 30px;
 }

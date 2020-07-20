@@ -23,12 +23,12 @@ function calculator(num1, num2) {
 
 // Retorna la raiz cuadrada del numero que recibe como parametro
 function sqrt(num1, num2) {
-    var result = 0;
+    var sqrtValue = 0;
     if (isNumber(num1)) {
-        var sqrtValue = returnNumberIntOrWithDecimal(Math.sqrt(num1));
+        sqrtValue = returnNumberIntOrWithDecimal(Math.sqrt(num1));
         return `La raiz cuadrada de ${num1} es ${sqrtValue}`;
     } else if (isNumber(num2)) {
-        var sqrtValue = returnNumberIntOrWithDecimal(Math.sqrt(num2));
+        sqrtValue = returnNumberIntOrWithDecimal(Math.sqrt(num2));
         return `La raiz cuadrada de ${num2} es ${sqrtValue}`;
     } else {
         return "No has introducido ningún valor";
@@ -52,8 +52,8 @@ function calculate(num1, num2) {
 
 
 function returnNumberIntOrWithDecimal(value) {
-    var result = (value - Math.floor(value)) === 0
-    if (result) {
+    var res = (value - Math.floor(value)) === 0
+    if (res) {
         return value;
     } else {
         return value.toFixed(3);
