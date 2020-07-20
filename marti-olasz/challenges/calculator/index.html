@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="calculator">
+        <div class="calculator__header">0</div>
+        <div class="calculator__button">
+            <button onclick="calc.reset()" class="button button__C button-white"> C </button>
+            <button onclick="calc.operation('/')" class="button button__/ button-orange"> / </button>
+            <button onclick="calc.add(7)" class="button button__7 button-white"> 7 </button>
+            <button onclick="calc.add(8)" class="button button__8 button-white"> 8 </button>
+            <button onclick="calc.add(9)" class="button button__9 button-white"> 9 </button>
+            <button onclick="calc.operation('*')" class="button button__X button-orange"> X </button>
+            <button onclick="calc.add(4)" class="button button__4 button-white"> 4 </button>
+            <button onclick="calc.add(5)" class="button button__5 button-white"> 5 </button>
+            <button onclick="calc.add(6)" class="button button__6 button-white"> 6 </button>
+            <button onclick="calc.operation('-')" class="button button__- button-orange"> - </button>
+            <button onclick="calc.add(1)" class="button button__1 button-white"> 1 </button>
+            <button onclick="calc.add(2)" class="button button__2 button-white"> 2 </button>
+            <button onclick="calc.add(3)" class="button button__3 button-white"> 3 </button>
+            <button onclick="calc.operation('+')" class="button button__+ button-orange"> + </button>
+            <button onclick="calc.add(0)" class="button button__0 button-white"> 0 </button>
+            <button onclick="calc.add(',')" class="button button__, button-white"> , </button>
+            <button onclick="calc.solve()" class="button button__= button-orange"> = </button>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
