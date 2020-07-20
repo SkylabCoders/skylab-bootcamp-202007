@@ -1,7 +1,7 @@
 function start() {
 	interval = setInterval(function () {
 		game.turn(game.actualBoard)
-	}, 500)
+	}, 100)
 }
 
 function pause() {
