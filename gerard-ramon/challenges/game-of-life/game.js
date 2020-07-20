@@ -42,14 +42,15 @@ function Game() {
     // Check the number of living neighbours of a cell
     this.checkNeighbours = function(row, col) {
         let livingNeighbours = 0;
+
         for (let i = 0; i < 3; i++) {
-            try {
-                for (let j = 0; j < 3; j++) {
-                    if (this.initialState[row - (i - 1)][col - (j - 1)] === 1) {
-                        livingNeighbours++;
-                    }
+            let tempRow = this.initialState[row - (i - 1)] || [];
+            for (let j = 0; j < 3; j++) {
+                if (tempRow[col - (j - 1)] === 1) {
+                    console.log('self');
+                    livingNeighbours++;
                 }
-            } catch {}
+            }
         }
         if (this.initialState[row][col] === 1) {
             livingNeighbours--;

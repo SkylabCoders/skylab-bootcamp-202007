@@ -7,7 +7,7 @@ describe('Game-of-life', () => {
     })
 
     it('Should create game', function() {
-        expect(game).toBeTruthy();
+        expect(game).toBeDefined();
     })
 
     it('should create 2 empty new arrays from given rows and columns', function() {
