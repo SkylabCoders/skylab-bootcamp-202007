@@ -1,6 +1,6 @@
 //Developed by Gabriel Penalva
-const HEIGHT = 200;
-const WIDTH = 200;
+const HEIGHT = 100;
+const WIDTH = 100;
 
 // prints the Grid on HTML
 let grand = document.getElementById("grand");
@@ -29,7 +29,7 @@ for (let i = 0; i < WIDTH; i++) {
 function SuperCell(gridState) {
     let actGridState = gridState;
     let newGridState = [];
-    
+
     let setNumberOfNeig = function (yPos, xPos) {
         let nAlive = 0;
         for (let i = yPos - 1; i <= yPos + 1; i++) {
@@ -107,13 +107,17 @@ function setHtmlState(newGridState) {
         }
     }
 }
-
+let strt = null;
 function startGame() {
-
-    setInterval('y()', 300);
+if (strt === null)
+    strt = setInterval('y()', 100);
 }
 function y() {
     let newState = getHtmlState();
     let game = SuperCell(newState);
     setHtmlState(game());
+}
+function stopG(){
+    clearInterval(strt);
+    strt = null;
 }

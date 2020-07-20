@@ -18,17 +18,21 @@ button{
     align-self: center;
     width: fit-content;
 }
+div{
+  align-self: center;
+}
 .btn {
     letter-spacing: 0.1em;
     cursor: pointer;
     font-size: 14px;
     font-weight: 400;
+
     line-height: 45px;
     max-width: 160px;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    width: 100%;
+    width: auto;
   }
   .btn:hover {
     text-decoration: none;
@@ -90,15 +94,13 @@ button{
     overflow: scroll;
     align-self: center;
     max-width: 85%;
-    max-height: 650px;
+    max-height: 600px;
     border-style: inset;
 
 }
 .child {
     background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
 
 }
