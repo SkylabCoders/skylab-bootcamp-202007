@@ -85,22 +85,27 @@ function doMagic(inputArray, outputArray) {
 	}
 	playerArray = outputArray
 	drawNexgtGeneration(playerArray)
-	return console.log(outputArray)
+	return outputArray
 }
 
-function drawNexgtGeneration(nextGeneration) {	
-let newDivArray = Array.from(document.getElementsByClassName('grid-item'))
-console.log(newDivArray)
-console.log(nextGeneration)
-	for (let i = 0; i < nextGeneration.length; i++)
-		if (nextGeneration[i] === 1) {
-			newDivArray[i].style.backgroundColor('red')
-		} else {
-			newDivArray[i].style.backgroundColor('white')
+function drawNexgtGeneration(nextGeneration) {
+	var newDivArray = Array.from(document.getElementsByClassName('grid-item'))	
+	console.log(newDivArray)
+	console.log(nextGeneration)
+	var counter = 0;
+	for (let i = 0; i < nextGeneration.length; i++) {
+		for (let j = 0; j < nextGeneration[i].length; j++) {
+			if (nextGeneration[i][j] === 1) {
+				newDivArray[counter].style.setProperty.backgroundColor = 'red'
+				
+			} else {
+				newDivArray[counter].style.setProperty.backgroundColor = 'white'
+				
+			}
+			counter++
 		}
+	}
 }
-
-
 
 //Draw Grid and add event listener to each div for: When clicked, change backgroud to red
 //											  : Return all array every click, and change class to the clicked one/s
