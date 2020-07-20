@@ -1,0 +1,61 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    text-align: -webkit-center;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 200px;
+    height: auto;
+}
+
+button {
+    background-color: rgb(207, 207, 207);
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    border: black solid 1px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.operation-button {
+    background-color: orange;
+}
+
+.accion-button {
+    background-color: rgb(177, 177, 177);
+}
+
+#ac,
+#number-0 {
+    width: 100px;
+}
+
+#result {
+    height: 50px;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    font-size: 40px;
+    border: black solid 1px;
+    text-align: end;
+    padding-right: 15px;
+}
