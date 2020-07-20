@@ -5,21 +5,21 @@ const gameOfLife = function () {
 	this.createBoard = function (size) {
 		let grid = document.createElement('div')
 		grid.className = 'grid'
-		grid.style.gridTemplateRows = '1fr '.repeat(size)
-		grid.style.gridTemplateColumns = '1fr '.repeat(size)
 
 		for (let i = 0; i < size; i++) {
+			let row = document.createElement('div')
+			row.className = 'row'
 			for (let j = 0; j < size; j++) {
 				let element = document.createElement('div')
 				element.className = 'c' + j + 'r' + i
 				element.addEventListener('click', function () {
 					game.revive(this.className)
 				})
-				grid.appendChild(element)
+				row.appendChild(element)
 			}
+			grid.appendChild(row)
 		}
 		document.querySelector('.gridPlace').appendChild(grid)
-		return grid
 	}
 
 	this.neighbors = function (row, col, board) {
@@ -73,7 +73,7 @@ const gameOfLife = function () {
 			document.querySelector('.turn').textContent = this.turns
 			this.draw(nextBoard)
 		} catch (error) {
-			console.log('### Hello tester ###',error)
+			console.log('### Hello tester ###', error)
 		}
 
 		return nextBoard
@@ -113,5 +113,21 @@ const gameOfLife = function () {
 			board.push(col)
 		}
 		return board
+	}
+	this.addSize = function () {
+		this.size++
+		this.turns = 0
+		document.querySelector('.grid').remove()
+		this.createBoard(this.size)
+		this.actualBoard = this.newBoard(this.size)
+		this.draw(this.actualBoard)
+	}
+	this.restSize = function () {
+		this.size--
+		this.turns = 0
+		document.querySelector('.grid').remove()
+		this.createBoard(this.size)
+		this.actualBoard = this.newBoard(this.size)
+		this.draw(this.actualBoard)
 	}
 }
