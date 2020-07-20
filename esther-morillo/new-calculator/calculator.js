@@ -1,7 +1,7 @@
 'use strict';
 
 function Calculator() {
-    let writeScreen = '';
+    let writeScreen = document.querySelector('.screen');
     let buttons = document.querySelector('.buttons');
 
     buttons.addEventListener('click', function (event) {
@@ -35,20 +35,23 @@ function Calculator() {
 
     function writeOperation(text) {
         if (text === '0' && text !== '.') {
-            writeScreen = '';
+            writeScreen.textContent = '';
         }
 
-        writeScreen += text;
-
+        writeScreen = text;
+        console.log(Number(text))
 
         if (writeScreen === '+' || writeScreen === '-' || writeScreen === '*' || writeScreen === '/') {
 
         }
-    }
+    };
 
-    function add(number) {
+    function writeOperation() {
 
+    };
 
+    function resetScreen() {
+        writeScreen.textContent = 0;
     };
 
     return {

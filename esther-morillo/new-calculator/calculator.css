@@ -67,7 +67,7 @@ h1 {
 }
 
 
-.result {
+.screen {
     background-color: #2b3145;
     color: white;
     grid-column: 1 / 5;
@@ -78,7 +78,7 @@ h1 {
     cursor: default;
 }
 
-.result:active {
+.screen:active {
     background-color: #2b3145;
 }
 
