@@ -5,12 +5,11 @@ describe('Life', function(){
         life = Life();
     });
 
+    it('should create', function () {
+        expect(life).toBeTruthy();
+      });
  
-    it('should remain stable when no initialState ', function(){
-        expect(life.next()).toBeTruthy();//toBeTruthy es que se espera que sea verdadero.
-    });
-
-    it('should remain stable when when initialState is null or undefined ', function(){
+    it('should remain stable when  initialState is null or undefined ', function(){
         expect(life.next(undefined)).not.toBeDefined();
         expect(life.next(null)).not.toBeDefined();
         expect(life.next()).not.toBeDefined();
@@ -20,12 +19,16 @@ describe('Life', function(){
         expect(life.next(blinker.initialState)).toEqual(blinker.secondState);
     });
 
-    it('should work with Blinker states', function(){
+    it('should work with Toad states', function(){
         expect(life.next(toad.initialState)).toEqual(toad.secondState);
     });
-
-    it('should work with Blinker states', function(){
+    
+    it('should work with Beacon states', function(){debugger
         expect(life.next(beacon.initialState)).toEqual(beacon.secondState);
+    });
+
+    it('should work with Beacon Corner states', function(){debugger
+        expect(life.next(beaconCorner.initialState)).toEqual(beaconCorner.secondState);
     });
 
 })
