@@ -1,0 +1,21 @@
+.container {
+  text-align: center;
+}
+
+.life-table {
+  border-spacing: 10px;
+  margin: 0 auto;
+}
+
+.life-table__cell {
+  padding: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.life-table__cell input {
+  margin: 0;
+  border: none;
+  width: 80px;
+  height: 80px;
+}
