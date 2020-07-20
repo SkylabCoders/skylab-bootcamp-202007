@@ -125,6 +125,7 @@ h1 {
 
 .iterations {
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .footer {
@@ -136,7 +137,4 @@ h1 {
     height: 50px;
     font-size: 18px;
     font-weight: bold;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
 }
