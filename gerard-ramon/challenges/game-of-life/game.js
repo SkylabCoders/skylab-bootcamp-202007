@@ -47,7 +47,6 @@ function Game() {
             let tempRow = this.initialState[row - (i - 1)] || [];
             for (let j = 0; j < 3; j++) {
                 if (tempRow[col - (j - 1)] === 1) {
-                    console.log('self');
                     livingNeighbours++;
                 }
             }
