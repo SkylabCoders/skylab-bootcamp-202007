@@ -10,9 +10,9 @@ describe('Life', function () {
   });
 
   it('should remain stable when initialState is null or undefined', function () {
-    expect(life.next(undefined)).toBeTruthy();
-    expect(life.next(null)).toBeTruthy();
-    expect(life.next()).toBeTruthy();
+    expect(life.next(undefined)).not.toBeDefined();
+    expect(life.next(null)).not.toBeDefined();
+    expect(life.next()).not.toBeDefined();
   });
 
   it('should work with Blinker states', function () {
