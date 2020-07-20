@@ -99,6 +99,7 @@ document.querySelector(".start").addEventListener("click", function(){
 document.querySelector(".pause").addEventListener("click", function(){
     event.preventDefault(event);
     clearInterval(start)
+    start = null;
 })
 
 document.querySelector(".reset").addEventListener("click", function(){
@@ -110,7 +111,7 @@ function printResult (input){
     let screen = document.querySelectorAll(".cel");
     let counter = 0;
     for (let i = 0; i < input.length; i++) {
-        for (let j = 0; j < input.length; j++) {
+        for (let j = 0; j < input[i].length; j++) {
             if(input[i][j]===1){
                 screen[counter].style.backgroundColor = "orange";
             } else {
