@@ -16,11 +16,11 @@ describe("Calculate", function () {
     });
 
     it('should multiply', function () {
-        expect(calculate.sum(2, 2)).toEqual(4);
+        expect(calculate.multi(2, 2)).toEqual(4);
     });
 
     it('should divide', function () {
-        expect(calculate.sum(2, 1)).toEqual(2);
+        expect(calculate.div(2, 1)).toEqual(2);
     });
 
     it('should clear all the screen', function () {
