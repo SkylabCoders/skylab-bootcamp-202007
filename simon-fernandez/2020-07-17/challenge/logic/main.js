@@ -70,7 +70,7 @@ function gameOfLife(inputArray) {
 					gameArray[i][j] = 0
 				}
 			} else {
-				//La celula esta muerta
+				//The cell is dead
 				if (counter === 3) {
 					gameArray[i][j] = 1
 				}
