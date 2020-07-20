@@ -1,44 +1,51 @@
-*{
+* {
     background-color: rgb(189, 222, 243);
     text-align: center;
 }
+
 h1 {
     background-color: rgb(138, 138, 241);
 }
 
-.mainContainer{
+.mainContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
-.row{
+
+.row {
     display: flex;
     flex-direction: row;
     border-left: 1px solid black;
     border-right: 1px solid black;
 
 }
-.row:nth-child(1){
+
+.row:nth-child(1) {
     border-top: 1px solid black;
 }
+
 .row:last-child {
     border-bottom: 1px solid black;
 }
-.cel{
+
+.cel {
     border: 1px solid black;
     width: 50px;
     height: 50px;
 }
-button{
+
+button {
     margin-top: 15px;
     text-align: center;
     background-color: aliceblue;
     padding: 10px;
     border-radius: 10px;
 }
-p{
+
+p {
     text-align: right;
     font-style: oblique;
     margin-right: 100px;
