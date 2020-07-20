@@ -109,6 +109,7 @@ document.querySelector('.resetGame').addEventListener('click', function (event) 
 	window.location.reload();
 })
 
+//Html print function
 function printResult(blinkerInitial) {
 	let table = document.querySelectorAll('.box')
 	let counter = 0
@@ -125,7 +126,7 @@ function printResult(blinkerInitial) {
 	}
 }
 
-
+//Creating new random inputs for main function
 function createRandomInput(){
     let rows = 12;
     let columns = 12;
