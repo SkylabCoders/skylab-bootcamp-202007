@@ -12,6 +12,9 @@ const gameOfLife = function () {
 			for (let j = 0; j < size; j++) {
 				let element = document.createElement('div')
 				element.className = 'c' + j + 'r' + i
+				element.addEventListener('click', function () {
+					game.revive(this.className)
+				})
 				grid.appendChild(element)
 			}
 		}
@@ -28,13 +31,13 @@ const gameOfLife = function () {
 		if (col === 0) {
 			startCol++
 		}
-		if (col === this.size - 1) {
+		if (col === board.length - 1) {
 			endCol--
 		}
 		if (row === 0) {
 			startRow++
 		}
-		if (row === this.size - 1) {
+		if (row === board.length - 1) {
 			endRow--
 		}
 		for (let i = startRow; i <= endRow; i++) {
@@ -50,37 +53,35 @@ const gameOfLife = function () {
 		return neighborsAlive
 	}
 	this.turn = function (beforeBoard) {
-		this.turns++
-		document.querySelector('.turn').textContent = this.turns
-		const neighborsBoard = this.newBoard()
-		for (let i = 0; i < this.size; i++) {
-			for (let j = 0; j < this.size; j++) {
-				neighborsBoard[i][j] = this.neighbors(i, j, beforeBoard)
-			}
-		}
-		const nextBoard = this.newBoard()
-		for (let i = 0; i < this.size; i++) {
-			for (let j = 0; j < this.size; j++) {
-				if (
-					beforeBoard[i][j] === 1 &&
-					(neighborsBoard[i][j] === 2 || neighborsBoard[i][j] === 3)
-				) {
+		const nextBoard = this.newBoard(beforeBoard.length)
+		for (let i = 0; i < beforeBoard.length; i++) {
+			for (let j = 0; j < beforeBoard.length; j++) {
+				let neighborsN = this.neighbors(i, j, beforeBoard)
+				if (beforeBoard[i][j] === 1 && (neighborsN === 2 || neighborsN === 3)) {
 					nextBoard[i][j] = 1
 				} else {
-					if (beforeBoard[i][j] === 0 && neighborsBoard[i][j] === 3) {
+					if (beforeBoard[i][j] === 0 && neighborsN === 3) {
 						nextBoard[i][j] = 1
 					}
 				}
 			}
 		}
-		this.draw(nextBoard)
 		this.actualBoard = nextBoard
+
+		try {
+			this.turns++
+			document.querySelector('.turn').textContent = this.turns
+			this.draw(nextBoard)
+		} catch (error) {
+			console.log('### Hello tester ###',error)
+		}
+
 		return nextBoard
 	}
 	this.draw = function (board) {
 		let pos = ''
-		for (let i = 0; i < this.size; i++) {
-			for (let j = 0; j < this.size; j++) {
+		for (let i = 0; i < board.length; i++) {
+			for (let j = 0; j < board.length; j++) {
 				pos = '.c' + i + 'r' + j
 				if (board[j][i] === 1) {
 					document.querySelector(pos).style.backgroundColor = 'black'
@@ -90,21 +91,10 @@ const gameOfLife = function () {
 			}
 		}
 	}
-	this.perform = function () {
-		let pos = ''
-		for (let i = 0; i < this.size; i++) {
-			for (let j = 0; j < this.size; j++) {
-				pos = '.c' + i + 'r' + j
-				document.querySelector(pos).addEventListener('click', function () {
-					game.revive(this.className)
-				})
-			}
-		}
-	}
 	this.revive = function (pos) {
 		let i = pos.indexOf('r')
-		let col = pos.slice(1, i)
-		let row = pos.slice(i + 1)
+		let col = parseInt(pos.slice(1, i))
+		let row = parseInt(pos.slice(i + 1))
 		if (document.querySelector('.' + pos).style.backgroundColor === 'black') {
 			document.querySelector('.' + pos).style.backgroundColor = 'white'
 			this.actualBoard[row][col] = 0
@@ -113,11 +103,11 @@ const gameOfLife = function () {
 			this.actualBoard[row][col] = 1
 		}
 	}
-	this.newBoard = function () {
+	this.newBoard = function (size) {
 		let board = []
-		for (let i = 0, col = []; i < this.size; i++) {
+		for (let i = 0, col = []; i < size; i++) {
 			let col = []
-			for (let j = 0; j < this.size; j++) {
+			for (let j = 0; j < size; j++) {
 				col.push(0)
 			}
 			board.push(col)

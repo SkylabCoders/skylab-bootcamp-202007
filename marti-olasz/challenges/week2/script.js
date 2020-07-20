@@ -10,7 +10,6 @@ function pause() {
 
 var interval = null
 const game = new gameOfLife()
+game.actualBoard = game.newBoard(game.size)
 game.createBoard(game.size)
-game.perform()
-game.actualBoard = game.newBoard()
 game.draw(game.actualBoard)

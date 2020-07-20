@@ -6,6 +6,18 @@ describe('GameOfLife', function () {
 			[0, 1, 0],
 			[0, 1, 0],
 		],
+		toad: [
+			[0, 0, 0, 0],
+			[1, 1, 1, 0],
+			[0, 1, 1, 1],
+			[0, 0, 0, 0],
+		],
+		beacon: [
+			[1, 1, 0, 0],
+			[1, 1, 0, 0],
+			[0, 0, 1, 1],
+			[0, 0, 1, 1],
+		],
 	}
 
 	const afterBoards = {
@@ -14,11 +26,29 @@ describe('GameOfLife', function () {
 			[1, 1, 1],
 			[0, 0, 0],
 		],
+		toad: [
+			[0, 1, 0, 0],
+			[1, 0, 0, 1],
+			[1, 0, 0, 1],
+			[0, 0, 1, 0],
+		],
+		beacon: [
+			[1, 1, 0, 0],
+			[1, 0, 0, 0],
+			[0, 0, 0, 1],
+			[0, 0, 1, 1],
+		],
 	}
 	const game = new gameOfLife()
 
 	//Test//
 	it('Blinker', function () {
-		expect(game.turn(beforeBoards.blinker)).toBe(afterBoards.blinker)
+		expect(game.turn(beforeBoards.blinker)).toEqual(afterBoards.blinker)
+	})
+	it('Toad', function () {
+		expect(game.turn(beforeBoards.toad)).toEqual(afterBoards.toad)
+	})
+	it('Beacon', function () {
+		expect(game.turn(beforeBoards.beacon)).toEqual(afterBoards.beacon)
 	})
 })
