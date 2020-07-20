@@ -1,71 +1,97 @@
-describe('My game of life', function () {
-    let initialStageBlinker = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-    ]
-    let myNewStageBlinker = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 0],
-    ]
-    let initialStageToad = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 1, 1, 1, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-    ]
-    let myNewStageToad = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0],
-        [0, 1, 0, 0, 1, 0],
-        [0, 1, 0, 0, 1, 0],
-        [0, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-    ]
-    let initialStageBeacon = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 0, 0, 0],
-        [0, 1, 1, 0, 0, 0],
-        [0, 0, 0, 1, 1, 0],
-        [0, 0, 0, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0],
-    ]
-    let myNewStageBeacon = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 0],
-        [0, 0, 0, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0],
-    ]
+describe('My game of life', function () { 
+
+    const blinker = {
+        initialStage : [
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+        ],
+        newStage: [
+            [0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 0],
+        ],
+    };
+    const toad = {
+        initialStage: [
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 1, 1, 0],
+            [0, 1, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+        ],
+        newStage: [
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0],
+            [0, 1, 0, 0, 1, 0],
+            [0, 1, 0, 0, 1, 0],
+            [0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+        ]
+    };
+    const beacon = {
+        initialStage: [
+            [0, 0, 0, 0, 0, 0],
+            [0, 1, 1, 0, 0, 0],
+            [0, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0],
+        ],
+        newStage: [
+            [0, 0, 0, 0, 0, 0],
+            [0, 1, 1, 0, 0, 0],
+            [0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0],
+        ]
+    };
+    const beaconCorner = {
+        initialStage: [
+            [1, 1, 0, 0, 0, 0],
+            [1, 1, 0, 0, 0, 0],
+            [0, 0, 1, 1, 0, 0],
+            [0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+        ],
+        newStage: [
+            [1, 1, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0],
+            [0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+        ]
+    };
+
     let myNeighbours = 3;
+    /* My specs */
+    it ('should stay stable if the newGame is undefined', function (){
+        expect(gameOfLifeTurn(null)).not.toBeDefined();
+        expect(gameOfLifeTurn(undefined)).not.toBeDefined();
+        expect(gameOfLifeTurn()).not.toBeDefined();
+    });
     it ('should say the number of neighbours', function(){
-        expect(neighboursCounter(initialStageBlinker, 1, 2)).toBe(myNeighbours)
+        expect(neighboursCounter(blinker.initialStage, 1, 2)).toBe(myNeighbours)
     });
-    it ('should print a new stage of Blinker', function(){
-        expect(gameOfLifeTurn(initialStageBlinker)).toEqual(myNewStageBlinker)
+    it ('should print a new stage of blinker', function(){
+        expect(gameOfLifeTurn(blinker.initialStage)).toEqual(blinker.newStage)
     });
-    it ('should print the inital stage of Blinker', function(){
-        expect(gameOfLifeTurn(myNewStageBlinker)).toEqual(initialStageBlinker)
+    it ('should print a new stage of toad', function(){
+        expect(gameOfLifeTurn(toad.initialStage)).toEqual(toad.newStage)
     });
-    it ('should print a new stage of Toad', function(){
-        expect(gameOfLifeTurn(initialStageToad)).toEqual(myNewStageToad)
+    it ('should print a new stage of beacon', function(){
+        expect(gameOfLifeTurn(beacon.initialStage)).toEqual(beacon.newStage)
     });
-    it ('should print the inital stage of Toad', function(){
-        expect(gameOfLifeTurn(myNewStageToad)).toEqual(initialStageToad)
-    });
-    it ('should print a new stage of Beacon', function(){
-        expect(gameOfLifeTurn(initialStageBeacon)).toEqual(myNewStageBeacon)
-    });
-    it ('should print the inital stage of Beacon', function(){
-        expect(gameOfLifeTurn(myNewStageBeacon)).toEqual(initialStageBeacon)
+    it ('should print a new stage of beaconCorner', function(){
+        expect(gameOfLifeTurn(beaconCorner.initialStage)).toEqual(beaconCorner.newStage)
     });
 });
 

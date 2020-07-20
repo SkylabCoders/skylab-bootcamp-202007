@@ -38,6 +38,9 @@ const drawLife = function () {
 }
 drawLife();
 const gameOfLifeTurn = function (newGame) {
+	if (!newGame) {
+		return;
+	}
 	let myNewGameStage = [];
 	for (let i = 0; i < newGame.length; i++) {
 		myNewGameStage[i] = [];
@@ -54,16 +57,18 @@ const gameOfLifeTurn = function (newGame) {
 	}
 	return myNewGameStage;
 }
-const neighboursCounter = function (newGame, actualRow, actualColumn){
+const neighboursCounter = function (newGame, actualRow, actualColumn) {
 	let neighbours = 0;
+	const nextRow = actualRow + 1;
+	const beforeRow = actualRow - 1;
 	if (actualRow !== 0) {
-		if (newGame[actualRow - 1][actualColumn - 1] === 1) {
+		if (newGame[beforeRow][actualColumn - 1] === 1) {
 			neighbours++;
 		}
-		if (newGame[actualRow - 1][actualColumn] === 1) {
+		if (newGame[beforeRow][actualColumn] === 1) {
 			neighbours++;
 		}
-		if (newGame[actualRow - 1][actualColumn + 1] === 1) {
+		if (newGame[beforeRow][actualColumn + 1] === 1) {
 			neighbours++;
 		}
 	}
@@ -74,13 +79,13 @@ const neighboursCounter = function (newGame, actualRow, actualColumn){
 		neighbours++;
 	}
 	if (actualRow !== newGame.length - 1) {
-		if (newGame[actualRow + 1][actualColumn - 1] === 1) {
+		if (newGame[nextRow][actualColumn - 1] === 1) {
 			neighbours++;
 		}
-		if (newGame[actualRow + 1][actualColumn] === 1) {
+		if (newGame[nextRow][actualColumn] === 1) {
 			neighbours++;
 		}
-		if (newGame[actualRow + 1][actualColumn + 1] === 1) {
+		if (newGame[nextRow][actualColumn + 1] === 1) {
 			neighbours++;
 		}
 	}
