@@ -116,7 +116,8 @@ function insertHtmlCode(heightNumber,widthNumber) {
         }
         buffer += '</tr>';
     }
-    if(mainContainer.innerHTML!==null)mainContainer.innerHTML=buffer;
+
+    if(mainContainer!==null)mainContainer.innerHTML=buffer;
     
 }
 function saveArray(allElements,widthNumber) {
@@ -204,6 +205,7 @@ for (let i = 0; i < allElements.length; i++) {
         event.preventDefault();
        modifyClass(allElements[i]);});
 }
+if (buttonsElements.length!==0) {
 buttonsElements[1].addEventListener('click',function (event){
     event.preventDefault();
     if (interval===null) {
@@ -224,7 +226,7 @@ buttonsElements[2].addEventListener('click',function (event){
     event.preventDefault();
     changeHTML(skylabArray,allElements);
 })
-
+}
 //console.log(calcArray);
 /*
 for (let i = 0; i < allElements.length; i++) {
