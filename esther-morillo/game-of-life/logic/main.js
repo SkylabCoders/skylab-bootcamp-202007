@@ -51,8 +51,8 @@ function gameOfLife() {
         createArray();
         setInterval(play, 500);
     });
-    
-    function play () {
+
+    function play() {
         getNeighbour();
     }
 
@@ -127,7 +127,7 @@ function gameOfLife() {
         if (initialState[i + 1][j - 1] === 1) count++;
         if (initialState[i + 1][j] === 1) count++;
         if (initialState[i + 1][j + 1] === 1) count++;
-        
+
         if (initialState[i][j] === 1) {
             if (count < 2 || count > 3) {
                 finalState[i][j] = 0;
@@ -141,7 +141,7 @@ function gameOfLife() {
                 finalState[i][j] = 1;
             }
         }
-        
+
         count = 0;
 
     }
@@ -153,18 +153,16 @@ function gameOfLife() {
         for (let i = 0; i < finalState.length; i++) {
             for (let j = 0; j < finalState[i].length; j++) {
                 if (finalState[i][j] === 1) {
-                square[countFinalState].classList.add('black');
-                countFinalState++;
+                    square[countFinalState].classList.add('black');
+                    countFinalState++;
                 } else {
                     square[countFinalState].classList.remove('black');
                     countFinalState++;
                 }
             }
-        }       
+        }
     }
-    
+
 }
 
 gameOfLife();
-
-
