@@ -1,11 +1,15 @@
-.container  {
-display: flex;
-flex-direction: column;
-} 
-.row{
+.container {
     display: flex;
-    justify-content: center;
-    align-content: space-around;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.container-row {
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
 }
 
 .cell {
@@ -17,15 +21,11 @@ flex-direction: column;
     height: 10px;
 }
 
-/* #button_playGame {
-    border: 1px solid red;
-    background-color: lightcoral;
-} */
-
 #button_playGame {
-    display: inline-block;
+    height: 66px;
+    width: 148px;
     padding: 15px 25px;
-    font-size: 24px;
+    font-size: 17px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
