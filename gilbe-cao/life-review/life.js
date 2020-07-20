@@ -1,12 +1,15 @@
 'use strict';
 
-const isAlive = 1;
-const isDead = 0;
 function Life() {
+  const isAlive = 1;
+  const isDead = 0;
+
   function countNeighbours({ row = 0, column = 0 }, state) {
     const rowBefore = state[row - 1] || [];
     const rowAfter = state[row + 1] || [];
 
+    // !! double negation converts to booleand
+    // + sum sign converts to number
     let neighbourCounter =
       +!!rowBefore[column - 1] +
       +!!rowBefore[column] +
