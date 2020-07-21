@@ -7,6 +7,18 @@
         return Object.is(a,b);
     }
 }
+<<<<<<< HEAD
+=======
+console.log(isEqual(NaN,0/-0));
+
+console.log(isEqual(0,0));
+
+console.log(isEqual(-0,0));
+
+console.log(isEqual(0,-0));
+
+console.log(isEqual(-0,-0));
+>>>>>>> origin
 
 let array = [0,0,0,0,0];
 console.log(array[-1]);
