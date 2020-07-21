@@ -1,9 +1,15 @@
+"use strict"
+
 describe("Hero", function () {
     let hero;
+    let myHero;
     let name;
     let id;
+    let newName;
+    let newId;
+
     beforeEach(function () {
-        hero = new Hero();
+        myHero = new Hero();
         hero = {
             name: "Magneto",
             id: 4
@@ -15,20 +21,19 @@ describe("Hero", function () {
     });
     it("should return a name", function getName() {
         debugger
-        expect(Hero.getName()).toEqual(name);
+        expect(myHero.getName()).toEqual(name);
     });
     it("should change the hero name", function setName() {
-        hero.getName(name);
-        hero.setName(newName);
-        expect(hero.setName()).toEqual(newName);
+        myHero.getName(name);
+        myHero.setName(newName);
+        expect(myHero.setName()).toEqual(newName);
     });
     it("should return a id", function getId() {
-        expect(hero.getId()).toEqual(id);
+        expect(myHero.getId()).toEqual(id);
     });
     it("should change the hero id", function setId() {
-        hero.getId();
-        hero.setId();
-        expect(hero.setId()).toEqual(newId);
+        myHero.setId(newId);
+        expect(myHero.setId()).toEqual(newId);
     });
 
 })

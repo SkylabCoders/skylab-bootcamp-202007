@@ -1,5 +1,7 @@
+"use strict"
+
 function Hero() {
-    const data = {
+    let data = {
         name: "Magneto",
         id: 4
     };
@@ -18,4 +20,8 @@ function Hero() {
     return { getName, setName, getId, setId };
 };
 
-console.log(Hero.getName);
+let y = document.querySelectorAll(".hero").innerHTML
+let x = document.getElementById('name')
+
+y = x.nodeValue;
+console.log(Hero.name)
