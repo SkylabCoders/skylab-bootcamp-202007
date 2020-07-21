@@ -1,31 +1,34 @@
 const Pet = function () {
-    let name = "";
+    let data = {
+        name: 'Kira',
+        gender: 'female',
+        legs: 4
+    }
 
 
-    let createPet = function (newName) {
-        name = newName;
+    let createPet = function () {
         return {
-            name: name,
+            name: data.name,
         };
     };
 
     let getName = function () {
-        return name;
+        return data.name;
     };
     let setName = function (newName) {
-        name = newName;
+        data.name = newName;
     };
     let getGender = function () {
-        return gender;
+        return data.gender;
     };
     let setGender = function (newGender) {
-        this.gender = newGender;
+        data.gender = newGender;
     };
     let getLegs = function () {
-        return legs;
+        return data.legs;
     };
     let setLegs = function (newLegs) {
-        this.legs = newLegs;
+        data.legs = newLegs;
     };
 
     return {
@@ -38,4 +41,3 @@ const Pet = function () {
         setLegs
     }
 }
-let myPet = new Pet();

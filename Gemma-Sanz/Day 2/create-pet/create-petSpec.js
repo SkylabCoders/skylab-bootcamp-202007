@@ -1,47 +1,45 @@
 describe('Pet', function () {
-    debugger
     let myPet;
-
-
-    let name = 'Kira';
-    let legs = 4;
     let newGender = undefined;
-    let pet = {
-        name: 'Kira'
-    };
     let newName = 'Pepa';
-    beforeEach(function () {
+    let data
 
+    beforeEach(function () {
         myPet = new Pet();
+        data = {
+            name: 'Kira',
+            gender: 'female',
+            legs: 4
+        }
     });
 
     it('should create a new pet', function () {
-        expect(myPet.createPet(name)).toEqual(pet);
+        expect(myPet.createPet(data.name)).toEqual(pet);
     });
-    it('shoud return pet name', function () {
-        myPet.createPet(name);
-        expect(myPet.getName()).toEqual(name);
+    xit('shoud return pet name', function () {
+        myPet.createPet(data.name);
+        expect(myPet.getName()).toEqual(data.name);
     });
-    it('sould change the pet name', function () {
-        myPet.createPet(name);
+    xit('sould change the pet name', function () {
+        myPet.createPet(data.name);
         myPet.setName(newName);
         expect(myPet.getName()).toEqual(newName);
     });
-    it("should create the pet gender", function () {
-        myPet.createPet(name);
+    xit("should create the pet gender", function () {
+        myPet.createPet(data.name);
         expect(myPet.getGender()).toEqual(undefined);
         myPet.setGender("female");
         expect(myPet.getGender()).toEqual("female");
         myPet.setGender("male");
         expect(myPet.getGender()).toEqual("male");
     })
-    it("should change the pet gender", function () {
-        myPet.createPet(name);
+    xit("should change the pet gender", function () {
+        myPet.createPet(data.name);
         myPet.setGender(newGender);
         expect(myPet.setGender()).toEqual(newGender);
     })
-    it("should set a number of legs", function () {
-        myPet.createPet(name);
+    xit("should set a number of legs", function () {
+        myPet.createPet(data.name);
         expect(myPet.setLegs()).toBeUndefined();
         myPet.setLegs(4);
         expect(myPet.getLegs()).toEqual(4);
