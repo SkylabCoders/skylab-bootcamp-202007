@@ -1,9 +1,14 @@
-descrption("Hero", function () {
+describe("Hero", function () {
+    const hero;
+    let name;
+    let id;
     beforeEach(function () {
-        const hero = {
+        hero = {
             name: "Magneto",
             id: 4
-        }
+        };
+        name = "Magneto";
+        id = 4;
     });
     it("should have a name", function () {
         expect(hero.name).toBe(name);
