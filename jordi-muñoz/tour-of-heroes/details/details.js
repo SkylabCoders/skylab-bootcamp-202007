@@ -1,6 +1,9 @@
 function Hero() {
-    let name = 'batman';
-    let id = 1;
+    let message = document.querySelector('.message-name');
+    let nameInput = document.getElementById('hero-name');
+    let idInput = document.querySelector('.id-value')
+    let name = 'Batman';
+    let id = 11;
     function getName() {
         return name;
     }
@@ -10,9 +13,19 @@ function Hero() {
     function getId() {
         return id;
     }
-
-    return {getName, setName, getId}
+    function printName() {
+        nameInput.value = name;
+        message.innerHTML = name + ' details!';
+    }
+    function printId() {
+        idInput.innerHTML = id;
+    }
+    printName();
+    printId();
+    return { getName, setName, getId, printName }
 }
+let batman = new Hero;
+
 
 
 

@@ -1,8 +1,8 @@
 describe('Heroes Details', function () {
    let hero;
-   let id = 1;
-   let name = 'batman';
-   let newName = 'spiderman';
+   let id = 11;
+   let name = 'Batman';
+   let newName = 'Spiderman';
 beforeEach(function() {
     hero = new Hero();
 })
