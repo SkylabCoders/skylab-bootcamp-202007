@@ -23,18 +23,23 @@ function addValorToOperator(numberValor) {
         firstOperator = null;
         secondOperator = null;
     }
+    if (actualOperator === '' && numberValor === '.') {
+        actualOperator = '0';
+    }
     actualOperator += numberValor;
     document.getElementById("result").innerHTML = actualOperator;
 }
 
 function setActualSymbol(symbolButtonValor) {
-    if (actualOperator === '' && !actualOperationType && !firstOperator) {
-        return;
+
+    if (actualOperator.indexOf(".") === (actualOperator.length - 1)) {
+        actualOperator += '0'
     }
     if (!firstOperator) {
         firstOperator = actualOperator;
         actualOperator = '';
         firstOperator = parseFloat(firstOperator);
+        firstOperator = calculator.operation(0, firstOperator, actualOperationType) || 0;
     } else if (actualOperator != '') {
         secondOperator = actualOperator;
         actualOperator = '';

@@ -1,10 +1,13 @@
 'use strict';
 const Calculator = function () {
     function operation(firstOperator, secondOperator, typeOperation) {
-        if (!firstOperator || !secondOperator) {
+        if (!firstOperator && !secondOperator) {
             return;
         }
         let result = 0;
+        if (!firstOperator || !secondOperator) {
+            result = firstOperator || secondOperator;
+        }
         switch (typeOperation) {
             case addSymbol:
                 result = firstOperator + secondOperator;
