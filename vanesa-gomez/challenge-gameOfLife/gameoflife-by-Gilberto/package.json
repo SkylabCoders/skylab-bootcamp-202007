@@ -1,0 +1,15 @@
+{
+  "name": "gameoflife_by_Gilberto",
+  "version": "1.0.0",
+  "description": "As a Life enthusiast I want to code Conway's Game of Life So that i can practice my frontend skills",
+  "main": "life-states.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
+}
