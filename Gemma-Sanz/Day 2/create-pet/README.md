@@ -51,3 +51,24 @@ Then the gender changes
 {name: "Kira", gender: "female"}|"female"
 {name: "Kira", gender: "male"}|"male"
 {name: "Kira"}
+
+Scenario #6 - Set pet legs
+
+Given an existing pet
+When I call the function <setLegs> with a <legsNumber>
+Then the number of legs is changed.
+
+*pet|legs|legsNumber
+{name: "Kira", gender: "female", legs: "undefined"}|4|"4"
+{name: "Kira", gender: "female", legs: "2"}|6|"6"
+
+Scenario #7 - Get pet legs
+
+Given an existing pet
+When I call the function <getLegs> 
+Then the legsNumber value is changed.
+
+*pet|legsNumber|
+{name: "Kira", gender: "female", legs: "undefined"}|undefined|
+{name: "Kira", gender: "female", legs: "2"}|2|
+{name: "Kira", gender: "female", legs: "4"}|4|
