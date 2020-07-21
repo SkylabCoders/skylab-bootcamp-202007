@@ -1,13 +1,14 @@
 'use strict';
 
-const getDiceRoll = function () {
-  console.log('Rolling a dice...');
-  return Math.ceil(6 * Math.random());
+const getDiceRoll = function (diceSize) {
+  console.log(`Rolling a dice with ${diceSize} sides...`);
+  return Math.ceil(diceSize * Math.random());
 };
 
-const firstDice = getDiceRoll();
-const secondDice = getDiceRoll();
-
+const firstDice = getDiceRoll(6);
 console.log(firstDice);
+
+const secondDice = getDiceRoll(6);
 console.log(secondDice);
-console.log(firstDice + secondDice);
+
+console.log('The sum is: ', firstDice + secondDice);
