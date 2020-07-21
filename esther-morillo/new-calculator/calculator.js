@@ -4,8 +4,9 @@ function Calculator() {
     let writeScreen = document.querySelector('.screen');
     let buttons = document.querySelector('.buttons');
 
+
     buttons.addEventListener('click', function (event) {
-        if (event.target != result) {
+        if (event.target != screen) {
             switch (event.target.textContent) {
                 case 'AC':
                     resetScreen();
@@ -34,12 +35,16 @@ function Calculator() {
     });
 
     function writeOperation(text) {
-        if (text === '0' && text !== '.') {
-            writeScreen.textContent = '';
-        }
 
-        writeScreen = text;
-        console.log(Number(text))
+        let numbers;
+        // if (text === '0' && text !== '.') {
+        //     writeScreen.textContent = '';
+        // }
+        console.log(text);
+        numbers += text;
+
+        writeScreen.textContent = text;
+
 
         if (writeScreen === '+' || writeScreen === '-' || writeScreen === '*' || writeScreen === '/') {
 
@@ -62,3 +67,5 @@ function Calculator() {
 
 
 const calculate = Calculator();
+
+calculate.writeOperation;
