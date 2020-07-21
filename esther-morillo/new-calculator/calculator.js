@@ -29,17 +29,21 @@ function Calculator() {
                     break;
                 default:
                     writeOperation(event.target.textContent);
+
                     break;
             }
         }
     });
 
     function writeOperation(text) {
+        return console.log('Hi')
 
-        let numbers;
+        let numbers = text;
         // if (text === '0' && text !== '.') {
         //     writeScreen.textContent = '';
         // }
+
+        console.log(numbers)
         console.log(text);
         numbers += text;
 
@@ -51,9 +55,7 @@ function Calculator() {
         }
     };
 
-    function writeOperation() {
 
-    };
 
     function resetScreen() {
         writeScreen.textContent = 0;
@@ -63,9 +65,12 @@ function Calculator() {
         writeOperation
     };
 
+    //No ejecuto aquí porque si no no podré llamarlo cuando yo quiera. Se ejecutará al invocar a la grande
+
+
+
 };
 
 
-const calculate = Calculator();
-
-calculate.writeOperation;
+const calculate = new Calculator();
+calculate.writeOperation();
