@@ -1,26 +1,36 @@
 describe('Pet', function () {
   let myPet;
+  const femaleGender = 'female';
+  const maleGender = 'male';
+  const petName = 'Goku';
+  const newPetName = 'Goten';
 
   beforeEach(function () {
     let myPet = new Pet();
   });
   it('should be able to have a name', function () {
-    expect(myPet.createPet('Goku')).toEqual(myPet.name);
+    expect(myPet.createPet(petName)).toEqual(myPet.name);
   });
 
   it('should be able to retrieve the name', function () {
-    expect(mypet.getName().toEqual('Goku'));
+    expect(mypet.getName().toEqual(petName));
   });
 
   it('should be able to change the name', function () {
-    expect(myPet.setName('Goten').toEqual((myPet.getName = 'Goten')));
+    expect(myPet.setName(newPetName).toEqual((myPet.getName = newPetName)));
   });
 
   it('should be able to set a gender', function () {
-    expect(myPet.setGender('male').toEqual(myPet.getName != undefined));
+    expect(myPet.setGender(maleGender).toEqual(myPet.getName != undefined));
   });
 
   it('should be able to change the pets gender', function () {
-    expect(myPet.setGender('female').toEqual((myPet.getGender = 'female')));
+    expect(
+      myPet.setGender(femaleGender).toEqual((myPet.getGender = femaleGender))
+    );
+  });
+
+  it('should be able to set leg number', function () {
+    expect(myPet.setLegs(legsValue).toEqual((myPet.getLegs = legsValue)));
   });
 });

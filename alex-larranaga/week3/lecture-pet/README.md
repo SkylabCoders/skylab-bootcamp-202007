@@ -44,7 +44,7 @@ Then the property gender points to the value <gender>
 | 'male' |
 | 'female' |
 
-SCENARIO 5: Set a pets name
+SCENARIO 5: Set a pets gender
 
 Given a already existing pet gender
 When I call the setName function with a <newGender>
@@ -53,3 +53,14 @@ Then the property points to the value <newGender>
 ## | newGender |
 
 | 'male' |
+
+SCENARIO 6: Set legs to existing pet
+
+Given a existing pet
+When I call a setLets function with value <value>
+Then the legs property points to value <value>
+
+## | legs |
+
+| 4 |
+| 27 |
