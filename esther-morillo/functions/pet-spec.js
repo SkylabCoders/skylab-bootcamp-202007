@@ -60,7 +60,18 @@ describe('Pet', function () {
     it('should change the gender pet', function () {
         myPet.createPet(name);
         myPet.setGender(newGender);
+        //Para acceder a la propiedad uso el get
         expect(myPet.getGender()).toEqual(newGender);
     });
 
+    //Patas 
+    it('should set and get a number of legs', function () {
+        myPet.createPet(name);
+        // Cuando lo creo la primera vez no tengo el legs
+        expect(myPet.getLegs).toBeUndefined();
+        myPet.setLegs(4);
+        expect(myPet.getLegs()).toEqual(4);
+        myPet.setLegs(2);
+        expect(myPet.getLegs()).toEqual(2);
+    })
 });

@@ -64,5 +64,18 @@ Given an exisiting pet
 When I call the setLegs function with a legsNumber
 Then the number of legs is changed                  //El set no devuelve valor
 
-| pet | legsNumber |
+| pet | legsNumber | newPet |                       //Otra manera de verlo: creo un nuevo objeto
+{ name: 'Kira', legs: undefined } | 4 | { name: 'Kira', legs: 4 }
+{ name: 'Kira', legs: 2 } | 6 | { name: 'Kira', legs: 6 }
+
+
+#7 - Get pet legs 
+
+Given an exisiting pet
+When I call the getLegs functions
+Then the legsNumber value is returned            
+
+| pet | legsNumber |                       
+{ name: 'Kira', legs: 2 } | 2 | 
+{ name: 'Kira', legs: 4 } | 4 | 
 

@@ -65,9 +65,6 @@ function Calculator() {
         writeOperation
     };
 
-    //No ejecuto aquí porque si no no podré llamarlo cuando yo quiera. Se ejecutará al invocar a la grande
-
-
 
 };
 

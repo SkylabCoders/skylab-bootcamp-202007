@@ -1,9 +1,10 @@
 describe('Hero', function () {
     let dataHero = {
-        name: '',
+        name: 'Name Hero',
         id: null
     };
     let hero;
+    let newHeroName = '';
 
     beforeEach(function () {
         hero = new Hero();
@@ -23,6 +24,7 @@ describe('Hero', function () {
     })
 
     it('should be able to hero id', function () {
+        hero.setHeroId(newHeroName);
         expect(hero.getHeroId()).toEqual(dataHero.id);
     })
 })
