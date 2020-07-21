@@ -2,20 +2,22 @@ describe('Pet', function () {
   let myPet;
   const femaleGender = 'female';
   const maleGender = 'male';
-  const petName = 'Goku';
-  const newPetName = 'Goten';
+  const petName = 'goku';
+  const newPetName = 'goten';
 
   beforeEach(function () {
     let myPet = new Pet();
   });
+
   it('should be able to have a name', function () {
-    expect(myPet.createPet(petName)).toEqual(myPet.name);
+    myPet.setName(petName);
+    expect(myPet.getName()).toEqual(petName);
   });
 
   it('should be able to retrieve the name', function () {
-    expect(mypet.getName().toEqual(petName));
+    myPet.setName(petName);
+    expect(myPet.getName().toEqual(petName));
   });
-
   it('should be able to change the name', function () {
     expect(myPet.setName(newPetName).toEqual((myPet.getName = newPetName)));
   });
@@ -25,9 +27,8 @@ describe('Pet', function () {
   });
 
   it('should be able to change the pets gender', function () {
-    expect(
-      myPet.setGender(femaleGender).toEqual((myPet.getGender = femaleGender))
-    );
+    myPet.setGender(femaleGender);
+    expect(myPet.getGender().toEqual(femaleGender));
   });
 
   it('should be able to set leg number', function () {
