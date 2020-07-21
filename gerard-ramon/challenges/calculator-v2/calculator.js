@@ -9,7 +9,7 @@ function Calculator() {
 	let resultShown = false;
 
 	function printNumberToScreen(number, scrNumber) {
-		screenNumber = scrNumber;
+		//screenNumber = scrNumber;
 		if (screenNumber.length === 11) {
 			screenNumber = number;
 		} else {
@@ -127,7 +127,7 @@ function Calculator() {
 	};
 }
 
-const calculator = new Calculator();
+const calculator = Calculator();
 
 // #### EVENTLISTENERS ####
 for (const button of numberButtons) {
