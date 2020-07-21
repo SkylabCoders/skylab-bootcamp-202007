@@ -11,22 +11,22 @@ describe('Calc', function () {
   });
 
   it('should return add operation', function () {
-    expect(calc.add(2, 2)).toEqual(4)
+    expect(calculator.add(2, 2)).toEqual(4)
   });
 
   it('should return subs operation', function () {
-    expect(calc.subs(4, 2)).toEqual(2)
+    expect(calculator.subs(4, 2)).toEqual(2)
   });
 
   it('should return mult operation', function () {
-    expect(calc.mult(4, 2)).toEqual(8)
+    expect(calculator.mult(4, 2)).toEqual(8)
   });
 
   it('should return div operation', function () {
-    expect(calc.div(4, 2)).toEqual(2)
+    expect(calculator.div(4, 2)).toEqual(2)
   });
 
   it('should delete screen', function () {
-    expect(calc.del()).toEqual(0)
+    expect(calculator.del()).toEqual(0)
   });
 });

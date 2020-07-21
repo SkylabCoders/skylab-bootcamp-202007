@@ -44,7 +44,7 @@ function Calc() {
         screen = '';
         typeOp = '';
         start = true;
-        document.getElementById('result').innerHTML = 0;
+        document.getElementById('result').innerHTML = result;
         return result;
     }
     function operation(type) {
@@ -95,7 +95,7 @@ function Calc() {
         
     }
 
-    return {numbers, add, subs, mult, div, del, operation, print};
+    return {numbers, add, subs, mult, div, del, operation, print, result};
 }
 
-const calculator = Calc();
+const calculator = new Calc();
