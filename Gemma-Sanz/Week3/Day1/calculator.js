@@ -1,7 +1,7 @@
 function Calculate() {
 
-    const [button7, button8, button9, button4, button5, button6, button1, button2, button3, button0] = document.querySelectorAll('.button')
-    const allButtons = [button7, button8, button9, button4, button5, button6, button1, button2, button3, button0]
+    const [button7, button8, button9, button4, button5, button6, button1, button2, button3, button0, buttonPoint] = document.querySelectorAll('.button')
+    const allButtons = [button7, button8, button9, button4, button5, button6, button1, button2, button3, button0, buttonPoint]
 
 
     for (var i = 0; i < allButtons.length; i++) {
@@ -79,6 +79,8 @@ function Calculate() {
         screen
     }
 }
+Calculate();
+
 
 // TODO
 // definir componentes/ nodes
