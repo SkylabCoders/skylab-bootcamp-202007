@@ -1,10 +1,20 @@
 describe('Pet', function () {
-    let myPet = new Pet();
+    debugger
+    let myPet;
+
+
     let name = 'Kira';
+    let legs = 4;
+    let newGender = undefined;
     let pet = {
         name: 'Kira'
-    }
+    };
     let newName = 'Pepa';
+    beforeEach(function () {
+
+        myPet = new Pet();
+    });
+
     it('should create a new pet', function () {
         expect(myPet.createPet(name)).toEqual(pet);
     });
