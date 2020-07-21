@@ -3,29 +3,31 @@ describe('Calculator', function () {
 
 	beforeEach(function () {
 		calculator = new Calculator();
-		console.log(calculator);
-		console.log(screen);
 	});
 
-	fit('Should not allow more than 12 characters in the screen', function () {
-		let length = 11;
-		debugger;
+	it('Should not allow more than 12 characters in the screen', function () {
+		let length = 12;
 		calculator.screenNumber = '111111111111';
+		console.log(calculator.screenNumber);
 		calculator.printNumberToScreen('1');
-		expect(screenNumber.length).toBe(length);
+		expect(calculator.screenNumber.length).toBe(length);
 	});
 
 	it('Should not let the user introduce more than one coma', function () {
 		let expectedResult = '1.2';
 		calculator.screenNumber = '1.2';
-		calculator.addScreenNumber('.');
-		expect(have2Comas).toBe(expectedResult);
+		debugger;
+		calculator.screenNumber = calculator.printNumberToScreen(
+			'.',
+			calculator.screenNumber
+		);
+		expect(calculator.screenNumber).toBe(expectedResult);
 	});
 
 	it('Should insert a 0, when no number in the screen and user clicks in <,> button', function () {
 		calculator = new Calculator();
 		calculator.screenNumber = '';
-		calculator.addScreenNumber('.');
+		calculator.screenNumber = calculator.printNumberToScreen('.');
 		expect(calculator.screenNumber).toBe('0.');
 	});
 
@@ -59,9 +61,9 @@ describe('Calculator', function () {
 		expect(calculator.screenNumber).toBe('');
 	});
 
-	it('Should reset the current operation when clicking <AC> button', function () {
+	fit('Should reset the current operation when clicking <AC> button', function () {
 		calculator.accumulator = 10;
-		calculator.doAC();
+		calculator.resetCalculator();
 		expect(calculator.accumulator).toBe(0);
 	});
 

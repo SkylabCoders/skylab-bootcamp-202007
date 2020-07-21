@@ -8,7 +8,8 @@ function Calculator() {
 	let screen = document.querySelector('.screen');
 	let resultShown = false;
 
-	function printNumberToScreen(number) {
+	function printNumberToScreen(number, scrNumber) {
+		screenNumber = scrNumber;
 		if (screenNumber.length === 11) {
 			screenNumber = number;
 		} else {
@@ -25,6 +26,8 @@ function Calculator() {
 			}
 		}
 		screen.innerHTML = screenNumber;
+		scrNumber = screenNumber;
+		return scrNumber;
 	}
 
 	function doOperation(previousOperator) {
@@ -41,7 +44,7 @@ function Calculator() {
 					clearScreen();
 				} else {
 					doTimes();
-					printNumberToScreen(+accumulator.toFixed(3));
+					printNumberToScreen(+accumulator.toFixed(3), screenNumber);
 					screenNumber = '';
 				}
 				break;
@@ -52,7 +55,10 @@ function Calculator() {
 					clearScreen();
 				} else {
 					doDivide();
-					printNumberToScreen(+accumulator.toFixed(3));
+					screenNumber = printNumberToScreen(
+						+accumulator.toFixed(3),
+						screenNumber
+					);
 					screenNumber = '';
 				}
 
@@ -116,7 +122,8 @@ function Calculator() {
 		printNumberToScreen,
 		clearScreen,
 		resetCalculator,
-		doOperation
+		doOperation,
+		screenHasComa
 	};
 }
 
@@ -126,7 +133,7 @@ const calculator = new Calculator();
 for (const button of numberButtons) {
 	button.addEventListener('click', function () {
 		let numberInput = calculator.getClickedButtonValue(button);
-		calculator.printNumberToScreen(numberInput);
+		calculator.printNumberToScreen(numberInput, calculator.screenNumber);
 	});
 }
 
