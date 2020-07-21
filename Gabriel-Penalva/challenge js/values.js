@@ -18,7 +18,11 @@ console.log(isEqual(-0,0));
 console.log(isEqual(0,-0));
 
 console.log(isEqual(-0,-0));
+<<<<<<< HEAD
 >>>>>>> origin
+=======
+>>>>>>> d4f03168a4813a4b4dca66a36d0f7bb079d346fa
+>>>>>>> c0b66836e96b9eaed2ef42673972fbd8f77bbb91
 
 let array = [0,0,0,0,0];
 console.log(array[-1]);

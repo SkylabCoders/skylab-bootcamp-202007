@@ -1,0 +1,44 @@
+As a math enthusiast
+I want to increase and decrease a number
+So that I can quickly know the number before and after
+
+Acceptance Criteria
+
+Scenario #1: Increment
+
+Given a function
+When I send the number <number>
+Then I can see in the console the <incremented> number
+
+number-incremented
+0-'The result is 1'
+1-'The result is 2'
+3-'The result is 4'
+10-'The result is 11'
+
+Scenario #2: Decrement
+
+Given a function
+When I send the number <number>
+Then I can see in the console the <decremented> number
+
+number-decrement
+2-'The result is 1'
+3-'The result is 2'
+5-'The result is 4'
+12-'The result is 11'
+
+
+[BONUS] Scenario #3 Custom Answer
+
+Given a function fnUpAndDown
+When I input a <number> and an <operation>
+Then a <message> is displayed in the console
+
+number-operation-message
+2-decrement-'The decrement is 01'
+1-decrement-'The decrement is 00'
+5-decrement-'The decrement is 04'
+5-increment-'The increment is 06'
+10-decrement-'The decrement is 09'
+10-increment-'The increment is 11'
