@@ -16,55 +16,68 @@ function Calculate() {
     let otherNumber = 0;
     for (var j = 0; j < allOperations.length; j++) {
         allOperations[i].addEventListener("click", () => {
-                screen.innerHTML = currentNumber + operation[i].innerHTML;
-                otherNumber += Number(buttons[i].innerHTML)
-                screen.innerHTML = otherNumber;
-
-
+            [currentNumber, otherNumber] = [otherNumber, currentNumber]
+            switch (allOperations.innerHTML) {
+                case "x":
+                    currentNumber * otherNumber
+                    break;
+                case "/":
+                    currentNumber / otherNumber
+                    break;
+                case "-":
+                    currentNumber - otherNumber
+                    break;
+                case "+":
+                    currentNumber + otherNumber
+                    break;
+                default:
+                    break;
             }
+
+
         });
-}
+    }
 
 
 
 
-// TODO refactor 
+    // TODO refactor 
 
-let sum = function (num1, num2) {
-    result = num1 + num2
-    return result;
+    let sum = function (num1, num2) {
+        result = num1 + num2
+        return result;
 
-};
-let rest = function (num1, num2) {
-    result = num1 - num2
+    };
+    let rest = function (num1, num2) {
+        result = num1 - num2
 
-    return result;
+        return result;
 
-};
-let div = function (num1, num2) {
-    result = num1 / num2
+    };
+    let div = function (num1, num2) {
+        result = num1 / num2
 
-    return result;
+        return result;
 
-};
-let multi = function (num1, num2) {
-    result = num1 * num2
+    };
+    let multi = function (num1, num2) {
+        result = num1 * num2
 
-    return result;
-};
+        return result;
+    };
 
-let ac = function () {
-    return 0;
+    let ac = function () {
+        return 0;
 
-}
-return {
-    sum,
-    rest,
-    div,
-    multi,
-    ac,
-    screen
-}
+    }
+    return {
+        sum,
+        rest,
+        div,
+        multi,
+        ac,
+        screen
+    }
 }
 
 // TODO
