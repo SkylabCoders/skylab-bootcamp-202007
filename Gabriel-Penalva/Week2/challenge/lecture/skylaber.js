@@ -4,6 +4,6 @@ const obj = {
 };
 
 console.log(obj);
-delete obj;
+delete obj.name;
 
 console.log(obj)

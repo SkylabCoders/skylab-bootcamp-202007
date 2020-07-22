@@ -45,7 +45,7 @@ function printHtmlName(name) {
     htmlName.innerText = name + ' Details!';
 }
 function printHtmlId(id) {
-    htmlId.innerText = 'id: ' + id;
+    htmlId.innerText = id;
 }
 function setHeroName(id) {
     heros[id - 1].setName(newName.nodeValue);
