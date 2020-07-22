@@ -20,7 +20,7 @@ const Hero = function () {
     }
 
     let setHeroName = function (newHeroName) {
-        dataHero.name = newHeroName.toLowerCase();
+        dataHero.name = newHeroName;
     }
 
     let getWriteHero = function () {

@@ -1,11 +1,17 @@
 describe('Pet', function () {
     // Primero declarar las variable del objeto que usaré
-    let myPet = new Pet();
-    let name = 'Kira';
     let pet = {
-        name: 'Kira'
+        name: 'Kira',
+        gender: 'female',
+        legs: 4
     };
-    let newName = 'Pepa';
+    let newName = 'Kori'
+    let myPet;
+    let newGender = '';
+
+    beforeEach(function () {
+        myPet = new Pet();
+    })
 
     //El beforeEach sirve para ejecutar todo y que no se repita nada
 
@@ -21,15 +27,15 @@ describe('Pet', function () {
         //Antes de preguntar el nombre hay que crearlo
         //Hay que garantizar que exista un nombre para pedir el nombre
         //Los it son independientes y hay que pasarles todo porque se ejecutan de forma aleatoria
-        myPet.createName('Kira');
-        expect(myPet.getName()).toEqual(name);
+        myPet.createPet('Kira');
+        expect(myPet.getName()).toEqual(pet.name);
     });
 
     //Hacemos el set del name:
     it('should change the pet name', function () {
         // Espero el nombre y lo voy a comparar 
         //Y volvemos a poner lo que necesitamos
-        myPet.create(name);
+        myPet.createPet(pet.name);
         myPet.setName(newName);
         //Y espero que el nombre de mi mascota sea igual al nuevo nombre    
         expect(myPet.getName()).toEqual(newName);
@@ -40,7 +46,7 @@ describe('Pet', function () {
     it('should get de pet gender', function () {
         //Debe tener una función getGender
         //Recorremos escenarios
-        myPet.createPet(name);
+        myPet.createPet(pet.name);
         //Get no recibe argumento pero sí return
         //Set recibe argumento pero no return
         expect(myPet.getGender()).toEqual(undefined); //No tenemos el género
@@ -58,7 +64,7 @@ describe('Pet', function () {
 
 
     it('should change the gender pet', function () {
-        myPet.createPet(name);
+        myPet.createPet(pet.name);
         myPet.setGender(newGender);
         //Para acceder a la propiedad uso el get
         expect(myPet.getGender()).toEqual(newGender);
@@ -66,9 +72,9 @@ describe('Pet', function () {
 
     //Patas 
     it('should set and get a number of legs', function () {
-        myPet.createPet(name);
+        myPet.createPet(pet.name);
         // Cuando lo creo la primera vez no tengo el legs
-        expect(myPet.getLegs).toBeUndefined();
+        expect(myPet.getLegs()).toBeUndefined();
         myPet.setLegs(4);
         expect(myPet.getLegs()).toEqual(4);
         myPet.setLegs(2);

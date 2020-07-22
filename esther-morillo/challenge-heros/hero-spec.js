@@ -1,6 +1,6 @@
 describe('Hero', function () {
     let dataHero = {
-        name: 'Name Hero',
+        name: '',
         id: null
     };
     let hero;
