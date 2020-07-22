@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hero-detail.component.css" type="text/css">
+    <title>Tour of Heroes</title>
+</head>
+
+<body>
+    <main class="main-content">
+        <div class="details__header">
+            <h1>Tour of Heroes</h1>
+            <button>Dashboard</button> <button>Heroes</button>
+        </div>
+        <div class="details__content">
+            <h2><span id="hero-details__name"></span> Details</h2>
+            <p>id: <span id="hero-details__id">1</span> </p>
+            <label for="heroName" class="name" name="heroName">name <input type="text" value="Magneta" id="hero-detail__name-control"
+                    onchange="heroDetailsComponent.nameChange(this.value)">
+            </label>
+            <button>Back</button>
+        </div>
+    </main>
+    <script src="../hero.data.js" type="text/javascript"></script>
+    <script src="../hero-detail/hero-detail.component.js" type="text/javascript"></script>
+    <script src="../hero.js" type="text/javascript"></script>
+</body>
+</html>
