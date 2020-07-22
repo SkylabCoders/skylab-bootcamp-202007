@@ -1,0 +1,27 @@
+#mainContainer--list {
+    display: grid;
+    margin-top: 10px;
+}
+
+.id {
+    background-color: rgb(76, 76, 124);
+    color: white;
+    padding-inline: inherit;
+    font-weight: bold;
+}
+
+.name {
+    color: grey;
+    padding-left: 5px;
+}
+
+#mainContainer--list>button {
+    width: 150px;
+    text-align: start;
+    padding-left: 0px;
+}
+
+
+a {
+    text-decoration: none;
+}

@@ -1,27 +1,11 @@
-function HeroDetailComponent() {
-	const hero = heroList[0];
+let mainContentDashboard = document.querySelector("#mainContainer--dashboard")
 
-	this.onInit = function () {
-		updateId();
-		updateName();
+function DashboardContent() {
+	debugger
+	for (let i = 0; i < 3; i++) {
+		let itemDashboard = document.createElement("button");
+		mainContentDashboard.appendChild(itemDashboard);
+		itemDashboard.innerHTML = heroList[i].name;
 	};
-
-	this.nameChange = function (newName) {
-		hero.name = newName;
-		updateName();
-	};
-
-	function updateId() {
-		document.getElementById('hero-detail__id').innerHTML = hero.id;
-	}
-
-	function updateName() {
-		document.getElementById('hero-detail__name').innerHTML = hero.name;
-		document.getElementById('hero-detail__name-control').value = hero.name;
-	}
 }
-
-const heroDetailComponent = new HeroDetailComponent();
-heroDetailComponent.onInit();
-
-console.log(heroDetailComponent);
+DashboardContent()
