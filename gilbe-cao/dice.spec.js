@@ -1,8 +1,10 @@
 describe('DiceGame', function () {
   let game;
+  let heroDetailComponent;
 
   beforeEach(function () {
     game = new DiceGame();
+    heroDetailComponent = new HeroDetailComponent();
   });
 
   it('should create', function () {
