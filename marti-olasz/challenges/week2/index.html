@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Life</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h2>Turn: <p class="turn">0</p>
+            </h2>
+            <button onclick="game.addSize()">
+                <h3> + </h3>
+            </button>
+            <button onclick="if(game.size > 1){game.restSize()}">
+                <h3> - </h3>
+            </button>
+
+        </div>
+        <h1>Conway's Game of Life</h1>
+        <div>
+            <button onclick="game.turn(game.actualBoard)">
+                <h3>Next turn</h3>
+            </button>
+            <button onclick="start()">
+                <h3>Start</h3>
+            </button>
+            <button onclick="pause()">
+                <h3>Stop</h3>
+            </button>
+        </div>
+    </header>
+    <section class="gridPlace"></section>
+</body>
+<script src="gameOfLife.js"></script>
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css" type="text/css">
+    <title>Game Of Life</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__nav">
+            <h1 class="nav__title">GAME OF LIFE</h1>
+            <div class="flex-spacer"></div>
+            <div class="nav__size-container">
+                <label for="size-slider">Grid Size</label>
+                <input id="size-slider" type="range" min="10" max="30" value="20" step="5" class="size-container__slider slider">
+            </div>
+            <div class="nav__speed-container">
+                <label for="speed-slider">Speed</label>
+                <input id="speed-slider" type="range" min="100" max="1000" value="500" step="100" class="speed-container__slider slider">
+            </div>
+            <div class="flex-spacer"></div>
+            <div class="nav__buttons-container">
+                <button class="nav__button nav__button--start">Start</button>
+                <button class="nav__button nav__button--pause">Pause</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="main__explain">
+            <p>Place your cells in the grid and see how they interact with each other.</p>
+        </div>
+        <div class="game-container">
+
+        </div>
+    </main>
+
+    <p class="iterations">Generations: 0</p>
+
+    <footer class="footer">
+        <p>Copyright &copy; Gerard Ramon</p>
+    </footer>
+
+    <script src="game.js"></script>
+    <script src="shared/life-states.js"></script>
+
+</body>
+
+</html>

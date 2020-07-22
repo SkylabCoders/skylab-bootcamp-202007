@@ -1,0 +1,23 @@
+.MAP
+
+Description:
+As a web developer
+I want to implement a method
+So that i can aply mathematical operations in an array
+
+Scenarios:
+Given the array
+When i call the function
+Then i want to 
+
+.MAP
+
+Description:
+As a web developer
+I want to implement a method
+So that i can aply mathematical operations in an array
+
+Scenarios:
+Given the array
+When...
+Then...

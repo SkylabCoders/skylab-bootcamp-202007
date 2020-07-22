@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Conway's Game of Life</title>
+
+		<!-- <link
+			rel="shortcut icon"
+			type="image/png"
+			href="../../../../../lib/jasmine-3.5.0/jasmine_favicon.png"
+		/>
+        <link rel="stylesheet" href="../../../../../lib/jasmine-3.5.0/jasmine.css" /> -->
+        <link rel="stylesheet" href="style.css">
+	</head>
+    <body>
+        <section class="title">
+            <h1>Conway's Game of Life</h1>
+            <h4>The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead, (or populated and unpopulated, respectively). Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:<br /><br />
+
+                Any live cell with fewer than two live neighbours dies, as if by underpopulation.<br />
+                Any live cell with two or three live neighbours lives on to the next generation.<br />
+                Any live cell with more than three live neighbours dies, as if by overpopulation.<br />
+                Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</h4>
+        </section>
+        <section class="core">
+            <main>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>  
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>
+                <div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                    <div class="grid"></div>
+                </div>   
+            </main>
+            <aside>
+                <button class="run">Run!
+                </button>
+                <button class="switch">Switch
+                </button>
+                <button class="reload">⟲
+                </button>
+            </aside>
+        </section>
+    </body>
+    <script src="index.js"></script>
+</html>
