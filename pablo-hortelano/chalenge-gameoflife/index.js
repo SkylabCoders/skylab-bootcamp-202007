@@ -117,12 +117,12 @@ function startGame(testBoard, maxSize) {
   let myLoop = function () {
     setTimeout(function () {
       i++;
-      if (i < 4) {
+      if (i < 2) {
         document.querySelector(".game-text").textContent = `Round nº ${i}`;
         (function recalculateNumberOfCellsAlive() {
           for (let i = 0; i < state.length; i++) {
             for (let j = 0; j < state[i].elements.length; j++) {
-              setGridToCalculateLifes(state, i, j, 2)
+              setGridToCalculateLifes(state, i, j, 2);
             }
           }
         })();
@@ -135,20 +135,26 @@ function startGame(testBoard, maxSize) {
   myLoop();
 }
 
-function setGridToCalculateLifes(state,   i, j, maxSize) {
-  let upper, upperLeft, upperRight, left, right, bottom, bottomLeft, bottomRight
+function setGridToCalculateLifes(state, i, j, maxSize) {
+  let upper,
+    upperLeft,
+    upperRight,
+    left,
+    right,
+    bottom,
+    bottomLeft,
+    bottomRight;
   let emptyArr = [];
-  let cont = 0
+  let cont = 0;
 
-  if (i === 0 & j === 0) {
-      right = state[i].elements[j + 1].live;
-      emptyArr.push(right)
-      bottom = state[i + 1].elements[j].live;
-      emptyArr.push(bottom)
-      bottomRight = state[i + 1].elements[j + 1].live;
-      emptyArr.push(bottomRight)
-      debugger;
-  } else if (i === 0 && j === maxSize) {
+  if ((i === 0) & (j === 0)) {
+    right = state[i].elements[j + 1].live;
+    emptyArr.push(right);
+    bottom = state[i + 1].elements[j].live;
+    emptyArr.push(bottom);
+    bottomRight = state[i + 1].elements[j + 1].live;
+    emptyArr.push(bottomRight);
+  } /* else if (i === 0 && j === maxSize) {
       left = state[i].elements[j - 1].live;
       bottom = state[i + 1].elements[j].live;
       bottomLeft = state[i + 1].elements[j - 1];
@@ -169,12 +175,11 @@ function setGridToCalculateLifes(state,   i, j, maxSize) {
       bottomLeft = state[i + 1].elements[j - 1].live;
       bottom = state[i + 1].elements[j].live;
       bottomRight = state[i + 1].elements[j + 1].live;
-  }
-  for(let boolean of emptyArr) {
-    if(boolean === true) {
-      cont ++
+  } */
+  for (let boolean of emptyArr) {
+    if (boolean === true) {
+      cont++;
     }
   }
-  console.log(state[i].elements[j].liveCelssAround);
+  state[i].elements[j].liveCelssAround = cont;
 }
-
