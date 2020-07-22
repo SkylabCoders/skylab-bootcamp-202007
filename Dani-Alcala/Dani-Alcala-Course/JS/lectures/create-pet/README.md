@@ -22,7 +22,7 @@ SCENARIOS
 3. Set name pet
    Given a pet
    When call the function setName with newName
-   Then the name change
+   Then the name changes
    |oldName|newName|
    |'Kira'|'Pepa'|
 
