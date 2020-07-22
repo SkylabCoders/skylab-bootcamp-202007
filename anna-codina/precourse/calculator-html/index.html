@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <header>
-        <script type="text/javascript" src="index.js"></script>
-        <link rel = "stylesheet" type="text/css" href="index.css">
-    </header>
-    <body>
+<header>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</header>
 
-        <div id= result>
-                0
-        </div>
+<body>
 
-        <div id = "interact-buttons">
-            <button id = "ac" class = "accion-button" onclick="clearResult()">AC</button>
-            <button id = "undo" onclick="undoLastStep()">&#10226;</button>
-            <button id = "divide" class = "operation-button" onclick="setActualSymbol('/')">&#247;</button>
-            <br>
-            <button id = "number-7" class = "number-button" onclick="addValorToActualOperator('7')">7</button>
-            <button id = "number-8" class = "number-button" onclick="addValorToActualOperator('8')">8</button>
-            <button id = "number-9" class = "number-button" onclick="addValorToActualOperator('9')">9</button>
-            <button id = "multiply" class = "operation-button" onclick="setActualSymbol('*')">&#215;</button>
-            <br>
-            <button id = "number-4" class = "number-button" onclick="addValorToActualOperator('4')">4</button>
-            <button id = "number-5" class = "number-button" onclick="addValorToActualOperator('5')">5</button>
-            <button id = "number-6" class = "number-button" onclick="addValorToActualOperator('6')">6</button>
-            <button id = "substract" class = "operation-button" onclick="setActualSymbol('-')">&#8722;</button>
-            <br>
-            <button id = "number-1" class = "number-button" onclick="addValorToActualOperator('1')">1</button>
-            <button id = "number-2" class = "number-button" onclick="addValorToActualOperator('2')">2</button>
-            <button id = "number-3" class = "number-button" onclick="addValorToActualOperator('3')">3</button>
-            <button id = "add" class = "operation-button" onclick="setActualSymbol('+')">&#43;</button>
-            <br>
-            <button id = "number-0" class = "number-button" onclick="addValorToActualOperator('0')">0</bu't'ton>
-            <button id = "decimal-separator" class = "number-button" onclick="addValorToActualOperator(',')">,</button>
-            <button id = "equals-to" class = "operation-button" onclick="showResult()">&#61;</button>   
-        </div>    
-    </body>
+    <div id=result>
+        0
+    </div>
+
+    <div id="interact-buttons">
+        <button id="ac" class="accion-button" onclick="clearResult()">AC</button>
+        <button id="undo" onclick="undoLastStep()">&#10226;</button>
+        <button id="divide" class="operation-button" onclick="setActualSymbol('/')">&#247;</button>
+        <br>
+        <button id="number-7" class="number-button" onclick="addValorToActualOperator('7')">7</button>
+        <button id="number-8" class="number-button" onclick="addValorToActualOperator('8')">8</button>
+        <button id="number-9" class="number-button" onclick="addValorToActualOperator('9')">9</button>
+        <button id="multiply" class="operation-button" onclick="setActualSymbol('*')">&#215;</button>
+        <br>
+        <button id="number-4" class="number-button" onclick="addValorToActualOperator('4')">4</button>
+        <button id="number-5" class="number-button" onclick="addValorToActualOperator('5')">5</button>
+        <button id="number-6" class="number-button" onclick="addValorToActualOperator('6')">6</button>
+        <button id="substract" class="operation-button" onclick="setActualSymbol('-')">&#8722;</button>
+        <br>
+        <button id="number-1" class="number-button" onclick="addValorToActualOperator('1')">1</button>
+        <button id="number-2" class="number-button" onclick="addValorToActualOperator('2')">2</button>
+        <button id="number-3" class="number-button" onclick="addValorToActualOperator('3')">3</button>
+        <button id="add" class="operation-button" onclick="setActualSymbol('+')">&#43;</button>
+        <br>
+        <button id="number-0" class="number-button" onclick="addValorToActualOperator('0')">0</bu't'ton>
+            <button id="decimal-separator" class="number-button" onclick="addValorToActualOperator(',')">,</button>
+            <button id="equals-to" class="operation-button" onclick="showResult()">&#61;</button>
+    </div>
+</body>
+
 </html>
