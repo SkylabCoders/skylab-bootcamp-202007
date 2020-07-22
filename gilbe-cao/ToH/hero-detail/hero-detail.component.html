@@ -4,11 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Hero Details</title>
+		<link rel="stylesheet" href="hero-detail.component.css" />
 	</head>
 	<body>
 		<h1>Tour of Heroes</h1>
-		<button>Dashboard</button>
-		<button>Heroes</button>
+		<a href="./hero-detail.component.html">Detail</a>
+		<a href="../hero-list/hero-list.component.html">Heroes</a>
 		<h2><span id="hero-detail__name"></span> details</h2>
 		<p>id: <span id="hero-detail__id"></span></p>
 		<label for="heroName">
@@ -20,8 +21,8 @@
 				onchange="heroDetailComponent.nameChange(this.value)"
 			/>
 		</label>
-		<script src="hero.js"></script>
-		<script src="hero.mock.js"></script>
+		<script src="../hero.js"></script>
+		<script src="../hero.mock.js"></script>
 		<script src="hero-detail.component.js"></script>
 	</body>
 </html>
