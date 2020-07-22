@@ -1,0 +1,47 @@
+.header {
+  width: 100%;
+}
+
+.header__title {
+  color: gray;
+}
+
+.header__buttons {
+}
+
+.buttons {
+  background-color: lightgray;
+  color: gray;
+  font-size: 20px;
+}
+
+.buttons:hover {
+  color: blue;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__details {
+  display: flex;
+}
+
+.info__id {
+  display: flex;
+}
+
+.info__name {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  margin-left: 20px;
+  height: 30px;
+}
+
+.details__name {
+  margin-right: 10px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__title">Tour of heroes</h1>
+        <div class="header__buttons">
+            <button class="buttons"> Dashboard </button>
+            <button class="buttons"> Heroes </button>
+        </div>
+    </header>
+    <section class="main">
+        <h2 class="main__details"></h2>
+        <div class="main__info info">
+            <div class="info__id id">
+                <h3>id: </h3>
+                <h3 class="id__number"></h3>
+            </div>
+            <div class="info__name">
+                <h3>name: </h3>
+                <input type="text" class="input" onchange="update()">
+            </div>
+        </div>
+    </section>
+    <button class="main__back">
+        Back
+    </button>
+    <script src="hero.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
