@@ -5,12 +5,6 @@ function update() {
     hero.getName() + ' details!';
 }
 
-/*
-setInterval(function () {
-  update();
-}, 100);
-*/
-
 const hero = Hero();
 document.querySelector('.input').value = hero.getName();
 update();
