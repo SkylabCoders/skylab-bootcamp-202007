@@ -3,7 +3,6 @@ describe('Pet', function () {
     let name = 'Kira';
     let pet = { name: 'Kira' };
     let newName = 'Pepa';
-    let newGender = ('female');
     let nLegs = 4;
     let twoLegs = 2;
     beforeEach(function () {

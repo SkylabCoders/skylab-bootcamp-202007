@@ -10,8 +10,8 @@ function Hero(tName, tId) {
         return id;
     }
 
-    function setName(newName) {
-        name = newName;
+    function setName(newN) {
+        name = newN;
     }
     if (arguments.length !== 2) {
         return null;
@@ -29,16 +29,16 @@ let newName = document.getElementById('inp');
 
 
 
-function setHeros(herosNames) {
-    let i = 0;
-    for (hero in herosNames) {
+function setHeros() {
+
+    for (let i = 0; i < herosNames.length; i++) {
         heros.push(new Hero(herosNames[i], i + 1));
     }
 }
 
 
-setHeros(herosNames);
-
+setHeros();
+newName.value = heros[0].getName();
 
 
 function printHtmlName(name) {
