@@ -1,25 +1,25 @@
-"use strict"
+"use strict";
 
-let titleHeroName = document.querySelector(".hero")
-let input = document.getElementById('name')
+const titleHeroName = document.querySelector(".hero");
+const input = document.getElementById('name');
+console.log(input)
+
 function Hero() {
     let data = {
         name: "Magneto",
-        id: 4,
-        newName: "Tormenta",
-        newId: 10
+        id: 4
     };
     function getName() {
         return data.name;
     };
     function setName(name) {
-        newName = name;
+        data.name = name;
     };
     function getId() {
         return data.id;
     };
     function setId(id) {
-        newId = id;
+        data.id = id;
     };
     return { getName, setName, getId, setId };
 };

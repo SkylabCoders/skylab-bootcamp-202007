@@ -19,20 +19,20 @@ describe("Hero", function () {
         newId = 10;
     });
     it("should return a name", function getName() {
-        debugger
         expect(hero.getName()).toEqual(name);
     });
     it("should change the hero name", function setName() {
         hero.getName(name);
         hero.setName(newName);
-        expect(hero.setName()).toEqual(newName);
+        console.log(hero)
+        expect(hero.getName()).toEqual(newName);
     });
     it("should return a id", function getId() {
         expect(hero.getId()).toEqual(id);
     });
     it("should change the hero id", function setId() {
         hero.setId(newId);
-        expect(hero.setId()).toEqual(newId);
+        expect(hero.getId()).toEqual(newId);
     });
 
 })
