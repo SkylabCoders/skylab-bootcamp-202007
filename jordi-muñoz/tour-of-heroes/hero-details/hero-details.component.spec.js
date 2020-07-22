@@ -19,6 +19,4 @@ beforeEach(function() {
     it('should be able to get the id', function() {
         expect(hero.getId()).toEqual(id);
     });
-
-
 })
