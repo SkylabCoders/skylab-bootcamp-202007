@@ -1,7 +1,7 @@
 describe('Tour of Heroes - Dashboard', function () {
   let id = 1;
   let name = 'test';
-  let r;
+  let hero;
 
   beforeEach(function () {
     let hero = new Heroes();
