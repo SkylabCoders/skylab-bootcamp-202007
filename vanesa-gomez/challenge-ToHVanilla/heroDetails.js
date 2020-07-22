@@ -1,27 +1,26 @@
 function heroDetail() {
-  let data = {
+  let hero = {
     name: '',
     id: 0
   };
 
   function createHero(name, id) {
-    data.name = name;
-    data.id = id;
-    return { name: data.name, id: data.id };
+    hero.name = name;
+    hero.id = id;
+    return { name: hero.name, id: hero.id };
   }
 
   function getName() {
-    debugger;
-    return data.name;
+    return hero.name;
   }
 
   function getId() {
-    return data.id;
+    return hero.id;
   }
 
   function setHeroName(name) {
-    data.name = name;
-    data.id = 11;
+    hero.name = name;
+    hero.id = 11;
   }
 
   return {
@@ -38,16 +37,3 @@ heroId = 'pepeee';
 const initHero = new heroDetail();
 initHero.name = 'Magneta';
 initHero.id = 15;
-
-// export const HEROES: Hero[] = [
-//     { id: 11, name: 'Dr Nice' },
-//     { id: 12, name: 'Narco' },
-//     { id: 13, name: 'Bombasto' },
-//     { id: 14, name: 'Celeritas' },
-//     { id: 15, name: 'Magneta' },
-//     { id: 16, name: 'RubberMan' },
-//     { id: 17, name: 'Dynama' },
-//     { id: 18, name: 'Dr IQ' },
-//     { id: 19, name: 'Magma' },
-//     { id: 20, name: 'Tornado' }
-//   ];
