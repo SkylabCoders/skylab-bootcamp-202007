@@ -1,5 +1,5 @@
 function HeroDetailComponent() {
-	const hero = heroMock;
+	const hero = heroList[0];
 
 	this.onInit = function () {
 		updateId();
@@ -8,8 +8,6 @@ function HeroDetailComponent() {
 
 	this.nameChange = function (newName) {
 		hero.name = newName;
-		hero.id = Math.ceil(99 * Math.random());
-		updateId();
 		updateName();
 	};
 
