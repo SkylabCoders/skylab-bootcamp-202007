@@ -1,7 +1,7 @@
 "use strict";
 
 const titleHeroName = document.querySelector(".hero");
-const input = document.getElementById('name');
+const input = document.getElementById('heroName');
 console.log(input)
 
 function Hero() {
