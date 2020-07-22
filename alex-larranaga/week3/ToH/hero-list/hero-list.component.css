@@ -1,0 +1,14 @@
+#list {
+	display: flex;
+	flex-direction: column;
+}
+
+button {
+	padding: 10px;
+	background-color: rgba(
+		rgb(83, 55, 182) (107, 32, 32),
+		green,
+		rgb(60, 60, 126),
+		alpha
+	);
+}
