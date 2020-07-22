@@ -18,14 +18,9 @@ body {
     background-color: #fff;
 }
 
-.title h1 {
+.title {
     color: #969696;
-    margin-bottom: .7rem;
-}
-
-.main-buttons {
-    display: flex;
-    flex-direction: row;
+    margin-bottom: 1rem;
 }
 
 .button {
@@ -35,16 +30,12 @@ body {
     padding: .5rem 1rem;
     border-radius: .3rem;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.name {
+.title-hero {
     color: #404040;
     margin: 1.5rem 0;
-}
-
-.id {
-    display: flex;
-    margin: 0 0 .5rem 0;
 }
 
 .id-name,
@@ -53,12 +44,14 @@ body {
     font-weight: bold;
 }
 
-.id-number {
+.id-name span {
     color: #969696;
-    padding-left: 2rem;
+    font-weight: lighter;
+    padding-left: 1.8rem;
 }
 
 .input {
+    margin-top: .8rem;
     padding: .7rem;
     border: .09rem solid rgb(209, 208, 208);
     border-radius: .2rem;
