@@ -5,7 +5,9 @@ let input = document.getElementById('name')
 function Hero() {
     let data = {
         name: "Magneto",
-        id: 4
+        id: 4,
+        newName: "Tormenta",
+        newId: 10
     };
     function getName() {
         return data.name;
