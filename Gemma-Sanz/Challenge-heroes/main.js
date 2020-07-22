@@ -1,5 +1,7 @@
 "use strict"
 
+let titleHeroName = document.querySelectorAll(".hero")
+let input = document.getElementById('name')
 function Hero() {
     let data = {
         name: "Magneto",
@@ -8,20 +10,24 @@ function Hero() {
     function getName() {
         return data.name;
     };
-    function setName(x) {
-        newName = x;
+    function setName(name) {
+        newName = name;
     };
     function getId() {
         return data.id;
     };
-    function setId(x) {
-        newId = x;
+    function setId(id) {
+        newId = id;
     };
     return { getName, setName, getId, setId };
 };
 
-let y = document.querySelectorAll(".hero").innerHTML
-let x = document.getElementById('name')
+function writeHeroName() {
+    addEventListener("click", function () {
+        titleHeroName = input.value;
+    })
+}
 
-y = x.nodeValue;
-console.log(Hero.name)
+writeHeroName()
+
+let myHero = new Hero();
