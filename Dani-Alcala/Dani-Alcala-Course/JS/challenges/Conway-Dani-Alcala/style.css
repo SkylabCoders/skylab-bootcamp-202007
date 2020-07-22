@@ -1,0 +1,136 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vw;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/9/9b/The.Matrix.glmatrix.2.png);
+}
+
+.title {
+    width: 80%;
+    background-color: rgb(227, 245, 228);
+    border-radius: 30px;
+    margin-top: 2vh;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(37, 37, 175);
+}
+
+h4 {
+    text-align: justify;
+    font-size: 1vw;
+    margin: 2vw;;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 32vw;
+    width: 60vw;
+    margin: .5vw;
+    
+}
+
+.grid {
+    border: 2px dashed darkred;
+    width: 5vw;
+    height: 5vw;
+    background: repeating-linear-gradient(
+    45deg,
+    aquamarine,
+    pink 50px,
+    orange 15px,
+    green 10px
+);
+}
+
+.grid:hover {
+    cursor: pointer;
+}
+
+.paint {
+    background: repeating-radial-gradient(
+    circle,
+    orange,
+    yellow 10px,
+    aquamarine 10px, 
+    #4b026f 20px
+  );
+}
+
+.core {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+aside {
+    margin: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.run, .switch {
+    font-size: 2vw;
+    padding: 1vw 5vw;
+    border-radius: 0%;
+    width: 80%;
+    background-color: lightpink;
+    color: yellow;
+    outline: none;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.run:hover, .switch:hover, .reload:hover {
+    background-color: pink;
+    cursor: pointer;
+}
+
+.run:focus, .switch:focus, .reload:focus {
+    background-color: pink;
+    color: violet;
+    font-weight: bold;
+}
+
+.switch {
+    color: gray;
+}
+
+.reload {
+    font-size: 4vw;
+    border-radius: 50%;
+    width: 30%;
+    text-align: center;
+    padding-right: .25vw;
+    background-color: lightpink;
+    color: gray;
+    outline: none;
+    font-family: monospace;
+}
