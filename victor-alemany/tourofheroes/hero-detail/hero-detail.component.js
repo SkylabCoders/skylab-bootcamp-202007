@@ -1,28 +1,29 @@
 'use strict'
 
-function HeroDetailsComponent(){
-    const hero = myHero;
+function HeroDetailComponent() {
+	const hero = heroList[0];
 
-    this.onInit = function(){
-        updateId();
-        updateName();
-    }
+	this.onInit = function () {
+		updateId();
+		updateName();
+	};
 
-    this.nameChange = function(newName){
-        hero.name = newName;
-        updateName();
-    }
+	this.nameChange = function (newName) {
+		hero.name = newName;
+		updateName();
+	};
 
-    function updateName(){
-        document.getElementById('hero-details__name').innerHTML = hero.name;
-        document.getElementById('hero-detail__name-control').innerHTML = hero.name;
-    }
+	function updateId() {
+		document.getElementById('hero-detail__id').innerHTML = hero.id;
+	}
 
-    function updateId(){
-        document.getElementById('hero-details__id').innerHTML = hero.id;
-    }
+	function updateName() {
+		document.getElementById('hero-detail__name').innerHTML = hero.name;
+		document.getElementById('hero-detail__name-control').value = hero.name;
+	}
 }
 
-const heroDetailsComponent = new HeroDetailsComponent();
+const heroDetailComponent = new HeroDetailComponent();
+heroDetailComponent.onInit();
 
-heroDetailsComponent.onInit();
+console.log(heroDetailComponent);
