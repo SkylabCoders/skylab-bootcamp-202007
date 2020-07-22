@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroes tour</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="flex-column">
+        <h1>Tour of Heroes</h1>
+        <nav class="flex-row">
+            <a>Dashboard</a>
+            <a>Heroes</a>
+        </nav>
+    </header>
+    <main>
+        <section class="main__details flex-column">
+            <h2 id="details__title"></h2>
+            <div class="details__hero-id flex-row">
+                <strong>id: </strong>
+                <p class="hero-id"></p>
+            </div>
+            <form class="details__hero-mame flex-row">
+                <label for="hero-name">name:</label>
+                <input type="text" value="" name="hero-name" id="new-name">
+            </form>
+            <button value="go-back">Go back</button>
+        </section>
+    </main>
+    <script src="heroes-tour.js"></script>
+    <script src="heroes-tour-html.js"></script>
+</body>
+
+</html>
