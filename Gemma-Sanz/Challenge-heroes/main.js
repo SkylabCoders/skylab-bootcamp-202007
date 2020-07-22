@@ -1,6 +1,6 @@
 "use strict"
 
-let titleHeroName = document.querySelectorAll(".hero")
+let titleHeroName = document.querySelector(".hero")
 let input = document.getElementById('name')
 function Hero() {
     let data = {
@@ -23,11 +23,17 @@ function Hero() {
 };
 
 function writeHeroName() {
-    addEventListener("click", function () {
-        titleHeroName = input.value;
-    })
-}
+    input.addEventListener("input", function () {
+        if (input.value === getHeroName()) {
+            titleHeroName.textContent = input.value;
+        }
+    });
+};
 
+function printHero() {
+
+}
+printHero()
 writeHeroName()
 
-let myHero = new Hero();
+let hero = new Hero();
