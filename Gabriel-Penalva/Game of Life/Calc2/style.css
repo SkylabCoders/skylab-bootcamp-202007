@@ -1,0 +1,56 @@
+
+body{
+    background-color: beige;
+}
+div{
+    font-size:  200%;
+    font-family: "Segoe UI";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+}
+table {
+    
+    border-collapse: collapse;
+}
+
+thead{
+
+    font-size: 200%;
+    background-color: black;
+    text-align: right;
+    color: white;
+    height:  100px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+thead tr td{
+    padding-right: 5px;
+}
+
+tbody tr td{
+    background-color: LightGray;
+    padding: 10px 30px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    text-align: center;
+
+}
+tbody tr td:hover{
+    background-color: rgb(139, 139, 139);
+}
+tbody tr td:active{
+    background-color: rgb(85, 85, 85);
+}
+#operator{
+    background-color: orange;
+}
+#operator:hover{
+    background-color: darkorange;
+}
+#operator:active{
+    background-color: rgb(180, 101, 5);
+}

@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    flex-flow: wrap row;
+    width: 175px;
+}
+
+.container__row{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    border: 2px dotted brown;
+}
+
+
+.grid__element{
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+}
+
+.black__element{
+    background-color: black;
+}
+
+.white__element{
+    background-color: white;
+}
