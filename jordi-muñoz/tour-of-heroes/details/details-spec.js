@@ -5,7 +5,7 @@ describe('Heroes Details', function () {
    let newName = 'Spiderman';
 beforeEach(function() {
     hero = new Hero();
-})
+});
     it('should create a new heroe', function() {
         expect(hero).toBeTruthy();
     });

@@ -24,7 +24,7 @@ function Hero() {
     printId();
     return { getName, setName, getId, printName }
 }
-let batman = new Hero;
+let hero = new Hero();
 
 
 
