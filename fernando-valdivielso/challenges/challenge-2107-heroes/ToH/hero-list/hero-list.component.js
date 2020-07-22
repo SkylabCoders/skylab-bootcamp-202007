@@ -3,17 +3,18 @@ function HeroListComponent() {
     const listElement = document.getElementById('list');
     this.heroes = heroList;
     
-    function createList(arr) {
-        for (let i = 0; i < arr.length; index++) {
+    this.createList = function () {
+        // debugger;
+        for (let i = 0; i < this.heroes.length; i++) {
             const listNode = document.createElement('li');
             listElement.appendChild(listNode);
             
         }
         
     }
-    return {createList}
     
 }
 
-const heroooo = new HeroListComponent();
-heroooo.createList();
+const myHero = new HeroListComponent();
+// debugger;
+myHero.createList();
