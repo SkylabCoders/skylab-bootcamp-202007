@@ -26,4 +26,8 @@ describe('Tour of Heroes - Dashboard', function () {
     hero.setName(name);
     expect(hero.getName()).toEqual(name);
   });
+
+  afterEach(function () {
+    let hero1 = new Heroes();
+  });
 });
