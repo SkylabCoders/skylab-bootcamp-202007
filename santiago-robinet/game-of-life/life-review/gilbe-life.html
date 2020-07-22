@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conwy's Game of Life</title>
+    <link rel="stylesheet" href="gilbe-life.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Conwy's Game of Life</h1>
+        <button onclick="life.play()">Play</button>
+        <button onclick="life.stop()">Stop</button>
+        <form action="">
+            <table class="life__table"></table>
+            <tr>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+                <td><input type="checkbox" id="cell--0--0"></td>
+            </tr>
+        </form>
+    </main>
+
+    <script src="life.js"></script>
+    <script>
+        const life = new Life();
+    </script>
+</body>
+</html>
