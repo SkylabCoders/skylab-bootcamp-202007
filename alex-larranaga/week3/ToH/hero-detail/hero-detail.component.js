@@ -1,5 +1,5 @@
 function HeroDetailComponent() {
-	const hero = heroList[0];
+	const hero = getHeroIdFromUrl();
 
 	this.onInit = function () {
 		updateId();
@@ -18,6 +18,18 @@ function HeroDetailComponent() {
 	function updateName() {
 		document.getElementById('hero-detail__name').innerHTML = hero.name;
 		document.getElementById('hero-detail__name-control').value = hero.name;
+	}
+	function getHeroById() {
+		var heroIdByUrl = getParameterByName('heroId');
+		console.log(heroIdByUrl);
+		var heroIdandName = heroList.find((h) => h.id === heroIdByUrl);
+		return heroIdandName;
+	}
+
+	function getHeroIdFromUrl() {
+		const params = new URLSearchParams(location.search);
+		var heroIdandName = heroList.find((h) => h.id === +params.get('heroId'));
+		return heroIdandName;
 	}
 }
 
