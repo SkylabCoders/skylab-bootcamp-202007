@@ -6,10 +6,10 @@ describe('Dashboard', () => {
 	});
 
 	it('should create dashboardComponent', () => {
-		expect(DashboardComponent).toBeTruthy();
+		expect(dashboardComponent).toBeTruthy();
 	});
 
-	it('should cal onInit and behave properly', () => {
+	it('should call onInit and behave properly', () => {
 		const spy = spyOn(dashboardComponent, 'onInit');
 		dashboardComponent.onInit();
 

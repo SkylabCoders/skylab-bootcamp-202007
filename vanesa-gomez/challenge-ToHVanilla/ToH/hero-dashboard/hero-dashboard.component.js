@@ -3,8 +3,6 @@ function DashboardComponent() {
 	this.onInit = function () {
 		const promotedHeroList = heroList.splice(0, 4);
 		const promotedHeroArray = promotedHeroList.map(mapItemToAnchor);
-		console.log(promotedHeroArray);
-		console.log(promotedHeroList);
 		promotedHeroArray.forEach(addAnchorToHtml);
 		getHeroFromUrl();
 	};
@@ -22,11 +20,11 @@ function DashboardComponent() {
 	}
 
 	function getHeroFromUrl() {
-		const params = new URLSearchParams(location.search);
 		return heroList.find(compareHeroId);
 	}
 
 	function compareHeroId(hero) {
+		const params = new URLSearchParams(location.search);
 		return hero.id === +params.get('heroId');
 	}
 }
