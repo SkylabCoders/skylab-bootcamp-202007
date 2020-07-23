@@ -14,6 +14,7 @@ function DashboardComponent() {
 
 	function mapHeroToAnchor(hero) {
 		const element = document.createElement('a');
+		debugger;
 		element.href = getHeroLink(hero.id);
 		element.innerText = hero.name;
 		return element;

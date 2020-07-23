@@ -8,6 +8,7 @@ function HeroDetailComponent() {
 
 	this.onInit = function () {
 		hero = getHeroFromUrl();
+		debugger;
 		updateId();
 		updateName();
 	};

@@ -5,11 +5,11 @@ describe('Dashboard', function () {
 		dashboardComponent = new DashboardComponent();
 	});
 
-	it('should create', function () {
+	it('should create the component', function () {
 		expect(dashboardComponent).toBeTruthy();
 	});
 
-	it('should call onInit and behave properly', function () {
+	it('should call onInit and execute in the right way', function () {
 		const spy = spyOn(dashboardComponent, 'onInit');
 		dashboardComponent.onInit();
 
