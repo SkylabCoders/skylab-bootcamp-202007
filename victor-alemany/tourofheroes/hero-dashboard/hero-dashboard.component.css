@@ -1,13 +1,4 @@
 /* HeroesComponent's private CSS styles */
-#hero__list{
-  display: flex;
-  flex-direction: column;
-}
-
-span{
-  margin: 5px;
-}
-
 .heroes {
     margin: 0 0 2em 0;
     list-style-type: none;
