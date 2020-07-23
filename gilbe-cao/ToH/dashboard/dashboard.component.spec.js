@@ -10,7 +10,11 @@ describe('Dashboard', function () {
 	});
 
 	it('should render a list of heroes', function () {
-		const heroes = heroList.slice(0, 4);
-		expect(dashboardComponent.renderHeroList().length).toEqual(4);
+		const spy = spyOn(dashboardComponent, 'onInit');
+		dashboardComponent.onInit();
+
+		expect(spy).toHaveBeenCalled();
+		expect(spy).toHaveBeenCalledTimes(1);
+		expect(spy).toHaveBeenCalledWith();
 	});
 });

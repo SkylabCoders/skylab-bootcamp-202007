@@ -3,22 +3,24 @@ function DashboardComponent() {
 	const heroListContainer = document.getElementById('dashboard__container');
 
 	this.onInit = function () {
-		this.renderHeroList().forEach((element) => {
+		renderHeroList().forEach((element) => {
 			if (heroListContainer) heroListContainer.appendChild(element);
 		});
 	};
 
-	this.renderHeroList = function () {
+	function renderHeroList() {
 		return heroesPromoted.map(mapHeroToAnchor);
-	};
+	}
 
 	function mapHeroToAnchor(hero) {
-		const heroLink = (id) =>
-			`../hero-detail/hero-detail.component.html?heroId=${id}`;
 		const element = document.createElement('a');
-		element.href = heroLink(hero.id);
+		element.href = getHeroLink(hero.id);
 		element.innerText = hero.name;
 		return element;
+	}
+
+	function getHeroLink(id) {
+		return `../hero-detail/hero-detail.component.html?heroId=${id}`;
 	}
 }
 
