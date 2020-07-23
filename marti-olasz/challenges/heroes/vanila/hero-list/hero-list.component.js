@@ -7,7 +7,7 @@ const renderHeroList = function () {
     ).href = `../hero-detail/hero-detail.component.html?heroId=${hero.id}`;
   }
 
-  function render() {
+  this.render = function () {
     const mother = document.querySelector('.list');
     for (let i = 0; i < heroList.length; i++) {
       const item = document.createElement('div');
@@ -22,11 +22,10 @@ const renderHeroList = function () {
 
       mother.appendChild(item);
     }
-  }
-  return { render };
+  };
 };
 try {
-  const list = renderHeroList();
+  const list = new renderHeroList();
   list.render();
 } catch (error) {
   console.log('Hi tester ==> ', error);
