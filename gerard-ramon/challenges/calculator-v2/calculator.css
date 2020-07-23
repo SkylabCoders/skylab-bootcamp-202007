@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --nav-bg-color: black;
+  --nav-font-color: whitesmoke;
+  --body-bg-color: whitesmoke;
+  --body-font-color: black;
+  --doc-font-family: Arial, Helvetica, sans-serif;
+  --screen-bg-color: cadetblue;
+  --numbers-bg-color: lightgrey;
+  --numbers-hover-bg-color: rgb(185, 184, 184);
+  --operator-bg-color: orange;
+  --operator-hover-bg-color: rgb(192, 127, 7);
+}
+
+.flex-spacer {
+  flex: 1;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  color: var(--body-font-color);
+  font-size: 20px;
+  font-family: var(--doc-font-family);
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: black;
+  height: 55px;
+  padding: 5px 20px;
+  color: var(--nav-font-color);
+}
+
+.nav__title {
+  font-size: 22px;
+}
+
+.nav__user-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.user__img {
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__container {
+  width: 25%;
+  margin-top: 75px;
+}
+
+.container__calculator {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+  height: 75px;
+  background-color: var(--screen-bg-color);
+  font-size: 22px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid black;
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid grey;
+  padding: 10px;
+  width: 25%;
+  height: 50px;
+  cursor: pointer;
+}
+
+.operator {
+  background-color: var(--operator-bg-color);
+  width: 25%;
+  font-weight: 700;
+}
+.operator:hover {
+  background-color: var(--operator-hover-bg-color);
+}
+
+.double {
+  width: 50%;
+}
+
+.number {
+  background-color: var(--numbers-bg-color);
+}
+
+.number:hover {
+  background-color: var(--numbers-hover-bg-color);
+}
+
+.zero {
+  border-bottom-left-radius: 10px;
+}
+
+.equals {
+  border-bottom-right-radius: 10px;
+}
