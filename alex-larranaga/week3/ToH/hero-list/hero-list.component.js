@@ -11,6 +11,7 @@ function HeroListComponent() {
 			let listNodesElement = document.createElement('a');
 			listElement.appendChild(listNodesElement);
 			listNodesElement.innerHTML = heroes[i].id + '   ' + heroes[i].name;
+
 			listNodesElement.setAttribute(
 				'href',
 				'../hero-detail/hero-detail.component.html'
