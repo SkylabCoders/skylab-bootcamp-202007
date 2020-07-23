@@ -4,7 +4,6 @@ function HeroListComponent() {
     this.heroes = heroList;
     
     this.createList = function () {
-        // debugger;
         for (let i = 0; i < this.heroes.length; i++) {
             const listNodeElement = document.createElement('li');
             listElement.appendChild(listNode);
@@ -18,5 +17,4 @@ function HeroListComponent() {
 }
 
 const myHero = new HeroListComponent();
-// debugger;
 myHero.createList();
