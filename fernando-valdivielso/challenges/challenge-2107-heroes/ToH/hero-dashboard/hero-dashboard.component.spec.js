@@ -11,12 +11,12 @@ describe('Dashboard', function () {
     });
 
     it('should call onInit and behave properly', function () {
-        const onInitSpy = spyOn(dashboardComponent, 'onInit')
+        const onInitSpy = spyOn(dashboardComponent, 'onInit');
         dashboardComponent.onInit();
 
-        expect(dashboardComponent.onInit).toHaveBeenCalled();
-        // expect(dashboardComponent.onInit).toHaveBeenCalledTimes(2);
-        // expect(dashboardComponent.onInit).toHaveBeenCalledWith(2, parameter);
+        expect(onInitSpy).toHaveBeenCalled();
+        // expect(onInitSpy).toHaveBeenCalledTimes(2);
+        // expect(onInitSpy).toHaveBeenCalledWith(2, parameter);
 
     });
 
