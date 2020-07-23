@@ -1,24 +1,16 @@
 function HeroDashboardComponent() {
-	const heroes = heroList;
-	this.onInIt = function () {
-		displaydDasboard();
+	const heroes = heroList.slice(0, 4);
+	this.onInIt = function displaydDashboard() {
+		const listElement = document.getElementById('heroDashboardList');
+		listElement.innerHTML = renderHeroList(heroes);
 	};
-	const displaydDasboard = function () {
-		let tableElement = document.getElementById('heroDashboardTable');
-		let heroLink = '../hero-detail/hero-detail.component.html';
-		let tableInsert = '';
-		tableInsert += '<tr>';
-		for (let i = 0; i < 4; i++) {
-			tableInsert +=
-				'<td> <button href=' +
-				heroLink +
-				'>' +
-				heroList[i].name +
-				'</button></td>';
-		}
-		tableInsert += '</tr>';
-		tableElement.innerHTML = tableInsert;
-	};
+	function renderHeroList(heroes) {
+		return heroes.map(renderAnchor(hero));
+	}
+	function renderAnchor(hero) {
+		const heroLink = '../hero-detail/hero-detail.component.html';
+		return `<a href='${heroLink}' >${hero.name}</a>`;
+	}
 }
 let dashboardComponent = new HeroDashboardComponent();
 dashboardComponent.onInIt();
