@@ -1,20 +1,26 @@
-function HeroDashboardComponent() {
-    const heroes = heroList.slice(0, 4);
-    this.onInIt = function displaydashboard(){
-        let containerList = document.querySelector('.containerList');
-        containerList.innerHTML = renderHeroList(heroes);
-        
+function StudentDashboardComponent() {
+    let student = skylaberList;
+    let studentFilter;
+
+    this.onInIt = function displayDashBoard() {
+        const containerList = document.querySelector('.containerList');
+        checkChallenges();
+        let fourStudents = studentFilter.slice(0,4);
+        containerList.innerHTML = renderStudentList(fourStudents);
     }
-    function renderHeroList(heroes) {
-        const heroLink = '../hero-detail/hero-detail.component.html';
-        let elements = heroes.map(function(e) {
-            return `<a href='${heroLink}?heroId=${e.id}' >${e.name}</a>`;
+    function renderStudentList(student) {
+        const detailsLink = '../skylab-directory-detail/skylab-directory-detail.component.html';
+        let elements = student.map(function(e) {
+            return `<a href='${detailsLink}?studentId=${e.id}' >${e.name}</a>`;
         });
         return elements.join('');
     }
+    function checkChallenges() {
+        studentFilter = student.filter(e => e.completedChallenges > 4);
+    }
 }
 
-let dashboardComponent = new HeroDashboardComponent();
+let dashboardComponent = new StudentDashboardComponent();
 dashboardComponent.onInIt();
 
 

@@ -1,4 +1,4 @@
-describe('Hero Details', function () {
+describe('Skylab-directory Details', function () {
     let student;
     let studentDetailComponent;
     let name;

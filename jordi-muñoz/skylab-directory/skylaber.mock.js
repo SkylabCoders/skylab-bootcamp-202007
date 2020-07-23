@@ -8,8 +8,8 @@ const skylaberList = [
     {
         id: 1,
         name: 'Alex',
-        completedChallenges: 5,
-        address: { city: 'Aspeitia', country: 'Euskal Herria' }
+        completedChallenges: 3,
+        address: { city: 'Azpeitia', country: 'Euskal Herria' }
     },
     {
         id: 2,
