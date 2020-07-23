@@ -1,22 +1,20 @@
 function HeroListComponent() {
-	const heroes = heroList;
-	this.onInIt = function () {
-		displayList();
+	const list = heroList;
+
+	this.onInit = function () {
+		updateProps();
 	};
-	const displayList = function () {
-		let tableElement = document.getElementById('heroListTable');
-		let heroLink = '../hero-detail/hero-detail.component.html';
-		for (let i = 0; i < heroes.length; i++) {
-			tableElement.innerHTML +=
-				'<tr><td> <button href=' +
-				heroLink +
-				'>' +
-				heroList[i].id +
-				'</button></td><td>' +
-				heroList[i].name +
-				'</td></tr>';
+
+	function updateProps() {
+		for (let elem of heroList) {
+			let listItem = document.createElement('li');
+			listItem.innerHTML = `<a ><span class="badge">${elem.id}</span>${elem.name}</a>`;
+			document.querySelector('.heroes-list').appendChild(listItem);
 		}
-	};
+	}
 }
-let listComponent = new HeroListComponent();
-listComponent.onInIt();
+
+const heroListComponent = new HeroListComponent();
+heroListComponent.onInit();
+
+console.log(heroDetailComponent);

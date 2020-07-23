@@ -1,4 +1,3 @@
-const hero = new Hero(10, 'Deadpool');
 const heroList = [
 	{ id: 11, name: 'Dr Nice' },
 	{ id: 12, name: 'Narco' },
