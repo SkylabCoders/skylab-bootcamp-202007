@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Skylaber Details</title>
+		<link rel="stylesheet" href="./student-detail.component.css" />
+	</head>
+	<body>
+		<h1>Tour of Heroes</h1>
+		<a href="./../student-dashboard/student-dashboard.component.html">Dashboard</a>
+		<a href="../student-list/student-list.component.html">Skylabers</a>
+		<h2><span class="skylaber-detail__name"></span> details</h2>
+		<p>id: <span class="skylaber-detail__id"></span></p>
+		<label for="skylaberName">
+			name:
+			<input
+				id="skylaber-detail__name-control"
+				type="text"
+				name="skylaberName"
+				onchange="skylaberDetailComponent.nameChange(this.value)"
+			/>
+		</label>
+		<script src="./../student.js"></script>
+		<script src="./../student.mock.js"></script>
+		<script src="./student-detail.component.js"></script>
+	</body>
+</html>
