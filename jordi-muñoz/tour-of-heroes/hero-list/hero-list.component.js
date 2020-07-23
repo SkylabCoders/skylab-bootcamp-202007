@@ -1,12 +1,13 @@
+'use strict';
 function HeroListComponent() {
-    componentHeroList = heroList;
+    let componentHeroList = heroList;
     this.createDomElements = function () {
         let container = document.querySelector('.container');
         for (let i = 0; i < componentHeroList.length; i++) {
             let generateDiv = document.createElement('div');
             generateDiv.classList.add(`hero-${i}`);
             let generateA = document.createElement('a');
-            generateA.href = '../hero-detail/hero-detail.component.html';
+            generateA.href = `../hero-detail/hero-detail.component.html?heroId=${componentHeroList[i].id}`;
             generateA.classList.add('anchor');
             let generateP = document.createElement('p');
             generateP.classList.add('para');
@@ -22,8 +23,8 @@ function HeroListComponent() {
     const printHeroes = function (i) {
         let tempA = document.querySelector(`.hero-${i} a`);
         let tempP = document.querySelector(`.hero-${i} p`);
-        tempA.innerHTML = this.componentHeroList[i].id;
-        tempP.innerHTML = this.componentHeroList[i].name;
+        tempA.innerHTML = componentHeroList[i].id;
+        tempP.innerHTML = componentHeroList[i].name;
     }
 
     this.linkHeroes = function() {

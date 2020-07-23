@@ -8,7 +8,7 @@ function HeroDashboardComponent() {
     function renderHeroList(heroes) {
         const heroLink = '../hero-detail/hero-detail.component.html';
         let elements = heroes.map(function(e) {
-            return `<a href='${heroLink}' >${e.name}</a>`;
+            return `<a href='${heroLink}?heroId=${e.id}' >${e.name}</a>`;
         });
         return elements.join('');
     }

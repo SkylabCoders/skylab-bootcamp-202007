@@ -30,3 +30,20 @@ body {
       cursor: pointer;
       background-color: rgb(240, 240, 240);
     }
+    .para {
+        display: inline-block;
+        margin-left: 6px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .container > div {
+        width: 200px;
+        border: 2px solid grey;
+        border-radius: 4px;
+        margin-bottom: 4px;
+    }
+    .anchor {
+        margin: 4px;
+        font-size: 18px;
+        font-weight: bold;
+    }
