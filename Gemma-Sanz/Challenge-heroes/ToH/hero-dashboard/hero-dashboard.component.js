@@ -1,11 +1,18 @@
-let mainContentDashboard = document.querySelector("#mainContainer--dashboard")
+function HeroDashboardComponent() {
+	this.onInit = function () {
+		DashboardContent();
+	}
+	let mainContentDashboard = document.querySelector("#mainContainer--dashboard")
 
-function DashboardContent() {
-	debugger
-	for (let i = 0; i < 3; i++) {
-		let itemDashboard = document.createElement("button");
-		mainContentDashboard.appendChild(itemDashboard);
-		itemDashboard.innerHTML = heroList[i].name;
-	};
+	let DashboardContent = function () {
+		debugger
+		const maxVisibleItems = 4;
+		for (let i = 0; i < maxVisibleItems; i++) {
+			let itemDashboard = document.createElement("button");
+			mainContentDashboard.appendChild(itemDashboard);
+			itemDashboard.innerHTML = heroList[i].name;
+		};
+	}
+	DashboardContent()
 }
-DashboardContent()
+let dashboardComponent = new HeroDashboardComponent();
