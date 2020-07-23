@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hero List</title>
-		<link rel="stylesheet" href="hero-list.component.css" />
-	</head>
-	<body>
-		<h1>Tour of Heroes</h1>
-		<a href="../hero-detail/hero-detail.component.html">Detail</a>
-		<a href="./hero-list.component.html">Heroes</a>
-		<h2>hero-list works !</h2>
-		<script src="../hero.js"></script>
-		<script src="../hero.mock.js"></script>
-		<script src="hero-list.component.js"></script>
-	</body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Hero Details</title>
+	<link rel="stylesheet" href="./hero-dashboard.component.css" />
+</head>
+
+<body>
+	<section class="lightbox">
+		<h1 class="title">Tour of Heroes</h1>
+		<a class="button" href="./hero-dashborad.component.html">Dashboard</a>
+		<a class="button" href="../hero-list/hero-list.component.html">Heroes</a>
+		<h2 class="title-hero">Top Heroes</h2>
+		<div class="container__dashboard"></div>		
+	</section>
+	
+	<script src="../hero.js"></script>
+	<script src="../hero.mock.js"></script>
+	<script src="./hero-dashboard.component.js"></script>
+</body>
+
 </html>

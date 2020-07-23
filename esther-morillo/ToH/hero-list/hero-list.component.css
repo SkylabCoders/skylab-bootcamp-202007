@@ -9,7 +9,7 @@ body {
 }
 
 .lightbox {
-    max-width: 17rem;
+    max-width: 20rem;
     height: auto;
     padding: 1rem 2.5rem;
     margin: 10% auto;
@@ -38,11 +38,21 @@ body {
     margin: 1.5rem 0;
 }
 
-.flex {
+
+.hero__list a span:nth-child(1) {
+    background-color: red;
     display: flex;
     margin-bottom: .6rem;
     padding-left: .8rem;
 }
+
+.hero__list a span:nth-child(2) {
+    background-color: yellow;
+    display: flex;
+    margin-bottom: .6rem;
+    padding-left: .8rem;
+}
+
 
 .linkId {
     background-color: #557584;
