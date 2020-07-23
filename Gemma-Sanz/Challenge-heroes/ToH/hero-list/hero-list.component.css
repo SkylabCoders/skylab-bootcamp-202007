@@ -1,5 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #mainContainer--list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     margin-top: 10px;
 }
 

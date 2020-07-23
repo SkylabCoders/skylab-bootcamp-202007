@@ -1,7 +1,11 @@
 function HeroDetailComponent() {
-	const hero = heroList[0];
+	let hero;
+	const idElement = document.getElementById('hero-detail__id');
+	const nameElement = document.getElementById('hero-detail__name');
+	const nameControlElement = document.getElementById('hero-detail__name-control');
 
 	this.onInit = function () {
+		hero = getHeroFromUrl();
 		updateId();
 		updateName();
 	};
@@ -12,12 +16,20 @@ function HeroDetailComponent() {
 	};
 
 	function updateId() {
-		document.getElementById('hero-detail__id').innerHTML = hero.id;
+		idElement.innerHTML = hero.id;
 	}
 
 	function updateName() {
-		document.getElementById('hero-detail__name').innerHTML = hero.name;
-		document.getElementById('hero-detail__name-control').value = hero.name;
+		nameElement.innerHTML = hero.name;
+		nameControlElement.value = hero.name;
+	}
+
+	function getHeroFromUrl() {
+		return heroList.find(compareId);
+	}
+	function compareId(hero) {
+		const params = new URLSearchParams(location.search);
+		return hero.id === +params.get("heroId");
 	}
 }
 

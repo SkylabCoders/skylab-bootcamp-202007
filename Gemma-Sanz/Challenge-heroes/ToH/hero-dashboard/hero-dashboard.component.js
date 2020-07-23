@@ -1,17 +1,32 @@
 function HeroDashboardComponent() {
-	const heroes = heroList;
-	let mainContentDashboard = document.querySelector("#mainContainer--dashboard")
+	const heroes = heroList.slice(0, 4);
+	const mainContentDashboard = document.querySelector("#mainContainer__dashboard")
+	const heroDashboardLink = `href=../hero-detail/hero-detail.component.html`
 
-	this.onInit = function DashboardContent() {
-		debugger
-		const maxVisibleItems = heroes.slice(0, 4);
-		for (let i = 0; i < maxVisibleItems.length; i++) {
-			let itemDashboard = document.createElement("button");
-			mainContentDashboard.appendChild(itemDashboard);
-			itemDashboard.innerHTML = maxVisibleItems[i].name;
-		};
+
+	/* let renderAnchor = function (heroes) {
+		return `<div><a ${heroDashboardLink} ${heroes.name} </a></div>`
+	} */
+	this.onInit = function () {
+		renderList().forEach(element => {
+			mainContentDashboard && mainContentDashboard.appendChild(element);
+		})
+	};
+	function renderList() {
+		return heroes.map(sercherList)
 	}
-	DashboardContent()
+
+	let sercherList = function (hero) {
+		let element = document.createElement("a");
+		element.href = gethref(hero.id)
+		element.innerHTML = hero.name
+		return element;
+	}
+	function gethref(id) {
+		return `../hero-detail/hero-detail.component.html?heroId=${id}`
+	}
+
 }
+
 let dashboardComponent = new HeroDashboardComponent();
 dashboardComponent.onInit();
