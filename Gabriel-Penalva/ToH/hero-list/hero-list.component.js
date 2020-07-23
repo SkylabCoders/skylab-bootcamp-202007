@@ -25,10 +25,11 @@ function listHeros() {
     let par;
     for (itList of heroList) {
         newItem = document.createElement('div');
-        par = document.createElement('p');
+        par = document.createElement('a');
         btn = document.createElement('button');
+        par.href = getHeroLink(itList.id);
         btn.innerText = "del";
-        btn.addEventListener('click', deleteChild);
+        btn.setAttribute("onclick", `deleteChild(${itList.id})`)
         newItem.id = itList.id;
         newItem.className = 'flex-row';
         par.innerText = `id: ${itList.id} name: ${itList.name}`;
@@ -40,11 +41,9 @@ function listHeros() {
 
 function deleteList() {
     let list = document.getElementById('list');
-    for (child of list.childNodes) {
-        console.log(child);
-        list.removeChild(child);
-    }
+    list.textContent = "";
 }
+
 
 let newName = document.getElementById('hero-list__name-add');
 newName.addEventListener("keydown", function (event) {
@@ -54,8 +53,6 @@ newName.addEventListener("keydown", function (event) {
         event.preventDefault();
         // Trigger the button element with a click
         let nName = newName.value;
-        console.log(nName);
-        console.log(newName);
         heroList.push({ id: heroList.length + 11, name: nName });
         deleteList();
         listHeros();
@@ -63,7 +60,16 @@ newName.addEventListener("keydown", function (event) {
 
 });
 
-let deleteChild = function (id) {
-    console.log(id);
+function deleteChild(id) {
+    for (let i = 0; i < heroList.length; i++) {
+        if (heroList[i].id === id) {
+            heroList.splice(i, 1);
+        }
+    }
+    deleteList();
+    listHeros();
+}
+function getHeroLink(id) {
+    return `../hero-detail/hero-detail.component.html?heroId=${id}&prop=value`;
 }
 listHeros();

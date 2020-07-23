@@ -16,7 +16,9 @@ describe('dashboard', function () {
         expect(dashboardComponent).not.toBe(undefined);
     });
     it('Should render a list of heroes', function () {
-        expect(dashboardComponent.renderHeroList(heroes)).toEqual(heroAnchorList);
+        const spy = spyOn(dashboardComponent, 'onInit');
+        dashboardComponent.onInit();
+        expect(spy).hasBeenCalled(1);
     });
 
 });

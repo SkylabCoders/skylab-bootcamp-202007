@@ -5,18 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hero Details</title>
-    <link rel="stylesheet" href="hero-detail.component.css" />
+    <link rel="stylesheet" href="hero-dashboard.component.css" />
 </head>
 
 <body>
     <div class="holder">
         <h1>Tour of Heroes</h1>
         <div class="flex-row buttons">
-            <a class='butons' href="../hero-detail/hero-detail.component.html">Detail</a>
-            <a class='butons' href="../hero-list/hero-list.component.html">Heroes</a></div>
+            <a class='butons' href="../hero-list/hero-list.component.html">List</a>
+            <a class='butons' href="../hero-dashboard/hero-dashboard.component.html">Heroes</a></div>
 
-        <a class='butons' href="./hero-dashboard.component.html">Back</a>
-        <script src="hero-dashboard.component.js"></script>
+        <div id="dashboard__component"></div>
+
+        <a class='butons' href="../hero-list/hero-list.component.html">Back</a>
+
         <script src="../hero.mock.js"></script>
         <script src="hero-dashboard.component.js"></script>
     </div>

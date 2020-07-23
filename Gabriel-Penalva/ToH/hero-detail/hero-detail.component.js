@@ -1,5 +1,15 @@
 function HeroDetailComponent() {
-	const hero = heroList[0];
+
+	let hero = heroList.find(getParams);
+
+
+
+
+	function getParams(hero) {
+		const params = new URLSearchParams(location.search);
+		return hero.id === +params.get('heroId');
+
+	}
 
 	this.onInit = function () {
 		updateId();
