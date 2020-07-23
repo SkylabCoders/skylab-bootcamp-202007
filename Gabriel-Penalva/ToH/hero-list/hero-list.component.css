@@ -22,7 +22,7 @@ label{
     font-weight: bold;
 }
 button {
-    margin-top: 20px;
+    margin-left: 10px;
     background-color: #eee;
     border: none;
     padding: 5px 10px;
@@ -74,13 +74,20 @@ button {
     background-color: rgb(206, 252, 253);
 }
 
-#list p{
+#list div {
     background-color: rgb(241, 254, 255);
     margin: 10px;
-    
-    padding: 10px;
+    justify-content: space-between;
+    padding: 5px;
     border-style: solid;
     border-width: thin;
     border-color: lightblue;
     border-radius: 10px;
+}
+#list div p{
+    padding: 5px;
+    margin: 2px;
+}
+#list div button{
+    text-align: end;
 }
