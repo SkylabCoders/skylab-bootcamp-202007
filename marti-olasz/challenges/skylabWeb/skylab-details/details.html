@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLab Details</title>
+    <link rel="stylesheet" href="details.css">
+</head>
+
+<body>
+    <header>
+        <h1>SkyLab 2020 07</h1>
+        <div class="header__buttons">
+            <button><a href="../skylab-dashboard/dashboard.html" class="buttons__item"> Dashboard </a></button>
+            <button><a href="../skylab-list/list.html" class="buttons__item"> List </a></button>
+        </div>
+    </header>
+    <h2><span class="detail__name"></span> details</h2>
+    <p>id: <span class="detail__id"></span></p>
+    <label for="name">
+        name:
+        <input class="detail__name-control" type="text" name="name"
+            onchange="heroDetailComponent.nameChange(this.value)" />
+    </label>
+    <script src="../script.js"></script>
+    <script src="details.js"></script>
+</body>
+
+</html>
