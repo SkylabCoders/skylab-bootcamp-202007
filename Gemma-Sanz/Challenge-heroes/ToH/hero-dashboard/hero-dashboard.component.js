@@ -1,4 +1,5 @@
 function HeroDashboardComponent() {
+	const heroes = heroList;
 	this.onInit = function () {
 		DashboardContent();
 	}
@@ -6,8 +7,8 @@ function HeroDashboardComponent() {
 
 	let DashboardContent = function () {
 		debugger
-		const maxVisibleItems = 4;
-		for (let i = 0; i < maxVisibleItems; i++) {
+		const maxVisibleItems = heroes.slice(0, 4);
+		for (let i = 0; i < maxVisibleItems.length; i++) {
 			let itemDashboard = document.createElement("button");
 			mainContentDashboard.appendChild(itemDashboard);
 			itemDashboard.innerHTML = heroList[i].name;
@@ -16,3 +17,4 @@ function HeroDashboardComponent() {
 	DashboardContent()
 }
 let dashboardComponent = new HeroDashboardComponent();
+dashboardComponent.onInit();
