@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // As a...  student
 // I want... learn how the array methods work
 // So that... I learn and become a pro

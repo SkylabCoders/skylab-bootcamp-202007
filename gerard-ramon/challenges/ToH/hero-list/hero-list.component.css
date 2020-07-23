@@ -1,0 +1,13 @@
+.hero {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: lightgray;
+	margin: 5px;
+	border: 1px solid grey;
+	width: 35%;
+}
+
+.hero__anchor {
+	padding: 10px 20px 10px 10px;
+}
