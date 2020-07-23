@@ -6,6 +6,7 @@ function DashboardComponent() {
 		console.log(promotedHeroArray);
 		console.log(promotedHeroList);
 		promotedHeroArray.forEach(addAnchorToHtml);
+		getHeroFromUrl();
 	};
 
 	function mapItemToAnchor(hero) {
@@ -18,6 +19,15 @@ function DashboardComponent() {
 	function addAnchorToHtml(heroAnchor) {
 		if (anchorContainer) anchorContainer.appendChild(heroAnchor);
 		console.log(anchorContainer);
+	}
+
+	function getHeroFromUrl() {
+		const params = new URLSearchParams(location.search);
+		return heroList.find(compareHeroId);
+	}
+
+	function compareHeroId(hero) {
+		return hero.id === +params.get('heroId');
 	}
 }
 
