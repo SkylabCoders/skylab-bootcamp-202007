@@ -5,5 +5,8 @@ describe('Hero-dashboard-spec', function () {
 	beforeEach(function () {
 		//myHero = new myHero();
 		myHeroDashBoardComponent = new HeroDashBoardComponent();
+		myHeroDashBoardComponent.onInit();
 	});
+
+	it();
 });
