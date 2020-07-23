@@ -5,8 +5,6 @@ function DashboardComponent() {
     this.onInit = function () {
         const promotedHeroes = heroList.splice(0, 4);
         const promotedHeroesArray = promotedHeroes.map(mapItemsToAnchor);
-        console.log(promotedHeroes);
-        console.log(promotedHeroesArray);
         promotedHeroesArray.forEach(addAnchorToHtml);
 
 
