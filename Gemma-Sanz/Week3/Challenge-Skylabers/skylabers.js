@@ -4,5 +4,3 @@ function Skylabers(id, name, completedChallenges, city, country) {
     this.completedChallenges = completedChallenges;
     this.address = { city: city, country: country }
 }
-
-console.log(Skylabers[0])
