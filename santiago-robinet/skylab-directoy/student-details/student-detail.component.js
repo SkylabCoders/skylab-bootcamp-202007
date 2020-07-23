@@ -30,9 +30,9 @@ function SkylaberDetailComponent() {
 		return skylaberList.find(compareIdV2);
 	}
 
-	function compareIdV2(){
+	function compareIdV2(skylaber){
 		const param = location.search.split('=');
-		return skylaber.id === +parametro[1];
+		return skylaber.id === +param[1];
 	}
 
 }

@@ -22,7 +22,7 @@ function SkylaberListComponent() {
   }
 
   function getSkylaberLink(id) {
-    return `C:\Users\santi\Desktop\skylab-bootcammp-202007\santiago-robinet\skylab-directoy\student-details\student-detail.component.html?skylaberId=${id}`;
+    return `../student-details/student-detail.component.html?skylaberId=${id}`;
   }
 }
 
