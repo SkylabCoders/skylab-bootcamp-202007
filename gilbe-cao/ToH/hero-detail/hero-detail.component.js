@@ -17,12 +17,12 @@ function HeroDetailComponent() {
 	};
 
 	function updateId() {
-		idElement.innerHTML = hero.id;
+		if (idElement) idElement.innerHTML = hero.id;
 	}
 
 	function updateName() {
-		nameElement.innerHTML = hero.name;
-		nameControlElement.value = hero.name;
+		if (nameElement) nameElement.innerHTML = hero.name;
+		if (nameControlElement) nameControlElement.value = hero.name;
 	}
 }
 

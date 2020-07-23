@@ -4,7 +4,7 @@ function DashboardComponent() {
 
 	this.onInit = function () {
 		this.renderHeroList().forEach((element) => {
-			heroListContainer.appendChild(element);
+			if (heroListContainer) heroListContainer.appendChild(element);
 		});
 	};
 
