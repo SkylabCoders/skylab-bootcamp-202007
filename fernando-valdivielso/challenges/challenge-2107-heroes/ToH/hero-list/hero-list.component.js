@@ -1,32 +1,44 @@
 function ListComponent() {
     const myHeroList = heroList;
+    const ulElement = document.getElementById('list');
+    let listElement = null;
+    const elementsToHtml = [];
 
     this.onInit = function () {
         myHeroList.forEach(listItemsToAnchor);
-        addAnchorToHTML(listItemsToAnchor());
+        addAnchorToHTML(listItemsToAnchor);
     }
 
     function listItemsToAnchor(heroItems) {
-        // debugger;
-       let transformedElement = document.createElement('a');
-       transformedElement.href = '../hero-detail/hero-detail.component.html';
-       let idElement = document.createElement('span');
-       let nameElement = document.createElement('span');
-       idElement.innerText = heroItems.id;
-       nameElement.innerText = heroItems.name;
-       transformedElement.appendChild(idElement);
-       transformedElement.appendChild(nameElement);
+        listElement = document.createElement('li')
 
-    //    transformedElement.innerText = 'id: ' + heroItems.id + '   ' + heroItems.name;
-       console.log(transformedElement);
-    }
+        let transformedElement = document.createElement('a');
+        let idElement = document.createElement('span');
+        let nameElement = document.createElement('span');
+        transformedElement.href = '../hero-detail/hero-detail.component.html';
+        idElement.innerText = heroItems.id;
+        nameElement.innerText = heroItems.name;
+        transformedElement.appendChild(idElement);
+        transformedElement.appendChild(nameElement);
+        listElement.appendChild(transformedElement);
+        console.log(listElement);
+        elementsToHtml.push(listElement);
+        console.log(elementsToHtml);
     
-    function addAnchorToHtml(heroAnchor) {
 
-
-        
-        
     }
+
+    function addAnchorToHTML() {
+        // debugger;
+        for (let i = 0; i < myHeroList.length; i++) {
+            ulElement.appendChild(elementsToHtml[i]);
+
+        }
+        console.log(ulElement);
+
+
+    }
+
 
 
 
