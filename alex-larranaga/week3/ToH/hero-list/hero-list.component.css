@@ -3,12 +3,15 @@
 	flex-direction: column;
 }
 
-button {
+a {
+	max-width: 150px;
 	padding: 10px;
-	background-color: rgba(
-		rgb(83, 55, 182) (107, 32, 32),
-		green,
-		rgb(60, 60, 126),
-		alpha
-	);
+}
+
+.list__element {
+	background-color: cornflowerblue;
+	border: 10px, solid;
+	margin: 3px;
+	border-color: black;
+	appearance: button;
 }

@@ -8,9 +8,11 @@ function HeroListComponent() {
 
 	const createList = function () {
 		for (let i = 0; i < heroes.length; i++) {
-			let listNodesElement = document.createElement('BUTTON');
+			let listNodesElement = document.createElement('a');
 			listElement.appendChild(listNodesElement);
 			listNodesElement.innerHTML = heroes[i].id + '   ' + heroes[i].name;
+			listNodesElement.setAttribute('href', 'http://www.google.com');
+			listNodesElement.setAttribute('class', 'list__element');
 		}
 	};
 }
