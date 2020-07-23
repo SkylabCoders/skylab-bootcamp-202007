@@ -1,5 +1,11 @@
 function ListComponent() {
 	const myHeroList = heroList;
+	const ulElement = document.getElementById('list');
+	let listElement = null;
+	const elementsToHtml = [];
+	let transformedElement = null;
+	let idElement = null;
+	let nameElement = null;
 
 	this.onInit = function () {
 		myHeroList.forEach(listItemsToAnchor);
@@ -7,23 +13,25 @@ function ListComponent() {
 	};
 
 	function listItemsToAnchor(heroItems) {
-		let transformedElement = document.createElement('a');
-		transformedElement.href = '../hero-detail/hero-detail.component.html';
-		let idElement = document.createElement('span');
-		let nameElement = document.createElement('span');
+		listElement = document.createElement('li');
+		transformedElement = document.createElement('a');
+		idElement = document.createElement('span');
+		nameElement = document.createElement('span');
 
+		transformedElement.href = '../hero-detail/hero-detail.component.html';
 		idElement.innerText = heroItems.id;
 		transformedElement.appendChild(idElement);
-
 		nameElement.innerText = heroItems.name;
 		transformedElement.appendChild(nameElement);
-
-		// transformedElement.innerText =
-		// 	'id: ' + heroItems.id + '    ' + heroItems.name;
-		console.log(transformedElement);
+		listElement.appendChild(transformedElement);
+		elementsToHtml.push(listElement);
 	}
 
-	function addAnchorToHtml(heroAnchor) {}
+	function addAnchorToHtml() {
+		for (i = 0; i < myHeroList.length; i++) {
+			ulElement.appendChild(elementsToHtml[i]);
+		}
+	}
 }
 
 const listComponent = new ListComponent();
