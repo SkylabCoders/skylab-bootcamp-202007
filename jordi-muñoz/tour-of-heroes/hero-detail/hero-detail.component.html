@@ -7,9 +7,19 @@
 		<link rel="stylesheet" href="hero-detail.component.css" />
 	</head>
 	<body>
-		<h1>Tour of Heroes</h1>
-		<a href="./hero-detail.component.html">Detail</a>
-		<a href="../hero-list/hero-list.component.html">Heroes</a>
+		<header>
+			<div class="fix-header">
+				<div class="fix-header__title">
+					<h1>Tour of Heroes</h1>
+				</div>
+				<div class="fix-header__buttons">
+					<a href="../hero-detail/hero-detail.component.html">Detail</a>
+					<a href="../hero-list/hero-list.component.html">Heroes</a>
+					<a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
+				</div>
+			</div>
+		</header>
+		
 		<h2><span id="hero-detail__name"></span> details</h2>
 		<p>id: <span id="hero-detail__id"></span></p>
 		<label for="heroName">

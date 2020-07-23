@@ -6,6 +6,7 @@ function HeroListComponent() {
             let generateDiv = document.createElement('div');
             generateDiv.classList.add(`hero-${i}`);
             let generateA = document.createElement('a');
+            generateA.href = '../hero-detail/hero-detail.component.html';
             generateA.classList.add('anchor');
             let generateP = document.createElement('p');
             generateP.classList.add('para');
@@ -24,7 +25,19 @@ function HeroListComponent() {
         tempA.innerHTML = this.componentHeroList[i].id;
         tempP.innerHTML = this.componentHeroList[i].name;
     }
+
+    this.linkHeroes = function() {
+        
+    }
+
 }
 const myHeroList = new HeroListComponent();
 
 myHeroList.createDomElements();
+
+const eachHero = document.querySelectorAll('.hero-0, .hero-1, .hero-2, .hero-3, .hero-4, .hero-5, .hero-6, .hero-7, .hero-8, .hero-9');
+for (let click of eachHero) {
+    click.onclick = function () {
+        myHeroList.linkHeroes();
+    }
+};
