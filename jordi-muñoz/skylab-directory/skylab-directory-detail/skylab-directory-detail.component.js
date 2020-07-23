@@ -5,7 +5,7 @@ function StudentDetailComponent() {
 	const nameControlElement = document.getElementById('hero-detail__name-control');
 
 	this.onInIt = function() {
-		student = getStudentFromUrl();
+		student = getStudentUrl();
 		updateName();
 		updateId();
 	};
@@ -24,12 +24,14 @@ function StudentDetailComponent() {
 		nameControlElement.value = student.name;
 	};
 
-	function getStudentFromUrl() {
-		const params = new URLSearchParams(location.search);
+	function getStudentUrl() {
+		let info = window.location.search;
+		let studentUrlId = +info.split('=')[1];
 		return skylaberList.find(function(e) {
-			return e.id === +params.get('studentId');
+			return e.id === studentUrlId;
 		});
-	}
+	};
+
 }
 
 const studentDetailComponent = new StudentDetailComponent();
