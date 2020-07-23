@@ -16,4 +16,13 @@ describe('Dashboard', function () {
     it('should render a list of heroes', function() {
         expect(dashboardComponent.renderHeroList(heroes)).toEqual(heroAnchorList);
     });
+
+    it('should call onInit and behave property', function(){
+        const spy = spyOn(dashboardComponent, 'onInit');
+        dashboardComponent.onInit();
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith();
+    })
 });
+

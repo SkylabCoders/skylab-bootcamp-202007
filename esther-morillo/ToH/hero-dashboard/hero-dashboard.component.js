@@ -28,3 +28,5 @@ function DashboardComponent () {
 
 heroDashboardComponent = new DashboardComponent();
 heroDashboardComponent.onInit();
+
+

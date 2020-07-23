@@ -34,40 +34,27 @@ body {
 }
 
 .title-hero {
-    color: #404040;
-    margin: 1.5rem 0;
+    text-align: center;
+    color: #969696;
+    margin: 2.5rem 0 .5rem 0;
 }
 
-.id-name,
-.input-name {
-    color: #557584;
+
+.container__dashboard a {
+    display: inline-block;
+    width: 10rem;
+    background-color: #557584;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;    
     font-weight: bold;
+    margin-top: .5rem;
+    margin-right: 1rem;
+    padding: 3rem 3rem;
 }
 
-.id-name span {
-    color: #969696;
-    font-weight: lighter;
-    padding-left: 1.8rem;
-}
 
-.input {
-    margin-top: .8rem;
-    padding: .7rem;
-    border: .09rem solid rgb(209, 208, 208);
-    border-radius: .2rem;
-}
 
-.input:focus {
-    outline: 0 none;
-}
 
-.button-back {
-    background-color: #eee;
-    color: #969696;
-    width: 4rem;
-    margin-right: .5rem;
-    padding: .5rem 1rem;
-    border-radius: .3rem;
-    margin-top: 1rem;
-    cursor: pointer;
-}
+
+

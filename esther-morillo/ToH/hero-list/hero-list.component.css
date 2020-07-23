@@ -38,64 +38,35 @@ body {
     margin: 1.5rem 0;
 }
 
+.hero__list {
+    
+}
 
-.hero__list a span:nth-child(1) {
-    background-color: red;
+.hero__list a {
     display: flex;
     margin-bottom: .6rem;
     padding-left: .8rem;
+    text-decoration: none;
+    
+}
+
+.hero__list a span:nth-child(1),
+.hero__list a span:nth-child(2) {
+    margin-bottom: .6rem;
+}
+
+.hero__list a span:nth-child(1) {
+    background-color: #557584;
+    color: #fff;
+    text-align: center;
+    padding: .5rem;
+    border-radius: .3rem 0  0 .3rem;
 }
 
 .hero__list a span:nth-child(2) {
-    background-color: yellow;
-    display: flex;
-    margin-bottom: .6rem;
-    padding-left: .8rem;
-}
-
-
-.linkId {
-    background-color: #557584;
-    color: #fff;
-    padding: .5rem 0;
-    width: 2rem;
-    text-align: center;
-    border-radius: .3rem 0 0 .3rem;
-}
-
-.paragraphName {
     background-color: #eee;
     color: #969696;
-    padding: .6rem 0 0 .8rem;
-    width: 7rem;
+    padding: .6rem 0 0 .8rem;   
     border-radius: 0 .3rem .3rem 0;
-}
-
-
-
-
-
-
-
-
-.input {
-    margin-top: .8rem;
-    padding: .7rem;
-    border: .09rem solid rgb(209, 208, 208);
-    border-radius: .2rem;
-}
-
-.input:focus {
-    outline: 0 none;
-}
-
-.button-back {
-    background-color: #eee;
-    color: #969696;
-    width: 4rem;
-    margin-right: .5rem;
-    padding: .5rem 1rem;
-    border-radius: .3rem;
-    margin-top: 1rem;
-    cursor: pointer;
+    width: 8rem;
 }
