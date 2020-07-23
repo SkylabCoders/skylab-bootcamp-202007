@@ -9,7 +9,7 @@ describe('Dashboard', function () {
 		expect(dashboardComponent).toBeTruthy();
 	});
 
-	it('should render a list of heroes', function () {
+	it('should call onInit and behave properly', function () {
 		const spy = spyOn(dashboardComponent, 'onInit');
 		dashboardComponent.onInit();
 
