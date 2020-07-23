@@ -17,7 +17,7 @@ function ListComponent() {
         transformedElement = document.createElement('a');
         idElement = document.createElement('span');
         nameElement = document.createElement('span');
-        transformedElement.href = '../hero-detail/hero-detail.component.html';
+        transformedElement.href = '../hero-detail/hero-detail.component.html?heroid=' + heroItems.id;
         idElement.innerText = heroItems.id;
         nameElement.innerText = heroItems.name;
         transformedElement.appendChild(idElement);
