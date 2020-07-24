@@ -1,6 +1,8 @@
 'use strict';
 function StudentListComponent() {
+    const inputFilter = document.querySelector('.inputFilter');
     let componentStudentList = skylaberList;
+    
     this.createDomElements = function () {
         let container = document.querySelector('.container');
         for (let i = 0; i < componentStudentList.length; i++) {
@@ -27,7 +29,20 @@ function StudentListComponent() {
         tempP.innerHTML = componentStudentList[i].name;
     }
 
-}
-const myHeroList = new StudentListComponent();
+    this.searchList = function() {
+        debugger;
+        componentStudentList.reduce(callback, []);
+        componentStudentList = acc;
+        createDomElements();
+    };
+    function callback(acc, currentValue) {
+        if (currentValue.name === inputFilter.value) {
+            acc = [...acc, currentValue];
+        }
+        return acc; 
+    };
 
-myHeroList.createDomElements();
+}
+const studentList = new StudentListComponent();
+
+studentList.createDomElements();
