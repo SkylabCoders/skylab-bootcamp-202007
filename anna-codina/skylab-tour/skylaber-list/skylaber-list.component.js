@@ -43,27 +43,32 @@ function SkylaberListComponent() {
     }
 
     this.inputFilter = function (filterPoperty, event) {
-        event.preventDefault()
+        event.preventDefault();
         const listFilter = filterArrayGenerator(filterPoperty);
         createList(listFilter);
         printListInfo(listFilter);
     }
 
-    function filterArrayGenerator(property) {
-        const myFilter = [];
-        const propertyActual = property.toUpperCase();
-        for (let i in skylaberListComponent) {
-            for (let j in skylaberListComponent[i]) {
-                const actualElement = (skylaberListComponent[i][j] + "").toUpperCase();
-
-                if (actualElement.indexOf(propertyActual) != -1) {
-                    myFilter.push(skylaberListComponent[i]);
-                    break;
-                }
-
-            }
+    function filterArrayGenerator(searchValue) {
+        function filterSkylaberList(skylaber) {
+            return skylaber.name.toLowerCase() === searchValue.toLowerCase() || skylaber.address.city.toLowerCase() === searchValue.toLowerCase() || skylaber.id === +searchValue;
         }
-        return myFilter;
+        return skylaberListComponent.filter(filterSkylaberList);
+
+        // const myFilter = [];
+        // const propertyActual = property.toUpperCase();
+        // for (let i in skylaberListComponent) {
+        //     for (let j in skylaberListComponent[i]) {
+        //         const actualElement = (skylaberListComponent[i][j] + "").toUpperCase();
+
+        //         if (actualElement.indexOf(propertyActual) != -1) {
+        //             myFilter.push(skylaberListComponent[i]);
+        //             break;
+        //         }
+
+        //     }
+        // }
+        // return myFilter;
     }
 
 }

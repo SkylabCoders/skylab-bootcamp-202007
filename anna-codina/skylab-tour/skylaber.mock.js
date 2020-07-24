@@ -118,7 +118,7 @@ let skylaberList = [
 	},
 	{
 		id: 14,
-		name: 'Fernando',
+		name: 'Rubi',
 		completedChallenges: 4,
 		address: {
 			city: 'Barcelona',
