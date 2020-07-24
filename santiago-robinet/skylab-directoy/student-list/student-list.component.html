@@ -7,15 +7,21 @@
 		<link rel="stylesheet" href="student-list.component.css" />
 	</head>
 	<body>
-        <marin class="main__container">
-            <h1>Skylabers Directory</h1>
-            <a href="../dashboard/dashboard.component.html">Dashboard</a>
-            <a href="../student-details/student-detail.component.html">Details</a>
-            <h2>Skylabers</h2>
-            <ul class="list__container">
-    
-            </ul>
-        </marin>
+		<marin class="main__container">
+			<h1>Skylabers Directory</h1>
+			<a href="../dashboard/dashboard.component.html">Dashboard</a>
+			<a href="../student-details/student-detail.component.html"
+				>Details</a
+			>
+			<h2>Skylabers</h2>
+			<input
+				type="text"
+				class="student-list__input"
+				placeholder="Search by any criteria..."
+				name="student-list__input"
+			/>
+			<ul class="list__container"></ul>
+		</marin>
 
 		<script src="../../skylab-directoy/student.js"></script>
 		<script src="../../skylab-directoy/student.mock.js"></script>
