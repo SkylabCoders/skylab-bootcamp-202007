@@ -2,7 +2,7 @@ describe('Dashboard', function () {
     let dashboardComponent;
 
     beforeEach(function () {
-        dashboardComponent = new DashboardComponent();
+        dashboardComponent = new HeroDashboardComponent();
     });
 
     it('should create', function () {
