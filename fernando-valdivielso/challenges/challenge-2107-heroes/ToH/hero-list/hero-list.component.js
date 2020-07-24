@@ -39,18 +39,3 @@ listComponent.onInit();
     
 
 
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-

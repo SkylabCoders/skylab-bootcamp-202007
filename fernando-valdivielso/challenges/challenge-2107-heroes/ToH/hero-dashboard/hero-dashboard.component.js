@@ -17,7 +17,7 @@ function DashboardComponent() {
 
     function mapItemsToAnchor(hero) {
         const transformedElement = document.createElement('a')
-        transformedElement.href = '../hero-detail/hero-detail.component.html'
+        transformedElement.href = '../hero-detail/hero-detail.component.html?heroid=' + hero.id;
         transformedElement.innerText = hero.name;
         return transformedElement;
     }

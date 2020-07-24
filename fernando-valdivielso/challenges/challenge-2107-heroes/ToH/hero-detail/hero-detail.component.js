@@ -1,14 +1,15 @@
 function HeroDetailComponent() {
-	const hero = heroList[0];
+	let hero = null;
 	let param = null;
 	let heroId = null;
 	let heroDetail = document.getElementById('hero-detail__id');
 	let heroName = document.getElementById('hero-detail__name-control');
 
 	this.onInit = function () {
+		getIdFormUrl();
+		hero = getHeroNameFromList(heroList);
 		updateId();
 		updateName();
-		getHeroFormUrl();
 	};
 
 	this.nameChange = function (newName) {
@@ -17,23 +18,35 @@ function HeroDetailComponent() {
 	};
 
 	function updateId() {
-		document.getElementById('hero-detail__id').innerHTML = hero.id;
+		heroDetail.innerHTML = hero.id;
 	}
 
 	function updateName() {
 		document.getElementById('hero-detail__name').innerHTML = hero.name;
-		document.getElementById('hero-detail__name-control').value = hero.name;
+		heroName.value = hero.name;
 	}
 
-	function getHeroFormUrl() {
-		param = (new URL(document.location)).searchParams;
-		heroId = params.get('heroid');
-		heroDetail.innerText = heroId;
+	function getIdFormUrl() {
+		// debugger;
+		param = (new URLSearchParams(location.search));
+		heroId = +param.get('heroid');
+	}
+		
+		 
+
+
+	function getHeroNameFromList(heroList) {
+		return heroList.find(getName);
+	}
+		 
+
+	function getName(element) {
+		return element.id === heroId;
+	}
+
 		
 
 
-
-	}
 }
 
 const heroDetailComponent = new HeroDetailComponent();
