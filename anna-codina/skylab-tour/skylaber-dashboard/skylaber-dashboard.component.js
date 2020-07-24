@@ -6,7 +6,7 @@ function SkylaberDashboardComponent() {
     const listItemElement = document.getElementsByClassName(listItemClass);
 
     this.onInit = function () {
-        const skylaberListFilter = filterArrayGenerator();
+        const skylaberListFilter = filterArrayGenerator(skylaberListDashboard);
         const topFour = skylaberListFilter.slice(0, 4)
         createDashboardList(topFour);
         updateDashboard(topFour);
@@ -30,11 +30,11 @@ function SkylaberDashboardComponent() {
                 listItemElement[i].innerHTML = actualskylaber.name;
         }
     }
-    function filterArrayGenerator() {
+    function filterArrayGenerator(listSkylaber) {
         const myFilter = [];
-        for (let i in skylaberListDashboard) {
-            if (skylaberListDashboard[i].completedChallenges >= 4) {
-                myFilter.push(skylaberListDashboard[i]);
+        for (let i in listSkylaber) {
+            if (listSkylaber[i].completedChallenges >= 4) {
+                myFilter.push(listSkylaber[i]);
             }
         }
         return myFilter;
