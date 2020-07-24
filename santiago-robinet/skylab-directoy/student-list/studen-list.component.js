@@ -1,11 +1,10 @@
 
-console.log('cabrooon');
-
 function SkylaberListComponent() {
 	const allSkylaber = skylaberList;
 	const skylaberListContainer = document.querySelector('.list__container');
-	const inputElement = document.querySelector('.student-list__input');
+	let returnArray = [];
 	
+
 	this.onInit = function () {
 		renderSKylaberList(allSkylaber).forEach((element) => {
 			if (skylaberListContainer) {
@@ -31,29 +30,27 @@ function SkylaberListComponent() {
 
 	this.filterByCriteria = function () {
 		// pintar el nuevo array
-		console.log('I ENTER!!');
-
-		let returnArray = [];
 
 		const inputElementValue = document.querySelector('.student-list__input').value.toLowerCase();
 
 		if (inputElementValue === '') {
 			returnArray = [...allSkylaber];
 		} else {
+					
 			returnArray = allSkylaber.reduce(function (counter, skylaber) {
-				console.log(counter);
 				return inputElementValue === skylaber.name.toLowerCase() ||
-					inputElementValue === skylaber.id ||
+					+inputElementValue === skylaber.id ||
 					inputElementValue === skylaber.address.city.toLowerCase() ||
 					inputElementValue ===
 						skylaber.address.country.toLowerCase() ||
-					inputElementValue === skylaber.completedChallenges
+					+inputElementValue === skylaber.completedChallenges
 					? (counter = [...counter, skylaber])
 					: counter;
 			}, []);
 		}
-		console.log(returnArray);
+		console.log(returnArray)
 	};
+	
 }
 
 const skylaberListComponent = new SkylaberListComponent();
