@@ -17,7 +17,7 @@ function SkylaberListComponent() {
   function mapRenderAnchor(skylaber) {
     const element = document.createElement("a");
     element.href = getSkylaberLink(skylaber.id);
-    element.innerHTML = `<span>${skylaber.id}</span><span>${skylaber.name}</span><span>${skylaber.completedChallengesskylaber}</span><span>${skylaber.address.city}</span><span>${skylaber.address.city}</span>`;
+    element.innerHTML = `<span>${skylaber.id}</span><span>${skylaber.name}</span><span>${skylaber.completedChallenges}</span><span>${skylaber.address.city}</span><span>${skylaber.address.city}</span>`;
     return element;
   }
 
