@@ -12,6 +12,8 @@ function HeroDetailComponent() {
 		updateName();
 	};
 
+	// Jorge no se mira los pull request
+
 	function updateId() {
 		document.getElementById('hero-detail__id').innerHTML = hero.id;
 	}
