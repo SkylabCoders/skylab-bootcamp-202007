@@ -50,25 +50,12 @@ function SkylaberListComponent() {
     }
 
     function filterArrayGenerator(searchValue) {
+        const missingIndex = -1;
+        const mySearchValue = searchValue.toLowerCase();
         function filterSkylaberList(skylaber) {
-            return skylaber.name.toLowerCase() === searchValue.toLowerCase() || skylaber.address.city.toLowerCase() === searchValue.toLowerCase() || skylaber.id === +searchValue;
+            return skylaber.name.toLowerCase().indexOf(mySearchValue) !== missingIndex || +skylaber.id === +searchValue || skylaber.address.country.toLowerCase().indexOf(mySearchValue) !== missingIndex || skylaber.address.city.toLowerCase().indexOf(searchValue.toLowerCase()) !== missingIndex || +skylaber.completedChallenges === +searchValue;
         }
         return skylaberListComponent.filter(filterSkylaberList);
-
-        // const myFilter = [];
-        // const propertyActual = property.toUpperCase();
-        // for (let i in skylaberListComponent) {
-        //     for (let j in skylaberListComponent[i]) {
-        //         const actualElement = (skylaberListComponent[i][j] + "").toUpperCase();
-
-        //         if (actualElement.indexOf(propertyActual) != -1) {
-        //             myFilter.push(skylaberListComponent[i]);
-        //             break;
-        //         }
-
-        //     }
-        // }
-        // return myFilter;
     }
 
 }
