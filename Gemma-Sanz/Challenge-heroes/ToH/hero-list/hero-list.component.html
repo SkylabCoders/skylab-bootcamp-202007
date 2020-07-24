@@ -14,6 +14,9 @@
 	<button><a href="./hero-list.component.html">Heroes</a></button>
 	<h2>My heroes</h2>
 	<button><a href="../hero-dashboard/hero-dashboard.component.html">Back</a></button>
+	<input id="hero-detail__name-control" type="text" name="heroName" placeholder="Search item wanted"
+		onkeyup="listComponent.searchInput()" />
+
 	<div id="mainContainer--list"></div>
 
 	<script src="../hero.js"></script>
