@@ -4,6 +4,7 @@ function SkylaberDashboardComponent() {
     const listElement = document.getElementsByClassName('dashboard__list');
     const listItemClass = 'list__item';
     const listItemElement = document.getElementsByClassName(listItemClass);
+    const challengesCompleted = 4;
 
     this.onInit = function () {
         const skylaberListFilter = skylaberListDashboard.filter(filterByChallengesCompleted);
@@ -13,7 +14,7 @@ function SkylaberDashboardComponent() {
     }
 
     function filterByChallengesCompleted(skylaber) {
-        return skylaber.completedChallenges >= 4;
+        return skylaber.completedChallenges >= challengesCompleted;
     }
 
     function createDashboardList(list) {
@@ -33,15 +34,6 @@ function SkylaberDashboardComponent() {
             if (listItemElement[i])
                 listItemElement[i].innerHTML = actualskylaber.name;
         }
-    }
-    function filterArrayGenerator(listSkylaber) {
-        const myFilter = [];
-        for (let i in listSkylaber) {
-            if (listSkylaber[i].completedChallenges >= 4) {
-                myFilter.push(listSkylaber[i]);
-            }
-        }
-        return myFilter;
     }
 }
 
