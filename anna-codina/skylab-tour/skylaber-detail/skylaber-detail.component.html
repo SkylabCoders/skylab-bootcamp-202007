@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Skylaber Details</title>
+	<link rel="stylesheet" href="skylaber-detail.component.css" />
+</head>
+
+<body>
+	<h1>Tour of Skylabers</h1>
+	<nav>
+		<a href="../skylaber-dashboard/skylaber-dashboard.component.html">Dashboard</a>
+		<a href="../skylaber-list/skylaber-list.component.html">Skylabers</a>
+	</nav>
+	<h2><span id="skylaber-detail__name"></span> Details!</h2>
+	<p>id: <span id="skylaber-detail__id"></span></p>
+	<form>
+		<label for="skylaberName">
+			name: </label>
+		<input id="skylaber-detail__name-control" type="text" name="skylaberName"
+			onkeyup="skylaberDetailComponent.nameChange(this.value)" />
+	</form>
+
+	<br>
+	<a id="back" href="../skylaber-dashboard/skylaber-dashboard.component.html">Back</a>
+	<script src="../skylaber.js"></script>
+	<script src="../skylaber.mock.js"></script>
+	<script src="skylaber-detail.component.js"></script>
+</body>
+
+</html>
