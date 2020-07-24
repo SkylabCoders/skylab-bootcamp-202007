@@ -1,22 +1,25 @@
 function HeroListComponent() {
 	const heroes = heroList;
-	this.onInIt = function () {
-		displayList();
+	this.onInIt = function displayList() {
+		const tableElement = document.getElementById('heroListTable');
+		tableElement.innerHTML = renderHeroFullList(heroes);
 	};
-	const displayList = function () {
-		let tableElement = document.getElementById('heroListTable');
-		let heroLink = '../hero-detail/hero-detail.component.html';
+	this.showDetails;
+	function renderHeroFullList(heroes) {
+		const heroLink = '../hero-detail/hero-detail.component.html';
+		let codeRender = '';
 		for (let i = 0; i < heroes.length; i++) {
-			tableElement.innerHTML +=
-				'<tr><td> <button href=' +
+			codeRender +=
+				'<td> <a href=' +
 				heroLink +
 				'>' +
-				heroList[i].id +
-				'</button></td><td>' +
-				heroList[i].name +
+				heroes[i].id +
+				'</a></td><td>' +
+				heroes[i].name +
 				'</td></tr>';
 		}
-	};
+		return codeRender;
+	}
 }
 let listComponent = new HeroListComponent();
 listComponent.onInIt();

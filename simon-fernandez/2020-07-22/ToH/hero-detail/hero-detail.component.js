@@ -1,6 +1,6 @@
 function HeroDetailComponent() {
 	const hero = heroList[0];
-
+	
 	this.onInit = function () {
 		updateId();
 		updateName();
@@ -12,12 +12,17 @@ function HeroDetailComponent() {
 	};
 
 	function updateId() {
-		document.getElementById('hero-detail__id').innerHTML = hero.id;
+		const idElement = document.getElementById('hero-detail__id');
+		idElement.innerHTML = hero.id;
 	}
 
 	function updateName() {
-		document.getElementById('hero-detail__name').innerHTML = hero.name;
-		document.getElementById('hero-detail__name-control').value = hero.name;
+		const nameElement = document.getElementById('hero-detail__name');
+		const nameControlElement = document.getElementById(
+			'hero-detail__name-control'
+		);
+		nameElement.innerHTML = hero.name;
+		nameControlElement.value = hero.name;
 	}
 }
 

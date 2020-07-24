@@ -5,7 +5,7 @@ function HeroDashboardComponent() {
 		listElement.innerHTML = renderHeroList(heroes);
 	};
 	function renderHeroList(heroes) {
-		return heroes.map(renderAnchor(hero));
+		return heroes.map(renderAnchor);
 	}
 	function renderAnchor(hero) {
 		const heroLink = '../hero-detail/hero-detail.component.html';
