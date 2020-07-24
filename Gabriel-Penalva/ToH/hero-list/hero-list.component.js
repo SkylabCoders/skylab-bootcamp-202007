@@ -11,7 +11,7 @@ function listHeros(theroList = heroList) {
     let newItem;
     let btn;
     let par;
-    for (itList of theroList) {
+    for (let itList of theroList) {
         newItem = document.createElement('div');
         par = document.createElement('a');
         btn = document.createElement('button');

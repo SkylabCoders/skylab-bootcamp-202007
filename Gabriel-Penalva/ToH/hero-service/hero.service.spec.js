@@ -15,14 +15,14 @@ describe('HeroService', function () {
 
     it('should get one hero by id', function () {
         const id = 14;
-        const hero = heroList.find((hero) => hero.id === id); //create an object with id 14
+        const hero = heroList.find((heros) => heros.id === id); //create an object with id 14
         expect(heroServicie.getHeroById(id)).toEqual(hero);
 
     });
 
     it('should get one hero by name', function () {
         const name = 'Dr IQ';
-        const hero = heroList.find((hero) => hero.name === name);//create an object with id 14
+        const hero = heroList.find((heros) => heros.name === name);//create an object with id 14
         expect(heroServicie.getHeroByName(name)).toEqual(hero);
     });
 })

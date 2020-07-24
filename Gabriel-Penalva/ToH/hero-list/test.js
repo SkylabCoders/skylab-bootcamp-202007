@@ -185,7 +185,7 @@ const buscar = 'España';
 
 function getValues(obj) {
     let arr = [];
-    for (item of Object.values(obj)) {
+    for (let item of Object.values(obj)) {
         if (typeof (item) === 'object') {
             arr = [...arr, ...getValues(item)];
         }
@@ -194,8 +194,8 @@ function getValues(obj) {
     return arr;
 }
 
-function search(buscar, skylaber) {
-    for (item of getValues(skylaber)) {
+function search(skylaber) {
+    for (let item of getValues(skylaber)) {
         if (item === buscar) {
             return true;
         }
@@ -203,7 +203,7 @@ function search(buscar, skylaber) {
     return false;
 }
 function cbk(acc, skylaber) {
-    if (search(buscar, skylaber)) {
+    if (search(skylaber)) {
         acc = [...acc, skylaber];
     }
     return acc;
