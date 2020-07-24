@@ -6,10 +6,14 @@ function SkylaberDashboardComponent() {
     const listItemElement = document.getElementsByClassName(listItemClass);
 
     this.onInit = function () {
-        const skylaberListFilter = filterArrayGenerator(skylaberListDashboard);
+        const skylaberListFilter = skylaberListDashboard.filter(filterByChallengesCompleted);
         const topFour = skylaberListFilter.slice(0, 4)
         createDashboardList(topFour);
         updateDashboard(topFour);
+    }
+
+    function filterByChallengesCompleted(skylaber) {
+        return skylaber.completedChallenges >= 4;
     }
 
     function createDashboardList(list) {
