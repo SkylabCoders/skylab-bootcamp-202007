@@ -1,6 +1,6 @@
-function Country(city, street) {
+function Country(city, address) {
     this.city = city;
-    this.street = street;
+    this.address = address;
 }
 
 
