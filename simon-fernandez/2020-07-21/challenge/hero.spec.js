@@ -1,4 +1,4 @@
-describe('Pet', function () {
+describe('Hero', function () {
 	let myHero,
 		heroName = 'Jorge',
 		newHeroName = 'Beto',
