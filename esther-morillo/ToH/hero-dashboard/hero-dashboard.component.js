@@ -1,10 +1,10 @@
-function DashboardComponent () {
+function DashboardComponent() {
     const heroTopElements = heroList.slice(0, 4);
     const container = document.querySelector('.container__dashboard');
 
-    this.onInit = function() {
+    this.onInit = function () {
         renderHeroList().forEach((element) => {
-            if(container) container.appendChild(element);
+            if (container) container.appendChild(element);
         });
     };
 
@@ -25,8 +25,5 @@ function DashboardComponent () {
     };
 };
 
-
-heroDashboardComponent = new DashboardComponent();
-heroDashboardComponent.onInit();
-
-
+dashboardComponent = new DashboardComponent();
+dashboardComponent.onInit();

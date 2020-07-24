@@ -5,7 +5,7 @@
 //Aquí testeamos el servicio
 describe('HeroService', function () {
     let heroService;
-    bfeoreEach(function () {
+    beforeEach(function () {
         heroService = new heroService();
     })
 
