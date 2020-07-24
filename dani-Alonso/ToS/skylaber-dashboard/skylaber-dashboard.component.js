@@ -1,7 +1,7 @@
 function SkylaberDashboardComponent() {
-    const skylaber = heroList.slice(0, 4);
+    const skylaber = skylaberList.slice(0, 4);
     const mainContentDashboard = document.querySelector(".skylaber-dashboard__container");
-    const heroDashboardLink = `href=../hero-detail/hero-detail.component.html`;
+    const skylaberDashboardLink = `href=../skylaber-detail/skylaber-detail.component.html`;
 
     this.onInit = function() {
         renderList().forEach(element => {
@@ -10,18 +10,18 @@ function SkylaberDashboardComponent() {
     };
 
     function renderList() {
-        return heroes.map(sercherList);
+        return skylaber.map(sercherList);
     }
-    let sercherList = function(hero) {
+    let sercherList = function(skylaber) {
         let element = document.createElement("a");
-        element.href = gethref(hero.id);
-        element.innerHTML = hero.name;
+        element.href = gethref(skylaber.id);
+        element.innerHTML = skylaber.name;
         return element;
     };
 
     function gethref(id) {
-        return `../hero-detail/hero-detail.component.html?heroId=${id}`
+        return `../skylaber-detail/skylaber-detail.component.html?skylaberId=${id}`
     }
 }
-let dashboardComponent = new HeroDashboardComponent();
+let dashboardComponent = new SkylaberDashboardComponent();
 dashboardComponent.onInit();
