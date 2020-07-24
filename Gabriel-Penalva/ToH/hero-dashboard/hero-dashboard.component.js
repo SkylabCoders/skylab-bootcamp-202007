@@ -19,7 +19,6 @@ function DashboardComponent() {
         element.href = getHeroLink(hero.id);
         element.innerText = hero.name;
         return element;
-
     }
     function getHeroLink(id) {
         return `../hero-detail/hero-detail.component.html?heroId=${id}&prop=value`;
