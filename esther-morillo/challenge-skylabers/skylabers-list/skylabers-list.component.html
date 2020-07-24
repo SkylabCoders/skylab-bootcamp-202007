@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Skylabers Dashboard</title>
+	<link rel="stylesheet" href="./skylabers-list.component.css" />
+</head>
+
+<body>
+	<section class="lightbox">
+		<h1 class="title">Tour of Skylabers</h1>
+		<a class="button" href="../skylabers-dashboard/skylabers-dashboard.component.html">Dashboard</a>
+		<a class="button" href="../skylabers-list/skylabers-list.component.html">Skylabers</a>
+		<h2 class="title-skylab">My Skylabers</h2>
+		<input type="text" class="searchSkylaberList" name="skylabers" onchange="listComponent.searchSkylabersList()"
+			placeholder="Search">
+		<div class="container__list"></div>
+	</section>
+
+	<script src="../skylabers.js"></script>
+	<script src="../skylabers.mock.js"></script>
+	<script src="./skylabers-list.component.js"></script>
+</body>
+
+</html>
