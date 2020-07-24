@@ -356,7 +356,9 @@ h4 {
 .nav-button,
 .nav-logo-left,
 .buttons-links,
-.buttons-links-big {
+.buttons-links-big,
+.logo-text-left,
+.input {
     display: none;
 }
 
@@ -365,27 +367,26 @@ h4 {
 @media screen and (min-width: 667px) {
     .nav-logo img,
     .logo-text,
-    .top,
-    input {
+    .top {
         display: none;
     } 
 
+    .nav-button__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;   
+    }
 
     .main-nav {
-        width: 95%;
+        width: 85%;
         height: 50px;
     }
-
-    .nav-logo-left {
-        display: flex;
-        width: 100%;
-    }
-
     
     /* Buttons news & offers */
     .nav-button {
         display: flex;
-        width: 95%;
+        justify-content: space-between;
+        width: 85%;
         margin: 0 auto;
         margin-top: -50px;
         margin-bottom: 1.5rem;
@@ -393,12 +394,19 @@ h4 {
     
     .container-buttons {
         display: flex;
+        justify-content: flex-end;
         width: 100%;
     }
+
+    .nav-logo-left {
+        display: flex;
+    }
+
     .buttons-links {
         display: flex;
         line-height: 1.9rem;
     }
+
     .news,
     .offers {
         background-color: #9faa4d;
@@ -410,6 +418,7 @@ h4 {
 
     .offers {
         background-color: #8e789d;
+        margin-left: .4rem;
     }
 
         .news::before {
@@ -483,22 +492,19 @@ h4 {
 
     /* Nav */
     .main-nav {
-        width: 80%;
+        width: 90%;
     }
 
     .nav-button {
         display: flex;
-        width: 80%;
-        margin-top: 50px;
-    }
+        justify-content: center;
+        width: 90%;
+    } 
 
-    .logo-text {
-        display: flex;
-        align-self: flex-end;
-    }
-
-    .nav-logo-left {
-        display: none;
+    .logo-text-left {
+        display: flex;  
+        align-items: center;
+        padding-top: 2rem;
     }
 
 
@@ -559,18 +565,24 @@ h4 {
         }
 
     /* Parte navegador de logo y botones */
-    /* .nav-button {
-        margin-top: 180px;
-    } */
-
-    .container-buttons {
+    .buttons-links-big {
         display: flex;
-        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 1rem;
+    }
+
+    .buttons-links {
+        padding-bottom: 1.8rem;
     }
 
     .container-buttons {
         display: flex;
         flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .nav-button__container {
+        margin-top: 1rem; 
     }
 
     .buttons-menu {
@@ -579,7 +591,7 @@ h4 {
         background-position: center;
         width: 80px;
         height: 80px;
-        margin: 0 .15rem;
+        margin: 0 0 0 .3rem;
     }
 
     .buttons-menu:nth-child(1) {
@@ -651,12 +663,6 @@ h4 {
             color: #ff5959;
         }        
 
-
-    /* Hidden none */
-    .top {
-        display: none;
-    }
-
     /* Arreglar el main tablet */
     .main-box {
         margin: 0 auto;
@@ -707,6 +713,12 @@ h4 {
     /* Footer */
     .footer-icons {
         padding: 0 10%;
+    }
+
+
+    /* Hidden */
+    .nav-logo-left {
+        display: none;
     }
 
 }
@@ -771,16 +783,15 @@ h4 {
     }
 
     /* Texto login */
-    .login {
-        display: flex;
-        align-items: center;
-    }
-
     .enter > p {
         display: block;
+        height: 50px;
         color: #000;
         font-size: .7rem;
-        margin: 1.3rem;
+    }
+
+    .spacer {
+        display: none;
     }
 
     .links {
@@ -795,7 +806,23 @@ h4 {
     .input,
     .bnt-search {
         display: flex;
+        font-size: .3rem;
     }
+
+
+    .input {
+        margin-left: .4rem;
+        flex-grow: 2;
+        color: #bbb8b6;
+        border: 0 solid #bbb8b6;
+        height: 30px;
+        font-size: .3rem;
+    }
+
+        .input:focus {
+            outline-offset: 0;
+            border: none;
+        }
 
     .bnt-search {
         background-color: #bbb8b6;
@@ -808,9 +835,6 @@ h4 {
         border: none;
     }
 
-    .input {
-        flex-grow: 2;
-    }
 
     .nav-button {
         margin-top: 100px;
