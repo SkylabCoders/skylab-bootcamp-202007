@@ -1,8 +1,8 @@
-describe('hero-list',function(){
+describe('skylaber-list-test',function(){
     let listComponent;
 
     beforeAll(function(){
-        listComponent = new HeroListComponent();
+        listComponent = new SkylaberListComponent();
     });
 
     it('should create',function(){

@@ -1,20 +1,21 @@
-describe('hero-list',function(){
-    let listComponent;
+describe('hero-dashboard',function(){
+    let dashboardComponent;
 
     beforeAll(function(){
-        listComponent = new HeroListComponent();
+        dashboardComponent = new DashboardComponent();
     });
 
     it('should create',function(){
-       expect(listComponent).toBeTruthy();
+       expect(dashboardComponent).toBeTruthy();
     })
 
     it('should call onInit and behave property',function(){
-        const spy = spyOn(listComponent,'onInit');
-        listComponent.onInit();
+        const spy = spyOn(dashboardComponent,'onInit');
+        dashboardComponent.onInit();
 
         expect(spy).toHaveBeenCalled();
         expect(spy).toHaveBeenCalledTimes(1);
         expect(spy).toHaveBeenCalledWith();
     })
+
 })
