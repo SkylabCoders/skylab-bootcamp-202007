@@ -1,5 +1,5 @@
 function DashboardComponent() {
-    const allSkylaber = skylaberList.slice(0,4);
+    const allSkylaberPromoted = skylaberList;
     const skylaberDashboardContainer = document.getElementById('skylaber__dashboard');
     
     this.onInit =function (){
@@ -10,8 +10,18 @@ function DashboardComponent() {
         })
     }
 
+    this.getFilteredByChallenge = function(){
+        let filteredSkylaber = allSkylaberPromoted;
+        return console.log(filteredSkylaber.filter(filterByChallenge));
+    }
+
+    function filterByChallenge(skylaber){
+        const filter = 4;
+        return skylaber.completedChallenges >= filter;
+    }
+
     function renderSkylaberList (){
-        return allSkylaber.map(mapRenderAnchor);
+        return allSkylaberPromoted.map(mapRenderAnchor);
     }
 
     function mapRenderAnchor(skylaber){
