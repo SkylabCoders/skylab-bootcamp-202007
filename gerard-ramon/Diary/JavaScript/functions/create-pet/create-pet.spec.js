@@ -17,7 +17,7 @@ describe('Create-Pet', function () {
 	});
 
 	it('2-Should return the pet name', function () {
-		myPet.setName;
+		myPet.setName(name);
 		expect(myPet.getName()).toEqual(name);
 	});
 
