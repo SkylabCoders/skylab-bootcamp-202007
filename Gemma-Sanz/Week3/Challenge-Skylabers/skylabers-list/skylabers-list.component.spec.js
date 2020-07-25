@@ -5,15 +5,15 @@ describe("Skylaber List", function () {
         skylaberListComponent = new SkylaberListComponent();
     })
     it("should create a skylaber list", function () {
-        const id = 14;
-        let name = "Celeritas";
+        const id = 0;
+        let name = "Jordi";
         skylaberList = { id, name };
         expect(skylaberList.id).toBe(skylaberList.name);
     });
     it("should called onInit and behave properly", function () {
         const spy = spyOn(skylaberListComponent, "onInit");
         skylaberListComponent.onInit();
-
+        debugger
         expect(spy).toHaveBeenCalled();
         expect(spy).toHaveBeenCalledTimes(1);
     });

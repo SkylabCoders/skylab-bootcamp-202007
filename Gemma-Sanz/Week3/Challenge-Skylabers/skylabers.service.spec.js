@@ -8,7 +8,7 @@ decribe("Skylaber Service", function () {
         expect(skylaberService).toBeTruthy();
     });
     it("should get a skylaber list", function () {
-        expect(skylaberService.getskylaberList()).toBeDefined();
+        expect(skylaberService.getSkylaberList()).toBeDefined();
         expect(skylaberList.getSkylaberList()).toEqual(skylaberList);
     });
     it("should get one skylaber by id", function () {
