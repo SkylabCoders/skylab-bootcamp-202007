@@ -43,15 +43,21 @@ body {
 }
 
 /* Añadir flechitas triángulo en el after del texto */
-.cinema::after,
-.subscription::after {
-    display: inline-block;
-    content: '▼';
-    position: relative;
-    bottom: 1px;
-    margin-left: 4px;
-    font-size: 10px;
-}
+    .cinema::after,
+    .subscription::after {
+        display: inline-block;
+        content: '▼';
+        position: relative;
+        bottom: 1px;
+        margin-left: 4px;
+        font-size: 10px;
+    }
+
+    .cinema:hover::after,
+    .subscription:hover::after {
+        content: '▲';
+    }
+
 
 /* Slider */
 .slider {
@@ -180,7 +186,7 @@ body {
 
     .container__film--items img:hover {
         width: 100%;
-        outline: .32rem solid #ffe300;
+        outline: .32rem solid #ffe300; 
         outline-offset: -.2rem;
         -moz-outline-radius: .3rem;
     }
@@ -415,13 +421,14 @@ body {
         padding: 0 20px;
     }
 
-    .nav-link a {
+   .nav-link a {
         text-decoration: none;
         color: #fff;
         font-size: 14px;
         padding: .8rem;
         margin-left: .5rem;
-    }
+    } 
+
 
     .nav-input {
         display: flex;
