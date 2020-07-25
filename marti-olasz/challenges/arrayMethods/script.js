@@ -77,8 +77,7 @@ function bowl() {
 	};
 
 	this.copyWithin = function (sIndex, fIndex, lIndex) {
-		let startIndex = sIndex,
-			firstIndex = fIndex,
+		let firstIndex = fIndex,
 			lastIndex = lIndex;
 		if (fIndex === undefined) {
 			firstIndex = 0;
