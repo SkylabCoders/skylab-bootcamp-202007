@@ -45,6 +45,8 @@ function StudentListComponent() {
         return acc;
     };
 
+    
+
 }
 const studentList = new StudentListComponent();
 
