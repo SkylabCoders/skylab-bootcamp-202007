@@ -88,7 +88,6 @@ function gameOfLife() {
             finalState.push(arrayForCreateRowsFinal);
         }
     }
-
     
 
     //LOGIC
@@ -138,7 +137,6 @@ function gameOfLife() {
         }
 
         count = 0;
-
     }
 
     //Cogemos el array final y cambiamos colores
