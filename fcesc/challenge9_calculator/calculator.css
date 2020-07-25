@@ -1,0 +1,178 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Heebo', sans-serif;
+    --cBgScreen: #1f1f1f;
+    --cBgScreenLight: #f5f5f5;
+    --cBgNumbers: #dddddd;
+    --cBgActions: #ffcc33;
+    --cBgSuper: #90ffdd;
+    --cBgCalc: #e60000;
+    --cBgNumbersHighlighted: #979797;
+    --cBgActionsHighlighted: #ffa909;
+    --cBgSuperHighlighted: #05ecb3;
+    --cBgCalcHighlighted: #990000;
+    --cTxtScreen: #eeeeee;
+    --cTextScreenLight: #1f1f1f;
+    --cTxtButtons: #181818;
+    --cTxtButtonsHighlighted: #380000;
+}
+.container{
+    width: 200px;
+    line-height: 3rem;
+    text-align: center;
+    position: relative;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    justify-items: stretch;
+    align-items: stretch;
+    column-gap: 0.25rem;
+    row-gap: 0.35rem;
+}
+p {
+    font-size: 14px;
+}
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+}
+/* header */
+header{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+/* footer */
+footer > p{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+/* main */
+.super{
+    background-color: var(--cBgSuper);
+    color: var(--cTxtButtons);
+    font-weight: bold;
+}
+.super:hover{
+    background-color: var(--cBgSuperHighlighted);
+    color: var(--cTxtButtonsHighlighted);
+    font-weight: bolder;
+}
+.number{
+    background-color: var(--cBgNumbers);
+    color: var(--cTxtButtons);
+}
+.number:hover{
+    background-color: var(--cBgNumbersHighlighted);
+    color: var(--cTxtButtonsHighlighted);
+    font-weight: bolder;
+}
+.ops{
+    background-color: var(--cBgActions);
+    color: var(--cTxtButtons);
+}
+.ops:hover{
+    background-color: var(--cBgActionsHighlighted);
+    color: var(--cTxtButtonsHighlighted);
+    font-weight: bolder;
+}
+#el_super_calc{
+    background-color: var(--cBgCalc);
+    color: var(--cTxtScreen);
+    font-weight: bold;
+}
+#el_super_calc:hover{
+    background-color: var(--cBgCalcHighlighted);
+}
+#el_screen_calc{
+    background-color: var(--cBgScreen);
+    color: var(--cTxtScreen);
+    font-weight: bold;
+    line-height: 3rem;
+}
+#el_screen_calc {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row: 1;
+    padding: 1rem;
+    text-align: right;
+}
+#el_num_9 {
+    grid-column: 3;
+    grid-row: 3;
+}
+#el_num_8 {
+    grid-column: 2;
+    grid-row: 3;
+}
+#el_num_7 {
+    grid-column: 1;
+    grid-row: 3;
+}
+#el_num_6 {
+    grid-column: 3;
+    grid-row: 4;
+}
+#el_num_5 {
+    grid-column: 2;
+    grid-row: 4;
+}
+#el_num_4 {
+    grid-column: 1;
+    grid-row: 4;
+}
+#el_num_3 {
+    grid-column: 3;
+    grid-row: 5;
+}
+#el_num_2 {
+    grid-column: 2;
+    grid-row: 5;
+}
+#el_num_1 {
+    grid-column: 1;
+    grid-row: 5;
+}
+#el_num_0 {
+    grid-column: 2;
+    grid-row: 6;
+}
+#el_decimal {
+    grid-column: 3;
+    grid-row: 6;
+}
+#el_op_addition {
+    grid-column: 4;
+    grid-row: 5;
+}
+#el_op_substraction {
+    grid-column: 4;
+    grid-row: 4;
+}
+#el_op_division {
+    grid-column: 4;
+    grid-row: 2;
+}
+#el_op_product {
+    grid-column: 4;
+    grid-row: 3;
+}
+#el_unary_percent {
+    grid-column: 3;
+    grid-row: 2;
+}
+#el_unary_changeSign {
+    grid-column: 2;
+    grid-row: 2;
+}
+#el_super_calc {
+    grid-column: 4;
+    grid-row: 6;
+}
+#el_super_c {
+    grid-column: 1;
+    grid-row: 2;
+}

@@ -4,7 +4,6 @@ body{
 }
 div{
     font-size:  200%;
-    font-family: "Segoe UI";
     display: flex;
     justify-content: center;
     align-items: center;

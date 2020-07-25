@@ -1,28 +1,57 @@
-'use strict'
+function HeroListComponent() {
+    const allHeroes = heroList;
+    const heroListContainer = document.getElementById('hero__list');
 
-function HeroDetailsComponent(){
-    const hero = myHero;
-
-    this.onInit = function(){
-        updateId();
-        updateName();
+    this.onInit = function (){
+        renderHeroList().forEach((element) =>{
+            if(heroListContainer){
+                heroListContainer.appendChild(element);
+            }
+        })
     }
 
-    this.nameChange = function(newName){
-        hero.name = newName;
-        updateName();
+    function renderHeroList (){
+        return allHeroes.map(mapRenderAnchor);
     }
 
-    function updateName(){
-        document.getElementById('hero-details__name').innerHTML = hero.name;
-        document.getElementById('hero-detail__name-control').innerHTML = hero.name;
+    function mapRenderAnchor(hero){
+        const element = document.createElement('a');
+        element.href = getHeroLink(hero.id);
+        element.innerHTML = `<span>${hero.id}</span><span>${hero.name}</span>`;
+        return element;
     }
 
-    function updateId(){
-        document.getElementById('hero-details__id').innerHTML = hero.id;
+    function getHeroLink(id){
+        return `../hero-detail/hero-detail.component.html?heroId=${id}`;
     }
 }
 
-const heroDetailsComponent = new HeroDetailsComponent();
+const myHeroListComponent = new HeroListComponent();
 
-heroDetailsComponent.onInit();
+myHeroListComponent.onInit();
+
+
+
+ /*
+    this.getAllHeroes =function (){
+        
+       for (let i = 0; i < allHeroes.length; i++) {
+        let newElement = document.createElement('li');
+        let idSpan = document.createElement('span');
+        let nameSpan = document.createElement('span');
+        newElement.classList.add('hero__list-item');
+        idSpan.classList.add('id__span');
+        idSpan.innerHTML = allHeroes[i].id;
+        nameSpan.innerHTML = allHeroes[i].name;
+        nameSpan.classList.add('name__span');
+        let element = document.getElementById('hero__list');
+        newElement.appendChild(idSpan);
+        newElement.appendChild(nameSpan);
+        element.appendChild(newElement);
+       }
+
+    }
+
+    function printList(){
+
+    }*/
