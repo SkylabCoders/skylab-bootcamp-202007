@@ -21,7 +21,6 @@ function HeroListComponent() {
  */         const listFilter = function () {
             let filteredItems = heroList;
             filteredItems.reduce(callback, []);
-            //!!!!
         }
         listFilter()
 
