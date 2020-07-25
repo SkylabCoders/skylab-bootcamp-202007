@@ -12,5 +12,5 @@ function HeroService() {
     // }
 }
 
-const service = new HeroService();
-service.getHeroList();
+const heroService = new HeroService();
+heroService.getHeroList();
