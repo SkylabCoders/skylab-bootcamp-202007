@@ -6,9 +6,16 @@ describe("Hero Details", function () {
         heroDetailComponent = new HeroDetailComponent();
     })
     it("should create a new hero", function () {
-        expect(hero).toBeTruty();
+        expect(hero).toBeTruthy();
     });
     it("should create a hero", function () {
-        expect(HeroDetailComponent).toBeTruty();
+        expect(heroDetailComponent).toBeTruthy();
     });
+    it("should called onInit and behave properly", function () {
+        const spy = spyOn(heroDetailComponent, "onInit");
+        heroDetailComponent.onInit();
+
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledTimes(1);
+    })
 });

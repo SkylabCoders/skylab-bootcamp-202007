@@ -1,10 +1,24 @@
 describe("Hero List", function () {
     let heroList;
-    let name;
+    let heroListComponent;
     beforeEach(function () {
+        heroListComponent = new HeroListComponent();
     })
     it("should create a hero list", function () {
-        expect(heroList[0].id).toBe(heroList[0].name);
+        const id = 14;
+        let name = "Celeritas";
+        heroList = { id, name };
+        expect(heroList.id).toBe(heroList.name);
     });
+    it("should called onInit and behave properly", function () {
+        const spy = spyOn(heroListComponent, "onInit");
+        heroListComponent.onInit();
 
-})
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledTimes(1);
+    });
+    /*     it("should called createButtonsList and behave properly", function () {
+            const spy = spyOn(heroListComponent.onInit, "createButtonsList");
+            expect(spy).toHaveBeenCalled();
+        }) */
+});
