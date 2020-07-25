@@ -1,9 +1,4 @@
 describe('HeroService', function () {
-	//create hero service object
-	//get hero list
-	//get one hero by id
-	//get one hero by name
-
 	let heroService;
 
 	beforeEach(function () {
