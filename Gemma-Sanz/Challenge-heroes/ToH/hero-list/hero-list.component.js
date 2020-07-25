@@ -15,16 +15,16 @@ function HeroListComponent() {
         };
 
     }
-    this.searchInput = function () {
+    this.searchInput = function () { //called in html onkeyup
         debugger
 /*         event.defaultPrevented();
- */        const listFilter = function () {
+ */         const listFilter = function () {
             let filteredItems = heroList;
             filteredItems.reduce(callback, []);
             //!!!!
         }
         listFilter()
-        return heroList
+
     };
 
     function callback(acumulator, hero) {
