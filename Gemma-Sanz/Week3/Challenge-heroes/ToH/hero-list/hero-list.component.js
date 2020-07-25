@@ -1,15 +1,17 @@
 function HeroListComponent() {
+    heroesList = heroList;
+    inputFilter = document.getElementById("hero-detail__name-control");
     this.onInit = function () {
         createButtonsList();
     }
 
     let mainContainerList = document.querySelector("#mainContainer--list");
     let createButtonsList = function () {
-        for (let i = 0; i < heroList.length; i++) {
+        for (let i = 0; i < heroesList.length; i++) {
             let itemsList = document.createElement("button");
-            itemsList.innerHTML = "<span class=id>" + heroList[i].id + "</span>" + "<span class=name>" + heroList[i].name + "</span>";
+            itemsList.innerHTML = "<span class=id>" + heroesList[i].id + "</span>" + "<span class=name>" + heroesList[i].name + "</span>";
             itemsList.addEventListener("click", () => {
-                window.location.assign(`../hero-detail/hero-detail.component.html?heroId=${heroList[i].id}`);
+                window.location.assign(`../hero-detail/hero-detail.component.html?heroId=${heroesList[i].id}`);
             })
             mainContainerList.appendChild(itemsList);
         };
@@ -19,15 +21,15 @@ function HeroListComponent() {
         debugger
 /*         event.defaultPrevented();
  */         const listFilter = function () {
-            let filteredItems = heroList;
-            filteredItems.reduce(callback, []);
+            let filteredItems = heroesList;
+            heroesList = filteredItems.reduce(callback, []);
         }
         listFilter()
-
     };
 
+
     function callback(acumulator, hero) {
-        if (hero.name === "Narco") {
+        if (hero.name.toLowerCase() === inputFilter.value.toLowerCase() || hero.id.toLowerCase() === inputFilter.value.toLowerCase()) {
             acumulator = [...acumulator, hero.name]
         }
         return acumulator
