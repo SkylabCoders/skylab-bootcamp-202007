@@ -2,11 +2,11 @@ function HeroService() {
 	this.getHeroList = function () {
 		let request = new XMLHttpRequest();
 		request.open('GET', '../hero-list.json');
-		request.responseType = 'text';
+		request.responseType = 'json';
 
 		request.onload = function () {
 			let heroList = request.response;
-			console.log(JSON.parse(heroList));
+			console.log(heroList);
 		};
 
 		request.send();
