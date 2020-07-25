@@ -9,10 +9,27 @@ function Bowl() {
 		}
 		return mapArray;
 	};
+
+	this.filterCallback = function (x) {
+		if (x > 5) {
+			return x;
+		}
+	};
+
+	this.filter = function (arr, callback) {
+		let filterArray = [];
+		for (let el of arr) {
+			//filterArray = [...callback(el)];
+			filterArray.push(callback(el));
+		}
+		return filterArray;
+	};
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 19];
+let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 let myBowl = new Bowl();
 
-console.log(myBowl.map(myArray, myBowl.mapCallback));
+//MAP
+//console.log("Map Method:" myBowl.map(myArray, myBowl.mapCallback)); // [2, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+console.log('Filter Method:' + myBowl.filter(myArray, myBowl.filterCallback));
