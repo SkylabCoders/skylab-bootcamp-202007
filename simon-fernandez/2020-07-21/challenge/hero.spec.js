@@ -1,3 +1,4 @@
+
 describe('Hero', function () {
 	let myHero,
 		heroName = 'Jorge',
@@ -22,4 +23,5 @@ describe('Hero', function () {
 		myHero.setId(newHeroId);
 		expect(myHero.getId()).toBeTruthy;
 	});
+
 });

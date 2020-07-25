@@ -1,0 +1,289 @@
+body {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(200, 247, 178);
+}
+
+.text {
+    position: absolute;  
+}
+.text h1 {
+    color: green;
+    font-size: 45px;
+    font-family: 'Indie Flower';
+    font-weight: bolder;
+}
+
+.countdown {
+    position: relative;
+    margin-top: 100px;
+    width: 100px;
+    height: 20px;
+    background-color: black;
+    color: red;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.counters {
+    padding: 8px;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.count {
+    border: black solid 1px;
+    padding: 6px 12px;
+    font-weight: bold;
+    color: rgb(0, 248, 0);
+    background-color: black;
+}
+#fail {
+    margin-left: 9px;
+}
+.rnk {
+   margin-top: 20px;
+}
+.tableRnk {
+    width: 200px;
+    background-color: rgb(213, 244, 255);
+    border: green solid 3px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-collapse: collapse;
+}
+td {
+    border: green solid 1px;
+    text-align: center;
+    width: 100px;
+    height: 20px;
+}
+th {
+    border: green solid 3px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+}
+
+.circle {
+    width: 350px;
+    height: 350px;
+    padding: 4px;
+}
+
+img {
+    position: absolute;
+    top: 50px;
+    width: 250px;
+}
+img:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.letter {
+    margin: 4px auto;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(213, 244, 255);
+    border: green solid 1px;
+    border-radius: 100%;
+    font-size: 13px;
+}
+
+.letter p {
+    text-align: center;
+    margin-top: 8px;
+}
+#a {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 152px;
+}
+#b {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 188px;
+}
+#c {
+    position: absolute;
+    margin-top: 14px;
+    margin-left: 222px;
+}
+#d {
+    position: absolute;
+    margin-top: 32px;
+    margin-left: 254px;
+}
+#e {
+    position: absolute;
+    margin-top: 57px;
+    margin-left: 279px;
+}
+#f {
+    position: absolute;
+    margin-top: 88px;
+    margin-left: 300px;
+}
+#g {
+    position: absolute;
+    margin-top: 121px;
+    margin-left: 313px;
+}
+#h {
+    position: absolute;
+    margin-top: 156px;
+    margin-left: 317px;
+}
+#i {
+    position: absolute;
+    margin-top: 192px;
+    margin-left: 314px;
+}
+#j {
+    position: absolute;
+    margin-top: 226px;
+    margin-left: 302px;
+}
+#k {
+    position: absolute;
+    margin-top: 258px;
+    margin-left: 282px;
+}
+#l {
+    position: absolute;
+    margin-top: 284px;
+    margin-left: 256px;
+}
+#m {
+    position: absolute;
+    margin-top: 303px;
+    margin-left: 224px;
+}
+#n {
+    position: absolute;
+    margin-top: 314px;
+    margin-left: 190px;
+}
+#ñ {
+    position: absolute;
+    margin-top: 316px;
+    margin-left: 155px;
+}
+#o {
+    position: absolute;
+    margin-top: 312px;
+    margin-left: 120px;
+}
+#p {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 88px;
+}
+#q {
+    position: absolute;
+    margin-top: 280px;
+    margin-left: 58px;
+}
+#r {
+    position: absolute;
+    margin-top: 255px;
+    margin-left: 33px;
+}
+#s {
+    position: absolute;
+    margin-top: 224px;
+    margin-left: 15px;
+}
+#t {
+    position: absolute;
+    margin-top: 190px;
+    margin-left: 4px;
+}
+#u {
+    position: absolute;
+    margin-top: 155px;
+    margin-left: 1px;
+}
+#v {
+    position: absolute;
+    margin-top: 119px;
+    margin-left: 6px;
+}
+#w {
+    position: absolute;
+    margin-top: 83px;
+    margin-left: 21px;
+}
+#x {
+    position: absolute;
+    margin-top: 50px; 
+    margin-left: 44px;
+}
+#y {
+    position: absolute;
+    margin-top: 23px;
+    margin-left: 77px;
+}
+#z {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 114px;
+}
+
+.screen {
+    background-color: rgb(213, 244, 255);
+    border: green solid 3px;
+    border-radius: 8px;
+    width: 700px;
+    height: 70px;
+    text-align: center;
+}
+
+.answer {
+    text-align: center;
+    padding: 10px;
+}
+
+button {
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    padding: 14px 25px;
+    font-size: 16px;
+}
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#message {
+    margin-top: 0;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    align-self: flex-end;
+    text-align: end;
+    font-style: italic;
+}

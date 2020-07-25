@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Student Details</title>
+		<link rel="stylesheet" href="skylab-directory-detail.component.css" />
+	</head>
+	<body>
+		<header>
+			<div class="fix-header">
+				<div class="fix-header__title">
+					<h1>Skylab Directory</h1>
+				</div>
+				<div class="fix-header__buttons">
+					<a href="../skylab-directory-detail/skylab-directory-detail.component.html">Detail</a>
+					<a href="../skylab-directory-list/skylab-directory-list.component.html">Students</a>
+					<a href="../skylab-directory-dashboard/skylab-directory-dashboard.component.html">Dashboard</a>
+				</div>
+			</div>
+		</header>
+		
+		<h2><span id="hero-detail__name"></span> details</h2>
+		<p>id: <span id="hero-detail__id"></span></p>
+		<label for="heroName">
+			name:
+			<input
+				id="hero-detail__name-control"
+				type="text"
+				name="heroName"
+				onchange="studentDetailComponent.nameChange(this.value)"
+			/>
+		</label>
+		<script src="../skylaber.js"></script>
+		<script src="../skylaber.mock.js"></script>
+		<script src="skylab-directory-detail.component.js"></script>
+	</body>
+</html>

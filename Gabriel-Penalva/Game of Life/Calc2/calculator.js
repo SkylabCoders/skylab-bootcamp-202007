@@ -12,17 +12,17 @@ function fixed(x) {
 }
 
 function Calc() {
-    let sum = function (num1, num2) {
-        return parseInt(num1) + parseInt(num2);
+    let sum = function (numr1, numr2) {
+        return parseInt(numr1) + parseInt(numr2);
     };
-    let rest = function (num1, num2) {
-        return num1 - num2;
+    let rest = function (numr1, numr2) {
+        return numr1 - numr2;
     };
-    let mult = function (num1, num2) {
-        return num1 * num2;
+    let mult = function (numr1, numr2) {
+        return numr1 * numr2;
     };
-    let division = function (num1, num2) {
-        return num1 / num2;
+    let division = function (numr1, numr2) {
+        return numr1 / numr2;
     };
     return { sum, rest, mult, division };
 }

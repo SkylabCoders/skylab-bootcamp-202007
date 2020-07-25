@@ -1,0 +1,17 @@
+#list {
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+	max-width: 150px;
+	padding: 10px;
+}
+
+.list__element {
+	background-color: cornflowerblue;
+	border: 10px, solid;
+	margin: 3px;
+	border-color: black;
+	appearance: button;
+}

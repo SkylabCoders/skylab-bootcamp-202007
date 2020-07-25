@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trying WEBGL with ThreeJS</title>
+    <link rel="stylesheet" href="webgl.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);
+        camera.position.z = 12;
+        camera.up = 1.5;
+        // field of view, aspect ratio, 
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setClearColor("#e5e5e5"); // like a background color
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+
+        window.addEventListener('resize', () => { // we do this to make it responsive
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight; // so that it adjusts to the new scene dimensions
+            camera.updateProjectionMatrix(); //needed every time an update is done
+        });
+
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        let coords = {
+            x: window.innerWidth,
+            y: window.innerWidth,
+            z: 50,
+            cell: 100
+        } 
+        let geometries = [];
+        let materials = {
+            mat2: (c) => {return new THREE.MeshLambertMaterial(c)},
+            mat2: (c) => {return new THREE.MeshMatCapMaterial(c)},
+            mat3: (c) => {return new THREE.MeshStandardMaterial(c)}
+        };
+        let colors = {
+            c01: 0xFFCC00
+        }
+        let meshes = [];
+        let dummyMaterial = new THREE.MeshLambertMaterial(colors.c01);
+
+        function randomCoord(axis, negs){
+            function randomSign(){
+               let n = Math.floor(Math.random()*1000);
+               if (n % 2 === 0){
+                   return 1;
+               } else {
+                   return -1;
+               }
+            }
+            if(negs === false){
+                return Math.ceil(Math.random()*coords[axis]/coords.cell) * 1.2;
+            } else {
+                return Math.ceil((Math.random()*coords[axis]/coords.cell)* 1.2) * randomSign();
+            }
+        }
+
+        function randomScale(){
+            return Math.random()*10/5;
+        }
+
+        function randomAngle(){
+            return Math.floor(Math.random()*360);
+        }
+
+        for (let n=0; n<100; n++){
+            let geometry = new THREE.BoxGeometry(1, 1, 1);
+            geometry.computeBoundingBox();
+            geometries.push(geometry);
+            meshes.push(new THREE.Mesh(geometries[n], dummyMaterial));
+            meshes[n].position.x = randomCoord('x');
+            meshes[n].position.y = randomCoord('y');
+            meshes[n].position.z = randomCoord('z');
+            meshes[n].rotation.set(0, randomAngle(), 0);
+            meshes[n].name = `caja${n}`;
+            meshes[n].castShadow = true;
+            //meses[n].receiveShadow = true;
+
+            scene.add(meshes[n]);
+        }
+
+        var geo_floor = new THREE.PlaneGeometry(coords.x, 15); //width, height, [widthSegments, heightSegments]
+        var mat_floor = new THREE.MeshLambertMaterial({color: 0xadad85});
+        var floor = new THREE.Mesh(geo_floor, mat_floor);
+        floor.name = 'floor';
+        floor.position.y = -10;
+        floor.rotation.set(-45, 0, 0);
+        scene.add(floor);
+
+        var light_hemi = new THREE.HemisphereLight( 0xffffbb, 0x080820, .5 );
+        light_hemi.position.set(20,0,0);
+        light_hemi.name = 'lightHemisphere';
+        scene.add(light_hemi);
+
+        var light_directional = new THREE.DirectionalLight( 0xffffff, 1 );
+        light_directional.position.set(-.5,1,0);
+        light_directional.castShadow = true;
+        light_directional.name= 'lightDirectional';
+        scene.add(light_directional);
+
+
+        function transalteToCurrentCoords(obj, pos){
+            return {x: obj.x + pos.x, y: obj.y + pos.y, z: obj.z + pos.z};
+        }
+
+        function findEnclosingBox(arr){
+            let resMax = {x:0, y:0, z:0};
+            let resMin = {x:0, y:0, z:0};
+            for (let el of arr){
+                if (el.x > resMax.x) { resMax.x = el.x; }
+                if (el.y > resMax.y) { resMax.y = el.y; }
+                if (el.z > resMax.z) { resMax.z = el.z; }
+                if (el.x < resMin.x) { resMin.x = el.x; }
+                if (el.y < resMin.y) { resMin.y = el.y; }
+                if (el.z < resMin.z) { resMin.z = el.z; }
+            }
+            return {max: resMax, min: resMin};
+        }
+
+        function displayElementsOfScene (){
+            console.log(':DISPLAYING SCENE ELEMENTS:');
+            let superBox = [];
+            for (let el of scene.children){
+                if (!el.hasOwnProperty('geometry')){
+                    console.log(el.name, el.type, el.position);
+                    superBox.push(el.position);
+                } else {
+                    let max = transalteToCurrentCoords(el.geometry.boundingBox.max, el.position);
+                    let min = transalteToCurrentCoords(el.geometry.boundingBox.min, el.position);
+                    superBox.push(max);
+                    superBox.push(min);
+                    console.log('NAME', el.name, 'TYPE', el.type, 'POSITION', el.position, '\nob.MAX', el.geometry.boundingBox.max, 'ob.MIN', el.geometry.boundingBox.min, '\nor.MAX', max, 'or.MIN',min);
+                }
+            }
+            let universe = findEnclosingBox(superBox);
+            console.log('-> enclosing box: MAX', universe.max, 'MIN', universe.min);
+            console.log('-> camera: POS', camera.position, 'UP', camera.up, 'FOV', camera.fov, 'TYPE', camera.type, '\nWORLD DIRECTION', camera.getWorldDirection(), 'ROTATION', camera.rotation);
+            console.log(':------ End of list ------:')
+            
+        }
+        //displayElementsOfScene();
+
+        function randomSign(){
+               let n = Math.floor(Math.random()*1000);
+               if (n % 2 === 0){
+                   return 1;
+               } else {
+                   return -1;
+               }
+        }
+        
+        var render = function (){
+            requestAnimationFrame(render);
+
+            for (let el of meshes){
+                el.position.y += 0.01
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        render();
+
+    </script>
+
+</body>
+</html>
