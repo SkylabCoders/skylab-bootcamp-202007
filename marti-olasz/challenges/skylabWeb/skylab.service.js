@@ -19,7 +19,6 @@ function SkylabService() {
 			if (isNaN(+text)) {
 				sortedList.push(...skylabService.getSkylaberByName(text));
 			} else {
-				debugger;
 				sortedList.push(skylabService.getSkylaberById(+text));
 			}
 		}
