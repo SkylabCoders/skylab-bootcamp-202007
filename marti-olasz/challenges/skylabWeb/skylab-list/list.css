@@ -1,6 +1,10 @@
 a {
 	text-decoration: none;
 }
+input {
+	margin-top: 20px;
+}
+
 .details {
 	display: none;
 }
