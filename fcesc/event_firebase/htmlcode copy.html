@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.16.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.16.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.16.1/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/7.16.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+
+
+  </head>
+  <body>
+  </body>
+  <script type="module">
+    import {html, render} from 'https://unpkg.com/lit-html?module';
+
+    async function init() {
+      const uid = (await firebase.auth().signInAnonymously()).user.uid;
+      const src = await firebase.storage().ref('map.png').getDownloadURL();
+      const collection =  firebase.firestore().collection('points');
+
+      const state = {
+        title: 'Barcelona!',
+        me: {
+          x: 0,
+          y: 0,
+          uid,
+        }
+      };
+
+
+     function placeMe({offsetX, offsetY}){
+       collection.doc(uid).set({
+         x: offsetX,
+         y: offsetY,
+         uid,
+       });
+     }
+
+      collection.doc(uid).onSnapshot((d)=>{
+        state.me = d.data() || state.me;
+        rerender();
+      });
+
+      function rerender() {
+        render(html`
+        <h1>${state.title}</h1>
+        <h2>${uid}</h2>
+        <div style="position: relative;">
+           <img style = "width: 500px;height: 500px;" src="${src}" alt="Map" @click="${placeMe}">
+           <div style="position:absolute; top: ${state.me.y}px; left: ${state.me.x}px;">
+             🦊
+           </div>
+        </div>
+
+`, document.body);
+      }
+
+      rerender();
+    }
+
+    init();
+
+
+  </script>
+</html>
