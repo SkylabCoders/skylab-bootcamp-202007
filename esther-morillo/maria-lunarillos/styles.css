@@ -100,8 +100,26 @@ body {
     margin: 0;
 }
 
+/* Slider */
 .slider {
     width: 100%;
+}
+
+.points-slider {
+    display: flex;
+    justify-content: center;
+}
+
+.points-slider__circle {
+    background-color: #BBB8B6;
+    width: .7rem;
+    height: .7rem;
+    border-radius: 50%;
+    margin: .5rem .3rem;
+}
+
+.points-slider__circle:nth-child(9) {
+    background-color: red;
 }
 
 /* Main */
