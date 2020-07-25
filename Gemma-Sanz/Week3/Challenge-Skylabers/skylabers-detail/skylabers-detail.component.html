@@ -9,24 +9,24 @@
 </head>
 
 <body>
-	<h1>Tour of Skylabers</h1>
-	<button><a href="../skylabers-dashboard/skylabers-dashboard.component.html">Dashboard</a></button>
-	<button><a href="../skylabers-list/skylabers-list.component.html">Skylabers</a></button>
-	<h2><span id="skylabers-detail__name"></span> details</h2>
-	<p>id: <span id="skylabers-detail__id"></span></p>
-	<label for="skylabersName">
-		name:
-		<input id="skylabers-detail__name-control" type="text" name="skylaberName"
-			onchange="skylabersDetailComponent.nameChange(this.value)" />
-	</label>
-	<p>completed challenges: <span id="skylabers-detail__completedChallenges"></span></p>
-	<p>address <span id="skylabers-detail__address"></span></p>
-	<p>city: <span id="skylabers-detail__city"></span></p>
-	<p>country: <span id="skylabers-detail__country"></span></p>
+	<section>
+		<h1>Tour of Skylabers</h1>
+		<button><a href="../skylabers-dashboard/skylabers-dashboard.component.html">Dashboard</a></button>
+		<button><a href="../skylabers-list/skylabers-list.component.html">Skylabers</a></button>
+		<h2><span id="skylabers-detail__name"></span> details</h2>
+		<p>id: <span id="skylabers-detail__id"></span></p>
+		<label for="skylabersName">
+			name:
+			<input id="skylabers-detail__name-control" type="text" name="skylaberName"
+				onchange="skylabersDetailComponent.nameChange(this.value)" />
+		</label>
+		<p>completed challenges: <span id="skylabers-detail__completedChallenges"></span></p>
+		<p>address <span id="skylabers-detail__address"></span></p>
+		<p class="subObject">city: <span id="skylabers-detail__city"></span></p>
+		<p class="subObject">country: <span id="skylabers-detail__country"></span></p>
 
-
-	<button><a href="../skylabers-dashboard/skylabers-dashboard.component.html">Back</a></button>
-
+		<button><a href="../skylabers-dashboard/skylabers-dashboard.component.html">Back</a></button>
+	</section>
 	<script src="../skylabers.js"></script>
 	<script src="../skylabers.mock.js"></script>
 	<script src="skylabers-detail.component.js"></script>
