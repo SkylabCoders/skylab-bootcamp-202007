@@ -7,7 +7,7 @@ function HeroDetailComponent() {
 	);
 
 	this.onInit = function () {
-		hero = getHeroFromUrl();
+		getHeroFromUrl();
 		updateId();
 		updateName();
 	};
@@ -27,7 +27,7 @@ function HeroDetailComponent() {
 	}
 
 	function getHeroFromUrl() {
-		return heroList.find(compareId);
+		hero = heroList.find(compareId);
 	}
 
 	function compareId(hero) {
