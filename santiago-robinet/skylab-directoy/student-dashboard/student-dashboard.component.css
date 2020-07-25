@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.skylaber__dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+a{
+    margin: 5px;
+}
+
+span{
+    margin: 5px;
+}
+
+.main__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
