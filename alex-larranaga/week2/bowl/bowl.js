@@ -13,20 +13,25 @@ function Bowl() {
 	this.filterCallback = function (x) {
 		if (x > 5) {
 			return x;
+		} else {
+			return;
 		}
 	};
 
 	this.filter = function (arr, callback) {
 		let filterArray = [];
+
 		for (let el of arr) {
-			//filterArray = [...callback(el)];
-			filterArray.push(callback(el));
+			let flag = callback(el);
+			if (flag) {
+				filterArray.push(callback(el));
+			}
 		}
 		return filterArray;
 	};
 }
 
-let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let myArray = [6, 2, 3, 4, 5, 1, 7, 8, 9, 10];
 
 let myBowl = new Bowl();
 
