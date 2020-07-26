@@ -1,17 +1,26 @@
 'use strict';
 describe('Skylabers Tour', function () {
+    debugger
     const name = 'Pepe'
     const newName = 'Lolo'
+    const challenges = 6;
+    const city = 'Rubi';
+    const country = 'España'
     let skylaber = {
         name: 'Pepe',
         id: 1,
+        challengesCompleted: 6,
+        address: {
+            city: 'Rubi',
+            country: 'España',
+        }
     };
 
     let myskylaber = undefined;
     let skylaberDetailComponent = undefined;
     beforeEach(function () {
         skylaberDetailComponent = new SkylaberDetailComponent();
-        myskylaber = new Skylaber(1, name);
+        myskylaber = new Skylaber(1, name, 2,);
     });
     it('should create a new Skylaber', function () {
         expect(myskylaber).toBeTruthy();
@@ -20,10 +29,10 @@ describe('Skylabers Tour', function () {
         expect(myskylaber.name).toEqual(name)
     })
     it('should set a new name to the skylaber', function () {
-        debugger;
-        skylaberListComponent.skylaber = skylaber;
+        spyOn(skylaberDetailComponent.nameChange);
         skylaberDetailComponent.nameChange(newName);
-        expect(myskylaber.name).toEqual(newName)
+        expect(spy).toHaveBeenCalled();
+
     })
     it('should get the skylaber id', function () {
         expect(myskylaber.id).toEqual(skylaber.id)
