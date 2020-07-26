@@ -1,5 +1,5 @@
 "use strict"
-
+  
 var result = document.getElementById("result");
 var reset = document.getElementById("reset");
 var deleteLast = document.getElementById("deleteLast");
@@ -50,7 +50,7 @@ function printResult(number){
     currentTotal = number;
     document.getElementById("result").innerHTML = currentTotal;
   } else {
-      if(number === ',' & counterComma === 0){
+      if(number === ',' && counterComma === 0){
         currentTotal += number; 
         document.getElementById("result").innerHTML = currentTotal;
         counterComma = 1;
@@ -111,6 +111,3 @@ function resetResult(){
 function resetLast(){
     document.getElementById("result").innerHTML = savedCurrent;
   }
-
-
-
