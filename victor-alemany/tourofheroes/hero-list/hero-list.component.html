@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="hero-detail.css" type="text/css">
-    <title>Tour of Heroes</title>
-</head>
-
-<body>
-    <main class="main-content">
-        <div class="details__header">
-            <h1>Tour of Heroes</h1>
-            <a href="./hero-detail.component.html">Dashboard</a>
-            <a href="./hero-list.component.html">Heroes</a>
-        </div>
-        <div class="details__content">
-            <h2><span id="hero-details__name"></span> Details</h2>
-            <p>id: <span id="hero-details__id">1</span> </p>
-            <label for="heroName" class="name" name="heroName">name <input type="text" value="Magneta" id="hero-detail__name-control"
-                    onchange="heroDetailsComponent.nameChange(this.value)">
-            </label>
-
-            <button>Back</button>
-        </div>
-    </main>
-    <script src="../hero.data.js" type="text/javascript"></script>
-    <script src="../hero-detail/hero-detail.component.js" type="text/javascript"></script>
-    <script src="../hero-detail/hero.js" type="text/javascript"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hero List</title>
+		<link rel="stylesheet" href="hero-list.component.css" />
+	</head>
+	<body>
+		<h1>Tour of Heroes</h1>
+		<a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
+		<a href="../hero-list/hero-list.component.html">Heroes</a>
+		<h2>My Heroes</h2>
+		<ul id="hero__list">
+		</ul>
+		<script src="../hero.js"></script>
+		<script src="../hero.mock.js"></script>
+		<script src="../hero-list/hero-list.component.js"></script>
+	</body>
 </html>

@@ -76,7 +76,7 @@ function bowl() {
     } else if (actualLastIndex < 0) {
       actualLastIndex = this.items.length + actualLastIndex;
     }
-    if (actualStartIndex != NaN) {
+    if (!Number.isNaN(actualStartIndex)) {
       for (
         actualStartIndex;
         actualStartIndex < actualLastIndex;
