@@ -91,7 +91,7 @@ function user() {
     let vuelo;
     vuelo = prompt('Busque vuelo por precio', 'precio');
     console.log('\n\nEstos son los vuelos disponibles:\n')    
-    orderFlights(vuelo, vuelos);
+    orderFlights(vuelo);
 }
     
 
@@ -163,9 +163,9 @@ function admin() {
         alert('Sesion cerrada.\nHasta pronto');
         return;
     } else if (admins == '1'){
-        crearVuelos(vuelos);
+        crearVuelos();
     } else {
-        borrarVuelos(vuelos);
+        borrarVuelos();
     }    
 
 }
