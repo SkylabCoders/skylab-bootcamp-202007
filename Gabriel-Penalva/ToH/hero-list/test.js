@@ -174,20 +174,24 @@ let skylaberList = [
         id: 20,
         name: 'Anna',
         completedChallenges: 4,
-        address: {
-            city: 'Rubi',
-            country: 'España'
-        }
+        address: [
+            { city: 'Rubi', Prov: 'Barcelona' },
+            'España'
+        ]
     },
 ];
 
-const buscar = 'España';
+const buscar = 4;
 
-function getValues(obj) {
+function getAllObjectValues(obj) {
     let arr = [];
+
     for (let item of Object.values(obj)) {
         if (typeof (item) === 'object') {
-            arr = [...arr, ...getValues(item)];
+            arr = [...arr, ...getAllObjectValues(item)];
+        }
+        if (typeof (item) === 'array') {
+            arr = [...arr, ...getAllObjectValues({ ...item })];
         }
         arr = [...arr, item];
     }
@@ -195,7 +199,7 @@ function getValues(obj) {
 }
 
 function search(skylaber) {
-    for (let item of getValues(skylaber)) {
+    for (let item of getAllObjectValues(skylaber)) {
         if (item === buscar) {
             return true;
         }
