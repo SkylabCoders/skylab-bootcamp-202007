@@ -57,14 +57,7 @@ if (isNaN(num1)) {
             resultRest = resultRest.toFixed(3);
             resultMult = resultMult.toFixed(3);
             resultDiv = resultDiv.toFixed(3);
-        }  else {
-            num1;
-            num2;
-            resultSum;
-            resultRest;
-            resultMult;
-            resultDiv;
-        }   
+        }  
 
     resultados.push(`${num1} + ${num2} = ${resultSum}, ${num1} - ${num2} = ${resultRest}, ${num1} * ${num2} = ${resultMult}, ${num1} / ${num2} = ${resultDiv}`);
     
