@@ -44,6 +44,19 @@ function Bowl() {
 			}
 		}
 	};
+
+	this.findIndexCallback = function (x) {
+		if (x > 5) {
+			return x;
+		}
+	};
+	this.findIndex = function (arr, callback) {
+		for (let i = 0; i < arr.length; i++) {
+			if (callback(arr[i])) {
+				return i;
+			}
+		}
+	};
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -56,4 +69,8 @@ let myBowl = new Bowl();
 //FILTER
 //console.log('Filter Method:' + myBowl.filter(myArray, myBowl.filterCallback)); // [6,7,8,9,10]
 //FIND
-console.log('Find method: ' + myBowl.find(myArray, myBowl.findCallback));
+//console.log('Find method: ' + myBowl.find(myArray, myBowl.findCallback)); //[1]
+//FINDINDEX
+console.log(
+	'FindIndex Method: ' + myBowl.findIndex(myArray, myBowl.findIndexCallback)
+);
