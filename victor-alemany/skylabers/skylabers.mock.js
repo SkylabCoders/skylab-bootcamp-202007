@@ -3,19 +3,19 @@ const skylaberList = [
         id: 0,
         name: 'Shooooordi',
         completedChallenges: 1,
-        address: { city: 'Granu', country: 'Street' }
+        address: { city: 'Barcelona', country: 'Street' }
     },
     {
         id: 1,
         name: 'Alex',
         completedChallenges: 1,
-        address: { city: 'Granu', country: 'Street' }
+        address: { city: 'Granu', country: 'España' }
     },
     {
         id: 2,
         name: 'Francesc',
         completedChallenges: 999,
-        address: { city: 'Granu', country: 'Street' }
+        address: { city: 'Rubi', country: 'Street' }
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ const skylaberList = [
         id: 4,
         name: 'Dani 1',
         completedChallenges: 4,
-        address: { city: 'Granu', country: 'Street' }
+        address: { city: 'Granu', country: 'Francia' }
     },
     {
         id: 5,
