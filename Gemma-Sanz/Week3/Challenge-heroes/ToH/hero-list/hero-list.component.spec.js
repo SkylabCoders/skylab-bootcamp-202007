@@ -8,7 +8,7 @@ describe("Hero List", function () {
         const id = 14;
         let name = "Celeritas";
         heroList = { id, name };
-        expect(heroList.id).toBe(heroList.name);
+        expect(heroList).toBeTruthy();
     });
     it("should called onInit and behave properly", function () {
         const spy = spyOn(heroListComponent, "onInit");

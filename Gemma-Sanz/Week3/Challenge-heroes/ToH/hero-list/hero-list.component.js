@@ -1,10 +1,11 @@
 function HeroListComponent() {
     heroesList = heroList;
     inputFilter = document.getElementById("hero-detail__name-control");
+    //OnInit it's called on loaded page
     this.onInit = function () {
         createButtonsList();
     }
-
+    //Create buttons
     let mainContainerList = document.querySelector("#mainContainer--list");
     let createButtonsList = function () {
         for (let i = 0; i < heroesList.length; i++) {
@@ -17,25 +18,32 @@ function HeroListComponent() {
         };
 
     }
-    this.searchInput = function () { //called in html onkeyup
-        debugger
-/*         event.defaultPrevented();
- */         const listFilter = function () {
-            let filteredItems = heroesList;
-            heroesList = filteredItems.reduce(callback, []);
+    //Filter called in html doc onkeyup
+    this.searchInput = function () {
+        //If filtervalue is empty, empty mainContainerList and view all heroes
+        if (inputFilter.value === "") {
+            mainContainerList.innerHTML = "";
+            heroesList = heroList
+            createButtonsList()
+            //If filtervalue is not empty view filtered heroes
+        } else {
+            mainContainerList.innerHTML = "";
+            heroesList = heroList;
+            const listFilter = function () {
+                let filteredItems = heroesList;
+                heroesList = filteredItems.reduce(callback, []);
+                createButtonsList(heroesList);
+            }
+            listFilter()
         }
-        listFilter()
     };
 
-
     function callback(acumulator, hero) {
-        if (hero.name.toLowerCase() === inputFilter.value.toLowerCase() || hero.id.toLowerCase() === inputFilter.value.toLowerCase()) {
-            acumulator = [...acumulator, hero.name]
+        if (hero.name === inputFilter.value || hero.id === +inputFilter.value) {
+            acumulator = [...acumulator, hero]
         }
         return acumulator
     }
-    /*     const countHeroes = heroList.reduce(callback, 0);
-     */
 }
 let listComponent = new HeroListComponent();
 listComponent.onInit();
