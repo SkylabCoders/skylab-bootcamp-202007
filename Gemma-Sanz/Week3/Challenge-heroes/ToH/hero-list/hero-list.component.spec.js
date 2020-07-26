@@ -17,8 +17,4 @@ describe("Hero List", function () {
         expect(spy).toHaveBeenCalled();
         expect(spy).toHaveBeenCalledTimes(1);
     });
-    /*     it("should called createButtonsList and behave properly", function () {
-            const spy = spyOn(heroListComponent.onInit, "createButtonsList");
-            expect(spy).toHaveBeenCalled();
-        }) */
 });
