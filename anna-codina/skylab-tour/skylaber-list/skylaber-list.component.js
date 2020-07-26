@@ -1,6 +1,6 @@
 'use strict';
 function SkylaberListComponent() {
-    const skylaberListComponent = [...skylaberList];
+    const skylaberListComp = [...skylaberList];
     const classId = 'skylaber-list__id';
     const className = 'skylaber-list__name';
     const idElement = document.getElementsByClassName(classId);
@@ -11,8 +11,8 @@ function SkylaberListComponent() {
     const skylaberListElement = document.getElementsByClassName(listClass);
 
     this.onInit = function () {
-        createList(skylaberListComponent);
-        printListInfo(skylaberListComponent);
+        createList(skylaberListComp);
+        printListInfo(skylaberListComp);
     }
     function createList(list) {
         let mylist = '';
@@ -55,7 +55,7 @@ function SkylaberListComponent() {
         function filterSkylaberList(skylaber) {
             return skylaber.name.toLowerCase().indexOf(mySearchValue) !== missingIndex || +skylaber.id === +searchValue || skylaber.address.country.toLowerCase().indexOf(mySearchValue) !== missingIndex || skylaber.address.city.toLowerCase().indexOf(searchValue.toLowerCase()) !== missingIndex || +skylaber.completedChallenges === +searchValue;
         }
-        return skylaberListComponent.filter(filterSkylaberList);
+        return skylaberListComp.filter(filterSkylaberList);
     }
 
 }
@@ -63,5 +63,3 @@ function SkylaberListComponent() {
 
 const skylaberListComponent = new SkylaberListComponent();
 skylaberListComponent.onInit();
-
-console.log(skylaberListComponent);

@@ -52,8 +52,8 @@ function SkylaberDetailComponent() {
 
 	function getSkylaberFromUrl() {
 		const params = getParams(location.search);
-		return skylaberList.find(function (skylaber) {
-			return skylaber.id === params;
+		return skylaberList.find(function (actualSkylaber) {
+			return actualSkylaber.id === params;
 		})
 	}
 	function getParams(location) {
