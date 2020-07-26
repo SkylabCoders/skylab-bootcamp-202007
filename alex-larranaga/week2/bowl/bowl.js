@@ -57,6 +57,26 @@ function Bowl() {
 			}
 		}
 	};
+
+	this.fill = function (arr, val, sindex = 0, eindex = arr.length) {
+		for (let i = sindex; i <= eindex; i++) {
+			arr[i] = val;
+		}
+		return arr;
+	};
+
+	this.copyWithIn = function (arr, target, start = 0, end = arr.length) {
+		let tar;
+		for (let i = 0; i < arr.length; i++) {
+			if (target === arr[i]) {
+				tar = arr[i];
+			}
+		}
+		for (let i = start; i <= end; i++) {
+			arr[i] = tar;
+		}
+		return 'hola';
+	};
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -71,6 +91,7 @@ let myBowl = new Bowl();
 //FIND
 //console.log('Find method: ' + myBowl.find(myArray, myBowl.findCallback)); //[1]
 //FINDINDEX
-console.log(
-	'FindIndex Method: ' + myBowl.findIndex(myArray, myBowl.findIndexCallback)
-);
+//console.log('FindIndex Method: ' + myBowl.findIndex(myArray, myBowl.findIndexCallback));
+//FILL
+//console.log("Fill Method: " + myBowl.fill(myArray, 1, 3, 5)); // [1, 2, 3, 1, 1, 1, 7, 8, 9, 10]
+console.log('Copy Within Method: ' + myBowl.copyWithIn(myArray, 2, 6));
