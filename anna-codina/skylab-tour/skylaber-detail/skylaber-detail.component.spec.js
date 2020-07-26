@@ -4,6 +4,7 @@ describe('Skylabers Tour', function () {
     const name = 'Pepe'
     const newName = 'Lolo'
     const challenges = 6;
+    const newChallenges = 8;
     const city = 'Rubi';
     const country = 'España'
     let skylaber = {
@@ -29,12 +30,26 @@ describe('Skylabers Tour', function () {
         expect(myskylaber.name).toEqual(name)
     })
     it('should set a new name to the skylaber', function () {
-        spyOn(skylaberDetailComponent.nameChange);
+        const spy = spyOn(skylaberDetailComponent, 'nameChange');
         skylaberDetailComponent.nameChange(newName);
         expect(spy).toHaveBeenCalled();
 
     })
     it('should get the skylaber id', function () {
         expect(myskylaber.id).toEqual(skylaber.id)
+    })
+    it('shout get the skylaber city address', function () {
+        expect(skylaber.address.city).toEqual(city);
+    })
+    it('shout get the skylaber city address', function () {
+        expect(skylaber.address.country).toEqual(country);
+    })
+    it('shout get the skylaber city address', function () {
+        expect(skylaber.challengesCompleted).toEqual(challenges);
+    })
+    it('shout set a new number of challenges', function () {
+        const spy = spyOn(skylaberDetailComponent, 'challengesChange');
+        skylaberDetailComponent.challengesChange(newChallenges);
+        expect(spy).toHaveBeenCalled();
     })
 })

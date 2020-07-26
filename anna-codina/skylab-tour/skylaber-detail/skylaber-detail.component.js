@@ -4,16 +4,18 @@ function SkylaberDetailComponent() {
 	const idElement = document.getElementById('skylaber-detail__id');
 	const nameElement = document.getElementById('skylaber-detail__name');
 	const nameControlElement = document.getElementById('skylaber-detail__name-control');
+	const challengesControlElement = document.getElementById('skylaber-detail__challenges-control');
+	const cityElement = document.getElementById('skylaber-detail__city');
+	const countryElement = document.getElementById('skylaber-detail__country');
+
 	this.onInit = function () {
 		skylaber = getSkylaberFromUrl();
 		updateId();
 		updateName();
+		updateChallenges();
+		updateAddress();
 	};
 
-	this.nameChange = function (newName) {
-		skylaber.name = newName;
-		updateName();
-	};
 
 	function updateId() {
 		if (idElement)
@@ -26,6 +28,28 @@ function SkylaberDetailComponent() {
 		if (nameControlElement)
 			nameControlElement.value = skylaber.name;
 	}
+
+	this.nameChange = function (newName) {
+		skylaber.name = newName;
+		updateName();
+	};
+
+	function updateChallenges() {
+		if (challengesControlElement)
+			challengesControlElement.value = skylaber.completedChallenges;
+	}
+
+	this.challengesChange = function (newChallenges) {
+		skylaber.completedChallenges = newChallenges;
+		updateChallenges();
+	};
+	function updateAddress() {
+		if (cityElement)
+			cityElement.innerHTML = skylaber.address.city;
+		if (countryElement)
+			countryElement.innerHTML = skylaber.address.country;
+	}
+
 	function getSkylaberFromUrl() {
 		const params = getParams(location.search);
 		return skylaberList.find(function (skylaber) {
