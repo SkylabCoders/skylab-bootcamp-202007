@@ -9,16 +9,22 @@
 </head>
 
 <body>
-	<h1>Tour of Heroes</h1>
-	<a href="./hero-detail.component.html">Detail</a>
-	<a href="../hero-list/hero-list.component.html">Heroes</a>
-	<h2><span id="hero-detail__name"></span> details</h2>
-	<p>id: <span id="hero-detail__id"></span></p>
-	<label for="heroName">
-		name:
-		<input id="hero-detail__name-control" type="text" name="heroName"
-			onchange="heroDetailComponent.nameChange(this.value)" />
-	</label>
+	<div class="body-container">
+		<header>
+			<h1 class="title">Tour of Heroes</h1>
+			<div class="actions">
+				<a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
+				<a href="../hero-list/hero-list.component.html">Heroes</a>
+			</div>
+			<h2><span id="hero-detail__name"></span> details!</h2>
+			<p class="label">id: <span id="hero-detail__id"></span></p>
+			<label class="label" for="heroName">
+				name:
+				<input id="hero-detail__name-control" type="text" name="heroName"
+					onchange="heroDetailComponent.nameChange(this.value)" />
+			</label>
+		</header>
+	</div>
 	<script src="../hero.js"></script>
 	<script src="../hero.mock.js"></script>
 	<script src="hero-detail.component.js"></script>

@@ -5,16 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hero Dashboard</title>
-    <!-- <link rel="stylesheet" href="hero-list.component.css" /> -->
+    <link rel="stylesheet" href="hero-dashboard.component.css" />
 </head>
 
 <body>
-    <h1>Tour of Heroes</h1>
-    <a href="../hero-detail/hero-detail.component.html">Detail</a>
-    <a href="../hero-list/hero-list.component.html">Heroes</a>
-
-    <section id="dashboard__hero-list"></section>
-
+    <div class="body-container">
+        <header>
+            <h1 class="title">Tour of Heroes</h1>
+            <div class="actions">
+                <a href="../hero-detail/hero-detail.component.html">Detail</a>
+                <a href="../hero-list/hero-list.component.html">Heroes</a>
+            </div>
+        </header>
+        <main>
+            <div class="top-heroes-container">
+                <h1 class="main-title">Top Heroes</h1>
+                <div class="hero-card-container">
+                    <section id="dashboard__hero-list"></section>
+                </div>
+            </div>
+        </main>
+    </div>
     <script src="../hero.js"></script>
     <script src="../hero.mock.js"></script>
     <script src="hero-dashboard.component.js"></script>
