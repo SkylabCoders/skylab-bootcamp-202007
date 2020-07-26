@@ -1,6 +1,5 @@
 'use strict';
 describe('Skylabers Tour', function () {
-    debugger
     const name = 'Pepe'
     const newName = 'Lolo'
     const challenges = 6;

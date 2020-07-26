@@ -38,5 +38,5 @@ function SkylaberDashboardComponent() {
 }
 
 
-const skylaberDashboardomponent = new SkylaberDashboardComponent();
-skylaberDashboardomponent.onInit();
+const skylaberDashboarComponent = new SkylaberDashboardComponent();
+skylaberDashboarComponent.onInit();
