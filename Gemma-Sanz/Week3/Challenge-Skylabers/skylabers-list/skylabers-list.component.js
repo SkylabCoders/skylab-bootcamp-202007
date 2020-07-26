@@ -1,5 +1,7 @@
 function SkylabersListComponent() {
     let skylabersList = skylaberList;
+    inputFilter = document.getElementById("skylabers-detail__name-control");
+
     this.onInit = function () {
         createButtonsList();
     }
@@ -16,27 +18,30 @@ function SkylabersListComponent() {
         };
 
     }
-    this.searchInput = function () { //called in html onkeyup
-        debugger
-/*         event.defaultPrevented();
- */         const listFilter = function () {
-            let filteredItems = skylaberList;
-            skylabersList = filteredItems.reduce(callback, []);
-            //            debugger linia amunt i aball no tiren
+    this.searchInput = function () {
+        //If inputFilter is empty view original list
+        if (inputFilter.value === "") {
+            mainContainerList.innerHTML = "";
+            skylabersList = skylaberList;
             createButtonsList()
+        } else {
+            mainContainerList.innerHTML = "";
+            skylabersList = skylaberList;
+            const listFilter = function () {
+                let filteredItems = skylabersList;
+                skylabersList = filteredItems.reduce(callback, []);
+                createButtonsList(skylabersList)
+            }
+            listFilter()
         }
-        listFilter()
-
     };
 
     function callback(acumulator, skylaber) {
-        if (skylaber.name === "Jordi") {
-            acumulator = [...acumulator, skylaber.name]
+        if (skylaber.name === inputFilter.value || skylaber.id === +inputFilter.value || skylaber.completedChallenges === +inputFilter.value || skylaber.address.city === inputFilter.value || skylaber.address.country === inputFilter.value) {
+            acumulator = [...acumulator, skylaber]
         }
         return acumulator
     }
-    /*     const countskylaberes = skylaberList.reduce(callback, 0);
-     */
 }
 let listComponent = new SkylabersListComponent();
 listComponent.onInit();
