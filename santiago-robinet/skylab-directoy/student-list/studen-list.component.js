@@ -1,55 +1,57 @@
 function SkylaberListComponent() {
-  const allSkylaber = skylaberList;
-  const skylaberListContainer = document.querySelector(".list__container");
-  let returnArray = [];
+    const allSkylaber = skylaberList;
+    const skylaberListContainer = document.querySelector(".list__container");
+    let returnArray = [];
 
-  this.onInit = function () {
-    renderSKylaberList(returnArray).forEach((element) => {
-      if (skylaberListContainer) {
-        skylaberListContainer.appendChild(element);
-      }
-    });
-  };
+    this.onInit = function() {
+        printSkylabers(allSkylaber);
+    };
 
-  function renderSKylaberList(skylaberList) {
-    return skylaberList.map(mapRenderAnchor);
-  }
-
-  function mapRenderAnchor(skylaber) {
-    const element = document.createElement("a");
-    element.href = getSkylaberLink(skylaber.id);
-    element.innerHTML = `<span>${skylaber.id}</span><span>${skylaber.name}</span><span>${skylaber.completedChallenges}</span><span>${skylaber.address.city}</span><span>${skylaber.address.city}</span>`;
-    return element;
-  }
-
-  function getSkylaberLink(id) {
-    return `../student-details/student-detail.component.html?skylaberId=${id}`;
-  }
-
-  this.filterByCriteria = function () {
-	// pintar el nuevo array
-	
-    debugger;
-
-    const inputElementValue = document
-      .querySelector(".student-list__input")
-      .value.toLowerCase();
-
-    if (inputElementValue === '') {
-      returnArray = [...allSkylaber];
-    } else {
-      returnArray = allSkylaber.reduce(function (counter, skylaber) {
-        return inputElementValue === skylaber.name.toLowerCase() ||
-          +inputElementValue === skylaber.id ||
-          inputElementValue === skylaber.address.city.toLowerCase() ||
-          inputElementValue === skylaber.address.country.toLowerCase() ||
-          +inputElementValue === skylaber.completedChallenges
-          ? (counter = [...counter, skylaber])
-          : counter;
-      }, []);
+    function printSkylabers(skylaberListParam) {
+        skylaberListContainer.innerHTML = '';
+        renderSKylaberList(skylaberListParam).forEach((element) => {
+            if (skylaberListContainer) {
+                skylaberListContainer.appendChild(element);
+            }
+        });
     }
-    console.log(returnArray);
-  };
+
+    function renderSKylaberList(skylaberList) {
+        return skylaberList.map(mapRenderAnchor);
+    }
+
+    function mapRenderAnchor(skylaber) {
+        const element = document.createElement("a");
+        element.href = getSkylaberLink(skylaber.id);
+        element.innerHTML = `<span>${skylaber.id}</span><span>${skylaber.name}</span><span>${skylaber.completedChallenges}</span><span>${skylaber.address.city}</span><span>${skylaber.address.city}</span>`;
+        return element;
+    }
+
+    function getSkylaberLink(id) {
+        return `../student-details/student-detail.component.html?skylaberId=${id}`;
+    }
+
+    this.filterByCriteria = function() {
+        // pintar el nuevo array
+        const inputElementValue = document
+            .querySelector(".student-list__input")
+            .value.toLowerCase();
+
+        if (inputElementValue === '') {
+            returnArray = [...allSkylaber];
+        } else {
+            returnArray = allSkylaber.reduce(function(counter, skylaber) {
+                return inputElementValue === skylaber.name.toLowerCase() ||
+                    +inputElementValue === skylaber.id ||
+                    inputElementValue === skylaber.address.city.toLowerCase() ||
+                    inputElementValue === skylaber.address.country.toLowerCase() ||
+                    +inputElementValue === skylaber.completedChallenges ?
+                    (counter = [...counter, skylaber]) :
+                    counter;
+            }, []);
+        }
+        printSkylabers(returnArray);
+    };
 }
 
 const skylaberListComponent = new SkylaberListComponent();
