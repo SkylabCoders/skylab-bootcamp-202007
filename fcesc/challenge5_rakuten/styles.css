@@ -383,6 +383,9 @@ section{
     color: var(--cWhite);
     text-align: center;
 }
+.genreMenu--imageContainer{
+    
+}
 
 /* FOOTER */
 footer{
