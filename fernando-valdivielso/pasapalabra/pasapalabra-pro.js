@@ -166,10 +166,10 @@ function game() {
             if (notAnsweredQuestions[j] == 'ignore'){
                 i++;
             } else { 
-                let userAnswers = prompt(notAnsweredQuestions[i].question).toLowerCase();
+                let userAnswers = prompt(notAnsweredQuestions[j].question).toLowerCase();
                 switch (userAnswers) {
-                case notAnsweredQuestions[i].answer:
-                    notAnsweredQuestions.splice([i], 1, 'ignore'); 
+                case notAnsweredQuestions[j].answer:
+                    notAnsweredQuestions.splice([j], 1, 'ignore'); 
                     rightCount++;
                     alert('Muy bien! Siguiente palabra');
                     break;
@@ -181,7 +181,7 @@ function game() {
                     endGame(users, rightCount, wrongCount);
                     return;
                 default:
-                    notAnsweredQuestions.splice([i], 1, 'ignore');
+                    notAnsweredQuestions.splice([j], 1, 'ignore');
                     wrongCount++;
                     alert('Lo siento pero no es correcto!\nSiguiente palabra');
                 }
