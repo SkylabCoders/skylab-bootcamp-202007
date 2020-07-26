@@ -4,7 +4,6 @@ describe('Create-Pet', function () {
 	const femaleGender = 'female';
 	const maleGender = 'male';
 	const legsNumber = 4;
-	let pet = { name: 'Kira' };
 
 	beforeEach(function () {
 		myPet = new Pet();

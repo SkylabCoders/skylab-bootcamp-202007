@@ -1,96 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<title>Document</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <title>Document</title>
-</head>
+	<body>
+		<header>
+			<nav class="navBar">
+				<div class="navBar__menu">
+					<div class="dropdown">
+						<button
+							class="btn btn-secondary dropdown-toggle"
+							type="button"
+							id="dropdownMenuButton"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							Dropdown button
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<ul>
+								<li class="navBar__anchor">
+									<a
+										href="https://www.google.com/search?q=gatos&rlz=1C1CHBF_esES862ES862&oq=gatos&aqs=chrome..69i57j46l4j0j46j0.570j0j4&sourceid=chrome&ie=UTF-8"
+										target="_blank"
+										class="navBar__anchor-item"
+										>Gatos</a
+									>
+								</li>
+								<li class="navBar__anchor">
+									<a
+										href="https://www.google.com/search?q=perros&rlz=1C1CHBF_esES862ES862&oq=perros&aqs=chrome..69i57j46j0l2j46j0l2j46.581j0j4&sourceid=chrome&ie=UTF-8"
+										target="_blank"
+										class="navBar__anchor-item"
+										>Perros</a
+									>
+								</li>
+								<li class="navBar__anchor">
+									<a
+										href="https://www.google.com/search?q=loros&rlz=1C1CHBF_esES862ES862&oq=loros&aqs=chrome..69i57j46j0l2j46j0l3.580j0j9&sourceid=chrome&ie=UTF-8"
+										target="_blank"
+										class="navBar__anchor-item"
+										>Loros</a
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="navBar--left">
+					<ul>
+						<li class="navBar__anchor">
+							<a
+								href="https://www.google.com/search?q=gatos&rlz=1C1CHBF_esES862ES862&oq=gatos&aqs=chrome..69i57j46l4j0j46j0.570j0j4&sourceid=chrome&ie=UTF-8"
+								target="_blank"
+								class="navBar__anchor-item"
+								>Gatos</a
+							>
+						</li>
+						<li class="navBar__anchor">
+							<a
+								href="https://www.google.com/search?q=perros&rlz=1C1CHBF_esES862ES862&oq=perros&aqs=chrome..69i57j46j0l2j46j0l2j46.581j0j4&sourceid=chrome&ie=UTF-8"
+								target="_blank"
+								class="navBar__anchor-item"
+								>Perros</a
+							>
+						</li>
+						<li class="navBar__anchor">
+							<a
+								href="https://www.google.com/search?q=loros&rlz=1C1CHBF_esES862ES862&oq=loros&aqs=chrome..69i57j46j0l2j46j0l3.580j0j9&sourceid=chrome&ie=UTF-8"
+								target="_blank"
+								class="navBar__anchor-item"
+								>Loros</a
+							>
+						</li>
+					</ul>
+				</div>
+				<div class="navBar--right">
+					<button class="navBar__button" onclick="switchLogIn()">Log In</button>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div class="main__column-container">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm main__column main__column__image">
+							<figure>
+								<div class="card main__column__card" style="width: 16rem;">
+									<img
+										class="card-img-top"
+										src="resources/cat.jpg "
+										alt="Cat image "
+									/>
+									<div class="card-body">
+										<h5 class="card-title">Cat</h5>
+										<p class="card-text">
+											Cats are continously thinking to <strong>kill you</strong>
+										</p>
+										<a
+											href="https://www.google.com/search?q=gatos&rlz=1C1CHBF_esES862ES862&oq=gatos&aqs=chrome..69i57j46l4j0j46j0.570j0j4&sourceid=chrome&ie=UTF-8 "
+											class="btn btn-primary"
+											target="_blank"
+											>Go to cats</a
+										>
+									</div>
+								</div>
+							</figure>
+						</div>
+						<div class="col-sm col-sm main__column">
+							<video class="video" controls>
+								<source src="resources/dog.mp4 " type="video/mp4 " />
+								Dog video
+							</video>
+						</div>
+						<div class="col-sm main__column main__column__list">
+							<h2>My List</h2>
+							<ol class="main--list">
+								<li class="main--list-item">Item1</li>
+								<li class="main--list-item">Item2</li>
+								<li class="main--list-item">Item3</li>
+								<li class="main--list-item">Item4</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
 
-<body>
-    <header>
-        <nav class="navBar">
-            <div class="navBar__menu">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <ul>
-                            <li class="navBar__anchor"><a href="https://www.google.com/search?q=gatos&rlz=1C1CHBF_esES862ES862&oq=gatos&aqs=chrome..69i57j46l4j0j46j0.570j0j4&sourceid=chrome&ie=UTF-8" target="_blank" class="navBar__anchor-item">Gatos</a></li>
-                            <li class="navBar__anchor"><a href="https://www.google.com/search?q=perros&rlz=1C1CHBF_esES862ES862&oq=perros&aqs=chrome..69i57j46j0l2j46j0l2j46.581j0j4&sourceid=chrome&ie=UTF-8" target="_blank" class="navBar__anchor-item">Perros</a></li>
-                            <li class="navBar__anchor"><a href="https://www.google.com/search?q=loros&rlz=1C1CHBF_esES862ES862&oq=loros&aqs=chrome..69i57j46j0l2j46j0l3.580j0j9&sourceid=chrome&ie=UTF-8" target="_blank" class="navBar__anchor-item">Loros</a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="navBar--left">
-                <ul>
-                    <li class="navBar__anchor"><a href="https://www.google.com/search?q=gatos&rlz=1C1CHBF_esES862ES862&oq=gatos&aqs=chrome..69i57j46l4j0j46j0.570j0j4&sourceid=chrome&ie=UTF-8" target="_blank" class="navBar__anchor-item">Gatos</a></li>
-                    <li class="navBar__anchor"><a href="https://www.google.com/search?q=perros&rlz=1C1CHBF_esES862ES862&oq=perros&aqs=chrome..69i57j46j0l2j46j0l2j46.581j0j4&sourceid=chrome&ie=UTF-8" target="_blank" class="navBar__anchor-item">Perros</a></li>
-                    <li class="navBar__anchor"><a href="https://www.google.com/search?q=loros&rlz=1C1CHBF_esES862ES862&oq=loros&aqs=chrome..69i57j46j0l2j46j0l3.580j0j9&sourceid=chrome&ie=UTF-8" target="_blank" class="navBar__anchor-item">Loros</a> </li>
-                </ul>
-            </div>
-            <div class="navBar--right">
-                <button class="navBar__button" onclick="switchLogIn()">Log In</button>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div class="main__column-container ">
-            <div class="container ">
-                <div class="row ">
-                    <div class="col-sm main__column main__column__image">
-                        <figure>
-                            <div class="card main__column__card " style="width: 16rem; ">
-                                <img class="card-img-top " src="resources/cat.jpg " alt="Cat image ">
-                                <div class="card-body ">
-                                    <h5 class="card-title ">Cat</h5>
-                                    <p class="card-text ">Cats are continously thinking to <strong>kill you</strong></p>
-                                    <a href="https://www.google.com/search?q=gatos&rlz=1C1CHBF_esES862ES862&oq=gatos&aqs=chrome..69i57j46l4j0j46j0.570j0j4&sourceid=chrome&ie=UTF-8 " class="btn btn-primary " target="_blank">Go to cats</a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="col-sm col-sm main__column ">
-                        <video class="video" controls>
-                            <source src="resources/dog.mp4 " type="video/mp4 ">
-                                Dog video
-                        </video>
-                    </div>
-                    <div class="col-sm main__column main__column__list">
-                        <h2>My List</h2>
-                        <ol class="main--list ">
-                            <li class="main--list-item ">Item1</li>
-                            <li class="main--list-item ">Item2</li>
-                            <li class="main--list-item ">Item3</li>
-                            <li class="main--list-item ">Item4</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
+			<div class="main__secondElement">
+				<p>
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry. Lorem Ipsum has been the industry's standard dummy text ever
+					since the 1500s, when an unknown printer took a galley of type and
+					scrambled it to make a type specimen book. It has survived not only
+					five centuries, but also the leap into electronic typesetting,
+					remaining essentially unchanged. It was popularised in the 1960s with
+					the release of Letraset sheets containing Lorem Ipsum passages, and
+					more recently with desktop publishing software like Aldus PageMaker
+					including versions of Lorem Ipsum.
+				</p>
+			</div>
+		</main>
 
-        <div class="main__secondElement">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-                book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
-    </main>
+		<footer>
+			<p>
+				Design by &copy; Pepito
+			</p>
+		</footer>
 
-    <footer>
-        <p>
-            Design by &copy; Pepito
-        </p>
-    </footer>
+		<script src="main.js"></script>
 
-    <script src="main.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
-</body>
-
+		<script
+			src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
+			crossorigin="anonymous "
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+			crossorigin="anonymous "
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
+			crossorigin="anonymous "
+		></script>
+	</body>
 </html>
