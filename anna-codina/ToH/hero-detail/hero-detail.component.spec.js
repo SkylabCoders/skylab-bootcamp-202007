@@ -20,9 +20,9 @@ describe('Heroes Tour', function () {
         expect(myHero.name).toEqual(name)
     })
     it('should set a new name to the hero', function () {
-        debugger;
+        const spy = spyOn(heroDetailComponent, 'nameChange')
         heroDetailComponent.nameChange(newName);
-        expect(myHero.name).toEqual(newName)
+        expect(spy).toHaveBeenCalled();
     })
     it('should get the hero id', function () {
         expect(myHero.id).toEqual(hero.id)
