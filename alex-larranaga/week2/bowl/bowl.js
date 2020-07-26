@@ -10,8 +10,8 @@ function Bowl() {
 		return mapArray;
 	};
 
-	this.filterCallback = function (x) {
-		if (x > 5) {
+	this.callbackFunction = function (x) {
+		if (x > 0) {
 			return x;
 		} else {
 			return;
@@ -30,12 +30,6 @@ function Bowl() {
 		return filterArray;
 	};
 
-	this.findCallback = function (x) {
-		if (x < 5) {
-			return x;
-		}
-	};
-
 	this.find = function (arr, callback) {
 		let result;
 		for (let el of arr) {
@@ -45,11 +39,6 @@ function Bowl() {
 		}
 	};
 
-	this.findIndexCallback = function (x) {
-		if (x > 5) {
-			return x;
-		}
-	};
 	this.findIndex = function (arr, callback) {
 		for (let i = 0; i < arr.length; i++) {
 			if (callback(arr[i])) {
@@ -75,8 +64,34 @@ function Bowl() {
 		for (let i = start; i <= end; i++) {
 			arr[i] = tar;
 		}
-		return 'hola';
+		return arr;
 	};
+
+	this.some = function (arr, callback) {
+		for (let el of arr) {
+			if (callback(el)) {
+				return true;
+			}
+		}
+		return false;
+	};
+
+	this.every = function (arr, callback) {
+		debugger;
+		let trueCounter = 0;
+		for (let el of arr) {
+			if (callback(el)) {
+				trueCounter++;
+			}
+		}
+		if (trueCounter === arr.length) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	this.reduce();
 }
 
 let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -94,4 +109,9 @@ let myBowl = new Bowl();
 //console.log('FindIndex Method: ' + myBowl.findIndex(myArray, myBowl.findIndexCallback));
 //FILL
 //console.log("Fill Method: " + myBowl.fill(myArray, 1, 3, 5)); // [1, 2, 3, 1, 1, 1, 7, 8, 9, 10]
-console.log('Copy Within Method: ' + myBowl.copyWithIn(myArray, 2, 6));
+//COPY WITHIN
+//console.log('Copy Within Method: ' + myBowl.copyWithIn(myArray, 2, 6)); [1,2,3,4,5,6,6,6,6,6,6,6]
+//SOME
+//console.log('Some Method: ' + myBowl.some(myArray, myBowl.callbackFunction)); // true
+//EVERY
+console.log('Every Method: ' + myBowl.every(myArray, myBowl.callbackFunction));
