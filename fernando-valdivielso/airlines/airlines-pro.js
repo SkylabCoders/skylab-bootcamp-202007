@@ -181,8 +181,8 @@ function borrarVuelos() {
             if (borrar == vuelos[i].id) {
                 let index = vuelos.findIndex(x => x.id == vuelos[i].id);  //finds the index number of the id to delete
                 vuelos.splice(index, 1);
-                for (let i = 0; i < vuelos.length; i++) {
-                    if (vuelos[i].escalas == false) {
+                for (let j = 0; j < vuelos.length; j++) {
+                    if (vuelos[j].escalas == false) {
                         console.log('id: ' + vuelos[i].id + '. Vuelo sin escalas de ' + vuelos[i].from + ' a ' 
                                     + vuelos[i].to + ' por ' + vuelos[i].precio + '\u20AC');
                     } else {
