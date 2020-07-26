@@ -4,8 +4,6 @@ describe('Create-Pet', function () {
 	const femaleGender = 'female';
 	const maleGender = 'male';
 	const legsNumber = 4;
-	let pet = new Pet();
-	pet = pet.createPet('Kira');
 
 	beforeEach(function () {
 		myPet = new Pet();
@@ -14,11 +12,9 @@ describe('Create-Pet', function () {
 
 	it('1-Should create a pet', function () {
 		expect(myPet.createPet(name)).toBeTruthy();
-		//expect(myPet.name).toEqual(pet.name);
 	});
 
 	it('2-Should return the pet name', function () {
-		myPet.setName;
 		expect(myPet.getName()).toEqual(name);
 	});
 

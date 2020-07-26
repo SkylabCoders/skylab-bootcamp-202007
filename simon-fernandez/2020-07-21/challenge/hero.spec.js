@@ -1,4 +1,3 @@
-
 describe('Hero', function () {
 	let myHero,
 		heroName = 'Jorge',
