@@ -14,7 +14,7 @@ function HeroListComponent() {
 
 			listNodesElement.setAttribute(
 				'href',
-				`../hero-detail/hero-detail.component.html?heroId=${heroes[i].id}$heroName=${heroes[i].name}`
+				`../hero-detail/hero-detail.component.html?heroId=${heroes[i].id}&heroName=${heroes[i].name}`
 			);
 			listNodesElement.setAttribute('class', 'list__element');
 		}
