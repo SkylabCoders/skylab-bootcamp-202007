@@ -1,25 +1,16 @@
 //BLINKER
 let initialState = [];
-
-let finalState = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
-let arrayForCreateRows = [];
+let finalState = []; 
 let count = 0;
+
+let countPosition = 0;
+let numberRows =   20;
+let numberColumns = 20;
 
 let squareBlack = document.querySelectorAll('.black');
 let board = document.querySelector('.board');
 let fragment = document.createDocumentFragment();
-let squares = 81;
+let squares = 400;
 let startBtn = document.querySelector('.start');
 let stopBtn = document.querySelector('.stop');
 
@@ -49,7 +40,7 @@ function gameOfLife() {
         //Cuando hago clic llamo a una función cada medio segundo donde empieza todo mi código.
         //No vuelve a este lugar porque cuando da una vuelta, copio array y empieza desde el recorrido de vecinos, no desde crear el array.
         createArray();
-        setInterval(play, 500);
+        setInterval(play, 100);
     });
 
     function play() {
@@ -64,27 +55,40 @@ function gameOfLife() {
 
     //Create the initial array looking at the drawing
     function createArray() {
-        let countPosition = 0;
-
-        while (initialState.length < 9) {
-            let arrayForCreateRows = [];
-            for (let j = 0; j < 9; j++) {
+        while (initialState.length < numberRows) {
+            let arrayForCreateRowsInitial = [];
+            for (let i = 0; i < numberColumns; i++) {
                 //El problema es que i volvía a ser 0 y no me movía de la posición del primer array en i
                 if (square[countPosition].className === "square black") {
-                    arrayForCreateRows[j] = 1;
+                    arrayForCreateRowsInitial[i] = 1;
                 } else {
-                    arrayForCreateRows[j] = 0;
+                    arrayForCreateRowsInitial[i] = 0;
                 }
                 countPosition++
             }
 
-            initialState.push(arrayForCreateRows);
+            initialState.push(arrayForCreateRowsInitial);
         }
 
+        createFinalArray();
+        
         getNeighbour();
     }
 
-
+    //Creamos el finalState array 
+    function createFinalArray() { 
+        finalState = [];
+        while (finalState.length < numberRows) {
+            let arrayForCreateRowsFinal = [];      
+            for (let i = 0; i < numberColumns; i++) {
+                //El problema es que i volvía a ser 0 y no me movía de la posición del primer array en i
+                arrayForCreateRowsFinal[i] = 0;
+            }
+            countPosition++
+            finalState.push(arrayForCreateRowsFinal);
+        }
+    }
+    
 
     //LOGIC
     //1 count -2 ==> 0
@@ -99,23 +103,13 @@ function gameOfLife() {
                 countNeighbour(i, j);
             }
         }
-
+        
         paintFinalState();
-        //Pinto el finalState y luego cambio un array por otro:
-        //[initialState, finalState] = [finalState, initialState];
-        //initialState = finalState;
+        // Pinto el finalState y luego cambio un array por otro:
+        // [initialState, finalState] = [finalState, initialState];
+        // initialState = finalState;
         initialState = [...finalState];
-        finalState = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ];
+        createFinalArray();
     }
 
     function countNeighbour(i, j) {
@@ -143,7 +137,6 @@ function gameOfLife() {
         }
 
         count = 0;
-
     }
 
     //Cogemos el array final y cambiamos colores
@@ -162,7 +155,6 @@ function gameOfLife() {
             }
         }
     }
-
 }
 
 gameOfLife();
