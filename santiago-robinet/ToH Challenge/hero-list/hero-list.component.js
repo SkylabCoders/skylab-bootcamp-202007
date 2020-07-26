@@ -5,18 +5,22 @@ function HeroListComponent(){
 
     this.callCreator = function(){
         for(let i = 0 ; i < newHeroesList.length; i++){
-            createAnchorElement(i);
+            createAnchorElement(i, newHeroesList[i].id);
             createSpanElements(newHeroesList, i);
         }    
     }
 
-    function createAnchorElement(i) {
-        const heroLink = "../hero-detail/hero-detail.component.html";
+    function createAnchorElement(i, heroId) {
+        const heroLink = getHeroId(heroId);
         const anchorElement = document.createElement("a");
         anchorElement.href = heroLink;
         anchorElement.classList.add(`hero__anchor--${i}`, "heroes");
         divHeroListContainer.appendChild(anchorElement);
-        return anchorElement        
+          
+    }
+
+    function getHeroId(id){
+        return `../hero-detail/hero-detail.component.html?heroId=${id}`;
     }
 
     function createSpanElements(list, i) {
