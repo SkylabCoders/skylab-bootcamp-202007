@@ -26,7 +26,6 @@ function HeroDetailComponent() {
 	}
 
 	function compareId(hero){
-		debugger;
 		let params = location.search.split('=');		
 		return hero.id === +params[1];
 	}

@@ -1,13 +1,29 @@
 function HeroListComponent(){
-    const newHeroesList = heroList;
+    let newHeroesList;
     const divHeroListContainer = document.querySelector(".hero__list__container");
-
+    
 
     this.callCreator = function(){
+        heroListComponent.filterByCriteria();
+        divHeroListContainer.innerHTML = '';
         for(let i = 0 ; i < newHeroesList.length; i++){
             createAnchorElement(i, newHeroesList[i].id);
             createSpanElements(newHeroesList, i);
         }    
+    }
+
+    this.filterByCriteria = function(){
+        const filterInput = document.querySelector('.hero__filter').value.toLowerCase();
+
+        if(filterInput === ''){
+            newHeroesList = [...heroList];
+        } else { 
+            newHeroesList = heroList.reduce(function(counter, hero){
+                return filterInput === hero.name.toLowerCase() || +filterInput === hero.id ? (counter = [...counter, hero]) : counter;
+            }, []);
+        }
+        console.log(newHeroesList);
+        
     }
 
     function createAnchorElement(i, heroId) {
