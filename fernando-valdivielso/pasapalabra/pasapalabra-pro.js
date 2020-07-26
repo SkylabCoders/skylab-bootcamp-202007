@@ -119,7 +119,7 @@ function pasapalabra() {
     }
     if (confirm('Hola ' + user.name + '!' + '\nVamos a jugar a Pasapalabra!'
     + '\nIntroduce "end" para terminar el juego')) {
-        whatQuestions(questionsSet, setsPlayed);
+        whatQuestions();
     } else {
         return;
     }
@@ -129,10 +129,10 @@ function pasapalabra() {
 function whatQuestions() {
     questions = questionsSet[Math.floor(Math.random() * questionsSet.length)];
     if (setsPlayed.includes(questions)) {
-        whatQuestions(questionsSet, setsPlayed);
+        whatQuestions();
     } else {
         setsPlayed.push(questions);
-        game(questions, rightCount, wrongCount);
+        game();
     }
 }
 
@@ -152,14 +152,14 @@ function game() {
                     break;
                 case 'end':
                     alert('Fin del juego');
-                    endGame(users, rightCount, wrongCount);
+                    endGame();
                     return;
                 default:
                     wrongCount++;
                     alert('Lo siento pero no es correcto!\nSiguiente palabra');
             }
         }
-        nextRound(users, rightCount, wrongCount);
+        nextRound();
 
     } else if (notAnsweredQuestions.length > 0) {
         for (let j = 0; j < notAnsweredQuestions.length; j++) {
@@ -178,7 +178,7 @@ function game() {
                     break;
                 case 'end':
                     alert('Fin del juego');
-                    endGame(users, rightCount, wrongCount);
+                    endGame();
                     return;
                 default:
                     notAnsweredQuestions.splice([j], 1, 'ignore');
@@ -187,7 +187,7 @@ function game() {
                 }
             }
         }
-        nextRound(users, rightCount, wrongCount);
+        nextRound();
     }
 }
         
@@ -197,9 +197,9 @@ function nextRound() {
     if (roundCount >= 1 && (rightCount + wrongCount) < 27) {
         alert('Ronda ' + (roundCount + 1));
         roundCount++
-        game(questions, rightCount, wrongCount);
+        game();
     } else {
-        endGame(users, rightCount, wrongCount)
+        endGame()
     }
 }
 
