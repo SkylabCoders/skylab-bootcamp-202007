@@ -3,10 +3,6 @@ function HeroDashboardComponent() {
 	const mainContentDashboard = document.querySelector("#mainContainer__dashboard")
 	const heroDashboardLink = `href=../hero-detail/hero-detail.component.html`
 
-
-	/* let renderAnchor = function (heroes) {
-		return `<div><a ${heroDashboardLink} ${heroes.name} </a></div>`
-	} */
 	this.onInit = function () {
 		renderList().forEach(element => {
 			mainContentDashboard && mainContentDashboard.appendChild(element);
