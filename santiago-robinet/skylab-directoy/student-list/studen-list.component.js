@@ -4,7 +4,7 @@ function SkylaberListComponent() {
   let returnArray = [];
 
   this.onInit = function () {
-    renderSKylaberList(returnArray).forEach((element) => {
+    renderSKylaberList(allSkylaber).forEach((element) => {
       if (skylaberListContainer) {
         skylaberListContainer.appendChild(element);
       }
@@ -49,6 +49,7 @@ function SkylaberListComponent() {
       }, []);
     }
     console.log(returnArray);
+    return returnArray
   };
 }
 

@@ -6,11 +6,11 @@ describe('Hero List', function(){
     })
 
     it('should create hero List', function(){
-        expect(heroList.createList()).toBeTruthy();
+        expect(heroListComponent).toBeTruthy();
     });
 
     xit('should show hero detail when a hero in the heroList is picked', function(){
         // expect(heroList.showHeroDetails()).toEqual('take me to the hero details page???');
     });
 
-})
+});
