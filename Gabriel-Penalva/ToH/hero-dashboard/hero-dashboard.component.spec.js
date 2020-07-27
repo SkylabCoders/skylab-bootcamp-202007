@@ -1,12 +1,6 @@
 describe('dashboard', function () {
     let dashboardComponent;
-    const heroes = heroList.slice(0, 4);
-    const heroAnchorList = [
-        '<a href="../">Dr Nice</a>',
-        '<a href="../">Narco</a>',
-        '<a href="../">Bombasto</a>',
-        '<a href="../">Celeritas</a>'
-    ];
+
 
     beforeEach(function () {
         dashboardComponent = new DashboardComponent();
