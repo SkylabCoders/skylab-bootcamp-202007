@@ -1,6 +1,6 @@
 function Details() {
 	this.update = function () {
-		let detailSkylabber = skylabService.getSkylaberById(searchIdinURL());
+		let detailSkylabber = SkylabService.getSkylaberById(searchIdinURL());
 		document.querySelector('.detail__name').innerHTML = detailSkylabber.name;
 		document.querySelector('.detail__id').innerHTML = detailSkylabber.id;
 		document.querySelector('.detail__name-control').value =

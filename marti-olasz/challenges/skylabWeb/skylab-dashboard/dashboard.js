@@ -1,5 +1,5 @@
 function Dashboard() {
-	const dashboardList = skylabService.getList().slice(0, 4);
+	const dashboardList = SkylabService.getList().slice(0, 4);
 	const mother = document.querySelector('.dashboard');
 	this.drawDashboard = function () {
 		for (let i = 0; i < dashboardList.length; i++) {
