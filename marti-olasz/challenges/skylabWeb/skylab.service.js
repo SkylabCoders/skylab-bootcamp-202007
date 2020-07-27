@@ -33,7 +33,6 @@ const skylabService = new SkylabService();*/
 ////////////////////////////////////////////////////////////////////////////
 class SkylabService {
 	static getList() {
-		debugger;
 		return skylaberList;
 	}
 	static getSkylaberById(id) {
