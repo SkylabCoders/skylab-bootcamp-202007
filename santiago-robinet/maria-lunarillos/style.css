@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-menu img {
+  width: 25px;
+  height: 25px;
+}
+
+.nav-menu-incon {
+  margin: 5px auto;
+}
+
+.nav-menu__flex {
+  justify-content: center;
+}
+
+.square-icon__red {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(219, 52, 52);
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 7px 0px;
+  margin-bottom: 15px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-slider img {
+  width: 100%;
+}
+
+.slider-circles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 320px;
+  margin: 5px auto;
+}
+
+.slider-circles__grey {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(175, 167, 167);
+}
+
+.slider-circles__red {
+  background-color: rgb(228, 84, 84);
+}
+
+.utencillos-section {
+  display: flex;
+  justify-content: center;
+}
+.utencillos-section img {
+  margin: 3rem auto;
+  height: 125px;
+}
+
+.logo-section-header {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  width: 70%;
+}
+
+.logo-section-header h2 {
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 10px;
+}
+
+.weird-three-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.weird-card__size {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+
+.weird-card__size img {
+  object-fit: cover;
+  object-position: 50% 0;
+  width: 100%;
+  height: auto;
+}
+
+.over-paragraph {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 200px;
+}
+
+.over-paragraph h3 {
+  font-size: 25px;
+  padding: 10px;
+  font-weight: 700;
+  color: #67635f;
+}
+
+.button-vermas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.button-vermas button {
+  background-color: #ff5959;
+  font-size: 20px;
+  border: none;
+  text-transform: uppercase;
+  padding: 15px;
+  color: whitesmoke;
+  margin-top: 55px;
+}
+.all-blog-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  padding: 7.5px;
+  width: 100vw;
+  min-width: 305px;
+  max-width: 350px;
+}
+
+.blog-card img {
+  width: 100%;
+}
+
+.blog-post-owner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.blog-card p {
+  font-size: 20px;
+  color: #67625f;
+  margin: 10px 5px;
+}
+
+.blog-post-owner img {
+  height: 61px;
+  width: 70px;
+}
+
+.blog-post-owner p {
+  font-size: 12px;
+  margin: 3px;
+}
+
+#name {
+  font-size: 20px;
+  color: tomato;
+}
+
+footer {
+  background-color: #ff5959;
+  height: 3rem;
+  text-align: center;
+}
+
+footer p {
+  color: white;
+}
+
+.card-desktop,
+.card-tablet {
+  display: none;
+}
+
+.nav-icons-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  width: 50%;
+}
+
+.nav-icons-left img {
+  margin: auto 15px;
+}
+
+.nav-icons-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.nav-icons-right img {
+  margin: 5px 15px;
+}
+
+.nav-flags{
+    background-color: tomato;
+    position: absolute;
+}
+
+@media screen and (min-width: 600px) {
+  .weird-three-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weird-card__size {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .weird-card__top {
+    margin-top: 4px;
+  }
+  .weird-card__bot {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  .all-blog-cards {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+  }
+
+  .card-tablet {
+    display: flex;
+  }
+
+  .card-desktop {
+    display: none;
+  }
+
+  .login-button {
+    margin: auto;
+  }
+
+  .over-paragraph {
+    position: absolute;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card-desktop {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 600px){
+  
+  .weird-card__size img {
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 150px;
+  }
+}

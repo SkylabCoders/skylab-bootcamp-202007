@@ -1,0 +1,608 @@
+.mainContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+/*Nav*/
+.mainNav {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    padding: 5px 0;
+    align-items: center;
+    margin: 0;
+}
+.mainNav img{
+    width: auto;
+    height: 30px;
+    width: auto;
+    padding: 0 20px;
+}
+.alternative-nav{
+    display:none;
+}
+.lastNav{
+    background-color: lightcoral;
+    padding: 12px 15px;
+    color: white;
+    font-weight: bold;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+}
+/*Header*/
+.header-offers,.header-news{
+    display: none;
+}
+.flex-rows-point{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    margin-top: 40px;
+    width: 400px;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+}
+.header-icons{
+    display: none;
+}
+.other-img{
+    display:none;
+}
+.slider{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.point{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.point:nth-child(3){
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: lightcoral;
+}
+.paragraph-top-bot{
+    font-weight: bold;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 8px;
+}
+
+.limited{
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 5px;
+}
+.white-box{
+    position: absolute;
+    background-color: rgba(255,255,255,0.8);
+    height: 60%px;
+    width: 50%;
+    padding-left: 12px;;    
+}
+.limited>img {
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 140px;
+    top: 180px;
+    z-index: -1;
+    margin: 5px;    
+}
+.white-box>p{
+    display:none;
+    margin: 5px;    
+}
+.last-white-box{
+    width: 65%;
+}
+.seemore{
+    display:block;
+    padding: 15px;
+    color: white;
+    background-color: lightcoral;
+    bottom:50px;
+}
+.seemore:nth-child(2){
+    margin-top: 0%;
+}
+.blogicon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.card_1>img, .card_2>img, .card_3>img{
+   height: 75vh;
+   margin: 10px;
+}
+.card_1>p{
+    align-items: flex-start;
+}
+.info-author{
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+    margin-left: 3px;
+}
+.info-author>p:nth-child(2){
+    color: palevioletred;
+    font-weight: bold;
+}
+.cards--hidden{
+    display: none;
+}
+.img_autor{
+    height: 60px;
+    width: 71px;
+}
+.brands{
+    display:none;
+}
+.see-final{
+    display: none;
+}
+.blank{
+    height: 150px;
+    width: 300px;
+}
+/*Footer*/
+.footer{
+    background-color: rgb(207, 207, 207);
+    z-index: -1;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    height: 350px;
+    padding: 30px 0px;
+    justify-content: center;
+}
+.footer-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.camion-icon{
+    height: 10vh;
+    width: auto;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat fixed center;
+}
+.footer_camion>p{
+    font-weight: bold;
+    color: rgb(71, 71, 71)
+}
+.footer_camion>p:nth-child(3){
+    font-size: 13px;
+    font-weight: lighter;
+}
+.footer_camion{
+    margin: auto;
+    text-align: center;
+    width: 50vh;
+    height: 100px;
+}
+
+.footer_contact{
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+}
+/*problems with footer*/
+.follow_us_icons{
+    margin-bottom: 1px solid black;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+.follow{
+    display: flex;
+    flex-direction: row;
+    width: 33px;
+    height: 32px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) no-repeat transparent;
+}
+.follow:nth-child(1){
+    background-position: 0 -494px;
+}
+.follow:nth-child(1):hover{
+    background-position: 0 -574px;
+}
+.follow:nth-child(2){
+    background-position: -35px -494px;
+}
+.follow:nth-child(2):hover{
+    background-position: -35px -574px;
+}
+.follow:nth-child(3){
+    background-position: -70px -494px;
+}
+.follow:nth-child(3):hover{
+    background-position: -70px -574px;
+}
+.follow:nth-child(4){
+    background-position: -106px -494px;
+}
+.follow:nth-child(4):hover{
+    background-position: -106px -574px;
+}
+.follow:nth-child(5){
+    background-position: -176px -494px;
+}
+.follow:nth-child(5):hover{
+    background-position: -176px -574px;
+}
+
+.news{
+    margin-bottom: 1px solid black;
+}
+.news_email{
+    height: 40px;
+    width: 45vh;
+}
+.news_text{
+    display:block;
+    padding: 15px;
+    color: white;
+    background-color: lightcoral;
+    bottom:50px;  
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
+    margin: 5px;
+}
+.news_row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact_terms_icons{
+    display: flex;
+    flex-direction: row;
+    width: 100vh;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+.terms_icon_1{
+    width: 30px;
+    height: 31px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -207px no-repeat
+}
+.terms_icon_2{
+    width: 30px;
+    height: 31px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -246px no-repeat
+}
+.terms_icon_3{
+    width: 30px;
+    height: 31px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -285px no-repeat
+}
+.term_info{
+    color: lightcoral;
+}
+.term_info:hover{
+    color: lightcoral;
+    text-decoration: underline;
+}
+.contact-row{
+    display: flex;
+    flex-direction: row;
+}
+.copyright{
+    background-color: lightcoral;
+    color: white;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+}
+@media (min-width: 600px) and (max-width: 1024px){
+    .main-box{
+        display: flex;
+        flex-direction: row;
+    }
+    .mainNav{
+        justify-content: space-evenly;
+    }
+    .blank-box{
+        flex: 1;
+    }
+    .header-tablet{
+        display: flex;
+    }
+    .flex-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .header-news{
+        display: flex;
+        background-color: green;
+        color: white;
+        font-weight: bold;
+        padding: 5px 20px;
+    }
+    .other-img{
+        display: flex;
+    }
+    .main-img{
+        display: none;
+    }
+    .header-offers{
+        display: flex;
+        background-color: purple;
+        color: white;
+        font-weight: bold;
+        padding: 5px 20px;
+    }
+    .blank-div{
+        width: 5px;
+    }
+    .limited>img {
+        width: 100%;
+        height: 100%;  
+    }
+    .white-box>p{
+        display:block;
+    }
+    .box-column>.limited>.white-box{
+        position: absolute;
+        background-color: rgba(255,255,255,0.8);
+        height: 100%;
+        width: 47.5%;
+        padding-left: 12px;
+        margin: 5px;
+    }
+    .box-row>.limited>.white-box{
+        position: absolute;
+        background-color: rgba(255,255,255,0.8);
+        height: 50%;
+        width: 96%;
+        padding-left: 12px;
+        margin: 5px;
+    }
+    .last-white-box{
+        align-self: flex-end;
+    }
+    .card_1,.card_2{
+        display: flex;
+        flex-direction: column;
+    }
+    .card_3{
+        display: none;
+    }
+    .main-brands{
+        display: none;
+    }
+    .news_row{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+}
+
+@media (min-width: 1024px){
+    /*box modification*/
+    .main-box{
+        display: flex;
+        flex-direction: row;
+    }
+    .box-row{
+        display: flex;
+        flex-direction: row;
+    }
+    /*This doesn't work*/
+    .header-row{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .other-img{
+        display: flex;
+    }
+    .main-img{
+        display: none;
+    }
+    /*Nav*/
+    .mainNav{
+        justify-content: space-evenly;
+    }
+    .row-nav{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .row-nav p{
+        font-size: 13px;
+    }
+    .alternative-nav{
+        display: flex;
+        align-items: center;
+    }
+    .alternative-nav>img{
+        padding: 8px;
+        width: 1.8vw;
+    }
+    .alternative-nav>a{
+        margin: 2px;
+    }
+    .alternative-nav>a:nth-child(1){
+        width: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/maria-lunarillos.png) #FF5959 bottom center no-repeat;
+        height: 220px;
+    }
+    .alternative-nav>a:nth-child(2){
+        width: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/cucute.png) #6199AF bottom center no-repeat;
+        height: 130px;
+    }
+    .alternative-nav>a:nth-child(2):hover{
+        height: 220px;
+    }
+    .alternative-nav>a:nth-child(3){
+        width: 70px;
+        background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/icons/mumuchu.png) #F6B436 bottom center no-repeat;
+        height: 130px;
+    }
+    .alternative-nav>a:nth-child(3):hover{
+        height: 220px;
+    }
+    .nav_hidden{
+        display:none;
+    }
+    /**/
+    .box-column{
+        display: flex;
+        flex-direction: column;
+    }
+    .header-tablet{
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        overflow: visible;
+    }
+    .header-column{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 120px;
+    }
+    .header-icons{
+        display: inline-block;
+        justify-content: flex-end;
+        height: 80px;
+        width: 80px;
+        text-align: center;
+    }
+    .header-icons>p{
+        text-align:justify;
+        text-align: center;
+        font-size: 13px;
+    }
+    .limited>img {
+        width: 100%;
+        height: 100%;  
+    }
+    .limited>div>h3:after {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255,255,255,0.8);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
+        z-index: -1;
+    }
+    .white-box>p{
+        display:block;
+    }
+    .white-box{
+        position: absolute;
+        background-color: rgba(255,255,255,0.8);
+        height: 150px;
+        width: 50%;
+        padding-left: 12px;
+        margin: 5px;
+    }
+    .main-cards{
+        align-items: baseline;
+        }
+    .card_1,.card_2,.card_3{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-brands{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 20px;
+        margin: 25px;
+    }
+    .main-brands>img{
+        margin: 25px;
+        filter: grayscale();
+
+    }
+    .main-brands>img:hover{
+        filter: none;
+    }
+    /*Footer background gray*/
+
+    /**/
+    .footer_contact{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .footer-column{
+        flex-direction: row;
+        justify-content: flex-end;
+        margin: auto;
+    }
+    .footer_camion{
+        height: 100px;
+        width: fit-content;
+        margin: 50px;
+    }
+    .follow-section{
+        width: 20vh;
+        margin: 50px;
+    }
+    .news{
+        width: 90vh;
+        border-left: 1px solid gray;
+        border-right: 1px solid gray;
+    }
+    .news>p{
+        align-self: flex-start;
+        margin-left: 30px;
+    }
+    .news_row{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .contact-section{
+        width: 250px;
+        margin-left: 5px;
+    }
+    .contact_terms_icons{
+        display: flex;
+        flex-direction: column;
+        width: 100vh;
+        justify-content: space-evenly;
+        list-style-type: none;
+    }
+    .contact-row{
+        display: flex;
+        flex-direction: row;
+    }
+    
+}

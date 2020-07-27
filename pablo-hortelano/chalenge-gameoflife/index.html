@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>GAME OF LIFE</h1>
+        </header>
+        <main class="mainContainer">
+        
+        </main>
+        <h2 class="game-text">Round nº</h2>
+        <section class="button-pannel">
+            <div>
+                <label for="number-rows">Row's Number</label>
+                <input id="number-rows" type="number" min="0" max="40">
+                <div><label for="number-columns">Column's number</label>
+                <input id="number-columns" type="number" min="0" max="40">
+            </div>
+            <button onclick="setGame()">Set</button>
+        </section>
+        <footer>
+            <h2 class="warnings">Please set both values like a square and use them with a max value of 40</h2>
+        </footer>
+        <script src="./index.js" async defer></script>
+    </body>
+</html>

@@ -11,12 +11,12 @@ let flights = [
   { id: 08, to: 'Shangai', from: 'Barcelona', cost: 800, scale: true },
   { id: 09, to: 'Sydney', from: 'Barcelona', cost: 150, scale: true },
   { id: 10, to: 'Tel-Aviv', from: 'Madrid', cost: 150, scale: false }
-  ],
+  ];
   
-    sinEscala = 0,
-    conEscala = 0,
-    ultimosDestinos = [],
-    mediaCoste = 0;
+  let  sinEscala = 0;
+  let  conEscala = 0;
+  let  ultimosDestinos = [];
+  let  mediaCoste = 0;
   
   //llamada a la función que captura el nombre del usuario
   bienvenida(); 
@@ -31,7 +31,7 @@ function bienvenida() {
       console.log("Adiós!");
     }
     
-    else if(name === null || name ===""){
+    else if(name ===""){
       alert("El nombre introducido no es válido, por favor, vuelve a intentarlo.");
       bienvenida();
     }

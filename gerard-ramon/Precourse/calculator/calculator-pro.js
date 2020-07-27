@@ -5,16 +5,16 @@ var bucle = false;
 function calculator() {
     do {
         // Si son numeros operamos, sino mostramos error
-        if (validArgs(arguments)) {
-            if (arguments.length === 1) {
-                sqrt(arguments[0]);
+        if (validArgs(args)) {
+            if (args.length === 1) {
+                sqrt(args[0]);
             } else {
-                calculatorPro(arguments);
+                calculatorPro(args);
             }
             printResult();
             if (prompt("Seguir introduciendo numeros? (y/n)", "n").toLowerCase() == "y") {
                 bucle = true;
-                arguments = prompt("Introduce los nuevos numeros separados por ,").split(',');
+                var args = prompt("Introduce los nuevos numeros separados por ,").split(',');
             } else {
                 bucle = false;
             }
@@ -39,7 +39,7 @@ function calculatorPro(argumentos) {
     var res = 0;
     var mult = 1;
     var div = 1;
-    for (arg in argumentos) {
+    for (var arg in argumentos) {
         sum += parseFloat(argumentos[arg]);
         res -= parseFloat(argumentos[arg]);
         mult *= parseFloat(argumentos[arg]);
@@ -58,7 +58,7 @@ function calculatorPro(argumentos) {
 }
 
 function printResult() {
-    for (res in result) {
+    for (var res in result) {
         console.log(result[res]);
     }
     console.log("_______");
@@ -74,7 +74,7 @@ function isNumber(num) {
 
 // Comprueba los argumentos recibidos, si hay alguno que no es un numero retorna false.
 function validArgs(argumentos) {
-    for (arg in argumentos) {
+    for (var arg in argumentos) {
         if (!isNumber(arg)) {
             return false;
         }
@@ -83,8 +83,8 @@ function validArgs(argumentos) {
 }
 
 function returnNumberIntOrWithDecimal(value) {
-    var result = (value - Math.floor(value)) === 0
-    if (result) {
+    var calc = (value - Math.floor(value)) === 0
+    if (calc) {
         return value;
     } else {
         return value.toFixed(3);

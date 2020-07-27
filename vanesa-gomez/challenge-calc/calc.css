@@ -1,0 +1,310 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    background-image: linear-gradient(to bottom right, white, #4e6e96);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    border: 1px solid grey;
+    border-radius: 1px solid grey;
+    width: 12%;
+    display: flex;
+    min-width: 200px;
+    flex-direction: column;
+    margin: 40px;
+}
+
+#screen {
+    border-bottom: 0.5px solid rgb(231, 228, 228);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 200px;
+    height: 75px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.first-line {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    font-style: normal;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 76px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: space-between;
+}
+
+#ac {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 173px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#divide {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 86.25px;
+    height: 76px;
+    display: flex;
+    font-size: x-large;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.second-line {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    font-style: normal;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 76px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: space-between;
+}
+
+#number-7 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#number-8 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#number-9 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#mult {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.third-line {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    font-style: normal;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 76px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: space-between;
+}
+
+#number-4 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#number-5 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#number-6 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#rest {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.fourth-line {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    font-style: normal;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 76px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: space-between;
+}
+
+#number-1 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#number-2 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#number-3 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#sum {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 115px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.fifth-line {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    font-style: normal;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 76px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: space-between;
+}
+
+#number-0 {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 173px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#point {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 86.13px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#equal {
+    border-bottom: 0.5px solid rgb(192, 191, 191);
+    background-color: rgba(255, 255, 255, 0.418);
+    width: 86.13px;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

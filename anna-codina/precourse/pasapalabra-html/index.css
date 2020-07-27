@@ -1,0 +1,296 @@
+body {
+    background-color: rgb(0, 162, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+aside {
+    position: absolute;
+    top: 20%;
+    width: 250px;
+    background-color: blue;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.unanswered-letter {
+    background-color: darkgray;
+}
+
+.correct-letter {
+    background-color: rgb(3, 219, 3);
+}
+
+.incorrect-letter {
+    background-color: red;
+}
+
+.actual-letter {
+    background-color: blue;
+}
+
+.letter {
+    font-size: 30px;
+    border: 2px;
+    border-style: solid;
+    border-color: #000000;
+    border-radius: 100px;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+}
+
+.button {
+    background-color: rgb(0, 162, 255);
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: white;
+}
+
+#letters {
+    visibility: visible;
+}
+
+#players-area {
+    text-align: center;
+    font-size: 18px;
+    border-radius: 15px;
+    padding: 10px;
+    width: 220px;
+    height: 110px;
+    margin: auto;
+    display: inline-block;
+    visibility: visible;
+}
+
+#questions-area {
+    text-align: center;
+    font-size: 25px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    display: inline-block;
+    background-color: blue;
+    width: 500px;
+    height: 325px;
+    position: absolute;
+    left: 270px;
+    visibility: hidden;
+}
+
+#ranking-area {
+    text-align: center;
+    font-size: 25px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    display: inline-block;
+    background-color: blue;
+    width: 800px;
+    height: 500px;
+    position: absolute;
+    left: 270px;
+    visibility: hidden;
+    overflow: scroll;
+}
+
+#answer-area {
+    position: absolute;
+    bottom: 15px;
+    left: 50px;
+}
+
+#timer {
+    font-size: 85px;
+    width: 220px;
+    height: 110px;
+    margin: auto;
+}
+
+#rules {
+    font-size: 18px;
+    text-align: left;
+    border-radius: 15px;
+    padding: 10px;
+    width: 220px;
+    height: 220px;
+    margin: auto;
+}
+
+#enter-players-info {
+    visibility: visible;
+}
+
+#actual-player-area {
+    position: absolute;
+    top: 0px;
+    visibility: hidden;
+    font-size: 30px;
+}
+
+#change-player {
+    visibility: hidden;
+}
+
+#wrong-answer-area {
+    visibility: hidden;
+}
+
+#change-player-form {
+    position: absolute;
+    bottom: 15px;
+    left: 50px;
+}
+
+#current-game-info {
+    left: 1px;
+}
+
+#your-score {
+    right: 5px;
+    visibility: hidden;
+}
+
+#letter-a {
+    transform:
+        rotate(270deg) translate(275px) rotate(-270deg);
+}
+
+#letter-b {
+    transform:
+        rotate(283deg) translate(275px) rotate(-283deg);
+}
+
+#letter-c {
+    transform:
+        rotate(296deg) translate(275px) rotate(-296deg);
+}
+
+#letter-d {
+    transform:
+        rotate(310deg) translate(275px) rotate(-310deg);
+}
+
+#letter-e {
+    transform:
+        rotate(323deg) translate(275px) rotate(-323deg);
+}
+
+#letter-f {
+    transform:
+        rotate(336deg) translate(275px) rotate(-336deg);
+}
+
+#letter-g {
+    transform:
+        rotate(350deg) translate(275px) rotate(-350deg);
+}
+
+#letter-h {
+    transform:
+        rotate(3deg) translate(275px) rotate(-3deg);
+}
+
+#letter-i {
+    transform:
+        rotate(16deg) translate(275px) rotate(-16deg);
+}
+
+#letter-j {
+    transform:
+        rotate(30deg) translate(275px) rotate(-30deg);
+}
+
+#letter-k {
+    transform:
+        rotate(43deg) translate(275px) rotate(-43deg);
+}
+
+#letter-l {
+    transform:
+        rotate(56deg) translate(275px) rotate(-56deg);
+}
+
+#letter-m {
+    transform:
+        rotate(70deg) translate(275px) rotate(-70deg);
+}
+
+#letter-n {
+    transform:
+        rotate(83deg) translate(275px) rotate(-83deg);
+}
+
+#letter-nn {
+    transform:
+        rotate(96deg) translate(275px) rotate(-96deg);
+}
+
+#letter-o {
+    transform:
+        rotate(110deg) translate(275px) rotate(-110deg);
+}
+
+#letter-p {
+    transform:
+        rotate(123deg) translate(275px) rotate(-123deg);
+}
+
+#letter-q {
+    transform:
+        rotate(136deg) translate(275px) rotate(-136deg);
+}
+
+#letter-r {
+    transform:
+        rotate(150deg) translate(275px) rotate(-150deg);
+}
+
+#letter-s {
+    transform:
+        rotate(163deg) translate(275px) rotate(-163deg);
+}
+
+#letter-t {
+    transform:
+        rotate(176deg) translate(275px) rotate(-176deg);
+}
+
+#letter-u {
+    transform:
+        rotate(190deg) translate(275px) rotate(-190deg);
+}
+
+#letter-v {
+    transform:
+        rotate(203deg) translate(275px) rotate(-203deg);
+}
+
+#letter-w {
+    transform:
+        rotate(216deg) translate(275px) rotate(-216deg);
+}
+
+#letter-x {
+    transform:
+        rotate(230deg) translate(275px) rotate(-230deg);
+}
+
+#letter-y {
+    transform:
+        rotate(243deg) translate(275px) rotate(-243deg);
+}
+
+#letter-z {
+    transform:
+        rotate(256deg) translate(275px) rotate(-256deg);
+}

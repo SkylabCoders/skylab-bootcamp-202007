@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Hero Details</title>
+	<link rel="stylesheet" href="hero-list.component.css" />
+</head>
+
+<body>
+	<div class="holder">
+		<h1>Tour of Heroes</h1>
+		<div class="flex-row buttons">
+			<a class='butons' href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
+			<a class='butons' href="../hero-list/hero-list.component.html">Heroes</a></div>
+		<h2><span id="hero-list__title"></span> My Heroes</h2>
+		<label for="heroName">
+			new_hero_name:
+			<input id="hero-list__name-add" type="text" name="heroName" value="" />
+		</label>
+		<div id="list">
+
+		</div>
+		<script src="../hero.js"></script>
+		<script src="../hero.mock.js"></script>
+		<script src="hero-list.component.js"></script>
+	</div>
+</body>
+
+</html>
