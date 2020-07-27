@@ -1,12 +1,12 @@
-function HeroService() {
+class HeroService {
 
-    this.getHeroList = function () {
+    getHeroList = function () {
         return heroList;
     };
-    this.getHeroByName = function (name) {
+    getHeroByName = function (name) {
         return heroList.find((hero) => hero.name === name);
     };
-    this.getHeroById = function (id) {
+    getHeroById = function (id) {
         return heroList.find((hero) => hero.id === id)
     };
 
