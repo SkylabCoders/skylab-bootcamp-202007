@@ -28,8 +28,8 @@ function HeroDetailComponent() {
 	}
 	function getHeroFromUrl() {
 		const params = new URLSearchParams(location.search);
-		return heroList.find(function (hero) {
-			return hero.id === +params.get('heroId')
+		return heroList.find(function (actualHero) {
+			return actualHero.id === +params.get('heroId')
 		})
 	}
 }

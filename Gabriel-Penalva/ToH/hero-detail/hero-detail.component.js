@@ -5,9 +5,9 @@ function HeroDetailComponent() {
 
 
 
-	function getParams(hero) {
+	function getParams(heros) {
 		const params = new URLSearchParams(location.search);
-		return hero.id === +params.get('heroId');
+		return heros.id === +params.get('heroId');
 
 	}
 

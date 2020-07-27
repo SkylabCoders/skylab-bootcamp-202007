@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div id="screen"></div>
+            <div class="first-line">
+                <div onClick="clear" id="ac">AC</div>
+                <div onClick="divide" id="divide">%</div>
+            </div>
+            <div class="second-line">
+                <div onClick="saveNumber(7)" id="number-7">7</div>
+                <div onClick="saveNumber(8)" id="number-8">8</div>
+                <div onClick="saveNumber(9)" id="number-9">9</div>
+                <div onClick="timesButton" id="mult">x</div>
+            </div>
+            <div class="third-line">
+                <div onClick="saveNumber(4)" id="number-4">4</div>
+                <div onClick="saveNumber(5)" id="number-5">5</div>
+                <div onClick="saveNumber(6)" id="number-6">6</div>
+                <div onClick="minusButton" id="rest">-</div>
+            </div>
+            <div class="fourth-line">
+                <div onClick="saveNumber(1)" id="number-1">1</div>
+                <div onClick="saveNumber(2)" id="number-2">2</div>
+                <div onClick="saveNumber(3)" id="number-3">3</div>
+                <div onClick="plusButton" id="sum">+</div>
+            </div>
+            <div class="fifth-line">
+                <div onClick="numberZeroButton()" id="number-0">0</div>
+                <div onClick=" " id="point">,</div>
+                <div onClick=" " id="equal">=</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='calc.js'></script>
+
+</html>

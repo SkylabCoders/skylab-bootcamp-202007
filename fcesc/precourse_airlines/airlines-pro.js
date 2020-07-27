@@ -121,9 +121,9 @@ function requereixVol(){
 }
 
 function hello(){
-    let nom = prompt('Introdueix el teu nom per accedir al programa de gestió de reserves:');
+    let nom_usuari = prompt('Introdueix el teu nom per accedir al programa de gestió de reserves:');
     console.log(`%cBenvingut al programa de gestió de reserves de vols de SKYLAB, ${nom}.`, 'color: teal');
-    return nom;
+    return nom_usuari;
 }
 
 function goodbye(){
@@ -166,7 +166,7 @@ function validaNouVol(input){
             return validaNouVol(requereixNouVol());            
         } else {
             let escala;
-            detall[3] === 'false' ? escala = false : detall[3] === 'true' ? escala = true : escala = undefined;
+            detall[3] === 'false' ? escala = false : detall[3] === 'true' ? escala = true : escala = escala;
             let max = 0;
             for (let el of vols){
                 if (Number(el.id) > max) {max = Number(el.id);}
