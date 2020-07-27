@@ -1,7 +1,7 @@
 class HeroService {
 
     getHeroList = function () {
-        return heroList;
+        return heroList;//promise
     };
     getHeroByName = function (name) {
         return heroList.find((hero) => hero.name === name);

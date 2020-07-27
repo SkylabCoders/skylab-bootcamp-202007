@@ -22,7 +22,7 @@ describe('HeroService', function () {
 
     it('should get one hero by name', function () {
         const name = 'Dr IQ';
-        const hero = heroList.find((heros) => heros.name === name);//create an object with id 14
+        const hero = { id: 18, name: 'Dr IQ' };//create an object with id 14
         expect(heroServicie.getHeroByName(name)).toEqual(hero);
     });
 })
