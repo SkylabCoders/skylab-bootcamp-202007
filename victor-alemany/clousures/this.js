@@ -16,7 +16,7 @@ function Bowl (){
             if(callback(this.items[i]) === true){
                 return console.log(this.items[i]);
             }
-            else{console.log(undefined)};
+            else{console.log(undefined)}
         }
     };
     
@@ -62,13 +62,12 @@ function Bowl (){
         return console.log(this.items);
     }
 
-    this.some = function (callback){
+  /*  this.some = function (callback){
         for (let i = 0; i < this.items.length; i++) {
-            let result = callback(this.items[i]);
-            return console.log(result);
+            let result = callback(this.items[i]); 
         }
-      
-    };
+        return console.log(result);
+    };*/
 
     this.every = function (callback){
         for (let i = 0; i < this.items.length; i++) {
@@ -81,14 +80,12 @@ function Bowl (){
       return true;
     };
 
-    this.reduce = function (callback){
+ /*   this.reduce = function (callback){
         for (let i = 0; i < this.items.length; i++) {
             let result = callback(this.items[i]);
-            
-            
         }
       return true;
-    };
+    };*/
        
 }
 
@@ -176,14 +173,11 @@ g();
 
 var h = g.bind({a:'Lola'}); // 'pepe'
 
-h();
+//h();
 
-var o = {a:37,f:f,g:g,h,h};
+//var o = {a:37,f:f,g:g,h,h};
 
-console.log(o.a(),o.f(),o.g(),o.h());
-
-
-
+//console.log(o.a(),o.f(),o.g(),o.h());
 //This dentro de un arrow function
 
 var globalObject = this;
@@ -192,7 +186,7 @@ var globalObject = this;
 var foo = () => this; // contexto global
 var fn = function () { return this;} //contexto global
 
-foo() === fn() //true
+//foo() === fn() //true
 
 //la cosa cambia cuando pasa a formar parte de un objeto, que el contexto es distinto para ambas. La función arrow se va al contexto global, 
 //la función tradicional sigue en el contexto del objeto
