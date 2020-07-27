@@ -13,11 +13,15 @@
 	<a href="../hero-detail/hero-detail.component.html">Detail</a>
 	<a href="./hero-list.component.html">Heroes</a>
 	<a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
-	<ul id="list"></ul>
+	<label for="heroName">
+		Enter your filter criteria...
+		<input id="hero-detail__name-control" value="Enter your filter criteria..." type="text" name="heroName"
+			onchange="heroDetailComponent.nameChange(this.value)" />
+		<ul id="list"></ul>
 
-	<script src="../hero.js"></script>
-	<script src="../hero.mock.js"></script>
-	<script src="hero-list.component.js"></script>
+		<script src="../hero.js"></script>
+		<script src="../hero.mock.js"></script>
+		<script src="hero-list.component.js"></script>
 </body>
 
 </html>

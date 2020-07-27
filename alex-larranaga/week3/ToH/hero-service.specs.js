@@ -15,7 +15,7 @@ describe('HeroService', function () {
 
 	it('should get one hero by id', function () {
 		const id = 14;
-		const hero = {}; //put required data
+		const hero = { id: 14, name: 'Celeritas' }; //put required data
 		expect(heroService.getHeroById(id).toEqual(hero));
 	});
 	it('should get one hero by name', function () {
