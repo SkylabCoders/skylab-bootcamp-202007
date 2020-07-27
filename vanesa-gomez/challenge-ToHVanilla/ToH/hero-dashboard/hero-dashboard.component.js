@@ -9,14 +9,15 @@ function DashboardComponent() {
 
 	function mapItemToAnchor(hero) {
 		let transformedElement = document.createElement('a');
-		transformedElement.href = '../hero-detail/hero-detail.component.html';
+		transformedElement.className = 'hero-card';
+		transformedElement.href =
+			'../hero-detail/hero-detail.component.html?heroid=' + hero.id;
 		transformedElement.innerText = hero.name;
 		return transformedElement;
 	}
 
 	function addAnchorToHtml(heroAnchor) {
 		if (anchorContainer) anchorContainer.appendChild(heroAnchor);
-		console.log(anchorContainer);
 	}
 
 	function getHeroFromUrl() {
