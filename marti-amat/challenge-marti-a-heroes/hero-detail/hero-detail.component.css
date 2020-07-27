@@ -1,3 +1,13 @@
+.title{
+    margin-left: 30px;
+
+}
+.butStart{
+    width:80px;
+    height:50px;
+    margin-left: 40px;
+    background-color: rgb(172, 241, 235);
+}
 .details{
     font-size: 30px;
     width:300px;

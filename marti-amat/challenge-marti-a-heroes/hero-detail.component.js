@@ -37,7 +37,7 @@
     }
     function paint_id(){
         if(id!==0){
-            //idElement.innerHTML=id;
+            idElement.innerHTML=id;
         }
     }
 
