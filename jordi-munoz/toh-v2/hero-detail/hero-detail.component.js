@@ -25,9 +25,12 @@ function HeroDetailComponent() {
 	}
 	function getHeroFromUrl() {
 		const params = new URLSearchParams(location.search);
-		return heroList.find(function(e) {
-			return e.id === +params.get('heroId');
-		});
+		const id = +params.get('heroId');
+		hero = heroService.getHeroById(id);
+		return hero;
+		// return heroList.find(function(e) {
+		// 	return e.id === +params.get('heroId');
+		// });
 	}
 
 }
