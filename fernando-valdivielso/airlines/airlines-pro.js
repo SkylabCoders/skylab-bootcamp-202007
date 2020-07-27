@@ -91,17 +91,17 @@ function user() {
     let vuelo;
     vuelo = prompt('Busque vuelo por precio', 'precio');
     console.log('\n\nEstos son los vuelos disponibles:\n')    
-    orderFlights(vuelo, vuelos);
+    orderFlights(vuelo);
 }
     
 
 
 // creates 3 arrays for flights: more expensive, cheaper or same price as 
-function orderFlights (vuelo, vuelos) {
+function orderFlights (vuelo) {
     let caros = [];
     let baratos = [];
     let exacto = [];
-    for (i = 0; i < vuelos.length; i++) {
+    for (let i = 0; i < vuelos.length; i++) {
         if(vuelos[i].precio > vuelo) {
             caros.push(vuelos[i]);
         } else if (vuelos[i].precio < vuelo) {
@@ -127,7 +127,7 @@ function orderFlights (vuelo, vuelos) {
         }
         return comparacion;
     }
-    debugger
+    
     // logs to console the next cheaper and more expensive flights, depending on user input
     caros.sort(compara);
     baratos.sort(compara);
@@ -157,32 +157,32 @@ function orderFlights (vuelo, vuelos) {
 
 // prompts user to choose between create or delete flights
 function admin() {
-    let admin = prompt('Introduce 1 para crear vuelos\n' 
+    const admins = prompt('Introduce 1 para crear vuelos\n' 
                         + 'Introduce 2 para borrar vuelos');
-    if (admin == null || admin == '') {
+    if (admins == null || admins == '') {
         alert('Sesion cerrada.\nHasta pronto');
         return;
-    } else if (admin == '1'){
-        crearVuelos(vuelos);
+    } else if (admins == '1'){
+        crearVuelos();
     } else {
-        borrarVuelos(vuelos);
+        borrarVuelos();
     }    
 
 }
 
 // deletes flights
-function borrarVuelos(vuelos) {
+function borrarVuelos() {
     let borrar = parseInt(prompt("Introduce el id del vuelo que quieres borrar", 'id'));
     if (borrar == null || borrar == '') {
         alert('Sesión cerrada.\nHasta pronto.');
         return;
     } else {
-        for (i = 0; i < vuelos.length; i++) {   
+        for (let i = 0; i < vuelos.length; i++) {   
             if (borrar == vuelos[i].id) {
                 let index = vuelos.findIndex(x => x.id == vuelos[i].id);  //finds the index number of the id to delete
                 vuelos.splice(index, 1);
-                for (let i = 0; i < vuelos.length; i++) {
-                    if (vuelos[i].escalas == false) {
+                for (let j = 0; j < vuelos.length; j++) {
+                    if (vuelos[j].escalas == false) {
                         console.log('id: ' + vuelos[i].id + '. Vuelo sin escalas de ' + vuelos[i].from + ' a ' 
                                     + vuelos[i].to + ' por ' + vuelos[i].precio + '\u20AC');
                     } else {
@@ -197,13 +197,13 @@ function borrarVuelos(vuelos) {
 }
 
 // creates new flights 
-function crearVuelos(vuelos){
+function crearVuelos(){
     while (vuelos.length < 15) {
         if (confirm('¿Quieres introducir nuevos vuelos en el sistema?')) {
             let nuevoVuelo = {};
             let crearVuelo = ['id', 'from', 'to', 'precio', 'escalas']
             let text = ['id number', 'from', 'to', 'price in numbers', 'true/false']
-            for (i = 0; i < 5; i++) {
+            for (let i = 0; i < 5; i++) {
                 let crear = prompt('Introduce ' + crearVuelo[i], text[i]);
                 if (crear == null || crear == '') {
                     alert('Sesión cerrada.\nHasta pronto.');

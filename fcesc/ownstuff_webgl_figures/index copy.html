@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trying WEBGL with ThreeJS</title>
+    <link rel="stylesheet" href="webgl.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+        camera.position.z = 4;
+        // field of view, aspect ratio, 
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setClearColor("#e5e5e5"); // like a background color
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        window.addEventListener('resize', () => { // we do this to make it responsive
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight; // so that it adjusts to the new scene dimensions
+            camera.updateProjectionMatrix(); //needed every time an update is done
+        });
+
+        // now let's begin with the cool stuff. We have to control the form and the material.
+        var geom01 = new THREE.SphereGeometry(1, 20, 20);
+        var material01 = new THREE.MeshLambertMaterial({color: 0xFFCC00}); // look for docs on material
+        var mesh01 = new THREE.Mesh(geom01, material01);
+        var geom02 = new THREE.BoxGeometry(1, 1, 1);
+        var material02 = new THREE.MeshLambertMaterial({color: 0x00FFCC});
+        var mesh02 = new THREE.Mesh(geom02, material02);
+        var geom03 = new THREE.PlaneGeometry(20, 12); //width, height, [widthSegments, heightSegments]
+        var material03 = new THREE.MeshLambertMaterial({color: 0xCC00FF});
+        var mesh03 = new THREE.Mesh(geom03, material03);
+
+        var raycaster = new THREE.Raycaster();
+        var mouse = new THREE.Vector2();
+
+        mesh02.position.x = 2.5;
+        mesh02.position.y = -0.5;
+        mesh03.position.y = -1;
+        mesh03.rotation.set(80, 0, 0); // in Euler angles, expressed in radiants
+        mesh01.scale.set(.8,1,1);
+
+        scene.add(mesh01);
+        scene.add(mesh02);
+        scene.add(mesh03);
+        // if we don't add light, materials will be black
+
+        var light = new THREE.PointLight(0xFFFFFF, 1, 1000);
+        // color, intensity, distance, decay
+        light.position.set(10,0,25);
+        scene.add(light);
+
+        var light2 = new THREE.PointLight(0x888888, 2, 400);
+        // color, intensity, distance, decay
+        light2.position.set(0,1,0);
+        scene.add(light2);
+
+        //we won't see anything because we haven't called the renderer
+        var render = function (){
+            requestAnimationFrame(render); // this makes figures NOT distorted when resizing window (60fps)
+            //requestAnimationFrame is ideal because it pauses when user is browsing another Tab etc
+            
+            // animation runs eveytime render is called (60fps)
+            mesh01.rotation.y += 0.05;
+            mesh02.rotation.x += 0.02; // for easy animations maybe ok
+            
+            renderer.render(scene, camera);
+        }
+        
+        function onMouseMove(event){
+            event.preventDefault();
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = (event.clientY / window.innerHeight) * 2 + 1;
+            // this is standard coming from documentation, to get mouse position
+            raycaster.setFromCamera(mouse, camera);
+            var intersects = raycaster.intersectObjects(scene.childern, true);
+            for (let i = 0; i<intersects.length; i++){
+                intersects[i].object.material.color.set(0xff0000);
+            }
+        }
+
+
+        render();
+
+        this.t1 = new TimelineMax({paused: true});
+        this.t1.to(this.mesh02.scale, 1, {x: 2, ease: Expo.easeOut});
+        this.t1.to(this.mesh02.scale, .8, {x: .8, ease: Expo.easeOut});
+        this.t1.to(this.mesh01.position, .7, {x: 2, ease: Expo.easeOut});
+        this.t1.to(this.mesh01.rotation, .5, {y: Math.PI*.5, ease: Expo.easeOut}, "-1.5");
+
+        let transformationControl = {
+            tx: 2,
+            ty: 0.5,
+            ssx: 1,
+            a: 2
+        }
+
+        // document.body.addEventListener('click', () => {
+        //     this.t1.play();
+        //     this.t1.to(this.mesh02.scale, transformationControl.ssx, {x: transformationControl.tx, ease: Expo.easeOut});
+        //     this.t1.to(this.mesh02.scale, .8, {x: transformationControl.ty, ease: Expo.easeOut});
+        //     this.t1.to(this.mesh01.position, .7, {x: transformationControl.tx, ease: Expo.easeOut});
+        //     this.t1.to(this.mesh01.rotation, .5, {y: Math.PI*transformationControl.ssx, ease: Expo.easeOut}, "-1.5");
+        //     transformationControl.tx += 0.25;
+        //     transformationControl.ty += 0.1;
+        //     transformationControl.ssx += 0.1;
+        // });
+
+        // timeline is interesting animations on 3d objects
+        // to add some more control we need a Raycastor, determines where the mouse is in relation to canvas
+        // first we need to create some more things
+        
+        
+        // document.body.addEventListener('click', ()=>{
+        //     this.t1.play();
+        // })
+
+        window.addEventListener('click', onMouseMove);
+
+    </script>
+
+</body>
+</html>

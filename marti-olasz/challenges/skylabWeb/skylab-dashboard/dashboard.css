@@ -1,0 +1,12 @@
+.dashboard {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.dashboard a {
+	padding: 10px;
+	text-align: center;
+	background-color: lightgrey;
+	width: 15%;
+	height: 30px;
+}

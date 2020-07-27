@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <header id="mainheader">
         <nav>
             <ul>
-                <li><img src="../images/cake.svg" height="55" /></li>
+                <li><img src="../images/cake.svg" height="55" alt="Cake" /></li>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="pieoverview.html">All pies</a></li>
                 <li><a href="about.html">About</a></li>
@@ -24,46 +24,57 @@
     </header>
     <div class="mainContent">
         <aside class="leftmenu">
-            <img src="../images/bethanylogo.png" />
+            <img src="../images/bethanylogo.png" alt="Bethany logo" />
 
             <header>
                 <h4 style="text-align: center;">Browse our pies</h4>
             </header>
             <ul>
-                <a href="pieoverview.html"><li>All pies</li></a>
-                <a href="cheesecakes.html"><li>Cheese cakes</li></a>
-                <a href="fruitpies.html"><li>Fruit pies</li></a>
-                <a href="seasonalpies.html"><li>Seasonal pies</li></a>
+                <a href="pieoverview.html">
+                    <li>All pies</li>
+                </a>
+                <a href="cheesecakes.html">
+                    <li>Cheese cakes</li>
+                </a>
+                <a href="fruitpies.html">
+                    <li>Fruit pies</li>
+                </a>
+                <a href="seasonalpies.html">
+                    <li>Seasonal pies</li>
+                </a>
             </ul>
         </aside>
         <main class="main">
-            <table border="1" style="width:100%;border: 1px solid black;border-collapse: collapse; padding: 20px;border-spacing: 5px;">
+            <table border="1"
+                style="width:100%;border: 1px solid black;border-collapse: collapse; padding: 20px;border-spacing: 5px;">
                 <caption>
                     Our delicious selection of pies for you to enjoy!
                 </caption>
                 <thead>
                     <tr>
-                        <th>Image</th>
-                        <th>Pie name</th>
-                        <th>Description</th>
-                        <th>Price</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Pie name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><img src="../images/products/cheesecakesmall.jpg" width="100"></td>
+                        <td><img src="../images/products/cheesecakesmall.jpg" width="100" alt="Small cheese cake"></td>
                         <td>Cheese cake</td>
                         <td>Plain cheese cake. Plain pleasure.</td>
                         <td>$12.95</td>
                     </tr>
                     <tr>
-                        <td><img src="../images/products/blueberrycheesecakesmall.jpg" width="100"></td>
+                        <td><img src="../images/products/blueberrycheesecakesmall.jpg" width="100"
+                                alt="Small Blueberry cheese cake"></td>
                         <td>Blueberry cheese cake</td>
                         <td>You'll love it!</td>
                         <td>$17.95</td>
                     </tr>
                     <tr>
-                        <td><img src="../images/products/strawberrycheesecakesmall.jpg" width="100"></td>
+                        <td><img src="../images/products/strawberrycheesecakesmall.jpg" width="100"
+                                alt="Small Strawberry cheese cake"></td>
                         <td>Strawberry Cheese Cake</td>
                         <td>One of the best cheese cakes you'll ever find!</td>
                         <td>$18.95</td>
@@ -72,12 +83,12 @@
             </table>
         </main>
     </div>
-        <footer>
-            <p>Our address is <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
-            </p>
-            <p><small>&copy; 2020 Bethany's Pie Shop - All rights reserved</small></p>
-        </footer>
-    
+    <footer>
+        <p>Our address is <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
+        </p>
+        <p><small>&copy; 2020 Bethany's Pie Shop - All rights reserved</small></p>
+    </footer>
+
 </body>
 
 </html>

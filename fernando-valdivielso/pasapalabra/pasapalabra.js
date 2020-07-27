@@ -1,4 +1,4 @@
-var questions1 = [
+let questions1 = [
     { letter: "a", answer: "abducir", status: 0, question: "CON LA A. Dicho de una supuesta criatura extraterrestre: Apoderarse de alguien" },
     { letter: "b", answer: "bingo", status: 0, question: "CON LA B. Juego que ha sacado de quicio a todos los 'Skylabers' en las sesiones de precurso" },
     { letter: "c", answer: "churumbel", status: 0, question: "CON LA C. Niño, crío, bebé" },
@@ -29,7 +29,7 @@ var questions1 = [
 ]
 
 
-var questions2 = [
+let questions2 = [
     { letter: "a", answer: "activar", status: 0, question: "CON LA A. Hacer que se ponga en funcionamiento un mecanismo" },
     { letter: "b", answer: "bahía", status: 0, question: "CON LA B. Entrada natural de mar en la costa, de extensión considerable pero generalmente menor que la de un golfo." },
     { letter: "c", answer: "cangrejo", status: 0, question: "CON LA C. Cada uno de los artrópodos crustáceos del orden de los decápodos" },
@@ -60,7 +60,7 @@ var questions2 = [
 ]
 
 
-var questions3 = [
+let questions3 = [
     { letter: "a", answer: "anular", status: 0, question: "CON LA A. Suspender algo previamente anunciado o proyectado." },
     { letter: "b", answer: "babia", status: 0, question: "CON LA B. Lugar donde está una persona que no entera de lo que ocurre a su alrededor" },
     { letter: "c", answer: "cabalgar", status: 0, question: "CON LA C. Andar o pasear a caballo" },
@@ -90,15 +90,15 @@ var questions3 = [
     { letter: "z", answer: "alcazaba", status: 0, question: "CONTIENE LA Z. Recinto fortificado, dentro de una población amurallada, para refugio de la guarnición." }
 ]
 
-var questionsSet = [questions1, questions2, questions3];
-var setsPlayed = [];
-var notAnsweredQuestions = [];
-var users = [];
-var user;
-var roundCount = 1;
-var questions;
-var rightCount = 0;
-var wrongCount = 0;
+let questionsSet = [questions1, questions2, questions3];
+let setsPlayed = [];
+let notAnsweredQuestions = [];
+let users = [];
+let user;
+let roundCount = 1;
+let questions;
+let rightCount = 0;
+let wrongCount = 0;
 
 
 
@@ -123,7 +123,7 @@ function pasapalabra() {
     if (confirm('Hola ' + user.name + '!' + '\nVamos a jugar a Pasapalabra!'
     + '\nIntroduce "end" para terminar el juego')) {
         users.push(user);
-        whatQuestions(questionsSet, setsPlayed);
+        whatQuestions();
     } else {
         return;
     }
@@ -132,21 +132,21 @@ function pasapalabra() {
 
 
 // Checks if a random questions set has been played already, assigns it if it hasn't, and starts the game
-function whatQuestions(questionsSet, setsPlayed) {
+function whatQuestions() {
     questions = questionsSet[Math.floor(Math.random() * questionsSet.length)];
     if (setsPlayed.includes(questions)) {
-        whatQuestions(questionsSet, setsPlayed);
+        whatQuestions();
     } else {
         setsPlayed.push(questions);
-        game(questions, rightCount, wrongCount);
+        game();
     }
 }
 
 // Controls the flow of the game
-function game(questions, rightCount, wrongCount) {
+function game() {
     if (roundCount == 1) {
-        for (var i = 0; i < questions.length; i++) {
-            var userAnswer = prompt(questions[i].question).toLowerCase();
+        for (let i = 0; i < questions.length; i++) {
+            let userAnswer = prompt(questions[i].question).toLowerCase();
             switch (userAnswer) {
                 case questions[i].answer:
                     rightCount++;
@@ -158,23 +158,23 @@ function game(questions, rightCount, wrongCount) {
                     break;
                 case 'end':
                     alert('Fin del juego');
-                    endGame(users, rightCount, wrongCount);
+                    endGame();
                     return;
                 default:
                     wrongCount++;
                     alert('Lo siento pero no es correcto!\nSiguiente palabra');
             }
         }
-        nextRound(users, rightCount, wrongCount);
+        nextRound();
 
     } else if (notAnsweredQuestions.length > 0) {
-        for (var i = 0; i < notAnsweredQuestions.length; i++) {
-            if (notAnsweredQuestions[i] == 'ignore'){
-                i++;
+        for (let j = 0; j < notAnsweredQuestions.length; j++) {
+            if (notAnsweredQuestions[j] == 'ignore'){
+                j++;
             } else { 
-                var userAnswer = prompt(notAnsweredQuestions[i].question).toLowerCase();
-                switch (userAnswer) {
-                case notAnsweredQuestions[i].answer:
+                let userAnswers = prompt(notAnsweredQuestions[j].question).toLowerCase();
+                switch (userAnswers) {
+                case notAnsweredQuestions[j].answer:
                     notAnsweredQuestions.splice([i], 1, 'ignore'); 
                     rightCount++;
                     alert('Muy bien! Siguiente palabra');
@@ -184,34 +184,34 @@ function game(questions, rightCount, wrongCount) {
                     break;
                 case 'end':
                     alert('Fin del juego');
-                    endGame(users, rightCount, wrongCount);
+                    endGame();
                     return;
                 default:
-                    notAnsweredQuestions.splice([i], 1, 'ignore');
+                    notAnsweredQuestions.splice([j], 1, 'ignore');
                     wrongCount++;
                     alert('Lo siento pero no es correcto!\nSiguiente palabra');
                 }
             }
         }
-        nextRound(users, rightCount, wrongCount);
+        nextRound();
     }
 }
         
 
 // checks if there are unanswered questions to either start the next round or finish the game
-function nextRound(users, rightCount, wrongCount) {
+function nextRound() {
     if (roundCount >= 1 && (rightCount + wrongCount) < 27) {
         alert('Ronda ' + (roundCount + 1));
         roundCount++
-        game(questions, rightCount, wrongCount);
+        game();
     } else {
-        endGame(users, rightCount, wrongCount)
+        endGame()
     }
 }
 
 
 // displays the total number of right and wrong answers, the ranking and asks whether or not to play again
-function endGame(users, rightCount, wrongCount) {
+function endGame() {
     user.rightAnswers = rightCount;
     user.wrongAnswers = wrongCount;
     users.sort(compare);

@@ -1,0 +1,718 @@
+* {
+  box-sizing: border-box;
+  font-family: NotoSans-Regular, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: rgb(16, 16, 16);
+}
+
+.header {
+  background-color: black;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  padding: 0 20px;
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__bar {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__bar > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header__row {
+  /*border: 1px solid red;*/
+  display: flex;
+}
+
+.header__row:nth-child(1) {
+  width: 60%;
+  justify-content: flex-start;
+}
+
+.header__row:nth-child(2) {
+  width: 40%;
+  justify-content: flex-end;
+}
+
+.header__element {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-family: NotoSans-Regular, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+}
+.header__element:hover {
+  color: #ffe300;
+}
+.element-expand::after {
+  content: " ▼";
+}
+.header__element:hover .element-expand::after {
+  content: " ▲";
+}
+
+.search__box {
+  background-color: #333;
+  border: none;
+  border-radius: 2px;
+  height: 40px;
+  padding: 10px;
+  width: 100%;
+}
+
+.search__box:focus {
+  transition: 0.1s;
+  background-color: #fff;
+}
+
+.menu__help {
+  display: none;
+  color: #999;
+}
+
+.menu__signup {
+  color: #252525;
+  background-color: #ffe300;
+  padding: 8px;
+  border-radius: 2px;
+}
+.menu__signup:hover {
+  color: #252525;
+}
+
+.mobile__header {
+  margin: 10px auto;
+  position: fixed;
+  top: 0;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile__header__search {
+  margin-top: 0;
+  height: 30px;
+  width: 30px;
+  background: url(search.png) no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.latest {
+  min-height: 20vw;
+}
+
+.latest__img {
+  width: 100%;
+}
+
+.featured {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.featured__element {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.featured__element:hover {
+  /*border: 4px solid #ffe300;*/
+  outline: 4px solid #ffe300;
+  outline-offset: -4px;
+  border-radius: 2px;
+}
+
+/*.featured__element:nth-child(1) .featured__img {
+  height: auto;
+  width: 200px;
+  background: url(https://images-1.wuaki.tv/system/images/5030/original/intro-video-1593586739-width308-quality80.jpeg)
+    no-repeat;
+  background-size: 100%;
+}
+
+.featured__element:nth-child(2) .featured__img {
+  height: auto;
+  width: 200px;
+  background: url(https://images-3.wuaki.tv/system/images/5166/original/cinema-generic-middle-banner-1593609487-width308-quality80.jpeg)
+    no-repeat;
+  background-size: 100%;
+}
+
+.featured__element:nth-child(3) .featured__img {
+  height: auto;
+  width: 200px;
+  background: url(https://images-0.wuaki.tv/system/images/4247/original/avod-channels-iniesta-middle-1594366136-width308-quality80.jpeg)
+    no-repeat;
+  background-size: 100%;
+}
+
+.featured__element:nth-child(4) .featured__img {
+  height: auto;
+  width: 200px;
+  background: url(https://images-1.wuaki.tv/system/images/4819/original/starzplay-generic-reg-vis-ui30-1593617832-width308-quality80.jpeg)
+    no-repeat;
+  background-size: 100%;
+}
+
+.featured__element:nth-child(5) .featured__img {
+  height: auto;
+  width: 200px;
+  background: url(https://images-2.wuaki.tv/system/images/5317/original/marvel-promo-middle-ui30-1594366538-width308-quality80.jpeg)
+    no-repeat;
+  background-size: 100%;
+}*/
+
+.slideshow {
+  background-color: rgb(23, 23, 23);
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.slideshow__header {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slideshow__header__title {
+  font-size: 20px;
+}
+
+.slideshow__header__showall {
+  font-size: 12px;
+}
+
+.slideshow__catalog {
+  display: flex;
+  /* overflow: scroll; */
+}
+
+.slideshow__catalog__img {
+  height: 200px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.slideshow__catalog__img:hover {
+  /*border: 4px solid #ffe300;*/
+  outline: 4px solid #ffe300;
+  outline-offset: -4px;
+  border-radius: 2px;
+  
+}
+
+.genres {
+  background-color: rgb(23, 23, 23);
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.genres__header {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genres__header__title {
+  font-size: 20px;
+}
+
+.genres__header__showall {
+  font-size: 12px;
+}
+
+.genres__slideshow {
+  display: flex;
+  /* overflow: scroll; */
+}
+
+.genres__slideshow__card {
+  width: 150px;
+  /*border: 1px solid red;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.genres__slideshow__card__name {
+  margin-top: 20px;
+}
+
+.card__img {
+  width: 100px;
+  height: 100px;
+}
+
+.img__allcatalog {
+  background: url(https://images-0.wuaki.tv/assets/genres/all-cb781ac8669959b586ff362be895a182d31a7f5865c80b3a2870da8d1d338a09.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__action {
+  background: url(https://images-2.wuaki.tv/system/brandable_photos/6231/original/1453732413-1453732413.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__animation {
+  background: url(https://images-2.wuaki.tv/system/brandable_photos/6349/original/1461242197-1461242197.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__adventure {
+  background: url(https://images-1.wuaki.tv/system/brandable_photos/6352/original/1461242555-1461242555.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__warfare {
+  background: url(https://images-3.wuaki.tv/system/brandable_photos/6353/original/1461242646-1461242646.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__scifi {
+  background: url(https://images-0.wuaki.tv/system/brandable_photos/6354/original/1461243145-1461243145.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__author {
+  background: url(https://images-0.wuaki.tv/system/brandable_photos/6351/original/1461242480-1461242480.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__spanish {
+  background: url(https://images-1.wuaki.tv/system/brandable_photos/6356/original/1461243368-1461243368.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__family {
+  background: url(https://images-2.wuaki.tv/system/brandable_photos/6357/original/1461243437-1461243437.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__classics {
+  background: url(https://images-0.wuaki.tv/system/brandable_photos/6358/original/1461243499-1461243499.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__comedy {
+  background: url(https://images-1.wuaki.tv/system/brandable_photos/6359/original/1461243667-1461243667.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__romanticcomedy {
+  background: url(https://images-2.wuaki.tv/system/brandable_photos/6360/original/1461243740-1461243740.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__disney {
+  background: url(https://images-3.wuaki.tv/system/brandable_photos/6362/original/1461244009-1461244009.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__documental {
+  background: url(https://images-3.wuaki.tv/system/brandable_photos/6363/original/1461244445-1461244445.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__drama {
+  background: url(https://images-2.wuaki.tv/system/brandable_photos/6364/original/1461244827-1461244827.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__romanticdrama {
+  background: url(https://images-1.wuaki.tv/system/brandable_photos/6365/original/1461244898-1461244898.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__fantasy {
+  background: url(https://images-1.wuaki.tv/system/brandable_photos/11232/original/fantasia-1567781355.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__school {
+  background: url(https://images-2.wuaki.tv/system/brandable_photos/6368/original/1461246187-1461246187.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__terror {
+  background: url(https://images-2.wuaki.tv/system/brandable_photos/6371/original/1461246537-1461246537.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__thriller {
+  background: url(https://images-0.wuaki.tv/system/brandable_photos/6372/original/1461246595-1461246595.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.img__western {
+  background: url(https://images-1.wuaki.tv/system/brandable_photos/6373/original/1461246654-1461246654.png)
+    center no-repeat;
+  background-size: 75%;
+}
+
+.info {
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  width: 100%;
+  background-color: rgb(33, 33, 33);
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info__title {
+  margin: auto;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.info__title__header {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.info__title__description {
+  color: #ccc;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.info__details {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.info__details__column {
+  width: 400px;
+  /*border: 1px solid red;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.info__details__header {
+  color: #fff;
+  font-weight: bold;
+}
+
+.info__details__description {
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.info__howitworks {
+  height: 100px;
+  width: auto;
+  background: url(https://prod2-kraken-cloudfront.rakuten.tv/images/footer/howitworks-555729f452.svg)
+    center no-repeat;
+}
+
+.info__payment {
+  height: 100px;
+  width: auto;
+  background: url(https://prod3-kraken-cloudfront.rakuten.tv/images/footer/payments-ec797a77da.svg)
+    center no-repeat;
+}
+
+.info__help {
+  height: 100px;
+  width: auto;
+  background: url(https://prod3-kraken-cloudfront.rakuten.tv/images/footer/support-cd17a5040b.svg)
+    center no-repeat;
+}
+
+.about {
+  background-color: rgb(13, 13, 13);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about__column {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about__row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about__logo__column {
+  display: flex;
+  justify-content: center;
+}
+
+.about__logo__column__img {
+  color: white;
+  height: 30px;
+  padding: 20px;
+  width: 120px;
+  background: url("https://prod1-kraken-cloudfront.rakuten.tv/images/logos/rktv-grey-eae681a197.svg")
+    no-repeat;
+  background-size: 100%;
+}
+
+.about__details {
+  color: #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about__details p {
+  padding: 3px 5px;
+}
+
+.about__details p:hover {
+  color: #fff;
+}
+
+.about__copyright {
+  color: #737373;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.footer {
+  background-color: black;
+  bottom: 0;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__element {
+  width: 100%;
+  /*border: 1px solid red;*/
+  border-top: 1px solid rgb(51, 51, 51);
+  color: #fff;
+  font-family: NotoSans-Regular, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__element:hover {
+  color: #ffe300;
+}
+
+.footer__element__home {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  background: url(./home.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+.footer__element__home:hover {
+  background: url(./home_hover.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+
+.footer__element__cinema {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  background: url(./cinema.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+.footer__element__cinema:hover {
+  background: url(./cinema_hover.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+
+.footer__element__subscription {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  background: url(./subscription.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+.footer__element__subscription:hover {
+  background: url(./subscription_hover.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+
+.footer__element__entrar {
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  background: url(entrar.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+.footer__element__entrar:hover {
+  background: url(./entrar_hover.png) no-repeat;
+  background-size: 20%;
+  background-position: center;
+}
+
+@media only screen and (min-width: 808px) {
+  .header {
+    display: flex;
+  }
+
+  .header__bar {
+    display: flex;
+  }
+
+  .header__row:nth-child(1) {
+    width: 70%;
+  }
+
+  .header__row:nth-child(2) {
+    width: 30%;
+  }
+
+  .mobile__header {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    display: none;
+  }
+
+  .latest {
+    margin-top: 60px;
+  }
+
+  .genres__slideshow__card {
+    width: 120px;
+  }
+
+  .info {
+    display: flex;
+  }
+
+  .about {
+    margin-bottom: 0;
+  }
+
+  .about__column {
+    padding-left: 40px;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .header {
+    width: 100%;
+  }
+
+  .header__bar {
+    margin: auto;
+    width: 90%;
+  }
+  .menu__help {
+    display: flex;
+  }
+  .header__row:nth-child(1) {
+    width: 60%;
+    justify-content: flex-start;
+  }
+  .header__row:nth-child(2) {
+    width: 40%;
+    justify-content: flex-end;
+  }
+  .main {
+    margin: auto;
+    width: 90%;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.6);
+  }
+
+  .slideshow__catalog__img {
+    height: 300px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+}
