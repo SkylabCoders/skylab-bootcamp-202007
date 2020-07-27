@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="hero-details.css">
+		<title>Heroes</title>
+	</head>
+	<body>
+		<main>
+            <h3 class="hero__details">Hero Info Details</h3>
+            <div class="form--container">
+                <div class="form__labels">
+                    <p class="labels__id">id: </p>
+                    </p>
+                    <p class="labels__name">name: </p>
+                </div>
+                <div class="form__info">
+                    <p class="info__id">-number-</p>
+                    <input type="text" class="info__name" onkeypress="changeHeroNameUI()">
+                </div>
+            </div>
+            <button class="back-button">Back</button>
+        </main>
+        <script src="hero-details.js"></script>
+	</body>
+</html>

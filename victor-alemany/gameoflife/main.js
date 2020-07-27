@@ -110,13 +110,13 @@ document.querySelector('.resetGame').addEventListener('click', function (event) 
 })
 
 //Html print function
-function printResult(blinkerInitial) {
+function printResult(input) {
 	let table = document.querySelectorAll('.box')
 	let counter = 0
 
-	for (let i = 0; i < blinkerInitial.length; i++) {
-		for (let j = 0; j < blinkerInitial.length; j++) {
-			if (blinkerInitial[i][j] === 1) {
+	for (let i = 0; i < input.length; i++) {
+		for (let j = 0; j < input.length; j++) {
+			if (input[i][j] === 1) {
 				table[counter].style.backgroundColor = 'red'
 			} else {
 				table[counter].style.backgroundColor = 'white'

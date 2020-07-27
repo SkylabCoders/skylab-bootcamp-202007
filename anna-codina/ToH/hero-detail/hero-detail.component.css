@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+/* Application-wide Styles */
+
+h1 {
+    color: grey;
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+h2,
+h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+body {
+    margin: 2em;
+}
+
+body,
+input[type="text"],
+#back,
+p span {
+    color: rgb(99, 99, 99);
+}
+
+label,
+p {
+    width: auto;
+    margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+}
+
+p span {
+    font-weight: lighter;
+    margin-left: 30px;
+}
+
+nav a,
+#back {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin: 10px 10px 0 0;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+
+nav a:visited,
+a:link {
+    color: #334953;
+}
+
+nav a:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+}
+
+nav a.active {
+    color: #039be5;
+}
