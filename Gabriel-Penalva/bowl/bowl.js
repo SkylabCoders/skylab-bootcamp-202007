@@ -71,11 +71,11 @@ function BOWL() {
         let arr = [];
         for (let j = b; j < c; j++) {
             if (j < this.arrai.length)
-                arr.push( this.arrai[j]);
+                arr.push(this.arrai[j]);
         }
         for (let i = 0; i < arr.length; i++) {
-            this.arrai[i+a] = arr[i];
-            if (a+i+1 === this.arrai.length)
+            this.arrai[i + a] = arr[i];
+            if (a + i + 1 === this.arrai.length)
                 i = arr.length;
         }
         return this.arrai;
@@ -89,12 +89,23 @@ function BOWL() {
         }
         return false;
     };
-    this.every = function (fn){
+    this.every = function (fn) {
         for (let i = 0; i < this.arrai.length; i++) {
-            if(!fn(this.arrai[i]))
-                return false; 
+            if (!fn(this.arrai[i]))
+                return false;
         }
         return true;
+    }
+    this.reduce = function (fn, InitialValor = null) {
+        let acc = 0;
+        if (InitialValor !== null)
+            acc = fn(acc, InitialValor);
+        for (let i = 0; i < this.arrai.length; i++) {
+            debugger;
+            acc = fn(acc, this.arrai[i]);
+        }
+        return acc;
+
     }
 
     this.arrai = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -120,4 +131,6 @@ let bol = new BOWL();
 // console.log(bol.arrai);
 // console.log(bol.copyWithin(-3));
 // console.log (bol.some(9));
-console.log (bol.every(x=> x<100));
+console.log(bol.every(x => x < 100));
+
+console.log(bol.reduce((x, y) => x + y));

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    bordeR: 0;
+    box-sizing: border-box;
+    --cFondo: #222222;
+    --cBordes: #504800;
+    --cTexto: #c1f30c;
+    font-family: Arial, sans-serif;
+}
+body{
+    position: relative;
+    background-color: var(--cFondo);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+canvas{
+    border: 1px solid var(--cBordes);
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 2rem 1rem 1rem 1.5rem;
+}
+h2{
+    color: var(--cTexto);
+    text-align: center;
+}

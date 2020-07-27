@@ -6,7 +6,7 @@
 
 body{
     overflow-x: hidden;
-    background-color: #101010;;
+    background-color: #101010;
     line-height: 1;
     color: #fff;
     font-family: NotoSans-Regular,Arial,sans-serif;
@@ -148,7 +148,7 @@ li{
 .item-wrapper{
     display: flex;
     flex-wrap: nowrap;
-    background-color: #101010;;
+    background-color: #101010;
     justify-content: start;
     align-items: center;
     box-sizing: border-box;
@@ -199,14 +199,13 @@ li{
     text-align: center;
     white-space: normal;
     line-height: 140%;
-    text-align: center;
     -webkit-font-smoothing: antialiased;
 }
 
 .genre-wrapper{
     display: flex;
     flex-wrap: nowrap;
-    background-color: #101010;;
+    background-color: #101010;
     justify-content: start;
     box-sizing: border-box;
     margin-top: 25px;

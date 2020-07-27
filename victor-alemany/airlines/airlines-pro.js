@@ -1,5 +1,5 @@
 //declaración e instancia de variables globales
-var flights = [
+let flights = [
   { id: 00, to: 'Bilbao', from: 'Barcelona', cost: 1600, scale: false },
   { id: 01, to: 'New York', from: 'Barcelona', cost: 700, scale: false },
   { id: 02, to: 'Los Angeles', from: 'Madrid', cost: 1100, scale: true },
@@ -11,16 +11,16 @@ var flights = [
   { id: 08, to: 'Shangai', from: 'Barcelona', cost: 800, scale: true },
   { id: 09, to: 'Sydney', from: 'Barcelona', cost: 150, scale: true },
   { id: 10, to: 'Tel-Aviv', from: 'Madrid', cost: 150, scale: false }
-],
+];
 
-  sinEscala       = 0,
-  conEscala       = 0,
-  ultimosDestinos = [],
-  mediaCoste      = 0,
-  eliminar        = 0;
-  vuelosMaxPrice  = [],
-  vuelosMinPrice  = [],
-  vuelosSamePrice = [];
+let sinEscala = 0;
+let conEscala = 0;
+let ultimosDestinos = [];
+let  mediaCoste      = 0;
+let eliminar        = 0;
+let vuelosMaxPrice  = [];
+let vuelosMinPrice  = [];
+let vuelosSamePrice = [];
 
 //llamada a la función que captura el nombre del usuario
 bienvenida();
@@ -108,7 +108,7 @@ function filterByMax() {
   }
   else{
 
-  for (i = 0; i < flights.length; i++) {
+  for (let i = 0; i < flights.length; i++) {
 
     if (flights[i].cost > valorMax) {
       vuelosMaxPrice.push(flights[i]);
@@ -132,7 +132,7 @@ function filterByMin(){
   }
   else{
 
-  for (i = 0; i < flights.length; i++) {
+  for (let i = 0; i < flights.length; i++) {
 
     if (flights[i].cost < valorMin) {
       vuelosMinPrice.push(flights[i]);
@@ -156,7 +156,7 @@ function filterBySamePrice(){
   }
   else{
 
-  for (i = 0; i < flights.length; i++) {
+  for (let i = 0; i < flights.length; i++) {
 
     if (flights[i].cost == mismoValor) {
       vuelosSamePrice.push(flights[i]);
@@ -168,11 +168,7 @@ function filterBySamePrice(){
 
 //función que filtra el objeto por id y devuelve los resultados que no cumplen la condición
 function filterByID(obj) {
-  if ('id' in obj && obj.id == eliminar) {
-    return false;
-  } else {
-    return true;
-  }
+    return 'id' in obj && obj.id === eliminar;
 }
 
 //función que agrupa acciones del usuario administrador
@@ -280,7 +276,8 @@ function adminActions() {
 
     //Opción por defecto    
     default:
-      console.log("Opción incorrecta vuelva a intentarlo." + adminActions());
+      console.log("Opción incorrecta vuelva a intentarlo.");
+      adminActions();
       break;
     }
   }
@@ -312,7 +309,7 @@ function userActions(){
       console.log("****************************************************************************");
       
       //condicionante que muestra si el vuelo tiene escala o no
-      for (i = 0; i < vuelosMaxPrice.length; i++) {
+      for (let i = 0; i < vuelosMaxPrice.length; i++) {
         if (vuelosMaxPrice[i].scale == false) {
           console.log("El vuelo número " + vuelosMaxPrice[i].id + " procedente de " + vuelosMaxPrice[i].from + " con destinación a " + vuelosMaxPrice[i].to + " tiene un coste de " + vuelosMaxPrice[i].cost + " y no tiene ninguna escala.");
         }
@@ -331,7 +328,7 @@ function userActions(){
       console.log("****************************************************************************");
 
       //condicionante que muestra si el vuelo tiene escala o no
-      for (i = 0; i < vuelosMinPrice.length; i++) {
+      for (let i = 0; i < vuelosMinPrice.length; i++) {
         if (vuelosMinPrice[i].scale == false) {
           console.log("El vuelo número " + vuelosMinPrice[i].id + " procedente de " + vuelosMinPrice[i].from + " con destinación a " + vuelosMinPrice[i].to + " tiene un coste de " + vuelosMinPrice[i].cost + " y no tiene ninguna escala.");
         }
@@ -350,7 +347,7 @@ function userActions(){
       console.log("****************************************************************************");
 
       //condicionante que muestra si el vuelo tiene escala o no
-      for (i = 0; i < vuelosSamePrice.length; i++) {
+      for (let i = 0; i < vuelosSamePrice.length; i++) {
         if (vuelosSamePrice[i].scale == false) {
           console.log("El vuelo número " + vuelosSamePrice[i].id + " procedente de " + vuelosSamePrice[i].from + " con destinación a " + vuelosSamePrice[i].to + " tiene un coste de " + vuelosSamePrice[i].cost + " y no tiene ninguna escala.");
         }
