@@ -9,8 +9,7 @@ function SkylaberComponentList() {
 	};
 	function updateList() {
 		let inputText = document.querySelector('.input').value;
-		list = skylabService.search(inputText);
-		return list;
+		return skylabService.search(inputText);
 	}
 	function drawItem(index) {
 		let item = document.createElement('div');
