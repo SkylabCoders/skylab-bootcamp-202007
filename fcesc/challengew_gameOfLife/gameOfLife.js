@@ -114,6 +114,7 @@ class Game {
         this.seedFigures = function pueblaFiguras(figure){
             let xcenter = Math.floor(this.params.hcells / 2);
             let ycenter = Math.floor(this.params.hcells / 2);
+            console.log(xcenter, ycenter);
             const figures = superfigures();
             return figures.figure;
         }
