@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p,
+h1 {
+    margin: 10px 0;
+}
+
+section {
+    margin: 40px 15vw;
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(240, 235, 235);
+    margin: 5px;
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(231, 229, 229);
+}
+
+a {
+    text-decoration: none;
+}

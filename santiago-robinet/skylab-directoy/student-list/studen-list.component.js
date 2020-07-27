@@ -1,4 +1,5 @@
 function SkylaberListComponent() {
+
     const allSkylaber = skylaberList;
     const skylaberListContainer = document.querySelector(".list__container");
     let returnArray = [];
@@ -56,4 +57,8 @@ function SkylaberListComponent() {
 
 const skylaberListComponent = new SkylaberListComponent();
 
+
+
+
 skylaberListComponent.onInit();
+

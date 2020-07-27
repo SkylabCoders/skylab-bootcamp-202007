@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Skaylab List</title>
-    <link rel="stylesheet" href="student-list.component.css" />
-</head>
-
-<body>
-    <marin class="main__container">
-        <h1>Skylabers Directory</h1>
-        <a href="../dashboard/dashboard.component.html">Dashboard</a>
-        <a href="../student-details/student-detail.component.html">Details</a
-			>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Skaylab List</title>
+		<link rel="stylesheet" href="student-list.component.css" />
+	</head>
+	<body>
+		<marin class="main__container">
+			<h1>Skylabers Directory</h1>
+			<a href="../dashboard/dashboard.component.html">Dashboard</a>
+			<a href="../student-details/student-detail.component.html"
+				>Details</a>
 			<h2>Skylabers</h2>
 			<input
 				type="text"
 				class="student-list__input"
 				placeholder="Search by any criteria..."
 				name="student-list__input"
+
 				onchange="skylaberListComponent.filterByCriteria();"
+
 
 			/>
 			<ul class="list__container"></ul>
 		</marin>
+
 
 		<script src="../student.js"></script>
 		<script src="../student.mock.js"></script>
 		<script src="./studen-list.component.js"></script>
 	</body>
 </html>
+
+		<script src="../../skylab-directoy/student.js"></script>
+		<script src="../../skylab-directoy/student.mock.js"></script>
+		<script src="./studen-list.component.js"></script>
+	</body>
+</html>
+

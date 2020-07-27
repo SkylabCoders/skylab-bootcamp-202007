@@ -1,10 +1,10 @@
 let numberButtons = document.querySelectorAll('.number');
 let operatorButtons = document.querySelectorAll('.operator');
+let previousOperator = '';
 
 function Calculator() {
 	let screenNumber = '';
 	let accumulator = 0;
-	let previousOperator = '';
 	let screen = document.querySelector('.screen');
 	let resultShown = false;
 
@@ -30,8 +30,8 @@ function Calculator() {
 		return scrNumber;
 	}
 
-	function doOperation(previousOperator) {
-		switch (previousOperator) {
+	function doOperation(previousOperatorParam) {
+		switch (previousOperatorParam) {
 			case '+':
 				break;
 			case '-':
@@ -108,7 +108,6 @@ function Calculator() {
 	function resetCalculator() {
 		screen.innerHTML = '0';
 		screenNumber = '';
-		previousOperator = '';
 		accumulator = 0;
 		resultShown = false;
 	}
@@ -131,36 +130,40 @@ const calculator = Calculator();
 
 // #### EVENTLISTENERS ####
 for (const button of numberButtons) {
-	button.addEventListener('click', function () {
-		let numberInput = calculator.getClickedButtonValue(button);
-		calculator.printNumberToScreen(numberInput, calculator.screenNumber);
-	});
+	button.addEventListener('click', addEventListenerToNumberButton);
+}
+
+function addEventListenerToNumberButton() {
+	let numberInput = calculator.getClickedButtonValue(button);
+	calculator.printNumberToScreen(numberInput, calculator.screenNumber);
 }
 
 for (const button of operatorButtons) {
-	button.addEventListener('click', function () {
-		let operatorInput = calculator.getClickedButtonValue(button);
-		console.log(operatorInput);
-		switch (operatorInput) {
-			case 'AC':
-				calculator.resetCalculator();
-				break;
-			case 'C':
-				calculator.clearScreen();
-				break;
-			case '÷':
-				previousOperator = '/';
-				break;
-			case '×':
-				previousOperator = '*';
-				break;
-			case '−':
-				break;
-			case '+':
-				break;
-			case '=':
-				break;
-		}
-		calculator.doOperation(previousOperator);
-	});
+	button.addEventListener('click', addEventListenerToOperatorButton);
+}
+
+function addEventListenerToOperatorButton() {
+	let operatorInput = calculator.getClickedButtonValue(button);
+	console.log(operatorInput);
+	switch (operatorInput) {
+		case 'AC':
+			calculator.resetCalculator();
+			break;
+		case 'C':
+			calculator.clearScreen();
+			break;
+		case '÷':
+			previousOperator = '/';
+			break;
+		case '×':
+			previousOperator = '*';
+			break;
+		case '−':
+			break;
+		case '+':
+			break;
+		case '=':
+			break;
+	}
+	calculator.doOperation(previousOperator);
 }

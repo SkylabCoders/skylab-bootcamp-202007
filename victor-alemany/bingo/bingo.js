@@ -5,14 +5,14 @@ bingo();
 function bingo(){
     
     //declaración e instancia de variables globales
-    var bingoCard       = [],
-        listNumbers     = [],
-        numJugadores    = 0,
-        numRandom       = 0,
-        turnos          = 1,
-        contadorLinea   = 0,
-        contadorBingo   = 0,
-        puntosJugador   = [];
+    let bingoCard       = [];
+    let listNumbers  = [];
+    let numJugadores    = 0;
+    let numRandom       = 0;
+    let turnos          = 1;
+    let contadorLinea   = 0;
+    let contadorBingo   = 0;
+    let puntosJugador   = [];
 
     //llamada a la función que crea los jugadores de la partida
     insertJugadores();
@@ -89,7 +89,7 @@ function bingo(){
             }
         }
 
-        carton = prompt("Te gusta este cartón?\n- Introduce SI para continuar\n- Introduce NO para generar uno nuevo\n- Haz click en CANCELAR para salir.");
+        let carton = prompt("Te gusta este cartón?\n- Introduce SI para continuar\n- Introduce NO para generar uno nuevo\n- Haz click en CANCELAR para salir.");
 
         if(carton == null){
             alert("Adiós!");
@@ -121,13 +121,14 @@ function bingo(){
 
     //función que genera el turno de la partida y y muestra los estados de los cartones en el turno
     function turno(jugador){
+        let getNum;
         if(turnos < 90 && contadorBingo === 0){
 
             if(turnos == 1){
-            getNum = getRandom();
-            listNumbers.push(getNum);
-            alert("Empezamos la partida:\n Turno nº: "+ turnos+"\nHa salido el número: " + getNum+"\n*** Los números que ya han salido: " + listNumbers +" ***");
-            console.log("Estado de los cartones:"); 
+                getNum = getRandom();
+                listNumbers.push(getNum);
+                alert("Empezamos la partida:\n Turno nº: "+ turnos+"\nHa salido el número: " + getNum+"\n*** Los números que ya han salido: " + listNumbers +" ***");
+                console.log("Estado de los cartones:"); 
             }
             else{
                 getNum = getRandom();
@@ -247,11 +248,6 @@ function bingo(){
             }
         }
         return numTurno;
-    }
-
-    //función que compara y ordena en orden ascendente
-    function comparar(a, b){
-        return a - b;
     }
 
 } 
