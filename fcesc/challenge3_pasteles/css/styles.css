@@ -165,7 +165,7 @@ nav>ul>li a:hover {
     }
     .aside-left__img{
         max-width: 70%;
-        max-heigh: 70%;;
+        max-height: 70%;
     }
 }
 @media screen and (max-width: 599px){

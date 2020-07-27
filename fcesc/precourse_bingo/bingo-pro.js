@@ -85,7 +85,7 @@ function cardboardShow(){
             row = row + separator + 'XX';
         } else {
             let prefix;
-            ( String(el.number) === 1 ) ? prefix = ' ' : prefix = '';
+            ( String(el.number).length === 1 ) ? prefix = ' ' : prefix = '';
             row = row + separator + prefix + el.number;
         }
         separator = ' - ';
@@ -162,7 +162,6 @@ function rowChecker(rowNumber){
 function boardChecker(){
     let completion = [];
     for (let i = 1; i < sessionData.boardRows; i++){
-        let name = 'row_' + i;
         let tmp = rowChecker(i);
         completion.push(tmp);
         if (tmp === true){

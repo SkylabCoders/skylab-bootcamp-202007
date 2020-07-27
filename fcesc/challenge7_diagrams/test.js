@@ -30,6 +30,7 @@ function parseProtocol(url) {
     }
     console.log(parsedURL); 
     const [, protocol, fullhost, fullpath] = parsedURL;
+    console.log(fullhost, fullpath);
     return protocol;
 }
 console.log(parseProtocol('https://developer.mozilla.org/en-US/Web/JavaScript')); 
@@ -48,10 +49,10 @@ const user = {
     }
 };
 function userId({id}) {
-return id;
+    return id;
 }
-function whois({displayName, fullName: {firstName: name}}) {
-return `${displayName} is ${name}`;
+function whois({displayName, fullName}) {
+    return `${displayName} is ${fullName.firstName}`;
 }
 console.log(userId(user));
 console.log(whois(user));
@@ -107,8 +108,8 @@ const people = [
         age: 25
     }
 ];
-for (const {name: n, family: {father: f}} of people) {
-    console.log('Name: ' + n + ', Father: ' + f);
+for (const {name: n, family: {father: fr}} of people) {
+    console.log('Name: ' + n + ', Father: ' + fr);
 }
 
 let key = 'z';
@@ -116,9 +117,6 @@ let {[key]: foot} = {z: 'bar'};
 console.log(foot);
 
 let {x, y, ...resta} = {x: 10, y: 20, z: 30, w: 40}
-x;
-y;
-resta;
 console.log(x, y, resta);
 
 const props = [
