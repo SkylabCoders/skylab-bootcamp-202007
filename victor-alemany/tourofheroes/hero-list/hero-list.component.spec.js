@@ -1,27 +1,20 @@
-describe('Tour of Heroes',function(){
-    let id = 1;
-    let name = 'test';
-    const newName = 'pruebaSet';
-    let pepito;
-    
-    beforeEach(function(){
-        pepito = new Heroes();
+describe('hero-list',function(){
+    let listComponent;
+
+    beforeAll(function(){
+        listComponent = new HeroListComponent();
+    });
+
+    it('should create',function(){
+       expect(listComponent).toBeTruthy();
     })
 
-    it('Should create a new hero',function(){
-        expect(pepito).toBeTruthy();
-    })
+    it('should call onInit and behave property',function(){
+        const spy = spyOn(listComponent,'onInit');
+        listComponent.onInit();
 
-    it('Should be able to get a name',function(){
-        expect(pepito.getName()).toEqual(name);
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy).toHaveBeenCalledWith();
     })
-
-    it('Should be able to set a name',function(){
-        pepito.setName(newName);
-        expect(pepito.getName()).toEqual(newName);
-    })
-
-    it('Should be able to get an id',function(){
-        expect(pepito.getId()).toEqual(id);
-    })
-});
+})

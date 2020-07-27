@@ -1,4 +1,5 @@
 /* Francesc Brugarolas - skylab bootcamp 202007 - challenge #6 */
+"use strict";
 function strictEquals(a, b){
     if (Number.isNaN(a) && Number.isNaN(b)) {return false;}
     if ( (Object.is(0, a) || Object.is(-0, a)) && (Object.is(0, b) || Object.is(-0, b)) ){ return true; }

@@ -7,9 +7,9 @@ const operation = {increment: 'increment',decrement:'decrement'};
 //global function that includes increment and decrement a number 
 function fnUpAndDown(currentOperation) {
 
-    const result = function (value){ 
+   /* function result(value){ 
         return console.log("New value is :", value); 
-    }
+    }*/
 
     //inner function decrement
     const incrementFn = function (number) {
@@ -46,6 +46,7 @@ function fnUpAndDown(currentOperation) {
 const myOperation = fnUpAndDown(operation.decrement);
 
 myOperation(1);
+myOperation.result();
 
 
 

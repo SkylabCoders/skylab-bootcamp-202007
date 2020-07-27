@@ -1,9 +1,9 @@
 //declaración variables globales
-var numeros       = "",
-    arrayString   = "",
-    arrayNumeros  = [],
-    resultados    = [],
-    continuar     = "";
+let numeros       = "";
+let    arrayString   = "";
+let    arrayNumeros  = [];
+let    resultados    = [];
+let    continuar     = "";
 
 //Solicitamos valores y los dividimos en un array numérico
 
@@ -22,7 +22,7 @@ do {
   //Validamos si los valores introducidos son números y llamamos a las funciones de cálculo
     if (arrayNumeros.length <= 1){
 
-      var calculoRaiz = Math.sqrt(arrayNumeros);
+      let calculoRaiz = Math.sqrt(arrayNumeros);
 
       if(calculoRaiz%1 === 0)
 
@@ -36,13 +36,13 @@ do {
       }
     }
     else{
-      if (inputValidator(arrayNumeros) === true){    
-        suma(arrayNumeros);
-        resta(arrayNumeros);
-        multiplicacion(arrayNumeros);
-        division(arrayNumeros);
+      if (inputValidator() === true){    
+        suma();
+        resta();
+        multiplicacion();
+        division();
   
-        for(var i = 0; i < resultados.length; i++){
+        for(let i = 0; i < resultados.length; i++){
 
           console.log(resultados[i]);
 
@@ -65,7 +65,6 @@ while (continuar.toUpperCase() == "Y");
 
 //función que valida los números introducidos
 function inputValidator() {
-  let validador = undefined;
   
   for (let i = 0; i < arrayNumeros.length; i++) {
     if (isNaN(arrayNumeros[i])) {

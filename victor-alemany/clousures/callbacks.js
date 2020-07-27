@@ -23,5 +23,3 @@ const operation = {increment: 'increment',decrement:'decrement'};
 
 
     const myFunction = fnUpAndDown(8,incrementFn);
-
-    myFunction;

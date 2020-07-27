@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.lightbox {
+    max-width: 20rem;
+    height: auto;
+    padding: 1rem 2.5rem;
+    margin: 10% auto;
+    box-shadow: 0 2px 2px rgba(10, 16, 20, .24), 0 0 2px rgba(10, 16, 20, .12);
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.title h1 {
+    color: #969696;
+    margin-bottom: .7rem;
+}
+
+.main-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    background-color: #eee;
+    color: #557584;
+    margin-right: .5rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.name {
+    color: #404040;
+    margin: 1.5rem 0;
+}
+
+.id {
+    display: flex;
+    margin: 0 0 .5rem 0;
+}
+
+.id-name,
+.input-name {
+    color: #557584;
+    font-weight: bold;
+}
+
+.id-number {
+    color: #969696;
+    padding-left: 2rem;
+}
+
+.input {
+    padding: .7rem;
+    border: .09rem solid rgb(209, 208, 208);
+    border-radius: .2rem;
+}
+
+.input:focus {
+    outline: 0 none;
+}
+
+.button-back {
+    background-color: #eee;
+    color: #969696;
+    width: 4rem;
+    margin-right: .5rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
