@@ -32,6 +32,7 @@ board.addEventListener('click', function(e) {
 });
 start.addEventListener('click', function() {
     changeState();
+    setInterval(changeState(), 100);
 });
 
 function counterNeighbours(i, j) {
@@ -85,6 +86,7 @@ function neighbours() {
     }
 
     printSecondState();
+    initialState = [...secondState];
 }
 
 function changeState() {
@@ -100,24 +102,17 @@ function changeState() {
 }
 
 function printSecondState() {
+    console.log(secondState);
+    let divCounterSecondState = 0;
     for (let i = 0; i < secondState.length; i++) {
         for (let j = 0; j < secondState[i].length; j++) {
-            if (initalState[i][j] === 1) {
-                boardClass.classList.add('black');
+            if (secondState[i][j] === 1) {
+                boardClass[divCounterSecondState].classList.add('black');
+                divCounterSecondState++;
+            } else {
+                boardClass[divCounterSecondState].classList.remove('black');
+                divCounterSecondState++;
             }
         }
     }
 }
-
-/*function printFirst() {
-            for (let i = 0; i < initalState.length; i++) {
-                for (let j = 0; j < initalState[i].length; j++) {
-                    if (initalState[i][j] === 1) {
-                        boardClass[count].classList.add('black');
-                    }
-
-                    count++;
-                }
-            }
-            console.log(initalState);
-            neighb*/
