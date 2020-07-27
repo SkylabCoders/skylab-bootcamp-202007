@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*
     As a skylaber
@@ -33,113 +33,110 @@
 */
 
 const Bowl = {
-    map: function(arr, callback) {
-        try {
-            if (!this.checkArgumentsAreCorrect) {
-                return arr;
-            }
+	map: function (arr, callback) {
+		try {
+			if (!this.checkArgumentsAreCorrect) {
+				return arr;
+			}
 
-            let newArr = [];
-            for (let i = 0; i < arr.length; i++) {
-                newArr[i] = callback(arr[i])
-                newArr = [...newArr, callback(arr[i])];
-            }
+			let newArr = [];
+			for (let i = 0; i < arr.length; i++) {
+				newArr[i] = callback(arr[i]);
+				newArr = [...newArr, callback(arr[i])];
+			}
 
-            return newArr;
+			return newArr;
+		} catch (error) {
+			console.log(error);
+			return arr;
+		}
+	},
 
-        } catch (error) {
-            console.log(error);
-            return arr;
-        }
-    },
+	filter: function (arr, callback) {
+		try {
+			if (!this.checkArgumentsAreCorrect) {
+				return arr;
+			}
 
-    filter: function(arr, callback) {
-        try {
-            if (!this.checkArgumentsAreCorrect) {
-                return arr;
-            }
+			let newArr = [];
+			for (let i = 0; i < arr.length; i++) {
+				if (callback(arr[i])) {
+					newArr = [...newArr, arr[i]];
+				}
+			}
+			return newArr;
+		} catch (error) {
+			console.log(error);
+			return arr;
+		}
+	},
 
-            let newArr = [];
-            for (let i = 0; i < arr.length; i++) {
-                if (callback(arr[i])) {
-                    newArr = [...newArr, arr[i]];
-                }
-            }
-            return newArr;
-        } catch (error) {
-            console.log(error);
-            return arr;
-        }
-    },
+	find: function (arr, callback) {
+		try {
+			if (!this.checkArgumentsAreCorrect) {
+				return arr;
+			}
 
-    find: function(arr, callback) {
-        try {
-            if (!this.checkArgumentsAreCorrect) {
-                return arr;
-            }
+			for (let i = 0; i < arr.length; i++) {
+				if (callback(arr[i])) {
+					return arr[i];
+				}
+			}
 
-            for (let i = 0; i < arr.length; i++) {
-                if (callback(arr[i])) {
-                    return arr[i];
-                }
-            }
+			return undefined;
+		} catch (error) {
+			console.log(error);
+			return arr;
+		}
+	},
 
-            return undefined;
+	findIndex: function (arr, callback) {
+		if (!this.checkArgumentsAreCorrect) {
+			return arr;
+		}
 
-        } catch (error) {
-            console.log(error);
-            return arr;
-        }
-    },
+		for (let i = 0; i < arr.length; i++) {
+			if (callback(arr[i])) {
+				return i;
+			}
+		}
 
-    findIndex: function(arr, callback) {
-        if (!this.checkArgumentsAreCorrect) {
-            return arr;
-        }
+		return -1;
+	},
 
-        for (let i = 0; i < arr.length; i++) {
-            if (callback(arr[i])) {
-                return i;
-            }
-        }
+	fill: function (arr, value, start, end) {
+		if (arr === undefined || value === undefined) {
+			console.log('Fill function must recieve an array and a value');
+			return undefined;
+		}
 
-        return -1;
-    },
+		if (start === undefined) {
+			start = 0;
+			end = arr.length;
+		}
 
-    fill: function(arr, value, start, end) {
-        if (arr === undefined || value === undefined) {
-            console.log("Fill function must recieve an array and a value");
-        }
+		if (end === undefined) {
+			end = arr.length;
+		}
 
-        if (start === undefined) {
-            start = 0;
-            end = arr.length;
-        }
+		for (let i = start; i < end; i++) {
+			arr[i] = value;
+		}
 
-        if (end === undefined) {
-            end = arr.length;
-        }
+		return arr;
+	},
 
-        for (let i = start; i < end; i++) {
-            arr[i] = value;
-        }
-
-        return arr;
-    },
-
-    checkArgumentsAreCorrect: function(arr, callback) {
-        if (typeof(callback) !== "function") {
-            console.log("The callback argument must be a function");
-            return false;
-        }
-        if (!Array.isArray(arr)) {
-            console.log("arr argument must be an array");
-            return false;
-        }
-        return true;
-    }
-
-
+	checkArgumentsAreCorrect: function (arr, callback) {
+		if (typeof callback !== 'function') {
+			console.log('The callback argument must be a function');
+			return false;
+		}
+		if (!Array.isArray(arr)) {
+			console.log('arr argument must be an array');
+			return false;
+		}
+		return true;
+	}
 };
 
 const testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

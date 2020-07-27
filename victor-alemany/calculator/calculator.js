@@ -1,10 +1,12 @@
 //definimos función calculadora
 let calculadora = function(primerNum, segundoNum){
-    let suma = 0,
-        resta = 0,
-        multiplicacion = 0,
-        division = 0;
+    let suma = 0;
+    let resta = 0;
+    let multiplicacion = 0;
+    let division = 0;
     let resultados = [];
+    let primerNum;
+    let segundoNum;
     
     //validamos si los parámetros son numéricos
     if (isNaN(primerNum) && isNaN(segundoNum)){
@@ -13,10 +15,10 @@ let calculadora = function(primerNum, segundoNum){
     
     //realizamos cálculos en función de los parámetros
     else{
-      if (primerNum != NaN && segundoNum != NaN){
+      if (primerNum === isNaN && segundoNum === isNaN){
   
         if (segundoNum == undefined) {
-          var primerNum = Math.sqrt(primerNum);
+           primerNum = Math.sqrt(primerNum);
           if(primerNum%1 === 0)
             console.log(primerNum);
           else{

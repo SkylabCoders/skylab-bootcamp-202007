@@ -1,5 +1,8 @@
+const costString = ' tiene un coste de ';
+const pointString = '.';
+const originFlightString = 'El vuelo con origen: ';
+const destinyString = ', y destino: ';
 var flights = [
-
     { id: 00, to: 'Bilbao', from: 'Barcelona', cost: 1600, scale: false },
     { id: 01, to: 'New York', from: 'Barcelona', cost: 700, scale: false },
     { id: 02, to: 'Los Angeles', from: 'Madrid', cost: 1100, scale: true },
@@ -10,64 +13,77 @@ var flights = [
     { id: 07, to: 'Tokyo', from: 'Madrid', cost: 1500, scale: true },
     { id: 08, to: 'Shangai', from: 'Barcelona', cost: 800, scale: true },
     { id: 09, to: 'Sydney', from: 'Barcelona', cost: 150, scale: true },
-    { id: 10, to: 'Tel-Aviv', from: 'Madrid', cost: 150, scale: false } 
+    { id: 10, to: 'Tel-Aviv', from: 'Madrid', cost: 150, scale: false }
 ]
-function airlines () {
-  var usuario = prompt('Introduzca su nombre de usuario:', 'Nombre de usuario');
-  console.log('Bienvenido/a ' + usuario);
-  presentacionVuelos();
-  precioMedio();
-  verificarEscalas();
-  ultimosVuelos();
+function airlines() {
+    const userTypeQuestion = 'Introduzca su nombre de usuario:';
+    const userTypeDefaultAnswer = 'Nombre de usuario';
+    const welcome = 'Bienvenido/a ';
+    let user = prompt(userTypeQuestion, userTypeDefaultAnswer);
+    console.log(welcome + user);
+    flightsUserFriendly();
+    averagePrice();
+    checkScales();
+    lastFlights();
 
 }
 
-function presentacionVuelos (){
-    console.log('Los vuelos de hoy son:')
-    for ( i of flights) {
-        var escalas = i.scale ? ' y realiza escalas.' : ' y no realiza ninguna escala.' ;
+function flightsUserFriendly() {
+    const todayFlightsString = 'Los vuelos de hoy son:';
+    const scaleTrueString = ' y realiza escalas.';
+    const scaleFalseString = ' y no realiza ninguna escala.';
+    console.log(todayFlightsString);
+    for (let friendlyIndexFlight of flights) {
+        let scales = friendlyIndexFlight.scale ? scaleTrueString : scaleFalseString;
 
-        var vuelo = 'El vuelo con origen: ' + i.from + ', y destino: ' + i.to + ' tiene un coste de ' + i.cost + escalas;
-        console.log(vuelo);
-    } 
-}
-
-function precioMedio () {
-    var precio = 0;
-    for (i of flights) {
-        precio += i.cost;
+        let actualFlight = originFlightString + friendlyIndexFlight.from + destinyString + friendlyIndexFlight.to + costString + friendlyIndexFlight.cost + scales;
+        console.log(actualFlight);
     }
-    var precioMed = precio / flights.length;
-    console.log('El precio medio de los vuelos es ' + precioMed.toFixed(2) + '.');
 }
 
-function verificarEscalas () {
-   
+function averagePrice() {
+    const averagePriceString = 'El precio medio de los vuelos es ';
+    let price = 0;
+    for (let currentFlight of flights) {
+        price += currentFlight.cost;
+    }
+    var priceAverage = price / flights.length;
+    console.log(averagePriceString + priceAverage.toFixed(2) + pointString);
+}
+
+function checkScales() {
+    const totalScalesStart = 'Hay un total de ';
+    const totalScalesEnd = ' de vuelos con escala. Son los siguientes:';
+    const noScaleString = 'No hay vuelos con escalas.';
+
     var total = 0
-    for (i of flights) {
-        if (i.scale){
+    for (let scaleIndexFlight of flights) {
+        if (scaleIndexFlight.scale) {
             ++total;
         }
     }
     if (total !== 0) {
-        console.log('Hay un total de ' + total + ' de vuelos con escala. Son los siguientes:' )
-        for (i of flights) {
-            if (i.scale) {
-            var escalas = console.log('El vuelo con origen: ' + i.from + ', y destino: ' + i.to + ' tiene un coste de ' + i.cost + '.');
+        console.log(totalScalesStart + total + totalScalesEnd);
+        for (let flight of flights) {
+            if (flight.scale) {
+                console.log(originFlightString + flight.from + destinyString + flight.to + costString + flight.cost + pointString);
             }
         }
     } else {
-        console.log('No hay vuelos con escalas.')
+        console.log(noScaleString)
     }
 
 }
-function ultimosVuelos() {
-    console.log('Los últimos 5 vuelos de hoy son:');
-    var indice = flights.length - 5;
-    var listaUltimosVuelos = flights.slice(indice);
-    for (var i in listaUltimosVuelos) {
-        var id = listaUltimosVuelos[i].id;
-        var to = listaUltimosVuelos[i].to;
-        console.log('Id: ' + id + ' destinado a ' + to);
+function lastFlights() {
+    const fiveLastFlights = 'Los últimos 5 vuelos de hoy son:';
+    const idString = 'Id: ';
+    const destinateTo = ' destinado a ';
+    console.log(fiveLastFlights);
+    let index = flights.length - 5;
+    let listalastFlights = flights.slice(index);
+    for (let i in listalastFlights) {
+        let id = listalastFlights[i].id;
+        let to = listalastFlights[i].to;
+        console.log(idString + id + destinateTo + to);
     }
 }

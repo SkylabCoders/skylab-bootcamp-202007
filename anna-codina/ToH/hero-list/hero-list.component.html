@@ -4,25 +4,25 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Hero List</title>
+	<title>Heroes List</title>
 	<link rel="stylesheet" href="hero-list.component.css" />
 </head>
 
 <body>
-	<h1>Tour of Heroes</h1>
+	<h1>Tour of hero</h1>
 	<nav>
 		<a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
 		<a href="./hero-list.component.html">Heroes</a>
 	</nav>
-	<h2>My Heroes</h2>
+	<form>
+		<label for="hero__filter">
+			search: </label>
+		<input id="hero-detail__name-control" type="text" name="hero__filter" placeholder="Search by any criteria..."
+			onkeyup="heroListComponent.inputFilter(this.value, event)" />
+	</form>
+	<h2>My hero</h2>
 	<ul class="hero-list">
 	</ul>
-	<section id="to-details" class="hidden-content">
-		<h2 class="flex-row"><span id="hero__name">Dr. Nice</span> details</h2>
-		<nav>
-			<a href="../hero-detail/hero-detail.component.html">Details</a>
-		</nav>
-	</section>
 	<script src="../hero.js"></script>
 	<script src="../hero.mock.js"></script>
 	<script src="hero-list.component.js"></script>

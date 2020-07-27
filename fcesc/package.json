@@ -16,6 +16,7 @@
     "dev_parcel_challenge_gameOfLife": "parcel challenge_gameOfLife/gameOfLife.html",
     "dev_parcel_challenge_calculator": "parcel challenge9_calculator/jasmine.html",
     "dev_parcel_ownstuff_puppeteer": "parcel ownstuff_puppeteer/index.html",
+    "dev_parcel_challenge_tour-of-heroes": "parcel challenge_tour-of-heroes/index.html",
     "dev_nodemon_skylab": "nodemon challenge_skylab/server.js",
     "build_notUsed_parceel_challenge8": "parcel build challenge8/challenge8.html",
     "build_webpack": "webpack --config webpack.config.js"
@@ -28,6 +29,7 @@
     "@babel/register": "^7.10.5",
     "babel-jest": "^26.1.0",
     "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.5",
     "jasmine": "^3.5.0",
     "jest": "^26.1.0",
     "nodemon": "^2.0.4",

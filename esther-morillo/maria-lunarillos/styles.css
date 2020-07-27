@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    width: 100vw;
 }
 
 /* Header */
@@ -15,7 +16,10 @@ body {
 
 .nav-container {
     background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
     width: 100%;
+    height: 50px;
     position: fixed;
     top: 0;
     z-index: 500;
@@ -24,9 +28,8 @@ body {
 .main-nav {
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
-    width: 90%;
-    height: 3rem;
+    justify-content: center;
+    width: 80%;
     line-height: 3.3rem;
 }
 
@@ -34,12 +37,22 @@ body {
     width: 50px;
     height: 50px;
     cursor: pointer;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.spacer {
+    flex-grow: 2;
 }
 
 .login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     flex-grow: .9;
     text-align: center;
-}
+} 
 
 .search {
     background-color: #bbb8b6;
@@ -65,16 +78,11 @@ body {
 }
 
 /* Icons */
-.login {
-    position: relative;
-    /* justify-content: flex-end; */
-    top: 8px;
-}
-
 .img-login {
-    position: absolute;
-    margin-bottom: 1rem;
-}
+    width: 27px;
+    height: 27px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 0 no-repeat;
+} 
 
 .search {
     position: relative;
@@ -84,26 +92,34 @@ body {
     position: absolute;
     top: 14px;
     left: 14px;
+    filter: invert(1);
 }
 
 .cart {
-    position: relative;
+    background: #fff url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -66px 10px no-repeat;
+    margin: 0;
 }
 
-.img-cart {
-    position: absolute;
-    top: 12px;
-    left: 10px;
-}
-
-.nav-icon {
-    color: #fff;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
+/* Slider */
 .slider {
     width: 100%;
+}
+
+.points-slider {
+    display: flex;
+    justify-content: center;
+}
+
+.points-slider__circle {
+    background-color: #BBB8B6;
+    width: .7rem;
+    height: .7rem;
+    border-radius: 50%;
+    margin: .5rem .3rem;
+}
+
+.points-slider__circle:nth-child(9) {
+    background-color: red;
 }
 
 /* Main */
@@ -269,8 +285,74 @@ span {
     margin-bottom: 7rem;
 }
 
-/* Footer */
-.footer {
+/* FOOTER */
+/* Icons */
+.footer-icons {
+    background-color: #e8e6e5;
+    color: #676259;
+    width: 100%;
+    height: 440px;
+    padding: 0 24%;
+}
+
+.box-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 160px;
+    padding: 40px 0;
+}
+
+
+h4 {    
+    padding-top: 1.9rem;
+}
+
+.icons-left {
+    display: flex;
+}
+
+.icons-right {
+    display: flex;
+}
+
+.icons-left .box-icon:nth-child(1) .icon {
+    width: 85px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 -38px no-repeat transparent;
+}
+
+.icons-left .box-icon:nth-child(2) .icon {
+    width: 55px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -90px -38px no-repeat transparent;
+}
+
+.icons-right .box-icon:nth-child(1) .icon {
+    width: 68px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -150px -36px no-repeat transparent;
+}
+
+.icons-right .box-icon:nth-child(2) .icon {
+    width: 77px;
+    height: 60px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -223px -38px no-repeat transparent;
+}
+
+.box-icon h4 {
+    font-size: 12px;
+}
+
+.box-icon h5 {
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+
+.footer-direction {
     background-color: #ff5959;
     color: #fff;
     width: 100%;
@@ -281,40 +363,104 @@ span {
 
 
 /* Display none */
-.card-center, .card-right {
+.card-center, 
+.card-right,
+.color-bar,
+.main-box p,
+.links,
+.login > p,
+.color,
+.enter > p,
+.nav-button,
+.nav-logo-left,
+.buttons-links,
+.buttons-links-big,
+.logo-text-left,
+.input {
     display: none;
 }
 
-.color-bar {
-    display: none;
-}
-
-.main-box p {
-    display: none;
-}
-
-.links {
-    display: none;
-}
-
-.login > p {
-    display: none;
-}
-
-.color {
-    display: none;
-}
-
-.enter > p {
-    display: none;
-}
-
-.nav-button {
-    display: none;
-}
 
 /* Media Queries */
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 667px) {
+    .nav-logo img,
+    .logo-text,
+    .top {
+        display: none;
+    } 
+
+    .nav-button__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;   
+    }
+
+    .main-nav {
+        width: 85%;
+        height: 50px;
+    }
+    
+    /* Buttons news & offers */
+    .nav-button {
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        margin: 0 auto;
+        margin-top: -50px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .container-buttons {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .nav-logo-left {
+        display: flex;
+    }
+
+    .buttons-links {
+        display: flex;
+        line-height: 1.9rem;
+    }
+
+    .news,
+    .offers {
+        background-color: #9faa4d;
+        width: 130px;
+        height: 30px;
+        color: #fff;
+        font-size: .85rem;
+    }
+
+    .offers {
+        background-color: #8e789d;
+        margin-left: .4rem;
+    }
+
+        .news::before {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -244px 4px no-repeat;
+            content: '';
+            float: left;
+            padding-right: .1rem;
+        }
+
+        .offers::before {
+            display: inline-flex;
+            width: 30px;
+            height: 30px;
+            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -274px 4px no-repeat;
+            content: '';
+            float: left;
+            padding-right: .4rem;
+        }
+}
+
+@media screen and (min-width: 770px) {
     .cards {
         display: flex;
         flex-direction: row;
@@ -364,16 +510,19 @@ span {
 
     /* Nav */
     .main-nav {
-        width: 80%;
+        width: 90%;
     }
 
     .nav-button {
         display: flex;
-        width: 80%;
-    }
+        justify-content: center;
+        width: 90%;
+    } 
 
-    .logo-text {
-        align-self: flex-end;
+    .logo-text-left {
+        display: flex;  
+        align-items: center;
+        padding-top: 2rem;
     }
 
 
@@ -434,23 +583,25 @@ span {
         }
 
     /* Parte navegador de logo y botones */
-    .nav-button {
-        margin: 0 auto;
-        margin-top: 180px;
-        margin-bottom: 1.5rem;
+    .buttons-links-big {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 1rem;
+    }
+
+    .buttons-links {
+        padding-bottom: 1.8rem;
     }
 
     .container-buttons {
         display: flex;
         flex-direction: column;
+        align-items: flex-end;
     }
 
-    .buttons-links {
-        display: flex;
-        flex-direction: row;
-        padding-bottom: 1.3rem;
+    .nav-button__container {
+        margin-top: 1rem; 
     }
-
 
     .buttons-menu {
         background-color: #f2f2f2;
@@ -458,7 +609,7 @@ span {
         background-position: center;
         width: 80px;
         height: 80px;
-        margin: 0 .15rem;
+        margin: 0 0 0 .3rem;
     }
 
     .buttons-menu:nth-child(1) {
@@ -530,69 +681,11 @@ span {
             color: #ff5959;
         }        
 
-
-    /* Novedades y ofertas */
-    .buttons-links {
-        display: flex;
-        justify-content: flex-end;
-    }
-    .buttons-bar {
-        width: 130px;
-        height: 30px;
-        text-align: start;
-        padding: 0 .1rem;
-        line-height: 30px;
-        color: #fff;
-        font-size: .85rem;
-        margin: 0 .2rem;
-        margin-bottom: 1rem;
-    }
-
-    .news {
-        background-color: #9faa4d;
-    }
-
-        .news::before {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -244px 4px no-repeat;
-            content: '';
-            float: left;
-        }
-
-        .offers::before {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -274px 4px no-repeat;
-            content: '';
-            float: left;
-        }
-
-    .offers {
-        background-color: #8e789d;
-    }
-
-    .input,
-    .bnt-search {
-        display: none;
-    }   
-
-    /* Hidden none */
-    .nav-logo {
-        display: none;
-    }
-
-    .top {
-        display: none;
-    }
-
     /* Arreglar el main tablet */
-.main-box {
-    margin: 0 auto;
-    width: 80%;
-}
+    .main-box {
+        margin: 0 auto;
+        width: 80%;
+    }
 
     .box-row {
         display: flex;
@@ -635,17 +728,30 @@ span {
         font-weight: lighter;
     }
 
+    /* Footer */
+    .footer-icons {
+        padding: 0 10%;
+    }
+
+
+    /* Hidden */
+    .nav-logo-left {
+        display: none;
+    }
+
 }
 
 
 @media screen and (min-width: 1024px) {
+    .buttons-menu:nth-child(5) {
+        display: block;
+        width: 40px;
+        background-color: #fff;
+    } 
 
-.buttons-menu:nth-child(5) {
-    display: block;
-    width: 40px;
-    background-color: #fff;
-} 
-
+    .nav-button {
+        width: 86%;
+    } 
 
     .white-box {
         height: 150px;
@@ -699,16 +805,15 @@ span {
     }
 
     /* Texto login */
-    .login {
-        display: flex;
-        align-items: center;
-    }
-
     .enter > p {
         display: block;
+        height: 50px;
         color: #000;
         font-size: .7rem;
-        margin: 1.3rem;
+    }
+
+    .spacer {
+        display: none;
     }
 
     .links {
@@ -725,6 +830,21 @@ span {
         display: flex;
     }
 
+
+    .input {
+        margin-left: .4rem;
+        flex-grow: 2;
+        color: #bbb8b6;
+        border: 0 solid #bbb8b6;
+        height: 28px;
+        font-size: 1rem;
+    }
+
+        .input:focus {
+            outline-offset: 0;
+            border: none;
+        }
+
     .bnt-search {
         background-color: #bbb8b6;
         width: 50px;
@@ -736,12 +856,23 @@ span {
         border: none;
     }
 
-    .input {
-        flex-grow: 2;
-    }
 
     .nav-button {
         margin-top: 100px;
     }
 
+     .nav-logo {
+        display: none;
+    }
+
+    /* Footer */
+    .footer-icons {
+        display: flex;
+        justify-content: space-around;
+        height: 220px;
+    }
+
+    .box-icon {
+        margin: 0 55px;
+    }
 }

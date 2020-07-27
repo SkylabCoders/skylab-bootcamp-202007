@@ -33,9 +33,8 @@ export default class Bowl {
 
                 for (let el of arr){
                     let fun = fn.bind(thisArg, el)
-                    if (fn(el)) {result = [...result, fun()]};
+                    if (fn(el)) {result = [...result, fun()]}
                 }
-
                 return result;
             } catch (e) {
                 console.log(e);
@@ -62,9 +61,11 @@ export default class Bowl {
                 let result = [];
 
                 for (let i = 0; i < arr.lenght; i++){
-                    if (fn(el)) {result = i}
-                    return result;
+                    if (fn(el)) {
+                        result = i; 
+                        break;}
                 }
+                return result;
             } catch (e) {
                 console.log(e);
             }
@@ -117,7 +118,7 @@ export default class Bowl {
                 if (arr instanceof Array === false) throw 'Error, el argumento debe ser un array.';
 
                 for (let el of arr){
-                    if (!(typeof(el) === type)){ return false; }
+                    if (typeof(el) !== type){ return false; }
                 }
                 return true;
             } catch (e) {
@@ -146,7 +147,6 @@ export default class Bowl {
             try {
                 if (arr instanceof Array === false) throw 'Error, el argumento debe ser un array.';
 
-                let count = 0;
                 for (let i = arr.length-1; i >= 0; i--){
                     if (arr[i] === value){
                         return i;
@@ -287,9 +287,9 @@ export default class Bowl {
             try {
                 if (arr instanceof Array === false) throw 'Error, el argumento debe ser un array.';
                 if (target > arr.length || start > arr.length || end > arr.length) throw 'Error, fuera de rango.';
-                if (target < 0){ target = arr.length + target };
-                if (start < 0){ start = arr.length + start };
-                if (end < 0){ end = arr.length + end };
+                if (target < 0){ target = arr.length + target }
+                if (start < 0){ start = arr.length + start }
+                if (end < 0){ end = arr.length + end }
                 if (target < 0 || start < 0 || end < 0) throw 'Error, fuera de rango.';
 
                 let res = arr;

@@ -5,9 +5,9 @@ function Pet() {
 	let gender;
 	let legs;
 
-	const createPet = function (name) {
+	const createPet = function (nameParam) {
 		let newPet = new Pet();
-		newPet.name = name;
+		newPet.name = nameParam;
 		return newPet;
 	};
 

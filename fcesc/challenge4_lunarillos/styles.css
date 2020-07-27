@@ -67,9 +67,6 @@ nav{
     width: 50px;
     height: 50px;
 }
-.header-nav__icons{
-    
-}
 .header--logo__img{
     width: 100%;
     margin: 1.5rem 0 2rem;
@@ -156,7 +153,7 @@ nav{
         width: 100%;
     }
     .main-category__item::before,
-    .main-category__item::before{
+    .main-category__item::after{
         margin: auto;
     }
     /* .main-category__item:nth-child(6n + 1),
