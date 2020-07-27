@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.box{
+    width:50px;
+    height:50px;
+    background-color: black;
+    border:solid 5px blue;
+}
+.bt{
+    width:150px;
+    height:150px;
+    background-color: red;
+    font-weight: bold;
+    font-size: 20px;
+    
+    margin-left: 50px;
+    text-align: center;
+    line-height: 80px;
+    align-self: center;
+}
