@@ -9,7 +9,7 @@ function HeroDashboardComponents() {
 		return heros.map(renderAnchor);
 	}
 	function renderAnchor(hero) {
-		const heroLink = '../hero-detail/hero-detail.component.html';
+		const heroLink = `../hero-detail/hero-detail.component.html?id=${hero.id}`;
 		return `<a href='${heroLink}'>${hero.name}</a>`;
 	}
 }
