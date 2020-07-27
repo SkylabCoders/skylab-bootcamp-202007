@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.board {
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+}
+
+.board div {
+    border: 1px solid;
+    height: 100%;
+    width: 100%;
+}
+
+.black {
+    background-color: black;
+}
+
+.start {
+    width: 20%;
+    height: 50px;
+    background-color: aqua;
+}
