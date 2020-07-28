@@ -1,5 +1,5 @@
 function HeroDetailComponent() {
-	// let hero = null;
+	let nameHero = null;
 	let param = null;
 	let heroId = null;
 	let heroDetail = document.getElementById('hero-detail__id');
@@ -13,6 +13,7 @@ function HeroDetailComponent() {
 				return getHeroNameFromList(response);
 			})
 			.then((hero) => {
+				nameHero = hero;
 				updateId(hero);
 				updateName(hero);
 			});
@@ -21,14 +22,14 @@ function HeroDetailComponent() {
 		// updateName();
 	};
 	this.nameChange = function (newName) {
-		hero.name = newName;
-		updateName();
+		nameHero.name = newName;
+		updateName(nameHero);
 		heroList.forEach((currentHero) => {
 			if (currentHero.name === newName) {
 				hero.id = currentHero.id;
 			}
 		});
-		updateId();
+		updateId(nameHero);
 	};
 	function updateId(hero) {
 		heroDetail.innerHTML = hero.id;
