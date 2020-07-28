@@ -4,6 +4,7 @@ class HeroService {
     }
 
     getHeroById(id) {
+        setTimeout();
         return this.getHeroList.find((hero) => hero.id === id);
     }
     getHeroByName(name) {
