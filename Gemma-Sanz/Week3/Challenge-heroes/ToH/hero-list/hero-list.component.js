@@ -1,27 +1,41 @@
 function HeroListComponent() {
     heroesList = heroList;
     inputFilter = document.getElementById("hero-detail__name-control");
+    let listContainer = document.getElementById("hero-list__container")
+    listContainer.style.display = "block";
+    let listItem;
+
     //OnInit it's called on loaded page
     this.onInit = function () {
-        document.getElementById("hero-list__container").style.display = "none";
-        heroService.getHeroList().then(handleFulfilled);
+        debugger
+        /*         document.getElementById("hero-list__container").style.display = "none";
+        heroService
+        .getHeroList()
+        .then(handleFulfilled);
+        .then((response) => {
+            return response
+        }) */
+        heroService
+            .getHeroList()
+            .then((response) => {
+                renderList(response)
+            })
     }
 
-    function handleFulfilled(response) {
-        console.log(response);
-        heroesList = response;
-        document.getElementById("hero-list__container").style.display = "block";
-        createButtonsList();
-    }
+    /*     function handleFulfilled(response) {
+            console.log(response);
+            heroesList = response;
+            createButtonsList();
+        } */
 
     //Create buttons
     let mainContainerList = document.querySelector("#mainContainer--list");
-    let createButtonsList = function () {
-        for (let i = 0; i < heroesList.length; i++) {
+    function renderList(arr = heroesList) {
+        for (let i = 0; i < arr.length; i++) {
             let itemsList = document.createElement("button");
-            itemsList.innerHTML = "<span class=id>" + heroesList[i].id + "</span>" + "<span class=name>" + heroesList[i].name + "</span>";
+            itemsList.innerHTML = "<span class=id>" + arr[i].id + "</span>" + "<span class=name>" + arr[i].name + "</span>";
             itemsList.addEventListener("click", () => {
-                window.location.assign(`../hero-detail/hero-detail.component.html?heroId=${heroesList[i].id}`);
+                window.location.assign(`../hero-detail/hero-detail.component.html?heroId=${arr[i].id}`);
             })
             mainContainerList.appendChild(itemsList);
         };
@@ -33,7 +47,7 @@ function HeroListComponent() {
         if (inputFilter.value === "") {
             mainContainerList.innerHTML = "";
             heroesList = heroList
-            createButtonsList()
+            renderList()
             //If filtervalue is not empty view filtered heroes
         } else {
             mainContainerList.innerHTML = "";
@@ -41,7 +55,7 @@ function HeroListComponent() {
             const listFilter = function () {
                 let filteredItems = heroesList;
                 heroesList = filteredItems.reduce(callback, []);
-                createButtonsList(heroesList);
+                renderList(heroesList);
             }
             listFilter()
         }
