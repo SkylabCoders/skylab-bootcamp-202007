@@ -47,7 +47,7 @@ function airlines() {
 	console.log('En total ' + escales + ' vols fan escala');
 
 	console.log('Els últims 5 vols avui tenen destí a:');
-	for (i = 6; i < flights.length; i++) {
+	for (let i = 6; i < flights.length; i++) {
 		console.log('    ' + flights[i]['to']);
 	}
 }

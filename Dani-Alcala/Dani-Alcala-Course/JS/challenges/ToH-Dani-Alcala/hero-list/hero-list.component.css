@@ -1,0 +1,16 @@
+.hero-list__block {
+    display: flex;
+    margin-top: 10px;
+}
+
+#hero-list__id-1, #hero-list__id-2, #hero-list__id-3, #hero-list__id-4, #hero-list__id-5, #hero-list__id-6, #hero-list__id-7, #hero-list__id-8, #hero-list__id-9, #hero-list__id-10 {
+    border: 1px solid;
+    margin: 2px;
+    padding: 2px;
+}
+
+#hero-list__name-1, #hero-list__name-2, #hero-list__name-3, #hero-list__name-4, #hero-list__name-5, #hero-list__name-6, #hero-list__name-7, #hero-list__name-8, #hero-list__name-9, #hero-list__name-10 {
+    border: 1px solid;
+    margin: 2px;
+    padding: 2px;
+}

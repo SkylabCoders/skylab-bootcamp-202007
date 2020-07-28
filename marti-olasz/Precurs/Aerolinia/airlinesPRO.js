@@ -87,7 +87,7 @@ function airlines() {
 	console.log('En total ' + escales + ' vuelos hacen escalas');
 
 	console.log('Los últimos 5 vuelos tienen destino a:');
-	for (i = 6; i < flights.length; i++) {
+	for (let i = 6; i < flights.length; i++) {
 		console.log('    ' + flights[i]['to']);
 	}
 
@@ -115,7 +115,7 @@ function airlines() {
 
 		do {
 			//Imprimimos la informacion de los vuelos con la ID delante
-			for (i in flights) {
+			for (let i in flights) {
 				console.log(
 					'(' +
 						flights[i]['id'] +
@@ -137,8 +137,8 @@ function airlines() {
 				'0,5,2'
 			).split(',');
 			//Eliminamos de "flights" los vuelos
-			for (i in del) {
-				for (a in flights) {
+			for (let i in del) {
+				for (let a in flights) {
 					if (flights[a]['id'] == del[i]) {
 						flights[a].pop();
 					}
@@ -147,7 +147,7 @@ function airlines() {
 		} while (confirm('¿Quieres eliminar algun vuelo?'));
 
 		//Imprimim els vols restants
-		for (i in flights) {
+		for (let i in flights) {
 			console.log(
 				'(' +
 					flights[i]['id'] +
@@ -201,7 +201,7 @@ function airlines() {
 					break;
 			}
 			if (result.length != 0) {
-				for (i in result) {
+				for (let i in result) {
 					console.log(
 						'(' +
 							result[i]['id'] +

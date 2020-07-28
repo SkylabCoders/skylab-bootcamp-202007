@@ -1,34 +1,32 @@
 // THIS IS JORDI'S AND ALEX LEGENDARY PET CREATOR
 function Pet() {
-  let name;
-  let legs;
-  let gender;
+	let legs;
 
-  const setName = function (name) {
-    this.name = name;
-  };
+	const setName = function (name) {
+		this.name = name;
+	};
 
-  function getName() {
-    return this.name;
-  }
+	function getName() {
+		return this.name;
+	}
 
-  function setGender(gender) {
-    this.gender = gender;
-  }
+	function setGender(gender) {
+		this.gender = gender;
+	}
 
-  function getGender() {
-    return this.gender;
-  }
+	function getGender() {
+		return this.gender;
+	}
 
-  function setLegs() {
-    this.legs = legs;
-  }
+	function setLegs() {
+		this.legs = legs;
+	}
 
-  function getLegs() {
-    return this.legs;
-  }
+	function getLegs() {
+		return this.legs;
+	}
 
-  return { setName, getName, setGender, getGender, setLegs, getLegs };
+	return { setName, getName, setGender, getGender, setLegs, getLegs };
 }
 
 let myPet = new Pet();

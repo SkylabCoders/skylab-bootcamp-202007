@@ -13,18 +13,8 @@ var playerArray = [
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-var emptyArray = [
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
+
+
 
 //console.log(createEmptyBoard(4, 4));
 
@@ -41,6 +31,19 @@ function doMagic(inputArray, outputArray) {
 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	];
+
+	for (let i = 1; i < inputArray.length - 1; i++) {
+		for (let j = 1; j < inputArray[i].length - 1; j++) {
+			let neighbors = 0;
+			neighbors += inputArray[i - 1][j - 1];
+			neighbors += inputArray[i - 1][j];
+			neighbors += inputArray[i - 1][j + 1];
+			neighbors += inputArray[i][j - 1];
+			neighbors += inputArray[i][j + 1];
+			neighbors += inputArray[i + 1][j - 1];
+			neighbors += inputArray[i + 1][j];
+			neighbors += inputArray[i + 1][j + 1];
+=======
 	for (let i = 0; i < inputArray.length; i++) {
 		for (let j = 0; j < inputArray[i].length; j++) {
 			let neighbors = 0;
@@ -88,8 +91,11 @@ function doMagic(inputArray, outputArray) {
 				}
 			} catch (error) {}
 
+
 			if (inputArray[i][j] === 0) {
 				switch (neighbors) {
+					case 1:
+					case 2:
 					case 3:
 						outputArray[i][j] = 1;
 						break;
@@ -119,7 +125,8 @@ function doMagic(inputArray, outputArray) {
 			}
 		}
 	}
-	console.log(outputArray);
+
+
 	playerArray = outputArray;
 	drawNexgtGeneration(playerArray);
 	return console.log(outputArray);
@@ -144,32 +151,37 @@ function drawNexgtGeneration(nextGeneration) {
 	}
 }
 
+const returnBoard = function () {
+	cell.style.backgroundColor = 'red';
+	let divArray = Array.from(document.getElementsByClassName('grid-item'));
+	cell.classList.add('true');
+	// Split in group of 3 items
+	var dividedArray = chunkArray(mutateToBinary(divArray), 10);
+	playerArray = dividedArray;
+	return playerArray;
+};
+
 //Draw Grid and add event listener to each div for: When clicked, change backgroud to red
 //											  : Return all array every click, and change class to the clicked one/s
 //											  : Call chunk function
 const drawBoard = function (rows, cols) {
 	container.style.setProperty('--grid-rows', rows);
 	container.style.setProperty('--grid-cols', cols);
-	for (c = 0; c < rows * cols; c++) {
+
+	for (let c = 0; c < rows * cols; c++) {
 		let cell = document.createElement('div');
-		cell.addEventListener(
-			'click',
-			(returnBoard = function () {
-				cell.style.backgroundColor = 'red';
-				let divArray = Array.from(document.getElementsByClassName('grid-item'));
-				cell.classList.add('true');
-				// Split in group of 3 items
-				var dividedArray = chunkArray(mutateToBinary(divArray), 10);
-				playerArray = dividedArray;
-				return playerArray;
-			})
+		cell.addEventListener('click', returnBoard); /*  */
+
 		); /*  */
+
 		cell.innerText = c + 1;
 		container.appendChild(cell).className = 'grid-item';
 	}
 };
 let submitButton = document.getElementById('createButton');
+
 submitButton.addEventListener('click', drawBoard(10, 10));
+
 
 //Create Empty Array for second state of the game
 const createEmptyBoard = function (row, cell) {
@@ -198,12 +210,16 @@ function mutateToBinary(arr) {
 }
 //Chunk the array into smaller arrays, in a big array wrapping all of them
 function chunkArray(myArray, chunk_size) {
-	var index = 0;
+
+	var index;
+
 	var arrayLength = myArray.length;
 	var tempArray = [];
 
 	for (index = 0; index < arrayLength; index += chunk_size) {
-		myChunk = myArray.slice(index, index + chunk_size);
+
+		let myChunk = myArray.slice(index, index + chunk_size);
+
 
 		tempArray.push(myChunk);
 	}

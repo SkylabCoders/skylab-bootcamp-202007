@@ -19,12 +19,6 @@ function HeroDetailComponent() {
 		document.getElementById('hero-detail__name').innerHTML = hero.name;
 		document.getElementById('hero-detail__name-control').value = hero.name;
 	}
-	function getHeroById() {
-		var heroIdByUrl = getParameterByName('heroId');
-		console.log(heroIdByUrl);
-		var heroIdandName = heroList.find((h) => h.id === heroIdByUrl);
-		return heroIdandName;
-	}
 
 	function getHeroIdFromUrl() {
 		const params = new URLSearchParams(location.search);

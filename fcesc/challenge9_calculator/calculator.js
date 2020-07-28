@@ -72,7 +72,7 @@ export default class Calculator {
                 return this.printError('ERR-Sintaxi: + 1 punt decimal.');
             }
             return this.printCurrentVal();
-        },
+        }
         this.unary = function unary(fn){
             this.SESSIONDATA.current = Number(this.SESSIONDATA.current);
             this.SESSIONDATA.previous = this.SESSIONDATA.current;
@@ -122,7 +122,6 @@ export default class Calculator {
         this.super_calc = function super_calc(operator = undefined){
             if (this.rangeCheck()){
                 this.SESSIONDATA.current = Number(this.SESSIONDATA.current);
-                let formatedExpr = '';
                 switch (this.SESSIONDATA.binaryOperator.name){
                     case 'addition':
                         this.SESSIONDATA.current = this.SESSIONDATA.operand + this.SESSIONDATA.current;
@@ -142,7 +141,6 @@ export default class Calculator {
 
                 }
                 this.printCurrentVal();
-                let ref = this.SESSIONDATA.binaryOperator;
                 this.SESSIONDATA.operand = 0;
                 this.SESSIONDATA.binaryOperator.shortRep = '';
                 this.SESSIONDATA.binaryOperator.name = '';
