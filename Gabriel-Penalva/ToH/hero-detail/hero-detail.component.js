@@ -1,13 +1,31 @@
 function HeroDetailComponent() {
 
-	let hero = heroList.find(getParams);
+	let hero = "";
 
-	function getParams(heros) {
+
+
+
+	function getParams() {
 		const params = new URLSearchParams(location.search);
-		return heros.id === +params.get('heroId');
+		const id = +params.get('heroId');
+		//return service.getHeroById(id);
+		service.getHeroById(id)
+			.then(handleFullfill)
+			.catch(handleError);
+
+	}
+	function handleError(message) {
+		document.getElementById('hero_detail').style.display = 'none';
+		document.getElementById('hero-detail__error').innerText = message;
+	}
+	function handleFullfill(response) {
+		hero = response;
+		updateId();
+		updateName();
 	}
 
 	this.onInit = function () {
+		getParams();
 		updateId();
 		updateName();
 	};
