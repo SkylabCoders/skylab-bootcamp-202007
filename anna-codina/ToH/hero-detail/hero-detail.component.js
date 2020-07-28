@@ -16,14 +16,26 @@ function HeroDetailComponent() {
 		return +params.get('heroId');
 	}
 	function handleFulfielld(response) {
+		toggleLoading()
+		document.getElementById('hero-detail__container').style.display = 'block'
 		hero = response;
 		updateId();
 		updateName();
 	}
 	function handleError(message) {
-		document.getElementById('hero-detail__container').style.display = 'none'
+		toggleLoading()
 		document.getElementById('hero-detail__error').innerHTML = message;
 	}
+
+	function toggleLoading() {
+		let loadingElement = document.getElementById('hero-detail__loading');
+		if (loadingElement.style.display === 'block') {
+			loadingElement.style.display = 'none';
+		} else {
+			loadingElement.style.display = 'block'
+		}
+	}
+
 	this.nameChange = function (newName) {
 		hero.name = newName;
 		updateName();

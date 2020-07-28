@@ -1,14 +1,20 @@
 
 class HeroService {
     getHeroList() {
-        return heroList;
+        const errorMesaje = 'There is no hero list'
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const response = heroList;
+                response ? resolve(response) : reject(errorMesaje);
+            }, 2000)
+        })
     }
     getHeroById(id) {
-        const errorMesanje = 'There is no hero with id: ';
+        const errorMesaje = 'There is no hero with id: ';
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 const response = heroList.find((hero) => hero.id === id);
-                response ? resolve(response) : reject(errorMesanje + id);
+                response ? resolve(response) : reject(errorMesaje + id);
             }, 2000);
         });
     }
