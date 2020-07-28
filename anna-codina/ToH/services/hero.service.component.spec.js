@@ -9,12 +9,14 @@ describe('HeroService', function () {
         expect(heroService).toBeTruthy();
     });
     it('should get hero list', function () {
-        expect(heroService.getHeroList()).toBeDefined();
-        expect(heroService.getHeroList()).toEqual(heroList);
+        heroService.getHeroList().then((list) => {
+            expect(list).toEqual(heroList);
+        });
     });
     it('should get one hero by id', function () {
         const id = 18;
-        expect(heroService.getHeroById(id)).toEqual(hero);
+        heroService.getHeroById(id).then((actualHero) =>
+            expect(actualHero).toEqual(hero))
     });
     it('should get one hero by name', function () {
         const name = 'Dr IQ';
