@@ -2,11 +2,12 @@ class HeroService {
 	getHeroList() {
 		return new Promise( function (resolve, reject) {
 			const heroPromise = heroList;
-			heroPromise ? resolve(heroPromise) : reject ('Cant find hero list');
+			heroPromise ? resolve(heroPromise) : reject('Cant find hero list');
 		})
 	}
 
 	getHeroById(id) {
+		console.log(id);
 		return new Promise((resolve, reject) => {
 			const heroResponse = heroList.find((hero) => hero.id === id);
 			setTimeout(() => {

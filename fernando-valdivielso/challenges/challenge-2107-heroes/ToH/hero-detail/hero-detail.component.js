@@ -8,8 +8,7 @@ function HeroDetailComponent() {
 
 	this.onInit = function () {
 		getHeroFromUrl();
-		updateId();
-		updateName();
+		
 	};
 
 	this.nameChange = function (newName) {
@@ -29,11 +28,13 @@ function HeroDetailComponent() {
 	function getHeroFromUrl() {
 		const params = new URLSearchParams(location.search);
 		const id = +params.get('heroId');
-		hero = heroService.getHeroById(id).then(resolveCorrect).catch(resolveError)
+		heroService.getHeroById(id).then(resolveCorrect).catch(resolveError)
 	}
 
 	function resolveCorrect(response) {
+
 		hero = response;
+		console.log(response);
 		updateId();
 		updateName();
 	}

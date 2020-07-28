@@ -1,5 +1,5 @@
 function ListComponent() {
-    const myHeroList = heroList;
+    let myHeroList;
     const ulElement = document.getElementById('list');
     let listElement = null;
     let transformedElement = null;
@@ -8,8 +8,18 @@ function ListComponent() {
     const elementsToHtml = [];
 
     this.onInit = function () {
+        // debugger;
+        heroService.getHeroList().then(handleFulfilled).catch(handleError);
+    }
+    
+    function handleFulfilled(correctResponse) {
+        myHeroList = correctResponse;
         myHeroList.forEach(listItemsToAnchor);
         addAnchorToHTML(listItemsToAnchor);
+    }
+
+    function handleError(errorMessage) {
+        console.log(errorMessage);
     }
 
     function listItemsToAnchor(heroItems) {
@@ -17,7 +27,7 @@ function ListComponent() {
         transformedElement = document.createElement('a');
         idElement = document.createElement('span');
         nameElement = document.createElement('span');
-        transformedElement.href = '../hero-detail/hero-detail.component.html?heroid=' + heroItems.id;
+        transformedElement.href = '../hero-detail/hero-detail.component.html?heroId=' + heroItems.id;
         idElement.innerText = heroItems.id;
         nameElement.innerText = heroItems.name;
         transformedElement.appendChild(idElement);
