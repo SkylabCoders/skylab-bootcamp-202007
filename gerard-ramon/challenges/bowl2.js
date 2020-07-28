@@ -1,7 +1,7 @@
 'use strict';
 
 function Bowl() {
-	this.items = [1,2,3,4,5,6,7];
+	this.items = [1, 2, 3, 4, 5, 6, 7];
 
 	this.checkArgumentsAreCorrect = function (func) {
 		let exec = true;
@@ -85,6 +85,7 @@ function Bowl() {
 	this.fill = function (value, start, end) {
 		if (this.items === undefined || value === undefined) {
 			console.log('Fill function must recieve an array and a value');
+			return undefined;
 		}
 
 		if (start === undefined) {
@@ -144,23 +145,23 @@ function Bowl() {
 		}
 
 		return this.items;
-    };
-    
-    this.reduce = function(callback){
-        let acc=0;
-        for (let i = 0; i < this.items.length; i++) {
-            acc=callback(this.items[i], acc);
-        }
+	};
 
-		this.items=acc;
+	this.reduce = function (callback) {
+		let acc = 0;
+		for (let i = 0; i < this.items.length; i++) {
+			acc = callback(this.items[i], acc);
+		}
+
+		this.items = acc;
 		return this.items;
-    }
+	};
 }
 
 const myBowl = new Bowl();
 
 const testFunct = (acc, next) => {
-    return acc - next;
+	return acc - next;
 };
 
 console.log(myBowl.reduce(testFunct));

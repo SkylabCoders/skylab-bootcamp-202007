@@ -4,7 +4,7 @@ function SkylabService() {
 		return list;
 	};
 	this.getSkylaberById = function (id) {
-		return (result = skylaberList.find((index) => index.id === id));
+		return skylaberList.find((index) => index.id === id);
 	};
 	this.getSkylaberByName = function (name) {
 		return (result = skylaberList.filter((index) => {
@@ -21,6 +21,8 @@ function SkylabService() {
 			} else {
 				sortedList.push(skylabService.getSkylaberById(+text));
 			}
+		} else {
+			sortedList = [...skylaberList];
 		}
 		return sortedList;
 	};

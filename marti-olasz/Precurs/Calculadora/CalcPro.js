@@ -28,7 +28,7 @@ function mul(arr) {
 //Función para dividir todos los valores de "arr"
 function div(arr) {
 	var div = 1;
-	for (i in arr) {
+	for (let i in arr) {
 		div /= arr[i];
 	}
 	return div;

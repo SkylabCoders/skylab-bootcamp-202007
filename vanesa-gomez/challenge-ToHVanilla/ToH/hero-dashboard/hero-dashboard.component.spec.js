@@ -14,7 +14,5 @@ describe('Dashboard', () => {
 		dashboardComponent.onInit();
 
 		expect(spy).toHaveBeenCalled();
-		// expect(spy).toHaveBeenCalledTimes(1);
-		// expect(spy).toHaveBeenCalledwith();
 	});
 });

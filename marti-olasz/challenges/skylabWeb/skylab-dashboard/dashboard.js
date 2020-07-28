@@ -15,5 +15,5 @@ function Dashboard() {
 		return item;
 	}
 }
-myDashboard = new Dashboard();
+const myDashboard = new Dashboard();
 myDashboard.drawDashboard();
