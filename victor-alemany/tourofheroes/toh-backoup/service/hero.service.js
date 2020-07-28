@@ -24,6 +24,8 @@ class HeroService{
     } */
 
     getHeroById(id){
+        //setTimeout(fetch('../heroList.json'),2000)
+
         return fetch('../heroList.json')
         .then((response) =>{return response.json()})
         .then((response) => {
@@ -38,7 +40,14 @@ class HeroService{
     }
 
     getHeroByName(name){
-        return heroList.find(hero => hero.name === name);
+        return fetch('../heroList.json')
+        .then((response) =>{return response.json()})
+        .then((response) => {
+        let hero = response.find((hero) => hero.name === name)
+            if(!hero) throw 'Ops! Ha ocurrido un error!! Heroe no encontrado';
+            return hero;
+        })
+        //return heroList.find(hero => hero.name === name);
     }
 }
 
