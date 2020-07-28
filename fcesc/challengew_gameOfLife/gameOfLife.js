@@ -240,8 +240,8 @@ class Game {
         this.expand = function expande(board){
             let rows = board.length;
             let cols = board[0].length;
-            let expandedBoard = [];
-            let expandedRow = [];
+            let expandedBoard = Array.from(0);
+            let expandedRow = Array.from(0);
             for (let i=0; i<cols; i++){
                 expandedRow.push(0);
             }
