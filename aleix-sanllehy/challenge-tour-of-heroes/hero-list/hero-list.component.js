@@ -1,33 +1,53 @@
 'use strict';
 
 function HeroListComponent() {
-  const allHeroes = heroList;
-  const heroListContainer = document.getElementById('hero-list');
+	let allHeroes;
+	const heroListContainer = document.getElementById('hero-list');
 
-  this.onInit = function () {
-    renderHeroList().forEach(function (heroElement) {
-      if (renderHeroList) heroListContainer.appendChild(heroElement);
-    });
-    /*     createList();
+	this.onInit = function () {
+		toggleLoading();
+		heroService
+			.getHeroList()
+			.then((response) => {
+				toggleLoading();
+				allHeroes = response;
+				renderHeroList().forEach(function (heroElement) {
+					if (renderHeroList) heroListContainer.appendChild(heroElement);
+				});
+			})
+			.catch((reject) => {
+				console.log(reject);
+			});
+
+		/*     createList();
     printList(); */
-  };
+	};
 
-  const renderHeroList = function () {
-    return allHeroes.map(createHeroAnchor);
-  };
+	const renderHeroList = function () {
+		return allHeroes.map(createHeroAnchor);
+	};
 
-  const createHeroAnchor = function (hero) {
-    const heroElement = document.createElement('a');
-    heroElement.href = getHeroLink(hero.id);
-    heroElement.innerHTML = `<span>${hero.id}</span><span>${hero.name}</span>`;
-    return heroElement;
-  };
+	const createHeroAnchor = function (hero) {
+		const heroElement = document.createElement('a');
+		heroElement.href = getHeroLink(hero.id);
+		heroElement.innerHTML = `<span>${hero.id}</span><span>${hero.name}</span>`;
+		return heroElement;
+	};
 
-  function getHeroLink(id) {
-    return `../hero-detail/hero-detail.component.html?heroId=${id}`;
-  }
+	function getHeroLink(id) {
+		return `../hero-detail/hero-detail.component.html?heroId=${id}`;
+	}
 
-  /*   const createList = function () {
+	function toggleLoading() {
+		let loadingElement = document.getElementById('hero-detail__loading');
+		if (loadingElement.style.display === 'block') {
+			loadingElement.style.display = 'none';
+		} else {
+			loadingElement.style.display = 'block';
+		}
+	}
+
+	/*   const createList = function () {
     const heroListContainer = document.getElementById('hero-list');
     for (let i in allHeroes) {
       const heroElement = document.createElement('div');
@@ -47,7 +67,7 @@ function HeroListComponent() {
     }
   }; */
 
-  /*   const printList = function () {
+	/*   const printList = function () {
     for (let i in allHeroes) {
       let hero = allHeroes[i];
       let idElement = document.querySelector(`.hero-list__hero-${i} a`);
