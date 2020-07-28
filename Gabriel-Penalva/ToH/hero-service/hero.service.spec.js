@@ -9,15 +9,16 @@ describe('HeroService', function () {
     });
 
     it('should get list', function () {
-        expect(heroServicie.getHeroList()).toBeDefined();
-        expect(heroServicie.getHeroList()).toEqual(heroList);
+        return heroServicie.getHeroList().then((heroL) => {
+            expect(heroL).toEqual(heroList);
+        });
     });
 
     it('should get one hero by id', function () {
         const id = 14;
-        const hero = heroList.find((heros) => heros.id === id); //create an object with id 14
-        expect(heroServicie.getHeroById(id)).toEqual(hero);
-
+        return service.getHeroById(id).then((hero) => { //create an object with id 14
+            expect().toEqual(hero);
+        });
     });
 
     it('should get one hero by name', function () {

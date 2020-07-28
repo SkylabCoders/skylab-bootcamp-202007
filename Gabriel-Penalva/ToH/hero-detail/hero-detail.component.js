@@ -13,6 +13,8 @@ function HeroDetailComponent() {
 			.then(handleFullfill)
 			.catch(handleError);
 
+
+
 	}
 	function handleError(message) {
 		document.getElementById('hero_detail').style.display = 'none';

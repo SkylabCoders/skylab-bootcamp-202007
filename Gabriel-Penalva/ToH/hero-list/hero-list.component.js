@@ -55,7 +55,7 @@ function deleteList() {
 }
 function handleError(message) {
 
-    console.log(message);
+    console.log('prueba', message);
 }
 
 let newName = document.getElementById('hero-list__name-add');
