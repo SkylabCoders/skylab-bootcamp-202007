@@ -2,7 +2,7 @@
 'use strict';
 
 /* CATALOGUE OF FIGURES */
-export default superfigures = {
+export const superfigures = {
     fig_blinker(){
         this.state.board[xcenter][ycenter] = 1;
         this.state.board[xcenter - 1][ycenter] = 1;

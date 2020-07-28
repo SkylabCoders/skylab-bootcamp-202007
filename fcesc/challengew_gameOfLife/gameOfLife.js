@@ -114,6 +114,7 @@ class Game {
         this.seedFigures = function pueblaFiguras(figure){
             let xcenter = Math.floor(this.params.hcells / 2);
             let ycenter = Math.floor(this.params.hcells / 2);
+            console.log(xcenter, ycenter);
             const figures = superfigures();
             return figures.figure;
         }
@@ -239,8 +240,8 @@ class Game {
         this.expand = function expande(board){
             let rows = board.length;
             let cols = board[0].length;
-            let expandedBoard = [];
-            let expandedRow = [];
+            let expandedBoard = Array.from(0);
+            let expandedRow = Array.from(0);
             for (let i=0; i<cols; i++){
                 expandedRow.push(0);
             }

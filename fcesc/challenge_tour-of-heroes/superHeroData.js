@@ -1,4 +1,4 @@
-export const HERO_LIST = [
+const HERO_LIST = [
   {
     "id": 1,
     "name": "A-Bomb",
