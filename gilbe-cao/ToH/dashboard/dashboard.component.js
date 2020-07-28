@@ -1,10 +1,13 @@
 function DashboardComponent() {
-	const heroesPromoted = heroList.slice(0, 4);
+	let heroesPromoted;
 	const heroListContainer = document.getElementById('dashboard__container');
 
 	this.onInit = function () {
-		renderHeroList().forEach((element) => {
-			if (heroListContainer) heroListContainer.appendChild(element);
+		heroService.getHeroList().then((response) => {
+			heroesPromoted = response.slice(0, 4);
+			renderHeroList().forEach((element) => {
+				if (heroListContainer) heroListContainer.appendChild(element);
+			});
 		});
 	};
 
