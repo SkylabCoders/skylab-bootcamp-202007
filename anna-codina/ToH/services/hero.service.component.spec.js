@@ -9,14 +9,20 @@ describe('HeroService', function () {
         expect(heroService).toBeTruthy();
     });
     it('should get hero list', function () {
-        heroService.getHeroList().then((list) => {
+        return heroService.getHeroList().then((list) => {
             expect(list).toEqual(heroList);
         });
     });
     it('should get one hero by id', function () {
         const id = 18;
-        heroService.getHeroById(id).then((actualHero) =>
+        return heroService.getHeroById(id).then((actualHero) =>
             expect(actualHero).toEqual(hero))
+    });
+    it('sholud throw error if not exist hero id', function () {
+        const idError = 21;
+        const errorMesaje = 'There is no hero with id: 21'
+        return heroService.getHeroById(idError).catch((actualHero) =>
+            expect(actualHero).toEqual(errorMesaje))
     });
     it('should get one hero by name', function () {
         const name = 'Dr IQ';
