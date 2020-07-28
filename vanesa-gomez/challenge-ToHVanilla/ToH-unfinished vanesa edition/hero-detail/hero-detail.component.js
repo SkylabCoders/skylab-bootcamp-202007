@@ -1,14 +1,24 @@
 function HeroDetailComponent() {
-	let hero = null;
+	// let hero = null;
 	let param = null;
 	let heroId = null;
 	let heroDetail = document.getElementById('hero-detail__id');
 	let heroName = document.getElementById('hero-detail__name-control');
+
 	this.onInit = function () {
 		getIdFormUrl();
-		hero = getHeroNameFromList(heroList);
-		updateId();
-		updateName();
+		heroService
+			.getHeroList()
+			.then((response) => {
+				return getHeroNameFromList(response);
+			})
+			.then((hero) => {
+				updateId(hero);
+				updateName(hero);
+			});
+		// hero = getHeroNameFromList(heroList);
+		// updateId();
+		// updateName();
 	};
 	this.nameChange = function (newName) {
 		hero.name = newName;
@@ -20,10 +30,10 @@ function HeroDetailComponent() {
 		});
 		updateId();
 	};
-	function updateId() {
+	function updateId(hero) {
 		heroDetail.innerHTML = hero.id;
 	}
-	function updateName() {
+	function updateName(hero) {
 		document.getElementById('hero-detail__name').innerHTML = hero.name;
 		heroName.value = hero.name;
 	}

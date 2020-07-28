@@ -7,14 +7,10 @@ function HeroDetailComponent() {
 	);
 
 	this.onInit = function () {
-		hero = getHeroFromUrl();
-		updateId();
-		updateName();
-	};
-
-	this.nameChange = function (newName) {
-		hero.name = newName;
-		updateName();
+		document.getElementById('hero-detail__container').style.display = 'none';
+		const id = getHeroFromUrl();
+		const promesaRecibida = heroService.getHeroById(id);
+		promesaRecibida.then(handleFulfilled).catch(handleError);
 	};
 
 	function updateId() {
@@ -28,14 +24,30 @@ function HeroDetailComponent() {
 
 	function getHeroFromUrl() {
 		const params = new URLSearchParams(location.search);
-		const id = +params.get('heroId');
-		hero = heroService.getHeroById(id);
+		return +params.get('heroid');
 	}
 
-	function compareId(hero) {
-		const params = new URLSearchParams(location.search);
-		return hero.id === +params.get('heroId');
+	function handleFulfilled(response) {
+		hero = response;
+		document.getElementById('hero-detail__container').style.display = 'block';
+		updateId();
+		updateName();
 	}
+
+	function handleError(message) {
+		document.getElementById('hero-detail__container').style.display = 'none';
+		document.getElementById('hero-detail__error').innerHTML = message;
+	}
+
+	this.nameChange = function (newName) {
+		hero.name = newName;
+		updateName();
+	};
+
+	// function compareId(hero) {
+	// 	const params = new URLSearchParams(location.search);
+	// 	return hero.id === +params.get('heroId');
+	// }
 }
 
 const heroDetailComponent = new HeroDetailComponent();
