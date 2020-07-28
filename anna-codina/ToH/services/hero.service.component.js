@@ -10,3 +10,5 @@ class HeroService {
         return heroList.find((hero) => hero.name === name)
     }
 }
+
+const heroService = new HeroService;
