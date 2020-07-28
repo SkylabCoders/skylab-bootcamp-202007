@@ -1,5 +1,4 @@
 function HeroListComponent() {
-    let heroesPromoted;
     heroesList = heroList;
     inputFilter = document.getElementById("hero-detail__name-control");
     //OnInit it's called on loaded page

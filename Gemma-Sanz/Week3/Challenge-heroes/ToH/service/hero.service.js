@@ -17,6 +17,9 @@ class HeroService {
     };
 
     getHeroByName(name) {
+        /*         return new Promise((resolve) => {
+                    resolve(heroList)
+                }) */
         return heroList.find((hero) => hero.name === name);
     }
     /* 
