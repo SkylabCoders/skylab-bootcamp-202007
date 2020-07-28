@@ -18,6 +18,7 @@ function HeroDetailComponent() {
 	}
 
 	function handleFulfilled(response) {
+		toggleLoading();
 		hero = response;
 		document.getElementById('hero-detail__container').style.display = 'block';
 		updateId();
@@ -25,8 +26,18 @@ function HeroDetailComponent() {
 	}
 
 	function handleError(message) {
+		toggleLoading();
 		document.getElementById('hero-detail__container').style.display = 'none';
 		document.getElementById('hero-detail__error').innerHTML = message;
+	}
+
+	function toggleLoading() {
+		let loadingElement = document.getElementById('hero-detail__loading');
+		if (loadingElement.style.display === 'block') {
+			loadingElement.style.display = 'none';
+		} else {
+			loadingElement.style.display = 'block';
+		}
 	}
 
 	this.nameChange = function (newName) {
