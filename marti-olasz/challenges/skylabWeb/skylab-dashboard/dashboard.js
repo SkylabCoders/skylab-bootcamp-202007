@@ -21,8 +21,18 @@ myDashboard.drawDashboard();
 */
 //////////////////////////////////////////////////////////////////////////////////
 class Dashboard {
-	static drawDashboard() {
-		const dashboardList = SkylabService.getList().slice(0, 4);
+	static onInit() {
+		let dashboardList = null;
+		SkylabService.getList()
+			.then((response) => {
+				dashboardList = response.slice(0, 4);
+				return dashboardList;
+			})
+			.then((list) => this.drawDashboard(list))
+			.catch((error) => console.log(error));
+	}
+
+	static drawDashboard(dashboardList) {
 		const mother = document.querySelector('.dashboard');
 
 		for (let i = 0; i < dashboardList.length; i++) {
@@ -38,4 +48,4 @@ class Dashboard {
 		return item;
 	}
 }
-Dashboard.drawDashboard();
+Dashboard.onInit();

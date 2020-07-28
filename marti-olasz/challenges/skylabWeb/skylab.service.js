@@ -40,7 +40,12 @@ class SkylabService {
 		});
 	}
 	static getSkylaberById(id) {
-		return skylaberList.find((index) => index.id === id);
+		const skylabber = skylaberList.find((index) => index.id === id);
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				skylabber ? resolve(skylabber) : reject('No skylabber found by ID');
+			}, 1000);
+		});
 	}
 	static getSkylaberByName(name) {
 		return skylaberList.filter((index) => {

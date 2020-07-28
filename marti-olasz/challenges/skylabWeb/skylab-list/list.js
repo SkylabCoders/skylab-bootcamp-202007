@@ -38,6 +38,8 @@ skylaberComponentList.drawList();
 */
 ////////////////////////////////////////////////////////////////////////////////////////////
 class SkylaberComponentList {
+	static onInit() {}
+
 	static drawList() {
 		const mother = document.querySelector('.list');
 		let list = this.updateList();
