@@ -7,8 +7,10 @@ function HeroDetailComponent() {
 	this.onInit = function () {
 		//hero = getHeroFromUrl();
 		const id = getHeroIdFromUrl();
-		heroService.getHeroById(id).then(handleFulfilled).catch(handleError);
-		
+		heroService.getHeroById(id)
+			.then(handleFulfilled)
+			.catch(handleError);
+
 	};
 
 	this.nameChange = function (newName) {
@@ -17,15 +19,15 @@ function HeroDetailComponent() {
 	};
 
 	function updateId() {
-		if(idElement)
-		idElement.innerHTML = hero.id;
+		if (idElement)
+			idElement.innerHTML = hero.id;
 	}
 
 	function updateName() {
-		if(nameElement)
-		nameElement.innerHTML = hero.name;
-		if(nameControlElement)
-		nameControlElement.value = hero.name;
+		if (nameElement)
+			nameElement.innerHTML = hero.name;
+		if (nameControlElement)
+			nameControlElement.value = hero.name;
 	}
 
 	function getHeroIdFromUrl() {
@@ -34,16 +36,32 @@ function HeroDetailComponent() {
 	}
 
 
-		function handleFulfilled(response){
-			hero = response;
-			updateId();
-			updateName();
-		}
+	function handleFulfilled(response) {
+		toggleLoading();
+		hero = response;
+		//document.getElementById('hero-detail__container').style.display = 'block';
+		updateId();
+		updateName();
+	}
 
-		function handleError(message){
-			document.getElementById('hero-detail__container').style.display = 'none';
-			document.getElementById('hero-detail__error').innerHTML= message;
-		}
+	function handleError(message) {
+		toggleLoading();
+		document.getElementById('hero-detail__container').style.display = 'none';
+		document.getElementById('hero-detail__error').innerHTML = message;
+	}
+
+	function toggleLoading(){
+        //si está cargando, muestro el loading
+        //si no está cargando, lo oculto
+        const loadingElement = document.getElementById('hero-detail__loading');
+        if(loadingElement.style.display === 'block'){
+            loadingElement.style.display = 'none';
+        }
+        else{
+            loadingElement.style.display = 'block';
+        }
+    }
+
 }
 
 const heroDetailComponent = new HeroDetailComponent();

@@ -1,12 +1,28 @@
 function DashboardComponent() {
-    const heroTopElements = heroList.slice(0, 4);
+    let heroTopElements;
     const container = document.querySelector('.container__dashboard');
 
+   /*  this.onInit = function () {
+        heroService.getHeroList().then((response => {
+            heroTopElements = response.slice(0,4);
+            renderHeroList().forEach((element) => {
+                if (container) container.appendChild(element);
+            });
+        })
+    )} con promesas */
+
     this.onInit = function () {
-        renderHeroList().forEach((element) => {
-            if (container) container.appendChild(element);
-        });
-    };
+       heroService.getHeroList()
+            .then((response)=>{
+                heroTopElements = response.slice(0,4);
+                renderHeroList().forEach((element) => {
+                    if (container) container.appendChild(element);
+                });
+            })
+
+        .catch((error) => console.log('Algo ha ido mal!',error))
+    } //con fetch
+
 
     function renderHeroList() {
         return heroTopElements.map(mapHeroAnchor);
