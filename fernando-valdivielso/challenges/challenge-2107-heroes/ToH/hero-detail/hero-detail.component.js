@@ -29,8 +29,19 @@ function HeroDetailComponent() {
 	function getHeroFromUrl() {
 		const params = new URLSearchParams(location.search);
 		const id = +params.get('heroId');
-		hero = heroService.getHeroById(id);
-		console.log(hero);
+		hero = heroService.getHeroById(id).then(resolveCorrect).catch(resolveError)
+	}
+
+	function resolveCorrect(response) {
+		hero = response;
+		updateId();
+		updateName();
+	}
+
+	function resolveError(message) {
+		document.querySelector('.hero-detail__container').style.display = 'none';
+		document.querySelector('.hero-detail__error').innerHTML = message;
+
 	}
 }
 

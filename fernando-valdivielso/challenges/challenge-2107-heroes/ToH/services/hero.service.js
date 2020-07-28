@@ -1,14 +1,17 @@
 class HeroService {
 	getHeroList() {
-		return heroList;
+		return new Promise( function (resolve, reject) {
+			const heroPromise = heroList;
+			heroPromise ? resolve(heroPromise) : reject ('Cant find hero list');
+		})
 	}
 
 	getHeroById(id) {
 		return new Promise((resolve, reject) => {
-			const response = heroList.find((hero) => hero.id === id);
+			const heroResponse = heroList.find((hero) => hero.id === id);
 			setTimeout(() => {
-				response
-					? resolve(response)
+				heroResponse
+					? resolve(heroResponse)
 					: reject('There is no hero with id: ' + id);
 			}, 2000);
 		});
