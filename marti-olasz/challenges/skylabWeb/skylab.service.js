@@ -92,7 +92,8 @@ class SkylabService {
 				return this.getSkylaberById(+text);
 			}
 		} else {
-			return new Promise((resolve) => resolve([...skylaberList]));
+			SkylaberComponentList.getList().then(list); //Agregar lista!!!
+			return new Promise((resolve) => resolve([]));
 		}
 	}
 }
