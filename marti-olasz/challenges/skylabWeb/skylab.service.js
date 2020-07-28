@@ -33,19 +33,30 @@ const skylabService = new SkylabService();*/
 ////////////////////////////////////////////////////////////////////////////
 class SkylabService {
 	static getList() {
+		return fetch('../skylab.json').then((response) => response.json());
+
+		/*
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				skylaberList ? resolve(skylaberList) : reject('No list found');
 			}, 1000);
 		});
+		*/
 	}
 	static getSkylaberById(id) {
+		return this.getList()
+			.then((response) => {
+				return response.find((index) => index.id === id);
+			})
+			.catch((error) => console.log(error));
+		/*
 		const skylabber = skylaberList.find((index) => index.id === id);
 		return new Promise((resolve, reject) => {
 			setTimeout(() => {
 				skylabber ? resolve(skylabber) : reject('No skylabber found by ID');
 			}, 1000);
 		});
+		*/
 	}
 	static getSkylaberByName(name) {
 		const skylabberList = skylaberList.filter((index) => {

@@ -61,7 +61,7 @@ class SkylaberComponentList {
 		let name = document.createTextNode(index.name);
 		item.appendChild(name);
 		item.addEventListener('click', function () {
-			updateURL(index);
+			SkylaberComponentList.updateURL(index);
 		});
 		return item;
 	}

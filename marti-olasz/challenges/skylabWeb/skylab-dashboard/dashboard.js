@@ -25,8 +25,7 @@ class Dashboard {
 		let dashboardList = null;
 		SkylabService.getList()
 			.then((response) => {
-				dashboardList = response.slice(0, 4);
-				return dashboardList;
+				return response.slice(0, 4);
 			})
 			.then((list) => this.drawDashboard(list))
 			.catch((error) => console.log(error));

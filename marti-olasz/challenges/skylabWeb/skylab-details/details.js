@@ -18,6 +18,7 @@ myDetails.update();
 ///////////////////////////////////////////////////////////////////////
 class Details {
 	static onInit() {
+		debugger;
 		const id = Details.searchIdinURL();
 		SkylabService.getSkylaberById(id)
 			.then((skylabber) => this.update(skylabber))
