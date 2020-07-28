@@ -19,7 +19,7 @@ class HeroService {
         return fetch('../hero.json')
             .then((resolve) => resolve.json())
             .then((heros) => {
-                //setTimeout(() => {
+                //setTimeout(function () {
                 const response = heros.find((hero) => hero.id === id);
                 if (!response) {
                     throw "there is no hero with id: " + id;
