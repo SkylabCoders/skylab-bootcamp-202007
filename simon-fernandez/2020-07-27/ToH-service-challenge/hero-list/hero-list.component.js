@@ -1,8 +1,11 @@
 function HeroListComponent() {
-	const heroes = heroList;
+	let heroes;
 	this.onInIt = function displayList() {
 		const tableElement = document.getElementById('heroListTable');
-		tableElement.innerHTML = renderHeroFullList(heroes);
+		heroService.getHeroList().then((response) => {
+			heroes = response;
+			tableElement.innerHTML = renderHeroFullList(heroes);
+		});
 	};
 	this.showDetails;
 	function renderHeroFullList(heroes) {

@@ -1,8 +1,11 @@
 function HeroDashboardComponent() {
-	const heroes = heroList.slice(0, 4);
+	let heroes;
 	this.onInIt = function displaydDashboard() {
 		const listElement = document.getElementById('heroDashboardList');
-		listElement.innerHTML = renderHeroList(heroes);
+		heroService.getHeroList().then((response) => {
+			heroes = response.slice(0, 4);
+			listElement.innerHTML = renderHeroList(heroes);
+		});
 	};
 	function renderHeroList(heroes) {
 		return heroes.map(renderAnchor);
