@@ -48,8 +48,12 @@ class SkylaberComponentList {
 	static drawList(list) {
 		const mother = document.querySelector('.list');
 		mother.innerHTML = null;
-		for (let i = 0; i < list.length; i++) {
-			mother.appendChild(this.drawItem(list[i]));
+		if (Array.isArray(list)) {
+			for (let i = 0; i < list.length; i++) {
+				mother.appendChild(this.drawItem(list[i]));
+			}
+		} else {
+			mother.appendChild(this.drawItem(list));
 		}
 	}
 

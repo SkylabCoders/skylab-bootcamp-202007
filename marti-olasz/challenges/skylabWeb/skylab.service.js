@@ -59,6 +59,17 @@ class SkylabService {
 		*/
 	}
 	static getSkylaberByName(name) {
+		return this.getList()
+			.then((response) => {
+				return response.filter((index) => {
+					return (
+						index.name.slice(0, name.length).toLowerCase() ===
+						name.toLowerCase()
+					);
+				});
+			})
+			.catch((error) => console.log(error));
+		/*
 		const skylabberList = skylaberList.filter((index) => {
 			return (
 				index.name.slice(0, name.length).toLowerCase() === name.toLowerCase()
@@ -71,6 +82,7 @@ class SkylabService {
 					: reject('No skylabber found by name');
 			}, 1000);
 		});
+		*/
 	}
 	static search(text) {
 		if (text !== '') {
