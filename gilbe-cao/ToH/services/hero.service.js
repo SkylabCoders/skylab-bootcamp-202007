@@ -1,8 +1,12 @@
 class HeroService {
 	getHeroList() {
+		/*
 		return new Promise((resolve) => {
 			resolve(heroList);
 		});
+		*/
+
+		return fetch('../hero-list.json');
 	}
 
 	getHeroById(id) {
