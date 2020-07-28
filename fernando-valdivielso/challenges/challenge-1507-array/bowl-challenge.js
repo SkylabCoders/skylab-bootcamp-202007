@@ -128,7 +128,7 @@ const myBowl = new Bowl();
 
 function test(element) {
     return element.length > 3;
-};
+}
 // console.log(myBowl);
 
 console.log(myBowl.copyWithin(0, 2, 4));

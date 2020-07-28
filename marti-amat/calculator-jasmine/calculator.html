@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator-jasmin</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="showBox" id="showBox">0</div>
+    <div class="row">
+      <button class="but" onclick="paint_box('1')">1</button>
+      <button class="but" onclick="paint_box('2')">2</button>
+      <button class="but" onclick="paint_box('3')">3</button>
+      <button class="op" onclick="operator_type_button('+')">+</button>
+    </div>
+    <div class="row">
+      <button class="but" onclick="paint_box('4')">4</button>
+      <button class="but" onclick="paint_box('5')">5</button>
+      <button class="but" onclick="paint_box('6')">6</button>
+      <button class="op" onclick="operator_type_button('-')">-</button>
+    </div>
+    <div class="row">
+      <button class="but" onclick="paint_box('7')">7</button>
+      <button class="but" onclick="paint_box('8')">8</button>
+      <button class="but" onclick="paint_box('9')">9</button>
+      <button class="op" onclick="operator_type_button('*')">*</button>
+    </div>
+    <div class="row">
+      <button class="but__zero" onclick="paint_box('0')">0</button>
+      <button class="op" onclick="operator_type_button('/')">/</button>
+    </div>
+
+    <script type="text/javascript" src="calculator.js"></script>
+  </body>
+</html>

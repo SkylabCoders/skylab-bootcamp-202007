@@ -1,3 +1,4 @@
+
 // As a...  student
 // I want... learn how the array methods work
 // So that... I learn and become a pro
@@ -69,6 +70,9 @@ filter(['john', 'ringo', 'paul', 'george'], function (element) {
 
 
 function find(array, func) {
+
+  let newArray = [];
+
   for (let i = 0; i < array.length; i++) {
     if (func(array[i]) === true) {
       return array[i];
@@ -106,3 +110,4 @@ function Bowl() {
 
 let myB = new Bowl();
 console.log(myB);
+

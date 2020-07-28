@@ -1,27 +1,17 @@
-describe('Tour of Heroes',function(){
-    let id = 1;
-    let name = 'test';
-    const newName = 'pruebaSet';
-    let pepito;
-    
-    beforeEach(function(){
-        pepito = new Heroes();
+describe('hero-detail',function(){
+    let hero;
+    let heroDetailComponent;
+    beforeAll(function(){
+        hero = new Hero();
+        heroDetailComponent = new HeroDetailComponent();
+    });
+
+    it('should create new hero',function(){
+        expect(hero).toBeTruthy();
     })
 
-    it('Should create a new hero',function(){
-        expect(pepito).toBeTruthy();
+    it('should create new hero detail component',function(){
+        expect(heroDetailComponent).toBeTruthy();
     })
 
-    it('Should be able to get a name',function(){
-        expect(pepito.getName()).toEqual(name);
-    })
-
-    it('Should be able to set a name',function(){
-        pepito.setName(newName);
-        expect(pepito.getName()).toEqual(newName);
-    })
-
-    it('Should be able to get an id',function(){
-        expect(pepito.getId()).toEqual(id);
-    })
-});
+})

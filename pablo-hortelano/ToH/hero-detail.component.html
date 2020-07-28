@@ -1,0 +1,28 @@
+git c<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hero details</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Tour of Heroes</h1>
+        <button>Dashboard</button>
+        <button>Heroes</button>
+        <h2><span>Magneta</span>details</h2>
+        <p>id <span id="hero-detail__id"></span></p>
+        <label for="heroName">
+            name:
+            <input 
+            type="text" 
+            value="Magneta" 
+            name="heroName" 
+            onChange="heroDetailComponent.nameChange(this.value)">
+        </label>
+        <script src="hero.js" async defer></script>
+        <script src="hero.mock.js"></script>
+        <script src="hero-detail.component.js" async defer></script>
+    </body>
+</html>
