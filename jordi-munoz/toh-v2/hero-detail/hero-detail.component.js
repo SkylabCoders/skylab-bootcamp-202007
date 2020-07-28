@@ -37,9 +37,7 @@ function HeroDetailComponent() {
 	function handleError(message) {
 		document.getElementById('hero-detail__container').style.display = 'none';
 		document.getElementById('hero-detail__error').innerHTML = message;
-
 	}
-
 }
 
 const heroDetailComponent = new HeroDetailComponent();
