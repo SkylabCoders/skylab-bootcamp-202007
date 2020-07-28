@@ -1,6 +1,6 @@
 function suma(sum1) {     
-    // let sum1 = 0;
-    for (num in arguments) {
+    let sum1 = 0;
+    for (let num in arguments) {
         sum1 += arguments[num];     
     }
     console.log(sum1)
@@ -9,7 +9,7 @@ function suma(sum1) {
 
 function resta() {
     let resta1 = 0;
-    for (num in arguments) {
+    for (let num in arguments) {
         resta1 -= arguments[num];
     }
     console.log(resta1);
@@ -18,7 +18,7 @@ function resta() {
 
 function producto() {
     let prod1 = 1;
-    for (num in arguments) {
+    for (let num in arguments) {
         prod1 *= arguments[num];
     }
     console.log(prod1)
@@ -37,7 +37,7 @@ function division() {
 
     
 function calculator() {
-    suma(startAgain);
+    suma();
     resta();
     producto();
     division();
@@ -45,27 +45,27 @@ function calculator() {
 }
 
 
-function newNumbers(){
-    let startAgain;
-    let newNumbers = confirm('New numbers?');
-    if (newNumbers) {
-        startAgain = parseInt(prompt('Introduce los números que quieras (separados por comas)'));
-    } else {
-        return;    
-    }
-    startAgain = startAgain.split(',');
-    console.log(startAgain);
+// function newNumbers(){
+//     let startAgain;
+//     const newNumbers = confirm('New numbers?');
+//     if (newNumbers) {
+//         startAgain = parseInt(prompt('Introduce los números que quieras (separados por comas)'));
+//     } else {
+//         return;    
+//     }
+//     startAgain = startAgain.split(',');
+//     console.log(startAgain);
     
 
-    function suma(startAgain) {
-        let sum1 = 0;
-        for (num in arguments) {
-                sum1 += arguments[num];     
-        }
-        console.log(sum1);
-    }
-}   
+//     function sum() {
+//         let sum1 = 0;
+//         for (let num in arguments) {
+//                 sum1 += arguments[num];     
+//         }
+//         console.log(sum1);
+//     }
+// }   
 
-// calculator(10, 5, 2);
+calculator(10, 5, 2);
 
 

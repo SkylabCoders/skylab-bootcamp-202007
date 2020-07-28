@@ -31,15 +31,9 @@ function SkylaberDetailComponent() {
 		return skylaberList.find(compareIdv2);
 	}
 
-	/*
-	function compareId(skylaber){
-		console.log(skylaber);
-		const params = new URLSearchParams(location.search);
-		return skylaber.id === +params.get('skylaberId');
-	}*/
-
 	function compareIdv2(skylaber){
-		const parametro = location.search.split('=');		 
+		const parametro = location.search.split('=');
+		console.log(parametro)		 
 		 return +parametro[1] === skylaber.id;		
 	}
 

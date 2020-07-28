@@ -10,10 +10,11 @@
 
 <body>
 	<main class="main__container">
-		<h1>Tour of Heroes</h1>
+		<h1>Skylabers Tour</h1>
 		<a href="../skylaber-dashboard/skylaber-dashboard.component.html">Dashboard</a>
 		<a href="../skylaber-list/skylaber-list.component.html">Skylabers</a>
-		<h2>The Skylabers</h2>
+		<h2>Top Skylabers</h2>
+		<label>Search:<input type="text" id="search__input-control" placeholder="Any skylaber property..." onkeyup="skylaberListComponent.filterByProperty(this.value)"></label>
 		<ul id="skylaber__list">
 		</ul>
 		<script src="../skylaber.js"></script>

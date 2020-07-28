@@ -4,13 +4,12 @@ function showNumbers(num) {
 
 
 var operator = document.getElementsByClassName('operator');
-for (var i = 0; i < operator.length; i++) {
+for (let i = 0; i < operator.length; i++) {
     operator[i].addEventListener('click', function () {
-        var output = document.getElementById("result").innerHTML;
+        let output = document.getElementById("result").innerHTML;
         if (this.id == 'ac') {
             showNumbers('');
         } else if (this.id == 'delete') {
-            var output = document.getElementById("result").innerHTML;
             output= output.substr(0, output.length - 1);
             showNumbers(output);
         } else {
@@ -28,7 +27,7 @@ for (var i = 0; i < operator.length; i++) {
 
 
 var number = document.getElementsByClassName('number');
-for (var i = 0; i < number.length; i++) {
+for (let i = 0; i < number.length; i++) {
     number[i].addEventListener('click', function () {
         var output = document.getElementById("result").innerHTML;
         output = output + this.id;

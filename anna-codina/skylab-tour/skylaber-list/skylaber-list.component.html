@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Skylabers List</title>
+	<link rel="stylesheet" href="skylaber-list.component.css" />
+</head>
+
+<body>
+	<h1>Tour of Skylaber</h1>
+	<nav>
+		<a href="../skylaber-dashboard/skylaber-dashboard.component.html">Dashboard</a>
+		<a href="./skylaber-list.component.html">Skylaber</a>
+	</nav>
+	<form>
+		<label for="skylaber__filter">
+			search: </label>
+		<input id="skylaber-detail__name-control" type="text" name="skylaber__filter"
+			placeholder="Search by any criteria..." onkeyup="skylaberListComponent.inputFilter(this.value, event)" />
+	</form>
+	<h2>My Skylaber</h2>
+	<ul class="skylaber-list">
+	</ul>
+	<script src="../skylaber.js"></script>
+	<script src="../skylaber.mock.js"></script>
+	<script src="skylaber-list.component.js"></script>
+</body>
+
+</html>

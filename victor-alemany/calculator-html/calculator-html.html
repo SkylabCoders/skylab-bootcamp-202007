@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <head>
+    <head lang="en">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="index.css" />
         <title>Calculator</title>
@@ -8,37 +8,39 @@
         <h1 class="title">Bienvenido a la calculadora</h1>
         
         <div class="container">
-            <table>
+            <table id="table">
+                <caption></caption>
+                <th id="header__table"></th>
                 <tr>
-                    <td colspan="4" id="result" class="result">0</td>
+                    <td colspan="4" id="result">0</td>
                 </tr>
                 <tr>
-                    <td><button id="reset" class="extraButtons">CE</button></td>
-                    <td><button id="deleteLast" class="extraButtons">C</button></td>
-                    <td><button id="divisor" class="operators">/</button></td>
-                    <td><button id="multiplication" class="operators">x</button></td>
+                    <td><button class="resetButton extraButtons" id="reset">CE</button></td>
+                    <td><button class="extraButtons" id="deleteLast">C</button></td>
+                    <td><button class="operators" id="divisor">/</button></td>
+                    <td><button class="operators" id="multiplication">x</button></td>
                 </tr>
                 <tr>
-                    <td><button id="num7" class="numbers">7</button></td>
-                    <td><button id="num8" class="numbers">8</button></td>
-                    <td><button id="num9" class="numbers">9</button></td>
-                    <td><button id="rest" class="operators">-</button></td>
+                    <td><button class="number" id="num7">7</button></td>
+                    <td><button class="number" id="num8">8</button></td>
+                    <td><button class="number" id="num9">9</button></td>
+                    <td><button class="operators" id="rest">-</button></td>
                 </tr>
                 <tr>
-                    <td><button id="num4" class="numbers">4</button></td>
-                    <td><button id="num5" class="numbers">5</button></td>
-                    <td><button id="num6" class="numbers">6</button></td>
-                    <td><button id="sumatory" class="operators">+</button></td>
+                    <td><button class="number" id="num4">4</button></td>
+                    <td><button class="number" id="num5">5</button></td>
+                    <td><button class="number" id="num6">6</button></td>
+                    <td><button class="operators" id="sumatory">+</button></td>
                 </tr>
                 <tr>
-                    <td><button id="num1" class="numbers">1</button></td>
-                    <td><button id="num2" class="numbers">2</button></td>
-                    <td><button id="num3" class="numbers">3</button></td>
+                    <td><button class="number" id="num1">1</button></td>
+                    <td><button class="number" id="num2">2</button></td>
+                    <td><button class="number" id="num3">3</button></td>
                     <td rowspan="2"><button id="equal" class="extraButtons">=</button></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><button id="num0" class="numbers">0</button></td>
-                    <td><button id="comma" class="extraButtons">,</button></td>
+                    <td colspan="2"><button class="number num0" id="num0" value="0">0</button></td>
+                    <td><button id="comma" class="extraButtons" id="comma">,</button></td>
                     
                 </tr>
             </table>

@@ -139,8 +139,7 @@ blockquote{
     border-right: 60px solid transparent;
     border-left: 60px solid transparent;
     border-bottom: 90px solid var(--cBorderGray);
-    margin-bottom: 1rem;
-    margin: auto;
+    margin: 0 auto 1rem auto;
 }
 .inner_triangle {
     position: relative;

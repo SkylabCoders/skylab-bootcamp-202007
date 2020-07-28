@@ -2,16 +2,17 @@ function SkylaberListComponent(){
     const allSkylaber = skylaberList;
     const skylaberListContainer = document.getElementById('skylaber__list');
 
-    this.onInit = function (){
-        renderHeroList().forEach((element) =>{
+    this.onInit = function (list = allSkylaber){
+        document.getElementById('skylaber__list').innerHTML = '';
+        renderHeroList(list).forEach((element) =>{
             if(skylaberListContainer){
                 skylaberListContainer.appendChild(element);
             }
         })
     }
 
-    function renderHeroList (){
-        return allSkylaber.map(mapRenderAnchor);
+    function renderHeroList (list){
+        return list.map(mapRenderAnchor);
     }
 
     function mapRenderAnchor(skylaber){
@@ -26,6 +27,21 @@ function SkylaberListComponent(){
     function getSkylaberLink(id){
         return `../skylaber-detail/skylaber-detail.component.html?skylaberId=${id}`;
     }
+
+    this.filterByProperty = function(searchValue){
+        let lengthSearch = searchValue.length;
+
+        let acc = function(acumulator,element){
+            if(searchValue === element.name.split('').slice(0,lengthSearch).join('') || searchValue === element.address.city.split('').slice(0,lengthSearch).join('') || searchValue === element.address.country.split('').slice(0,lengthSearch).join('')){
+                acumulator = [...acumulator,element];
+            }
+            return acumulator;
+        }
+        result = allSkylaber.reduce(acc,[]);
+
+        return this.onInit(result);
+    }
+       
 }
 
 const skylaberListComponent = new SkylaberListComponent();

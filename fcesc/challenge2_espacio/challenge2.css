@@ -80,7 +80,7 @@ body{
   #main_container_grid{
     display: grid;
     position: relative;
-    width: 95wh;
+    width: 95vw;
     margin: auto;
     grid-template-columns: 1;
     justify-items: stretch;
@@ -121,9 +121,6 @@ body{
   justify-content: space-between;
   padding-top: 0;
 }
-article{
-  background: #2a2a2a;
-}
 footer{
   text-align: center;
 }
@@ -150,6 +147,7 @@ button:hover {
 }
 article{
   padding: 0.5rem;
+  background: #2a2a2a;
 }
 blockquote{
   text-align: center;

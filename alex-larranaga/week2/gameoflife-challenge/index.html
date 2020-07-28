@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game of Life</title>
+    <link rel="stylesheet" href=" styles.css" , type="text/css">
 </head>
+
 <body>
-    <main class="contai">
-        <h1>CONWAY'S GAME OF LIFE</h1>
-        <button onclick="life.play()">Play</button>
-        <table class="life_table"></table>
-    </main>
-    <script>
-        const life = new Life();
-    </script>
-    <script src="../gameoflife-challenge/jasmine/src/life.js"></script>
+    <header>
+        <div class="header__flex-container">
+            <div class="header__flex-container__counter">
+
+            </div>
+            <div class="header__flex-container__title">
+                GAME OF LIFE
+            </div>
+            <div class="header__flex-container__buttons">
+                <input id="createButton" type="submit">DRAW</input>
+                <button onclick="doMagic(playerArray, emptyArray)" class="header__flex-container__buttons__button"
+                    type="button">START</button>
+
+    </header>
+
+    <section class="section_game">
+        <div id="container"></div>
+    </section>
+
 </body>
+<script src="main.js"></script>
+<!-- <script src="canvas.js"></script> -->
+
 </html>
