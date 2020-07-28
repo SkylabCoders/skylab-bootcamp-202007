@@ -30,8 +30,14 @@ function HeroDetailComponent() {
 		// debugger;
 		param = (new URLSearchParams(location.search));
 		heroId = +param.get('heroid');
-		hero = heroService.getHeroById(heroId); //????????
-	}
+		heroService.getHeroById(heroId).then((response) => {
+			hero = response;
+			updateId();
+			updateName();
+		}).catch(handleError)
+			
+	};
+}
 		
 		 
 
