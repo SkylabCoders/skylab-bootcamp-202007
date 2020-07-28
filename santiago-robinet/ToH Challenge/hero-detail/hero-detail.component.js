@@ -2,7 +2,7 @@ function HeroDetailComponent() {
 	let hero;
 
 	this.onInit = function () {
-		debugger;
+
 		document.querySelector('.hero__detail--container').style.display = 'none';
 		const id = getHeroFromUrl();
 		heroService.getHeroById(id).then(handleFulfilled).catch(handleError);
@@ -26,6 +26,7 @@ function HeroDetailComponent() {
 		
 		const params = new URLSearchParams(location.search);
 		const id = +params.get('heroId');
+		return id;
 	}
 
 	function handleFulfilled(response){
