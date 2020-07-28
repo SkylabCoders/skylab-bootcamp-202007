@@ -35,7 +35,6 @@ function ListComponent() {
         transformedElement.appendChild(idElement);
         transformedElement.appendChild(nameElement);
         listElement.appendChild(transformedElement);
-        console.log(listElement);
         elementsToHtml.push(listElement);
     }
 

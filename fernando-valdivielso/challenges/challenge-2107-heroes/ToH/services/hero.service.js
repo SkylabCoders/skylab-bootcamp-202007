@@ -6,6 +6,7 @@ class HeroService {
 		// })
 
 		return fetch('../hero-list.json').then((response) => {
+			console.log(response)
 			return response.json();
 		});
 		
