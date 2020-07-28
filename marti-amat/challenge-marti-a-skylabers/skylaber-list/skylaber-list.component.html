@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="skylaber-list.component.css">
-</head>
-<body >
+    <link rel="stylesheet" href="skylaber-list.component.css" />
+  </head>
+  <body>
     <h3 class="title">Tour of Skylabers</h3>
-    <a href="../skylaber-dashboard/skylaber-dashboard.component.html" class="button">Dashboard</a>
+    <a
+      href="../skylaber-dashboard/skylaber-dashboard.component.html"
+      class="button"
+      >Dashboard</a
+    >
     <a href="./skylaber-list.component.html" class="button">Skylabers</a>
     <h1 class="title">My Skylabers</h1>
+    <div class="input">
+      <div class="imput__name">Search</div>
+      <input
+        type="text"
+        class="input__value"
+        id="input__value"
+        onkeyup="skylaberListComponent.search_skylabers()"
+      />
+    </div>
     <div id="list"></div>
-    
+
     <h2 class="result"></h2>
-    <a href="../skylaber-detail/hero-detail.component.html"  class="button">View Details</a>
+    <a href="../skylaber-detail/hero-detail.component.html" class="button"
+      >View Details</a
+    >
     <script src="../skylaber.mock.js"></script>
     <script src="../Skylaber.js"></script>
     <script src="skylaber-list.component.js"></script>
-</body>
+  </body>
 </html>

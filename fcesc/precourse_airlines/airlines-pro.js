@@ -166,7 +166,7 @@ function validaNouVol(input){
             return validaNouVol(requereixNouVol());            
         } else {
             let escala;
-            detall[3] === 'false' ? escala = false : detall[3] === 'true' ? escala = true : escala = escala;
+            detall[3] === 'false' ? escala = false : detall[3] === 'true' ? escala = true : console.log('') ;
             let max = 0;
             for (let el of vols){
                 if (Number(el.id) > max) {max = Number(el.id);}

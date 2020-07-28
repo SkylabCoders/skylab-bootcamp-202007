@@ -21,11 +21,9 @@ function HeroDetailComponent() {
 		document.getElementById('hero-detail__name-control').value = myHero.name;
 	}
 	function getHeroFromUrl() {
-		myHero = heroList.find(compareId);
-	}
-	function compareId(hero) {
 		const params = new URLSearchParams(location.search);
-		return hero.id === +params.get('id');
+		const id = +params.get('id');
+		myHero = heroService.getHeroById(id);
 	}
 }
 

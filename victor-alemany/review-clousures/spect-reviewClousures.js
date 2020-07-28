@@ -2,17 +2,16 @@ describe('Pet',function(){
     let pet;
     let name; 
     let myPet;
-    let genre;
     let newGenre;
+    let newName;
+    let newLegs;
 
     beforeEach(function(){
         pet = new Pet();
         name = 'Kira';
         newName= 'Lola'
         myPet = {name: 'Kira'};
-        genre = 'male';
         newGenre = 'female';
-        legs = 4;
         newLegs = 4;
     });
 
