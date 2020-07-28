@@ -7,6 +7,7 @@ function HeroDetailComponent() {
 	);
 
 	this.onInit = function () {
+		debugger;
 		document.getElementById('hero-detail__container').style.display = 'none';
 		const id = getHeroIdFromUrl();
 		heroService.getHeroById(id).then(handleFulfilled).catch(handleError);
