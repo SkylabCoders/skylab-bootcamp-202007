@@ -1,5 +1,4 @@
 function HeroDetailComponent() {
-	const listOfHeroes = [...heroList];
 	let hero;
 	this.onInit = function () {
 		document.getElementById('hero-detail__container').style.display = 'none';

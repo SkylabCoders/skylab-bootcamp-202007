@@ -1,16 +1,22 @@
 function HeroDashBoardComponent() {
-	const slicedHeroList = heroList.slice(0, 4);
+	//const slicedHeroList = heroService.getHeroList().then()
 	const heroDashContainer = document.getElementById('container');
-	const linkElement = '../hero-detail/hero-detail.component.html';
 
 	this.onInit = function () {
-		renderHeroList().forEach((element) => {
-			if (heroDashContainer) heroDashContainer.appendChild(element);
-		});
+		heroService.getHeroList().then(promoteHeroes).catch(handleError);
 	};
 
-	function renderHeroList() {
-		return slicedHeroList.map(mapHeroToAnchor);
+	function handleError(message) {
+		alert(message);
+	}
+	function promoteHeroes(heroList) {
+		let promotedHeroesList = heroList.slice(0, 4);
+		renderHeroList(promotedHeroesList).forEach((element) => {
+			if (heroDashContainer) heroDashContainer.appendChild(element);
+		});
+	}
+	function renderHeroList(heroList) {
+		return heroList.map(mapHeroToAnchor);
 	}
 	function mapHeroToAnchor(hero) {
 		const element = document.createElement('a');

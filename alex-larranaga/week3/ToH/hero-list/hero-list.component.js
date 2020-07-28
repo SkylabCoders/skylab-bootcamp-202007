@@ -1,23 +1,30 @@
 function HeroListComponent() {
-	const heroes = heroList;
 	const listElement = document.getElementById('list');
-
 	this.onInit = function () {
-		createList();
+		//let localHeroList =
+		heroService.getHeroList().then(handleFulfill).catch(handleError);
+		//createList(localHeroList);
 	};
-
-	const createList = function () {
-		for (let i = 0; i < heroes.length; i++) {
+	const createList = function (heroesList) {
+		for (let i = 0; i < heroesList.length; i++) {
 			let listNodesElement = document.createElement('a');
 			listElement.appendChild(listNodesElement);
-			listNodesElement.innerHTML = heroes[i].id + '   ' + heroes[i].name;
-
+			listNodesElement.innerHTML =
+				heroesList[i].id + '   ' + heroesList[i].name;
 			listNodesElement.setAttribute(
 				'href',
-				`../hero-detail/hero-detail.component.html?heroId=${heroes[i].id}&heroName=${heroes[i].name}`
+				`../hero-detail/hero-detail.component.html?heroId=${heroesList[i].id}&heroName=${heroesList[i].name}`
 			);
 			listNodesElement.setAttribute('class', 'list__element');
 		}
+	};
+
+	const handleFulfill = function (localHeroList) {
+		createList(localHeroList);
+	};
+
+	const handleError = function (message) {
+		alert(message);
 	};
 }
 
