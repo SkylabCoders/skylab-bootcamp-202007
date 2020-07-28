@@ -9,7 +9,7 @@
 <body>
     <h1 class="title">Tour of Heroes</h1>
     <div class="buttons">
-    <a href="../hero-dashboard/hero-dashboard.component.html"class="butStart">Dashboard</a>
+    <a href="../hero-dashboard/hero-dashboard.component.html?id/text"class="butStart">Dashboard</a>
     <a href="../hero-list/hero-list.component.html"class="butStart">Heroes</a>
     </div>
     <h3 class="details" id="details"></h3>
@@ -19,8 +19,9 @@
         <input type="text" id="edit_box" class="edit__box">
     </div>
     <button class="edit-button" id="button" onclick="take_input_text()">OK</button>
-    <script src="./hero-detail.component.js"></script>
     <script src="../Hero.js"></script>
-    <script src="../hero-mock.js"></script>
+    <script src="../hero.mock.js"></script>
+    <script src="hero-detail.component.js"></script>
+    
 </body>
 </html>

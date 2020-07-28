@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard</title>
+		<link rel="stylesheet" href="hero-dashboard.component.css" />
+
+		<link
+		rel="shortcut icon"
+		type="image/png"
+		href="../../../../../../lib/jasmine-3.5.0/jasmine_favicon.png"
+	  />
+	  	<link rel="stylesheet" href="../../../../../../lib/jasmine-3.5.0/jasmine.css" />
+  
+
+
+	</head>
+	<body>
+		<h1>Tour of Heroes</h1>
+		<a href="./hero-dashboard.component.html">Dashboard</a>
+		<a href="../hero-list/hero-list.component.html">Heroes</a>
+		<h2>Top Heroes</h2>
+        <section>
+            <a id="hero__dashboard-1" href="../hero-detail/hero-detail.component.html"></a>
+            <div id="hero__dashboard-2"></div>
+            <div id="hero__dashboard-3"></div>
+            <div id="hero__dashboard-4"></div>
+        </section>
+
+		<script src="../../../../../../lib/jasmine-3.5.0/jasmine.js"></script>
+		<script src="../../../../../../lib/jasmine-3.5.0/jasmine-html.js"></script>
+		<script src="../../../../../../lib/jasmine-3.5.0/boot.js"></script>
+
+
+		<script src="../hero.js"></script>
+		<script src="../hero.mock.js"></script>
+		<script src="hero-dashboard.component.js"></script>
+		<!-- include spec files here... -->
+		<script src="hero-dashboard.component.spec.js"></script>
+	</body>
+</html>

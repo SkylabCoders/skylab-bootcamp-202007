@@ -79,21 +79,11 @@ footer > p{
     color: var(--cTxtButtonsHighlighted);
     font-weight: bolder;
 }
-#el_super_calc{
-    background-color: var(--cBgCalc);
-    color: var(--cTxtScreen);
-    font-weight: bold;
-}
-#el_super_calc:hover{
-    background-color: var(--cBgCalcHighlighted);
-}
 #el_screen_calc{
     background-color: var(--cBgScreen);
     color: var(--cTxtScreen);
     font-weight: bold;
     line-height: 3rem;
-}
-#el_screen_calc {
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row: 1;
@@ -171,6 +161,13 @@ footer > p{
 #el_super_calc {
     grid-column: 4;
     grid-row: 6;
+    background-color: var(--cBgCalc);
+    color: var(--cTxtScreen);
+    font-weight: bold;
+
+}
+#el_super_calc:hover{
+    background-color: var(--cBgCalcHighlighted);
 }
 #el_super_c {
     grid-column: 1;

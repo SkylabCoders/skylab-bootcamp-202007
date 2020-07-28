@@ -1,7 +1,6 @@
 function HeroDashBoardComponent() {
 	const slicedHeroList = heroList.slice(0, 4);
 	const heroDashContainer = document.getElementById('container');
-	const linkElement = '../hero-detail/hero-detail.component.html';
 
 	this.onInit = function () {
 		renderHeroList().forEach((element) => {

@@ -43,36 +43,27 @@ function fnUpAndDown(){
 
 let operator = fnUpAndDown();
 
+let test = [0,1,3,10,1,2,4,11,12,32,-2,98,-34];
 
-operator.increment(0);
-operator.increment(1);
-operator.increment(3);
-operator.increment(10);
-operator.decrement(1);
-operator.decrement(2);
-operator.decrement(4);
-operator.decrement(11);
-operator.square(12);
-operator.square(32);
-operator.changeSign(-2);
-operator.changeSign(98);
-operator.abstract(2, operator.increment);
-operator.abstract(2, operator.decrement);
-operator.abstract(5, operator.increment);
-operator.abstract(5, operator.decrement);
-operator.abstract(10, operator.increment);
-operator.abstract(10, operator.decrement);
-operator.abstract(1, operator.square);
-operator.abstract(1, operator.changeSign);
+for (let el of test){
+    console.log('operator + ', operator.increment(el));
+    console.log('operator - ', operator.decrement(el));
+    console.log('operator ^2 ', operator.square(el));
+    console.log('operator +/- ', operator.changeSign(el));
+    console.log('abstract + ', operator.abstract(el, operator.increment));
+    console.log('abstract - ', operator.abstract(el, operator.decrement));
+    console.log('abstract ^2 ', operator.abstract(el, operator.square));
+    console.log('abstract +/- ', operator.abstract(el, operator.changeSign));
+}
 
 
 
-let a = [];
+let a = Array.from(0);
 for (let i = 0; i < 1000000; i++){
   a.push(Math.random()*100);
 }
 
 let b = [1, 2, 3, 4, 5, 6];
 
-const reductor = (a, b) => a + b;
-console.log(a.reduce(reductor));
+const reductor = (c, d) => c + d;
+console.log(b.reduce(reductor));
