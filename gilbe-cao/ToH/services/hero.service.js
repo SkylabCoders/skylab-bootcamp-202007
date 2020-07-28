@@ -9,14 +9,14 @@ class HeroService {
 		return fetch('../hero-list.json')
 			.then((response) => response.json())
 			.then((heroes) => {
-				const hero = heroList.find((hero) => hero.id === id);
+				const hero = heroes.find((hero) => hero.id === id);
 				if (!hero) throw 'There is no hero with id: ' + id;
 				return hero;
 			});
 	}
 
 	getHeroByName(name) {
-		return heroList.find((hero) => hero.name === name);
+		// return heroList.find((hero) => hero.name === name);
 	}
 }
 
