@@ -230,9 +230,9 @@ const boards_results = {
     }
 }
 
-let boards_c = new boards();
-let boards_results_c = new boards_results();
-console.log(boards_c, boards_results_c);
+// let boards_c = new boards();
+// let boards_results_c = new boards_results();
+// console.log(boards_c, boards_results_c);
 
 describe('Testing Conway Game of Life', ()=>{
     let game;

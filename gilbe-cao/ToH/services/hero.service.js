@@ -4,7 +4,14 @@ class HeroService {
 	}
 
 	getHeroById(id) {
-		return heroList.find((hero) => hero.id === id);
+		return new Promise((resolve, reject) => {
+			const response = heroList.find((hero) => hero.id === id);
+			setTimeout(() => {
+				response
+					? resolve(response)
+					: reject('There is no hero with id: ' + id);
+			}, 2000);
+		});
 	}
 
 	getHeroByName(name) {

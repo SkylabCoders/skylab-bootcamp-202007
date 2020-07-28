@@ -2,7 +2,7 @@ function HeroDetailComponent() {
 	let hero;
 
 	this.onInit = function () {
-		hero = getHeroFromUrl();
+		getHeroFromUrl();
 		updateId();
 		updateName();
 	};
@@ -22,13 +22,12 @@ function HeroDetailComponent() {
 	}
 
 	function getHeroFromUrl(){
-		return heroList.find(compareId);
+		
+		const params = new URLSearchParams(location.search);
+		const id = +params.get('heroId');
+		hero = heroService.getHeroById(id)
 	}
 
-	function compareId(hero){
-		let params = location.search.split('=');		
-		return hero.id === +params[1];
-	}
 }
 
 const heroDetailComponent = new HeroDetailComponent();
