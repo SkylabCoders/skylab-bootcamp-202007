@@ -11,6 +11,7 @@ function HeroDetailComponent() {
 	};
 
 	function handleFulfilled(response) {
+		console.log(response);
 		toddleLoading();
 		hero = response;
 		document.getElementById("hero-detail__container").style.display = "block";

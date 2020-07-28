@@ -1,5 +1,4 @@
 function HeroListComponent() {
-    heroesList = heroList;
     inputFilter = document.getElementById("hero-detail__name-control");
     let listContainer = document.getElementById("hero-list__container")
     listContainer.style.display = "block";
@@ -7,7 +6,6 @@ function HeroListComponent() {
 
     //OnInit it's called on loaded page
     this.onInit = function () {
-        debugger
         /*         document.getElementById("hero-list__container").style.display = "none";
         heroService
         .getHeroList()

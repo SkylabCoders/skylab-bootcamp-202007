@@ -1,9 +1,11 @@
 class HeroService {
 
     getHeroList() {
-        return fetch("../hero.json").then((response) => {
+        return fetch('../hero.json').then((response) => {
             return response.json();
+
         })
+            .catch((error) => console.log("Error", error))
 
         /* return new Promise((resolve) => {
             resolve(heroesList);
@@ -13,12 +15,13 @@ class HeroService {
     getHeroById(id) {
         return fetch("../hero.json")
             .then((response) => response.json())
-            .then((hero) => {
-                heroList.find((hero) => hero.id === id);
-
-                setTimeout(() => {
-                    response ? resolve(response) : reject("There is no hero with id: " + id);
-                }, 2000);
+            .then((response) => {
+                let result = response.find((hero) => hero.id === id);
+                // setTimeout(() => {
+                //     console.log('aqui', result);
+                return result
+                // }
+                //     , 1000);
             })
         //return heroList.find((hero) => hero.id === id);
     };
