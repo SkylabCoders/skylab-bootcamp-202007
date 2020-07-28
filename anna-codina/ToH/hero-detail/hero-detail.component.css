@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .flex-row {
@@ -20,7 +21,6 @@
 
 h1 {
     color: grey;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     margin-bottom: 0;
 }
@@ -74,17 +74,6 @@ nav a,
     border-radius: 4px;
 }
 
-    {
-    margin-top: 20px;
-    font-family: Arial;
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    height: 25px;
-    width: fit-content;
-}
 
 nav a:visited,
 a:link {
@@ -98,9 +87,4 @@ nav a:hover {
 
 nav a.active {
     color: #039be5;
-}
-
-/* everywhere else */
-* {
-    font-family: Arial, Helvetica, sans-serif;
 }
