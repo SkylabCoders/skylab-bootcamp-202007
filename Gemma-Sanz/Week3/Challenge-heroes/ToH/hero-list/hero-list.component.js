@@ -1,10 +1,20 @@
 function HeroListComponent() {
+    let heroesPromoted;
     heroesList = heroList;
     inputFilter = document.getElementById("hero-detail__name-control");
     //OnInit it's called on loaded page
     this.onInit = function () {
+        document.getElementById("hero-list__container").style.display = "none";
+        heroService.getHeroList().then(handleFulfilled);
+    }
+
+    function handleFulfilled(response) {
+        console.log(response);
+        heroesList = response;
+        document.getElementById("hero-list__container").style.display = "block";
         createButtonsList();
     }
+
     //Create buttons
     let mainContainerList = document.querySelector("#mainContainer--list");
     let createButtonsList = function () {

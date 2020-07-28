@@ -5,11 +5,33 @@ function HeroDetailComponent() {
 	const nameControlElement = document.getElementById('hero-detail__name-control');
 
 	this.onInit = function () {
-		getHeroFromUrl();
+		document.getElementById("hero-detail__container").style.display = "none";
+		const id = getHeroFromUrl();
+		heroService.getHeroById(id).then(handleFulfilled).catch(handleError);
+	};
+
+	function handleFulfilled(response) {
+		toddleLoading();
+		hero = response;
+		document.getElementById("hero-detail__container").style.display = "block";
 		updateId();
 		updateName();
 	};
 
+	function handleError(message) {
+		toddleLoading();
+		document.getElementById("hero-detail__container").style.display = "none";
+		document.getElementById("hero-detail__error").innerHTML = message;
+	}
+
+	function toddleLoading() {
+		let loadingElement = document.getElementById("hero-detail__loading");
+		if (loadingElement.style.display === "block") {
+			loadingElement.style.display = "none";
+		} else {
+			loadingElement.style.display = "block";
+		}
+	}
 	this.nameChange = function (newName) {
 		hero.name = newName;
 		updateName();
@@ -25,11 +47,10 @@ function HeroDetailComponent() {
 	}
 
 	function getHeroFromUrl() {
-		debugger
 		const params = new URLSearchParams(location.search);
-		const id = +params.get("heroId");
-		hero = heroService.getHeroById(id);
-	}
+		return +params.get("heroId");
+		//		setTimeout(() => console.log(hero), 3000);
+	};
 }
 
 const heroDetailComponent = new HeroDetailComponent();

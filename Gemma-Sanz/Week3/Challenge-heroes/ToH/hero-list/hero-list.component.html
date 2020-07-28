@@ -10,19 +10,23 @@
 
 <body>
 	<section>
-		<h1>Tour of Heroes</h1>
-		<button><a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a></button>
-		<button><a href="./hero-list.component.html">Heroes</a></button>
-		<h2>My heroes</h2>
-		<button><a href="../hero-dashboard/hero-dashboard.component.html">Back</a></button>
-		<input id="hero-detail__name-control" type="text" name="heroName" placeholder="Search item wanted"
-			onkeyup="listComponent.searchInput()" />
+		<div id="hero-list__container">
+			<h1>Tour of Heroes</h1>
+			<button><a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a></button>
+			<button><a href="./hero-list.component.html">Heroes</a></button>
+			<h2>My heroes</h2>
+			<button><a href="../hero-dashboard/hero-dashboard.component.html">Back</a></button>
+			<input id="hero-detail__name-control" type="text" name="heroName" placeholder="Search item wanted"
+				onkeyup="listComponent.searchInput()" />
 
-		<div id="mainContainer--list"></div>
+			<div id="mainContainer--list"></div>
 
-		<script src="../hero.js"></script>
-		<script src="../hero.mock.js"></script>
-		<script src="hero-list.component.js"></script>
+			<script src="../hero.js"></script>
+			<script src="../hero.mock.js"></script>
+			<script src="../service/hero.service.js"></script>
+			<script src="hero-list.component.js"></script>
+		</div>
+		<p id="hero-list__error"></p>
 	</section>
 
 </body>
