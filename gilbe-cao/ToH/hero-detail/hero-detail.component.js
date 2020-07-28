@@ -30,6 +30,7 @@ function HeroDetailComponent() {
 		const params = new URLSearchParams(location.search);
 		const id = +params.get('heroId');
 		hero = heroService.getHeroById(id);
+		console.log(hero);
 	}
 }
 
