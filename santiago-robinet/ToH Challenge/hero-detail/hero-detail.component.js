@@ -2,9 +2,10 @@ function HeroDetailComponent() {
 	let hero;
 
 	this.onInit = function () {
-		getHeroFromUrl();
-		updateId();
-		updateName();
+		debugger;
+		document.querySelector('.hero__detail--container').style.display = 'none';
+		const id = getHeroFromUrl();
+		heroService.getHeroById(id).then(handleFulfilled).catch(handleError);
 	};
 
 	this.nameChange = function (newName) {
@@ -25,7 +26,18 @@ function HeroDetailComponent() {
 		
 		const params = new URLSearchParams(location.search);
 		const id = +params.get('heroId');
-		hero = heroService.getHeroById(id)
+	}
+
+	function handleFulfilled(response){
+		hero = response;
+		document.querySelector('.hero__detail--container').style.display = 'block';
+		updateId();
+		updateName();
+	}
+
+	function handleError(message){
+		document.querySelector('.hero__detail--container').style.display = 'none';
+		document.querySelector('.hero__detail--error').innerHTML = message;
 	}
 
 }
@@ -34,3 +46,4 @@ const heroDetailComponent = new HeroDetailComponent();
 heroDetailComponent.onInit();
 
 console.log(heroDetailComponent);
+
