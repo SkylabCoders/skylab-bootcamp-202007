@@ -34,9 +34,6 @@ p{
     margin-top: 1rem;
     color: var(--cVeryLightGray);
 }
-main{
-    background-color: var(--cMainGray);
-}
 
 /* HEADER */
 .header--sticky{
@@ -180,6 +177,7 @@ main{
 /* MAIN PRESENTATION SLIDER */
 main{
     position: relative;
+    background-color: var(--cMainGray);
 }
 .main--presentationSlider{
     display: block;
@@ -382,9 +380,6 @@ section{
 .genreMenu--item > a > figure > figcaption {
     color: var(--cWhite);
     text-align: center;
-}
-.genreMenu--imageContainer{
-    
 }
 
 /* FOOTER */

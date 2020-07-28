@@ -27,12 +27,10 @@ function HeroDetailComponent() {
 	}
 
 	function getHeroFromUrl() {
-		hero = heroList.find(compareId);
-	}
-
-	function compareId(hero) {
 		const params = new URLSearchParams(location.search);
-		return hero.id === +params.get('heroId');
+		const id = +params.get('heroId');
+		hero = heroService.getHeroById(id);
+		console.log(hero);
 	}
 }
 

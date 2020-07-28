@@ -186,7 +186,7 @@ function askAndCheckInput(el){
         alert(`RESPUESTA INCORRECTA !! 😭
             \nLa respuesta correcta era ${respuesta}\n`);
     }
-    if (sessionData.points < 0){ sessionData.points = 0}; // don't allow negative points
+    if (sessionData.points < 0){ sessionData.points = 0} // don't allow negative points
     return true;
 }
 function findQuestion(){

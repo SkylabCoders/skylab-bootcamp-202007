@@ -301,7 +301,7 @@ function super_calc(){
                 break;
         }
         printCurrentVal();
-        let ref = SESSIONDATA.binaryOperator;
+        //let ref = SESSIONDATA.binaryOperator;
         setHistoryRecord(formatedExpr, 'binary');
         setHistoryResult();
         SESSIONDATA.operand = 0;
@@ -343,11 +343,7 @@ function parenChecker(){
         if (str[i] === ')') { stack--; }
         if (stack < 0) { return false; }
     }
-    if (stack === 0){
-        return true;
-    } else {
-        return false;
-    }
+    return (stack === 0) ? true: false;
 }
 // Range checker
 function rangeCheck(){
@@ -375,6 +371,7 @@ function rangeCheck(){
 // Illegal operations checker
 function syntaxChecker(){
     let str = String(SESSIONDATA.current).split('');
+    console.log(str);
     // do stuff - to be finished Usually like 2 *** 3 as invalid.
 }
 // Error messages

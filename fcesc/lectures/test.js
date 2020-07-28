@@ -77,21 +77,26 @@ function beez(){
     return feez();
 }
 
-console.log(o.show());
-console.log(p.show());
-console.log(q.show());
-console.log(p.id.show());
-console.log(q.id.show());
-console.log(q.id.id.show());
-console.log(o.rare());
-console.log(p.rare());
-console.log(p.superrare());
-console.log(q.rare());
-console.log(fooz());
-console.log(baaz());
-console.log(crazy());
-console.log(fuuz());
-console.log(buuz());
-console.log(feez());
-console.log(beez());
+function test(){
+    console.log(o.show());
+    console.log(p.show());
+    console.log(q.show());
+    console.log(p.id.show());
+    console.log(q.id.show());
+    console.log(q.id.id.show());
+    console.log(o.rare());
+    console.log(p.rare());
+    console.log(p.superrare());
+    console.log(q.rare());
+    console.log(fooz());
+    console.log(baaz());
+    console.log(crazy());
+    console.log(fuuz());
+    console.log(buuz());
+    console.log(feez());
+    console.log(beez());
+}
+
+test();
+
 

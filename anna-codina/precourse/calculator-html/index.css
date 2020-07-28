@@ -3,13 +3,13 @@ body {
 }
 
 button {
-    font-family: Arial;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 32px;
     color: black;
     width: 80px;
     height: 80px;
     margin: 0px;
-    border-style: solid; 
+    border-style: solid;
     border-color: rgb(22, 22, 22);
     border-width: 1px;
     background-color: rgb(187, 187, 187);
@@ -20,12 +20,12 @@ button {
 }
 
 #result {
-    font-family: Arial;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 45px;
     color: white;
     width: 321px;
     height: 80px;
-    background-color:darkorange;
+    background-color: darkorange;
     text-align: right;
     padding-right: 10px;
     overflow-x: scroll;
@@ -33,22 +33,22 @@ button {
 }
 
 #number-0,
-#ac{
+#ac {
     width: 164px;
 }
 
-.operation-button:hover{
+.operation-button:hover {
     background-color: rgb(236, 124, 0);
 }
 
-.operation-button:active{
+.operation-button:active {
     background-color: rgb(218, 124, 7);
 }
 
-button:hover{
+button:hover {
     background-color: rgb(143, 143, 143);
 }
 
-button:active{
+button:active {
     background-color: grey;
 }
