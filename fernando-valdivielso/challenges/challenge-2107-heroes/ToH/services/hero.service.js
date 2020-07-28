@@ -1,9 +1,14 @@
 class HeroService {
 	getHeroList() {
-		return new Promise( function (resolve, reject) {
-			const heroPromise = heroList;
-			heroPromise ? resolve(heroPromise) : reject('Cant find hero list');
-		})
+		// return new Promise( function (resolve, reject) {
+		// 	const heroPromise = heroList;
+		// 	heroPromise ? resolve(heroPromise) : reject('Cant find hero list');
+		// })
+
+		return fetch('../hero-list.json').then((response) => {
+			return response.json();
+		});
+		
 	}
 
 	getHeroById(id) {

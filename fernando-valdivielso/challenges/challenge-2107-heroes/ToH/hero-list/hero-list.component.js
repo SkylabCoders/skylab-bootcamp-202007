@@ -10,8 +10,10 @@ function ListComponent() {
     this.onInit = function () {
         // debugger;
         heroService.getHeroList().then(handleFulfilled).catch(handleError);
-    }
     
+        
+    }
+
     function handleFulfilled(correctResponse) {
         myHeroList = correctResponse;
         myHeroList.forEach(listItemsToAnchor);
@@ -46,6 +48,6 @@ function ListComponent() {
 
 const listComponent = new ListComponent();
 listComponent.onInit();
-    
+
 
 
