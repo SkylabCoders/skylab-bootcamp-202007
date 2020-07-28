@@ -18,7 +18,7 @@ function HeroDetailComponent() {
 	};
 
 	function updateId() {
-		heroDetail.innerHTML = hero.id;
+		if (heroDetail !== null)   heroDetail.innerHTML = hero.id;
 	}
 
 	function updateName() {
@@ -30,6 +30,7 @@ function HeroDetailComponent() {
 		// debugger;
 		param = (new URLSearchParams(location.search));
 		heroId = +param.get('heroid');
+		hero = heroService.getHeroById(heroId); //????????
 	}
 		
 		 
