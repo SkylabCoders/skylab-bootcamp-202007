@@ -48,23 +48,28 @@ class SkylabService {
 		});
 	}
 	static getSkylaberByName(name) {
-		return skylaberList.filter((index) => {
+		const skylabberList = skylaberList.filter((index) => {
 			return (
 				index.name.slice(0, name.length).toLowerCase() === name.toLowerCase()
 			);
 		});
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				skylabberList
+					? resolve(skylabberList)
+					: reject('No skylabber found by name');
+			}, 1000);
+		});
 	}
 	static search(text) {
-		let sortedList = [];
 		if (text !== '') {
 			if (isNaN(+text)) {
-				sortedList.push(...this.getSkylaberByName(text));
+				return this.getSkylaberByName(text);
 			} else {
-				sortedList.push(this.getSkylaberById(+text));
+				return this.getSkylaberById(+text);
 			}
 		} else {
-			sortedList = [...skylaberList];
+			return new Promise((resolve) => resolve([...skylaberList]));
 		}
-		return sortedList;
 	}
 }
