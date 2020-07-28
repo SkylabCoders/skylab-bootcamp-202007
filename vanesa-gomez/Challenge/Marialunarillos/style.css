@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    margin-bottom: 10%;
+}
+.flex-item {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around
+}
+
+nav {
+    justify-content: space-around;
+    width: 70%;
+    height: 50px;
+    margin: 0 auto;
+}
+.nav-container {
+    background-color: #F8F8F8;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+}
+
+.icon {
+    height: 100%;
+    line-height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-burguer {
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/burger_menu.png) no-repeat center left;
+    height: 50px;
+    width: 50px;
+}
+.icon-login {
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 0 no-repeat;
+    height: 27px;
+    width: 27px;
+    margin: 10px;
+}
+.icon-search {
+    background: #BBB8B6 url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -304px 12px no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.icon-cart {
+    background: #FFFFFF url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -66px 10px no-repeat;
+    height: 50px;
+    width: 50px;
+}
+.icon-0 {
+    background: #FF5959;
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: flex-start;  
+    margin-left: auto;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.slide {
+    width: 100%;
+}
+
+.main-section div > img {
+    width: 92px;
+}
+
+.section-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    flex-direction: column;
+
+}
+hr{
+    border: 1px solid black;
+    width:  40%;
+    margin: 1%;
+}
+
+
+h2 {
+    display: inline-block;
+    padding: 20px 0;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    line-height: 22px;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #2E2925;
+    font-family: sans-serif;
+}
+
+
+.main-section-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    margin: 10px;
+    width: 300px;
+    height: 125px;
+    display: flex;
+    align-content: flex-end;
+}
+.box-bg {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 60%;
+    background-color: rgba(255,255,255,0.8);
+}
+.box-bg p {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #67635F;
+    font-family: sans-serif;
+}
+.section-container-boxTop{
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/moldesdereposteria.jpg);
+    display: flex;
+    align-items: flex-end;
+}
+
+.section-container-boxBottom {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.section-container-boxBottom1 {
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/utensiliosbasicos.jpg);
+    align-items: flex-end;
+}
+
+.section-container-boxBottom2 {
+    background-image: url(https://static3.marialunarillos.com/media/wysiwyg/pequenoelectrodomestico2.jpg);
+    align-items: flex-end;
+}
+
+@media screen and (min-width: 600px) {
+
+    .main-section-1 {
+        flex-direction: row;
+    }
+    .section-container-boxBottom {
+        flex-direction: row;
+    }
+    .box {
+        width: 125px;
+        height: 300px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .main-section-1 {
+        flex-direction: row;
+    }
+    .section-container-boxBottom {
+        flex-direction: column;
+        }
+    
+    .box-h {
+        width: 300px;
+        height: 125px;
+    }
+    .box-v {
+        width: 125px;
+        height: 300px;
+    }
+}

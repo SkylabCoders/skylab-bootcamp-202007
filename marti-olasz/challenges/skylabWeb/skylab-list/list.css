@@ -1,0 +1,21 @@
+a {
+	text-decoration: none;
+}
+input {
+	margin-top: 20px;
+}
+
+.details {
+	display: none;
+}
+
+.list__item {
+	background-color: gray;
+	width: 100px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.list__item:hover {
+	background-color: lightgray;
+}

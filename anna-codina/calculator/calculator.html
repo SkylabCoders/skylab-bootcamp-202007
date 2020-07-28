@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <main class="flex-column">
+        <div id='result'>0</div>
+        <div class="flex-row">
+            <button id="ac" class="accion-button" onclick="clearResult()">AC</button>
+            <button id="undo" class="accion-button" onclick="undoLastStep()">&#10226;</button>
+            <button id="divide" class="operation-button" onclick="setActualSymbol('/')">&#247;</button>
+        </div>
+        <div class="flex-row">
+            <button id="number-7" class="number-button" onclick="addValorToOperator('7')">7</button>
+            <button id="number-8" class="number-button" onclick="addValorToOperator('8')">8</button>
+            <button id="number-9" class="number-button" onclick="addValorToOperator('9')">9</button>
+            <button id="multiply" class="operation-button" onclick="setActualSymbol('*')">&#215;</button>
+        </div>
+        <div class="flex-row">
+            <button id="number-4" class="number-button" onclick="addValorToOperator('4')">4</button>
+            <button id="number-5" class="number-button" onclick="addValorToOperator('5')">5</button>
+            <button id="number-6" class="number-button" onclick="addValorToOperator('6')">6</button>
+            <button id="substract" class="operation-button" onclick="setActualSymbol('-')">&#8722;</button>
+        </div>
+        <div class="flex-row">
+            <button id="number-1" class="number-button" onclick="addValorToOperator('1')">1</button>
+            <button id="number-2" class="number-button" onclick="addValorToOperator('2')">2</button>
+            <button id="number-3" class="number-button" onclick="addValorToOperator('3')">3</button>
+            <button id="add" class="operation-button" onclick="setActualSymbol('+')">&#43;</button>
+        </div>
+        <div class="flex-row">
+            <button id="number-0" class="number-button" onclick="addValorToOperator('0')">0</button>
+            <button id="decimal-separator" class="number-button" onclick="addValorToOperator('.')">.</button>
+            <button id="equals-to" class="operation-button" onclick="showResult()">&#61;</button>
+        </div>
+    </main>
+    <script type="text/javascript" src="calculator-function.js"></script>
+    <script type="text/javascript" src="calculator.js"></script>
+    <script type="text/javascript" src="./shared/calculator-shared.js"></script>
+
+</body>
+
+</html>

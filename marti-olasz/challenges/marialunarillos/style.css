@@ -1,0 +1,346 @@
+body {
+  font: 12px/1.55 "Source Sans Pro", sans-serif;
+  min-width: 300pxgi;
+}
+
+header {
+  background-color: #f8f8f8;
+  height: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header-lines {
+  width: 30px;
+  height: 30px;
+  background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/burger_menu.png)
+    no-repeat center left;
+}
+
+.header-login {
+  width: 27px;
+  height: 27px;
+  background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg)
+    0 0 no-repeat;
+}
+
+.header > div {
+  display: flex;
+}
+
+.header-search {
+  width: 50px;
+  height: 50px;
+  background: #bbb8b6
+    url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -304px
+    12px no-repeat;
+}
+
+.header-shop {
+  width: 50px;
+  height: 50px;
+  background: #fff
+    url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -66px
+    10px no-repeat;
+}
+
+.header-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50px;
+  height: 50px;
+  background-color: #ff5959;
+  color: white;
+
+  font-family: "Myriad Pro", "Myriad Web", "Tahoma", "Helvetica", "Arial",
+    sans-serif;
+  font-size: 20px;
+}
+
+nav {
+  margin: 20px;
+  display: flex;
+
+  justify-content: center;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(
+      to right,
+      rgb(166, 205, 154) 0%,
+      rgb(166, 205, 154) 50%,
+      rgb(139, 187, 125) 50%,
+      rgb(139, 187, 125) 100%
+    )
+    repeat scroll 0% 0%;
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 738px;
+}
+
+.banner-dot {
+  margin: 10px auto;
+  width: 300px;
+
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.dot {
+  height: 13px;
+  width: 13px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.dot-red {
+  background-color: crimson;
+}
+
+.utensilios {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  margin: auto;
+  width: 400px;
+
+  margin-top: 50px;
+}
+
+.utensilios > img {
+  width: 92px;
+  height: 125px;
+
+  margin: 30px;
+}
+
+.utensilios-title {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 6px;
+
+  text-align: center;
+  color: #2e2925;
+
+  padding: 20px;
+  margin: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.img {
+  width: 325px;
+  height: 136px;
+
+  padding: 7px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.list-first,
+.list-second {
+  position: relative;
+}
+
+.text-box {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 12px;
+  right: 117px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #67635f;
+  margin-left: 20px;
+}
+
+.blog {
+  display: flex;
+  flex-direction: column;
+
+  align-content: center;
+}
+
+.blog > p {
+  text-align: center;
+  background: #ff5959;
+  color: #fff;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 25px 0;
+
+  width: 35%;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 50px auto;
+}
+
+.blog-card {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.blog-card > figure > img {
+  width: 100%;
+}
+
+.blog-card > figure {
+  color: #67625f;
+
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+footer {
+  background-color: #ff5959;
+  color: white;
+
+  width: 100%;
+  height: 50px;
+
+  text-align: center;
+  padding-top: 20px;
+}
+
+input,
+.card2,
+.card3,
+.subtitle,
+.header > div > p{
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  input,
+  .card2,
+  .subtitle,
+  .header > div > p{
+    display: inline;
+  }
+  .list {
+    flex-direction: row;
+  }
+  .list-first > .img {
+    width: 200px;
+    height: 350px;
+  }
+  .list-second > .img {
+    width: 408px;
+    height: 171px;
+  }
+  .list-first > .text-box {
+    width: calc(100% - 4.25px);
+    height: calc(50% - 7.5px);
+
+    right: 0;
+    bottom: 0;
+  }
+  .list-second > .text-box {
+    width: calc(50% - 7.5px);
+    height: calc(100% - 4.25px);
+
+    bottom: 0;
+  }
+  .title {
+    padding: -10px;
+  }
+  .subtitle {
+    font-size: 14px;
+    line-height: 16px;
+    color: #67635f;
+    padding-left: 10px;
+    display: block;
+
+    padding: 20px;
+  }
+  .right{
+    right: 0;
+  }
+  .left{
+    left: 0;
+  }
+
+}
+
+@media only screen and (min-width: 800px) {
+  .card3 {
+    display: inline;
+  }
+
+  .list-first > .img {
+    width: 350px;
+    height: 615px;
+  }
+  .list-second > .img {
+    width: 715px;
+    height: 300px;
+  }
+  .list-first > .text-box {
+    width: 70%;
+    height: 125px;
+
+    left: 0;
+    bottom: 0;
+  }
+  .list-second > .text-box {
+    width: 50%;
+    height: 125px;
+
+    bottom: 0;
+  }
+  .right{
+    right: 80px;
+  }
+
+  .text-box::after{
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-bottom: 150px solid rgba(255,255,255,0.8);
+    border-right: 100px solid transparent;
+    position: absolute;
+    right: -100px;
+    top: 0;
+  }
+}

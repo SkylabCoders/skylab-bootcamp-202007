@@ -1,0 +1,157 @@
+/*Main Area*/
+body {
+    margin-top: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e6e4d9;
+    background-image: url('../images/pattern.png');
+}
+
+#mainheader {
+    background-color: #a593c2;
+}
+
+/*Top Menu*/
+.logo{
+    display: flex;
+    margin-right: auto;
+    
+}
+
+
+.menu-header{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 60px;
+    width: 1000px;
+    margin: 0 auto 20px;
+}
+
+nav>ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav>ul>li {
+    float: left;
+}
+
+nav>ul>li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/*Side Menu*/
+
+.mainContent ul{
+    padding-inline-start: 2px;
+    margin-right: 1.5rem;
+}
+
+.mainContent ul>a>li{
+    background-color: #cf4522;
+    color: #fff;
+    list-style: none;
+    padding: 14px 25px;
+    display: block;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.mainContent ul>a>li:hover{
+    background-color: #B43110;
+}
+
+.mainContent ul>a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.mainContent{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around ;
+    width:1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section2{
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.leftmenu {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+/*Main Content*/
+
+.main {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 70%;
+    margin-bottom: 20px;
+    
+}
+img{
+    min-width: 300px;
+    min-height:200px;
+}
+
+.pageTitle{
+    font-size:35px;
+    color:#a593c2;
+}
+
+/*Footer*/
+footer {
+    display: flex;
+    flex-direction: column;
+    clear: both;
+    width: 100%;
+}
+@media screen and (max-width:1024px){
+    .section2{
+        flex-direction: column;
+        justify-content: space-around;
+}
+}
+@media screen and (max-width:600px){
+    .section2{
+        flex-direction: column-reverse;
+        justify-content: space-around;
+    }
+}
+.card{
+    border: 2px solid black;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    justify-content: space-around;
+    width:100%;
+    min-width: 350px;
+    min-height: 350px;
+    
+    background-color: cornsilk;
+}
+.flex-space{
+    display:flex;
+    order: -1;
+    width:300px;
+}
+ 

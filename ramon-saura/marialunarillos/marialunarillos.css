@@ -1,0 +1,342 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    margin: 10% auto;
+}
+.slider-button{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.slider-row{
+    display: flex;
+    justify-content: space-around;
+    margin: -10% 10% 0 10%;
+}
+.slider-img{
+    display: flex;
+    justify-content: center;
+}
+.slider{
+    margin: 1% 0;
+}
+.title-section{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    align-items: center;
+}
+h2{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+.container-desck-col img {
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 140px;
+}
+.container-items{
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1% 5%;
+}
+.container-items__white-box{
+    background-color: rgba(255, 255, 255, .7);
+    width: 50%;
+    height: 60%;
+    position: absolute;
+}
+.container-items__white-box p{
+    display: none;
+}
+h3{
+    font-size: 1rem;
+    padding: 0 0 0 1rem;
+    color: rgb(82, 79, 79);
+}
+/*boton rojo*/
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.showmore{
+    background-color: red;
+    border: transparent;
+    color: white;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+@media screen and (min-width:600px){
+    .container-desck{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1%;
+    }
+    .container-items-col{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1%;        
+    }
+    .container-desck-col img{
+        object-fit: none;
+        width: 100%;
+        height: 100%;
+    }
+    .container-items__white-box h3{
+        height: 20%;
+        font-size: 16px;
+        padding: 0 0 0 0.5rem;
+    }
+    .container-items__white-box p{
+        display: flex;
+        padding: 0 0 0 0.5rem;
+        font-size: 12px;
+        height: 80%;
+    }
+    .end-col{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .start-row{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .end-row{
+        height: 100%;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+    }
+}
+@media screen and (min-width:1024px){
+    .end-col{
+        height: 150px;
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+    }
+    .start-row{
+        height: 150px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+    }
+    .end-row{
+        height: 150px;
+        width: calc(50% - 100px);
+        left: 50%;
+    }
+    .container-items__white-box::after{
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-bottom: 150px solid rgba(255,255,255,0.7);
+        border-right: 100px solid transparent;
+        position: absolute;
+        right: -100px;
+        top: 0;
+    }
+}
+/*header*/
+.bar{
+    background-color: #f8f8f8;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+.bar-menu{
+    height: 100%;
+    display: flex;
+}
+.bar-menu__img{
+    height: 100%;
+}
+.bar-menu__img img{
+    margin-top: 50%;
+}
+.bar-menu__hover-no{
+    background-color: red;
+    height: 125px;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.bar-menu__hover{
+    display: none;
+    top: 0;
+}
+.bar-menu__hover-si{
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+}
+.bar-menu__hover-si__first{
+    display: flex;
+    flex-direction: column;
+    background-color: #6199AF;
+    width: 60px;
+    height: 100%;
+    bottom: 0;
+}
+.bar-menu__hover-si__second{
+    display: flex;
+    flex-direction: column;
+    background-color: #F6B436;
+    width: 60px;
+    height: 100%;
+    bottom: 0;
+}
+.bar-menu__hover-si__first img{
+    display: flex;
+    align-items: flex-end;
+    bottom: 0;
+}
+.bar-menu__hover-si__second img{
+    display: flex;
+    align-items: flex-end;
+    bottom: 0;
+}
+@media screen and (min-width: 600px){ 
+    .bar-menu__hover{
+        display: flex;
+        flex-direction: row;
+        margin-left: 5%;
+    }
+    .bar-menu__img{
+        display: none;
+    }
+    .bar-menu__hover-si__first:hover{
+        height: 125px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .bar-menu__hover-si__second:hover{
+        height: 125px;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+/*Login*/
+.login{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    cursor: pointer;
+    background-color: transparent;
+}
+.login-text{
+    display: none;
+}
+.login-img{
+    width: 35px;
+    height: 25px;
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) 0 0 no-repeat;
+}
+@media screen and (min-width: 1024px){
+    .login-text{
+        display: flex;
+        margin-left: 2%;
+    }
+}
+.login-text:hover{
+    color: red;
+}
+.login-img:hover{
+    background: url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -36px 0 no-repeat;
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.search-icon img{
+    width: 40px;
+    height: 40px;
+}
+.search-icon{
+    width: 50px;
+    height: 50px;
+    background-color: #bbb8b6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#myInput{
+    display: none;
+}
+@media screen and (min-width: 600px){
+    #myInput{
+        display: flex;
+    }
+    .search{
+        justify-content: space-around;
+        width: 230px;
+    }
+}
+@media screen and (min-width: 1024px){
+    .search{
+        display: none;
+    }
+}
+.container-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin-right: 20px;
+}
+.purchase{
+    display: flex;
+    height: 50px;
+}
+.purchase-items{
+    height: 100%;
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+.purchase-number{
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1%;
+}
+.purchase-item:hover{
+    background-color: red;
+}
+

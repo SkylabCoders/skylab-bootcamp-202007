@@ -1,0 +1,148 @@
+/*Main Area*/
+body {
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6e4d9;
+    background-image: url('../images/pattern.png');
+}
+
+.mainheader {
+    background-color: #a593c2;
+}
+
+/*Top Menu*/
+
+nav {
+    height: 60px;
+    
+    display: flex;
+    flex-direction: row;
+    
+    margin: 0 25%;
+}
+
+nav > div{
+    flex: 1;
+}
+
+nav > a{
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+/*Main*/
+
+.mainContent{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContent-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*Side Menu*/
+
+
+
+.mainContent ul>a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.leftmenu{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.leftmenu-item{
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+}
+
+.leftmenu-item > a{
+    background-color: #B43110;
+    border: 3px solid white;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+/*Main Content*/
+.main > strong{
+    font-size:25px;
+    color:#a593c2;
+    padding-bottom: 50px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    min-width: 350px;
+}
+
+.main > div{
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid black;
+    background-color: lightgray;
+    margin-bottom: 10px;
+    padding: 20px;
+
+    width: 80%;
+}
+
+.main > div > img{
+    width: 90%;
+    margin: 15px auto;
+}
+
+.main > div > div{
+    display: flex;
+    flex-direction: row;
+
+    align-content: flex-start;
+}
+
+.main > div > div > div{
+    flex: 1;
+}
+
+footer{
+    text-align: center;
+}
+
+figure{
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1024px){
+    .mainContent-top{
+        flex-direction: column;
+    }
+
+    .main{
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .mainContent-top{
+        flex-direction: column-reverse;
+    }
+
+    .main{
+        margin: 0 auto;
+    }
+}

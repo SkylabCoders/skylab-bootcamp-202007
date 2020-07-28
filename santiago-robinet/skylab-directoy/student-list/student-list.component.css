@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.list__container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+a{
+    margin: 5px;
+}
+
+span{
+    margin: 5px;
+}
+
+.main__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

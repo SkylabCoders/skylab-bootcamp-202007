@@ -1,0 +1,14 @@
+User stories:
+
+Description:
+
+As a javascript newcomer
+I want to reproduce methods
+so that i learn how to construct them
+
+Scenario 1 (map):
+Given an Array
+When I multiply each element by 5
+Then I get a new array of 5 times each element of the first array
+
+etc

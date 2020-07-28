@@ -1,0 +1,440 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 12px/1.55 "Source Sans Pro", sans-serif;
+}
+
+.header {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: rgb(248, 248, 248);
+  display: flex;
+  height: 50px;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-nav-left {
+  display: flex;
+}
+
+.header-login {
+  background: url("https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg") 0 0 no-repeat;
+  height: 27px;
+  width: 27px;
+}
+
+.header-login:hover {
+  background-position: -37px 0;
+}
+
+.header-search {
+  background: #BBB8B6 url(https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg) -304px 12px no-repeat;
+  height: 50px;
+  width: 50px;
+}
+
+.header-cart {
+  background: #fff url("https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg") -66px 10px no-repeat;
+  height: 50px;
+  width: 50px;
+}
+
+.header-cart:hover {
+  background: #FF5959 url("https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg") -105px 10px no-repeat;
+}
+
+.header-cart-count {
+  background-color: rgb(255, 87, 89);
+  color: rgb(255, 255, 255);
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subheader {
+  padding: 50px 0 0 0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.slideshow {
+  text-align: center;
+}
+
+.slideshow-img {
+  height: 100%;
+  width: 100%;
+  max-width: 1024px;
+}
+
+/* .slideshow {
+    background-color: green;
+    height: 500px;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.slideshow-left {
+    display: flex;
+    flex-direction: column;
+} */
+
+.divider {
+  /*background-color: yellow;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-element {
+  margin: 20px auto;
+}
+
+.divider-icon {
+  width: 100px;
+}
+
+.divider-text {
+  padding: 20px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content-box {
+  display: flex;
+}
+
+.main-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  /*border: 1px solid black;*/
+  margin: 5px;
+  width: 300px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.box1-bg {
+  background: url(https://static3.marialunarillos.com/media/wysiwyg/moldesdereposteria.jpg);
+  background-size: cover;
+}
+
+.box2-bg {
+  background: url(https://static3.marialunarillos.com/media/wysiwyg/utensiliosbasicos.jpg);
+   background-size: cover;
+}
+
+.box3-bg {
+  background: url(https://static3.marialunarillos.com/media/wysiwyg/pequenoelectrodomestico2.jpg);
+  background-size: cover;
+}
+
+.box4-bg {
+  background: url(https://static3.marialunarillos.com/media/wysiwyg/capsulas-cupcakes.jpg);
+}
+
+.box5-bg {
+  background: url(https://static3.marialunarillos.com/media/wysiwyg/cajas3.jpg);
+}
+
+.box6-bg {
+  background: url(https://static3.marialunarillos.com/media/wysiwyg/cortadoresgalletas2.jpg);
+}
+
+.box-innerdata {
+  height: 60%;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box-text {
+  margin: 20px;
+}
+
+.box-details {
+  margin-top: 10px;
+  display: none;
+}
+
+.blog {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-button {
+  background-color: rgb(255, 87, 89);
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.blog-last {
+  width: 100%;
+}
+
+.blog-container {
+  display: flex;
+}
+
+.blog-container .blog-card:nth-child(2) {
+  display: none;
+}
+
+.blog-container .blog-card:nth-child(3) {
+  display: none;
+}
+
+.blog-card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-picture-img {
+  width: 100%;
+}
+
+.blog-author {
+  display: flex;
+  margin-right: auto;
+}
+
+.blog-avatar-img {
+  width: 50px;
+}
+
+.blog-text {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.prefooter {
+  width: 100%;
+  display: flex;
+}
+
+.prefooter-column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.prefooter-element {
+  background-color: rgb(232, 230, 229);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  .prefooter-element:hover{
+    color: rgb(255, 87, 89);
+  }
+
+.prefooter-freeshipping {
+  background: url("https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg") 0 -38px no-repeat transparent;
+  width: 85px;
+  height: 60px;
+}
+  .prefooter-freeshipping:hover{
+    background-position: 0 -109px;
+  }
+
+.prefooter-fastdelivery {
+  background: url("https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg") -90px -38px no-repeat transparent;
+  width: 55px;
+  height: 60px;
+}
+  .prefooter-fastdelivery:hover{
+    background-position: -90px -109px;;
+  }
+.prefooter-return{
+  width: 68px;
+  background: url("https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg") -150px -36px no-repeat transparent;
+  height: 60px;
+}
+  .prefooter-return:hover{
+    background-position: -150px -107px;
+  }
+
+.prefooter-payment {
+  width: 77px;
+  background: url("https://www.marialunarillos.com/skin/frontend/default/newdesign2017/images/sprite.svg") -223px -38px no-repeat transparent;
+  height: 60px;
+}
+  .prefooter-payment:hover{
+    background-position: -223px -109px;
+  }
+
+
+/* .prefooter2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.prefooter2-row {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.prefooter2-row2 {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.prefooter2-checkbox {
+  display: flex;
+}
+
+.prefooter2-row3_1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+.foot {
+  background-color: rgb(255, 87, 89);
+  color: rgb(255, 255, 255);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .main-content {
+      flex-direction: row;
+  }
+
+  .main-content-container {
+    flex-direction: row;
+  }
+
+  .box {
+    width: 150px;
+    height: 300px;
+  }
+
+  .main-content-container .box:nth-child(1) {
+      justify-content: flex-start;
+  }
+
+  .box-innerdata {
+    height: 50%;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .box-details {
+    display: block;
+  }
+
+  .blog-container .blog-card:nth-child(2) {
+    display: flex;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .main-content {
+    flex-direction: row;
+  }
+
+  .main-content-container {
+    flex-direction: column;
+  }
+
+  .box {
+    height: 610px;
+    width: 300px;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .main-content-container .box {
+    width: 600px;
+    height: 300px;
+  }
+
+  .main-content-container .box:nth-child(1) {
+    justify-content: flex-end;
+  }
+
+  .main-content-container:nth-child(2) .box:nth-child(1) {
+    justify-content: flex-end;
+  }
+
+  .main-content-container .box:nth-child(2) {
+    justify-content: flex-start;
+  }
+
+  .box-innerdata {
+    height: 25%;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-content-container .box-innerdata {
+    height: 50%;
+    width: 40%;
+  }
+
+  .box-triangle {
+    width: 0;
+    height: 0;
+    border-bottom: 150px solid rgba(255, 255, 255, 0.8);
+    border-right: 100px solid transparent;
+  }
+
+  .blog-container .blog-card:nth-child(3) {
+    display: flex;
+  }
+
+  /* .prefooter-column {
+    flex-direction: row;
+    justify-content: center;
+  } */
+
+}
