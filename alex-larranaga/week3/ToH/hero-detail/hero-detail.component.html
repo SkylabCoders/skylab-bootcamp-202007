@@ -13,13 +13,17 @@
 	<a href="./hero-detail.component.html">Detail</a>
 	<a href="../hero-list/hero-list.component.html">Heroes</a>
 	<a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
-	<h2><span id="hero-detail__name"></span> details</h2>
-	<p>id: <span id="hero-detail__id"></span></p>
-	<label for="heroName">
-		name:
-		<input id="hero-detail__name-control" t type="text" name="heroName"
-			onchange="heroDetailComponent.nameChange(this.value)" />
-	</label>
+	<p id="hero-detail__error"></p>
+	<div id="hero-detail__container">
+
+		<h2><span id="hero-detail__name"></span> details</h2>
+		<p>id: <span id="hero-detail__id"></span></p>
+		<label for="heroName">
+			name:
+			<input id="hero-detail__name-control" t type="text" name="heroName"
+				onchange="heroDetailComponent.nameChange(this.value)" />
+		</label>
+	</div>
 	<script src="../hero.js"></script>
 	<script src="../hero.mock.js"></script>
 	<script src="../hero-service.js"></script>

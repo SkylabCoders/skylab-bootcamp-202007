@@ -2,9 +2,9 @@ function HeroDetailComponent() {
 	const listOfHeroes = [...heroList];
 	let hero;
 	this.onInit = function () {
-		getHeroIdFromUrl();
-		updateId();
-		updateName();
+		document.getElementById('hero-detail__container').style.display = 'none';
+		const heroId = getHeroIdFromUrl();
+		heroService.getHeroById(heroId).then(handleFulfilled).catch(handleError);
 	};
 
 	this.nameChange = function (newName) {
@@ -23,8 +23,18 @@ function HeroDetailComponent() {
 
 	function getHeroIdFromUrl() {
 		const params = new URLSearchParams(location.search);
-		let heroId = +params.get('heroId');
-		hero = heroService.getHeroById(heroId);
+		return +params.get('heroId');
+	}
+	function handleFulfilled(response) {
+		hero = response;
+		document.getElementById('hero-detail__container').style.display = 'block';
+		updateId();
+		updateName();
+	}
+
+	function handleError(message) {
+		document.getElementById('hero-detail__container').style.display = 'none';
+		document.getElementById('hero-detail__error').innerHTML = message;
 	}
 }
 

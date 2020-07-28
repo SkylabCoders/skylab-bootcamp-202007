@@ -5,8 +5,14 @@ class HeroService {
 	}
 
 	getHeroById(id) {
-		let heroById = this.getHeroList().find((h) => h.id === id);
-		return heroById;
+		return new Promise((resolve, reject) => {
+			const response = this.getHeroList().find((h) => h.id === id);
+			setTimeout(() => {
+				response
+					? resolve(response)
+					: reject('There is no hero with id: ' + id);
+			}, 2000);
+		});
 	}
 
 	getHeroByName(name) {
@@ -16,4 +22,3 @@ class HeroService {
 }
 
 const heroService = new HeroService();
-console.log(heroService.heroProp);
