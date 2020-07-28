@@ -20,7 +20,8 @@ function HeroListComponent() {
         heroListComp = response;
     }
 
-    function handleError(message) {
+    function handleError() {
+        const message = 'No hay ningun heroe en la lista';
         toggleLoading()
         document.getElementById('hero-list__container').style.display = 'none'
         document.getElementById('hero-list__error').innerHTML = message;

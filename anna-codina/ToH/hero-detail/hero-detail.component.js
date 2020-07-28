@@ -23,7 +23,7 @@ function HeroDetailComponent() {
 		updateName();
 	}
 	function handleError(message) {
-		toggleLoading()
+		toggleLoading();
 		document.getElementById('hero-detail__error').innerHTML = message;
 	}
 
