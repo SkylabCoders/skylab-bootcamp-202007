@@ -1,0 +1,15 @@
+#id__container {
+    display: flex;
+    flex-direction: column;
+}
+
+#list__container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+}
+
+.core {
+    display: flex;
+    flex-direction: row;
+}
