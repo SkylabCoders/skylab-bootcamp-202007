@@ -1,21 +1,31 @@
-function HeroDashboardComponent() {
-    const heroes = heroList.slice(0, 4);
-    const containerDashboard = document.querySelector('.hero-dashboard__container ');
+function DashboardComponent() {
+    const heroListContainer = document.getElementById(dashboard__container);
 
-    this.renderHeroList = function() {
-
-
-        for (let i = 0; i < heroes.length; i++) {
-            let divDashboard = document.createElement('div');
-            let aTag = document.createElement('a');
-            aTag.innerText = heroes[i].name;
-            aTag.setAttribute('href', './hero-detail/hero-detail.component.js');
-            divDashboard.appendChild(aTag);
-            containerDashboard.appendChild(divDashboard);
-        }
+    this.onInit = function() {
+        heroService.getHeroList((response) => {
+            heroesPromoted = response.slice(0, 4);
+            renderHeroList().forEach((element) => {
+                if (heroListContainer) heroListContainer.appendChild();
+            });
+        });
     };
 
+    function renderHeroList() {
+        return heroesPromoted.map(mapHeroToAnchor);
+    }
+
+    function mapHeroToAnchor(hero) {
+        const element = document.createElement('a');
+        element.href = getHeroLink(hero.id);
+        element.innerText = hero.name;
+        return element;
+    }
+
+    function getHeroLink(id) {
+        return `./hero-detail/hero-detail.component.html?heroId=${id}`;
+    }
 }
+
 dashboardComponent = new HeroDashboardComponent();
 
-dashboardComponent.renderHeroList();
+dashboardComponent.onInit();
