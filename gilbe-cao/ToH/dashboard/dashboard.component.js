@@ -6,9 +6,6 @@ function DashboardComponent() {
 		const promise = heroService.getHeroList();
 		promise
 			.then((response) => {
-				return response.json();
-			})
-			.then((response) => {
 				heroesPromoted = response.slice(0, 4);
 				renderHeroList().forEach((element) => {
 					if (heroListContainer) heroListContainer.appendChild(element);

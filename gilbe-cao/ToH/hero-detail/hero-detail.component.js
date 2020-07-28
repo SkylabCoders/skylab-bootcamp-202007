@@ -32,8 +32,7 @@ function HeroDetailComponent() {
 	}
 
 	function toggleLoading() {
-		let loadingElement = document.getElementById('hero-detail__loading').style
-			.display;
+		let loadingElement = document.getElementById('hero-detail__loading');
 		if (loadingElement.style.display === 'block') {
 			loadingElement.style.display = 'none';
 		} else {

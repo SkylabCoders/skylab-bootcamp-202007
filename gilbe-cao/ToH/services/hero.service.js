@@ -6,7 +6,9 @@ class HeroService {
 		});
 		*/
 
-		return fetch('../hero-list.json');
+		return fetch('../hero-list.json').then((response) => {
+			return response.json();
+		});
 	}
 
 	getHeroById(id) {
