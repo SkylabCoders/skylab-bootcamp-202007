@@ -14,7 +14,6 @@ function HeroListComponent() {
             .catch(handleError);
     }
     function handleFulfilled(response) {
-        debugger;
         toggleLoading();
         createList(response);
         printListInfo(response);

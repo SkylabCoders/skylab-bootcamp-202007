@@ -6,7 +6,7 @@ class HeroService {
             setTimeout(() => {
                 const response = heroList;
                 response ? resolve(response) : reject(errorMesaje);
-            }, 2000)
+            }, 1000)
         })
     }
     getHeroById(id) {
@@ -15,7 +15,7 @@ class HeroService {
             setTimeout(() => {
                 const response = heroList.find((hero) => hero.id === id);
                 response ? resolve(response) : reject(errorMesaje + id);
-            }, 2000);
+            }, 1000);
         });
     }
     getHeroByName(name) {
