@@ -74,5 +74,5 @@ for (let i = 0; i < 1000000; i++){
 
 let b = [1, 2, 3, 4, 5, 6];
 
-const reductor = (a, b) => a + b;
-console.log(a.reduce(reductor));
+const reductor = (c, d) => c + d;
+console.log(b.reduce(reductor));
