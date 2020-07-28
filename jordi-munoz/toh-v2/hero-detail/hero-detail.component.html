@@ -19,18 +19,21 @@
 				</div>
 			</div>
 		</header>
+		<div id="hero-detail__container">
+			<h2><span id="hero-detail__name"></span> details</h2>
+			<p>id: <span id="hero-detail__id"></span></p>
 		
-		<h2><span id="hero-detail__name"></span> details</h2>
-		<p>id: <span id="hero-detail__id"></span></p>
-		<label for="heroName">
-			name:
-			<input
-				id="hero-detail__name-control"
-				type="text"
-				name="heroName"
-				onchange="heroDetailComponent.nameChange(this.value)"
-			/>
-		</label>
+			<label for="heroName">
+				name:
+				<input
+					id="hero-detail__name-control"
+					type="text"
+					name="heroName"
+					onchange="heroDetailComponent.nameChange(this.value)"
+				/>
+			</label>
+		</div>
+		<p id="hero-detail__error"></p>
 		<script src="../hero.js"></script>
 		<script src="../hero.mock.js"></script>
 		<script src="../hero-service/hero.service.js"></script>
