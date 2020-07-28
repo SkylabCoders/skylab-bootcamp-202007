@@ -14,7 +14,6 @@ function HeroDetailComponent() {
 		heroService
 			.getHeroById(id)
 			.then((response) => {
-				// if (!response) throw 'No hay hero';
 				handleFulFilled(response);
 			})
 			.catch(handleError);

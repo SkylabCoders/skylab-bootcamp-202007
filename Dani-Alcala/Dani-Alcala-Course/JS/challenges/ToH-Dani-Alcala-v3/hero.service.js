@@ -23,6 +23,7 @@ class HeroService {
 			return response.json().then((response) => {
 				console.log(response);
 				const hero = response.find((element) => element.id === id);
+				if (!hero) throw 'No hay hero';
 				return hero;
 			})
 			.catch((error) => {
