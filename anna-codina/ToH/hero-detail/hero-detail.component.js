@@ -36,5 +36,3 @@ function HeroDetailComponent() {
 
 const heroDetailComponent = new HeroDetailComponent();
 heroDetailComponent.onInit();
-
-console.log(heroDetailComponent);
