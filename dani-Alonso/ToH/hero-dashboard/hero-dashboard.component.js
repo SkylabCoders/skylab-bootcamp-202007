@@ -2,12 +2,14 @@ function DashboardComponent() {
     const heroListContainer = document.getElementById(dashboard__container);
 
     this.onInit = function() {
-        heroService.getHeroList((response) => {
-            heroesPromoted = response.slice(0, 4);
-            renderHeroList().forEach((element) => {
-                if (heroListContainer) heroListContainer.appendChild();
-            });
-        });
+        heroService
+            .getHeroList((response) => {
+                heroesPromoted = response.slice(0, 4);
+                renderHeroList().forEach((element) => {
+                    if (heroListContainer) heroListContainer.appendChild();
+                });
+            })
+            .catch((error) => console.log('Something is wrong', error));
     };
 
     function renderHeroList() {
