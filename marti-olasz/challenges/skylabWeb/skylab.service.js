@@ -33,7 +33,11 @@ const skylabService = new SkylabService();*/
 ////////////////////////////////////////////////////////////////////////////
 class SkylabService {
 	static getList() {
-		return skylaberList;
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				skylaberList ? resolve(skylaberList) : reject('No list found');
+			}, 1000);
+		});
 	}
 	static getSkylaberById(id) {
 		return skylaberList.find((index) => index.id === id);
