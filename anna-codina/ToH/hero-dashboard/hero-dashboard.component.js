@@ -1,14 +1,35 @@
 'use strict';
 function HeroDashboardComponent() {
-    const heroListDashboard = [...heroList];
+    let heroListDashboard;
     const listElement = document.getElementsByClassName('dashboard__list');
     const listItemClass = 'list__item';
     const listItemElement = document.getElementsByClassName(listItemClass);
 
     this.onInit = function () {
-        const topFour = heroListDashboard.slice(0, 4);
+        heroListDashboard = heroService.getHeroList()
+            .then(handleFulfilled)
+            .catch(handleError);
+    }
+
+    function handleFulfilled(response) {
+        toggleLoading();
+        const topFour = response.slice(0, 4);
         createDashboardList(topFour);
         updateDashboard(topFour);
+    }
+
+    function handleError(message) {
+        toggleLoading()
+        document.getElementById('hero-dashboard__container').style.display = 'none'
+        document.getElementById('hero-dashboard__error').innerHTML = message;
+    }
+    function toggleLoading() {
+        let loadingElement = document.getElementById('hero-dashboard__loading');
+        if (loadingElement.style.display === 'block') {
+            loadingElement.style.display = 'none';
+        } else {
+            loadingElement.style.display = 'block'
+        }
     }
     function createDashboardList(list) {
         let mylist = '';

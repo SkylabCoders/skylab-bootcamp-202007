@@ -1,42 +1,54 @@
 function HeroDetailComponent() {
-	let hero = null;
-	let param = null;
-	let heroId = null;
-	let heroDetail = document.getElementById('hero-detail__id');
-	let heroName = document.getElementById('hero-detail__name-control');
+	let hero;
+	const idElement = document.getElementById('hero-detail__id');
+	const nameElement = document.getElementById('hero-detail__name');
+	const nameControlElement = document.getElementById(
+		'hero-detail__name-control'
+	);
+
 	this.onInit = function () {
-		getIdFormUrl();
-		hero = getHeroNameFromList(heroList);
+		document.getElementById('hero-detail__container').style.display = 'none';
+		const id = getHeroFromUrl();
+		const promesaRecibida = heroService.getHeroById(id);
+		promesaRecibida.then(handleFulfilled).catch(handleError);
+	};
+
+	function updateId() {
+		if (idElement) idElement.innerHTML = hero.id;
+	}
+
+	function updateName() {
+		if (nameElement) nameElement.innerHTML = hero.name;
+		if (nameControlElement) nameControlElement.value = hero.name;
+	}
+
+	function getHeroFromUrl() {
+		const params = new URLSearchParams(location.search);
+		return +params.get('heroid');
+	}
+
+	function handleFulfilled(response) {
+		hero = response;
+		document.getElementById('hero-detail__container').style.display = 'block';
 		updateId();
 		updateName();
-	};
+	}
+
+	function handleError(message) {
+		document.getElementById('hero-detail__container').style.display = 'none';
+		document.getElementById('hero-detail__error').innerHTML = message;
+	}
+
 	this.nameChange = function (newName) {
 		hero.name = newName;
 		updateName();
-		heroList.forEach((currentHero) => {
-			if (currentHero.name === newName) {
-				hero.id = currentHero.id;
-			}
-		});
-		updateId();
 	};
-	function updateId() {
-		heroDetail.innerHTML = hero.id;
-	}
-	function updateName() {
-		document.getElementById('hero-detail__name').innerHTML = hero.name;
-		heroName.value = hero.name;
-	}
-	function getIdFormUrl() {
-		param = new URLSearchParams(location.search);
-		heroId = +param.get('heroid');
-	}
-	function getHeroNameFromList(heroList) {
-		return heroList.find(getName);
-	}
-	function getName(element) {
-		return element.id === heroId;
-	}
+
+	// function compareId(hero) {
+	// 	const params = new URLSearchParams(location.search);
+	// 	return hero.id === +params.get('heroId');
+	// }
 }
+
 const heroDetailComponent = new HeroDetailComponent();
 heroDetailComponent.onInit();
