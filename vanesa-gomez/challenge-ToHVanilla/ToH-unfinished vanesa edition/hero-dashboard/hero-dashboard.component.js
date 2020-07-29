@@ -1,9 +1,15 @@
 function DashboardComponent() {
 	const anchorContainer = document.getElementById('dashboard__hero-list');
 	this.onInit = function () {
-		const promotedHeroList = heroList.splice(0, 4);
-		const promotedHeroArray = promotedHeroList.map(mapItemToAnchor);
-		promotedHeroArray.forEach(addAnchorToHtml);
+		heroService
+			.getHeroList()
+			.then((response) => {
+				return response.splice(0, 4);
+			})
+			.then((list) => {
+				const promotedHeroArray = list.map(mapItemToAnchor);
+				promotedHeroArray.forEach(addAnchorToHtml);
+			});
 		getHeroFromUrl();
 	};
 

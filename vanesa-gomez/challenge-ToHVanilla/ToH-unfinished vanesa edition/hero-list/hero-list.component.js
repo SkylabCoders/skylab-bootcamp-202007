@@ -8,7 +8,7 @@ function ListComponent() {
 	const elementsToHtml = [];
 
 	this.onInit = function () {
-		heroService.getHeroList().then(handleFulfilled).catch();
+		heroService.getHeroList().then(handleFulfilled);
 	};
 
 	function handleFulfilled(response) {
