@@ -13,3 +13,30 @@ function Details() {
 
 const myDetails = new Details();
 myDetails.update();
+<<<<<<< HEAD
+=======
+*/
+///////////////////////////////////////////////////////////////////////
+class Details {
+	static onInit() {
+		debugger;
+		const id = Details.searchIdinURL();
+		SkylabService.getSkylaberById(id)
+			.then((skylabber) => this.update(skylabber))
+			.catch((error) => this.promiseError(error));
+	}
+	static update(skylabber) {
+		document.querySelector('.detail__name').innerHTML = skylabber.name;
+		document.querySelector('.detail__id').innerHTML = skylabber.id;
+		document.querySelector('.detail__name-control').value = skylabber.name;
+	}
+	static searchIdinURL() {
+		return +location.search.substr(4);
+	}
+	static promiseError(error) {
+		document.querySelector('.detail__container').style.display = 'none';
+		document.querySelector('.error').innerHTML = error;
+	}
+}
+Details.onInit();
+>>>>>>> 2eceeb3ff238a42caaf2e2c7e8ab67cde7a1dcb6

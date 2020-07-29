@@ -28,4 +28,75 @@ function SkylabService() {
 	};
 }
 
+<<<<<<< HEAD
 const skylabService = new SkylabService();
+=======
+const skylabService = new SkylabService();*/
+////////////////////////////////////////////////////////////////////////////
+class SkylabService {
+	static getList() {
+		return fetch('../skylab.json').then((response) => response.json());
+
+		/*
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				skylaberList ? resolve(skylaberList) : reject('No list found');
+			}, 1000);
+		});
+		*/
+	}
+	static getSkylaberById(id) {
+		return this.getList()
+			.then((response) => {
+				return response.find((index) => index.id === id);
+			})
+			.catch((error) => console.log(error));
+		/*
+		const skylabber = skylaberList.find((index) => index.id === id);
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				skylabber ? resolve(skylabber) : reject('No skylabber found by ID');
+			}, 1000);
+		});
+		*/
+	}
+	static getSkylaberByName(name) {
+		return this.getList()
+			.then((response) => {
+				return response.filter((index) => {
+					return (
+						index.name.slice(0, name.length).toLowerCase() ===
+						name.toLowerCase()
+					);
+				});
+			})
+			.catch((error) => console.log(error));
+		/*
+		const skylabberList = skylaberList.filter((index) => {
+			return (
+				index.name.slice(0, name.length).toLowerCase() === name.toLowerCase()
+			);
+		});
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				skylabberList
+					? resolve(skylabberList)
+					: reject('No skylabber found by name');
+			}, 1000);
+		});
+		*/
+	}
+	static search(text) {
+		if (text !== '') {
+			if (isNaN(+text)) {
+				return this.getSkylaberByName(text);
+			} else {
+				return this.getSkylaberById(+text);
+			}
+		} else {
+			SkylaberComponentList.getList().then(list); //Agregar lista!!!
+			return new Promise((resolve) => resolve([]));
+		}
+	}
+}
+>>>>>>> 2eceeb3ff238a42caaf2e2c7e8ab67cde7a1dcb6

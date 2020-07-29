@@ -35,3 +35,49 @@ function SkylaberComponentList() {
 const mother = document.querySelector('.list');
 const skylaberComponentList = new SkylaberComponentList();
 skylaberComponentList.drawList();
+<<<<<<< HEAD
+=======
+*/
+////////////////////////////////////////////////////////////////////////////////////////////
+class SkylaberComponentList {
+	static onInit() {
+		const text = document.querySelector('.input').value;
+		SkylabService.search(text).then((list) => {
+			this.drawList(list);
+		});
+	}
+
+	static drawList(list) {
+		const mother = document.querySelector('.list');
+		mother.innerHTML = null;
+		if (Array.isArray(list)) {
+			for (let i = 0; i < list.length; i++) {
+				mother.appendChild(this.drawItem(list[i]));
+			}
+		} else {
+			mother.appendChild(this.drawItem(list));
+		}
+	}
+
+	static drawItem(index) {
+		let item = document.createElement('div');
+		item.className = 'list__item';
+		let num = document.createTextNode(index.id + ' | ');
+		item.appendChild(num);
+		let name = document.createTextNode(index.name);
+		item.appendChild(name);
+		item.addEventListener('click', function () {
+			SkylaberComponentList.updateURL(index);
+		});
+		return item;
+	}
+	static updateURL(skylaber) {
+		document.querySelector('.details').style.display = 'block';
+		document.querySelector('.details__info').innerHTML = skylaber.name + ' !';
+		document.querySelector(
+			'.button__link'
+		).href = `../skylab-details/details.html?id=${skylaber.id}`;
+	}
+}
+SkylaberComponentList.onInit();
+>>>>>>> 2eceeb3ff238a42caaf2e2c7e8ab67cde7a1dcb6
