@@ -1,10 +1,9 @@
 
 function DashboardComponent() {
-    const fourHeroes = heroList.slice(0, 4);
+    const fourHeroes = getDashB();
     const heroListContainer = document.getElementById('dashboard__component');
 
     this.onInit = function () {
-        console.log(heroListContainer);
         renderHeroList().forEach((element) => {
             if (heroListContainer) heroListContainer.appendChild(element);
         })
@@ -21,7 +20,11 @@ function DashboardComponent() {
         return element;
     }
     function getHeroLink(id) {
-        return `../hero-detail/hero-detail.component.html?heroId=${id}&prop=value`;
+        return `../hero-detail/hero-detail.component.html?heroId=${id}`;
+    }
+
+    function getDashB() {
+        return service.getDash();
     }
 }
 

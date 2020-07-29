@@ -1,6 +1,6 @@
 'use strict';
 function HeroListComponent() {
-    const heroListComp = [...heroList];
+    let heroListComp;
     const classId = 'hero-list__id';
     const className = 'hero-list__name';
     const idElement = document.getElementsByClassName(classId);
@@ -9,9 +9,32 @@ function HeroListComponent() {
     const heroListElement = document.getElementsByClassName(listClass);
 
     this.onInit = function () {
-        createList(heroListComp);
-        printListInfo(heroListComp);
+        heroService.getHeroList()
+            .then(handleFulfilled)
+            .catch(handleError);
     }
+    function handleFulfilled(response) {
+        toggleLoading();
+        createList(response);
+        printListInfo(response);
+        heroListComp = response;
+    }
+
+    function handleError() {
+        const message = 'No hay ningun heroe en la lista';
+        toggleLoading()
+        document.getElementById('hero-list__container').style.display = 'none'
+        document.getElementById('hero-list__error').innerHTML = message;
+    }
+    function toggleLoading() {
+        let loadingElement = document.getElementById('hero-list__loading');
+        if (loadingElement.style.display === 'block') {
+            loadingElement.style.display = 'none';
+        } else {
+            loadingElement.style.display = 'block'
+        }
+    }
+
     function createList(list) {
         let mylist = '';
         for (let i in list) {

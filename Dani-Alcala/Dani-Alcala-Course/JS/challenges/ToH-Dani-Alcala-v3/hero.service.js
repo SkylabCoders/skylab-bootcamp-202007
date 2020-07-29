@@ -1,30 +1,43 @@
 class HeroService {
-	getHeroList(){
-		return new Promise((resolve) => {
-			resolve(heroList);
-			});
+	getHeroList() {
+		// return new Promise((resolve) => {
+		// 	resolve(heroList);
+		// 	});
+
+		return fetch('../hero-list.json').then((response) => {
+			return response.json();
+		});
 	}
 
 	getHeroById(id) {
-		return new Promise((resolve, reject) => {
-			const response = heroList.find((hero) => hero.id === id);
-			setTimeout(() => {
-				response
-				? resolve(response)
-				: reject('There is no hero with id: ' + id);
-			}, 2000);
-			}); 
+		// return new Promise((resolve, reject) => {
+		// 	const response = heroList.find((hero) => hero.id === id);
+		// 	setTimeout(() => {
+		// 		response
+		// 		? resolve(response)
+		// 		: reject('There is no hero with id: ' + id);
+		// 	}, 2000);
+		// 	});
+
+		return fetch('../hero-list.json').then((response) => {
+			return response.json().then((response) => {
+				console.log(response);
+				const hero = response.find((element) => element.id === id);
+				if (!hero) throw 'No hay hero';
+				return hero;
+			})
+			.catch((error) => {
+				return console.log('un error', error)
+			})
+		});
 	}
 
 	getHeroByName(name) {
-		return heroList.find((hero) => hero.name === name)
+		return heroList.find((hero) => hero.name === name);
 	}
 }
 
-
 const heroService = new HeroService();
-
-
 
 // function HeroService() {
 // 	this.getHeroList = function () {
@@ -51,5 +64,3 @@ const heroService = new HeroService();
 
 // const service = new HeroService();
 // service.getHeroList();
-
-

@@ -242,7 +242,34 @@ temp/
 
 # End of https://www.gitignore.io/api/node
 
+#media files
+*.apng
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.raw
+*.tiff
+*.eps
+*.ico
+*.WebP
+*.bmp
+*.ai
+*.mpg
+*.mpeg
+*.wav
+*.pdf
+*.mp3
+*.mp4
+*.ogg
+*.mov
+*.WebM
+*.flac
+*.adts
+*.3gp
+
 # Other
 
 package-lock.json
 yarn.lock
+build/

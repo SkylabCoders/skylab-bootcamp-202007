@@ -1,34 +1,52 @@
 'use strict';
 
 function HeroDashboardComponent() {
-  const allHeroes = heroList;
-  const topHeroes = allHeroes.slice(1, 5);
-  const heroListContainer = document.getElementById('hero-dashboard');
+	let topHeroes;
+	const heroListContainer = document.getElementById('hero-dashboard');
 
-  this.onInit = function () {
-    renderHeroList().forEach(function (heroElement) {
-      if (renderHeroList) heroListContainer.appendChild(heroElement);
-    });
-    /*     createDashboard();
-    printDashboard(); */
-  };
+	this.onInit = function () {
+		toggleLoading();
+		heroService
+			.getHeroList()
+			.then((response) => {
+				topHeroes = response.slice(1, 5);
+				renderHeroList().forEach(function (heroElement) {
+					if (renderHeroList) heroListContainer.appendChild(heroElement);
+				});
+			})
+			.catch((reject) => {
+				console.log(reject);
+			});
 
-  const renderHeroList = function () {
-    return topHeroes.map(createHeroAnchor);
-  };
+		//createDashboard();
+		//printDashboard();
+	};
 
-  const createHeroAnchor = function (hero) {
-    const heroElement = document.createElement('a');
-    heroElement.href = getHeroLink(hero.id);
-    heroElement.innerText = hero.name;
-    return heroElement;
-  };
+	const renderHeroList = function () {
+		return topHeroes.map(createHeroAnchor);
+	};
 
-  function getHeroLink(id) {
-    return `../hero-detail/hero-detail.component.html?heroId=${id}`;
-  }
+	const createHeroAnchor = function (hero) {
+		const heroElement = document.createElement('a');
+		heroElement.href = getHeroLink(hero.id);
+		heroElement.innerText = hero.name;
+		return heroElement;
+	};
 
-  /*   const createDashboard = function () {
+	function getHeroLink(id) {
+		return `../hero-detail/hero-detail.component.html?heroId=${id}`;
+	}
+
+	function toggleLoading() {
+		let loadingElement = document.getElementById('hero-detail__loading');
+		if (loadingElement.style.display === 'block') {
+			loadingElement.style.display = 'none';
+		} else {
+			loadingElement.style.display = 'block';
+		}
+	}
+
+	/*   const createDashboard = function () {
     const heroDashboardContainer = document.getElementById('hero-dashboard');
     for (let i = 0; i < maxNumHeroes.length; i++) {
       const heroElement = document.createElement('div');
