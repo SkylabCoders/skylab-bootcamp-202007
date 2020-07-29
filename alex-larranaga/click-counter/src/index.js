@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 //Since REACT is almost Pure JS, we can work as-is
 let counter = 0;
-function updateCounter(newValue) {
+function updateCounters(newValue) {
 	counter = newValue;
 	render();
 }
@@ -16,8 +16,8 @@ function render() {
 		<React.StrictMode>
 			<App
 				clicks={counter}
-				clickChange={() => updateCounter(++counter)}
-				mouseOutEvent={() => updateCounter(0)}
+				clickChange={() => updateCounters(++counter)}
+				mouseOutEvent={() => updateCounters(0)}
 				//mouseOverCounter={mouseOverCounter}
 			/>
 		</React.StrictMode>,
