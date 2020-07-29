@@ -2,10 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App(props) {
-	const clicks = 0;
+function App({ clicks, clickChange, resetCounter }) {
 	return (
-		<div id="click-counter">This div has been clicked {clicks} times!</div>
+		<div onMouseLeave={resetCounter} onClick={clickChange}>
+			This div has been clicked {clicks} times!
+		</div>
 	);
 }
 
