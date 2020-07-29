@@ -1,9 +1,13 @@
 function HeroListComponent() {
 
-    const hero = heroList;
+    let hero;
     this.onInIt = function () {
-        const domList = document.querySelector('.container');
-        domList.innerHTML = renderHeroList(hero);
+        heroService.getHeroList().then((response) => {
+            hero = response;
+            const domList = document.querySelector('.container');          
+            domList.innerHTML = renderHeroList(hero);
+        });
+        
     }
     function renderHeroList(arrayHero) {
         let heroLink = '../hero-detail/hero-detail.component.html';
@@ -13,6 +17,7 @@ function HeroListComponent() {
         });
         return newList.join('');
     }
+
 }
 
 const heroListComponent = new HeroListComponent();
