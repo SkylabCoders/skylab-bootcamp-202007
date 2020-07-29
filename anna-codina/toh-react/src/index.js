@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import * as serviceWorker from './serviceWorker';
+import ToH from './ components/ToH';
 
 ReactDOM.render(
-	<React.StrictMode></React.StrictMode>,
+	<React.StrictMode>
+		<ToH />
+	</React.StrictMode>,
 	document.getElementById('root')
 );
 
