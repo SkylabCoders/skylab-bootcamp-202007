@@ -90,3 +90,27 @@ nav a:hover {
 nav a.active {
     color: #039be5;
 }
+
+li:hover {
+    margin-left: 15px;
+}
+
+.hero-list__id {
+    display: flex;
+    background-color: #365f5a;
+    height: 30px;
+    width: 30px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.hero-list__name {
+    align-self: center;
+    margin-left: 10px;
+}
+
+#hero-detail__loading {
+    display: block;
+}

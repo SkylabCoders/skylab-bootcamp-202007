@@ -10,14 +10,9 @@ function Details() {
 			<p>
 				id: <span id="hero-detail__id"></span>
 			</p>
-			<label for="heroName">
+			<label htmlfor="heroName">
 				name:
-				<input
-					id="hero-detail__name-control"
-					type="text"
-					name="heroName"
-					onkeyup="heroDetailComponent.nameChange(this.value)"
-				/>
+				<input id="hero-detail__name-control" type="text" name="heroName" />
 			</label>
 		</div>
 	);

@@ -3,8 +3,8 @@ import React from 'react';
 function Dashboard() {
 	return (
 		<div>
-			<p>Poner aqui dashboard</p>
-			<ul class="dashboard__list"></ul>
+			<h2>Top four</h2>
+			<ul className="dashboard__list"></ul>
 		</div>
 	);
 }

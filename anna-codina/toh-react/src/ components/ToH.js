@@ -4,8 +4,9 @@ import './ToH.css';
 import Dashboad from './dashboard';
 import Details from './details';
 import List from './list';
+import heroList from './list.mock';
 
-function ToH() {
+function ToH({ heroes }) {
 	return (
 		<div>
 			<header>
@@ -17,7 +18,7 @@ function ToH() {
 			</header>
 			<main>
 				<Details />
-				<List />
+				<List heroes={heroList} />
 				<Dashboad />
 			</main>
 		</div>
