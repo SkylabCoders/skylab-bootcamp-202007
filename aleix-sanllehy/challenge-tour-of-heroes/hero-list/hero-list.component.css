@@ -1,13 +1,9 @@
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #hero-list {
-  display: flex;
-  flex-direction: column;
-}
-
-#hero-list > * {
-  display: flex;
+	display: flex;
+	flex-direction: column;
 }
