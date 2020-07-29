@@ -1,7 +1,7 @@
 'use strict';
 
 function HeroDetailComponent() {
-	const allHeroes = heroList;
+	const allHeroes = [];
 	let hero;
 	const idElement = document.getElementById('hero-detail__id');
 	const nameElement = document.getElementById('hero-detail__name');
@@ -10,33 +10,56 @@ function HeroDetailComponent() {
 	);
 
 	this.onInit = function () {
-		hero = getHeroFromUrl();
+		document.getElementById('hero-detail__container').style.display = 'none';
+		const id = getHeroIdFromUrl();
+		heroService.getHeroById(id).then(handleFulfilled).catch(handleError);
+	};
+
+	function getHeroIdFromUrl() {
+		const params = new URLSearchParams(location.search);
+		return +params.get('heroId');
+		// no const is defined here, now it's above in the onInit
+		//const id = +params.get('heroId');
+
+		// the section below is deprecated and is moved above inside the onInit
+		/* 	heroService
+				.getHeroById(id)
+				.then(handleFulfilled)
+				.then((response) => {
+					hero = response;
+					updateId();
+					updateName();
+				})
+				.catch(handleError); */
+		// setTimeout disabled
+		//setTimeout(() => console.log(hero), 3000);
+		//return hero;
+	}
+
+	function toggleLoading() {
+		let loadingElement = document.getElementById('hero-detail__loading');
+		if (loadingElement.style.display === 'block') {
+			loadingElement.style.display = 'none';
+		} else {
+			loadingElement.style.display = 'block';
+		}
+	}
+
+	function handleFulfilled(response) {
+		toggleLoading();
+		document.getElementById('hero-detail__container').style.display = 'block';
+		hero = response;
 		updateId();
 		updateName();
-	};
-
-	this.nameChange = function (newName) {
-		hero.name = newName;
-		updateName();
-	};
-
-	function updateId() {
-		idElement.innerHTML = hero.id;
 	}
 
-	function updateName() {
-		nameElement.innerHTML = hero.name;
-		nameControlElement.value = hero.name;
+	function handleError(message) {
+		toggleLoading();
+		document.getElementById('hero-detail__container').style.display = 'none';
+		document.getElementById('hero-detail__error').innerHTML = message;
 	}
 
-	function getHeroFromUrl() {
-		const params = new URLSearchParams(location.search);
-		const id = +params.get('heroId');
-		hero = heroService.getHeroById(id);
-		return hero;
-	}
-
-	/* 	//the function below now works above with the hero service
+	/* 	//the function below is deprecated and now works above through the hero service
 	function getHeroFromUrl() {
 		const params = new URLSearchParams(location.search);
 		return allHeroes.find(function (hero) {
@@ -52,6 +75,20 @@ function HeroDetailComponent() {
 		const params = new URLSearchParams(location.search);
 		return hero.id === +params.get('heroId');
 	} */
+
+	this.nameChange = function (newName) {
+		hero.name = newName;
+		updateName();
+	};
+
+	function updateId() {
+		idElement.innerHTML = hero.id;
+	}
+
+	function updateName() {
+		nameElement.innerHTML = hero.name;
+		nameControlElement.value = hero.name;
+	}
 }
 
 const heroDetailComponent = new HeroDetailComponent();
