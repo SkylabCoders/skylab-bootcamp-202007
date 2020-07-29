@@ -8,9 +8,7 @@ describe('Hero List', function () {
     it('should create', function () {
         expect(heroListComponent).toBeTruthy();
     })
-    it('should create', function () {
-        expect(hero).toBeTruthy();
-    })
+
 
    
     

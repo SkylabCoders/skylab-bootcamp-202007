@@ -1,27 +1,35 @@
 
 function HeroDashboard(){
     
-    const heroes = heroList.slice(0, 4);
+    let heroes;
     const divButtonContainer = document.querySelector(".hero__butons__container");
     
+    this.onInit = function(){
+        heroService.getHeroList().then((response) => {
+            heroes = response.slice(0,4);
+            renderHeroList().forEach((element) => {if(divButtonContainer) divButtonContainer.appendChild(element)
+            });
+        }).catch((error) => console.log('Something is wriong: ', error));
+    }
 
     function renderHeroList(){
-        return heroes.map(hero => renderAnchorTags(hero));
+        return heroes.map(mapHeroToAnchor);
     }
 
-    function renderAnchorTags(hero){
-        const heroLink = "../hero-detail/hero-detail.component.html?heroId=13";
+    function mapHeroToAnchor(hero){
         const element = document.createElement('a');
-        element.href = heroLink;
+        element.href = getHeroLink(hero.id);
         element.innerHTML = hero.name;
-        divButtonContainer.appendChild(element);
         return element;
     }
+
+    function getHeroLink(id){
+        return `../hero-detail/hero-detail.component.html?heroId=${id}`;
+    }
     
-    return {renderHeroList, renderAnchorTags}
 
 }
 
 const heroDashboard = new HeroDashboard();
 
-heroDashboard.renderHeroList();
+heroDashboard.onInit();
