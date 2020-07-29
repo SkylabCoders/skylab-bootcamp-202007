@@ -5,10 +5,36 @@ function HeroDetailComponent() {
 	const nameElement = document.getElementById('hero-detail__name');
 	const nameControlElement = document.getElementById('hero-detail__name-control');
 	this.onInit = function () {
-		hero = getHeroFromUrl();
+		const id = getHeroIdFromUrl()
+		heroService.getHeroById(id)
+			.then(handleFulfielld)
+			.catch(handleError);
+	};
+
+	function getHeroIdFromUrl() {
+		const params = new URLSearchParams(location.search);
+		return +params.get('heroId');
+	}
+	function handleFulfielld(response) {
+		toggleLoading()
+		document.getElementById('hero-detail__container').style.display = 'block'
+		hero = response;
 		updateId();
 		updateName();
-	};
+	}
+	function handleError(message) {
+		toggleLoading();
+		document.getElementById('hero-detail__error').innerHTML = message;
+	}
+
+	function toggleLoading() {
+		let loadingElement = document.getElementById('hero-detail__loading');
+		if (loadingElement.style.display === 'block') {
+			loadingElement.style.display = 'none';
+		} else {
+			loadingElement.style.display = 'block'
+		}
+	}
 
 	this.nameChange = function (newName) {
 		hero.name = newName;
@@ -26,15 +52,9 @@ function HeroDetailComponent() {
 		if (nameControlElement)
 			nameControlElement.value = hero.name;
 	}
-	function getHeroFromUrl() {
-		const params = new URLSearchParams(location.search);
-		return heroList.find(function (actualHero) {
-			return actualHero.id === +params.get('heroId')
-		})
-	}
+
 }
+
 
 const heroDetailComponent = new HeroDetailComponent();
 heroDetailComponent.onInit();
-
-console.log(heroDetailComponent);

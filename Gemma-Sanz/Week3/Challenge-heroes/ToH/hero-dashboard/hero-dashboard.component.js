@@ -1,15 +1,22 @@
 function HeroDashboardComponent() {
-	const heroes = heroList.slice(0, 4);
+	let heroesPromoted;
+	heroesList = heroList;
+
+	//	const heroes = heroList.slice(0, 4);
 	const mainContentDashboard = document.querySelector("#mainContainer__dashboard")
-	const heroDashboardLink = `href=../hero-detail/hero-detail.component.html`
+	//	const heroDashboardLink = `href=../hero-detail/hero-detail.component.html`
 
 	this.onInit = function () {
-		renderList().forEach(element => {
-			mainContentDashboard && mainContentDashboard.appendChild(element);
+
+		heroService.getHeroList().then((response) => {
+			heroesPromoted = response.slice(0, 4);
+			renderList().forEach((element) => {
+				mainContentDashboard && mainContentDashboard.appendChild(element);
+			});
 		})
 	};
 	function renderList() {
-		return heroes.map(sercherList)
+		return heroList.slice(0, 4).map(sercherList)
 	}
 
 	let sercherList = function (hero) {

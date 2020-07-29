@@ -3,55 +3,98 @@
 
 class HeroService {
     getHeroList() {
-        return HERO_LIST;
+        return new Promise((resolve, reject) => {
+            let response = HERO_LIST;
+            setTimeout(()=> {
+                response ? resolve(response) : reject(`Query of full hero list timed out or unsuccessful.`);
+            },1000);
+        })
     }
     getHeroListPage(page, itemsPerPage){
-        let result = Array.from(0);
-        let start = page * itemsPerPage;
-        let end = start + itemsPerPage;
-        for (let i=start; i<end; i++){
-            result.push(HERO_LIST[i]);
-        }
-        return result;
+        fetch('http://fanap.eu/tour-of-heroes/superHeroData.js')
+        .then((response)=>{
+            console.log(response);
+            let HERO_LIST = response;
+            let result = Array.from(0);
+            let start = page * itemsPerPage;
+            let end = start + itemsPerPage;
+            for (let i=start; i<end; i++){
+                result.push(HERO_LIST[i]);
+            }
+            return result;
+        })
     }
+
     getHeroById(id){
-        for (let el of HERO_LIST){
-            if (el.id === id){ return el; }
-        }
+        return this.getHeroByProperty('id', id);
     }
     getHeroByName(name){
-        for (let el of HERO_LIST){
-            if (el.name === name){ return el; }
-        }
+        return this.getHeroByProperty('name', name);
     }
     getHeroByRealName(realName){
-        for (let el of HERO_LIST){
-            if (el.biography.fullName === realName){ return el; }
-        }
+        return new Promise((resolve, reject) => {
+            let response;
+            for (let el of HERO_LIST){
+                if (el.biography.fullName === realName){ response = el; }
+            }
+            setTimeout(()=> {
+                response ? resolve(response) : reject(`Query get first hero with 'real name'='${realName}' timed out or unsuccessful.`)
+            }, 1000);
+        })
     }
     getHeroBySlug(slug){
-        for (let el of HERO_LIST){
-            if (el.slug === slug){ return el; }
-        }
+        return this.getHeroByProperty('slug', slug).then((r)=>{return r}).catch(this.handleError);
     }
     getHeroImageURLsById(id){
-        for (let el of HERO_LIST){
-            if (el.id === id){ return el.images; }
-        }
+        return this.getHeroPropertyByProperty('id', id,'images').then((r)=>{return r}).catch(this.handleError);
     }
     getHeroBiographyById(id){
-        for (let el of HERO_LIST){
-            if (el.id === id){ return el.biography; }
-        }
+        return this.getHeroPropertyByProperty('id', id,'biography').then((r)=>{return r}).catch(this.handleError);
     }
     getHeroAppearanceById(id){
-        for (let el of HERO_LIST){
-            if (el.id === id){ return el.appearance; }
-        }
+        return this.getHeroPropertyByProperty('id', id,'appearance').then((r)=>{return r}).catch(this.handleError);
     }
     getHeroConnectionsById(id){
-        for (let el of HERO_LIST){
-            if (el.id === id){ return el.connections; }
-        }
+        return this.getHeroPropertyByProperty('id', id,'connections').then((r)=>{return r}).catch(this.handleError);
+    }
+
+    getHeroByProperty(propertyName, propertyValue){
+        return new Promise((resolve, reject) => {
+            let response;
+            for (let el of HERO_LIST){
+                if (el[propertyName] === propertyValue){ response = el; }
+            }
+            setTimeout(()=> {
+                response ? resolve(response) : reject(`Query get first hero with '${propertyName}'='${propertyValue}' timed out or unsuccessful.`)
+            }, 1000);
+        })
+    }
+    getHeroPropertyByProperty(propertyName, propertyValue, targetPropertyName){
+        return new Promise((resolve, reject)=>{
+            let response;
+            for (let el of HERO_LIST){
+                if (el[propertyName] === propertyValue){ response = el[targetPropertyName]; }
+            }
+            setTimeout(() => {
+                response ? resolve(response) : reject(`Query get property ${targetPropertyName} of first hero with '${propertyName}=${propertyValue}' timed out or unsuccessful.`);
+            },1000);
+        })
+
+    }
+    getAllHeroesByProperty(propertyName, propertyValue){
+        return new Promise((resolve, reject)=>{
+            let result = [];
+            for (let el of HERO_LIST){
+                if (el[propertyName] === propertyValue){ result.push(el) }
+            }
+            setTimeout(()=>{
+                result ? resolve(result) : reject(`Query get all heroes with '${propertyName}=${propertyValue}' timed out or unsuccessful.`);
+            },1000);
+        })
+
+    }
+
+    handleError(err){
+        return console.log('epic fail -> ', err);
     }
 }

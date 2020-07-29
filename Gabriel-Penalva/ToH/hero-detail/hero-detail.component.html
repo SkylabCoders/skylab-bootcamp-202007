@@ -15,15 +15,19 @@
 			<a class='butons' href="../hero-dashboard/hero-dashboard.component.html">Dasboard</a>
 			<a class='butons' href="../hero-list/hero-list.component.html">Heroes</a></div>
 		<h2><span id="hero-detail__name"></span> details</h2>
-		<p>id: <span id="hero-detail__id"></span></p>
-		<label for="heroName">
-			name:
-			<input id="hero-detail__name-control" type="text" name="heroName"
-				onchange="heroDetailComponent.nameChange(this.value)" />
-		</label>
+		<div id="hero_detail">
+			<p>id: <span id="hero-detail__id"></span></p>
+			<label for="heroName">
+				name:
+				<input id="hero-detail__name-control" type="text" name="heroName"
+					onchange="heroDetailComponent.nameChange(this.value)" />
+			</label>
+		</div>
+		<p id="hero-detail__error"></p>
 		<a class='butons' href="../hero-dashboard/hero-dashboard.component.html">Back</a>
 		<script src="../hero.js"></script>
 		<script src="../hero.mock.js"></script>
+		<script src="../hero-service/hero.service.js"></script>
 		<script src="hero-detail.component.js"></script>
 	</div>
 </body>
