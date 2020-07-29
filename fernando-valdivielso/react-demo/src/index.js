@@ -7,7 +7,7 @@ import Hello from './Date';
 setInterval(() => {
   ReactDOM.render(
     <React.StrictMode>
-      <Hello now={new Date().toISOString()} x={'algo'} />
+      <Hello now={new Date().toISOString()} x='algo' />
     </React.StrictMode>,
     document.getElementById('root')
   );
