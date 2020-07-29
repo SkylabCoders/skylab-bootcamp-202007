@@ -2,9 +2,13 @@ function HeroListComponent(){
     let newHeroesList;
     const divHeroListContainer = document.querySelector(".hero__list__container");
     
+    this.onInit = function(){
+    
+        heroService.getHeroList().then(handleFulfill).catch(handleError);
+       
+    }
 
-    this.callCreator = function(){
-        heroListComponent.filterByCriteria();
+    this.callCreator = function(){        
         divHeroListContainer.innerHTML = '';
         for(let i = 0 ; i < newHeroesList.length; i++){
             createAnchorElement(i, newHeroesList[i].id);
@@ -12,19 +16,28 @@ function HeroListComponent(){
         }    
     }
 
-    this.filterByCriteria = function(){
-        const filterInput = document.querySelector('.hero__filter').value.toLowerCase();
-
-        if(filterInput === ''){
-            newHeroesList = [...heroList];
-        } else { 
-            newHeroesList = heroList.reduce(function(counter, hero){
-                return filterInput === hero.name.toLowerCase() || +filterInput === hero.id ? (counter = [...counter, hero]) : counter;
-            }, []);
-        }
-        console.log(newHeroesList);
-        
+    function handleFulfill(response){
+        newHeroesList = response;
+        heroListComponent.callCreator();
     }
+
+    function handleError(message){
+        document.querySelector('.hero__list--error').innerHTML = message;
+    }
+
+    // function filterByCriteria(aList){
+    //     const filterInput = document.querySelector('.hero__filter').value.toLowerCase();
+
+    //     if(filterInput === ''){
+    //         aList = [...heroList];
+    //     } else { 
+    //         aList = heroList.reduce(function(counter, hero){
+    //             return filterInput === hero.name.toLowerCase() || +filterInput === hero.id ? (counter = [...counter, hero]) : counter;
+    //         }, []);
+    //     }
+    //     console.log(newHeroesList);
+        
+    // }
 
     function createAnchorElement(i, heroId) {
         const heroLink = getHeroId(heroId);
@@ -57,6 +70,6 @@ function HeroListComponent(){
 
 
 const heroListComponent = new HeroListComponent;
-console.log(heroListComponent);
-heroListComponent.callCreator();
+
+heroListComponent.onInit();
 

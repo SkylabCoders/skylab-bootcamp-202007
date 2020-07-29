@@ -38,18 +38,25 @@ skylaberComponentList.drawList();
 */
 ////////////////////////////////////////////////////////////////////////////////////////////
 class SkylaberComponentList {
-	static drawList() {
+	static onInit() {
+		const text = document.querySelector('.input').value;
+		SkylabService.search(text).then((list) => {
+			this.drawList(list);
+		});
+	}
+
+	static drawList(list) {
 		const mother = document.querySelector('.list');
-		let list = this.updateList();
 		mother.innerHTML = null;
-		for (let i = 0; i < list.length; i++) {
-			mother.appendChild(this.drawItem(list[i]));
+		if (Array.isArray(list)) {
+			for (let i = 0; i < list.length; i++) {
+				mother.appendChild(this.drawItem(list[i]));
+			}
+		} else {
+			mother.appendChild(this.drawItem(list));
 		}
 	}
-	static updateList() {
-		let inputText = document.querySelector('.input').value;
-		return SkylabService.search(inputText);
-	}
+
 	static drawItem(index) {
 		let item = document.createElement('div');
 		item.className = 'list__item';
@@ -58,7 +65,7 @@ class SkylaberComponentList {
 		let name = document.createTextNode(index.name);
 		item.appendChild(name);
 		item.addEventListener('click', function () {
-			updateURL(index);
+			SkylaberComponentList.updateURL(index);
 		});
 		return item;
 	}
@@ -70,4 +77,4 @@ class SkylaberComponentList {
 		).href = `../skylab-details/details.html?id=${skylaber.id}`;
 	}
 }
-SkylaberComponentList.drawList();
+SkylaberComponentList.onInit();
