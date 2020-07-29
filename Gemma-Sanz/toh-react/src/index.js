@@ -5,20 +5,21 @@ import HeroDashboard from './components/HeroDasboard';
 import * as serviceWorker from './serviceWorker';
 import HeroList from './components/HeroList';
 
-
+function changeView({ newView }) {
+  newView = <HeroDashboard /> || newView
+}
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="container">
       <div className="container">
         <h1>Tour of Heroes</h1>
-        <button onClick={dashboard}>Dashboard</button>
-        <button onClick={heroes}>Heroes</button>
+        <button onClick={newView}>Dashboard</button>
+        <button onClick={newView}>Heroes</button>
       </div>
 
-      <HeroDashboard />
-      {/*       <HeroList />
- */}    </div>
+      <HeroList />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
