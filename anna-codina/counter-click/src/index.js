@@ -7,21 +7,21 @@ import { render } from '@testing-library/react';
 let counter = 0;
 
 function updateCounter(newValue) {
-  counter = newValue || 0;
-  renderAgain();
+	counter = newValue || 0;
+	renderAgain();
 }
 
 function renderAgain() {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App
-        clicks={counter}
-        clickChange={() => updateCounter(++counter)}
-        resetCounter={() => updateCounter()}
-      />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
+	ReactDOM.render(
+		<React.StrictMode>
+			<App
+				clicks={counter}
+				clickChange={() => updateCounter(++counter)}
+				resetCounter={() => updateCounter()}
+			/>
+		</React.StrictMode>,
+		document.getElementById('root')
+	);
 }
 renderAgain();
 renderAgain();
