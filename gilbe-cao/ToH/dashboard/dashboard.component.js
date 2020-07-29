@@ -3,15 +3,17 @@ function DashboardComponent() {
 	const heroListContainer = document.getElementById('dashboard__container');
 
 	this.onInit = function () {
-		const promise = heroService.getHeroList();
-		promise
+		heroService
+			.getHeroList()
 			.then((response) => {
 				heroesPromoted = response.slice(0, 4);
 				renderHeroList().forEach((element) => {
 					if (heroListContainer) heroListContainer.appendChild(element);
 				});
 			})
-			.catch((error) => console.log('Something is wrong: ', error));
+			.catch((error) =>
+				console.log('Dashboard Error. Something is wrong: ', error)
+			);
 	};
 
 	function renderHeroList() {
