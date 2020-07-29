@@ -3,6 +3,7 @@ import '../bootstrap.min.css';
 import './ToH.css';
 import Dashboad from './dashboard';
 import Details from './details';
+import List from './list';
 
 function ToH() {
 	return (
@@ -14,6 +15,11 @@ function ToH() {
 					<a>Heroes</a>
 				</nav>
 			</header>
+			<main>
+				<Details />
+				<List />
+				<Dashboad />
+			</main>
 		</div>
 	);
 }
