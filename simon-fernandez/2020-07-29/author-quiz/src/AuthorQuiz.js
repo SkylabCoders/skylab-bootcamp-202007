@@ -1,5 +1,6 @@
 import React from 'react';
 import './bootstrap.min.css';
+import Book from './Book';
 function AuthorQuiz(props) {
 	return (
 		<div>
@@ -9,10 +10,6 @@ function AuthorQuiz(props) {
 			<Book title={'El Quijote'} />
 		</div>
 	);
-}
-
-function Book({ title }) {
-	return <p>{title}</p>;
 }
 
 export default AuthorQuiz;
