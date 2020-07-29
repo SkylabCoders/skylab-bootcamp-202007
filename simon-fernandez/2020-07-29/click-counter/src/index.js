@@ -5,12 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 let counter = 0;
-function handleClickChange() {
-	++counter;
-	renderAgain();
-}
-function resetCounter() {
-	counter = 0;
+function updateCounter(newValue) {
+	counter = newValue;
 	renderAgain();
 }
 function renderAgain() {
@@ -18,8 +14,8 @@ function renderAgain() {
 		<React.StrictMode>
 			<App
 				clicks={counter}
-				clickChange={handleClickChange}
-				resetCounter={resetCounter}
+				clickChange={() => updateCounter(++counter)}
+				resetCounter={() => updateCounter(0)}
 			/>
 		</React.StrictMode>,
 		document.getElementById('root')
