@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import ToH from './App';
+import './bootstrap.min.css';
+import HeroDashboard from './components/HeroDasboard';
 import * as serviceWorker from './serviceWorker';
+import HeroList from './components/HeroList';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <ToH />
+    <div className="container">
+      <div className="container">
+        <h1>Tour of Heroes</h1>
+        <button onClick={dashboard}>Dashboard</button>
+        <button onClick={heroes}>Heroes</button>
+      </div>
+
+      <HeroDashboard />
+      {/*       <HeroList />
+ */}    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
