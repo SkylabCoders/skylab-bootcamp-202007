@@ -272,4 +272,4 @@ temp/
 
 package-lock.json
 yarn.lock
-build/*
+build/
