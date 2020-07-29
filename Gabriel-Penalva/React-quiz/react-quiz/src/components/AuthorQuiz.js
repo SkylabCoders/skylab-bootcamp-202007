@@ -1,6 +1,6 @@
 import React from 'react';
 //import './AuthorQuiz.css';
-import Turn from '../Turn';
+import Turn from './Turn';
 
 
 function AuthorQuiz({ }) {

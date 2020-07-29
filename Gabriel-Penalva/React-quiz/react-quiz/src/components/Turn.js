@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Book from './components/Book';
+import Book from './Book';
 function Turn(props) {
     return (
         <div className='row'>
