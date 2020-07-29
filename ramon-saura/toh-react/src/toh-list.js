@@ -14,7 +14,8 @@ function List() {
 		{ id: 20, name: 'Tornado' }
 	];
 	const listItems = heroList.map((hero) => (
-		<a href="#" className="d-block" key={hero.name}>
+		<a href="#" className="d-block" key={hero.name} id={hero.id}>
+			{hero.id}
 			{hero.name}
 		</a>
 	));
