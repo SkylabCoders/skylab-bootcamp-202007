@@ -9,16 +9,24 @@ function HeroDetailComponent() {
 	this.onInit = function () {
 		document.getElementById('hero-detail__container').style.display = 'none';
 		const id = getHeroIdFromUrl();
-		heroService.getHeroById(id).then(handleFulFilled).catch(handleError);
+		// heroService.getHeroById(id).then(handleFulFilled).catch(handleError);
+		debugger;
+		heroService
+			.getHeroById(id)
+			.then((response) => {
+				handleFulFilled(response);
+			})
+			.catch(handleError);
 	};
 
-	function getHeroIdFromUrl () {
+	function getHeroIdFromUrl() {
 		const params = new URLSearchParams(location.search);
 		return +params.get('heroId');
 	}
 
 	function handleFulFilled(response) {
 		hero = response;
+		console.log(response);
 		document.getElementById('hero-detail__container').style.display = 'block';
 		updateId();
 		updateName();
@@ -46,16 +54,10 @@ function HeroDetailComponent() {
 	function getHeroFromUrl() {
 		hero = heroList.find(compareId);
 	}
-
-
 }
 
 const heroDetailComponent = new HeroDetailComponent();
 heroDetailComponent.onInit();
-
-
-
-
 
 // function HeroDetailComponent() {
 // 	let hero;
