@@ -5,6 +5,7 @@ import Header from './components/Header';
 import * as serviceWorker from './serviceWorker';
 import Dashboard from './components/Dashboard';
 import List from './components/List';
+import Details from './components/Details';
 
 const heroList = [
   { id: 11, name: 'Dr Nice' },
@@ -29,7 +30,7 @@ filterHeroes(heroList);
 
 function renderHeroList(heroes) {
   let elements = heroes.map(function (hero) {
-    return <p key={hero.name}>{hero.name}</p>//hero.name;
+    return <p key={hero.name}>{hero.name}</p>
   });
   return elements;
 }
@@ -45,6 +46,9 @@ ReactDOM.render(
     />
     <List 
       heroesList={renderHeroList(heroList)}
+    />
+    <Details 
+    
     />
   </React.StrictMode>,
   document.getElementById('root')
