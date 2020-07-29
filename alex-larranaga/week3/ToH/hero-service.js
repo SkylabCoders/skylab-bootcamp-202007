@@ -1,7 +1,6 @@
 class HeroService {
 	getHeroList() {
 		return fetch('../heroes.json').then((response) => {
-			debugger;
 			return response.json();
 		});
 	}

@@ -5,6 +5,7 @@ function HeroListComponent() {
 		heroService.getHeroList().then(handleFulfill).catch(handleError);
 		//createList(localHeroList);
 	};
+
 	const createList = function (heroesList) {
 		for (let i = 0; i < heroesList.length; i++) {
 			let listNodesElement = document.createElement('a');

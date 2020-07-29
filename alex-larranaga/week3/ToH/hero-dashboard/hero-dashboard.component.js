@@ -3,6 +3,7 @@ function HeroDashBoardComponent() {
 	const heroDashContainer = document.getElementById('container');
 
 	this.onInit = function () {
+		debugger;
 		heroService.getHeroList().then(promoteHeroes).catch(handleError);
 	};
 
