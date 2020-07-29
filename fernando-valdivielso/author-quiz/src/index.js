@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
-import AuthorQuiz from './AuthorQuiz'
+import AuthorQuiz from './components/AuthorQuiz'
+
 
 ReactDOM.render(
   <React.StrictMode>
