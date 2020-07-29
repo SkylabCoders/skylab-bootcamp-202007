@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hero List</title>
-    <link rel="stylesheet" href="hero-list.component.css" />
-  </head>
-  <body>
-    <h1>Tour of Heroes</h1>
-    <a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
-    <a href="./hero-list.component.html">Heroes</a>
-    <h2>My Heroes</h2>
-    <div id="hero-list"></div>
-
-    <script src="../hero.mock.js"></script>
-    <script src="../hero.js"></script>
-    <script src="hero-list.component.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hero List</title>
+		<link rel="stylesheet" href="hero-list.component.css" />
+	</head>
+	<body>
+		<h1>Tour of Heroes</h1>
+		<a href="../hero-dashboard/hero-dashboard.component.html">Dashboard</a>
+		<a href="./hero-list.component.html">Heroes</a>
+		<h2>My Heroes</h2>
+		<div id="hero-list"></div>
+		<p id="hero-detail__loading" style="display: block;">Loading...</p>
+		<script src="../hero-list.json"></script>
+		<script src="../hero.js"></script>
+		<script src="../hero-service/hero.service.js"></script>
+		<script src="hero-list.component.js"></script>
+	</body>
 </html>

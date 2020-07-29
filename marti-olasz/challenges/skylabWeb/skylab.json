@@ -1,0 +1,102 @@
+[
+	{
+		"id": 9,
+		"name": "Alex",
+		"completedChallenges": 20
+	},
+	{
+		"id": 19,
+		"name": "Victor",
+		"completedChallenges": 20
+	},
+	{
+		"id": 12,
+		"name": "Francesc",
+		"completedChallenges": 17
+	},
+	{
+		"id": 10,
+		"name": "Anna",
+		"completedChallenges": 14
+	},
+	{
+		"id": 8,
+		"name": "Vanesa",
+		"completedChallenges": 13
+	},
+	{
+		"id": 16,
+		"name": "Pablo",
+		"completedChallenges": 12
+	},
+	{
+		"id": 18,
+		"name": "Simón",
+		"completedChallenges": 12
+	},
+	{
+		"id": 17,
+		"name": "Ramon",
+		"completedChallenges": 11
+	},
+	{
+		"id": 4,
+		"name": "Gemma",
+		"completedChallenges": 10
+	},
+	{
+		"id": 3,
+		"name": "Fernando",
+		"completedChallenges": 9
+	},
+	{
+		"id": 0,
+		"name": "Aleix",
+		"completedChallenges": 6
+	},
+	{
+		"id": 5,
+		"name": "Martí A",
+		"completedChallenges": 4
+	},
+	{
+		"id": 1,
+		"name": "Dani Alo",
+		"completedChallenges": 3
+	},
+	{
+		"id": 6,
+		"name": "Martí O",
+		"completedChallenges": 3
+	},
+	{
+		"id": 11,
+		"name": "Dani Alc",
+		"completedChallenges": 3
+	},
+	{
+		"id": 15,
+		"name": "Jordi",
+		"completedChallenges": 3
+	},
+	{
+		"id": 7,
+		"name": "Santiago",
+		"completedChallenges": 2
+	},
+	{
+		"id": 14,
+		"name": "Gerard",
+		"completedChallenges": 2
+	},
+	{
+		"id": 13,
+		"name": "Gabriel",
+		"completedChallenges": 1
+	},
+	{
+		"id": 2,
+		"name": "Esther",
+		"completedChallenges": 0
+	}
+]
