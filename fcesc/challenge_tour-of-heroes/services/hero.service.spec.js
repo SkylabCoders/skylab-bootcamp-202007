@@ -78,11 +78,13 @@ describe('Test of hero service', function testHeroService(){
     });
 
     it('Sould return a HeroService list', function testGetFullHeroList(){
-        expect(heroService.getHeroList()).toEqual(HERO_LIST);
+        return heroService.getHeroList().then(
+          (result) => {expect(result).toEqual(HERO_LIST);}
+        );
     });
 
     it('Sould return a paginated HeroService list', function testGetPaginatedHeroList(){
-        const page = 1;
+        const page = 0;
         const itemsPerPage = 2;
         const paginatedList = [
             {
@@ -192,27 +194,37 @@ describe('Test of hero service', function testHeroService(){
                 }
               }
             ];
-        expect(heroService.getHeroListPage(page, itemsPerPage)).toEqual(paginatedList);
+        return heroService.getHeroListPage(page, itemsPerPage).then(
+          (result) => {expect(result).toEqual(paginatedList);}
+        );
     });
 
     it('Should get one hero by id', function testGetHeroById(){
         const id = 620;
-        expect(heroService.getHeroById(id)).toEqual(hero);
+        return heroService.getHeroById(id).then(
+          (result) => {expect(result).toEqual(hero);}
+        );
     });
 
     it('Should get one hero by name', function testGetHeroByName(){
         const name = 'Spider-Man';
-        expect(heroService.getHeroByName(name)).toEqual(hero);
+        return heroService.getHeroByName(name).then(
+          (result) => {expect(result).toEqual(hero);}
+        );
     });
 
     it('Should get one hero by real name', function testGetHeroByRealName(){
         const realName = 'Peter Parker';
-        expect(heroService.getHeroByRealName(realName)).toEqual(hero);
+        return heroService.getHeroByRealName(realName).then(
+          (result) => {expect(result).toEqual(hero);}
+        );
     });
 
     it('Should get one hero by slug', function testGetHeroBySlug(){
         const slug = '620-spider-man';
-        expect(heroService.getHeroBySlug(slug)).toEqual(hero);
+        return heroService.getHeroBySlug(slug).then(
+          (result) => {expect(result).toEqual(hero);}
+        );
     });
 
     it('Should get URL of hero images', function testGetHeroImagesUrls(){
@@ -223,24 +235,32 @@ describe('Test of hero service', function testHeroService(){
             md: "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/505-oracle.jpg",
             lg: "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/505-oracle.jpg"
         }
-        expect(heroService.getHeroImageURLsById(id)).toEqual(imageURLs);
+        return heroService.getHeroImageURLsById(id).then(
+          (result) => {expect(result).toEqual(imageURLs);}
+        );
     });
 
     it('Should get a biography of a given hero id', function testGetHeroBiographyById(){
         const id = 620;
         const biography = hero.biography;
-        expect(heroService.getHeroBiographyById(id)).toEqual(biography);
+        return heroService.getHeroBiographyById(id).then(
+          (result) => {expect(result).toEqual(biography);}
+        );
     });
 
     it('Should get the appearance of a given hero id', function testGetHeroAppearanceById(){
         const id = 620;
         const appearance = hero.appearance;
-        expect(heroService.getHeroAppearanceById(id)).toEqual(appearance);
+        return heroService.getHeroAppearanceById(id).then(
+          (result) => {expect(result).toEqual(appearance);}
+        );
     });
 
     it('Should get connections of a given hero id', function testGetHeroConnectionsById(){
         const id = 620;
         const connections = hero.connections;
-        expect(heroService.getHeroConnectionsById(id)).toEqual(connections);
+        return heroService.getHeroConnectionsById(id).then(
+          (result) => {expect(result).toEqual(connections);}
+        );
     });
 })
