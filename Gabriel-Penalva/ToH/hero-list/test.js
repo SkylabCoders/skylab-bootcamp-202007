@@ -181,7 +181,7 @@ let skylaberList = [
     },
 ];
 
-const buscar = 4;
+const buscar = 'Victor';
 
 function getAllObjectValues(obj) {
     let arr = [];
@@ -200,6 +200,7 @@ function getAllObjectValues(obj) {
 
 function search(skylaber) {
     for (let item of getAllObjectValues(skylaber)) {
+        debugger;
         if (item === buscar) {
             return true;
         }
