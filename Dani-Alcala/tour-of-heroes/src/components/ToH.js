@@ -1,9 +1,9 @@
 import React from 'react';
 import '../bootstrap.min.css';
 // import '../hero.mock.js';
-import Dashboard from './Dashboard'
-import List from './List'
-import Detail from './Detail'
+import Dashboard from './HeroDashboard'
+import List from './HeroList'
+import Detail from './HeroDetail'
 
 const heroList = [
 	{ id: 11, name: 'Dr Nice' },
