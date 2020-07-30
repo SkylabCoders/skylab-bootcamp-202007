@@ -8,7 +8,7 @@ function ConditionalDisplay(props){
 }
 
 ConditionalDisplay.propTypes = {
-    isVisible: PropTypes.bool.isRequired
+    isVisible: PropTypes.boolisRequired
 }
 
 export default ConditionalDisplay;
