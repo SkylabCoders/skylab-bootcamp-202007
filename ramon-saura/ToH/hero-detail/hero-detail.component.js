@@ -2,9 +2,9 @@ function HeroDetailComponent() {
 	let myHero;
 
 	this.onInit = function () {
-		getHeroFromUrl();
-		updateId();
-		updateName();
+		document.getElementById('hero-detail__container').style.display = 'none';
+		const id = getHeroFromUrl();
+		heroService.getHeroById(id).then(handleFulfilled).catch(handleError);
 	};
 
 	this.nameChange = function (newName) {
@@ -22,8 +22,31 @@ function HeroDetailComponent() {
 	}
 	function getHeroFromUrl() {
 		const params = new URLSearchParams(location.search);
-		const id = +params.get('id');
-		myHero = heroService.getHeroById(id);
+		return +params.get('id');
+	}
+	function handleFulfilled(response) {
+		document.getElementById('hero-detail__container').style.display = 'block';
+		if (response === undefined) {
+			handleError("This hero doesn't exist");
+		} else {
+			toggleLoading();
+			myHero = response;
+			updateId();
+			updateName();
+		}
+	}
+	function toggleLoading() {
+		let loadingElement = document.getElementById('hero-detail__loading');
+		if (loadingElement.style.display === 'block') {
+			loadingElement.style.display = 'none';
+		} else {
+			loadingElement.style.display = 'block';
+		}
+	}
+	function handleError(message) {
+		toggleLoading();
+		document.getElementById('hero-detail__container').style.display = 'none';
+		document.getElementById('hero-detail__error').innerHTML = message;
 	}
 }
 
