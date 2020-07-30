@@ -1,18 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sum from './Sum';
 import * as serviceWorker from './serviceWorker';
+import Clicker from './Clicker'
+import MyButton from './MyButton';
 
+const myLastName = ['V','I','C','T','O','R'];
 
-const props = {
-  a:2,
-  b: 4
-}
 ReactDOM.render(
   <React.StrictMode>
-    <Sum {...props}/>
- {/*    {React.createElement(Sum,{a:3,b:3},null)}
-    {React.createElement('h2',null,React.createElement(Sum,{a:7,b:1},null))} */}
+<Clicker MyButton={MyButton} handleClick={(letter)=>console.log(letter)} data={myLastName}/>
 
   </React.StrictMode>,
   document.getElementById('root')
