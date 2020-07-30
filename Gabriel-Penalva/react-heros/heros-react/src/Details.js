@@ -6,8 +6,8 @@ class Details extends React.Component {
         super(props)
         this.changeName = this.changeName.bind(this);
         this.state = {
-            heroName: null,
-            heroId: null
+            heroName: '',
+            heroId: ''
         };
 
     }

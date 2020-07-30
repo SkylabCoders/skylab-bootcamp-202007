@@ -11,16 +11,3 @@ const heroList = [
 	{ id: 20, name: 'Tornado' }
 ];
 export default heroList;
-
-function Address(city, country) {
-	this.city = city;
-	this.country = country;
-}
-
-
-function Skylaber(id, name, completedChallenges, address) {
-	this.id = id;
-	this.name = name;
-	this.completedChallenges = completedChallenges;
-	this.address = address;
-}

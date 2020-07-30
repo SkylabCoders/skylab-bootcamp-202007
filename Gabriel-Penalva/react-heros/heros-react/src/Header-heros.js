@@ -1,12 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-function Header({ renderList, renderDashboard }) {
+function Header(props) {
     return (
         <div className='header'>
             <h1>Tour of Heroes</h1>
-            <div className="flex-row buttons">
-                <div onClick={renderList}><a  >List</a></div>
-                <div onClick={renderDashboard}><a  >Heroes</a></div></div>
+            <nav >
+                <NavLink activeClassName='my-active-class' to='/' />
+                Dashboard
+                <NavLink activeClassName='my-active-class' to='/herolsit' />
+                HeroList
+            </nav>
         </div>
     )
 }
