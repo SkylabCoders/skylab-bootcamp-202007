@@ -11,7 +11,7 @@ function App(props) {
 		<div>
 			<Title title="Tour of Heroes" />
 			<Actions />
-			<Detail heroName="Magneta" heroId="15" />
+			<Detail />
 			<List heroes={heroList} />
 		</div>
 	);

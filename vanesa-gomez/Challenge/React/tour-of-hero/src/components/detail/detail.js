@@ -1,26 +1,38 @@
 import React from 'react';
 import './detail.css';
-// import { render } from 'react-dom';
 
-function Detail({ heroName, heroId }) {
-	let name = heroName;
-	let id = heroId;
+class Detail extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			heroName: 'Bombasto',
+			heroId: 14
+		};
+		this.onFieldChange = this.onFieldChange.bind(this);
+	}
 
-	return (
-		<div>
-			<p>{name} details!</p>
-			<form className="container">
-				<label>
-					id:
-					<input value={id} type="text" />
-				</label>
-				<label>
+	onFieldChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
+	}
+
+	render() {
+		return (
+			<form>
+				<p>{this.state.heroName} details!</p>
+				<p>id: {this.state.heroId}</p>
+				<label htmlFor="heroName">
 					name:
-					<input value={name} type="text" />
+					<input
+						name="heroName"
+						placeholder="Hero Name"
+						value={this.state.heroName}
+						onChange={this.onFieldChange}
+					/>
 				</label>
 			</form>
-		</div>
-	);
+		);
+	}
 }
-
 export default Detail;
