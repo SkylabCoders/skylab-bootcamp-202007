@@ -3,9 +3,13 @@ import { NavLink, Route } from 'react-router-dom';
 
 function Navigation() {
 	return (
-		<nav className="buttons">
-			<NavLink to="/">Dashbord</NavLink>
-			<NavLink to="/heroes">Heroes</NavLink>
+		<nav className="navigation">
+			<NavLink className="navigation__item" to="/">
+				Dashbord
+			</NavLink>
+			<NavLink className="navigation__item" to="/heroes">
+				Heroes
+			</NavLink>
 		</nav>
 	);
 }

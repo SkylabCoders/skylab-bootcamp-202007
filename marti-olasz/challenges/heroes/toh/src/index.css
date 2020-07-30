@@ -1,9 +1,52 @@
-.flex {
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.navigation__item {
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+
+	background-color: gray;
+}
+
+.navigation__item:hover {
+	background-color: darkgray;
+}
+
+.dashboard {
+	display: flex;
+	flex-direction: row;
+}
+
+.dashboard__item {
+	padding: 20px;
+	margin: 10px;
+	width: 70px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: gray;
+}
+
+.dashboard__item:hover {
+	background-color: darkgray;
+}
+
+.list {
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
 }
 
-button {
+.list__item {
 	padding: 20px;
 	margin: 10px;
+	text-align: center;
+	border-radius: 5px;
+	background-color: gray;
+}
+
+.list__item:hover {
+	background-color: darkgray;
 }

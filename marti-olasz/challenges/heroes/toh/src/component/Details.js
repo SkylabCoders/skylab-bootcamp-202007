@@ -21,7 +21,7 @@ class Details extends React.Component {
 	render() {
 		return (
 			<form>
-				<p>{this.state.name} details!</p>
+				<h2>{this.state.name} details!</h2>
 				<p>id: {this.state.id}</p>
 				<label htmlFor="heroName">
 					name:{' '}
