@@ -1,15 +1,59 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './DashBoard';
 import * as serviceWorker from './serviceWorker';
+import HeroList from './HeroList';
+import Header from './Header-heros.js';
+import DashBoard from './DashBoard.js';
+import Details from './Details.js';
+import heroList from './hero.mock.js';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let heros = heroList;
+
+
+
+renderList();
+function renderDashBoard() {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Header
+        renderList={renderList}
+        renderDashboard={renderDashBoard} />
+      <DashBoard
+      />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+function renderDetails() {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Header
+        renderList={renderList}
+        renderDashboard={renderDashBoard} />
+      <Details
+        items={heros} />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+
+
+
+function renderList() {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Header
+        renderList={renderList}
+        renderDashboard={renderDashBoard} />
+      <HeroList
+        list={heroList}
+      />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

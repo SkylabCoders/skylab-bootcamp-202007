@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Hello';
+import Sum from './Sum';
 
-setInterval(() => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Hello
-        now={new Date().toISOString()} />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}, 1000);
+ReactDOM.render(
+  <React.StrictMode>
+    <Hello />
+    <Sum
+      a={'jjj'}
+      b={3}
+    />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 
 
