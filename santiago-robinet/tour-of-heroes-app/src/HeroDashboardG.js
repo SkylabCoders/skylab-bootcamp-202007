@@ -11,7 +11,7 @@ function HeroDashboard({heroes}) {
 	return(
         <div className="dashboard__container">
             <p className="dashboard__title">Top Heroes</p>
-            <div className="hero__buttons__container">
+            <div className="dashboard__buttons__container">
                 {topHeroes}
             </div>
 

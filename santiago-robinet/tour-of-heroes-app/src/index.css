@@ -9,8 +9,16 @@ body {
   margin-left: 50px;
 }
 
-h2{
-  color: rgb(180, 176, 176);
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 0;
+  color: #369;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .hero__button{
@@ -24,8 +32,13 @@ h2{
   padding: auto;
   align-items: center;
   justify-content: center;
-  color: rgb(248, 244, 244);
+  color: rgb(189, 183, 183);
+}
 
+.hero__button:hover{
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
 }
 
 .hero__id{
@@ -41,7 +54,7 @@ h2{
   width: 80%;
   display: flex;
   align-items: center; 
-  background-color: rgb(180, 176, 176);
+  background-color: #eee;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   height: 100%;
@@ -61,11 +74,12 @@ h2{
   color: rgb(180, 176, 176);
 }
 
-.hero__buttons__container{
+.dashboard__buttons__container{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+
 }
 
 .hero__container__button{
@@ -78,10 +92,48 @@ h2{
   font-size: 22px;
   align-items: center;
   justify-content: center;
-  border-radius: 15px;
+  border-radius: 15px;  cursor: pointer;
+  cursor: hand;
+  color: #eee;
+  background-color: #3f525c;
 }
 
 .hero__container__button:hover{
-  background-color: rgb(171, 191, 207);
+  background-color: #eee;
+  color: #3f525c;
   margin-top: 10px;
 }
+
+.header__buttons {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.header__buttons:visited, .header__buttons:link{
+  color: #334953;
+}
+
+.header__buttons:hover{
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+
+p, label {
+  color: #369;
+  font-weight: 700;
+  word-spacing: 5px;
+  font-size: 18px;
+}
+
+input{
+  font-size: 20px;
+}
+
+.details__title{
+  font-weight: 500;
+  margin-top: 10px;
+}
+

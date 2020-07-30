@@ -7,8 +7,8 @@ function Header(props) {
 		<>
 			<h1>Tour of Heroes</h1>
 			<nav>
-				<NavLink to="/">Dasshboard</NavLink> {'|'}{' '}
-				<NavLink to="/heroes">Heroes</NavLink> {'|'}{' '}
+				<NavLink to="/" className="header__buttons">Dasshboard</NavLink> {'|'}{' '}
+				<NavLink to="/heroes" className="header__buttons">Heroes</NavLink> 
 			
 			</nav>
 		</>
