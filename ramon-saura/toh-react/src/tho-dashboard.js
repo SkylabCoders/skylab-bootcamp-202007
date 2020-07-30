@@ -1,6 +1,7 @@
 import React from 'react';
 import List from './toh-list';
 import tho from './tho';
+import Detail from './tho-details';
 
 function thoDashboard() {
 	const heroList = [
