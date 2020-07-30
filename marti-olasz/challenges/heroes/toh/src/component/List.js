@@ -5,7 +5,7 @@ function List({ onClickHero }) {
 	const outputList = [];
 	for (let i = 0; i < heroList.length; i++) {
 		outputList.push(
-			<button onClick={onClickHero} key={heroList[i].id}>
+			<button onClick={() => onClickHero(heroList[i])} key={heroList[i].id}>
 				{heroList[i].id} {heroList[i].name}
 			</button>
 		);

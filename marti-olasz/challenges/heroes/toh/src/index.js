@@ -10,10 +10,16 @@ import List from './component/List';
 import Details from './component/Details';
 
 let state = 'dashboard';
+let hero = null;
 
 function updateState(newState) {
 	state = newState;
 	reRender();
+}
+
+function sendHero(newhero) {
+	hero = newhero;
+	debugger;
 }
 
 function reRender() {
@@ -24,10 +30,22 @@ function reRender() {
 				onClickList={() => updateState('list')}
 			/>
 			{state === 'dashboard' && (
-				<Dashboard onClickHero={() => updateState('details')} />
+				<Dashboard
+					onClickHero={(hero) => {
+						sendHero(hero);
+						updateState('details');
+					}}
+				/>
 			)}
-			{state === 'list' && <List onClickHero={() => updateState('details')} />}
-			{state === 'details' && <Details hero={heroList[0]} />}
+			{state === 'list' && (
+				<List
+					onClickHero={(hero) => {
+						sendHero(hero);
+						updateState('details');
+					}}
+				/>
+			)}
+			{state === 'details' && <Details hero={hero} />}
 		</React.StrictMode>,
 		document.getElementById('root')
 	);
