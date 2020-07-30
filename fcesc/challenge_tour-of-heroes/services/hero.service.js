@@ -11,18 +11,17 @@ class HeroService {
         })
     }
     getHeroListPage(page, itemsPerPage){
-        fetch('http://fanap.eu/tour-of-heroes/superHeroData.js')
-        .then((response)=>{
-            console.log(response);
-            let HERO_LIST = response;
+        return new Promise((resolve, reject) =>{
             let result = Array.from(0);
             let start = page * itemsPerPage;
             let end = start + itemsPerPage;
             for (let i=start; i<end; i++){
                 result.push(HERO_LIST[i]);
             }
-            return result;
-        })
+            setTimeout(() => {
+                result ? resolve(result) : reject(`Query of page ${page} of Hero List with ${itemsPerPage} items per page timed our or unsuccessful.`);
+            }, 1000);
+        });
     }
 
     getHeroById(id){
