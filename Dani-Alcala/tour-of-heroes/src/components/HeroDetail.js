@@ -5,16 +5,16 @@ class HeroDetail extends React.Component {
 		super(props);
 		this.state = {
 			heroName: 'Bombasto',
-			heroId: 14,
+			heroId: 14
 		};
-		this.onFieldChange = this.onFieldChange.bind(this);//le asigno el contexto que me interesa, que es el objeto que se crea con esta clase. El form tiene su propio contexto
+		this.onFieldChange = this.onFieldChange.bind(this); //le asigno el contexto que me interesa, que es el objeto que se crea con esta clase. El form tiene su propio contexto
 	}
 	onFieldChange(event) {
 		this.setState({
 			// heroName: event.target.value //es pot fer aixi, més fàcil
 			[event.target.name]: event.target.value //propiedad dinamica, així està preparat per si poso un altre input amb el name associat correctament a this.state
-		})
-		console.log(this.state.heroName)
+		});
+		console.log(this.state.heroName);
 	}
 
 	render() {

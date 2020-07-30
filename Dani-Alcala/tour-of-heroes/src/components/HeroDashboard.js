@@ -1,13 +1,25 @@
 import React from 'react';
+import './HeroDashboard.css';
+import { NavLink } from 'react-router-dom';
 
-
-function HeroDashboard( {heroes} ) {
-    return <div className="row">
-        {/* <div className="col-3">{heroes[0].name}</div> 
-        <div className="col-3">{heroes[1].name}</div> 
-        <div className="col-3">{heroes[2].name}</div> 
-        <div className="col-3">{heroes[3].name}</div>  */}
-    </div>;
+function HeroDashboard({ heroes }) {
+	return (
+		<>
+			<h2>Top Heroes</h2>
+			<div className="dashboard">
+				{heroes.map((item) => (
+					<NavLink
+						activeClassName="my-active-class"
+						to="/hero/14"
+						className="top-heroes"
+						key={item}
+					>
+						{item.name}
+					</NavLink>
+				))}
+			</div>
+		</>
+	);
 }
 
 export default HeroDashboard;
