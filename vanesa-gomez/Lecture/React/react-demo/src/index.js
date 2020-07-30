@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Clicker from './Clicker';
-import MyButton from './MyButton';
+import ConditionalDisplay from './ConditionalDisplay';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Clicker
-			MyButton={MyButton}
-			handleClick={(letter) => console.log(letter)}
-		/>
+		<ConditionalDisplay isVisible={true}>
+			<h1>Hello</h1>
+			<p>world</p>
+		</ConditionalDisplay>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
