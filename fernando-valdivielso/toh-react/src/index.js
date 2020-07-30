@@ -5,13 +5,16 @@ import TohTitle from './components/TohTitle';
 import * as serviceWorker from './serviceWorker';
 import TohDashboard from './components/TohDashboard';
 import TohList from './components/TohList'
+import TohDetails from './components/TohDetails'
 
 
 ReactDOM.render(
   <React.StrictMode>
+
     <TohTitle />
     <TohDashboard />
     <TohList />
+    <TohDetails />
   </React.StrictMode>,
   document.getElementById('root')
 );
