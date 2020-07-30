@@ -5,18 +5,13 @@ import Dashboad from './dashboard';
 import Details from './details';
 import List from './list';
 import heroList from './list.mock';
+import Header from './header';
 
 function ToH() {
 	return (
 		<div>
-			<header>
-				<h1>Tour of Heroes</h1>
-				<nav>
-					<a>Dashboad</a>
-					<a>Heroes</a>
-				</nav>
-			</header>
 			<main>
+				<Header />
 				<Details />
 				<List heroes={heroList} />
 				<Dashboad heroes={heroList} />
