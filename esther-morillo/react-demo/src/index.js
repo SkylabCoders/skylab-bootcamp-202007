@@ -4,6 +4,9 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 import Sum from './Sum'
+import Clicker from './Clicker'
+import MyButton from './MyButton';
+
 
 
 const myAttributes = {
@@ -14,7 +17,10 @@ const myAttributes = {
   ReactDOM.render(
     <React.StrictMode>
      
-      <Sum {...myAttributes} />      
+      
+      <Clicker 
+      MyButton={MyButton}
+      handleClick= {(letter) => console.log(letter)}/>    
 
     </React.StrictMode>,
     document.getElementById('root')
