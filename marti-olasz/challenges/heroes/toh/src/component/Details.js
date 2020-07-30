@@ -11,7 +11,7 @@ class Details extends React.Component {
 	}
 	onFieldChange(event) {
 		this.setState({
-			name: event.target.value
+			[event.target.name]: event.target.value
 		});
 	}
 

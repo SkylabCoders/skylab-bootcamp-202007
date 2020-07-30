@@ -16,33 +16,27 @@ class ToH extends React.Component {
 	}
 
 	updateState(newState) {
-		this.setState({ display: newState });
-	}
-
-	sendHero(newHero) {
-		this.setState({ hero: newHero });
+		this.setState(newState);
 	}
 
 	render() {
 		return (
 			<React.StrictMode>
 				<Navigation
-					onClickDashboard={() => this.updateState('dashboard')}
-					onClickList={() => this.updateState('list')}
+					onClickDashboard={() => this.updateState({ display: 'dashboard' })}
+					onClickList={() => this.updateState({ display: 'list' })}
 				/>
 				{this.state.display === 'dashboard' && (
 					<Dashboard
 						onClickHero={(hero) => {
-							this.sendHero(hero);
-							this.updateState('details');
+							this.updateState({ display: 'details', hero });
 						}}
 					/>
 				)}
 				{this.state.display === 'list' && (
 					<List
 						onClickHero={(hero) => {
-							this.sendHero(hero);
-							this.updateState('details');
+							this.updateState({ display: 'details', hero });
 						}}
 					/>
 				)}
