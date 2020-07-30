@@ -4,9 +4,14 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Sum from './Sum';
 
+const myAttributes = {
+	a: 4,
+	b: 2
+};
+
 ReactDOM.render(
 	<React.StrictMode>
-		<Sum a={4} b={2} />
+		<Sum {...myAttributes} />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
