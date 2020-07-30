@@ -3,18 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import GetDate from './Date';
+import Hello from './Hello';
 import * as serviceWorker from './serviceWorker';
 
-setInterval(
-	() =>
-		ReactDOM.render(
-			<React.StrictMode>
-				<GetDate now={new Date().toISOString()} />
-				<App />
-			</React.StrictMode>,
-			document.getElementById('root')
-		),
-	1
+ReactDOM.render(
+	<React.StrictMode>
+		<Hello />
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
