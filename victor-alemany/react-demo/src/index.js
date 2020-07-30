@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Hello';
+import Sum from './Sum';
 
-setInterval(()=>{
 ReactDOM.render(
   <React.StrictMode>
-    <Hello now={new Date().toISOString()} />
+    <Hello />
+    <Sum a={4} b={2} />
   </React.StrictMode>,
   document.getElementById('root')
 );
-},1000);
 
 serviceWorker.unregister();
