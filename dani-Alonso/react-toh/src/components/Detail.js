@@ -1,21 +1,33 @@
 import React from 'react';
-import Dashboard from './Dasboard';
-
-function Detail({ hero }) {
-    return (<div>
-        <h2>{hero.name} details</h2>
-        <p>id: {hero.id}
-        </p>
-        <label for="heroName">
-            name:
-				<input id="hero-detail__name-control" type="text" name="heroName"
-            />
-        </label></div >
-
-    )
-
-
-
+class HeroDetail extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            heroName: '',
+            heroId: 14
+        };
+        this.onFieldChange = this.onFieldChange.bind(this)
+    }
+    onFieldChange(event) {
+        this.setState({
+            heroName: event.target.value
+        });
+    }
+    render() {
+        return (
+            <form>
+                <p>id: {this.state.heroId}</p>
+                <label htmlFor="heroName">
+                    name:
+					<input
+                        name="heroName"
+                        placeholder="Hero name"
+                        value={this.state.heroName}
+                        onChange={this.onFieldChange}
+                    />
+                </label>
+            </form>
+        );
+    }
 }
-
-export default Detail
+export default HeroDetail;

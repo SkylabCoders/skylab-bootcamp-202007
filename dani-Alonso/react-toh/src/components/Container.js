@@ -15,7 +15,7 @@ renderedHeroesDashboard = renderHeroes(reducedMock)
 
 function renderHeroes(heroList) {
     return heroList.map((hero) =>
-        <li key={hero.id} onClick={getHeroById}>{hero.id} {hero.name}</li>
+        <li key={hero.id}>{hero.id} {hero.name}</li>
     )
 }
 
