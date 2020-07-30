@@ -1,19 +1,19 @@
 import React from 'react';
 import './Header.css';
+import {navLink, NavLink} from 'react-router-dom';
 
-function Header({clickDash}) {
+function Header(props) {
     return (
-        <div className="fix-header">
-            <div className="fix-header__title">
-                <h1>Tour of Heroes</h1>
-            </div>
-            <div className="fix-header__buttons">
-                <button>Detail</button>
-                <button>Heroes</button>
-                <button onClick={clickDash}>Dashboard</button>
-            </div>
-        </div>
-    )
+        <>
+        <h1>Tour of Heroes</h1>
+        <nav>
+            <NavLink active>
+            Dashboard
+            </NavLink>
+        </nav>
+        </>
+    );
+
 }
 
 export default Header;
