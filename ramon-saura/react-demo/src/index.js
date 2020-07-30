@@ -7,8 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<SayHi />
-		<Sum a={'somthing'} b={2} />
+		<Sum a={4} b={2} />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
