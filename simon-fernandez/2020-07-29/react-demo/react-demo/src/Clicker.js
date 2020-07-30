@@ -1,11 +1,22 @@
 import React from 'react';
-
+function MyButton({ letter, handleClick }) {
+	return (
+		<button
+			onClick={() => {
+				handleClick(letter);
+			}}
+		>
+			{' '}
+			{letter}{' '}
+		</button>
+	);
+}
 function Clicker({ handleClick }) {
 	return (
 		<>
-			<button onClick={() => handleClick('A')}> A </button>
-			<button onClick={() => handleClick('B')}> B </button>
-			<button onClick={() => handleClick('C')}> C </button>
+			<MyButton letter={'A'} handleClick={handleClick} />
+			<MyButton letter={'B'} handleClick={handleClick} />
+			<MyButton letter={'C'} handleClick={handleClick} />
 		</>
 	);
 }
