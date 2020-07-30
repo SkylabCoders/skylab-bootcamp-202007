@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Hello from './Hello';
+import Sum from './Sum';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Hello now={new Date().toISOString()} />
+		<Sum a={4} b={2} />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
