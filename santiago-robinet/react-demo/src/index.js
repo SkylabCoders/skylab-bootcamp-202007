@@ -6,7 +6,7 @@ import Hello from './Date'
 
 setInterval(()=> ReactDOM.render(
   <React.StrictMode>
-    <Hello now={new Date().toISOString()}></Hello>
+    <Hello />
   </React.StrictMode>,
   document.getElementById('root')
 ), 1000)
