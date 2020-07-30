@@ -1,39 +1,40 @@
 import React from 'react';
-
 class Details extends React.Component {
 
     constructor(props) {
+        console.log(props)
         super(props)
+        this.heroList = props.heroList;
+
         this.changeName = this.changeName.bind(this);
         this.state = {
-            heroName: '',
-            heroId: ''
+            heroName: this.setName(),
+            heroId: props.match.params.heroId
         };
-
     }
+
     changeName(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
+    setName() {
+        let hero = (this.heroList.find((heros) => +heros.id === +this.props.match.params.heroId))
+        if (hero)
+            return hero.name
+        return 'no_data'
+    }
 
     render() {
-        return (
-            <>
-                <form>
 
-                    <p>id: {this.state.heroId}</p>
-                    <label htmlFor="heroId">
-                        <input
-                            type="text"
-                            placeholder='hero id'
-                            name='heroId'
-                            value={this.state.heroId}
-                            onChange={this.changeName}
-                        />
-                    </label>
+        console.log(this.props)
+        return (
+            <div className="hero">
+                <h2>{this.state.heroName} Details</h2>
+                <div><span>id: </span>{this.state.heroId}</div>
+                <div>
                     <label htmlFor="heroName">
-                        <p>name: {this.state.heroName}</p>
+                        name:
                         <input
                             type="text"
                             placeholder='hero name'
@@ -42,10 +43,10 @@ class Details extends React.Component {
                             onChange={this.changeName}
                         />
                     </label>
-
-                </form>
+                </div>
                 <button onClick={this.props.renderDashBoard}> Back </button>
-            </>)
+            </div>
+        )
     }
 
 

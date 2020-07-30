@@ -1,9 +1,14 @@
 import React from 'react';
-import heroList from './Header-heros';
-//import heroList from './hero.mock'
 
-function HeroList(props) {
-    return (<div>LA LISTA</div>)
+
+function HeroList({ heroList }) {
+    return (
+        <div>
+            <h3>List of Heros</h3>
+            {heroList.map((hero) => (
+                <a key={hero.id} href={`/id/${hero.id}`} className="hero-list_item"><div>{hero.id} {hero.name}</div></a>
+            ))}
+        </div>)
 }
 
 
