@@ -10,20 +10,6 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 let view = 'none';
-//unir las dos funciones en un que segun el parametro pasado genere un componente o otro
-/*function handleGoToDashboard() {
-	view = 'dash';
-	renderAgain();
-}
-function handleGoToList() {
-	view = 'list';
-	renderAgain();
-}
-function handleGoToDetails() {
-	debugger;
-	view = 'details';
-	renderAgain();
-}*/
 function handleView(viewState) {
 	view = viewState;
 	renderAgain();
