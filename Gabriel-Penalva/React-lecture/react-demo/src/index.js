@@ -6,6 +6,7 @@ import Hello from './Hello';
 import Sum from './Sum';
 import Clicker from './Clicker'
 import MyButton from './MyButton';
+import ConditionDisplay from './conditionDisplay';
 
 const Atributes = { a: 0.1, b: 0.2 }
 const nombre = ['G', 'A', 'B', 'R', 'I', 'E', 'L'];
@@ -25,6 +26,11 @@ ReactDOM.render(
       handleClick={printC}
       MyButton={MyButton}
       nombre={nombre} />
+
+    <ConditionDisplay isVisible={false} >
+      <h1>Hello</h1> <p>World</p>
+    </ConditionDisplay>
+
   </React.StrictMode>,
   document.getElementById('root')
 );

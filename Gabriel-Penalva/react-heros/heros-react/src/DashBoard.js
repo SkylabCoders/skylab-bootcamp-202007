@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DashBoard() {
+function DashBoard(props) {
 
   return (
     <div className="hero-dashboard">

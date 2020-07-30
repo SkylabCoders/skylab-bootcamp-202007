@@ -13,7 +13,7 @@ let heros = heroList;
 
 
 
-renderList();
+renderDetails();
 function renderDashBoard() {
   ReactDOM.render(
     <React.StrictMode>
@@ -33,7 +33,7 @@ function renderDetails() {
         renderList={renderList}
         renderDashboard={renderDashBoard} />
       <Details
-        items={heros} />
+        renderDashboard={renderDashBoard} />
     </React.StrictMode>,
     document.getElementById('root')
   );

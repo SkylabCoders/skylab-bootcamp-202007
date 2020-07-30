@@ -1,18 +1,55 @@
 import React from 'react';
 
-function Details({ renderDashBoard, heroName }) {
+class Details extends React.Component {
 
-    return (
-        <div id="hero_detail">
-            <p>id: <span id="hero-detail__id"></span></p>
-            <label for="heroName">
-                name:
-        <input id="hero-detail__name-control" type="text" name={heroName} />
-            </label>
+    constructor(props) {
+        super(props)
+        this.changeName = this.changeName.bind(this);
+        this.state = {
+            heroName: null,
+            heroId: null
+        };
 
-            <a onClick={renderDashBoard}>Back</a>
-        </div>)
+    }
+    changeName(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    render() {
+        return (
+            <>
+                <form>
+
+                    <p>id: {this.state.heroId}</p>
+                    <label htmlFor="heroId">
+                        <input
+                            type="text"
+                            placeholder='hero id'
+                            name='heroId'
+                            value={this.state.heroId}
+                            onChange={this.changeName}
+                        />
+                    </label>
+                    <label htmlFor="heroName">
+                        <p>name: {this.state.heroName}</p>
+                        <input
+                            type="text"
+                            placeholder='hero name'
+                            name='heroName'
+                            value={this.state.heroName}
+                            onChange={this.changeName}
+                        />
+                    </label>
+
+                </form>
+                <button onClick={this.props.renderDashBoard}> Back </button>
+            </>)
+    }
+
 
 }
+
 
 export default Details;
