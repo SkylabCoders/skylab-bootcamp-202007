@@ -20,6 +20,21 @@ function getHeroById(e) {
 	renderContainer();
 }
 
+// async function getAsyncHeroList() {
+// 	const URL = 'http://fanap.eu/tour-of-heroes/superherodata.json';
+// 	const response = await fetch(URL);
+// 	const data = await response.json();
+// 	console.log('Async data from server:', data);
+// 	return data;
+// }
+
+// async function getAsyncHero() {
+// 	const URL = 'http://fanap.eu/tour-of-heroes/superherodata.json';
+// 	const heroData = await fetch(URL);
+// 	const jsonData = await heroData.json();
+// 	return jsonData;
+// }
+
 function renderContainer() {
 	ReactDOM.render(
 		<React.StrictMode>
@@ -33,13 +48,13 @@ function renderContainer() {
 }
 
 function renderHeroes(heroList) {
-	return renderContainer();
+	//return renderContainer();
 
-	// return heroList.map((hero) => (
-	// 	<li key={hero.id} onClick={getHeroById.bind(this)} data-id={hero.id}>
-	// 		{hero.id} {hero.name}
-	// 	</li>
-	// ));
+	return heroList.map((hero) => (
+		<li key={hero.id} onClick={getHeroById.bind(this)} data-id={hero.id}>
+			{hero.id} {hero.name}
+		</li>
+	));
 }
 
 function Container() {
