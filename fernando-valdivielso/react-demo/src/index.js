@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Date';
+import Sum from './Sum'
 
 // setInterval(() => {
 //   ReactDOM.render(
@@ -17,6 +18,7 @@ import Hello from './Date';
 ReactDOM.render(
   <React.StrictMode>
     <Hello />
+    <Sum a={4} b={2} />
   </React.StrictMode>,
   document.getElementById('root')
 );
