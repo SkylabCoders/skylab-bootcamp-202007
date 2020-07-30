@@ -4,14 +4,23 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Date';
 
-setInterval(() => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Hello now={new Date().toISOString()} x='algo' />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}, 100);
+// setInterval(() => {
+//   ReactDOM.render(
+//     <React.StrictMode>
+//       <Hello now={new Date().toISOString()} x='algo' />
+//     </React.StrictMode>,
+//     document.getElementById('root')
+//   );
+// }, 100);
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Hello />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
