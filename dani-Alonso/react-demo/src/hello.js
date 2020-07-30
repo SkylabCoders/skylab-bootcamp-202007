@@ -1,5 +1,8 @@
 import React from 'react';
+
+
 class Hello extends React.Component {
+    interval = null
     constructor(props) {
         super(props);
         this.state = {
@@ -8,10 +11,14 @@ class Hello extends React.Component {
     }
     //it's executed just after the render
     componentDidMount() {
-        console.log('componentDidMount', 'Component is now loaded, this goes right after the render')
+        this.interval = setInterval(() => {
+            this.setState({
+                now: new Date().toISOString()
+            })
+        }, 1000);
     }
     componentWillUnmmount() {
-        console.log('componentWillUnMount', 'this goes right before the component is destroyed')
+        clearInterval(this.interval)
     }
     render() {
         console.log('Render: ', 'just before componentDidMount')
