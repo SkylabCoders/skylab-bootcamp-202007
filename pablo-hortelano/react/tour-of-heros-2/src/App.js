@@ -1,26 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import HeroDetail from './components/HeroDetail';
+import HeroDashboard from './components/HeroDashboard';
+import { Router, Route, Link, Switch } from 'react-router-dom';
+import HeroList from './components/hero.mock';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+	const route = 'dashboard';
+	let component = 'Nothing to see here!';
 
+	if (route === 'dashboard') {
+		component = <HeroDashboard />;
+	} else if (route === 'hero') {
+		component = <HeroList />;
+	} else if (route === 'hero/14') {
+		component = <HeroDetail />;
+	}
+
+	return (
+		<div>
+			<Header />
+			<Router>
+				<div>
+					<nav>
+						<ul>
+							<li>
+								<Link to="/">Home</Link>
+							</li>
+							<li>
+								<Link to="/dashboard">Dashboard</Link>
+							</li>
+							<li>
+								<Link to="/HeroList">HeroList</Link>
+							</li>
+						</ul>
+					</nav>
+					<Switch>
+						<Route path="components/HeroDashboard">
+							<HeroDashboard />
+						</Route>
+						<Route path="components/HeroDashbHeroList">
+							<HeroList />
+						</Route>
+						<Route path="components/HeroDashboard">
+							<HeroDashboard />
+						</Route>
+					</Switch>
+				</div>
+			</Router>
+		</div>
+	);
+}
 export default App;
