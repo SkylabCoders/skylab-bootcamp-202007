@@ -13,12 +13,13 @@ const myAtributes = {
 	a: 4,
 	b: 2
 };
-
+const myLastName = ['A', 'B', 'C'];
 ReactDOM.render(
 	<React.StrictMode>
 		<Clicker
 			MyButton={MyButton}
 			handleClick={(letter) => console.log(letter)}
+			data={myLastName}
 		/>
 	</React.StrictMode>,
 	document.getElementById('root')
