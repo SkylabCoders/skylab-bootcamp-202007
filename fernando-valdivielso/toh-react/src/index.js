@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import TohDashboard from './components/TohDashboard';
 import TohList from './components/TohList'
 import TohDetails from './components/TohDetails'
+import App from './App'
 
 
 ReactDOM.render(
