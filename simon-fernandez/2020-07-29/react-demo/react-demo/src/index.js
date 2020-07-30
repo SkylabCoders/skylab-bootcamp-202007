@@ -8,6 +8,7 @@ import Sum from './sum';
 import Clicker from './Clicker';
 import * as serviceWorker from './serviceWorker';
 import MyButton from './myButton';
+import ConditionalDisplay from './conditionalDisplay';
 
 const myAtributes = {
 	a: 4,
@@ -16,11 +17,10 @@ const myAtributes = {
 const myLastName = ['A', 'B', 'C'];
 ReactDOM.render(
 	<React.StrictMode>
-		<Clicker
-			MyButton={MyButton}
-			handleClick={(letter) => console.log(letter)}
-			data={myLastName}
-		/>
+		<ConditionalDisplay isVisible={true}>
+			<h1>hello</h1>
+			<p>world!</p>
+		</ConditionalDisplay>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
