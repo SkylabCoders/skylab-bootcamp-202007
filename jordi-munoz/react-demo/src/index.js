@@ -9,7 +9,7 @@ import Sum from './Sum';
 ReactDOM.render(
   <React.StrictMode>
     <Hello  />
-    <Sum a={'something'} b={2}/>
+    <Sum a={4} b={2}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
