@@ -1,16 +1,26 @@
 import React from 'react';
 import heroList from './hero.mock';
 import './dashboard.css';
-function Dashboard(goToDetails) {
+
+function Dashboard() {
 	const Heroes = heroList.slice(0, 4);
 	let renderList = [];
 	for (let i = 0; i < Heroes.length; i++) {
 		renderList.push(
-			<button key={i} onClick={goToDetails}>
-				{Heroes[i].name} {Heroes[i].id}
-			</button>
+			<a key={i} href={'/hero/' + Heroes[i].id}>
+				<div className="dashboard-nav">
+					<p>
+						{Heroes[i].id} {Heroes[i].name}
+					</p>
+				</div>
+			</a>
 		);
 	}
-	return <div className="row">{renderList}</div>;
+	return (
+		<>
+			<h2 className="text-center">Top Heroes</h2>
+			<div className="row space-around">{renderList}</div>
+		</>
+	);
 }
 export default Dashboard;

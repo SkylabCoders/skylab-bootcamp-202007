@@ -1,37 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hero from './hero';
-import Dashboard from './dashboard';
-import List from './list';
-import Details from './Details';
+import App from './App';
 import './bootstrap.min.css';
 import './index.css';
-
 import * as serviceWorker from './serviceWorker';
 
-let view = 'none';
-function handleView(viewState) {
-	view = viewState;
-	renderAgain();
-}
-function renderAgain() {
-	ReactDOM.render(
-		<React.StrictMode>
-			<Hero
-				goToDashboard={() => handleView('dash')}
-				goToList={() => handleView('list')}
-				goToDetails={() => handleView('details')}
-			/>
-			{view === 'dash' && (
-				<Dashboard goToDetails={() => handleView('details')} />
-			)}
-			{view === 'list' && <List goToDetails={() => handleView('details')} />}
-			{view === 'details' && <Details />}
-		</React.StrictMode>,
-		document.getElementById('root')
-	);
-}
-renderAgain();
+ReactDOM.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>,
+	document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
