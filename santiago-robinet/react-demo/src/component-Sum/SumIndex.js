@@ -2,20 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Sum from './component-Sum/Sum';
+import Sum from './Sum'
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Sum a={'something'} b={2} />
-		{React.createElement(Sum, { a: 4, b: 2 }, null)}
-		{React.createElement(
-			'h2',
-			null,
-			React.createElement(Sum, { a: 4, b: 7 }, null)
-		)}
-	</React.StrictMode>,
-	document.getElementById('root')
-);
+  <React.StrictMode>
+    <Sum a={'something'} b={2}/>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
