@@ -1,10 +1,11 @@
 import React from 'react';
-import '../bootstrap.min.css';
 import heroData from '../heroData';
+import '../styles.css';
 
 function HeroDashboard() {
     return (
-        <div>
+        <div className="containerComponent">
+            <h2>Top Heroes!</h2>
             {fourHeroes()}
         </div>
     )
@@ -14,7 +15,7 @@ const fourHeroes = () => (
     <ul className="row">
         {
             four.map(hero => (
-                <li className="col-3" key={hero.id}>{hero.name}</li>
+                <li className="element__dashboard" key={hero.id}>{hero.name}</li>
             ))
         }
     </ul>

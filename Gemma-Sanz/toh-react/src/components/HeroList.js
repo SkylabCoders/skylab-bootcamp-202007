@@ -4,19 +4,20 @@ import heroData from '../heroData';
 
 function HeroList(props) {
     return (
-        <div>
-            {renderedHeroes()};
+        <div className="containerComponent">
+            {renderedHeroes()}
         </div>
     )
 }
 const renderedHeroes = () => (
-    <ul>
+    <div className="mainContainer__list">
         {heroData.map(hero => (
-            <li key={hero.id}>{hero.id} {hero.name}</li>
+            <div className="button__list" key={hero.id}>
+                <span className="element__list__id">{hero.id}</span>
+                <span className="element__list__name">{hero.name}</span>
+            </div>
         ))}
-    </ul>
+    </div>
 )
-
-
 
 export default HeroList;

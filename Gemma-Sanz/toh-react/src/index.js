@@ -1,24 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './bootstrap.min.css';
-import HeroDashboard from './components/HeroDasboard';
 import * as serviceWorker from './serviceWorker';
-import HeroList from './components/HeroList';
-
-function changeView({ newView }) {
-  newView = <HeroDashboard /> || newView
-}
+import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="container">
-      <div className="container">
-        <h1>Tour of Heroes</h1>
-        <button /* onClick={dashboard} */>Dashboard</button>
-        <button /* onClick={list} */>Heroes</button>
-      </div>
-      < HeroDashboard />
-      <HeroList />
+    <div className="mainContainer">
+      <Router>
+        <App />
+      </Router>
     </div>
   </React.StrictMode>,
   document.getElementById('root')
