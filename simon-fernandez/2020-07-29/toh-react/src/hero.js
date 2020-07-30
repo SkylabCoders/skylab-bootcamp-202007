@@ -1,12 +1,13 @@
 import React from 'react';
+import './hero.css';
 
 function Hero({ goToDashboard, goToList }) {
 	return (
 		<div>
 			<h1>Tour of Heroes</h1>
 			<div className="row">
-				<p onClick={goToDashboard}>Dashboard</p>
-				<p onClick={goToList}>Heroes</p>
+				<button onClick={goToDashboard}>Dashboard</button>
+				<button onClick={goToList}>Heroes</button>
 			</div>
 		</div>
 	);

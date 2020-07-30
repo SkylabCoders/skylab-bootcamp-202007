@@ -6,8 +6,10 @@ function List(goToDetails) {
 	let renderList = [];
 	for (let i = 0; i < Heroes.length; i++) {
 		renderList.push(
-			<p key={i} onClick={() => goToDetails}>
-				{Heroes[i].name} {Heroes[i].id}
+			<p key={i} onClick={goToDetails}>
+				<button>
+					{Heroes[i].name} {Heroes[i].id}
+				</button>
 			</p>
 		);
 	}
