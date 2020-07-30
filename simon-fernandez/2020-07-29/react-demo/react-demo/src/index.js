@@ -5,6 +5,7 @@ import App from './App';
 import GetDate from './Date';
 import Hello from './Hello';
 import Sum from './sum';
+import Clicker from './Clicker';
 import * as serviceWorker from './serviceWorker';
 
 const myAtributes = {
@@ -14,7 +15,7 @@ const myAtributes = {
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Sum {...myAtributes} />
+		<Clicker handleClick={(letter) => console.log(letter)} />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
