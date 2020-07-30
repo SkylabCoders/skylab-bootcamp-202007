@@ -3,10 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Hello';
+import Sum from './Sum';
+import Clicker from './Clicker';
+import MyButton from './MyButton';
+import ConditionalDispaly from './ConditionalDisplay';
+
+
+
+const myAttributes = {
+  a: 4,
+  b: 2
+}
+
+const myName = ['D', 'A', 'N', 'I'];
 
 ReactDOM.render(
   <React.StrictMode>
-    <Hello now={new Date().toISOString()} />
+    {/* <Hello />
+    <Sum {...myAttributes} /> */}
+    {/* <Clicker MyButton={MyButton} handleClick={(letter) => console.log(letter)} data={myName} /> */}
+      <ConditionalDispaly isVisible={true}>
+        <h1>Hello</h1>
+        <p>there!</p>
+      </ConditionalDispaly>
   </React.StrictMode>,
   document.getElementById('root')
 );
