@@ -1,29 +1,20 @@
 import React from 'react';
-
+// import '/App.css';
 import HeroDetail from './components/HeroDetail';
+import HeroList from './components/HeroList';
 import Header from './components/Header';
 import HeroDashboard from './components/HeroDashboard';
-import HeroList from './components/HeroList';
-
+import { Route } from 'react-router-dom';
 
 function App() {
-    const route = 'dashboard'
-    let component = 'Nothing to see here!'
-
-    if (route === 'dashboard') {
-        component = <HeroDashboard />;
-    } else if (route === 'hero') {
-        component = <HeroList />
-    } else if (route === 'hero/14')
-
-    return (
-        <div>
-            <Header />
-            {route === 'dashboard' && <HeroDashboard />}
-            {route === 'hero' && <HeroList />}
-            {route === 'hero/14' && <HeroDetail />}            
-        </div>
-    )
+	return (
+		<div>
+			<Header />
+			<Route path="/" exact component={HeroDashboard} />
+			<Route path="/heroes" component={HeroList} />
+			<Route path="/hero/:heroId" component={HeroDetail} />
+		</div>
+	);
 }
 
 export default App;

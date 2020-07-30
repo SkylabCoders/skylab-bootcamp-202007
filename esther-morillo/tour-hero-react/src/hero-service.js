@@ -1,4 +1,5 @@
-const heroList= [{
+const heroList= [
+  {
     id: 11,
     name: "Dr Nice"
   },

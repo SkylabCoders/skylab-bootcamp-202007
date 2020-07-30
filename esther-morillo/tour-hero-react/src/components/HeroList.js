@@ -1,14 +1,20 @@
-import React from 'react'
+import React from 'react';
+import '../hero-service'
+import heroList from '../hero-service';
+import HeroListItem from './HeroLIstItem'
 
 
-function HeroList({ id, name }) {
-    return (
-        <ul>
-            <a href="https://getbootstrap.com/"><span>{id}</span><span>{name}</span></a>
-        </ul>
-       
-    );   
+function HeroList() {
+	return (
+		heroList.map((hero) => (
+		<HeroListItem
+			key={hero.id}
+			id={hero.id}
+			name={hero.name}
+		/>
+		))
+	)
+	
 }
-
 
 export default HeroList;

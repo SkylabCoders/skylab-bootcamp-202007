@@ -1,13 +1,21 @@
-import React from 'react'
+import React from 'react';
+import '../hero-service'
+import heroList from '../hero-service';
+import HeroDashboardItem from './HeroDashboardItem'
 
 
-function HeroDashboard({ name }) {
-    return ( 
-        
-        <div className="btn btn-secondary btn-sm">
-            <a key={generate()} href="https://getbootstrap.com/" className="text-decoration-none text-center text-white">{name}</a>
-        </div>
-    )   
+const heroTopList = heroList.slice(0, 4);
+
+function HeroDashboard() {
+	return (
+		heroTopList.map((hero) => (
+			<HeroDashboardItem 
+			key={hero.id}
+			id={hero.id}
+			name={hero.name}
+			/>
+		))
+	)
 }
 
 export default HeroDashboard;
