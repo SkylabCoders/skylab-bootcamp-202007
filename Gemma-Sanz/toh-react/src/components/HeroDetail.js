@@ -17,7 +17,8 @@ class HeroDetail extends React.Component {
             [myEvent.target.name]: myEvent.target.value
         });
     }
-
+    /*     let heroId = heroData.find() =>
+     */
     render() {
         return (
             <form className="containerComponent">
