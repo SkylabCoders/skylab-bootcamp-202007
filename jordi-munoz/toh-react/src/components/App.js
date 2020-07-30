@@ -1,27 +1,20 @@
 import React from 'react';
 import HeroDetail from './HeroDetail';
 import HeroDashboard from './HeroDashboard';
+import HeroList from './HeroList';
 import Header from './Header';
 import { Route } from 'react-router-dom';
+import heroListArray from '../hero.mock'
 
 
 function App(props) {
-    const route = 'hero';
-    let component = null;
-    if(route === 'dashboard') {
-        component = <HeroDashboard />;
-    } else if (route === 'hero') {
-        component = <HeroList />;
-    } else if (route === 'hero/14') {
-        component = <HeroDetail />;
-    }
-  return (
-    <div>
-      <Header />
-      <Route path='/' exact component={HeroDashboard} />
-      <Route path='/hero' component={HeroList} />
-      <Route path='/hero/:heroId' component={HeroDetail} />
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <Route path='/' exact component={() => <HeroDashboard heroListArray={heroListArray} />} />
+            <Route path='/heroes' component={() => <HeroList heroListArray={heroListArray} />} />
+            <Route path='/hero/:heroId' component={HeroDetail} />
+        </div>
+    );
 }
 export default App;

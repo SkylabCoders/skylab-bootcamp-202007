@@ -1,4 +1,4 @@
-const heroList = [
+const heroListArray = [
 	{ id: 11, name: 'Dr Nice' },
 	{ id: 12, name: 'Narco' },
 	{ id: 13, name: 'Bombasto' },
@@ -10,3 +10,5 @@ const heroList = [
 	{ id: 19, name: 'Magma' },
 	{ id: 20, name: 'Tornado' }
 ];
+
+export default heroListArray

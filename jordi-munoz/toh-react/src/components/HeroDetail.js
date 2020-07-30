@@ -1,13 +1,11 @@
 import React from 'react';
 import './HeroDetail.css';
+import heroListArray from '../hero.mock'
 
 class HeroDetail extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            heroName: 'Bombasto',
-            heroId: 14
-        };
+        this.state = this.findId();
         this.onFieldChange = this.onFieldChange.bind(this);
     }
 
@@ -16,17 +14,22 @@ class HeroDetail extends React.Component {
             [event.target.name]: event.target.value
         });
     }
-
+    findId() {
+        let getUrl = window.location.pathname;
+        let id = +getUrl.split('/')[2];
+        return heroListArray.find((e) => e.id === id);
+    }
     render() {
         return (
             <form>
-                <p>id: {this.state.heroId}</p>
+                <h2>{this.state.name} details!</h2>
+                <p>id: {this.state.id}</p>
                 <label htmlFor='heroName'>
                     name:
                     <input
                         name='heroName'
                         placeholder='Hero name'
-                        value={this.state.heroName}
+                        value={this.state.name}
                         onChange={this.onFieldChange}
                     />
                 </label>
