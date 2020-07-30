@@ -5,20 +5,20 @@ import Dashboard from './tho-dashboard';
 
 function tho({ main, detail, list, dashboard }) {
 	return (
-		<div className="col">
+		<main className="col">
 			<h1>Tour of Heroes</h1>
-			<div className="row">
+			<section className="row">
 				<button onClick={detail}>Detail</button>
 				<button onClick={list}>Heroes</button>
 				<button onClick={dashboard}>Dashboard</button>
-			</div>
-			<div>
+			</section>
+			<section>
 				{main}
 				{detail}
 				{list}
 				{dashboard}
-			</div>
-		</div>
+			</section>
+		</main>
 	);
 }
 export default tho;

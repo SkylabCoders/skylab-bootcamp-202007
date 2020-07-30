@@ -2,6 +2,7 @@ import React from 'react';
 import List from './toh-list';
 import tho from './tho';
 import Detail from './tho-details';
+import { NavLink } from 'react-router-dom';
 
 function thoDashboard() {
 	const heroList = [
@@ -18,9 +19,14 @@ function thoDashboard() {
 	];
 	const heros = heroList.slice(0, 4);
 	const listItems = heros.map((hero) => (
-		<a href="#" className="d-block" key={hero.name}>
+		<NavLink
+			to="/tho-details/id"
+			className="d-block"
+			key={hero.name}
+			id={hero.id}
+		>
 			{hero.name}
-		</a>
+		</NavLink>
 	));
 
 	return <div>{listItems}</div>;
