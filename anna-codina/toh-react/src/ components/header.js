@@ -1,12 +1,13 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
 	return (
 		<header>
 			<h1>Tour of Heroes</h1>
 			<nav>
-				<a href="">Dashboad</a>
-				<a href="">Heroes</a>
+				<NavLink to="/">Dashboad</NavLink>
+				<NavLink to="/hero">Heroes</NavLink>
 			</nav>
 		</header>
 	);

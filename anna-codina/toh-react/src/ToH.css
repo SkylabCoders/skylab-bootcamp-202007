@@ -148,3 +148,7 @@ nav a.active {
     background-color: #CFD8DC;
 
 }
+
+#hero-detail__id-control {
+    width: 50px;
+}

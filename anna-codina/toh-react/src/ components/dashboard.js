@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Dashboard({ heroes }) {
-	let actualHeroList = [...heroes];
+function Dashboard({ heroList }) {
+	let actualHeroList = [...heroList];
 	actualHeroList = actualHeroList.slice(0, 4);
 	actualHeroList = actualHeroList.map((hero) => (
 		<li key={hero.id} className="hero-dashboard__item">
