@@ -16,7 +16,6 @@
 }
 
 .list {
-    /* list-style-type: none; */
     display: flex;
     margin-bottom: 12px;
 }

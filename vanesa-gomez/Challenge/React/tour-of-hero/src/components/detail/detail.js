@@ -1,6 +1,6 @@
 import React from 'react';
 import './detail.css';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 
 function Detail({ heroName, heroId }) {
 	let name = heroName;
