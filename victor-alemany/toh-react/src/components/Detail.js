@@ -1,7 +1,6 @@
 import React from 'react';
-import '../components/hero-detail.component.css';
 
-function Detail(props) {
+function Detail({heroes}) {
     return (
         <div id="hero-detail__container">
 			<h2 className="title-hero"><span id="hero-detail__name"></span> details</h2>

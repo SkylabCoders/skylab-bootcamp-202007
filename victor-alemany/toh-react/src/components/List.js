@@ -1,16 +1,15 @@
 import React from 'react';
-//import '../components/hero-list.component.css';
 
 
 function List({heroes}) {
     const heroList = heroes.map((hero) => (
-        <a key={hero.id}>
-            <span className="hero-list__id">{hero.id}</span>
-            <span className="hero-list__name">{hero.name}</span>
-		</a>
+        <div key={hero.id}>
+            <a href=""><span className="hero-list__id">{hero.id}</span></a>
+            <a href=""><span className="hero-list__name">{hero.name}</span></a>
+		</div>
     ));	
 
-    return (<div className="hero__list__container"><div>{heroList}</div></div>
+    return (<div className="hero__list__container"><h2>My Heroes</h2><div>{heroList}</div></div>
     );
 }
 

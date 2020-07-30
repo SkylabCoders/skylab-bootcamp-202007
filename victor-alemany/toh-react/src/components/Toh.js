@@ -12,11 +12,9 @@ function Toh(props) {
             <div className="header">
                 <button>dashboard</button><button>Heroes</button>
             </div>
-                <Detail />
-                <div>
+                <Detail heroes={heroList}/>
                 <List heroes={heroList}/>
-                </div>
-                <Dashboard/>
+                <Dashboard heroes={heroList}/>
                 
         </div>
         )
