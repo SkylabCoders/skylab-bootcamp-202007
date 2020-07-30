@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function Sum(props){
  
-return (<h1>{props.a}+{props.b}={props.a + props.b} </h1>)
+return (<div>{props.a}+{props.b}={props.a + props.b} </div>)
 }
 
 Sum.propTypes = {
