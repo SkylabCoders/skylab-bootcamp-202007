@@ -8,7 +8,10 @@ import Sum from './sum';
 ReactDOM.render(
 	<React.StrictMode>
 		<GetDate />
+		{/*JSX*/}
 		<Sum a={NaN} b={2} />
+		{/*JS*/}
+		{React.createElement('div', null, React.createElement(Sum, { a: 5, b: 2 }))}
 	</React.StrictMode>,
 	document.getElementById('root')
 );
