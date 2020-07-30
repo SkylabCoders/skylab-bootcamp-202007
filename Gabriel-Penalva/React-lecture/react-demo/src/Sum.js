@@ -8,7 +8,7 @@ function Sum(props) {
         </h1>);
 }
 
-Sum.PropTypes = {
+Sum.propTypes = {
     a: PropTypes.number.isRequired,
     b: PropTypes.number.isRequired
 }

@@ -4,14 +4,27 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Hello';
 import Sum from './Sum';
+import Clicker from './Clicker'
+import MyButton from './MyButton';
 
+const Atributes = { a: 0.1, b: 0.2 }
+const nombre = ['G', 'A', 'B', 'R', 'I', 'E', 'L'];
+
+function printC(letter) {
+  console.log(letter);
+}
 ReactDOM.render(
   <React.StrictMode>
     <Hello />
-    <Sum
-      a={'jjj'}
-      b={3}
-    />
+    {/* <Sum
+      a={9}
+      b={3} 
+    /> */}
+    {React.createElement('div', null, React.createElement(Sum, { ...Atributes }, null))}
+    <Clicker
+      handleClick={printC}
+      MyButton={MyButton}
+      nombre={nombre} />
   </React.StrictMode>,
   document.getElementById('root')
 );
