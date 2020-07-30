@@ -5,11 +5,16 @@ import * as serviceWorker from './serviceWorker';
 import GetDate from './Date';
 import Sum from './sum';
 
+const props = {
+	a: 4,
+	b: 7
+};
+
 ReactDOM.render(
 	<React.StrictMode>
 		<GetDate />
 		{/*JSX*/}
-		<Sum a={NaN} b={2} />
+		<Sum {...props} />
 		{/*JS*/}
 		{React.createElement('div', null, React.createElement(Sum, { a: 5, b: 2 }))}
 	</React.StrictMode>,
