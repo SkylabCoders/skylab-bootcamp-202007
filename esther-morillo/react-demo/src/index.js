@@ -3,24 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-import Sum from './Sum'
 import Clicker from './Clicker'
 import MyButton from './MyButton';
+import ConditionalDisplay from './ConditionalDisplay';
 
 
 
-const myAttributes = {
-  a: 4,
-  b: 2
-}
+const myLastName = ['M', 'O', 'R', 'I', 'L', 'l', '0'];
 
   ReactDOM.render(
     <React.StrictMode>
      
-      
       <Clicker 
-      MyButton={MyButton}
-      handleClick= {(letter) => console.log(letter)}/>    
+        MyButton={MyButton}
+        handleClick= {(letter) => console.log(letter)}  
+        data={myLastName}
+      />  
+
+      <ConditionalDisplay isVisible ={true}>
+        <h1>Hello</h1>
+        <p>world!</p>
+      </ConditionalDisplay>
+        
+      
 
     </React.StrictMode>,
     document.getElementById('root')

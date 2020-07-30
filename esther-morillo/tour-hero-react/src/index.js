@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './bootstrap.min.css'
 import * as serviceWorker from './serviceWorker';
-import TourHero from './components/TourHero'
+import App from './App'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <TourHero />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

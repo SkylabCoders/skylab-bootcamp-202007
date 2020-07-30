@@ -1,5 +1,5 @@
 import React from 'react'
-import { generate } from 'shortid'
+
 
 function HeroDashboard({ name }) {
     return ( 

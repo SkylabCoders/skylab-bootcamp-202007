@@ -1,15 +1,13 @@
 import React from 'react';
 
 
-function Clicker({ handleClick, MyButton }) {
-    const myLastName = ['M', 'O', 'R', 'I', 'L', 'l', '0']
+function Clicker({ handleClick, MyButton, data }) {
+    
     return (
         <>
-            {
-                myLastName.map((letter) => (
+            {data.map((letter) => (
                     <MyButton key={letter} letter={letter} handleClick={handleClick} />
-                ))
-            }
+                ))}
         </>
     )
 }
