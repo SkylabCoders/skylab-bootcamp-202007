@@ -19,7 +19,6 @@ function updateState(newState) {
 
 function sendHero(newhero) {
 	hero = newhero;
-	debugger;
 }
 
 function reRender() {
