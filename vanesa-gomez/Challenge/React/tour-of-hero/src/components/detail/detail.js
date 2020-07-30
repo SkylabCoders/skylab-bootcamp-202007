@@ -1,5 +1,6 @@
 import React from 'react';
 import './detail.css';
+import heroList from '../../heroMock';
 
 class Detail extends React.Component {
 	constructor(props) {
@@ -13,7 +14,24 @@ class Detail extends React.Component {
 
 	onFieldChange(event) {
 		this.setState({
-			[event.target.name]: event.target.value
+			heroName: event.target.value,
+			heroId: event.target.value
+		});
+	}
+
+	getHeroById() {
+		const path = window.location.pathname;
+		const id = path.split('/')[2];
+		const heroSearch = heroList.find((hero) => hero.id === +id);
+		return heroSearch;
+	}
+
+	componentDidMount() {
+		const getHero = this.getHeroById();
+
+		this.setState({
+			heroName: getHero.name,
+			heroId: getHero.id
 		});
 	}
 

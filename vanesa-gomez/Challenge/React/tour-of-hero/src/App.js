@@ -4,15 +4,21 @@ import Title from './components/title/title';
 import Actions from './components/actions/actions';
 import Detail from './components/detail/detail';
 import List from './components/list/list';
+import Dashboard from './components/dashboard/dashboard';
 import heroList from './heroMock';
+import { Route } from 'react-router-dom';
 
 function App(props) {
 	return (
 		<div>
 			<Title title="Tour of Heroes" />
-			<Actions />
-			<Detail />
-			<List heroes={heroList} />
+			<Route path="/" component={Actions} />
+			<Route path="/hero" component={() => <List heroes={heroList} />} />
+			<Route path="/detail" component={Detail} />
+			<Route
+				path="/dashboard"
+				component={() => <Dashboard heroes={heroList} />}
+			/>
 		</div>
 	);
 }

@@ -1,14 +1,20 @@
 import React from 'react';
 import './list.css';
+import { NavLink } from 'react-router-dom';
 
 function List({ heroes }) {
 	const heroList = heroes.map((hero) => (
-		<li className="list" key={hero.id}>
-			<span className="id"> {hero.id} </span>
-			<span className="name">{hero.name}</span>
-		</li>
+		<NavLink to={`/hero/${hero.id}`} key={hero.id} className="list">
+			<span className="hero__id"> {hero.id} </span>
+			<span className="hero__name">{hero.name}</span>
+		</NavLink>
 	));
-	return <ul> {heroList} </ul>;
+	return (
+		<>
+			<h2> My Heroes</h2>
+			<ul> {heroList} </ul>;
+		</>
+	);
 }
 
 export default List;

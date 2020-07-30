@@ -2,10 +2,17 @@ import React from 'react';
 import './dashboard.css';
 
 function Dashboard({ heroes }) {
-	const promotedHeroList = heroes.slice((0, 4) => {
-		<li></li>;
+	const heroesTop = heroes.slice(0, 4);
+
+	const promotedHeroList = heroesTop.map((hero) => {
+		return (
+			<button className="hero-card" key={hero.id}>
+				{hero.name}
+			</button>
+		);
 	});
-	return <div>promotedHeroList</div>;
+
+	return <div className="heroes-top">{promotedHeroList}</div>;
 }
 
 export default Dashboard;

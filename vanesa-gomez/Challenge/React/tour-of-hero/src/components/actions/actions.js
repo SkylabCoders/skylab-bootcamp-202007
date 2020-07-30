@@ -1,12 +1,20 @@
 import React from 'react';
 import './actions.css';
+import { NavLink } from 'react-router-dom';
 
 function Actions(props) {
 	return (
-		<div>
-			<button className="button">Dashboard</button>
-			<button className="button">Heroes</button>
-		</div>
+		<nav>
+			<NavLink to="/dashboard" className="button">
+				Dashboard
+			</NavLink>
+			<NavLink to="/hero" className="button">
+				Heroes
+			</NavLink>
+			<NavLink to="/detail" className="button">
+				Detail
+			</NavLink>
+		</nav>
 	);
 }
 
