@@ -2,7 +2,7 @@ import React from 'react';
 
 function List({ heroes }) {
 	const actualHeroList = heroes.map((hero) => (
-		<li key={hero.id} className="row">
+		<li key={hero.id} className="row" className="hero-list__item">
 			<span className="hero-list__id">{hero.id}</span>
 			<span className="hero-list__name">{hero.name}</span>
 		</li>

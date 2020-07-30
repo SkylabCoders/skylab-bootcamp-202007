@@ -4,7 +4,7 @@ function Dashboard({ heroes }) {
 	let actualHeroList = [...heroes];
 	actualHeroList = actualHeroList.slice(0, 4);
 	actualHeroList = actualHeroList.map((hero) => (
-		<li key={hero.id} className="row">
+		<li key={hero.id} className="hero-dashboard__item">
 			<span className="hero-list__name">{hero.name}</span>
 		</li>
 	));

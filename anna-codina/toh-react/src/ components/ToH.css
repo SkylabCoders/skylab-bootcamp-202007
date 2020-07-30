@@ -52,9 +52,14 @@ button {
 
 label {
     width: 3em;
-    margin: .5em 0;
+    margin: .5em;
+    margin-right: 2px;
     color: #607D8B;
     font-weight: bold;
+}
+
+input {
+    margin: .5em;
 }
 
 nav a {
@@ -91,9 +96,6 @@ nav a.active {
     color: #039be5;
 }
 
-li:hover {
-    margin-left: 15px;
-}
 
 .hero-list__id {
     display: flex;
@@ -113,4 +115,36 @@ li:hover {
 
 #hero-detail__loading {
     display: block;
+}
+
+.hero-list__item {
+    background-color: #EEE;
+    width: 250px;
+    height: 30px;
+    margin: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.hero-list__item:hover {
+    margin-left: 15px;
+}
+
+.hero-dashboard__item {
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 40px 25px 40px 25px;
+    background-color: #365f5a;
+    margin: 8px;
+}
+
+.hero-dashboard__item:hover {
+    color: #365f5a;
+    background-color: #CFD8DC;
+
 }
