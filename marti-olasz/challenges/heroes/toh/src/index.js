@@ -9,47 +9,55 @@ import Dashboard from './component/Dashboard';
 import List from './component/List';
 import Details from './component/Details';
 
-let state = 'dashboard';
-let hero = null;
+class ToH extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			display: 'dashboard',
+			hero: heroList[0]
+		};
+	}
 
-function updateState(newState) {
-	state = newState;
-	reRender();
-}
+	updateState(newState) {
+		this.state.display = newState;
+		this.render();
+	}
 
-function sendHero(newhero) {
-	hero = newhero;
-}
+	sendHero(newHero) {
+		this.state.hero = newHero;
+	}
 
-function reRender() {
-	ReactDOM.render(
-		<React.StrictMode>
-			<Navigation
-				onClickDashboard={() => updateState('dashboard')}
-				onClickList={() => updateState('list')}
-			/>
-			{state === 'dashboard' && (
-				<Dashboard
-					onClickHero={(hero) => {
-						sendHero(hero);
-						updateState('details');
-					}}
+	render() {
+		return ReactDOM.render(
+			<React.StrictMode>
+				<Navigation
+					onClickDashboard={() => this.updateState('dashboard')}
+					onClickList={() => this.updateState('list')}
 				/>
-			)}
-			{state === 'list' && (
-				<List
-					onClickHero={(hero) => {
-						sendHero(hero);
-						updateState('details');
-					}}
-				/>
-			)}
-			{state === 'details' && <Details hero={hero} />}
-		</React.StrictMode>,
-		document.getElementById('root')
-	);
+				{this.state.display === 'dashboard' && (
+					<Dashboard
+						onClickHero={(hero) => {
+							this.sendHero(hero);
+							this.updateState('details');
+						}}
+					/>
+				)}
+				{this.state.display === 'list' && (
+					<List
+						onClickHero={(hero) => {
+							this.sendHero(hero);
+							this.updateState('details');
+						}}
+					/>
+				)}
+				{this.state.display === 'details' && <Details hero={this.state.hero} />}
+			</React.StrictMode>,
+			document.getElementById('root')
+		);
+	}
 }
-reRender();
+const toh = new ToH();
+toh.render();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
