@@ -1,7 +1,6 @@
 import React from 'react';
 
 function List({ heroes }) {
-	debugger;
 	const actualHeroList = heroes.map((hero) => (
 		<li key={hero.id} className="row">
 			<span className="hero-list__id">{hero.id}</span>

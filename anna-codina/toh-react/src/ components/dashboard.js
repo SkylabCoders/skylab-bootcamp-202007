@@ -1,10 +1,17 @@
 import React from 'react';
 
-function Dashboard() {
+function Dashboard({ heroes }) {
+	let actualHeroList = [...heroes];
+	actualHeroList = actualHeroList.slice(0, 4);
+	actualHeroList = actualHeroList.map((hero) => (
+		<li key={hero.id} className="row">
+			<span className="hero-list__name">{hero.name}</span>
+		</li>
+	));
 	return (
 		<div>
 			<h2>Top four</h2>
-			<ul className="dashboard__list"></ul>
+			<ul className="dashboard_s_list row">{actualHeroList}</ul>
 		</div>
 	);
 }

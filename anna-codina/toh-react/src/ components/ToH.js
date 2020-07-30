@@ -6,7 +6,7 @@ import Details from './details';
 import List from './list';
 import heroList from './list.mock';
 
-function ToH({ heroes }) {
+function ToH() {
 	return (
 		<div>
 			<header>
@@ -19,7 +19,7 @@ function ToH({ heroes }) {
 			<main>
 				<Details />
 				<List heroes={heroList} />
-				<Dashboad />
+				<Dashboad heroes={heroList} />
 			</main>
 		</div>
 	);
