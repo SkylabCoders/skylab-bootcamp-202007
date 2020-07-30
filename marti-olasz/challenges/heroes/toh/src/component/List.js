@@ -1,21 +1,15 @@
 import React from 'react';
-import heroList from '../hero.mock';
 
-function List({ onClickHero }) {
-	const outputList = [];
-	for (let i = 0; i < heroList.length; i++) {
-		outputList.push(
-			<button onClick={() => onClickHero(heroList[i])} key={heroList[i].id}>
-				{heroList[i].id} {heroList[i].name}
-			</button>
+import { NavLink, Route } from 'react-router-dom';
+
+function List({ list }) {
+	return list.map((hero) => {
+		return (
+			<NavLink to={'/hero/' + hero.id} key={hero.id}>
+				<p>{hero.id + '  |  ' + hero.name}</p>
+			</NavLink>
 		);
-	}
-	return (
-		<div>
-			<h1>List</h1>
-			<div className="flex">{outputList}</div>
-		</div>
-	);
+	});
 }
 
 export default List;

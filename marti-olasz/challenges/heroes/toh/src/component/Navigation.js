@@ -1,14 +1,12 @@
 import React from 'react';
+import { NavLink, Route } from 'react-router-dom';
 
-function Navigation({ onClickDashboard, onClickList }) {
+function Navigation() {
 	return (
-		<div>
-			<h1>Tour of Heroes</h1>
-			<div className="buttons">
-				<button onClick={onClickDashboard}>Dashbord</button>
-				<button onClick={onClickList}>Heroes</button>
-			</div>
-		</div>
+		<nav className="buttons">
+			<NavLink to="/">Dashbord</NavLink>
+			<NavLink to="/heroes">Heroes</NavLink>
+		</nav>
 	);
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import heroList from './hero.mock';
 import Navigation from './component/Navigation';
@@ -10,7 +11,6 @@ class ToH extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			display: 'dashboard',
 			hero: heroList[0]
 		};
 	}
@@ -21,29 +21,42 @@ class ToH extends React.Component {
 
 	render() {
 		return (
-			<React.StrictMode>
-				<Navigation
-					onClickDashboard={() => this.updateState({ display: 'dashboard' })}
-					onClickList={() => this.updateState({ display: 'list' })}
+			<div>
+				<h1>Tour of Heroes</h1>
+				<Navigation />
+				<Route
+					path="/"
+					exact
+					component={() => <Dashboard list={heroList.slice(0, 4)} />}
 				/>
-				{this.state.display === 'dashboard' && (
-					<Dashboard
-						onClickHero={(hero) => {
-							this.updateState({ display: 'details', hero });
-						}}
-					/>
-				)}
-				{this.state.display === 'list' && (
-					<List
-						onClickHero={(hero) => {
-							this.updateState({ display: 'details', hero });
-						}}
-					/>
-				)}
-				{this.state.display === 'details' && <Details hero={this.state.hero} />}
-			</React.StrictMode>
+				<Route path="/heroes" component={() => <List list={heroList} />} />
+				<Route
+					path="/hero/:id"
+					component={() => <Details hero={this.state.hero} />}
+				/>
+			</div>
 		);
 	}
 }
 
 export default ToH;
+/*
+<Dashboard
+	onClickHero={(hero) => {
+		this.updateState({ display: 'details', hero });
+	}}
+/>;
+
+{
+	this.state.display === 'list' && (
+		<List
+			onClickHero={(hero) => {
+				this.updateState({ display: 'details', hero });
+			}}
+		/>
+	);
+}
+{
+	this.state.display === 'details' && <Details hero={this.state.hero} />;
+}
+*/

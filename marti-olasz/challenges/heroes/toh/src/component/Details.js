@@ -1,18 +1,21 @@
 import React from 'react';
+import heroList from '../hero.mock';
 
 class Details extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			name: props.hero.name,
-			id: props.hero.id
-		};
+		this.state = this.getHerofromURL();
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
 	onFieldChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		});
+	}
+	getHerofromURL() {
+		let url = window.location.pathname;
+		let id = +url.substr(url.length - 2);
+		return heroList.find((i) => id === i.id);
 	}
 
 	render() {
