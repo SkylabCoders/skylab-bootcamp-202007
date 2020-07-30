@@ -58,7 +58,9 @@ class Details extends React.Component {
 					</label>
 				</form>
 
-				<NavLink to="/">Back</NavLink>
+				<NavLink class="hero-detail__back" to="/">
+					Back
+				</NavLink>
 			</div>
 		);
 	}

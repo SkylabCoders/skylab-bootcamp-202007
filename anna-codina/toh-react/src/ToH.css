@@ -62,7 +62,8 @@ input {
     margin: .5em;
 }
 
-nav a {
+nav a,
+.hero-detail__back {
     padding: 5px 10px;
     text-decoration: none;
     margin: 10px 10px 0 0;
@@ -82,9 +83,10 @@ button {
     width: fit-content;
 }
 
-nav a:visited,
+a:visited,
 a:link {
     color: #334953;
+    text-decoration: none;
 }
 
 nav a:hover {
@@ -92,9 +94,6 @@ nav a:hover {
     background-color: #CFD8DC;
 }
 
-nav a.active {
-    color: #039be5;
-}
 
 
 .hero-list__id {
@@ -141,6 +140,7 @@ nav a.active {
     padding: 40px 25px 40px 25px;
     background-color: #365f5a;
     margin: 8px;
+    border-radius: 4px;
 }
 
 .hero-dashboard__item:hover {
