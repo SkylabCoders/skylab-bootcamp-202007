@@ -1,16 +1,28 @@
 import React from 'react';
 
+class HeroDetails extends React.Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			hero = {
+				name: '',
+				id: null
+			}
+		}
+	}
+}
+
 function Details({ hero }) {
 	return (
 		<div>
 			<h1>Details</h1>
-			<div>
+			<form>
 				<p>{hero.name} details!</p>
-				<div>id: {hero.id}</div>
-				<div>
-					name: <input value={hero.name}></input>
-				</div>
-			</div>
+				<p>id: {hero.id}</p>
+				<lable htmlFor="heroName">
+					name: <input value={hero.name} name="heroname"></input>
+				</lable>
+			</form>
 		</div>
 	);
 }
