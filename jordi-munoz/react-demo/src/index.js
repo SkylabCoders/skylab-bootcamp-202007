@@ -12,14 +12,17 @@ const myAttributes = {
   a: 4,
   b: 2
 }
+const myLastName = ['C', 'A', 'O', 'L'];
 
 ReactDOM.render(
+
   <React.StrictMode>
-    <Hello  />
-    <Sum {...myAttributes}/>
-    <Clicker 
-    MyButton={MyButton}
-    handleClick={(letter) => console.log(letter)}/>
+    <Hello />
+    <Sum {...myAttributes} />
+    <Clicker
+      MyButton={MyButton}
+      data={myLastName}
+    />
     <ConditionalDisplay isVisible={true}>
       <h1>Hello</h1>
       <p>world!</p>

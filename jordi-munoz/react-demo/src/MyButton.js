@@ -1,10 +1,10 @@
 import React from 'react';
 
-function MyButton( {letter, handleClick} ) {
+function MyButton( {letter } ) {
     return (
         <button
         onClick={() => {
-            handleClick(letter);
+            console.log(letter);
         }}
         >
         {letter}
