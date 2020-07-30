@@ -2,16 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import ConDitionalDisplay from './conditional-Display/ConditionalDisplay';
-
-
+import Sum from './Sum'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ConDitionalDisplay isVisible={true}>
-      <h1>Hello</h1>
-      <p>world!</p>
-    </ConDitionalDisplay>
+    <Sum a={'something'} b={2}/>
   </React.StrictMode>,
   document.getElementById('root')
 )
