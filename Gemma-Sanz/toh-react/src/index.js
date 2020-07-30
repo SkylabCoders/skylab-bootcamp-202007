@@ -14,10 +14,10 @@ ReactDOM.render(
     <div className="container">
       <div className="container">
         <h1>Tour of Heroes</h1>
-        <button onClick={newView}>Dashboard</button>
-        <button onClick={newView}>Heroes</button>
+        <button /* onClick={dashboard} */>Dashboard</button>
+        <button /* onClick={list} */>Heroes</button>
       </div>
-
+      < HeroDashboard />
       <HeroList />
     </div>
   </React.StrictMode>,
