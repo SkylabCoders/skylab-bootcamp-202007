@@ -1,7 +1,8 @@
 import React from 'react';
+import '../Assets/HeroList.css';
 
-function HeroList({ renderedHeroes }) {
-	return <ul>{renderedHeroes}</ul>;
+function HeroList({ renderedHeroesList }) {
+	return <ul className="containerList">{renderedHeroesList}</ul>;
 }
 
 export default HeroList;

@@ -1,11 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
 	return (
 		<header>
 			<h1>Hero Tour</h1>
-			<button>Dashboard</button>
-			<button>Heroes</button>
+			<NavLink to="/" className="button">
+				Dashboard
+			</NavLink>
+			<NavLink to="/heroes" className="button">
+				Heroes
+			</NavLink>
 		</header>
 	);
 }

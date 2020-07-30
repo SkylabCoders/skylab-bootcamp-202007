@@ -1,70 +1,61 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import heroMock from '../Assets/heroMock';
-import HeroList from '../components/HeroList';
+import HeroList from './HeroList';
 import Dashboard from '../components/Dashboard';
 import Details from '../components/Details';
-import { render } from '@testing-library/react';
+import heroMock from '../Assets/heroMock';
 
-let renderedHeroesList;
+import { Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 let renderedHeroesDashboard;
-let heroIdShow;
-
-renderedHeroesList = renderHeroes(heroMock);
-
 const reducedMock = heroMock.slice(0, 4);
-renderedHeroesDashboard = renderHeroes(reducedMock);
+renderedHeroesDashboard = renderHeroesDashboard(reducedMock);
 
-function getHeroById(e) {
-	heroIdShow = e.currentTarget.dataset.id;
-	renderContainer();
-}
-
-// async function getAsyncHeroList() {
-// 	const URL = 'http://fanap.eu/tour-of-heroes/superherodata.json';
-// 	const response = await fetch(URL);
-// 	const data = await response.json();
-// 	console.log('Async data from server:', data);
-// 	return data;
-// }
-
-// async function getAsyncHero() {
-// 	const URL = 'http://fanap.eu/tour-of-heroes/superherodata.json';
-// 	const heroData = await fetch(URL);
-// 	const jsonData = await heroData.json();
-// 	return jsonData;
-// }
-
-function renderContainer() {
-	ReactDOM.render(
-		<React.StrictMode>
-			<div>
-				<HeroList renderedHeroes={renderedHeroesList} />
-				<Dashboard reducedHeroList={renderedHeroesDashboard} />
-				<Details hero={heroMock[heroIdShow]} />
-			</div>
-		</React.StrictMode>
-	);
-}
+let renderedHeroesList = renderHeroes(heroMock);
 
 function renderHeroes(heroList) {
-	//return renderContainer();
-
 	return heroList.map((hero) => (
-		<li key={hero.id} onClick={getHeroById.bind(this)} data-id={hero.id}>
-			{hero.id} {hero.name}
-		</li>
+		<NavLink to={`/hero/${hero.id}`} key={hero.id} className="heroListLink">
+			<span className="heroId">{hero.id}</span> {hero.name}
+		</NavLink>
+	));
+}
+
+function renderHeroesDashboard(heroList) {
+	return heroList.map((hero) => (
+		<NavLink
+			to={`/hero/${hero.id}`}
+			key={hero.id}
+			className="heroDashboardLink"
+		>
+			{hero.name}
+		</NavLink>
 	));
 }
 
 function Container() {
 	return (
 		<div>
-			<HeroList renderedHeroes={renderedHeroesList} />
-			<Dashboard reducedHeroList={renderedHeroesDashboard} />
-			<Details hero={heroMock[0]} />
+			<Route
+				path="/"
+				exact
+				component={() => (
+					<Dashboard reducedHeroList={renderedHeroesDashboard} />
+				)}
+			/>
+			<Route
+				path="/heroes"
+				component={() => <HeroList renderedHeroesList={renderedHeroesList} />}
+			/>
+			<Route path="/hero/:heroId" component={Details} />
 		</div>
 	);
+}
+
+{
+	/* <HeroList renderedHeroes={renderedHeroesList} />
+<Dashboard reducedHeroList={renderedHeroesDashboard} />
+<Details hero={heroMock[0]} /> */
 }
 
 export default Container;
