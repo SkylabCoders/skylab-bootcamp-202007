@@ -1,21 +1,20 @@
 import React from 'react';
-import TohDetails from './components/TohDetails'
-import TohTitle from './components/TohTitle'
-import TohList from './components/TohList';
-import TohDashboard from './components/TohDashboard';
+import './App.css';
+import HeroDetail from './components/HeroDetail';
+import HeroList from './components/HeroList';
+import Header from './components/Header';
+import HeroDashboard from './components/HeroDashboard';
+import { Route } from 'react-router-dom';
 
-function App() {
-    const condition = true;
-    let comoponent;
-    return (
-        <div>
-            <TohTitle />
-            <TohDetails />
-
-
-
-        </div>
-    )
+function App(props) {
+	return (
+		<div>
+			<Header />
+			<Route path="/" exact component={HeroDashboard} />
+			<Route path="/hero" component={HeroList} />
+			<Route path="/hero/:heroId" component={HeroDetail} />
+		</div>
+	);
 }
 
 export default App;
