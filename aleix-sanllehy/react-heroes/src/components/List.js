@@ -9,7 +9,7 @@ function List({ heroes }) {
 		</li>
 	));
 	return (
-		<div>
+		<div class="hero-list">
 			<h2>My Heroes</h2>
 			<ul> {heroList} </ul>
 		</div>

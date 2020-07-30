@@ -1,11 +1,17 @@
 import React from 'react';
 import '../bootstrap.min.css';
 
-function Dashboard() {
+function Dashboard({ heroes }) {
+	const maxHeroes = 4;
+	const heroDashboard = heroes.slice(0, maxHeroes).map((hero) => (
+		<div key={hero.name}>
+			<span className="name btn btn-secondary">{hero.name}</span>
+		</div>
+	));
 	return (
-		<div className="dashboard">
-			<h2>Top Heroes</h2>
-			<div id="hero-list"></div>
+		<div>
+			<h2>My Heroes</h2>
+			<div className="hero-dashboard"> {heroDashboard} </div>
 		</div>
 	);
 }

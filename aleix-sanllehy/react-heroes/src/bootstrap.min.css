@@ -9497,3 +9497,7 @@ a.text-dark:hover {
 	}
 }
 /*# sourceMappingURL=bootstrap.min.css.map */
+
+.hero-dashboard {
+	display: flex;
+}
