@@ -11,18 +11,8 @@ import Details from './component/Details';
 
 let state = 'dashboard';
 
-function showDashboard() {
-	state = 'dashboard';
-	reRender();
-}
-
-function showList() {
-	state = 'list';
-	reRender();
-}
-
-function showDetails() {
-	state = 'details';
+function updateState(newState) {
+	state = newState;
 	reRender();
 }
 
@@ -30,11 +20,13 @@ function reRender() {
 	ReactDOM.render(
 		<React.StrictMode>
 			<Navigation
-				onClickDashboard={() => showDashboard()}
-				onClickList={() => showList()}
+				onClickDashboard={() => updateState('dashboard')}
+				onClickList={() => updateState('list')}
 			/>
-			{state === 'dashboard' && <Dashboard onClickHero={() => showDetails()} />}
-			{state === 'list' && <List onClickHero={() => showDetails()} />}
+			{state === 'dashboard' && (
+				<Dashboard onClickHero={() => updateState('details')} />
+			)}
+			{state === 'list' && <List onClickHero={() => updateState('details')} />}
 			{state === 'details' && <Details hero={heroList[0]} />}
 		</React.StrictMode>,
 		document.getElementById('root')
