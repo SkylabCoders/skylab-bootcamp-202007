@@ -1,22 +1,12 @@
 import React from 'react';
-function MyButton({ letter, handleClick }) {
-	return (
-		<button
-			onClick={() => {
-				handleClick(letter);
-			}}
-		>
-			{' '}
-			{letter}{' '}
-		</button>
-	);
-}
-function Clicker({ handleClick }) {
+
+function Clicker({ handleClick, MyButton }) {
+	const myLastName = ['A', 'B', 'C'];
 	return (
 		<>
-			<MyButton letter={'A'} handleClick={handleClick} />
-			<MyButton letter={'B'} handleClick={handleClick} />
-			<MyButton letter={'C'} handleClick={handleClick} />
+			{myLastName.map((letter) => (
+				<MyButton key={letter} letter={letter} handleClick={handleClick} />
+			))}
 		</>
 	);
 }

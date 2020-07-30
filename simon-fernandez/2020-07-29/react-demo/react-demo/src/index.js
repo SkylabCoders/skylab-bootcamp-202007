@@ -7,6 +7,7 @@ import Hello from './Hello';
 import Sum from './sum';
 import Clicker from './Clicker';
 import * as serviceWorker from './serviceWorker';
+import MyButton from './myButton';
 
 const myAtributes = {
 	a: 4,
@@ -15,7 +16,10 @@ const myAtributes = {
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Clicker handleClick={(letter) => console.log(letter)} />
+		<Clicker
+			MyButton={MyButton}
+			handleClick={(letter) => console.log(letter)}
+		/>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
