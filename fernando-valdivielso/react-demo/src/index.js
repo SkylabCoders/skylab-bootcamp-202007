@@ -4,6 +4,9 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Date';
 import Sum from './Sum'
+import Clicker from './Clicker'
+import MyButton from './MyButton'
+import ConditionalDisplay from './ConditionalDisplay'
 
 // setInterval(() => {
 //   ReactDOM.render(
@@ -18,7 +21,26 @@ import Sum from './Sum'
 ReactDOM.render(
   <React.StrictMode>
     <Hello />
-    <Sum a={4} b={2} />
+    {/* <Sum a={4} b={2} /> //JSX */}
+    {React.createElement(
+      'h1',
+      null,
+      React.createElement( // hijo de <h1>
+        Sum,
+        { a: 4, b: 3 },
+        null
+      )
+    )}
+    <Clicker
+      MyButton={MyButton}
+      handleClick={(letter) => console.log(letter)}
+    />
+
+    {/* //al cambiar true por false, se deja de ver el elemento */}
+    <ConditionalDisplay isVisible={true}>
+      <h1>Hello</h1>
+      <p>World</p>
+    </ConditionalDisplay>
   </React.StrictMode>,
   document.getElementById('root')
 );
