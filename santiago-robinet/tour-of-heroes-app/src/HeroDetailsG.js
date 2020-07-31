@@ -1,28 +1,35 @@
 import React from 'react';
 import heroList from './component/hero.mock';
+import { Prompt } from 'react-router-dom';
 
 class HeroDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			heroName: '',
-			heroId: null
+			heroId: null,
+			formIsDirty: false
 		};
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
 
 	onFieldChange(event) {
 		this.setState({
-            heroName: event.target.value
-        })
+			heroName: event.target.value,
+			formIsDirty: true
+		})
+		
 	}
 
 	getHeroById(){
-		const path = window.location.pathname;
-		const id = path.split('/')[2];
+		// const path = window.location.pathname;
+		// const id = path.split('/')[2]
+		
+		const id = this.props.match.params.heroId;
 		const heroSearch = heroList.find((hero) => hero.id === +id);
 		return heroSearch;
 	}
+
 
 
 	componentDidMount(){
@@ -50,6 +57,8 @@ class HeroDetail extends React.Component {
                         onChange={this.onFieldChange}
 					/>
 				</label>
+				<Prompt when={this.state.formIsDirty} 
+						message="Are you sure you want to navigate away?"/>
 			</form>
 		);
 	}
