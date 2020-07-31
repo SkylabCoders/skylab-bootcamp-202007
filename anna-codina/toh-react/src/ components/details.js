@@ -7,17 +7,24 @@ class Details extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			heroName: this.getHeroName(),
-			heroId: props.match.params.heroId
+			heroName: '',
+			heroId: null
 		};
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
-	getHeroName = function () {
-		let actualHero = heroList.find(
+	getHeroById(id) {
+		return heroList.find(
 			(heroItem) => heroItem.id === +this.props.match.params.heroId
 		);
-		return actualHero.name;
-	};
+	}
+	componentDidMount() {
+		const hero = this.getHeroById(+this.props.match.params.heroId);
+		this.setState({
+			heroName: hero.name,
+			heroId: hero.id
+		});
+	}
+
 	onFieldChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
