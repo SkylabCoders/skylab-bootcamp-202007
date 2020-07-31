@@ -6,16 +6,12 @@ function Header(props) {
 		<>
 			<h1>Tour of Heroes</h1>
 			<nav>
-				<NavLink activeClassName="my-active-class" to="/">
+				<NavLink activeClassName="my-active-class" to="/" exact>
 					Dashboard
 				</NavLink>{' '}
 				{' | '}
-				<NavLink activeClassName="my-active-class" to="/hero">
+				<NavLink activeClassName="my-active-class" to="/hero" exact>
 					Heroes
-				</NavLink>
-				{' | '}
-				<NavLink activeClassName="my-active-class" to="/hero/14">
-					Bombasto
 				</NavLink>
 			</nav>
 		</>
