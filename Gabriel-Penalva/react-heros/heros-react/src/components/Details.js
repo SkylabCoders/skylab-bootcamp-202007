@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Prompt } from 'react-router-dom';
 
 class Details extends React.Component {
 
@@ -11,20 +11,22 @@ class Details extends React.Component {
         this.changeName = this.changeName.bind(this);
         this.state = {
             heroName: this.setName(),
-            heroId: props.match.params.heroId
+            heroId: props.match.params.heroId,
+            formIsDirty: false
         };
     }
 
     changeName(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            formIsDirty: true
         })
     }
     setName() {
         let hero = (this.heroList.find((heros) => +heros.id === +this.props.match.params.heroId))
         if (hero)
-            return hero.name
-        return 'no_data'
+            return hero.name;
+        return 'no_data';
     }
 
     render() {
@@ -44,6 +46,7 @@ class Details extends React.Component {
                             onChange={this.changeName}
                         />
                     </label>
+                    <Prompt when={this.state.formIsDirty} message='Are yoy sure?' />
                 </div>
                 <nav>
                     <NavLink activeClassName="my-active-class" to="/">

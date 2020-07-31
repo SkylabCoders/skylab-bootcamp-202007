@@ -1,8 +1,8 @@
 import React from 'react';
-import DashBoard from './DashBoard';
-import HeroList from './HeroList';
-import Header from './Header-heros';
-import Detail from './Details';
+import DashBoard from './components/DashBoard';
+import HeroList from './components/HeroList';
+import Header from './components/Header-heros';
+import Detail from './components/Details';
 import { Route, Switch } from "react-router-dom";
 import heroList from './hero.mock'
 import PageNotFound from './NotFound'

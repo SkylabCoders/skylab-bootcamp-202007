@@ -5,7 +5,8 @@ function MyButton({ letter, handleClick }) {
             onClick={() => handleClick(letter)}
         >
             {letter}
-        </button>);
+        </button>
+    );
 }
 
 export default MyButton;
