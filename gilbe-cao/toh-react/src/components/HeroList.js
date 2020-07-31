@@ -1,12 +1,25 @@
-import React from 'react';
-import heroList from '../hero.mock';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import heroStore from '../stores/heroStore';
+import { loadHeroes } from '../actions/heroActions';
 
-function HeroList(props) {
+function HeroList() {
+	const [heroes, setHeroes] = useState([]);
+
+	useEffect(() => {
+		heroStore.addChangeListener(onChange);
+		if (heroes.length === 0) loadHeroes();
+		return () => heroStore.removeChangeListener(onChange);
+	}, [heroes.length]);
+
+	function onChange() {
+		setHeroes(heroStore.getHeroes());
+	}
+
 	return (
 		<>
 			<ul>
-				{heroList.map((hero) => (
+				{heroes.map((hero) => (
 					<li key={hero.id}>
 						<Link to={`/hero/${hero.id}`}>
 							{hero.id}: {hero.name}
