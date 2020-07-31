@@ -17,6 +17,13 @@ function name(props) {
                 <NavLink activeClassName="my-active-class" to="/hero/:heroId">
                     Details
                 </NavLink>
+                {'  '}
+                <NavLink activeClassName="my-active-class" to="/login">
+                    Login
+                </NavLink>
+                <NavLink activeClassName="my-active-class" to="/redirect">
+                    Redirect
+                </NavLink>
 
                 {/* També ho podriem fer així <a href="/dashboard">Dashboard</a> | <a href="/hero">Hero</a> */}
 

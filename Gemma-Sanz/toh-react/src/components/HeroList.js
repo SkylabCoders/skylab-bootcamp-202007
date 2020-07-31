@@ -5,7 +5,7 @@ import '../styles.css';
 
 
 
-function HeroList(props) {
+function HeroList() {
     return (
         <div className="containerComponent">
             {renderedHeroes()}
@@ -16,12 +16,13 @@ const renderedHeroes = () => (
     <div className="mainContainer__list">
         <>
             {heroData.map(hero => (
-                < NavLink activeClassName="my-active-class" to={link} >
+                < NavLink activeClassName="my-active-class" to={`/hero/${hero.id}`}>
                     <div className="button__list" key={hero.id}>
                         <span className="element__list__id">{hero.id}</span>
                         <span className="element__list__name">{hero.name}</span>
                     </div>
                 </NavLink>
+
             ))}
         </>
     </div >

@@ -3,8 +3,8 @@ import HeroDetail from './components/HeroDetail';
 import HeroList from './components/HeroList';
 import Header from './components/Header';
 import HeroDashboard from './components/HeroDasboard';
-import { Route } from 'react-router-dom';
-
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
     /* Sense rutes ho podriem fer així
@@ -20,11 +20,15 @@ function App() {
     return (
         <div>
             <Header />
-            <Route path="/" exact component={HeroDashboard} />
-            <Route path="/hero" exact component={HeroList} />
-            <Route path="/hero/:heroId" component={HeroDetail} />
+            <Switch>
+                <Route path="/" exact component={HeroDashboard} />
+                <Route path="/hero" exact component={HeroList} />
+                <Route path="/hero/:heroId" exact component={HeroDetail} />
+                <Redirect from="/redirect" to="/" />
+                <Route component={PageNotFound} />
+            </Switch>
 
-        </div>
+        </div >
     )
 }
 
