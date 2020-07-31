@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 function Dashboard({ list }) {
 	return (
@@ -8,13 +8,13 @@ function Dashboard({ list }) {
 			<div className="dashboard">
 				{list.map((hero) => {
 					return (
-						<NavLink
+						<Link
 							className="dashboard__item"
 							to={'/hero/' + hero.id}
 							key={hero.id}
 						>
 							<p>{hero.name}</p>
-						</NavLink>
+						</Link>
 					);
 				})}
 			</div>

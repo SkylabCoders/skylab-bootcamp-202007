@@ -1,15 +1,15 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 function Navigation() {
 	return (
 		<nav className="navigation">
-			<NavLink className="navigation__item" to="/">
+			<Link className="navigation__item" to="/">
 				Dashbord
-			</NavLink>
-			<NavLink className="navigation__item" to="/heroes">
+			</Link>
+			<Link className="navigation__item" to="/heroes">
 				Heroes
-			</NavLink>
+			</Link>
 		</nav>
 	);
 }

@@ -13,8 +13,7 @@ class Details extends React.Component {
 		});
 	}
 	getHerofromURL() {
-		let url = window.location.pathname;
-		let id = +url.substr(url.length - 2);
+		let id = +this.props.match.params.id;
 		return heroList.find((i) => id === i.id);
 	}
 
@@ -23,11 +22,11 @@ class Details extends React.Component {
 			<form>
 				<h2>{this.state.name} details!</h2>
 				<p>id: {this.state.id}</p>
-				<label htmlFor="heroName">
+				<label htmlFor="name">
 					name:{' '}
 					<input
 						value={this.state.name}
-						name="heroname"
+						name="name"
 						onChange={this.onFieldChange}
 					></input>
 				</label>

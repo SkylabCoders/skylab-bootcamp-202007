@@ -15,10 +15,6 @@ class ToH extends React.Component {
 		};
 	}
 
-	updateState(newState) {
-		this.setState(newState);
-	}
-
 	render() {
 		return (
 			<div>
@@ -30,10 +26,7 @@ class ToH extends React.Component {
 					component={() => <Dashboard list={heroList.slice(0, 4)} />}
 				/>
 				<Route path="/heroes" component={() => <List list={heroList} />} />
-				<Route
-					path="/hero/:id"
-					component={() => <Details hero={this.state.hero} />}
-				/>
+				<Route path="/hero/:id" component={Details} />
 			</div>
 		);
 	}
