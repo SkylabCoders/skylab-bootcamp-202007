@@ -1,0 +1,32 @@
+import heroList from '../components/HeroList';
+import dispatcher from '../appDispatcher';
+import actionTypes from './actionTypes';
+
+// Action creators
+
+export function loadHeroes() {
+	return new Promise((resolve) => {
+		resolve(heroList);
+	}).then((heroes) => {
+		dispatcher.dispatch({
+			type: actionTypes.LOAD_HEROES,
+			data: heroes
+		});
+	});
+}
+
+export function createHero() {
+	return new Promise((resolve) => {
+		const hero = {
+			name: 'Gilbe',
+			id: 99
+		};
+		resolve(hero);
+	}).then((hero) => {
+		dispatcher.dispatch({
+			// per enviar al dispatcher
+			type: actionTypes.CREATE_HERO,
+			data: hero
+		});
+	});
+}
