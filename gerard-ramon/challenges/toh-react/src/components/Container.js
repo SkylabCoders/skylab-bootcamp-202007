@@ -4,7 +4,7 @@ import Dashboard from '../components/Dashboard';
 import Details from '../components/Details';
 import heroMock from '../Assets/heroMock';
 
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 let renderedHeroesDashboard;
@@ -36,18 +36,20 @@ function renderHeroesDashboard(heroList) {
 function Container() {
 	return (
 		<div>
-			<Route
-				path="/"
-				exact
-				component={() => (
-					<Dashboard reducedHeroList={renderedHeroesDashboard} />
-				)}
-			/>
-			<Route
-				path="/heroes"
-				component={() => <HeroList renderedHeroesList={renderedHeroesList} />}
-			/>
-			<Route path="/hero/:heroId" component={Details} />
+			<Switch>
+				<Route
+					path="/"
+					exact
+					component={() => (
+						<Dashboard reducedHeroList={renderedHeroesDashboard} />
+					)}
+				/>
+				<Route
+					path="/heroes"
+					component={() => <HeroList renderedHeroesList={renderedHeroesList} />}
+				/>
+				<Route path="/hero/:heroId" component={Details} />
+			</Switch>
 		</div>
 	);
 }

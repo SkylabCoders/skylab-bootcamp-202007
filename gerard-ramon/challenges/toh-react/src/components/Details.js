@@ -1,29 +1,27 @@
 import React from 'react';
 import heroMock from '../Assets/heroMock';
+import { Prompt } from 'react-router-dom';
 
 class Details extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			heroName: '',
-			heroId: null
+			heroId: null,
+			formIsDirty: false
 		};
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
 
 	componentDidMount() {
-		const pahtHeroId = this.getIdFromPathName();
+		//const pahtHeroId = this.getIdFromPathName();
+
+		const pahtHeroId = this.props.match.params.heroId;
 		const heroSearch = this.getHeroById(pahtHeroId);
 		this.setState({
 			heroName: heroSearch.name,
 			heroId: heroSearch.id
 		});
-	}
-
-	getIdFromPathName() {
-		const urlParam = window.location.pathname;
-		const heroId = urlParam.split('/')[2];
-		return heroId;
 	}
 
 	getHeroById(id) {
@@ -32,7 +30,8 @@ class Details extends React.Component {
 
 	onFieldChange(event) {
 		this.setState({
-			[event.target.name]: event.target.value
+			[event.target.name]: event.target.value,
+			formIsDirty: true
 		});
 	}
 
@@ -58,6 +57,10 @@ class Details extends React.Component {
 						/>
 					</label>
 				</form>
+				<Prompt
+					when={this.state.formIsDirty}
+					message="Are you sure you want to leave the page?"
+				/>
 			</div>
 		);
 	}
