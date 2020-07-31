@@ -1,5 +1,5 @@
 import React from 'react'
-import "./HeroDashboardItem.css"
+import "./heroDashboardItem.css"
 import { NavLink } from 'react-router-dom';
 
 function HeroDashboardItem({ id, name }) {

@@ -1,48 +1,44 @@
 import React from 'react';
-import './HeroDetail.css'
+import './heroDetail.css';
 import heroList from '../hero-service';
+import { Prompt } from 'react-router-dom';
+
 
 class HeroDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			heroName: '',
-			heroId: null
+			heroId: null,
+			forIsDirty: false
 		};
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
 
 	onFieldChange(myEvent) {
 		this.setState({
-			[myEvent.target.name]: myEvent.target.value
+			[myEvent.target.name]: myEvent.target.value,
+			forIsDirty: true
 		});
-	}
-
-	componentDidMount() {
-		const pathHeroId = this.getIdFromPathName();
-		//Llamo a la función con el id de la url que he capturado
-		const heroSearch = this.getHeroId(pathHeroId);
-		//Actualizamos state
-		this.setState({
-			heroName: heroSearch.name,
-			heroId: heroSearch.id
-		})
-	}
-
-	getIdFromPathName() {
-		//Cogemos de la url hero/id
-		const urlParam = window.location.pathname;
-		//Con un split separo esa parte de la dirección por la / y me quedo con la segunda parte
-		const pathHeroId = urlParam.split('/')[2];
-		//Devolvemos el id de la url
-		return pathHeroId;
 	}
 
 	getHeroId(id) {
 		//Me devuelve el objeto entero que coincida con el id que pasamos (pathHeroId)
-		//¡Cuidado! Que el id de la url viene como string
-		return heroList.find((hero) => hero.id === +id);
-		
+		return heroList.find((hero) => hero.id === id);
+	}
+
+	componentDidMount() {
+		//¡Cuidado! Que el id de la url viene como string (+)
+		// heroId se lo hemos puesto nosotros en App.js ==> :heroId 
+		// console.log(this.props.match.params) ==> me devuelve => {heroId: "16"} 
+		// this.props.match.params.heroId => Me devuelve el id
+		console.log(this.props.match.params)
+		const hero = this.getHeroId(+this.props.match.params.heroId);
+		//Actualizamos state
+		this.setState({
+			heroName: hero.name,
+			heroId: hero.id
+		})
 	}
 
 
@@ -62,6 +58,12 @@ class HeroDetail extends React.Component {
 						onChange={this.onFieldChange}
 					/>
 				</label>
+
+				<Prompt 
+					when={this.state.forIsDirty}
+					message="Are you sure you want to navigate away?"
+				/>
+
 			</form>
 			</div>
 		);

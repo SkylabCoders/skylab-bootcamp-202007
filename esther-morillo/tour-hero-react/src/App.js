@@ -1,5 +1,5 @@
 import React from 'react';
-// import '/App.css';
+import './App.css';
 import HeroDetail from './components/HeroDetail';
 import HeroList from './components/HeroList';
 import Header from './components/Header';

@@ -1,5 +1,5 @@
 import React from 'react';
-import './HeroListItem.css'
+import './heroListItem.css'
 import { NavLink } from 'react-router-dom';
 
 function HeroListItem({ id, name }) {
