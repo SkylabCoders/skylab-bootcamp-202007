@@ -9,14 +9,14 @@ function Header(props) {
 			<nav className='buttons'>
 				<NavLink activeClassName="my-active-class" to="/">
 					<button>Dashboard</button>
-				</NavLink>
-
+				</NavLink>{' '}
+				{' | '}
 				<NavLink activeClassName="my-active-class" to="/hero">
 					<button>Heroes</button>
 				</NavLink>
 				{' | '}
-				<NavLink activeClassName="my-active-class" to="/hero/14">
-					Bombasto
+				<NavLink activeClassName="my-active-class" to="/hero/:heroId">
+					Detail
 				</NavLink>
 			</nav>
 		</>

@@ -1,5 +1,6 @@
 import React from 'react';
 import heroData from '../heroData'
+import { Link } from 'react-router-dom'
 
 function HeroList() {
 	return (
@@ -13,7 +14,9 @@ function HeroList() {
 const renderedHeroes = () => (
 	<ul>
 		{heroData.map(hero => (
-			<li key={hero.id}>{hero.id} {hero.name}</li>
+			<li key={hero.id}>
+				<Link to={`/hero/${hero.id}`}>{hero.id}: {hero.name} </Link>
+			</li>
 		))}
 	</ul>
 );
