@@ -1,19 +1,22 @@
 import React from 'react';
 import heroListItem from '../hero.mock'
+import {Prompt} from 'react-router-dom'
 
 class HeroDetail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			heroName: '',
-			heroId: 14
+            heroId: null,
+            formIsDirty: false
 		};
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
 
 	onFieldChange(myEvent) {
 		this.setState({
-			[myEvent.target.name]: myEvent.target.value
+            [myEvent.target.name]: myEvent.target.value,
+            formIsDirty: true
 		});
     }
 /* 
@@ -22,20 +25,33 @@ class HeroDetail extends React.Component {
         return heroSearch;
     } */
 
-    getHeroById(){
+  /*   getHeroById(){
         const path = window.location.pathname;
         const id = path.split('/')[2];
         const heroSearch = heroListItem.find((hero) => hero.id === +id);
         return heroSearch;
-    }
+    } */
+
+   /*  
 
     componentDidMount(){
         const getHero = this.getHeroById();
-        console.log(getHero);
         this.setState({
             heroName: getHero.name,
             heroId: getHero.id
         })
+    } */
+
+    componentDidMount(){
+       const hero = this.getHeroById(this.props.match.params.heroId);
+        this.setState({
+            heroId: hero.id,
+            heroName: hero.name
+        })
+    }
+
+    getHeroById(id){
+        return heroListItem.find((hero) => hero.id === +id);
     }
 
 	render() {
@@ -51,11 +67,13 @@ class HeroDetail extends React.Component {
 						name="heroName"
 						placeholder="Hero name"
 						value={this.state.heroName}
-						onChange={this.onFieldChange}
-					/>
+						onChange={this.onFieldChange}/>
 				</label>
+                <Prompt when={this.state.formIsDirty} message="Are you sure yo want to navigate away?" />
 			</form>
-		);
+            
+        );
+        
 	}
 }
 
