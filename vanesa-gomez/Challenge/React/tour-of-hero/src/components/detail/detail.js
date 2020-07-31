@@ -23,7 +23,6 @@ class Detail extends React.Component {
 		const path = window.location.pathname;
 		const id = path.split('/')[2];
 		const heroSearch = heroList.find((hero) => hero.id === +id);
-		debugger;
 		return heroSearch;
 	}
 
@@ -39,9 +38,9 @@ class Detail extends React.Component {
 	render() {
 		return (
 			<form>
-				<p>{this.state.heroName} details!</p>
-				<p>id: {this.state.heroId}</p>
-				<label htmlFor="heroName">
+				<p className="hero-detail__name">{this.state.heroName} details!</p>
+				<p className="hero-detail__label">id: {this.state.heroId}</p>
+				<label className="hero-detail__label" htmlFor="heroName">
 					name:
 					<input
 						name="heroName"
