@@ -6,19 +6,27 @@ import Detail from './components/detail/detail';
 import List from './components/list/list';
 import Dashboard from './components/dashboard/dashboard';
 import heroList from './heroMock';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import PageNotFound from './components/PageNotFound';
 
 function App(props) {
 	return (
 		<div>
 			<Title title="Tour of Heroes" />
-			<Route path="/" component={Actions} />
-			<Route path="/heroes" component={() => <List heroes={heroList} />} />
-			<Route path="/hero/:heroId" component={Detail} />
-			<Route
-				path="/dashboard"
-				component={() => <Dashboard heroes={heroList} />}
-			/>
+			<Actions />
+			<Switch>
+				<Route
+					path="/hero"
+					exact
+					component={() => <List heroes={heroList} />}
+				/>
+				<Route path="/hero/:heroId" component={Detail} />
+				<Route
+					path="/dashboard"
+					component={() => <Dashboard heroes={heroList} />}
+				/>
+				<Route component={PageNotFound} />
+			</Switch>
 		</div>
 	);
 }
