@@ -1,21 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Header.css';
 
 function Header(props) {
 	return (
 		<>
 			<h1>Tour of Heroes</h1>
 			<nav>
-				<NavLink activeClassName="my-active-class" to="/">
+				<NavLink to="/" exact activeClassName="nav__link--active">
 					Dashboard
-				</NavLink>{' '}
+				</NavLink>
 				{' | '}
-				<NavLink activeClassName="my-active-class" to="/hero">
+				<NavLink to="/hero" exact activeClassName="nav__link--active">
 					Heroes
 				</NavLink>
 				{' | '}
-				<NavLink activeClassName="my-active-class" to="/hero/14">
-					Bombasto
+				<NavLink to="/login" activeClassName="nav__link--active">
+					Login
+				</NavLink>
+				{' | '}
+				<NavLink to="/heroes" activeClassName="nav__link--active">
+					Redirect
 				</NavLink>
 			</nav>
 		</>
