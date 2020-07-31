@@ -30,9 +30,12 @@ body {
     margin: 2.5rem 0 .5rem 0;
 }
 
-.container__dashboard a {
-    display: flex;
+.dashboard__container{
+    display: inline-flex;
     flex-direction: row;
+} 
+
+.dashboard__link {
     width: 10rem;
     color: #fff;    
     background-color: #557584;

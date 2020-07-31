@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom';
 
 function App() {
 	return (
-		<div>
+		<div className="lightbox">
 			<Header />
 			<Route path="/" exact component={HeroDashboard} />
 			<Route path="/heroes" component={HeroList} />

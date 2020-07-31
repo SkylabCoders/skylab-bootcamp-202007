@@ -55,6 +55,7 @@ class HeroDetail extends React.Component {
 				<label className="detail__name" htmlFor="heroName">
 					name:
 					<input
+						className="input"
 						name="heroName"
 						placeholder="Hero name"
 						value={this.state.heroName}
