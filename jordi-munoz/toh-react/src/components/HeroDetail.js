@@ -1,11 +1,13 @@
 import React from 'react';
 import './HeroDetail.css';
 import heroListArray from '../hero.mock'
+import { Prompt } from 'react-router-dom';
 
 class HeroDetail extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.findId();
+        this.state = this.findId()
+
         this.onFieldChange = this.onFieldChange.bind(this);
     }
 
@@ -32,6 +34,9 @@ class HeroDetail extends React.Component {
                         onChange={this.onFieldChange}
                     />
                 </label>
+                
+                
+                
             </form>
         );
     }
