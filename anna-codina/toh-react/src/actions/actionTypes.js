@@ -1,0 +1,4 @@
+export default {
+	UPDATE_HERO: 'UPDATE_HERO',
+	LOAD_HEROES: 'LOAD_HEROES'
+};
