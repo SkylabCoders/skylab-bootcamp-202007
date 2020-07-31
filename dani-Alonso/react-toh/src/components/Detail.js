@@ -20,8 +20,7 @@ class HeroDetail extends React.Component {
 	}
 
 	getIdFromPathName() {
-		const urlParam = window.location.pathname;
-		const pathHeroId = urlParam.split('/')[2];
+		const pathHeroId = this.props.match.params.heroId;
 		return pathHeroId;
 	}
 
