@@ -13,11 +13,13 @@ function HeroList(props) {
     useEffect(() => {
         heroStore.addChangeListener(onChange);
         if (heroes.length === 0) loadHeroes();
+        return () => heroStore.removeChangeListener(onChange);
     }, [heroes.length]);
 
     function onChange() {
-        setHeroes(heroStore.getHeroes())
+        setHeroes(heroStore.getHeroes());
     }
+
     return (
         <div className="containerComponent">
             {renderedHeroes()}
