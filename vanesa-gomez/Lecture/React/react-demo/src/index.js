@@ -1,24 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import * as serviceWorker from './serviceWorker';
-
-
-const title = 'hola pepsicola';
+import ConditionalDisplay from './ConditionalDisplay';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Header />
-    <App 
-      click={(arg)=>{console.log(arg)}}
-      title={title}
-    />
-    <Footer />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<ConditionalDisplay isVisible={true}>
+			<h1>Hello</h1>
+			<p>world</p>
+		</ConditionalDisplay>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
