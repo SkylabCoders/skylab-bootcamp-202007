@@ -1,14 +1,15 @@
 import React from 'react';
 import './dashboard.css';
+import { NavLink } from 'react-router-dom';
 
 function Dashboard({ heroes }) {
 	const heroesTop = heroes.slice(0, 4);
 
 	const promotedHeroList = heroesTop.map((hero) => {
 		return (
-			<button className="hero-card" key={hero.id}>
+			<NavLink to={`/hero/${hero.id}`} className="hero-card" key={hero.id}>
 				{hero.name}
-			</button>
+			</NavLink>
 		);
 	});
 

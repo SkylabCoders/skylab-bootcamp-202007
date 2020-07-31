@@ -13,8 +13,8 @@ function App(props) {
 		<div>
 			<Title title="Tour of Heroes" />
 			<Route path="/" component={Actions} />
-			<Route path="/hero" component={() => <List heroes={heroList} />} />
-			<Route path="/detail" component={Detail} />
+			<Route path="/heroes" component={() => <List heroes={heroList} />} />
+			<Route path="/hero/:heroId" component={Detail} />
 			<Route
 				path="/dashboard"
 				component={() => <Dashboard heroes={heroList} />}

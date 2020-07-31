@@ -8,11 +8,8 @@ function Actions(props) {
 			<NavLink to="/dashboard" className="button">
 				Dashboard
 			</NavLink>
-			<NavLink to="/hero" className="button">
+			<NavLink to="/heroes" className="button">
 				Heroes
-			</NavLink>
-			<NavLink to="/detail" className="button">
-				Detail
 			</NavLink>
 		</nav>
 	);

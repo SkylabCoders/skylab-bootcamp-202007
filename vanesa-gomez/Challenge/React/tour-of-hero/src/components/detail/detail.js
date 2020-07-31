@@ -23,6 +23,7 @@ class Detail extends React.Component {
 		const path = window.location.pathname;
 		const id = path.split('/')[2];
 		const heroSearch = heroList.find((hero) => hero.id === +id);
+		debugger;
 		return heroSearch;
 	}
 
