@@ -1,5 +1,6 @@
 import React from 'react';
 import heroList from '../hero.mock';
+import { Prompt } from 'react-router';
 
 class Details extends React.Component {
 	constructor(props) {
@@ -9,7 +10,8 @@ class Details extends React.Component {
 	}
 	onFieldChange(event) {
 		this.setState({
-			[event.target.name]: event.target.value
+			[event.target.name]: event.target.value,
+			isDirty: true
 		});
 	}
 	getHerofromURL() {
@@ -23,6 +25,7 @@ class Details extends React.Component {
 				<h2>{this.state.name} details!</h2>
 				<p>id: {this.state.id}</p>
 				<label htmlFor="name">
+					<Prompt when={this.state.isDirty} message="Cerdo!" />
 					name:{' '}
 					<input
 						value={this.state.name}
