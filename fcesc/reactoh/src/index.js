@@ -4,6 +4,7 @@ import './index.css';
 import App from './components/App';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import MainMenu from './components/MainMenu';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -12,6 +13,7 @@ const title = 'hola pepsicola';
 ReactDOM.render(
   <React.StrictMode>
     <Header />
+    <MainMenu />
     <App 
       click={(arg)=>{console.log(arg)}}
       title={title}
