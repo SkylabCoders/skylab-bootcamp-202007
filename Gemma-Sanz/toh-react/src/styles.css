@@ -45,9 +45,10 @@ nav a:hover {
     border: none;
     border-radius: 3px;
     background-color: rgb(240, 235, 235);
-    margin: 5px;
+    margin: 5px auto;
     padding: 5px;
     text-align: start;
+    width: 200px;
 }
 
 .button__list:hover {
