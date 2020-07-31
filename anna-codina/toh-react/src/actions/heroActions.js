@@ -13,7 +13,7 @@ export function loadHeores() {
 	});
 }
 
-export function updateHero(hero) {
+export function createHero(hero) {
 	return new Promise((resolve) => {
 		const hero = {
 			name: 'Gilber',
@@ -22,7 +22,7 @@ export function updateHero(hero) {
 		resolve(hero);
 	}).then((hero) => {
 		dispatcher.dispatch({
-			type: actionTypes.UPDATE_HERO,
+			type: actionTypes.CREATE_HEROES,
 			data: hero
 		});
 	});
