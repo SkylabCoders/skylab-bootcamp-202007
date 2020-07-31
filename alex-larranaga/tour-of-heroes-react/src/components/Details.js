@@ -7,8 +7,10 @@ class Details extends React.Component {
 		//hero = this.getHeroById(this.props.query.heroIdUrl)
 		this.state = {
 			id: 'Waiting',
-			name: 'Waiting...'
+			name: 'Waiting...',
+			stateChange: true
 		};
+		let checkChange = this.state.name;
 
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
@@ -19,7 +21,8 @@ class Details extends React.Component {
 
 	onFieldChange(myEvent) {
 		this.setState({
-			[myEvent.target.name]: myEvent.target.value
+			[myEvent.target.name]: myEvent.target.value,
+			stateChange: false
 		});
 	}
 	componentDidMount() {
