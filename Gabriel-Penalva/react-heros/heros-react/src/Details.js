@@ -1,8 +1,10 @@
 import React from 'react';
+
+import { NavLink } from 'react-router-dom';
+
 class Details extends React.Component {
 
     constructor(props) {
-        console.log(props)
         super(props)
         this.heroList = props.heroList;
 
@@ -27,7 +29,6 @@ class Details extends React.Component {
 
     render() {
 
-        console.log(this.props)
         return (
             <div className="hero">
                 <h2>{this.state.heroName} Details</h2>
@@ -44,13 +45,15 @@ class Details extends React.Component {
                         />
                     </label>
                 </div>
-                <button onClick={this.props.renderDashBoard}> Back </button>
+                <nav>
+                    <NavLink activeClassName="my-active-class" to="/">
+                        Back
+				</NavLink>
+                </nav>
+
             </div>
         )
     }
-
-
 }
-
 
 export default Details;
