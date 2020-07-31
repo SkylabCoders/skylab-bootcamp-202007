@@ -4,15 +4,19 @@ import HeroDetail from './components/HeroDetail';
 import HeroList from './components/HeroList';
 import Header from './components/Header';
 import HeroDashboard from './components/HeroDashboard';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PageNotFound from './components/PageNotFound';
 
 function App(props) {
 	return (
-		<div>
+		<div className="container">
 			<Header />
-			<Route path="/" exact component={HeroDashboard} />
-			<Route path="/hero" component={HeroList} />
-			<Route path="/hero/:heroId" component={HeroDetail} />
+			<Switch>
+				<Route path="/" exact component={HeroDashboard} />
+				<Route path="/hero" component={HeroList} />
+				<Redirect from="/heroes" to="/hero" />
+				<Route component={PageNotFound} />
+			</Switch>
 		</div>
 	);
 }
