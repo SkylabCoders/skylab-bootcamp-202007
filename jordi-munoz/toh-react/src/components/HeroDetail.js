@@ -15,8 +15,7 @@ class HeroDetail extends React.Component {
         });
     }
     findId() {
-        let getUrl = window.location.pathname;
-        let id = +getUrl.split('/')[2];
+        let id = +this.props.match.params.heroId
         return heroListArray.find((e) => e.id === id);
     }
     render() {
