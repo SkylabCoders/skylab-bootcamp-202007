@@ -1,21 +1,22 @@
-.id {
-    background-color: #607D8B;
-    color: white;
-    padding: 5px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+.hero__id {
+	background-color: #607d8b;
+	color: white;
+	padding: 5px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
 }
 
-.name {
-    background-color: #EEEEEE;
-    color: #B2B2B2;
-    padding: 5px;
-    padding-left: 10px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+.hero__name {
+	background-color: #eeeeee;
+	color: #b2b2b2;
+	padding: 5px;
+	padding-left: 10px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
 .list {
-    display: flex;
-    margin-bottom: 12px;
+	text-decoration: none;
+	display: flex;
+	margin-bottom: 12px;
 }
