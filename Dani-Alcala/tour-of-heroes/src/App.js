@@ -5,7 +5,8 @@ import Header from './components/Header';
 import HeroDetail from './components/HeroDetail';
 import HeroDashboard from './components/HeroDashboard';
 import HeroList from './components/HeroList';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PageNotFound from './components/PageNotFound'
 
 const heroList = [
 	{ id: 11, name: 'Dr Nice' },
@@ -26,16 +27,20 @@ function App(props) {
 	return (
 		<div>
 			<Header />
-			<Route
-				path="/"
-				exact
-				component={() => <HeroDashboard heroes={heroesPromoted} />}
-			/>
-			<Route
-				path="/heroList"
-				component={() => <HeroList heroes={heroList} />}
-			/>
-			<Route path="/hero/:heroId" component={HeroDetail} />
+      <Switch>
+        <Route
+          path="/"
+          exact
+          component={() => <HeroDashboard heroes={heroesPromoted} />}
+        />
+        <Route
+          path="/heroList"
+          component={() => <HeroList heroes={heroList} />}
+        />
+        <Route path="/hero/:heroId" component={HeroDetail} />
+        <Redirect from="/heroLists" to="/heroList" />
+        <Route component={PageNotFound} />//wildcard, cuando no hay ruta q te muestro!!
+      </Switch>
 		</div>
 	);
 }
