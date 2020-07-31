@@ -1,10 +1,5 @@
 import React from 'react';
 
-// this function is now a class
-/* function Hello({ now }) {
-	return <h1>Hello at {now}</h1>;
-} */
-
 class Hello extends React.Component {
 	interval = null;
 	constructor(props) {
@@ -30,5 +25,10 @@ class Hello extends React.Component {
 		return <h1>Hello at {this.state.now}</h1>;
 	}
 }
+
+// this function is now a class
+/* function Hello({ now }) {
+	return <h1>Hello at {now}</h1>;
+} */
 
 export default Hello;

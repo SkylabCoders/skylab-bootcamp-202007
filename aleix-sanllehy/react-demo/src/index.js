@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import ConditionalDisplay from './ConditionalDisplay';
 //import Clicker from './Clicker';
 //import MyButton from './MyButton';
+import Hello from './Hello2';
 
 //const myAttributes = { a: 6, b: 7 };
 
@@ -24,6 +25,7 @@ ReactDOM.render(
 			<h1>Hello</h1>
 			<p>world!</p>
 		</ConditionalDisplay>
+		<Hello />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
