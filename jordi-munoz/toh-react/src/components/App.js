@@ -3,22 +3,23 @@ import HeroDetail from './HeroDetail';
 import HeroDashboard from './HeroDashboard';
 import HeroList from './HeroList';
 import Header from './Header';
-import { Route, Switch } from 'react-router-dom';
-import heroListArray from '../hero.mock'
+import { Route, Switch, Redirect } from 'react-router-dom';
 import PageNotFound from './PageNotFound';
 
 
 function App(props) {
-    return (
-        <div>
-            <Header />
-            <Switch>
-                <Route path='/' exact component={() => <HeroDashboard heroListArray={heroListArray} />} />
-                <Route path='/heroes' component={() => <HeroList heroListArray={heroListArray} />} />
-                <Route path='/hero/:heroId' component={HeroDetail} />
-                <Route component={PageNotFound} />
-            </Switch>
-        </div>
-    );
+	return (
+		<div className="container">
+			<Header />
+			<Switch>
+				<Route path="/" exact component={HeroDashboard} />
+				<Route path="/hero/:heroId" component={HeroDetail} />
+				<Route path="/hero" component={HeroList} />
+				<Redirect from="/heroes" to="/hero" />
+				<Route component={PageNotFound} />
+			</Switch>
+		</div>
+	);
 }
+
 export default App;

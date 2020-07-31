@@ -1,14 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
-function PageNotFound() {
-    return (
-        <section>
-        <h1>Error - 404</h1>
-        <p>Nothing to see here!</p>
-        <Link to='/'>Navigate to Dashboard</Link>
-    </section>
-    );
+function PageNotFound(props) {
+	const condition = false;
+
+	return (
+		<section>
+			{condition === true && <Redirect to="/" />}
+			<h1>Error - 404</h1>
+			<p>Nothing to see here !</p>
+			<Link to="/">Dashboard</Link>
+		</section>
+	);
 }
 
-export default PageNotFound
+export default PageNotFound;

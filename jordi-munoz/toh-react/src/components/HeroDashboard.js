@@ -1,8 +1,9 @@
 import React from 'react';
 import './HeroDashboard.css';
 import { NavLink } from 'react-router-dom';
+import heroListArray from '../hero.mock'
 
-function HeroDashboard({ heroListArray }) {
+function HeroDashboard() {
     const list = heroListArray.slice(0, 4).map((hero) => (
 
         <NavLink
