@@ -1,7 +1,7 @@
 import React from 'react';
 import heroData from '../heroData';
 import '../styles.css';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 
 function HeroDashboard() {
@@ -18,7 +18,9 @@ const fourHeroes = () => (
         <ul className="row">
             {
                 four.map(hero => (
-                    <li className="element__dashboard" key={hero.id}>{hero.name}</li>
+                    <Link key={hero.id} to={`/hero/${hero.id}`}>
+                        <li className="element__dashboard" >{hero.name}</li>
+                    </Link>
                 ))
             }
         </ul>
