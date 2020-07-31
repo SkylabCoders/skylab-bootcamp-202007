@@ -8,7 +8,8 @@ function Header(props) {
 			<nav className="hero-header">
 				<NavLink
 					className="header-button btn btn-secondary"
-					activeClassName="my-active-class"
+					exact
+					activeClassName="nav__link--active"
 					to="/"
 				>
 					Dashboard
@@ -16,10 +17,19 @@ function Header(props) {
 				{/* {' | '} */}
 				<NavLink
 					className="header-button btn btn-secondary"
-					activeClassName="my-active-class"
-					to="/list"
+					exact
+					activeClassName="nav__link--active"
+					to="/hero"
 				>
 					Heroes
+				</NavLink>
+				<NavLink
+					className="header-button btn btn-secondary"
+					exact
+					activeClassName="nav__link--active"
+					to="/login"
+				>
+					Login
 				</NavLink>
 			</nav>
 		</>

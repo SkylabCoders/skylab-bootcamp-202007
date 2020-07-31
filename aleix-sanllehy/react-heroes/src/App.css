@@ -62,7 +62,9 @@
 	justify-content: center;
 }
 
-.header-button:hover {
+.header-button:hover,
+.nav__link--active,
+.button-back:hover {
 	color: rgb(46, 170, 233);
 	font-weight: 700;
 }
@@ -140,6 +142,15 @@
 .hero-details__element {
 	width: 500px;
 	display: flex;
+}
+
+.button-back {
+	background-color: rgb(238, 238, 238);
+	border-radius: 5px 5px 5px 5px;
+	color: rgb(131, 131, 131);
+	width: 60px;
+	display: flex;
+	justify-content: center;
 }
 
 a {
