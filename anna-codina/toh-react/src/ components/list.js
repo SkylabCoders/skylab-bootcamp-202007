@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import heroStore from '../stores/heroStore';
+import { loadHeores } from '../actions/heroActions';
 
-function List({ heroList }) {
-	const actualHeroList = heroList.map((hero) => {
+function List(props) {
+	const [heroes, setHeroes] = useState([]);
+	const actualHeroList = heroes.map((hero) => {
 		const link = '/hero/' + hero.id;
 		return (
 			<NavLink key={hero.id} to={link}>
@@ -13,18 +16,20 @@ function List({ heroList }) {
 			</NavLink>
 		);
 	});
+	useEffect(() => {
+		heroStore.addChangeListener(onChange);
+		if (heroes.length === 0) {
+			loadHeores();
+		}
+		return () => heroStore.removeChangeListener(onChange);
+	}, [heroes.length]);
+	function onChange() {
+		setHeroes(heroStore.getHeroes());
+	}
 	return (
 		<div>
 			<h2>My heroes</h2>
-			<form>
-				<label htmlFor="hero__filter">search: </label>
-				<input
-					id="hero-detail__name-control"
-					type="text"
-					name="hero__filter"
-					placeholder="Search by any criteria..."
-				/>
-			</form>
+
 			<ul className="hero-list">{actualHeroList}</ul>
 		</div>
 	);

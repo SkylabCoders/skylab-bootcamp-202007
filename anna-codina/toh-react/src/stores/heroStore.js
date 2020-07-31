@@ -1,4 +1,4 @@
-import { EventEmitter } from 'event';
+import { EventEmitter } from 'events';
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
 

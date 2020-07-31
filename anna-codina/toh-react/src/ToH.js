@@ -15,20 +15,9 @@ function ToH(props) {
 		<>
 			<Header />
 			<Switch>
-				<Route
-					path="/"
-					exact
-					component={() => <Dashboard heroList={heroList} />}
-				/>
-				<Route
-					path="/hero"
-					exact
-					component={() => <List heroList={heroList} />}
-				/>
-				<Route
-					path="/hero/:heroId"
-					component={(props) => <Details {...props} />}
-				/>
+				<Route path="/" exact component={Dashboard} />
+				<Route path="/hero" exact component={List} />
+				<Route path="/hero/:heroId" component={Details} />
 				<Route exact component={PageNotFound} />
 			</Switch>
 		</>
