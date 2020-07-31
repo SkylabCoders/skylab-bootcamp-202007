@@ -1,6 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-function List() {
+function thoDashboard() {
 	const heroList = [
 		{ id: 11, name: 'Dr Nice' },
 		{ id: 12, name: 'Narco' },
@@ -13,13 +14,19 @@ function List() {
 		{ id: 19, name: 'Magma' },
 		{ id: 20, name: 'Tornado' }
 	];
-	const listItems = heroList.map((hero) => (
-		<a href="#" className="d-block" key={hero.name} id={hero.id}>
-			{hero.id}
+	const heros = heroList.slice(0, 4);
+	const listItems = heros.map((hero) => (
+		<NavLink
+			to="/hero/:heroId"
+			className="d-block"
+			key={hero.name}
+			id={hero.id}
+		>
 			{hero.name}
-		</a>
+		</NavLink>
 	));
 
 	return <div>{listItems}</div>;
 }
-export default List;
+
+export default thoDashboard;
