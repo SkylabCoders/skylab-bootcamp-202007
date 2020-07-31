@@ -12,7 +12,7 @@ function List({ heroes }) {
 	return (
 		<>
 			<h2> My Heroes</h2>
-			<ul> {heroList} </ul>;
+			<ul> {heroList} </ul>
 		</>
 	);
 }
