@@ -6,21 +6,23 @@ function HeroList() {
 	return (
 		<div>
 			<h1>Herolist</h1>
-			<h2>{SimpleList()}</h2>
+			<h3>{SimpleList()}</h3>
 		</div>
 	);
 }
 
 const SimpleList = () => (
-	<ul>
+	<div className="list--container">
 		{heroList.map(function (hero) {
 			return (
-				<li key={hero.id}>
-					{hero.id} {hero.name}
-				</li>
+				<a href={`/details/${hero.id}`}>
+					<button key={hero.id}>
+						{hero.id} {hero.name}
+					</button>
+				</a>
 			);
 		})}
-	</ul>
+	</div>
 );
 
 export default HeroList;

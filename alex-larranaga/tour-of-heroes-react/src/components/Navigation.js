@@ -1,36 +1,40 @@
 import React from 'react';
-
-const heroArray = (heroList) => (
-	<ul>
-		{heroList.map(function (item) {
-			return <li key={heroList[item].id}>{heroList[item].name}</li>;
-		})}
-	</ul>
-);
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import HeroList from './HeroList';
+import Details from './Details';
+import Dashboard from './Dashboard';
 
 function Navigation(props) {
 	return (
-		<div>
+		<Router>
 			<h1>Tour of Heroes powered by React</h1>
 			<h2></h2>
 			<div>
 				<a href="">
-					<button
-						onClick={(event) => {
-							props.changeViewToList();
-						}}
-					>
-						Hero List
-					</button>
+					<a href="/herolist">
+						<button>Hero List</button>
+					</a>
 				</a>
-				<a href="">
+				<a href="dashboard">
 					<button>Dashboard</button>
 				</a>
-				<a href="">
+				<a href="details">
 					<button>Details</button>
 				</a>
+
+				<Switch>
+					<Route path="/herolist">
+						<HeroList></HeroList>
+					</Route>
+
+					<Route path="/details/:id" component={Details}></Route>
+
+					<Route path="/dashboard">
+						<Dashboard></Dashboard>
+					</Route>
+				</Switch>
 			</div>
-		</div>
+		</Router>
 	);
 }
 
