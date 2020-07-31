@@ -1,14 +1,15 @@
 import React from 'react';
 import '../ToH.css';
 import heroList from './list.mock';
-import { Link } from 'react-router-dom';
+import { Link, Prompt } from 'react-router-dom';
 
 class Details extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			heroName: '',
-			heroId: null
+			heroId: null,
+			formIsDirty: false
 		};
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
@@ -27,7 +28,8 @@ class Details extends React.Component {
 
 	onFieldChange(event) {
 		this.setState({
-			[event.target.name]: event.target.value
+			[event.target.name]: event.target.value,
+			formIsDirty: true
 		});
 	}
 	render() {
@@ -63,6 +65,10 @@ class Details extends React.Component {
 							onChange={this.onFieldChange}
 						/>
 					</label>
+					<Prompt
+						when={this.state.formIsDirty}
+						message="Are your sure you want want to navigate away?"
+					/>
 				</form>
 
 				<Link
