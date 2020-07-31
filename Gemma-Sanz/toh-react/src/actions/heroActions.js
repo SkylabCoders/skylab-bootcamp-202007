@@ -20,13 +20,11 @@ export function createHeroes(hero) {
             name: 'Gilber',
             id: 99
         }
-        resolve({
-
-        }).then(hero => {
-            dispatcher.dispatch({
-                type: actionTypes.CREATE_HERO,
-                data: hero
-            })
-        })
-    })
+        resolve(hero);
+    }).then((hero) => {
+        dispatcher.dispatch({
+            type: actionTypes.CREATE_HERO,
+            data: hero
+        });
+    });
 }

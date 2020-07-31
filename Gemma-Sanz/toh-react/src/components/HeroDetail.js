@@ -30,7 +30,7 @@ class HeroDetail extends React.Component {
         const hero = this.getHeroById(+this.props.match.params.heroId);
         this.setState({
             heroName: hero.name,
-            heroId: hero.id,
+            heroId: hero.id
         })
     }
 

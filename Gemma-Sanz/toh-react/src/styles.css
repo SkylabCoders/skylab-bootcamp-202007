@@ -26,10 +26,6 @@ nav a:hover {
     background-color: rgb(231, 229, 229);
 }
 
-.containerComponent {
-    margin: 20px
-}
-
 .element__dashboard {
     list-style-type: none;
     color: white;
@@ -77,6 +73,10 @@ h1 {
     background-color: rgb(251, 249, 249);
     margin: auto;
     margin-top: 30px;
+}
+
+.containerComponent {
+    margin: 20px
 }
 
 .mainContainer__list {
