@@ -1,16 +1,27 @@
 function HeroDashboardComponents() {
-	const heros = heroList.slice(0, 4);
+	let herosPromoted;
+	const heroListContainer = document.getElementById('heroDashboardList');
+
 	this.onInIt = function displayDashboard() {
-		let listElement = document.getElementById('heroDashboardList');
-		listElement.innerHTML = renderHeroList(heros);
+		heroService.getHeroList().then((response) => {
+			herosPromoted = response.slice(0, 4);
+			renderHeroList().forEach((element) => {
+				if (heroListContainer) heroListContainer.appendChild(element);
+			});
+		});
 	};
 
-	function renderHeroList(heros) {
-		return heros.map(renderAnchor);
+	function renderHeroList() {
+		return herosPromoted.map(mapHeroToAnchor);
 	}
-	function renderAnchor(hero) {
-		const heroLink = `../hero-detail/hero-detail.component.html?id=${hero.id}`;
-		return `<a href='${heroLink}'>${hero.name}</a>`;
+	function mapHeroToAnchor(hero) {
+		const element = document.createElement('a');
+		element.href = getHeroLink(hero.id);
+		element.innerText = hero.name;
+		return element;
+	}
+	function getHeroLink(id) {
+		return `../hero-detail/hero-detail.component.html?id=${id}`;
 	}
 }
 let dashboardComponent = new HeroDashboardComponents();
