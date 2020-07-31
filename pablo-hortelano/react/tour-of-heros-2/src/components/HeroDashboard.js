@@ -1,23 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import heroList from '../hero.mock';
+import { Router, NavLink } from 'react-router-dom';
 
 function HeroDashboard({ heroes }) {
-	const topHeroesPromotion = heroes.slice(0, 4);
+	const topHeroesPromotion = heroList.slice(0, 4);
 
-	const topHeroes = topHeroesPromotion.map((hero) => (
-		<NavLink
-			to={`/hero/${hero.id}`}
-			key={hero.id}
-			className="hero__container__button"
-		>
-			{hero.name}
-		</NavLink>
-	));
+	/* const topHeroes = topHeroesPromotion.map((hero) => (
+		<Router>
+			<NavLink to={`/hero/${hero.id}`} key={hero.id} className="hero__button">
+				{hero.name}
+			</NavLink>
+		</Router>
+	)); */
 
 	return (
 		<div className="dashboard__container">
 			<p className="dashboard__title">Top Heroes</p>
-			<div className="dashboard__buttons__container">{topHeroes}</div>
+			<div className="dashboard__buttons__container">{topHeroesPromotion}</div>
 		</div>
 	);
 }

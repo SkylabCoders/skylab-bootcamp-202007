@@ -1,17 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Router } from 'react-router-dom';
 
 function HeroList({ heroes }) {
-	const allHeroes = heroes.map((hero) => (
-		<NavLink to={`/hero/${hero.id}`} key={hero.id} className="hero__button">
-			<span className="hero__id">{hero.id}</span>
-			<span className="hero__name">{hero.name}</span>
-		</NavLink>
-	));
+	const listOfHeros = heroes.map((hero) => ({
+		/* <Router>
+			<NavLink to={`/hero/${hero.name}/${hero.id}`} key={hero.id} className="hero__button">
+				<span className="hero__id">{hero.id}</span>
+				<span className="hero__name">{hero.name}</span>
+			</NavLink>
+		</Router> */
+	}));
 	return (
 		<>
-			<h2>My Heroes</h2>
-			<div className="hero__list__container">{allHeroes}</div>
+			<h3>My Heroes</h3>
+			<div className="hero__list__container">{listOfHeros}</div>
 		</>
 	);
 }

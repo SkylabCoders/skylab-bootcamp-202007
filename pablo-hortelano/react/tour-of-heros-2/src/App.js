@@ -3,7 +3,7 @@ import Header from './components/Header';
 import HeroDetail from './components/HeroDetail';
 import HeroDashboard from './components/HeroDashboard';
 import { Router, Route, Link, Switch } from 'react-router-dom';
-import HeroList from './components/hero.mock';
+import HeroList from './hero.mock';
 
 function App() {
 	const route = 'dashboard';
@@ -20,7 +20,8 @@ function App() {
 	return (
 		<div>
 			<Header />
-			<Router>
+			<HeroDetail />
+			{/* <Router>
 				<div>
 					<nav>
 						<ul>
@@ -47,7 +48,7 @@ function App() {
 						</Route>
 					</Switch>
 				</div>
-			</Router>
+			</Router> */}
 		</div>
 	);
 }
