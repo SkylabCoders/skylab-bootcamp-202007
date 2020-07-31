@@ -14,9 +14,9 @@ function name(props) {
                     Heroes
                 </NavLink>
                 {'  '}
-                <NavLink activeClassName="my-active-class" to="/hero/:heroId">
+                {/*                 <NavLink activeClassName="my-active-class" to="/hero/:heroId">
                     Details
-                </NavLink>
+                </NavLink> */}
                 {'  '}
                 <NavLink activeClassName="my-active-class" to="/login">
                     Login
