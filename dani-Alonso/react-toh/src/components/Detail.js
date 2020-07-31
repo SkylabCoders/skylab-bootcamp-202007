@@ -1,5 +1,7 @@
 import React from 'react';
 import heroMock from '../Assets/heroMock';
+import { Prompt } from 'react-router-dom';
+
 class HeroDetail extends React.Component {
 	constructor(props) {
 		super(props);
@@ -15,7 +17,8 @@ class HeroDetail extends React.Component {
 		const heroSearch = this.getHeroById(pathHeroId);
 		this.setState({
 			heroName: heroSearch.name,
-			heroId: heroSearch.id
+			heroId: heroSearch.id,
+			formIsDirty: true
 		});
 	}
 
@@ -49,6 +52,10 @@ class HeroDetail extends React.Component {
 						onChange={this.onFieldChange}
 					/>
 				</label>
+				<Prompt
+					when={this.state.formIsDirty}
+					message="Are you sure to navitate away?"
+				/>
 			</form>
 		);
 	}
