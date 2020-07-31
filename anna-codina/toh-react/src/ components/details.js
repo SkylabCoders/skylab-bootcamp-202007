@@ -1,7 +1,7 @@
 import React from 'react';
 import '../ToH.css';
 import heroList from './list.mock';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Details extends React.Component {
 	constructor(props) {
@@ -58,9 +58,15 @@ class Details extends React.Component {
 					</label>
 				</form>
 
-				<NavLink class="hero-detail__back" to="/">
+				<Link
+					onClick={(event) => {
+						event.preventDefault();
+						this.props.history.goBack();
+					}}
+					class="hero-detail__back"
+				>
 					Back
-				</NavLink>
+				</Link>
 			</div>
 		);
 	}
