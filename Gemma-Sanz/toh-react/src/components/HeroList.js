@@ -1,6 +1,6 @@
 import React from 'react';
 import heroData from '../heroData';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../styles.css';
 
 
@@ -16,12 +16,12 @@ const renderedHeroes = () => (
     <div className="mainContainer__list">
         <>
             {heroData.map(hero => (
-                < NavLink activeClassName="my-active-class" to={`/hero/${hero.id}`}>
-                    <div className="button__list" key={hero.id}>
+                < Link key={hero.id} to={`/hero/${hero.id}`}>
+                    <div className="button__list" >
                         <span className="element__list__id">{hero.id}</span>
                         <span className="element__list__name">{hero.name}</span>
                     </div>
-                </NavLink>
+                </Link>
 
             ))}
         </>

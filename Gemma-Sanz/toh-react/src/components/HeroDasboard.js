@@ -14,8 +14,7 @@ function HeroDashboard() {
 }
 let four = heroData.slice(0, 4);
 const fourHeroes = () => (
-
-    <NavLink activeClassName="my-active-class" to="/hero/:heroId">
+    < NavLink activeClassName="my-active-class" to="/hero/:heroId" >
         <ul className="row">
             {
                 four.map(hero => (
@@ -23,6 +22,6 @@ const fourHeroes = () => (
                 ))
             }
         </ul>
-    </NavLink>
+    </NavLink >
 );
 export default HeroDashboard;
