@@ -2,7 +2,7 @@ import React from 'react';
 import '../bootstrap.min.css';
 import Dashboard from './Dashboard';
 import List from './List';
-import Details from './Details';
+import Details from './HeroDetail';
 import heroList from './hero.mock.js';
 
 function Heroes() {

@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+//import './bootstrap.min.css';
 import './App.css';
+import HeroDetail from './components/HeroDetail';
+import HeroList from './components/HeroList';
+import Header from './components/Header';
+import HeroDashboard from './components/HeroDashboard';
+import { Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props) {
+	return (
+		<>
+			<Header />
+			<Route path="/" exact component={HeroDashboard} />
+			<Route path="/list" component={HeroList} />
+			<Route path="/hero/:heroId" component={HeroDetail} />
+		</>
+	);
 }
 
 export default App;
