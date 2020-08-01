@@ -1,7 +1,7 @@
 import React from 'react';
 import MyButton from './MyButton';
 function Clicker({ handleClick, myButton }) {
-    const myLastName = ['G', 'I']
+    const myLastName = ['D', 'A', 'N', 'I']
 
     return (<>
 

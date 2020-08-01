@@ -1,27 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Sum from './Sum'
-import Clicker from './Clicker';
-import MyButton from './MyButton';
-import ConditionalDisplay from './ConditionalDisplay'
-
-
-const myAttributes = {
-  a: 4,
-  b: 2
-}
 
 ReactDOM.render(
   <React.StrictMode>
-
-    <Sum {...myAttributes} />
-    <Clicker handleClick={(letter) => console.log(letter)} />
-    <ConditionalDisplay isVisible={true}>
-      <h1>Hello</h1>
-      <h2>world!</h2>
-    </ConditionalDisplay>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
