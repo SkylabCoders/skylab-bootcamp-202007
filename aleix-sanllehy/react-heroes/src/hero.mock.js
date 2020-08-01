@@ -1,4 +1,4 @@
-const heroData = [
+const heroList = [
 	{ id: 11, name: 'Dr Nice' },
 	{ id: 12, name: 'Narco' },
 	{ id: 13, name: 'Bombasto' },
@@ -11,7 +11,7 @@ const heroData = [
 	{ id: 20, name: 'Tornado' }
 ];
 
-export default heroData;
+export default heroList;
 
 /* function HeroList() {
 	return [

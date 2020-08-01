@@ -1,5 +1,5 @@
 import React from 'react';
-import heroData from './hero.mock';
+import heroList from '../hero.mock';
 import { Link, Prompt } from 'react-router-dom';
 
 class HeroDetail extends React.Component {
@@ -26,7 +26,7 @@ class HeroDetail extends React.Component {
 	} */
 
 	getHeroById(id) {
-		return heroData.find((hero) => hero.id === id);
+		return heroList.find((hero) => hero.id === id);
 	}
 
 	componentDidMount() {

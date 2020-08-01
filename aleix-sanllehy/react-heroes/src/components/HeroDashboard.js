@@ -1,10 +1,10 @@
 import React from 'react';
-import heroData from './hero.mock';
+import heroList from '../hero.mock';
 import { NavLink } from 'react-router-dom';
 
 function HeroDashboard() {
 	const maxHeroes = 4;
-	const heroDashboard = heroData.slice(0, maxHeroes).map((hero) => (
+	const heroDashboard = heroList.slice(0, maxHeroes).map((hero) => (
 		<NavLink
 			key={hero.id}
 			className="hero-dashboard__elements-anchor name btn btn-secondary btn-lg"
