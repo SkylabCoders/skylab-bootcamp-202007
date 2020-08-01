@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { Router } from 'react-router-dom';
 
 function FooterComponent(props) {
     return (
-        <NavLink to=''>
-            Back
-        </NavLink>
+        <div>
+            <button type="button" onClick={() => this.props.history.goBack()}>Back</button>
+        </div>
     )
 }
 

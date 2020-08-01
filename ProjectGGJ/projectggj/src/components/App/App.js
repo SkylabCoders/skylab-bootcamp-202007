@@ -24,6 +24,7 @@ function App(props) {
         <Route path='/details' component={DetailsComponent} />
         <Route path='/planet' component={PlanetComponent} />
         <Route path='/saga' component={SagaComponent} />
+        <Route path="/" component={FooterComponent} />
       </Switch>
       <FooterComponent />
 
