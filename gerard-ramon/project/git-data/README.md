@@ -1,68 +1,131 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Git-Data
 
-## Available Scripts
+## **1. Login component**
 
-In the project directory, you can run:
+As a user
+I want to log in with Github / Google / Email
+So that I can access the app
 
-### `npm start`
+**Scenario #1**
+Given an empty form, and a `checkForm` function
+When user tries to log in
+Then it should throw an Error
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Scenario #2**
+Given a wrong user or password, and a `checkLogin` function
+When user tries to log in
+Then it should throw an Error
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+====
 
-### `npm test`
+## **2. UserDetail component**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As a user
+I want to see all my repos
+So that I can see their statistics
 
-### `npm run build`
+**Scenario #1**
+Given a `loadUserRepos` function
+When I log in
+Then it should load the repositories which I'm a contribuitor
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Scenario #2**
+Given a `loadUserRepos` function
+When user have no repositories
+Then it should print a message (No repositories)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+**Scenario #3**
+Given a `loadUserRepos` function
+When user isn't logged in with a GitHub account
+Then it should print a message (No repositories)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+As a user
+I want to see create a GitHub repo
+So that I can create a GitHub repo from this page.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Scenario #1**
+Given a GitHub user
+When user log in
+Then It should load a create repo button
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Scenario #2**
+Given a NO GitHub user
+When user log in
+Then It should **NOT** load a create repo button
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Scenario #3**
+Given a GitHub user and a `createGitHubRepo` function
+When user clicks create repo Button
+Then It should create a GitHub repository in his account
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+====
 
-## Learn More
+## **3. RepoDetail component**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+As a user
+I want to see the statistics of a repo
+So that I can compare myself with the other collaborators
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Scenario #1**
+Given a `loadRepo` function
+When user is a contribuitor
+Then it should show statistics from the user, all contribuitors and ranking
 
-### Code Splitting
+**Scenario #2**
+Given a `loadRepo` function
+When user is **NOT** a contribuitor
+Then it should show statistics from all contribuitors and ranking
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+====
 
-### Analyzing the Bundle Size
+## **4. Header component**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+As a user
+I want to have a navbar
+So that I can navigate & search specific projects or users.
 
-### Making a Progressive Web App
+**Scenario #1**
+Given a `searchURL` function, and a GitHub user profile URL
+When the search URL is a valid
+Then it should Load UserDetail component with that user info.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+**Scenario #2**
+Given a `searchURL` function, and a GitHub user profile URL
+When the search URL is **NOT** vàlid
+Then it should show a not valid URL message
 
-### Advanced Configuration
+**Scenario #3**
+Given a `searchURL` function, and a GitHub repo URL
+When the search URL is vàlid
+Then it should Load RepoDetail component with that repo info.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+**Scenario #4**
+Given a `searchURL` function, and a GitHub repo URL
+When the search URL is **NOT** vàlid
+Then it should show a not valid URL message
 
-### Deployment
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+As a user
+I want to have a theme swtich
+So that I can switch between _Light_ & _Dark_ mode
 
-### `npm run build` fails to minify
+**Scenario #1**
+Given a `switchTheme` function
+When user clicks in the switch
+Then it should switch between theme modes.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+====
+
+## **5. Error404 component**
+
+As a user
+I want to have an Error page
+So that I can navigate back to home page.
+
+**Scenario #1**
+Given a wrong site path
+When user navigates to it
+Then it should load Error404 component
