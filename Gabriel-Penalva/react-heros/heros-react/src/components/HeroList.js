@@ -3,7 +3,7 @@ import './HeroList.css'
 import heroStore from '../stores/heroStore';
 import { loadHeros } from '../actions/heroActions';
 
-function HeroList({ heroList }) {
+function HeroList() {
     const [heros, setHeros] = useState([]);
 
     useEffect(() => {

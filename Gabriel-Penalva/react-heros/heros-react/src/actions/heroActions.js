@@ -1,5 +1,4 @@
 import heroList from "../hero.mock"
-
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 
@@ -14,7 +13,7 @@ export function loadHeros() {
     })
 }
 
-export function createHero() {
+export function createHero(hero) {
     return new Promise(resolve => {
         const hero = {
             name: 'gabriel',

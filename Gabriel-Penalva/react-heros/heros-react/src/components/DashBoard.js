@@ -1,5 +1,6 @@
 import React from 'react';
 import './DashBoard.css';
+
 function DashBoard({ heroList }) {
   let heroBoard = heroList.slice(0, 4);
   return (
