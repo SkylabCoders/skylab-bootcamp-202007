@@ -30,7 +30,7 @@ dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
-			heroStore.emitChange(_heroes);
+			heroStore.emitChange();
 			break;
 		case actionTypes.CREATE_HEROES:
 			_heroes = [..._heroes, action.data];
