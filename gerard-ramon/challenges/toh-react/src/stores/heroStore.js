@@ -1,4 +1,4 @@
-import { EventEmitter } from 'event';
+import { EventEmitter } from 'events';
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
 
@@ -17,6 +17,18 @@ class HeroStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
+
+	getHeroes() {
+		return _heroes;
+	}
+
+	getHeroById(id) {
+		return _heroes.find((hero) => hero.id === id);
+	}
+
+	getNumberOfHeroes(heroNumber) {
+		return _heroes.slice(0, heroNumber);
+	}
 }
 
 const heroStore = new HeroStore();
@@ -24,9 +36,9 @@ const heroStore = new HeroStore();
 //Dispatcher, me interesa saber d estas acciones. Per poder captar les actions
 dispatcher.register((action) => {
 	switch (action.type) {
-		case actionTypes.UPDATE_HERO:
+		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
-			heroStore.emitChange(_heroes);
+			heroStore.emitChange();
 			break;
 		case actionTypes.CREATE_HERO:
 			_heroes = [..._heroes, action.data];

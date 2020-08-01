@@ -37,17 +37,8 @@ function Container() {
 	return (
 		<div>
 			<Switch>
-				<Route
-					path="/"
-					exact
-					component={() => (
-						<Dashboard reducedHeroList={renderedHeroesDashboard} />
-					)}
-				/>
-				<Route
-					path="/heroes"
-					component={() => <HeroList renderedHeroesList={renderedHeroesList} />}
-				/>
+				<Route path="/" exact component={Dashboard} />
+				<Route path="/heroes" component={HeroList} />
 				<Route path="/hero/:heroId" component={Details} />
 			</Switch>
 		</div>

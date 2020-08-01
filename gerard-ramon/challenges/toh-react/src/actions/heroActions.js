@@ -1,4 +1,4 @@
-import heroList from '../components/HeroList';
+import heroMock from '../Assets/heroMock';
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 
@@ -6,7 +6,7 @@ import actionTypes from './actionTypes';
 
 export function loadHeroes() {
 	return new Promise((resolve) => {
-		resolve(heroList);
+		resolve(heroMock);
 	}).then((heroes) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_HEROES,
