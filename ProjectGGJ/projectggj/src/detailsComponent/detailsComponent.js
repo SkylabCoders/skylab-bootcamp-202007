@@ -1,7 +1,7 @@
 import React from 'react';
 
-function detailsComponent() {
+function DetailsComponent() {
     return <p>Details works!</p>
 }
 
-export default detailsComponent;
+export default DetailsComponent;
