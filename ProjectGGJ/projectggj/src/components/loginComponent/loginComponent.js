@@ -1,7 +1,7 @@
 import React from 'react';
 
-function loginComponent(props) {
+function LoginComponent(props) {
     return <p>loginComponent works!</p>
 }
 
-export default loginComponent;
+export default LoginComponent;

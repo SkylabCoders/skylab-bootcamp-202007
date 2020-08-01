@@ -1,7 +1,7 @@
 import React from 'react';
 
-function sagaComponent(props) {
+function SagaComponent(props) {
     return <p>sagaComponent works!</p>
 }
 
-export default sagaComponent;
+export default SagaComponent;

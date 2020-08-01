@@ -1,7 +1,7 @@
 import React from 'react';
 
-function footerComponent(props) {
+function FooterComponent(props) {
     return <p>footerComponent works!</p>
 }
 
-export default footerComponent;
+export default FooterComponent;

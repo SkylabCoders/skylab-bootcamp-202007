@@ -1,7 +1,7 @@
 import React from 'react';
 
-function registerComponent(props) {
+function RegisterComponent(props) {
     return <p>registerComponent works!</p>
 }
 
-export default registerComponent;
+export default RegisterComponent;
