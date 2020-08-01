@@ -1,5 +1,6 @@
 import React from 'react';
-import heroList from '../hero.mock';
+import './HeroDetail.css';
+import heroListArray from '../hero.mock'
 import { Prompt } from 'react-router-dom';
 
 class HeroDetail extends React.Component {
@@ -9,7 +10,7 @@ class HeroDetail extends React.Component {
 		this.state = {
 			heroName: '',
 			heroId: null,
-			formIsDirty: true
+			formIsDirty: false
 		};
 
 		this.onFieldChange = this.onFieldChange.bind(this);
@@ -22,7 +23,7 @@ class HeroDetail extends React.Component {
 	}
 
 	getHeroById(id) {
-		return heroList.find((hero) => hero.id === id);
+		return heroListArray.find((hero) => hero.id === id);
 	}
 
 	componentDidMount() {

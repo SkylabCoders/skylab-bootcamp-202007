@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+    margin: 2vw;
+}
+
+form{
+    display: flex;
+    align-items: center;
+}
+
+h1,h2{
+    display: flex;
+    align-self: center;
+}
