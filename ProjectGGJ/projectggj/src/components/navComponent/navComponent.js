@@ -2,7 +2,7 @@ import React from 'react';
 import './navComponent.css';
 import { NavLink } from 'react-router-dom';
 
-function navComponent(props) {
+function NavComponent(props) {
     return (
         <>
             <h2>Goku World</h2>
@@ -19,5 +19,5 @@ function navComponent(props) {
     );
 }
 
-export default navComponent;
+export default NavComponent;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-function planetComponent(prop) {
+function PlanetComponent(prop) {
     return <p>planetComponent works!</p>
 }
 
-export default planetComponent;
+export default PlanetComponent;

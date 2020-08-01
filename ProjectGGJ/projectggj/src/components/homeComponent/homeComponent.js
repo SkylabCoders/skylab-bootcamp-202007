@@ -1,7 +1,7 @@
 import React from 'react';
 
-function homeComponent(props) {
+function HomeComponent(props) {
     return <p>homeComponent works!</p>
 }
 
-export default homeComponent;
+export default HomeComponent;

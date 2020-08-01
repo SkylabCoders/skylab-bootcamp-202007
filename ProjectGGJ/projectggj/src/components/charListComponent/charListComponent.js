@@ -1,7 +1,7 @@
 import React from 'react';
 
-function charListComponent(props) {
+function CharListComponent(props) {
     return <p>charListComponent works!</p>
 }
 
-export default charListComponent;
+export default CharListComponent;
