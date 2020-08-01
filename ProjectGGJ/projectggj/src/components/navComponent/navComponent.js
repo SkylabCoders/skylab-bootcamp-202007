@@ -7,7 +7,7 @@ function NavComponent(props) {
         <>
             <h2>Goku World</h2>
             <nav>
-                <NavLink to='/home' activeClassName='nav--active'>
+                <NavLink to='/' activeClassName='nav--active'>
                     Home</NavLink>{' '}
                 <NavLink to='/planet' activeClassName='nav--active'>
                     Planets</NavLink>{' '}
