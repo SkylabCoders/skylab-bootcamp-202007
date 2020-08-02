@@ -41,7 +41,10 @@ dispatcher.register((action) => {
 			nextId = generateNextId(_heroes);
 			break;
 		case actionTypes.UPDATE_HERO:
-			_heroes = [..._heroes, action.data];
+			_heroes = _heroes.map((hero) => {
+				if (hero.id === action.data.id) hero.name = action.data.name;
+				return hero;
+			});
 			heroStore.emitChange();
 			break;
 		case actionTypes.CREATE_HERO:
