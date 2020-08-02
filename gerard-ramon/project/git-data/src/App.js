@@ -1,11 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import HeaderNavbar from './components/Navbar/HeaderNabvar';
+import Landing from './components/Landing/Landing';
+import RepoDetail from './components/RepoDetail/RepoDetai';
+import UserDetail from './components/UserDetail/UserDetail';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
-  return (
-    
-  );
+	return (
+		<>
+			<HeaderNavbar />
+			<Switch>
+				<Route path="/" exact component={Landing} />
+				<Route path="/userDetail" component={UserDetail} />
+				<Route path="/repoDetail" component={RepoDetail} />
+			</Switch>
+		</>
+	);
 }
 
 export default App;
