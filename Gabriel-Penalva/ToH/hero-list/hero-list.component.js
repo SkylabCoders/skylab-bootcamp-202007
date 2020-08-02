@@ -4,36 +4,58 @@ function addNewHero(nName) {
     heroList.push({ id: heroList.length + 11, name: nName });
 }
 
-function listHeros(theroList = heroList) {
-    let item = document.createElement('div');
-    item.id = 'list-holder';
-    let list = document.getElementById('list');
-    let newItem;
-    let btn;
-    let par;
-    for (let itList of theroList) {
-        newItem = document.createElement('div');
-        par = document.createElement('a');
-        btn = document.createElement('button');
+function listHeros() {
 
-        par.href = getHeroLink(itList.id);
-        par.innerText = `id: ${itList.id} name: ${itList.name}`;
+    service.getHeroList().then((theroList) => {
+        let item = document.createElement('div');
+        item.id = 'list-holder';
+        let list = document.getElementById('list');
+        let newItem;
+        let btn;
+        let par;
 
-        btn.innerText = "del";
-        btn.setAttribute("onclick", `deleteChild(${itList.id})`)
+        for (let itList of theroList) {
+            newItem = document.createElement('div');
+            par = document.createElement('a');
+            btn = document.createElement('button');
 
-        newItem.id = itList.id;
-        newItem.className = 'flex-row';
+            par.href = getHeroLink(itList.id);
+            par.innerText = `id: ${itList.id} name: ${itList.name}`;
 
-        newItem.appendChild(par);
-        newItem.appendChild(btn);
-        list.appendChild(newItem);
-    }
+            btn.innerText = "del";
+            btn.setAttribute("onclick", `deleteChild(${itList.id})`)
+
+            newItem.id = itList.id;
+            newItem.className = 'flex-row';
+
+            newItem.appendChild(par);
+            newItem.appendChild(btn);
+            list.appendChild(newItem);
+        }
+        toggleElement();
+
+    }).catch(handleError);
+
+}
+function toggleElement() {
+    let changer = document.getElementById('hero-list__loading');
+    changer.style.display === 'block' ?
+        changer.style.display = 'none'
+        :
+        changer.style.display = 'block';
+
 }
 
 function deleteList() {
+
+    toggleElement();
+
     let list = document.getElementById('list');
     list.textContent = "";
+}
+function handleError(message) {
+
+    console.log('prueba', message);
 }
 
 let newName = document.getElementById('hero-list__name-add');
@@ -63,7 +85,7 @@ function deleteChild(id) {
 }
 
 function getHeroLink(id) {
-    return `../hero-detail/hero-detail.component.html?heroId=${id}&prop=value`;
+    return `../hero-detail/hero-detail.component.html?heroId=${id}`;
 }
 
 listHeros();
