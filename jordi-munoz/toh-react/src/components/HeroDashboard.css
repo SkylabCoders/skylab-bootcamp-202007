@@ -6,8 +6,10 @@ body {
 .containerDash {
     margin-top: 40px;
     display: flex;
+    flex-direction: row;
   }
-  .containerDash p {
+  .containerDash-each {
+    display: inline-block;
     color: rgb(103, 103, 139);
     background-color: rgb(204, 204, 204);
     margin: 4px;
