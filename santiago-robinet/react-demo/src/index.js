@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Hello from './Date'
+import ConDitionalDisplay from './conditional-Display/ConditionalDisplay';
 
-setInterval(()=> ReactDOM.render(
+
+
+ReactDOM.render(
   <React.StrictMode>
-    <Hello now={new Date().toISOString()}></Hello>
+    <ConDitionalDisplay isVisible={true}>
+      <h1>Hello</h1>
+      <p>world!</p>
+    </ConDitionalDisplay>
   </React.StrictMode>,
   document.getElementById('root')
-), 1000)
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
