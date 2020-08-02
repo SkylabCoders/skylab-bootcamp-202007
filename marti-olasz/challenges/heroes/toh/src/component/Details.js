@@ -1,6 +1,7 @@
 import React from 'react';
 import heroList from '../hero.mock';
 import { Prompt } from 'react-router';
+import heroStore from '../stores/heroStore';
 
 class Details extends React.Component {
 	constructor(props) {
@@ -16,7 +17,7 @@ class Details extends React.Component {
 	}
 	getHerofromURL() {
 		let id = +this.props.match.params.id;
-		return heroList.find((i) => id === i.id);
+		return heroStore.getHeroById(id);
 	}
 
 	render() {
