@@ -38,6 +38,10 @@ dispatcher.register((action) => {
 			_heroes = [..._heroes, action.data];
 			heroStore.emitChange();
 			break;
+		case actionTypes.DELETE_HERO:
+			_heroes = [..._heroes];
+			heroStore.emitChange();
+			break;
 		default:
 			break;
 	}

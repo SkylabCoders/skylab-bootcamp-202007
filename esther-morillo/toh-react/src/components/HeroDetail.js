@@ -1,5 +1,6 @@
 import React from 'react';
 import heroList from '../hero.mock';
+import heroStore from '../stores/heroStore';
 import { Prompt } from 'react-router-dom';
 
 class HeroDetail extends React.Component {
@@ -16,6 +17,9 @@ class HeroDetail extends React.Component {
 	}
 
 	onFieldChange(myEvent) {
+		if(heroList.find((hero) => hero.name !== name)) {
+			heroList = [...heroList, hero];
+		}
 		this.setState({
 			[myEvent.target.name]: myEvent.target.value
 		});

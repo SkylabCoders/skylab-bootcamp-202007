@@ -27,3 +27,14 @@ export function createHero(hero) {
 		});
 	});
 }
+
+export function deleteHero(hero) {
+	return new Promise((resolve) => {
+		resolve(hero);
+	}).then((hero) => {
+		dispatcher.dispatch({
+			type: actionTypes.DELETE_HERO,
+			data: hero
+		});
+	});
+}
