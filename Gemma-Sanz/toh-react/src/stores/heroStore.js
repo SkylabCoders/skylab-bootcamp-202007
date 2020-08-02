@@ -35,9 +35,11 @@ dispatcher.register((action) => {
         case actionTypes.LOAD_HERO:
             _heroes = action.data;
             heroStore.emitChange(_heroes);
+            nextId = generateNextId(_heroes);
             break;
         case actionTypes.CREATE_HERO:
-            _heroes = [..._heroes, action.data]
+            _heroes = [..._heroes, { ...action.data, id: nextId }];
+            ++nextId;
             heroStore.emitChange();
             break;
         case actionTypes.UPDATE_HERO:
