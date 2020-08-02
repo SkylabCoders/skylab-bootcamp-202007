@@ -29,6 +29,10 @@ class HeroStore extends EventEmitter {
 	getNumberOfHeroes(heroNumber) {
 		return _heroes.slice(0, heroNumber);
 	}
+
+	deleteHeroById(id) {
+		return _heroes.filter((hero) => hero.id !== id);
+	}
 }
 
 const heroStore = new HeroStore();
@@ -44,6 +48,12 @@ dispatcher.register((action) => {
 			_heroes = [..._heroes, action.data];
 			heroStore.emitChange(); // No fa falta emetre res xk nmes fa update de la llista.
 			break;
+		case actionTypes.DELETE_HERO:
+			console.log(_heroes);
+			_heroes = heroStore.deleteHeroById(action.data);
+			console.log(_heroes);
+
+			heroStore.emitChange();
 		default:
 			break;
 	}

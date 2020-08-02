@@ -41,6 +41,11 @@ body {
 	flex-direction: column;
 }
 
+.heroContainer {
+	display: flex;
+	align-items: center;
+}
+
 .heroListLink {
 	color: rgb(103, 103, 139);
 	background-color: #eeeeee;
@@ -60,4 +65,8 @@ body {
 	padding: 10px;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
+}
+
+.listButton {
+	margin: 5px;
 }

@@ -31,16 +31,15 @@ export function createHero() {
 	});
 }
 
-export function deleteHero() {
+export function removeHero(heroId) {
 	return new Promise((resolve) => {
-		const hero = {
-			id: 12
-		};
-		resolve(hero);
-	}).then((hero) => {
+		resolve(heroId);
+	}).then((heroId) => {
 		dispatcher.dispatch({
 			type: actionTypes.DELETE_HERO,
-			data: hero
+			data: heroId
 		});
 	});
 }
+
+export function updateHero() {}
