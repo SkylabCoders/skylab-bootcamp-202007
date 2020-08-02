@@ -3,48 +3,39 @@ import dispatcher from "../appDispatcher";
 import actionTypes from "./actionTypes";
 
 export function loadHeroes() {
-    return new Promise(resolve => {    //simula llamada a API
-        resolve(heroList)
-    }).then(heroes => {
+    return new Promise((resolve) => {    //simula llamada a API
+        resolve(heroList);
+    }).then((heroes) => {
         dispatcher.dispatch({          //dispatcher, ahi tienes una accion
             type: actionTypes.LOAD_HERO,
             data: heroes,
         });
-    })
+    });
 }
 
-export function createHero(hero) {
+export function saveHero(hero) {
     return new Promise((resolve) => {
-        const hero = {
-            name: 'Gilbe',
-            id: 99
-        };
-
-        resolve({ hero })
-    }).then(hero => {
+        resolve(hero);
+    }).then((savedHero) => {
         dispatcher.dispatch({
-            type: actionTypes.CREATE_HERO,
-            data: hero
+            type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
+            data: savedHero,
         });
     });
 }
 
-export function updateHero(hero) {
+export function deleteHero(id) {
     return new Promise((resolve) => {
-        const hero = {
-            name: this.state.heroName,
-            id: this.state.heroId
-        };
-
-        resolve({ hero })
-    }).then(hero => {
+        resolve();
+    }).then((hero) => {
         dispatcher.dispatch({
-            type: actionTypes.CREATE_HERO,
-            data: hero
+            type: actionTypes.DELETE_HERO,
+            data: { id },
         });
     });
 }
-// export function updateHero(hero) {
 
-// }
+
+
+
 
