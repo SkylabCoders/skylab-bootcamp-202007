@@ -1,7 +1,7 @@
 import React from 'react';
 import heroList from '../hero.mock';
 import heroStore from '../stores/heroStore';
-import { Prompt } from 'react-router-dom';
+import { Prompt, Link } from 'react-router-dom';
 
 class HeroDetail extends React.Component {
 	constructor(props) {
@@ -17,13 +17,12 @@ class HeroDetail extends React.Component {
 	}
 
 	onFieldChange(myEvent) {
-		if(heroList.find((hero) => hero.name !== name)) {
-			heroList = [...heroList, hero];
-		}
 		this.setState({
-			[myEvent.target.name]: myEvent.target.value
+			[myEvent.target.name]: myEvent.target.value,
 		});
 	}
+
+	
 
 	getHeroById(id) {
 		return heroList.find((hero) => hero.id === id);
@@ -39,6 +38,7 @@ class HeroDetail extends React.Component {
 
 	render() {
 		return (
+			<>
 			<form>
 				<p>id: {this.state.heroId}</p>
 				<label htmlFor="heroName">
@@ -55,6 +55,14 @@ class HeroDetail extends React.Component {
 					message="Are you sure you want to navigate away?"
 				/>
 			</form>
+
+			<Link 
+			to={`/hero/`}
+			onClick={this.getHeroNewName}
+			>
+					Back
+			</Link>
+			</>
 		);
 	}
 }
