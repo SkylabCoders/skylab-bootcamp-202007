@@ -3,14 +3,14 @@ import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
-let _hero = [];
+let _heroes = [];
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
 	}
 
 	removeChangeListener(callback) {
-		this.removeChangeListener(CHANGE_LISTENER, callback);
+		this.removeChangeListener(CHANGE_EVENT, callback);
 	}
 
 	emitChange() {
@@ -22,7 +22,7 @@ class HeroStore extends EventEmitter {
 	}
 
 	getHeroById(id) {
-		return _hero.find((hero) => hero.id === id);
+		return _heroes.find((hero) => hero.id === id);
 	}
 }
 
@@ -31,7 +31,7 @@ const heroStore = new HeroStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_HEROES:
-			_hero = action.data;
+			_heroes = action.data;
 			heroStore.emitChange(_heroes);
 			break;
 		case actionTypes.CREATE_HEROS:
@@ -43,4 +43,5 @@ dispatcher.register((action) => {
 	}
 });
 
+let store = new HeroStore();
 export default store;
