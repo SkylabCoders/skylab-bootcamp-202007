@@ -8,15 +8,26 @@ body {
     display: flex;
     flex-direction: column;
   }
-  .containerList p {
+  .containerList-each {
+    display: flex;
+    
     color: rgb(103, 103, 139);
     background-color: rgb(204, 204, 204);
     margin: 4px;
-    padding: 10px 50px;
+    padding: 5px 20px;
     border-radius: 5px;
     border: none;
     font-size: 14px;
     font-weight: bold;
-    width: 80px;
+    width: 200px;
     text-align: center;
+  }
+  .idClass {
+    color: rgb(103, 103, 139);
+    background-color: rgb(204, 204, 204);
+    width: 50px;
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding: 5px;
+    margin-right: 5px;
   }

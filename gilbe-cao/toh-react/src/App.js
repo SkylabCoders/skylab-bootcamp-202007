@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import HeroList from './components/HeroList';
 import HeroDetail from './components/HeroDetail';
 import Header from './components/Header';
 import HeroDashboard from './components/HeroDashboard';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
+import HeroesPage from './components/HeroesPage';
 
 function App(props) {
 	return (
@@ -14,8 +14,8 @@ function App(props) {
 			<Switch>
 				<Route path="/" exact component={HeroDashboard} />
 				<Route path="/hero/:heroId" component={HeroDetail} />
-				<Route path="/hero" component={HeroList} />
-				<Redirect from="/heroes" to="/hero" />
+				<Route path="/hero" component={HeroDetail} />
+				<Route path="/heroes" component={HeroesPage} />
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>
