@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../Assets/HeroList.css';
 import heroStore from '../stores/heroStore';
 import { NavLink } from 'react-router-dom';
-import { loadHeroes } from '../actions/heroActions';
+import { loadHeroes, createHero } from '../actions/heroActions';
 
 function HeroList(props) {
 	const [heroes, setHeroes] = useState([]);
@@ -19,14 +19,25 @@ function HeroList(props) {
 		setHeroes(heroStore.getHeroes());
 	}
 
+	function handleClick() {
+		createHero();
+	}
+
 	return (
-		<ul className="containerList">
-			{heroes.map((hero) => (
-				<NavLink to={`/hero/${hero.id}`} key={hero.id} className="heroListLink">
-					<span className="heroId">{hero.id}</span> {hero.name}
-				</NavLink>
-			))}
-		</ul>
+		<>
+			<ul className="containerList">
+				{heroes.map((hero) => (
+					<NavLink
+						to={`/hero/${hero.id}`}
+						key={hero.id}
+						className="heroListLink"
+					>
+						<span className="heroId">{hero.id}</span> {hero.name}
+					</NavLink>
+				))}
+			</ul>
+			<button onClick={handleClick}>Add Hero</button>
+		</>
 	);
 }
 

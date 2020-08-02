@@ -30,3 +30,17 @@ export function createHero() {
 		});
 	});
 }
+
+export function deleteHero() {
+	return new Promise((resolve) => {
+		const hero = {
+			id: 12
+		};
+		resolve(hero);
+	}).then((hero) => {
+		dispatcher.dispatch({
+			type: actionTypes.DELETE_HERO,
+			data: hero
+		});
+	});
+}
