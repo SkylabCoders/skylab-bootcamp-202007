@@ -43,7 +43,13 @@ function HeroDetail(props) {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<p>id: {heroId}</p>
+			{!heroId && <h2>Register a new hero:</h2>}
+			{heroId && (
+				<>
+					<h2>{heroName} details!</h2>
+					<p>Id: {heroId}</p>
+				</>
+			)}
 			<TextInput
 				name="heroName"
 				value={heroName}

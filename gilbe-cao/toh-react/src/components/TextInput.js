@@ -3,7 +3,7 @@ import React from 'react';
 function TextInput(props) {
 	return (
 		<label htmlFor={props.name}>
-			name:
+			{'Name: '}
 			<input
 				name={props.name}
 				type="text"
