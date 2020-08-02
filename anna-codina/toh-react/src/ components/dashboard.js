@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import heroStore from '../stores/heroStore';
+import { loadHeroes } from '../actions/heroActions';
 
-function Dashboard({ heroList }) {
-	let actualHeroList = [...heroList];
-	actualHeroList = actualHeroList.slice(0, 4);
-	actualHeroList = actualHeroList.map((hero) => {
+function Dashboard(props) {
+	debugger;
+	const [heroes, setHeroes] = useState([]);
+	let actualHeroList = [];
+
+	useEffect(() => {
+		heroStore.addChangeListener(onChange);
+		if (heroes.length === 0) {
+			loadHeroes();
+		}
+		return () => heroStore.removeChangeListener(onChange);
+	}, [heroes.length]);
+	function onChange() {
+		actualHeroList = setHeroes(heroStore.getHeroes());
+	}
+	actualHeroList = heroes.map((hero) => {
 		const link = '/hero/' + hero.id;
 		return (
 			<NavLink key={hero.id} to={link}>
@@ -14,6 +28,7 @@ function Dashboard({ heroList }) {
 			</NavLink>
 		);
 	});
+	actualHeroList = actualHeroList.slice(0, 4);
 	return (
 		<div>
 			<h2>Top four</h2>

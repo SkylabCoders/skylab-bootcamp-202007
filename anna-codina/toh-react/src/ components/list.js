@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import heroStore from '../stores/heroStore';
-import { loadHeores } from '../actions/heroActions';
+import { loadHeroes } from '../actions/heroActions';
 
 function List(props) {
 	const [heroes, setHeroes] = useState([]);
@@ -19,7 +19,7 @@ function List(props) {
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);
 		if (heroes.length === 0) {
-			loadHeores();
+			loadHeroes();
 		}
 		return () => heroStore.removeChangeListener(onChange);
 	}, [heroes.length]);
