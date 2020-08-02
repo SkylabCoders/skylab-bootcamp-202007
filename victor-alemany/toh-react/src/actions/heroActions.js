@@ -14,16 +14,12 @@ export function loadHeroes(){
     })
 }
 
-export function updateHero(name, id){
+export function updateHero(name){
     return new Promise(resolve =>{
-        const hero = {
-            name: name,
-            id: id
-        }
-        resolve(hero)
-    }).then((hero)=>{
+        resolve(heroListItem);
+    }).then(hero => {
         dispatcher.dispatch({
-            type: actionTypes.UPDATE_HEROES,
+            type: actionTypes.UPDATE_HERO,
             data: hero
         })
     })

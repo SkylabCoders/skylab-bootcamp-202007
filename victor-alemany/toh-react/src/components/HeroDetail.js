@@ -27,12 +27,7 @@ function HeroDetail(props){
         setHeroes(heroStore.getHeroById(id));
     }
 
-    onChange={this.onFieldChange}
-
-
-
 		return (
-
 			<form>
                 <div>
                     <h2>{heroes.name} details</h2>
@@ -43,7 +38,8 @@ function HeroDetail(props){
 					<input
 						name="heroName"
 						placeholder="Hero name"
-						value={heroes.name}/>
+						value={heroes.name}
+                        onChange={this.onFieldChange}/>
 				</label>
 			</form>
             
