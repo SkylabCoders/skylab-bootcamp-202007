@@ -9,7 +9,7 @@ class HeroDetail extends React.Component {
 		this.state = {
 			heroName: '',
 			heroId: null,
-			formIsDirty: true
+			isFormDirty: false
 		};
 
 		this.onFieldChange = this.onFieldChange.bind(this);
@@ -17,7 +17,8 @@ class HeroDetail extends React.Component {
 
 	onFieldChange(myEvent) {
 		this.setState({
-			[myEvent.target.name]: myEvent.target.value
+			[myEvent.target.name]: myEvent.target.value,
+			isFormDirty: true
 		});
 	}
 
@@ -47,7 +48,7 @@ class HeroDetail extends React.Component {
 					/>
 				</label>
 				<Prompt
-					when={this.state.formIsDirty}
+					when={this.state.isFormDirty}
 					message="Are you sure you want to navigate away?"
 				/>
 			</form>

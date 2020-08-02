@@ -11,16 +11,12 @@ function Header(props) {
 					Dashboard
 				</NavLink>
 				{' | '}
-				<NavLink to="/hero" exact activeClassName="nav__link--active">
+				<NavLink to="/heroes" exact activeClassName="nav__link--active">
 					Heroes
 				</NavLink>
 				{' | '}
 				<NavLink to="/login" activeClassName="nav__link--active">
 					Login
-				</NavLink>
-				{' | '}
-				<NavLink to="/heroes" activeClassName="nav__link--active">
-					Redirect
 				</NavLink>
 			</nav>
 		</>

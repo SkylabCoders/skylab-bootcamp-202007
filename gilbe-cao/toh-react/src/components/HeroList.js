@@ -17,17 +17,15 @@ function HeroList() {
 	}
 
 	return (
-		<>
-			<ul>
-				{heroes.map((hero) => (
-					<li key={hero.id}>
-						<Link to={`/hero/${hero.id}`}>
-							{hero.id}: {hero.name}
-						</Link>
-					</li>
-				))}
-			</ul>
-		</>
+		<ul>
+			{heroes.map((hero) => (
+				<li key={hero.id}>
+					<Link to={`/hero/${hero.id}`}>
+						{hero.id}: {hero.name}
+					</Link>
+				</li>
+			))}
+		</ul>
 	);
 }
 
