@@ -1,59 +1,62 @@
-import React from 'react';
-import heroList from '../hero.mock';
+import React, { useEffect, useState } from 'react';
 import { Prompt } from 'react-router-dom';
+import heroStore from '../stores/heroStore';
+import { loadHeroes, saveHero } from '../actions/heroActions';
+import TextInput from './TextInput';
 
-class HeroDetail extends React.Component {
-	constructor(props) {
-		super(props);
+function HeroDetail(props) {
+	const [heroes, setHeroes] = useState(heroStore.getHeroes());
+	const [heroId, setHeroId] = useState(null);
+	const [heroName, setHeroName] = useState('');
+	const [isFormDirty, setIsFormDirty] = useState(false);
 
-		this.state = {
-			heroName: '',
-			heroId: null,
-			isFormDirty: false
-		};
+	useEffect(() => {
+		heroStore.addChangeListener(onChange);
+		const heroId = +props.match.params.heroId;
+		if (heroes.length === 0) {
+			loadHeroes();
+		} else if (heroId) {
+			const hero = heroStore.getHeroById(heroId);
+			setHeroName(hero.name);
+			setHeroId(hero.id);
+		}
+		return () => heroStore.removeChangeListener(onChange);
+	}, [heroes.length, props.match.params.heroId]);
 
-		this.onFieldChange = this.onFieldChange.bind(this);
+	function onChange() {
+		setHeroes(heroStore.getHeroes());
 	}
 
-	onFieldChange(myEvent) {
-		this.setState({
-			[myEvent.target.name]: myEvent.target.value,
-			isFormDirty: true
-		});
+	function onFieldChange(value, setValue) {
+		setValue(value);
+		setIsFormDirty(true);
 	}
 
-	getHeroById(id) {
-		return heroList.find((hero) => hero.id === id);
-	}
-
-	componentDidMount() {
-		const hero = this.getHeroById(+this.props.match.params.heroId);
-		this.setState({
-			heroName: hero.name,
-			heroId: hero.id
-		});
-	}
-
-	render() {
-		return (
-			<form>
-				<p>id: {this.state.heroId}</p>
-				<label htmlFor="heroName">
-					name:
-					<input
-						name="heroName"
-						placeholder="Hero name"
-						value={this.state.heroName}
-						onChange={this.onFieldChange}
-					/>
-				</label>
-				<Prompt
-					when={this.state.isFormDirty}
-					message="Are you sure you want to navigate away?"
-				/>
-			</form>
+	function handleSubmit(event) {
+		event.preventDefault();
+		saveHero({ name: heroName, id: heroId }).then(() =>
+			props.history.push('/heroes')
 		);
 	}
+
+	return (
+		<form onSubmit={handleSubmit}>
+			<p>id: {heroId}</p>
+			<TextInput
+				name="heroName"
+				value={heroName}
+				placeholder="Hero name"
+				onChange={(event) => onFieldChange(event.target.value, setHeroName)}
+			/>
+			<Prompt
+				when={isFormDirty}
+				message="Are you sure you want to navigate away?"
+			/>
+			<p>
+				<button type="submit">Save Hero</button>
+			</p>
+		</form>
+	);
 }
 
 export default HeroDetail;

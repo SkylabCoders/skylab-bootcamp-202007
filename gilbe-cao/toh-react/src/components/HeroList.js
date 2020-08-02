@@ -4,7 +4,7 @@ import heroStore from '../stores/heroStore';
 import { loadHeroes } from '../actions/heroActions';
 
 function HeroList() {
-	const [heroes, setHeroes] = useState([]);
+	const [heroes, setHeroes] = useState(heroStore.getHeroes());
 
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);

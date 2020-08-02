@@ -25,6 +25,12 @@ class HeroStore extends EventEmitter {
 	getHeroById(id) {
 		return _heroes.find((hero) => hero.id === id);
 	}
+
+	generateId() {
+		return (
+			_heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1
+		);
+	}
 }
 
 const heroStore = new HeroStore();
@@ -36,6 +42,13 @@ dispatcher.register((action) => {
 			break;
 		case actionTypes.UPDATE_HERO:
 			_heroes = [..._heroes, action.data];
+			heroStore.emitChange();
+			break;
+		case actionTypes.CREATE_HERO:
+			_heroes = [
+				..._heroes,
+				{ ...action.data, id: heroStore.generateId(action.data) }
+			];
 			heroStore.emitChange();
 			break;
 		case actionTypes.DELETE_HERO:

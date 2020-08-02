@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import HeroList from './components/HeroList';
 import HeroDetail from './components/HeroDetail';
 import Header from './components/Header';
 import HeroDashboard from './components/HeroDashboard';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
 import HeroesPage from './components/HeroesPage';
 
