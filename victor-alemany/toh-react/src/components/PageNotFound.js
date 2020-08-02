@@ -1,5 +1,4 @@
 import React from 'react';
-import { func } from 'prop-types';
 import { Link, Redirect} from 'react-router-dom';
 
 function PageNotFound(){
