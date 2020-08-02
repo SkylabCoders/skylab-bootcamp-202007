@@ -17,8 +17,10 @@ function HeroDetail(props) {
 			loadHeroes();
 		} else if (heroId) {
 			const hero = heroStore.getHeroById(heroId);
-			setHeroName(hero.name);
-			setHeroId(hero.id);
+			if (hero) {
+				setHeroName(hero.name);
+				setHeroId(hero.id);
+			}
 		}
 		return () => heroStore.removeChangeListener(onChange);
 	}, [heroes.length, props.match.params.heroId]);
