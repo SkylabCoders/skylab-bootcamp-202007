@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import '../Assets/HeroList.css';
 import heroStore from '../stores/heroStore';
 import { NavLink } from 'react-router-dom';
-import { loadHeroes, createHero, removeHero } from '../actions/heroActions';
+import {
+	loadHeroes,
+	createHero,
+	removeHero,
+	updateHero
+} from '../actions/heroActions';
 
 function HeroList(props) {
 	const [heroes, setHeroes] = useState([]);
@@ -23,7 +28,11 @@ function HeroList(props) {
 		createHero();
 	}
 
-	function handleUpdateHero() {}
+	function handleUpdateHero(id) {
+		const newId = prompt('Enter new hero ID');
+		const newName = prompt('Enter new hero Name');
+		updateHero(id, newId, newName);
+	}
 
 	function handleRemoveHero(id) {
 		removeHero(id);
@@ -37,7 +46,10 @@ function HeroList(props) {
 						<NavLink to={`/hero/${hero.id}`} className="heroListLink">
 							<span className="heroId">{hero.id}</span> {hero.name}
 						</NavLink>
-						<button className="listButton" onClick={handleUpdateHero}>
+						<button
+							className="listButton"
+							onClick={() => handleUpdateHero(hero.id)}
+						>
 							Update
 						</button>
 						<button

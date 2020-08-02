@@ -42,4 +42,18 @@ export function removeHero(heroId) {
 	});
 }
 
-export function updateHero() {}
+export function updateHero(heroId, newId, newName) {
+	return new Promise((resolve) => {
+		const hero = {
+			id: heroId,
+			newId: newId,
+			newName: newName
+		};
+		resolve(hero);
+	}).then((hero) => {
+		dispatcher.dispatch({
+			type: actionTypes.DELETE_HERO,
+			data: hero
+		});
+	});
+}

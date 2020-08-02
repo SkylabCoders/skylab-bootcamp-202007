@@ -33,6 +33,16 @@ class HeroStore extends EventEmitter {
 	deleteHeroById(id) {
 		return _heroes.filter((hero) => hero.id !== id);
 	}
+
+	updateHero(actionHero) {
+		const newHero = {
+			id: `${actionHero.newId}`,
+			name: `${actionHero.newName}`
+		};
+		const index = _heroes.findIndex((hero) => hero.id === actionHero.id);
+		_heroes[index] = newHero;
+		return [..._heroes];
+	}
 }
 
 const heroStore = new HeroStore();
@@ -49,11 +59,11 @@ dispatcher.register((action) => {
 			heroStore.emitChange(); // No fa falta emetre res xk nmes fa update de la llista.
 			break;
 		case actionTypes.DELETE_HERO:
-			console.log(_heroes);
 			_heroes = heroStore.deleteHeroById(action.data);
-			console.log(_heroes);
-
 			heroStore.emitChange();
+		case actionTypes.UPDATE_HERO:
+			_heroes = heroStore.updateHero(action.data);
+			heroStore.emitChange(_heroes);
 		default:
 			break;
 	}
