@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import heroStore from '../stores/heroStore';
 import { loadHeroes, deleteHero } from '../actions/heroActions';
+import './HeroList.css';
 
 function HeroList() {
 	const [heroes, setHeroes] = useState(heroStore.getHeroes());
@@ -24,11 +25,13 @@ function HeroList() {
 	return (
 		<ul>
 			{heroes.map((hero) => (
-				<li key={hero.id}>
+				<li key={hero.id} className="hero-list__item">
 					<Link to={`/hero/${hero.id}`}>
 						{hero.id}: {hero.name}
 					</Link>
-					<button onClick={(event) => onDelete(event, hero.id)}>X</button>
+					<div className="hero-list__item--delete">
+						<button onClick={(event) => onDelete(event, hero.id)}>X</button>
+					</div>
 				</li>
 			))}
 		</ul>

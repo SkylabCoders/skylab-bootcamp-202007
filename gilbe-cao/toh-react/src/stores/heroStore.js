@@ -3,7 +3,12 @@ import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
+
 let _heroes = [];
+
+let nextId = 0;
+const generateNextId = (heroes) =>
+	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;
 
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -25,12 +30,6 @@ class HeroStore extends EventEmitter {
 	getHeroById(id) {
 		return _heroes.find((hero) => hero.id === id);
 	}
-
-	generateId() {
-		return (
-			_heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1
-		);
-	}
 }
 
 const heroStore = new HeroStore();
@@ -39,16 +38,15 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
 			heroStore.emitChange(_heroes);
+			nextId = generateNextId(_heroes);
 			break;
 		case actionTypes.UPDATE_HERO:
 			_heroes = [..._heroes, action.data];
 			heroStore.emitChange();
 			break;
 		case actionTypes.CREATE_HERO:
-			_heroes = [
-				..._heroes,
-				{ ...action.data, id: heroStore.generateId(action.data) }
-			];
+			_heroes = [..._heroes, { ...action.data, id: nextId }];
+			++nextId;
 			heroStore.emitChange();
 			break;
 		case actionTypes.DELETE_HERO:
