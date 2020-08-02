@@ -15,9 +15,9 @@ function Header(props) {
 					<button>Heroes</button>
 				</NavLink>
 				{' | '}
-				<NavLink activeClassName="my-active-class" to="/hero/:heroId">
+				{/* <NavLink activeClassName="my-active-class" to="/hero/:heroId">
 					Detail
-				</NavLink>
+				</NavLink> */}
 			</nav>
 		</>
 	);

@@ -1,21 +1,25 @@
 import React from 'react';
 import heroData from '../heroData';
 import { Prompt } from 'react-router-dom'
+import { createHero } from '../actions/heroActions'
 
 class HeroDetail extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			heroName: '',
-			heroId: null,
+			heroId: '',
 			formIsDirty: false
 		};
 
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
 
+
 	componentDidMount() {
-		const heroe = this.findHeroById(+this.props.match.params.heroId)
+
+		let heroe = this.findHeroById(+this.props.match.params.heroId)
 		this.setState({
 			heroName: heroe.name,
 			heroId: heroe.id
@@ -33,7 +37,9 @@ class HeroDetail extends React.Component {
 			formIsDirty: true
 
 		});
+
 	}
+
 
 	render() {
 		return (
@@ -51,6 +57,8 @@ class HeroDetail extends React.Component {
 					/>
 
 				</label>
+				<button>Create Hero</button>
+				<button>Update Hero</button>
 				<Prompt
 					when={this.state.formIsDirty}
 					message='Are you sure you wamt to exit this page?'

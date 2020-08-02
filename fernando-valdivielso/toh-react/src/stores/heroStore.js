@@ -1,23 +1,23 @@
-import { EventEmitter } from "event";
+import { EventEmitter } from "events";
 import dispatcher from "../appDispatcher";
 import actionTypes from "../actions/actionTypes";
 
 //estructura basica de un store:
 
-const CHANGE_ENVENT = 'change';
+const CHANGE_EVENT = 'change';
 let _heroes = [];   //_  -> variable privada
 
 class HeroStore extends EventEmitter {
     addChangeListener(callback) {       //registrar listener
-        this.on(CHANGE_ENVENT, callback);
+        this.on(CHANGE_EVENT, callback);
     }
 
     removeChangeListener(callback) {            //eliminar listener
-        this.removeListener(CHANGE_ENVENT, callback);
+        this.removeListener(CHANGE_EVENT, callback);
     }
 
     emitChange() {                              //emitir cambios
-        this.emit(CHANGE_ENVENT);
+        this.emit(CHANGE_EVENT);
     }
 
     getHeroes() {
@@ -38,7 +38,7 @@ dispatcher.register(action => {         //dispatcher, registra una accion!
             break;
         case actionTypes.CREATE_HERO:
             _heroes = [..._heroes, action.data];
-            heroStore.emitChange();
+            heroStore.emitChange(_heroes);
             break;
         default:
             break;

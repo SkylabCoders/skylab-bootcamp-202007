@@ -1,4 +1,4 @@
-import { Dispatcher } from "Flux";
+import { Dispatcher } from "flux";
 
 const dispatcher = new Dispatcher();
 

@@ -29,3 +29,19 @@ export function createHero(hero) {
     });
 }
 
+export function updateHero(hero) {
+    return new Promise((resolve) => {
+        const hero = {
+            name: this.state.heroName,
+            id: (this.state.heroList.length) /////??????????
+        };
+
+        resolve({ hero })
+    }).then(hero => {
+        dispatcher.dispatch({
+            type: actionTypes.UPDATE_HERO,
+            data: hero
+        });
+    });
+}
+
