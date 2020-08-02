@@ -27,7 +27,7 @@ function Navigation(props) {
 						<HeroList></HeroList>
 					</Route>
 
-					<Route path="/details/:id" component={Details}></Route>
+					<Route path="/hero/:id" component={Details}></Route>
 
 					<Route path="/dashboard">
 						<Dashboard></Dashboard>

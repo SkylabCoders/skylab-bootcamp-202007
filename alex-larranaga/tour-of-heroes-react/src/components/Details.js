@@ -10,7 +10,6 @@ class Details extends React.Component {
 			name: 'Waiting...',
 			stateChange: true
 		};
-		let checkChange = this.state.name;
 
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
@@ -21,8 +20,7 @@ class Details extends React.Component {
 
 	onFieldChange(myEvent) {
 		this.setState({
-			[myEvent.target.name]: myEvent.target.value,
-			stateChange: false
+			[myEvent.target.name]: myEvent.target.value
 		});
 	}
 	componentDidMount() {
