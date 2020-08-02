@@ -1,8 +1,22 @@
 import React from 'react';
 import heroData from '../heroData';
 import '../styles.css';
-import { Prompt } from 'react-router-dom'
+import heroStore from '../stores/heroStore';
+import { Prompt } from 'react-router-dom';
 
+// TRYING TO ADD CREATE HERO
+/* const [heroes, setHeroes] = useState([])
+
+useEffect(() => {
+    heroStore.addChangeListener(onChange);
+    if (isDirty) createHeroes();
+    return () => heroStore.addChangeListener(onChange);
+}, [heroes.length]);
+
+function onChange() {
+    setHeroes(heroStore.getHeroes());
+} */
+// TRIED
 
 class HeroDetail extends React.Component {
     constructor(props) {

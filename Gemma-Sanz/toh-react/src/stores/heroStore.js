@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
+import heroData from '../heroData';
 
 const CHANGE_EVENT = 'change';
 let _heroes = [];
@@ -37,7 +38,18 @@ dispatcher.register((action) => {
             break;
         case actionTypes.CREATE_HERO:
             _heroes = [..._heroes, action.data]
-            heroStore.emitChange()
+            heroStore.emitChange();
+            break;
+        case actionTypes.UPDATE_HERO:
+            _heroes = heroes.map((hero) => {
+                if (hero.id === action.data.id) hero.name = action.data.name;
+                return hero;
+            })
+            heroStore.emitChange();
+            break;
+        case actionTypes.DELETE_HERO:
+            _heroes = heroes.filter((hero) => hero.id !== action.data.id);
+            heroStore.emitChange();
             break;
         default:
             break;

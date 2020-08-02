@@ -13,7 +13,7 @@ export function loadHeroes() {
         })
     })
 }
-
+/* 
 export function createHeroes(hero) {
     return new Promise((resolve) => {
         const hero = {
@@ -27,4 +27,28 @@ export function createHeroes(hero) {
             data: hero
         });
     });
+} */
+
+export function savedHero(hero) {
+    return new Promise((resolve) => {
+        resolve(hero);
+    }).then((savedHero) => {
+        dispatcher.dispatch({
+            type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
+            data: savedHero
+        });
+    });
 }
+
+export function deleteHero(hero) {
+    return new Promise((resolve) => {
+        resolve(hero);
+    }).then((deleteHero) => {
+        dispatcher.dispatch({
+            type: actionTypes.DELETE_HERO,
+            data: { hero }
+        });
+    });
+}
+
+//data de deleteHero es diferent
