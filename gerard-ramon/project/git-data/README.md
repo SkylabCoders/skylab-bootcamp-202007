@@ -1,4 +1,94 @@
-# Git-Data
+# 📈GITDATA
+
+## App
+
+`Future place for the link of the App`
+
+## Initial MockUp
+
+![Imagen](https://gyazo.com/7f6d9013750fea3f216f1ffe5f75567e)
+![Imagen](https://gyazo.com/88152254c077829e32e9c04ba8ffd085)
+
+# APP CRYPTOMONEDA
+
+The main purpose of the App is to offer the posibility to the user to see Git Hub data in a visual way. The graphics will be displayed using data from Git Hub API.
+
+## Team
+
+- [Gerard Ramón Monte](https://github.com/gerardramonp)
+- [Daniel Alonso](https://github.com/Dani-Alonso)
+- [Pablo Hortelano](https://github.com/phortela1n)
+
+## Technologies
+
+- Javascript (React mainly)
+- ES6
+- API-Client
+- Jasmine
+- Jest
+- Bootstrap
+- flexBox
+- Css3
+- Html5
+
+### API
+
+    documentacion: https://developer.github.com/v3/
+
+## Workflow
+
+We are using this tools to develop the workflow
+
+### - User Stories Map
+
+**url** https://trello.com/b/nvS0fEFD/user-stories-map
+
+### - Agile methodology with Trello
+
+KANBAM board with Trello
+
+**url:** https://trello.com/b/Qsj5UEvk/spa-gitdata
+
+### GIT
+
+- **In progress**
+
+### Project structure
+
+#### API STRUCTURE
+
+- **In progress**
+
+#### SRC TREE
+
+```
+├── API-Cli
+│   └── cryptoApi.js
+├── actions
+│   ├── actionTypes.js
+│   └── loginActions.js
+├── components
+│   ├── Landing
+│   │   └── Landing.js
+│   ├── NavBar
+│   │   └── HeaderNavbar.js
+│   ├── RepoDetail
+│   │   └── RepoDetail.js
+│   └── UserDetail
+│       └── UserDetail.js
+├── stores
+│   ├── landingStore.js
+│   ├── navbarStore.js
+│   ├── repoDetailStore.js
+│   └── userDetailStore.js
+├── components
+├── App.js
+├── appDispatcher.js
+├── index.js
+└── registerServiceWorker.js
+```
+
+## USER STORIES
 
 ## **1. Login component**
 
