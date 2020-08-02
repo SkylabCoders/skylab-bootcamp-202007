@@ -33,15 +33,18 @@ export function updateHero(hero) {
     return new Promise((resolve) => {
         const hero = {
             name: this.state.heroName,
-            id: (this.state.heroList.length) /////??????????
+            id: this.state.heroId
         };
 
         resolve({ hero })
     }).then(hero => {
         dispatcher.dispatch({
-            type: actionTypes.UPDATE_HERO,
+            type: actionTypes.CREATE_HERO,
             data: hero
         });
     });
 }
+// export function updateHero(hero) {
+
+// }
 
