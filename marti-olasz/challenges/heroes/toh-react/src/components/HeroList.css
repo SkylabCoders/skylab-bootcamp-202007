@@ -1,0 +1,12 @@
+.hero-list__item {
+	height: 24px;
+}
+
+.hero-list__item:hover .hero-list__item--delete {
+	display: inline-block;
+}
+
+.hero-list__item--delete {
+	display: none;
+	margin-left: 12px;
+}
