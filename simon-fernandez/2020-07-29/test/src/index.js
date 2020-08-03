@@ -2,26 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import GetDate from './Date';
-
-import Hello from './Hello';
-import Sum from './sum';
-import Clicker from './Clicker';
 import * as serviceWorker from './serviceWorker';
-import MyButton from './myButton';
-import ConditionalDisplay from './conditionalDisplay';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const myAtributes = {
-	a: 4,
-	b: 2
-};
-const myLastName = ['A', 'B', 'C'];
 ReactDOM.render(
 	<React.StrictMode>
-		<ConditionalDisplay isVisible={true}>
-			<h1>hello</h1>
-			<p>world!</p>
-		</ConditionalDisplay>
+		<Router>
+			<App />
+		</Router>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
