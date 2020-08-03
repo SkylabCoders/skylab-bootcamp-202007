@@ -12,3 +12,7 @@
 .landing__box--color {
 	background-color: var(--bg-color-box);
 }
+
+--bg-color-navBar {
+	background-color: #24292e;
+}
