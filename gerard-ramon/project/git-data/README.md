@@ -1,6 +1,6 @@
 # 📈GITDATA
 
-## App
+The main purpose of the App is to offer the posibility to the user to see Git Hub data in a visual way. The graphics will be displayed using data from Git Hub API.
 
 `Future place for the link of the App`
 
@@ -13,10 +13,6 @@
 ### Desktop layout
 
 ![Imagen](https://i.gyazo.com/7f6d9013750fea3f216f1ffe5f75567e.png)
-
-# APP GITDATA
-
-The main purpose of the App is to offer the posibility to the user to see Git Hub data in a visual way. The graphics will be displayed using data from Git Hub API.
 
 ---
 
