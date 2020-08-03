@@ -17,15 +17,24 @@ function HeaderNavbar() {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<input></input>
-					<button>Go to URL</button>
-
-					<button>SwitchLD</button>
-					<Nav className="mr-auto">
-						<Nav.Link>
-							<NavLink to="/userDetail">UserDetail</NavLink>
-						</Nav.Link>
-					</Nav>
+					<button>Go</button>
 				</Navbar.Collapse>
+				<div className="switch">
+					<img src={require('../../assets/img/sun.png')} alt="sun" />
+					<div className="custom-control custom-switch">
+						<input
+							type="checkbox"
+							className="custom-control-input"
+							id="customSwitchesChecked"
+							defaultChecked
+						/>
+						<label
+							className="custom-control-label"
+							htmlFor="customSwitchesChecked"
+						></label>
+					</div>
+					<img src={require('../../assets/img/moon.png')} alt="moon" />
+				</div>
 			</Navbar>
 		</>
 	);
