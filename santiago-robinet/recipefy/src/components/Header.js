@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function Header(){
     return(
-        <>
+        <nav>
         <NavLink to="/profile">Profile</NavLink>
         {'|'}
         <NavLink to="/recipe-page">Recipe</NavLink>
@@ -12,8 +12,13 @@ function Header(){
         <NavLink to="/search-result">Search</NavLink>
         {'|'}
         <NavLink to="/userfavourite">User Favourite</NavLink>
-          <p> I'm da Header!! And I work!!</p>
-        </>
+        {'|'}
+        <NavLink to="/userfavourite">Preferences</NavLink>
+        {'|'}
+        <NavLink to="/userfavourite">Search</NavLink>
+        {'|'}
+        <NavLink to="/userfavourite">Login</NavLink>
+        </nav>
     );
 }
 
