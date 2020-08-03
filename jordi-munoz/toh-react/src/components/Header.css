@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: flex-start;
   }
-  .fix-header__buttons > button {
+  .fix-header__buttons-each {
     color: rgb(103, 103, 139);
     background-color: rgb(204, 204, 204);
     margin: 4px;
@@ -26,7 +26,7 @@ body {
     font-size: 14px;
     font-weight: bold;
   }
-  .fix-header__buttons > button:hover {
+  .fix-header__buttons-each:hover {
       cursor: pointer;
       background-color: rgb(240, 240, 240);
     }
