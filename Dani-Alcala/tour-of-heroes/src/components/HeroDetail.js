@@ -1,59 +1,70 @@
-import React from 'react';
-import HeroList from '../hero.mock'
-import heroList from '../hero.mock';
-import {Prompt} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Prompt } from 'react-router-dom';
+import heroStore from '../stores/heroStore';
+import { loadHeroes, saveHero } from '../actions/heroActions';
+import TextInput from './TextInput';
 
+function HeroDetail(props) {
+	const [heroes, setHeroes] = useState(heroStore.getHeroes());
+	const [heroId, setHeroId] = useState(null);
+	const [heroName, setHeroName] = useState('');
+	const [isFormDirty, setIsFormDirty] = useState(false);
 
+	useEffect(() => {
+		heroStore.addChangeListener(onChange);
+		const heroId = +props.match.params.heroId;
+		if (heroes.length === 0) {
+			loadHeroes();
+		} else if (heroId) {
+			const hero = heroStore.getHeroById(heroId);
+			if (hero) {
+				setHeroName(hero.name);
+				setHeroId(hero.id);
+			}
+		}
+		return () => heroStore.removeChangeListener(onChange);
+	}, [heroes.length, props.match.params.heroId]);
 
-class HeroDetail extends React.Component {
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			heroName:'',
-			heroId: null,
-			formIsDirty: true			
-		};
-		this.onFieldChange = this.onFieldChange.bind(this); //le asigno el contexto que me interesa, que es el objeto que se crea con esta clase. El form tiene su propio contexto
-	}
-	
-	getHeroById(id){
-		return heroList.find((hero) => hero.id === id)
-	}
-	
-	onFieldChange(event) {
-		this.setState({
-			// heroName: event.target.value //es pot fer aixi, més fàcil
-			[event.target.name]: event.target.value //propiedad dinamica, així està preparat per si poso un altre input amb el name associat correctament a this.state
-		});
-		console.log(this.state.heroName);
-	}
-
-	componentDidMount() {
-		const hero = this.getHeroById(+this.props.match.params.heroId)
-		this.setState({
-			heroName: hero.name,
-			heroId: hero.id
-		})
+	function onChange() {
+		setHeroes(heroStore.getHeroes());
 	}
 
-	render() {
-		return (
-			<form>
-				<p>id: {this.state.heroId}</p>
-				<label htmlFor="heroName">
-					name:
-					<input
-						name="heroName"
-						placeholder="Hero name"
-						value={this.state.heroName}
-						onChange={this.onFieldChange}
-					/>
-				</label>
-				<Prompt when={this.state.formIsDirty} message="Are you sure you want to navigate?" />
-			</form>
+	function onFieldChange(value, setValue) {
+		setValue(value);
+		setIsFormDirty(true);
+	}
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		saveHero({ name: heroName, id: heroId }).then(() =>
+			props.history.push('/heroes')
 		);
 	}
+
+	return (
+		<form onSubmit={handleSubmit}>
+			{!heroId && <h2>Register a new hero:</h2>}
+			{heroId && (
+				<>
+					<h2>{heroName} details!</h2>
+					<p>Id: {heroId}</p>
+				</>
+			)}
+			<TextInput
+				name="heroName"
+				value={heroName}
+				placeholder="Hero name"
+				onChange={(event) => onFieldChange(event.target.value, setHeroName)}
+			/>
+			<Prompt
+				when={isFormDirty}
+				message="Are you sure you want to navigate away?"
+			/>
+			<p>
+				<button type=" bv">Save Hero</button>
+			</p>
+		</form>
+	);
 }
 
 export default HeroDetail;
