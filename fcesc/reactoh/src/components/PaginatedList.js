@@ -1,25 +1,39 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './PaginatedList.css';
+import { Link, useRouteMatch } from 'react-router-dom';
+import HeroStore from './../stores/heroStore';
+import { loadPaginatedHeroes } from './../actions/heroActions';
 
-function PaginatedList(props){
-  const data = props.data;
-  let empty = [];
-  for (let i=0; i<data.length; i++){
-    empty.push(<li key={i} onClick={()=>{props.click(data[i].id)}}><strong>{data[i].name}</strong>, id: {data[i].id}</li>);
-  }
-  let result = (         
-    <div className="App">
-      <h2>Heroes list</h2>
-      <div className="herolist__container">
-        <ul className="heroList--paginated">{empty}</ul>
-        <div className="pagination__component">
-            <p>Displaying page {props.currentPage} of {props.numberOfPages}, listing {props.itemsPerPage} of {props.numberOfHeroes} heroes.</p>
-            <button id='button__goToPreviousPage' onClick={props.previousPage}>Previous Page</button> <button id='button__goToNextPage' onClick={props.nextPage}>Next Page</button>
+function PaginatedList(){
+    let urlQuery = useRouteMatch()
+    let urlPage = +urlQuery.params.currentPage;
+    if(urlPage === undefined){urlPage = 0;}
+    const [currentHeroes, setHeroes] = useState([]);
+    const [page] = useState(urlPage);
+    const [itemsPerPage] = useState(20);
+
+    useEffect(()=>{
+        HeroStore.addChangeListener(onChange);
+        if( currentHeroes.length === 0 ){ loadPaginatedHeroes(page, itemsPerPage) }
+        return ()=>{HeroStore.removeChangeListener(onChange);}
+    }, [currentHeroes.length, page, itemsPerPage]);
+
+    function onChange(){
+        setHeroes(HeroStore.getPaginatedHeroes(page, itemsPerPage));
+    }
+
+    return (
+        <div className="paginatedList__container">
+            <ul>
+                {currentHeroes.map((hero)=>(
+                    <li key={hero.id}>
+                        <Link to={'/hero/' + hero.id}>{hero.id}:{hero.name}</Link>
+                    </li>
+                ))}
+            </ul>
+            <Link to={'/hero-list/' + (page - 1)}>Previous Page</Link> <Link to={'/hero-list/' + (page + 1)}>Next Page</Link>
         </div>
-      </div>
-    </div>);
-
-  return result;
+    );
 }
 
 export default PaginatedList;
