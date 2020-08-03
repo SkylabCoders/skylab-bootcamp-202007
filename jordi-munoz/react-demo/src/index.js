@@ -3,15 +3,34 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Hello from './Hello';
+import Sum from './Sum';
+import Clicker from './Clicker';
+import MyButton from './MyButton';
+import ConditionalDisplay from './ConditionalDisplay';
 
-setInterval(() => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Hello now={new Date().toISOString()}/>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}, 1000);
+const myAttributes = {
+  a: 4,
+  b: 2
+}
+const myLastName = ['C', 'A', 'O', 'L'];
+
+ReactDOM.render(
+
+  <React.StrictMode>
+    <Hello />
+    <Sum {...myAttributes} />
+    <Clicker
+      MyButton={MyButton}
+      data={myLastName}
+    />
+    <ConditionalDisplay isVisible={true}>
+      <h1>Hello</h1>
+      <p>world!</p>
+    </ConditionalDisplay>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
 
 
 
