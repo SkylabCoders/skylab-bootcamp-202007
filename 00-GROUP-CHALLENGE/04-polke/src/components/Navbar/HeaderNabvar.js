@@ -1,12 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../shared/generalStyles.css';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 function HeaderNavbar() {
 	return (
 		<>
-			<Navbar bg="light" expand="lg">
+			<Navbar expand="lg">
 				<Navbar.Brand>
 					<NavLink to="/">Git-Data</NavLink>
 				</Navbar.Brand>
