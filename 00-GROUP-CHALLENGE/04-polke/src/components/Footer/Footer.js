@@ -13,7 +13,7 @@ function Footer() {
 					Dani Alonso
 				</a>{' '}
 				|{' '}
-				<a href="https://github.com/phortelano" target="_blank">
+				<a href="https://github.com/phortela1n" target="_blank">
 					Pablo Hortelano
 				</a>{' '}
 				|{' '}
