@@ -1,6 +1,6 @@
 import charList from '../mock.chars';
 import dispatcher from "../appDispatcher";
-import actionTypes from "../actions/actionTypes";
+import actionTypes from "./actionTypes";
 
 
 export function loadCharList() {
