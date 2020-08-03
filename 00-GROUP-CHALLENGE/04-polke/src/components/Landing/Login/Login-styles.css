@@ -1,0 +1,57 @@
+.Login {
+	border: 1px solid black;
+	height: 60vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Login button {
+	width: 75vw;
+}
+
+@media only screen and (min-width: 500px) and (max-width: 682px) {
+	.Login {
+	}
+	.Login__form {
+		width: 90vw;
+		border: 1px solid red;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.Login button {
+		width: 55vw;
+	}
+	.form-control {
+		width: 74%;
+	}
+}
+
+@media only screen and (min-width: 682px) and (max-width: 1600px) {
+	.Login {
+		width: 90vw;
+		border: 1px solid red;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+	.Login__form {
+		width: 50vw;
+		border: 1px solid red;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.Login button {
+		width: 150px;
+	}
+	.form-control {
+		width: 74%;
+	}
+}
