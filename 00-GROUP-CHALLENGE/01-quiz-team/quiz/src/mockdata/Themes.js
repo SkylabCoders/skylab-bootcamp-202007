@@ -1,4 +1,5 @@
 /* quizteam - skylab bootcamp 202007 */
+/* mockdata */
 'use strict';
 
 export default THEMES_LIST = ['General Knowledge', 'Entertainment: Books', 'Entertainment: Film', 'Entertainment: Music',
