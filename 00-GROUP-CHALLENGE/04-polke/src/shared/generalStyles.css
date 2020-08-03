@@ -1,3 +1,7 @@
 :root {
 	--bg-color-navBar: #24292e;
 }
+
+--bg-color-navBar {
+	background-color: #24292e;
+}
