@@ -34,9 +34,7 @@ function HeroList(props) {
 		updateHero(id, newId, newName);
 	}
 
-	function handleRemoveHero(id) {
-		removeHero(id);
-	}
+	const handleRemoveHero = removeHero;
 
 	return (
 		<>

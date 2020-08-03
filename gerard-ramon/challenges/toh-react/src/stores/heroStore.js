@@ -63,7 +63,7 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 		case actionTypes.UPDATE_HERO:
 			_heroes = heroStore.updateHero(action.data);
-			heroStore.emitChange(_heroes);
+			heroStore.emitChange();
 		default:
 			break;
 	}
