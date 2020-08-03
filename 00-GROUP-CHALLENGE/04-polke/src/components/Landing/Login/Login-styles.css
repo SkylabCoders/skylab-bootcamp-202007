@@ -1,47 +1,81 @@
+/*
+** FORM OUTSIDE CONTAINER
+*/
+
 .Login {
-	border: 1px solid black;
 	height: 60vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
+	padding-bottom: 80px;
+}
+
+/*
+** FORM INSIDE CONTAINER
+*/
+
+.Login__form {
+	background-color: var(--form-color-background);
+	opacity: 0.8;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	box-shadow: 2px 2px #888888;
+}
+
+/*
+** FORM ELEMENTS
+*/
+
+.Login_form__login-title--colored {
+	color: var(--form-color-headers);
+	padding-bottom: 5px;
 }
 
 .Login button {
-	width: 75vw;
+	width: 65vw !important;
+}
+.form-control {
+	width: 65vw;
 }
 
+.Login__form__anchor--colored {
+	color: var(--form-color-headers);
+	font-size: bold;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+/*
+** MEDIA QUERIES
+*/
+
 @media only screen and (min-width: 500px) and (max-width: 682px) {
-	.Login {
-	}
 	.Login__form {
 		width: 90vw;
-		border: 1px solid red;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 	}
 	.Login button {
 		width: 55vw;
 	}
-	.form-control {
-		width: 74%;
-	}
 }
 
-@media only screen and (min-width: 682px) and (max-width: 1600px) {
+@media only screen and (min-width: 682px) and (max-width: 2500px) {
 	.Login {
-		width: 90vw;
-		border: 1px solid red;
+		width: 100vw;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
 	}
 	.Login__form {
-		width: 50vw;
-		border: 1px solid red;
+		width: 45vw;
+		margin-top: 60px;
+		margin-left: 50px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -49,7 +83,10 @@
 	}
 
 	.Login button {
-		width: 150px;
+		width: 200px !important;
+	}
+	.Login__form__input {
+		width: 200px !important;
 	}
 	.form-control {
 		width: 74%;

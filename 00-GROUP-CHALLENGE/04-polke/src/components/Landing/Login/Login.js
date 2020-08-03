@@ -7,21 +7,20 @@ function Login() {
 	return (
 		<div className="Login">
 			<form className="Login__form">
-				<h2>Login</h2>
+				<h2 className="Login_form__login-title--colored">Login</h2>
 				<FormGroup controlId="username" bsSize="large">
 					<Button>Google</Button>
 				</FormGroup>
 				<FormGroup controlId="password" bsSize="large">
 					<Button>GitHub</Button>
 				</FormGroup>
-				<h4>User</h4>
-				<FormControl />
-				<h4>Pasword</h4>
-				<FormControl />
-				<FormGroup className="" controlId="login" bsSize="large">
+				<FormGroup controlId="input" bsSize="large">
+					<FormControl className="Login__form__input" placeholder="&#128100;" />
+					<FormControl className="Login__form__input" placeholder="&#128272;" />
+
 					<Button>Enter</Button>
 				</FormGroup>
-				<a>Register</a>
+				<a className="Login__form__anchor--colored">Register</a>
 			</form>
 		</div>
 	);
