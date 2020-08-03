@@ -18,13 +18,12 @@ class HeroService {
         let start = page * itemsPerPage;
         let end = start + itemsPerPage;
         for (let i=start; i<end; i++){
-            result.push(HERO_LIST[i]);
+            if(HERO_LIST[i] !== undefined){result.push(HERO_LIST[i])};
         }
         return result;
     }
     getHeroListTotalPages(itemsPerPage){
-        let pages = HERO_LIST.length / itemsPerPage;
-        if (Math.floor(pages) !== pages){pages = Math.floor(pages + 1)}
+        let pages = Math.floor(HERO_LIST.length / itemsPerPage);
         return pages;
     }
     getHeroListTotalItems(){
