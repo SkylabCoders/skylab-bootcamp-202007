@@ -1,10 +1,9 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
 
-function FooterComponent(props) {
+function FooterComponent() {
     return (
         <div>
-            <button type="button" onClick={() => this.props.history.goBack()}>Back</button>
+            <button type="button" onClick={() => window.history.back()}>Back</button>
         </div>
     )
 }
