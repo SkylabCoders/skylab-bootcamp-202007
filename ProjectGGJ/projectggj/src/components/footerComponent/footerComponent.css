@@ -6,9 +6,7 @@
 }
 
 img {
-    display: flex;
     cursor: pointer;
-    padding-left: 45%;
     width: 100px;
 }
 
@@ -17,8 +15,8 @@ img {
         flex-direction: row-reverse;
     }
 
-    button {
-        display: none;
+    img {
+        align-items: center;
     }
 
 
