@@ -14,3 +14,9 @@ p {
     text-align: center;
     vertical-align: middle;
 }
+
+h1 {
+    background-color: hsl(0, 0%, 100%, 0.8);
+    border-radius: 5px;
+    padding: 1px 20px;
+}

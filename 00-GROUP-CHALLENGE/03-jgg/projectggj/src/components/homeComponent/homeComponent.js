@@ -4,8 +4,6 @@ import BannerComponent from '../bannerComponent/bannerComponent';
 
 function HomeComponent(props) {
     return <>
-
-        <p>homeComponent works!</p>
         <BannerComponent />
         <CharListComponent />
 
