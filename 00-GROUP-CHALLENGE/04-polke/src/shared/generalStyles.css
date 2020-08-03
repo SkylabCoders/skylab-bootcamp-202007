@@ -2,6 +2,7 @@
 	/* Colors */
 	--bg-color-navbar: #24292e;
 	--bg-color-box: #f8f9fa9f;
+	--font-color-footer: #f8f9fa;
 }
 
 * {
@@ -13,6 +14,7 @@
 	background-color: var(--bg-color-box);
 }
 
---bg-color-navBar {
-	background-color: #24292e;
+.footer__container--color {
+	background-color: var(--bg-color-navbar);
+	color: var(--font-color-footer);
 }
