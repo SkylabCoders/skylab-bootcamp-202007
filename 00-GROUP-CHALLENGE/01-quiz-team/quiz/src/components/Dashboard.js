@@ -3,15 +3,20 @@ import Welcome from './Welcome'
 import Item from './Item'
 import './../css/Dashboard.css'
 
+const url = "https://images.pexels.com/photos/9606/people-woman-sport-muscles.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+const mockTheme = {
+    imgurl: url,
+    title: 'Sports'
+}
 function Dashboard(){
     return (
         <>
             <div className="dashboard__container">
                 <Welcome />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl} />
+                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
+                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
+                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
             </div>
         </>
     )

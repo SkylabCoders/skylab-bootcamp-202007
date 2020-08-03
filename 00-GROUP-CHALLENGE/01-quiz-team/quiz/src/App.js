@@ -7,7 +7,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import LeaderBoard from './components/LeaderBoard'
 import LoginScreen from './components/LoginScreen'
-import QuizComponent from './components/QuizComponent'
 import Dashboard from './components/Dashboard'
 
 
@@ -22,7 +21,6 @@ function App() {
 				<Route path="/login" exact component={LoginScreen} />
 				<Route component={PageNotFound} />
 			</Switch>
-			<QuizComponent />
 			<Footer />
 		</div>
 	);
