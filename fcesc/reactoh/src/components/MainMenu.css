@@ -10,7 +10,7 @@ ul.menu__list--horizontal{
 li.menu__item--horizontal{
     list-style-type: none;
     display: inline block;
-    margin: 0 .25rem;
+    margin: 0 .5rem;
 }
 .menu__item--horizontal > a, 
 .menu__item--horizontal > a:visited{
