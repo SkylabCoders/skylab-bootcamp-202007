@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import LoginComponent from '../loginComponent/loginComponent';
+import RegisterComponent from '../registerComponent/registerComponent';
+import CharListComponent from '../charListComponent/charListComponent';
+import DetailsComponent from '../detailsComponent/detailsComponent';
+import PlanetComponent from '../planetComponent/planetComponent';
+import SagaComponent from '../sagaComponent/sagaComponent';
+import HomeComponent from '../homeComponent/homeComponent';
+import FooterComponent from '../footerComponent/footerComponent';
 
-function App() {
+import { Route, Switch } from "react-router-dom";
+import NavComponent from '../navComponent/navComponent';
+
+function App(props) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavComponent />
+      <Switch>
+        <Route path='/login' component={LoginComponent} />
+        <Route path='/register' component={RegisterComponent} />
+        <Route path='/' exact component={HomeComponent} />
+        <Route path='/charList' component={CharListComponent} />
+        <Route path='/details/:name' component={DetailsComponent} />
+        <Route path='/planet' component={PlanetComponent} />
+        <Route path='/saga' component={SagaComponent} />
+      </Switch>
+      <FooterComponent />
+
     </div>
   );
 }
