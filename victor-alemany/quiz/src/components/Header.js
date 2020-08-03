@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './../css/Header.css'
 
+
 function Header(props){
     return (
     <>	
@@ -16,6 +17,10 @@ function Header(props){
 				{' | '}
 				<NavLink activeClassName="my-active-class" to="/leaderboard">
 					Leaderboard
+				</NavLink>{' '}
+				{' | '}
+				<NavLink activeClassName="my-active-class" to="/dashboard">
+					Dashboard
 				</NavLink>{' '}
 				{' | '}
 				<NavLink activeClassName="my-active-class" to="/login">
