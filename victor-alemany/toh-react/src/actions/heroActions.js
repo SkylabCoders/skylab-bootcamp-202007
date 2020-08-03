@@ -1,37 +1,36 @@
-import heroListItem from "../hero.mock";
-import dispatcher from "../appDispatcher";
-import actionTypes from "./actionTypes"
+import heroListItem from '../hero.mock';
+import dispatcher from '../appDispatcher';
+import actionTypes from './actionTypes';
 
-//action creator
-export function loadHeroes(){
-    return new Promise(resolve =>{
-        resolve(heroListItem);
-    }).then(heroListItem => {
-        dispatcher.dispatch({
-            type: actionTypes.LOAD_HEROES,
-            data: heroListItem
-        })
-    })
+export function loadHeroes() {
+	return new Promise((resolve) => {
+		resolve(heroListItem);
+	}).then((heroes) => {
+		dispatcher.dispatch({
+			type: actionTypes.LOAD_HEROES,
+			data: heroes
+		});
+	});
 }
 
-export function updateHero(name){
-    return new Promise(resolve =>{
-        resolve(heroListItem);
-    }).then(hero => {
-        dispatcher.dispatch({
-            type: actionTypes.UPDATE_HERO,
-            data: hero
-        })
-    })
+export function saveHero(hero) {
+	return new Promise((resolve) => {
+		resolve(hero);
+	}).then((savedHero) => {
+		dispatcher.dispatch({
+			type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
+			data: savedHero
+		});
+	});
 }
 
-export function getHero(){
-    return new Promise(resolve =>{
-        resolve(heroListItem);
-    }).then(hero => {
-        dispatcher.dispatch({
-            type: actionTypes.GET_HERO,
-            data: hero
-        })
-    })
+export function deleteHero(id) {
+	return new Promise((resolve) => {
+		resolve();
+	}).then(() => {
+		dispatcher.dispatch({
+			type: actionTypes.DELETE_HERO,
+			data: { id }
+		});
+	});
 }
