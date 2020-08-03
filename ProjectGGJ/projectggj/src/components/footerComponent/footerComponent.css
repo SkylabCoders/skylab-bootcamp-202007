@@ -1,0 +1,9 @@
+button {
+    background-color: indigo;
+}
+
+@media (min-width:640px) {
+    button {
+        background-color: greenyellow;
+    }
+}

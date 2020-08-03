@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
+import footerComponent from "footerComponent";
 
 function FooterComponent(props) {
     return (
