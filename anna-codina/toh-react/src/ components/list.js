@@ -37,8 +37,8 @@ function List(props) {
 	return (
 		<div>
 			<h2>My heroes</h2>
-
 			<ul className="hero-list">{actualHeroList}</ul>
+			<NavLink to="/hero/">Create Hero</NavLink>
 		</div>
 	);
 }

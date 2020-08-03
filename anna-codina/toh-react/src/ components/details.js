@@ -62,7 +62,7 @@ function Details(props) {
 			<Link
 				onClick={(event) => {
 					event.preventDefault();
-					this.props.history.goBack();
+					props.history.goBack();
 				}}
 				class="hero-detail__back"
 			>
