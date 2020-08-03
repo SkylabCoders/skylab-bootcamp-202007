@@ -1,14 +1,15 @@
-// import API?
+import charList from '../mock.chars';
 import dispatcher from "../appDispatcher";
 import actionTypes from "../actions/actionTypes";
 
-export function loadChar() {
+
+export function loadCharList() {
     return new Promise((resolve) => {
-        resolve(listChar);
-    }).then((characters) => {
+        resolve(charList);
+    }).then((charList) => {
         dispatcher.dispatch({
-            type: actionTypes.LOAD_CHAR,
-            data: characters
+            type: actionTypes.LOAD_CHAR_LIST,
+            data: charList
         });
     });
 }
