@@ -11,10 +11,13 @@ function App(props) {
 		<div>
 			<Header />
 			<Route path="/" exact component={HeroDashboard} />
-			<Route path="/hero" component={HeroList} />
+
+			<Route path="/hero" exact component={HeroList} />
 			<Route path="/hero/:heroId" component={HeroDetails} />
 		</div>
 	);
 }
+//se mostrará dashboard por defecto la route path="/" //el exact se pone
+//cuando dos direcciones comparten una parte del path
 
 export default App;

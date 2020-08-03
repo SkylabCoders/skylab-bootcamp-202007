@@ -17,6 +17,7 @@
 	text-align: center;
 	line-height: 50px;
 	border: solid 2px rgb(3, 3, 99);
+	padding: 3px;
 }
 .name_box {
 	width: 250px;
@@ -24,4 +25,8 @@
 	padding-left: 30px;
 	line-height: 50px;
 	border: solid 2px rgb(3, 3, 99);
+}
+.button {
+	width: 60px;
+	margin-left: 5px;
 }

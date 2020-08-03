@@ -16,7 +16,7 @@ function Header(props) {
 				</NavLink>
 				{' | '}
 				<NavLink activeClassName="my-active-class" to="/hero/14">
-					Bombasto
+					Detail
 				</NavLink>
 			</nav>
 		</>

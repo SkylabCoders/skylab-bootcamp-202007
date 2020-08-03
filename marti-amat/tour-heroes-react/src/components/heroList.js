@@ -1,50 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './heroList.css';
+import { Link } from 'react-router-dom';
+
+import heroStore from '../stores/heroStore';
+import { loadHeroes, deleteHero } from '../actions/heroActions';
 
 function HeroList() {
+	const [heroes, setHeroes] = useState(heroStore.getHeroes());
+	useEffect(() => {
+		heroStore.addChangeListener(onChange);
+		if (heroes.length === 0) loadHeroes();
+		return () => heroStore.removeChangeListener(onChange);
+	}, [heroes.length]);
+	//esto significa que cada vez que la longitud de heroes cambie
+	function onChange() {
+		setHeroes(heroStore.getHeroes());
+	}
+	function onDelete(event, heroId) {
+		event.preventDefault();
+		deleteHero(heroId);
+	}
+
 	return (
-		<div className="HeroList">
-			<div className="containerList">
-				<div className="id_box">1</div>
-				<div className="name_box">Mr. Nice</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">2</div>
-				<div className="name_box">Narco</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">3</div>
-				<div className="name_box">Bombasto</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">4</div>
-				<div className="name_box">Celeritas</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">5</div>
-				<div className="name_box">Magneta</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">6</div>
-				<div className="name_box">RubberMan</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">7</div>
-				<div className="name_box">Dynama</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">8</div>
-				<div className="name_box">Dr.IQ</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">9</div>
-				<div className="name_box">Magma</div>
-			</div>
-			<div className="containerList">
-				<div className="id_box">10</div>
-				<div className="name_box">Tornado</div>
-			</div>
-		</div>
+		<>
+			{heroes.map((hero) => (
+				<li key={hero.id}>
+					<Link to={`/hero/${hero.id}`} className="id_box">
+						{hero.id}:{hero.name}
+					</Link>
+					<button
+						key={hero.id}
+						className="button"
+						onClick={(event) => {
+							onDelete(event, hero.id);
+						}}
+					>
+						delete
+					</button>
+				</li>
+			))}
+		</>
 	);
 }
 export default HeroList;
