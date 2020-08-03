@@ -4,6 +4,7 @@ User{
     name,
     id,
     password,
+    image,
     preference: new Preference,
     favouriteRecipe: [];
     --myRecipe: [];
