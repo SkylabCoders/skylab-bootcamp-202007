@@ -3,6 +3,8 @@ import './App.css';
 import heroService from './../services/hero.service.js';
 import PaginatedList from './PaginatedList';
 import HeroDetail from './HeroDetail';
+import HeroQuery from './HeroQuery';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 class App extends React.Component{
   constructor(props){
@@ -56,6 +58,8 @@ class App extends React.Component{
             }}
         />
       );
+    } else if (this.state.displayingComponent === 'HeroQuery'){
+        return (<HeroQuery />);
     }
   }
 
