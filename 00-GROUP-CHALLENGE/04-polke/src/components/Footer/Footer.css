@@ -1,0 +1,13 @@
+.footer__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer__item {
+	margin: 5px;
+}
