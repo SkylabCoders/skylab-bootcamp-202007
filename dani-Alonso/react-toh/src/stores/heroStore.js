@@ -38,6 +38,10 @@ dispatcher.register((action) => {
 			break;
 		default:
 			break;
+		case actionTypes.DELETE_HERO:
+			_heroes = _heroes.filter((hero) => hero.id !== action.data.id);
+			heroStore.emitChange();
+			break;
 	}
 });
 
