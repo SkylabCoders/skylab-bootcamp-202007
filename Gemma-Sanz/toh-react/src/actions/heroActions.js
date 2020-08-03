@@ -40,13 +40,13 @@ export function savedHero(hero) {
     });
 }
 
-export function deleteHero(hero) {
+export function deleteHero(id) {
     return new Promise((resolve) => {
-        resolve(hero);
-    }).then((deleteHero) => {
+        resolve();
+    }).then(() => {
         dispatcher.dispatch({
             type: actionTypes.DELETE_HERO,
-            data: { hero }
+            data: { id }
         });
     });
 }

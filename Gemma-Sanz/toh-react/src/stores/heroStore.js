@@ -1,10 +1,13 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
-import heroData from '../heroData';
 
 const CHANGE_EVENT = 'change';
 let _heroes = [];
+
+let nextId = 0;
+const generateNextId = (heroes) =>
+    heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id));
 
 class HeroStore extends EventEmitter {
     addChangeListener(callback) {
@@ -43,14 +46,14 @@ dispatcher.register((action) => {
             heroStore.emitChange();
             break;
         case actionTypes.UPDATE_HERO:
-            _heroes = heroes.map((hero) => {
+            _heroes = _heroes.map((hero) => {
                 if (hero.id === action.data.id) hero.name = action.data.name;
                 return hero;
             })
             heroStore.emitChange();
             break;
         case actionTypes.DELETE_HERO:
-            _heroes = heroes.filter((hero) => hero.id !== action.data.id);
+            _heroes = _heroes.filter((hero) => hero.id !== action.data.id);
             heroStore.emitChange();
             break;
         default:

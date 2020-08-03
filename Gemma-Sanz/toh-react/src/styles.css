@@ -17,6 +17,17 @@ nav a {
 
 }
 
+li {
+    list-style-type: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-list__item--delete {
+    margin-left: 15px;
+}
+
 a:hover {
     text-decoration: none;
 }
