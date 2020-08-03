@@ -1,0 +1,17 @@
+.father-card {
+	height: 150px;
+}
+.hinherit {
+	height: inherit;
+}
+.img-holder {
+	background-color: lemonchiffon;
+	width: 150px;
+	align-content: center;
+	text-align: center;
+}
+.hinherit img {
+	height: -webkit-fill-available;
+	border-radius: 50%;
+	object-fit: cover;
+}
