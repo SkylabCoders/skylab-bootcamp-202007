@@ -4,24 +4,34 @@
 
 `Future place for the link of the App`
 
-## Initial MockUp
+## Initial Wireframe
 
-![Imagen](https://gyazo.com/7f6d9013750fea3f216f1ffe5f75567e)
-![Imagen](https://gyazo.com/88152254c077829e32e9c04ba8ffd085)
+### Desktop layout
 
-# APP CRYPTOMONEDA
+![Imagen](https://i.gyazo.com/88152254c077829e32e9c04ba8ffd085.png)
+
+### Mobile layout
+
+![Imagen](https://i.gyazo.com/88152254c077829e32e9c04ba8ffd085.png)
+
+# APP GITDATA
 
 The main purpose of the App is to offer the posibility to the user to see Git Hub data in a visual way. The graphics will be displayed using data from Git Hub API.
 
+---
+
 ## Team
 
-- [Gerard Ramón Monte](https://github.com/gerardramonp)
+- [Gerard Ramon](https://github.com/gerardramonp)
 - [Daniel Alonso](https://github.com/Dani-Alonso)
 - [Pablo Hortelano](https://github.com/phortela1n)
+
+====
 
 ## Technologies
 
 - Javascript (React mainly)
+- Flux
 - ES6
 - API-Client
 - Jasmine
@@ -31,9 +41,9 @@ The main purpose of the App is to offer the posibility to the user to see Git Hu
 - Css3
 - Html5
 
-### API
+### GitHub API
 
-    documentacion: https://developer.github.com/v3/
+    - Documentation: https://developer.github.com/v3/
 
 ## Workflow
 
@@ -45,7 +55,7 @@ We are using this tools to develop the workflow
 
 ### - Agile methodology with Trello
 
-KANBAM board with Trello
+KANBAN board with Trello
 
 **url:** https://trello.com/b/Qsj5UEvk/spa-gitdata
 
@@ -59,14 +69,16 @@ KANBAM board with Trello
 
 - **In progress**
 
+====
+
 #### SRC TREE
 
 ```
 ├── API-Cli
-│   └── cryptoApi.js
+│   └── GitHubApi.js
 ├── actions
 │   ├── actionTypes.js
-│   └── loginActions.js
+│   └── landingActions.js
 ├── components
 │   ├── Landing
 │   │   └── Landing.js
@@ -87,6 +99,8 @@ KANBAM board with Trello
 ├── index.js
 └── registerServiceWorker.js
 ```
+
+====
 
 ## USER STORIES
 
