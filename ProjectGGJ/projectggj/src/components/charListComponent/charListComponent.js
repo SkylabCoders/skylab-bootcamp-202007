@@ -21,7 +21,7 @@ function CharListComponent() {
 
                 {chars.map((char) => (
                     <li key={char._id}>
-                        <img sameSite={'Strict'} src={char.image} alt='' width={'50'}></img>
+                        <img sameSite={'Strictf'} src={char.image} alt='' width={'50'}></img>
                         <Link to={`/details/${char.name}`}>
                             {char._id}: {char.name}
                         </Link>
