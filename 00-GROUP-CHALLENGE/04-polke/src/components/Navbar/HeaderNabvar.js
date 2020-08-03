@@ -8,7 +8,8 @@ import { NavLink } from 'react-router-dom';
 function HeaderNavbar() {
 	const imgLogo = (
 		<img
-			src={require('../../assets/img/ironcat.png')}
+			src={require('../../assets/img/logo.png')}
+			alt="logo"
 			className="navbar__logo"
 		/>
 	);
