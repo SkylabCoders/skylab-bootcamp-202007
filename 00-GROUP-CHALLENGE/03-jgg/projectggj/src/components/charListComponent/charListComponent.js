@@ -19,24 +19,24 @@ function CharListComponent() {
     return (
         <>
 
+            <div className='card-holder'>
+                {chars.map((char) => (
+                    <Link key={char._id} to={`/details/${char.name}`}>
+                        <div className="card father-card" >
+                            <div className="row no-gutters hinherit">
+                                <div className='hinherit img-holder'>
 
-            {chars.map((char) => (
-                <Link key={char._id} to={`/details/${char.name}`}>
-                    <div className="card father-card" >
-                        <div className="row no-gutters hinherit">
-                            <div className='hinherit img-holder'>
+                                    <img src={char.image} className="card-img " alt="..."></img>
+                                </div>
+                                <div className="card-body">
+                                    <h2 className="card-title">{char.name}</h2>
+                                </div>
 
-                                <img src={char.image} className="card-img " alt="..."></img>
                             </div>
-                            <div className="card-body">
-                                <h2 className="card-title">{char.name}</h2>
-                            </div>
-
                         </div>
-                    </div>
-                </Link>
+                    </Link>
 
-            ))}
+                ))}</div>
 
         </>
     );
