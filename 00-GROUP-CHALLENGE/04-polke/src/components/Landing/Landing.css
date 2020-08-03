@@ -1,0 +1,42 @@
+.body {
+	font-family: 'Segoe UI';
+}
+
+.landing__container {
+	height: 100%;
+	margin: 12px;
+	display: flex;
+	flex-direction: column;
+}
+
+.landing__container::after {
+	content: '';
+	background-image: url('../../assets/img/landing-bg.jpg');
+	height: 100%;
+	background-size: cover;
+	opacity: 0.3;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.landing__welcome {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+	border: 1.8px solid grey;
+	border-radius: 10px;
+	text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+	.landing__welcome {
+		width: 70%;
+		margin: auto;
+	}
+}
