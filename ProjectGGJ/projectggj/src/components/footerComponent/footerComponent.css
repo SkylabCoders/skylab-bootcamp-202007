@@ -1,9 +1,29 @@
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 button {
-    background-color: indigo;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+img {
+    display: none;
 }
 
 @media (min-width:640px) {
     button {
-        background-color: greenyellow;
+        display: none;
+    }
+
+    img {
+        display: inline;
+        height: 100px;
+        cursor: pointer;
     }
 }
