@@ -6,13 +6,13 @@
 
 ## Initial Wireframe
 
-### Desktop layout
-
-![Imagen](https://i.gyazo.com/88152254c077829e32e9c04ba8ffd085.png)
-
 ### Mobile layout
 
 ![Imagen](https://i.gyazo.com/88152254c077829e32e9c04ba8ffd085.png)
+
+### Desktop layout
+
+![Imagen](https://i.gyazo.com/7f6d9013750fea3f216f1ffe5f75567e.png)
 
 # APP GITDATA
 
