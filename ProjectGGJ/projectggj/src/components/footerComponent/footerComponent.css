@@ -5,27 +5,21 @@
     align-items: center;
 }
 
-button {
-    background-color: rgb(251, 141, 15);
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 1px solid black;
-}
-
 img {
-    display: none;
+    display: flex;
+    cursor: pointer;
+    padding-left: 45%;
+    width: 100px;
 }
 
 @media (min-width:640px) {
+    .mainContainer {
+        flex-direction: row-reverse;
+    }
+
     button {
         display: none;
     }
 
-    img {
-        display: inline;
-        height: 100px;
-        cursor: pointer;
-        padding-left: 45%;
-    }
+
 }
