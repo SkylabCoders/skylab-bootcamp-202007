@@ -26,11 +26,11 @@ export function saveHero(hero) {
 
 export function deleteHero(id) {
 	return new Promise((resolve) => {
-		resolve();
-	}).then(() => {
+		resolve(id);
+	}).then((responseId) => {
 		dispatcher.dispatch({
 			type: actionTypes.DELETE_HERO,
-			data: { id }
+			data: { id: responseId }
 		});
 	});
 }
