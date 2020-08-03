@@ -4,12 +4,17 @@ import heroStore from '../stores/heroStore';
 import { loadHeroes, deleteHero } from '../actions/heroActions';
 import './HeroList.css';
 
+
+
+
 function HeroList() {
-	const [heroes, setHeroes] = useState(heroStore.getHeroes());
+	const [heroes, setHeroes] = useState([]);
 
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);
-		if (heroes.length === 0) loadHeroes();
+		if (heroes.length === 0) {
+			loadHeroes()
+		};
 		return () => heroStore.removeChangeListener(onChange);
 	}, [heroes.length]);
 

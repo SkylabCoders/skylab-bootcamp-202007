@@ -35,7 +35,7 @@ class HeroStore extends EventEmitter {
 const heroStore = new HeroStore();
 dispatcher.register((action) => {
     switch (action.type) {
-        case actionTypes.LOAD_HEROES:
+        case actionTypes.LOAD_HERO:
             _heroes = action.data;
             heroStore.emitChange(_heroes);
             nextId = generateNextId(_heroes);

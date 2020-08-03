@@ -3,7 +3,7 @@ import dispatcher from "../appDispatcher";
 import actionTypes from "./actionTypes";
 
 export function loadHeroes() {
-    return new Promise((resolve) => {    //simula llamada a API
+    return new Promise((resolve) => {
         resolve(heroList);
     }).then((heroes) => {
         dispatcher.dispatch({          //dispatcher, ahi tienes una accion
@@ -26,11 +26,11 @@ export function saveHero(hero) {
 
 export function deleteHero(id) {
     return new Promise((resolve) => {
-        resolve();
-    }).then((hero) => {
+        resolve(id);
+    }).then((responseId) => {
         dispatcher.dispatch({
             type: actionTypes.DELETE_HERO,
-            data: { id },
+            data: { id: responseId },
         });
     });
 }
