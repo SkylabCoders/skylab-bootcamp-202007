@@ -17,6 +17,7 @@ function HeroList() {
     ));
 
     useEffect(() => {
+        debugger;
         heroStore.addChangeListener(onChange);
         if(heroes.length === 0) loadHeroes() ;
         return () => heroStore.removeChangeListener(onChange);
