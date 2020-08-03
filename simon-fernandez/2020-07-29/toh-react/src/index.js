@@ -1,27 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import GetDate from './Date';
-
-import Hello from './Hello';
-import Sum from './sum';
-import Clicker from './Clicker';
+import './bootstrap.min.css';
+import './index.css';
 import * as serviceWorker from './serviceWorker';
-import MyButton from './myButton';
-import ConditionalDisplay from './conditionalDisplay';
 
-const myAtributes = {
-	a: 4,
-	b: 2
-};
-const myLastName = ['A', 'B', 'C'];
 ReactDOM.render(
 	<React.StrictMode>
-		<ConditionalDisplay isVisible={true}>
-			<h1>hello</h1>
-			<p>world!</p>
-		</ConditionalDisplay>
+		<App />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
