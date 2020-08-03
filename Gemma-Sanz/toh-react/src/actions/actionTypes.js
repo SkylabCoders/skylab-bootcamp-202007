@@ -1,0 +1,6 @@
+export default {
+    LOAD_HERO: 'LOAD HERO',
+    CREATE_HERO: 'CREATE HERO',
+    UPDATE_HERO: 'UPDATE HERO',
+    DELETE_HERO: 'DELETE HERO'
+};
