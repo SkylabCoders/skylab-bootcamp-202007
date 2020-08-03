@@ -1,7 +1,12 @@
 import React from 'react';
+import './bannerComponent.css';
 
 function BannerComponent(props) {
-    return <p>BannerComponent works!</p>
+    return (
+        <div className="bannerContainer">
+            <p>{"Title"}</p>
+        </div>
+    )
 }
 
 export default BannerComponent;

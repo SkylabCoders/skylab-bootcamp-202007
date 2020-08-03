@@ -1,0 +1,23 @@
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img {
+    cursor: pointer;
+    width: 100px;
+}
+
+@media (min-width:640px) {
+    .mainContainer {
+        flex-direction: row-reverse;
+    }
+
+    img {
+        align-items: center;
+    }
+
+
+}
