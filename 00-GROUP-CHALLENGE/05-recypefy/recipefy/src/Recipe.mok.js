@@ -51,3 +51,7 @@ function Preference (balanced,highProtein,lowFat,lowCarb,vegan,vegetarian,sugarC
     alcoholFree= alcoholFree;
 }
 
+let receteList = [potato, spagueti, letuce, apple, meat];
+
+export default receteList;
+
