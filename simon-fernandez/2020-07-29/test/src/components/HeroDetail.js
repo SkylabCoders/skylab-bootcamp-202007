@@ -36,9 +36,13 @@ function HeroDetail(props) {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		saveHero({ name: heroName, id: heroId }).then(() =>
-			props.history.push('/heroes')
-		);
+		if (heroName) {
+			saveHero({ name: heroName, id: heroId }).then(() =>
+				props.history.push('/heroes')
+			);
+		} else {
+			alert('Please introduce a valid name');
+		}
 	}
 
 	return (

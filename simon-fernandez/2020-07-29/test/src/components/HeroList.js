@@ -30,7 +30,9 @@ function HeroList() {
 						{hero.id}: {hero.name}
 					</Link>
 					<div className="hero-list__item--delete">
-						<button onClick={(event) => onDelete(event, hero.id)}>X</button>
+						<button onClick={(event) => onDelete(event, hero.id)}>
+							Delete
+						</button>
 					</div>
 				</li>
 			))}
