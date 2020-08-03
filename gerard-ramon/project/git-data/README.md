@@ -26,7 +26,7 @@ The main purpose of the App is to offer the posibility to the user to see Git Hu
 - [Daniel Alonso](https://github.com/Dani-Alonso)
 - [Pablo Hortelano](https://github.com/phortela1n)
 
-====
+---
 
 ## Technologies
 
@@ -69,7 +69,7 @@ KANBAN board with Trello
 
 - **In progress**
 
-====
+---
 
 #### SRC TREE
 
@@ -102,10 +102,6 @@ KANBAN board with Trello
 
 ---
 
-## USER STORY MAP
-
-https://trello.com/b/nvS0fEFD/user-stories-map
-
 ## USER STORIES
 
 ## **1. Login component**
@@ -124,7 +120,7 @@ Given a wrong user or password, and a `checkLogin` function
 When user tries to log in
 Then it should throw an Error
 
-====
+---
 
 ## **2. UserDetail component**
 
@@ -168,7 +164,7 @@ Given a GitHub user and a `createGitHubRepo` function
 When user clicks create repo Button
 Then It should create a GitHub repository in his account
 
-====
+---
 
 ## **3. RepoDetail component**
 
@@ -186,7 +182,7 @@ Given a `loadRepo` function
 When user is **NOT** a contribuitor
 Then it should show statistics from all contribuitors and ranking
 
-====
+---
 
 ## **4. Header component**
 
@@ -225,7 +221,7 @@ Given a `switchTheme` function
 When user clicks in the switch
 Then it should switch between theme modes.
 
-====
+---
 
 ## **5. Error404 component**
 
