@@ -1,11 +1,3 @@
-.hero__id {
-	background-color: #607d8b;
-	color: white;
-	padding: 5px;
-	border-top-left-radius: 3px;
-	border-bottom-left-radius: 3px;
-}
-
 .hero__name {
 	background-color: #eeeeee;
 	color: #b2b2b2;
@@ -19,4 +11,14 @@
 	text-decoration: none;
 	display: flex;
 	margin-bottom: 12px;
+	height: 24px
+}
+
+.hero-list__item--delete {
+	display: none;
+	margin-left: 12px;
+}
+
+.list:hover .hero-list__item--delete {
+	display: inline-block;
 }
