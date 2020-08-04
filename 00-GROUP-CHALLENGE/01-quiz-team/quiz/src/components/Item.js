@@ -1,20 +1,18 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import './Item.css'
+import './../css/styles.css'
+import './../css/Item.css'
 
-function Item(props){
-    return(
+function Item(props) {
+    return (
         <>
-            <div className="item__container">
-                <h2>Sports</h2>
-                
-                <NavLink activeClassName="my-active-class" to="/" >
-                    <img src="" alt="item theme"></img>
-                    ?
-                </NavLink>
-            </div>
+            <NavLink activeClassName="my-active-class" to="/" >
+                <div className="item__container">
+                    <img className="img__item" src={props.themeImgurl} alt="item theme"></img>
+                    <h2 className="title">{props.themeTitle}</h2>
+                </div>
+            </NavLink>
         </>
-
     )
 }
 

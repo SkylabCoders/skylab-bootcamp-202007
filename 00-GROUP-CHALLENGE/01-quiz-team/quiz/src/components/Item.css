@@ -11,10 +11,14 @@
     border-radius: 5px;
 }
 
-@media screen and(min-width: 680px) and (max-width: 1024px){
-   
+@media (min-width: 680px) and (max-width: 1024px){
+    .item__container{
+        width: 27vw;
+    }
 }
 
-@media screen and(min-width: 1024px){
-    
+@media (min-width: 1024px){
+    .item__container{
+        width: 17vw;
+    }
 }
