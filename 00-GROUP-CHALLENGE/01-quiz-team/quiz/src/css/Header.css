@@ -38,9 +38,18 @@ nav{
     width: 25%;
 }
 
-button{
+.login__button{
+    width: 100px;
+    height: 50px;
     margin: 0 5px;
-}
+    background-color: lightseagreen;
+    box-sizing: border-box;
+    padding: 5px;
+    color: white;
+    border-radius: .2em;
+    border-style: none;
+} 
+
 
 @media (min-width: 680px) and (max-width: 1024px) {
 	.logo__header{ 
