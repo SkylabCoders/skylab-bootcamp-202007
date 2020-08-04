@@ -274,12 +274,18 @@
 	width: inherit;
 }
 .details-desc-content {
+	margin: auto;
 	display: flex;
 	flex-direction: column;
 	text-align-last: justify;
+	width: 70%;
 }
 @media only screen and (min-width: 577px) {
 	.card.hovercard {
 		width: 60%;
+	}
+	.details-desc-content {
+		width: unset;
+		width: unset;
 	}
 }
