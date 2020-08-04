@@ -129,12 +129,6 @@ function Preference(
 
 let receteListMoked = [potato, spagueti, letuce, apple, meat];
 
-<<<<<<< HEAD
-export default receteList;
-<<<<<<< HEAD
 
-=======
->>>>>>> 8899e8b7aa0d3c4aa26553850eff9a879d8c2dce
-=======
 export default receteListMoked;
->>>>>>> b16a3af334c6daac766a15f5cf0ad8509654eece
+
