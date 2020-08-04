@@ -1,12 +1,12 @@
 export const lightColors = {
-	box: '#f8f9fa',
-	headerForm: '#f8f9fa'
+	boxColor: '#f8f9fa',
+	headerFormColor: '#f8f9fa'
 };
 
 export const darkColors = {
-	navbar_footer: '#24292e',
-	box: '#f8f9fa9f',
-	footerFont: '#f8f9fa',
-	headerForm: '#212529',
-	backgroundForm: '#bec0c5'
+	navbar_footerColor: '#24292e',
+	boxColor: '#f8f9fa9f',
+	footerFontColor: '#f8f9fa',
+	headerFormColor: '#212529',
+	backgroundFormColor: '#bec0c5'
 };

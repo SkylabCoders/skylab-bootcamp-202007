@@ -2,15 +2,6 @@ import React from 'react';
 import './Switch.css';
 import { loadDarkColors } from '../../../actions/navbarActions';
 
-let switchElem = document.getElementsByClassName('custom-control-input');
-console.log(switchElem);
-
-function changeSwitch(event) {
-	switchElem = document.getElementsByClassName('custom-control-input');
-
-	console.log(switchElem.customSwitches.checked);
-}
-
 function Switch() {
 	function handleChange() {}
 
@@ -22,11 +13,7 @@ function Switch() {
 					type="checkbox"
 					className="custom-control-input"
 					id="customSwitches"
-<<<<<<< HEAD
-					onChange={handleChange}
-=======
 					onChange={changeSwitch}
->>>>>>> 0cea66606f51a2319c272e2f69ec7ceacac5dfed
 					readOnly
 				/>
 				<label

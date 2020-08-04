@@ -1,6 +1,7 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
 import { EventEmitter } from 'events';
+import { Switch } from '../components/Navbar/Switch/Switch';
 
 const CHANGE_EVENT = 'change';
 
@@ -17,9 +18,20 @@ class NavbarStore extends EventEmitter {
 		this.emit(CHANGE_EVENT);
 	}
 
-	switchToDarkTheme(colors) {
-		//logica
-		console.log();
+	switchToDarkTheme() {
+		const switchElem = document.getElementsByClassName('custom-control-input');
+
+		const switchChecked = switchElem.customSwitches.checked;
+		if (switchChecked === true) {
+			document.documentElement.style.setProperty(
+				'--font-color-footer',
+				'#212529'
+			);
+			document.documentElement.style.setProperty(
+				'--form-color-background',
+				'#212529'
+			);
+		}
 	}
 }
 
@@ -30,7 +42,7 @@ dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_DARK_COLORS:
 			navbarStore.switchToDarkTheme(actions.data);
-			navbarStore.emit(); //notifica al compoente interesado de los cambios
+			navbarStore.emitChange(); //notifica al compoente interesado de los cambios
 			break;
 	}
 });
