@@ -21,7 +21,7 @@ function HeaderNavbar() {
 				</Navbar.Brand>
 				<div className="spacer"></div>
 				<div className="navBar--flex">
-					<div className="switch">
+					{/* <div className="switch">
 						<img src={require('../../assets/img/sun.png')} alt="sun" />
 						<div className="custom-control custom-switch">
 							<input
@@ -36,7 +36,7 @@ function HeaderNavbar() {
 							></label>
 						</div>
 						<img src={require('../../assets/img/moon.png')} alt="moon" />
-					</div>
+					</div> */}
 					<Navbar.Toggle aria-controls="basic-navbar-nav" bg="light" />
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Form inline>
