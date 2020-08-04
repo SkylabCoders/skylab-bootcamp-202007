@@ -5,7 +5,8 @@
     align-items: center;
 }
 
-h2{
+.section__title{
+    color: white;
     text-align: center;
 }
 

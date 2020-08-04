@@ -36,7 +36,7 @@ function Dashboard(){
                     <Welcome />
                 </div>
                 <div className="dashboard__themes">
-                    <h2>THEMES</h2>
+                    <h2 className="section__title">THEMES</h2>
                     <ul className="themes__grid">
                     {themesList.map((theme)=>(
                         <li key={theme.title}>
@@ -46,7 +46,7 @@ function Dashboard(){
                     </ul>
                 </div>
                 <div className="dashboard__topThemes">
-                    <h2>TOP THEMES</h2>
+                    <h2 className="section__title">TOP THEMES</h2>
                     <ul className="topThemes__grid">
                     {topThemesList.map((topTheme)=>(
                         <li key={topTheme.title}>
