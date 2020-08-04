@@ -6,6 +6,9 @@
 .navbar__logo {
 	height: 60px;
 }
+.navbar--logoText {
+	display: flex;
+}
 .navBar--flex {
 	display: flex;
 	flex-direction: column;
@@ -19,6 +22,10 @@
 .form-inline {
 	display: flex;
 	flex-wrap: nowrap;
+	margin-top: 4px;
+}
+.searchbar--button {
+	width: 23%;
 }
 .switch {
 	display: flex;

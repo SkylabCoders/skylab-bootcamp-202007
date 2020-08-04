@@ -21,9 +21,12 @@ function HeaderNavbar() {
 				variant="dark"
 				className="navbar--flexNoWrap"
 			>
-				<Navbar.Brand>
-					<NavLink to="/">{imgLogo}</NavLink>
-				</Navbar.Brand>
+				<div className="navbar--logoText">
+					<Navbar.Brand>
+						<NavLink to="/">{imgLogo}</NavLink>
+					</Navbar.Brand>
+					<h1 className="navbar--text">GitData</h1>
+				</div>
 				<div className="spacer"></div>
 				<div className="navBar--flex">
 					{/* <div className="switch">
@@ -54,7 +57,9 @@ function HeaderNavbar() {
 								placeholder="Search"
 								className="mr-sm-2 navBar--input"
 							/>
-							<Button variant="outline-info">Go</Button>
+							<Button variant="outline-info" className="searchbar--button">
+								Go
+							</Button>
 						</Form>
 					</Navbar.Collapse>
 				</div>
