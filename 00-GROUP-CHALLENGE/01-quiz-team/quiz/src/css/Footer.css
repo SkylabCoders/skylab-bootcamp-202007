@@ -6,5 +6,10 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+<<<<<<< HEAD
+    padding: 20px;
+    height: 150px;
+=======
     padding: 1.5rem 0;
+>>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
 }
