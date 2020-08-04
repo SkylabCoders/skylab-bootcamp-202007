@@ -1,10 +1,10 @@
-import { EventEmittter } from 'events';
+import { EventEmitter } from 'events';
 import dispatcher from '../Dispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 let _recipes = [];
-class RecipeStore extends EventEmittter {
+class RecipeStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
 	}
@@ -18,7 +18,21 @@ class RecipeStore extends EventEmittter {
 		return _recipes;
 	}
 	getRecipeById(id) {
-		return _recipes.find((recipe) => recipe.id === id);
+		const actualRecipe = _recipes.find((recipe) => recipe.id === id);
+		return actualRecipe;
+	}
+	getTopFiveRecipes() {
+		let topFive = _recipes.sort(function (recipe1, recipe2) {
+			let result = 0;
+			if (recipe1.puntuation > recipe2.puntuation) {
+				result = -1;
+			} else if (recipe1.puntuation < recipe2.puntuation) {
+				result = 1;
+			}
+			return result;
+		});
+		topFive = topFive.slice(0, 5);
+		return topFive;
 	}
 }
 

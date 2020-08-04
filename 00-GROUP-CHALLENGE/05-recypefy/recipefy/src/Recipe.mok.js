@@ -4,6 +4,7 @@ const potato = {
 	title: 'potato',
 	id: 1,
 	description: 'bla bla bla',
+	puntuation: 5,
 	prefences: new Preference(
 		false,
 		true,
@@ -24,6 +25,7 @@ const spagueti = {
 	title: 'spagueti',
 	id: 2,
 	description: 'bla bla bla',
+	puntuation: 3,
 	prefences: new Preference(
 		false,
 		true,
@@ -44,6 +46,7 @@ const letuce = {
 	title: 'letuce',
 	id: 3,
 	description: 'bla bla bla',
+	puntuation: 4,
 	prefences: new Preference(
 		false,
 		true,
@@ -64,6 +67,7 @@ const apple = {
 	title: 'apple',
 	id: 4,
 	description: 'bla bla bla',
+	puntuation: 0,
 	prefences: new Preference(
 		false,
 		true,
@@ -84,6 +88,7 @@ const meat = {
 	title: 'meat',
 	id: 5,
 	description: 'bla bla bla',
+	puntuation: 2,
 	prefences: new Preference(
 		false,
 		true,
@@ -122,10 +127,14 @@ function Preference(
 	alcoholFree = alcoholFree;
 }
 
-let receteList = [potato, spagueti, letuce, apple, meat];
+let receteListMoked = [potato, spagueti, letuce, apple, meat];
 
+<<<<<<< HEAD
 export default receteList;
 <<<<<<< HEAD
 
 =======
 >>>>>>> 8899e8b7aa0d3c4aa26553850eff9a879d8c2dce
+=======
+export default receteListMoked;
+>>>>>>> b16a3af334c6daac766a15f5cf0ad8509654eece

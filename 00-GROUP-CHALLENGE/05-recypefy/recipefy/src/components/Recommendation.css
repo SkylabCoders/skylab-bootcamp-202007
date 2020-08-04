@@ -1,0 +1,118 @@
+.box__recommendation {
+	padding: 5px;
+	margin-top: 40px;
+	height: 40vh;
+	width: 100%;
+	margin-right: 3%;
+}
+
+.box__title {
+	margin-top: 20px;
+	margin-left: 20px;
+	color: rgb(106, 106, 185);
+}
+.direction-markers {
+	display: flex;
+	align-items: center;
+}
+.direction-markers__left {
+	position: absolute;
+	left: 50px;
+	width: 50px;
+	height: 70px;
+}
+.direction-markers__right {
+	position: absolute;
+	right: 50px;
+	width: 50px;
+	height: 70px;
+}
+.recipe {
+	width: 100%;
+	height: 35vh;
+	background-color: #efee9d;
+	display: flex;
+	flex-direction: column;
+}
+.recipe__text {
+	width: 50%;
+	min-width: 250px;
+	max-height: 35vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.recipe__text--title {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	max-width: 40 vw;
+	color: black;
+	margin-left: 20px;
+	font-size: 17px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.recipe__text--preferences {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.preferences__icon {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+.link {
+	width: 96vw;
+	max-width: 300px;
+	margin-top: 5px;
+}
+.recipe__image {
+	overflow: hidden;
+	border-radius: 8%;
+	width: 100%;
+	height: auto;
+	margin-right: 5px;
+}
+.preference__peanut-free {
+	filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg)
+		brightness(99%) contrast(94%);
+}
+.preference__tree-nut-free {
+	filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg)
+		brightness(95%) contrast(66%);
+}
+.preference__alcohol-free {
+	filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg)
+		brightness(81%) contrast(92%);
+}
+@media screen and (min-width: 600px) {
+	.recipe {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.link {
+		width: 42vw;
+		min-width: 42vw;
+		margin-right: 5px;
+	}
+}
+@media screen and (min-width: 1024px) {
+	.box__recommendation {
+		width: 75%;
+		margin-left: 22%;
+	}
+	.recipe__text--title {
+		margin-top: 50px;
+	}
+	.link {
+		width: 25vw;
+		min-width: 27vw;
+		margin-right: 5px;
+	}
+	.recipe__image {
+		margin-right: 5px;
+	}
+}
