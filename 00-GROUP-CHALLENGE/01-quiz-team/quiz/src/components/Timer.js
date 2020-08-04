@@ -5,23 +5,11 @@ function Timer(props) {
     let [countDown, setCountDown] = useState(30);
 
     useEffect(() => {
-		heroStore.addChangeListener(onChange);
-        if (countDown === 30) {
-            loadTimer();
-		} 
-		return () => heroStore.removeChangeListener(onChange);
-	}, []);
-    
-
-    function callTimer(){
-    const timer =  setTimeout(()=>{
-            countDown--;
-            setCountDown(countDown);
-            console.log(countDown);
+        const timer =  setTimeout(()=>{
+            setCountDown(countDown-1);
         },1000);
-    }
-
-    callTimer();
+		return () => clearTimeout(timer);
+	}, []);  
 
     return (
         <>
