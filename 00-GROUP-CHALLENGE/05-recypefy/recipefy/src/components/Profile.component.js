@@ -60,12 +60,14 @@ function ProfileComponent(props) {
 							Alcohol free
 						</li>
 					</ul>
-					<h3>Your Favourites</h3>
-					<ul>
-						{actualFavourites.map((recipe) => (
-							<ListItemRecipe id={recipe.id} />
-						))}
-					</ul>
+					<div>
+						<h3>Your Favourites</h3>
+						<ul>
+							{actualFavourites.map((recipe) => (
+								<ListItemRecipe id={recipe.id} />
+							))}
+						</ul>
+					</div>
 				</div>
 			</div>
 			<div className="main__profile-component--display-small">

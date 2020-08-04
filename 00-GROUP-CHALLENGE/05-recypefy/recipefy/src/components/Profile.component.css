@@ -7,16 +7,23 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-top: 50px
 }
 
-.main__profile-component--display-small ul {
+.main__profile-component ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: auto;
 }
 
 
 @media only screen and (min-width: 1024px) {
+    .main__profile-component--display-small {
+        display: none
+    }
+
     .main__profile-component--display-large {
         display: flex;
         flex-direction: column;
@@ -27,10 +34,16 @@
 
     }
 
-    ul {
+    .main__profile-component--display-large ul {
+        width: auto;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
         list-style: none;
+    }
+
+    .main__profile-component--display-large ul a {
+        margin: auto;
     }
 
     .profile-img {

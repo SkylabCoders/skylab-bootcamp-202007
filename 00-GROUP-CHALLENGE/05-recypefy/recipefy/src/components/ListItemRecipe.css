@@ -7,4 +7,5 @@ img {
 .recipe-list__item {
     display: flex;
     flex-direction: column;
+    margin: 5px
 }

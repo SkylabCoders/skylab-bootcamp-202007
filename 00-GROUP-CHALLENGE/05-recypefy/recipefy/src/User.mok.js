@@ -34,6 +34,44 @@ let userMoked = {
 				false,
 				false
 			)
+		},
+		{
+			photo:
+				'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg',
+			title: 'potato',
+			id: 4,
+			description: 'bla bla bla',
+			prefences: new Preference(
+				false,
+				true,
+				true,
+				false,
+				false,
+				true,
+				false,
+				true,
+				false,
+				false
+			)
+		},
+		{
+			photo:
+				'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg',
+			title: 'meat',
+			id: 5,
+			description: 'bla bla bla',
+			prefences: new Preference(
+				false,
+				true,
+				true,
+				false,
+				false,
+				true,
+				false,
+				true,
+				false,
+				false
+			)
 		}
 	]
 };
