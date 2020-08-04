@@ -5,9 +5,12 @@
     height: 200px;
     box-sizing: border-box;
     margin: 0.5rem;
+<<<<<<< HEAD
     border-radius: 5px;
     box-shadow: 5px 5px 0 0 lightslategray;
     border: solid 0.5px lightslategray;
+=======
+>>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
 }
 
 img{
@@ -17,6 +20,7 @@ img{
     vertical-align: middle;
     border-style: none;
     z-index: 0;
+<<<<<<< HEAD
 }
 
 h2{
@@ -26,6 +30,27 @@ h2{
     color: black;
 }
 
+=======
+    border-radius: .6rem;
+}
+
+.img__title{
+    position: relative;
+    font-size: 1.2rem;
+    top: -5rem;
+    text-align: center;
+    color: white;
+    background: #ffffff55;
+}
+
+.img__title:hover{
+    text-decoration: underline;
+    color: yellow;
+    background: #ffffff22;
+}
+
+
+>>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
 
 
 @media (min-width: 680px) and (max-width: 1024px){

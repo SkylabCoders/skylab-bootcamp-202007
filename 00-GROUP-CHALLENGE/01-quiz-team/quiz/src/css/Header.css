@@ -17,12 +17,26 @@
     align-items: center;
 }
 nav{
+<<<<<<< HEAD
     margin: 0 20px;
     width: 100%;
 }
 
 .my-active-class{
     margin-left: 50px
+=======
+    margin: 0 1rem;
+    width: 100%;
+}
+
+.nav__item{
+    margin: 0 .75rem;
+    color: black;
+}
+
+.nav__item:hover{
+    color: white;
+>>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
 }
 
 .logo__header{
