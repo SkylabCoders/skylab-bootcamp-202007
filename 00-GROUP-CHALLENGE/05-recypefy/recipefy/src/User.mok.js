@@ -61,5 +61,5 @@ function Preference(
 	treeNutFree = treeNutFree;
 	alcoholFree = alcoholFree;
 }
-userListMoked = [userMoked];
+const userListMoked = [userMoked];
 export default userListMoked;

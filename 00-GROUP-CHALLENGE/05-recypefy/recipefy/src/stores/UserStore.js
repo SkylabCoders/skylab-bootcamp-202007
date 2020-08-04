@@ -3,7 +3,7 @@ import dispatcher from '../Dispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
-let _users = {};
+let _users = [];
 class UserStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
@@ -18,7 +18,19 @@ class UserStore extends EventEmitter {
 		return _users;
 	}
 	getUserById(id) {
-		return _users.find((user) => user.id === id);
+		const actualUser = _users.find((user) => user.id === id);
+		console.log(actualUser);
+		return actualUser;
+	}
+	getUserFavouriteList(user) {
+		let favouriteList = [];
+		const favouritesNull = "You don't have any favourite!";
+		if (user.favouriteRecipe.length === 0) {
+			return favouritesNull;
+		} else {
+			favouriteList = user.favouriteRecipe.slice(0, 5);
+			return favouriteList;
+		}
 	}
 }
 

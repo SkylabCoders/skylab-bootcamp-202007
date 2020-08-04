@@ -3,34 +3,32 @@ import ListItemRecipe from './ListItemRecipe';
 import { loadUser } from '../actions/UserAction';
 import userStore from '../stores/UserStore';
 
-function ProfileComponent() {
-	const [user, setUser] = useState(null);
+function ProfileComponent(props) {
+	const [userList, setUserList] = useState(userStore.getUsers());
 	const [actualFavourites, setActualFavourites] = useState([]);
 	const [userPhoto, setUserPhoto] = useState(null);
 
 	useEffect(() => {
 		debugger;
 		userStore.addChangeListener(onChange);
-		if (user === null) {
+		const userId = 1;
+		if (userList.length === 0) {
 			loadUser();
+		} else {
+			const user = userStore.getUserById(userId);
+			console.log(user);
+			if (user) {
+				setActualFavourites(userStore.getUserFavouriteList(user));
+				setUserPhoto(user.photo);
+			}
 		}
 		return () => userStore.removeChangeListener;
-	}, []);
+	}, [userList.length]);
+
 	function onChange() {
-		setUser(userStore.getUserById(1));
-		if (user != null) setActualFavourites(userFavourites(user));
+		setUserList(userStore.getUsers());
 	}
 
-	function userFavourites(user) {
-		const favouriteList = [];
-		const favouritesNull = "You don't have any favourite!";
-		if (user.favouriteRecipe.length === 0) {
-			return favouritesNull;
-		} else {
-			favouriteList = user.favouriteRecipe.slice(0, 5);
-			return favouriteList;
-		}
-	}
 	return (
 		<section className="">
 			<h2>Your information</h2>
