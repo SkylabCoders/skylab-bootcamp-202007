@@ -2,13 +2,14 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
 
+
 function Header() {
 	return (
 		<>
 			<nav className="nav__menu">
 				<div className="nav__mobile">
-					<ul>
-						<li className="icon__burguer">Burguer</li>
+					<div className="burger__container">
+						<div className="icon__burguer"><img src="https://image.flaticon.com/icons/svg/2099/2099153.svg"/></div>
 						<ul className="desplegable__button">
 							<li>
 								<NavLink to="/recomended" className="link hamburguer__link">
@@ -28,7 +29,7 @@ function Header() {
 								</NavLink>
 							</li>
 						</ul>
-					</ul>
+					</div>
 					<img
 						className="nav__brand__logo"
 						src="https://image.flaticon.com/icons/svg/3014/3014548.svg"

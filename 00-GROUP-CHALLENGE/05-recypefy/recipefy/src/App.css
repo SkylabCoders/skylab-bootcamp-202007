@@ -4,8 +4,17 @@
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+<<<<<<< HEAD
+body{
+  background-color: #d1eaa3;
+}
+
+a{
+  text-decoration: none;
+=======
 body {
 	background-color: #efee9d;
+>>>>>>> b16a3af334c6daac766a15f5cf0ad8509654eece
 }
 
 h2 {
