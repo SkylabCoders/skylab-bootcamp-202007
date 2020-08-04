@@ -30,7 +30,7 @@ function ProfileComponent(props) {
 	}
 
 	return (
-		<section className="main__profile-component">
+		<section className="main__profile-component body__box">
 			<div className="main__profile-component--display-large">
 				<h2>Your information</h2>
 				<img alt="your avatar" src={userPhoto} className="profile-img"></img>
@@ -68,7 +68,7 @@ function ProfileComponent(props) {
 					</ul>
 				</div>
 			</div>
-			<div className="main__profile-component--display-small body__box">
+			<div className="main__profile-component--display-small">
 				<h2>Your Favourites</h2>
 				<ul>
 					{actualFavourites.map((recipe) => (
