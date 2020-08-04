@@ -6,8 +6,8 @@ import TopFiveComponent from './TopFive.component';
 function Main() {
 	return (
 		<>
-			<Recommendation />
 			<ProfileComponent />
+			<Recommendation />
 			<TopFiveComponent />
 		</>
 	);
