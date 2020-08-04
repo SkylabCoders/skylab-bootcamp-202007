@@ -10,13 +10,6 @@
 * {
 	font-family: 'Segoe UI';
 	font-size: 18px;
-}
-
-.landing__box--color {
-	background-color: var(--bg-color-box);
-}
-
-.footer__container--color {
-	background-color: var(--bg-color-navbar);
-	color: var(--font-color-footer);
+	margin: 0;
+	padding: 0;
 }
