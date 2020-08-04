@@ -2,8 +2,11 @@
 ** FORM INSIDE CONTAINER
 */
 .pop-up-modal {
+	width: 100%;
 	position: absolute;
 	background-color: var(--bg-color-navbar) !important;
+	border-radius: 0;
+	padding-bottom: 10px;
 }
 
 .pop-up-modal__pop-up-form {
@@ -15,8 +18,10 @@
 	padding-bottom: 10px;
 	text-align: center;
 }
-.pop-up-modal__pop-up-form__password-button {
-	width: 100% !important;
+
+.modal-dialog {
+	margin: 0;
+	width: 100%;
 }
 /*
 ** FORM ELEMENTS
@@ -26,10 +31,36 @@
 ** MEDIA QUERIES
 */
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+	.modal-dialog,
+	.model-content {
+		margin: 0;
+		max-width: 100%;
+	}
+	.pop-up-modal {
+		width: 100%;
+	}
+	.pop-up-modal:before {
+		content: '';
+		position: absolute;
+		height: 0px;
+		width: 0px;
+		top: 50%;
+		border-width: 15px;
+		border-color: transparent white transparent transparent;
+		border-style: solid;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
+	.modal-dialog,
+	.model-content {
+		margin: 0;
+		max-width: 38%;
+	}
+	.pop-up-modal {
+		left: 55%;
+	}
 	.pop-up-modal__pop-up-form {
 		width: 100%;
 		display: flex;

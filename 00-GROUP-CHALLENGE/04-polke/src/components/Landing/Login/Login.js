@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, FormGroup, Button } from 'react-bootstrap';
 import '../../../shared/generalStyles.css';
-import './Login-styles.css';
+import './Login.css';
 
 function Login() {
 	return (
@@ -30,6 +30,8 @@ function Login() {
 				<FormControl
 					className="Login__form__input"
 					type="password"
+					npm
+					start
 					placeholder="&#128272;"
 				/>
 
