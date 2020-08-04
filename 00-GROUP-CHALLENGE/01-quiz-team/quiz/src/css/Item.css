@@ -5,12 +5,6 @@
     height: 200px;
     box-sizing: border-box;
     margin: 0.5rem;
-<<<<<<< HEAD
-    border-radius: 5px;
-    box-shadow: 5px 5px 0 0 lightslategray;
-    border: solid 0.5px lightslategray;
-=======
->>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
 }
 
 img{
@@ -20,17 +14,6 @@ img{
     vertical-align: middle;
     border-style: none;
     z-index: 0;
-<<<<<<< HEAD
-}
-
-h2{
-    position: relative;
-    top: -60%;
-    text-align: center;
-    color: black;
-}
-
-=======
     border-radius: .6rem;
 }
 
@@ -50,7 +33,6 @@ h2{
 }
 
 
->>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
 
 
 @media (min-width: 680px) and (max-width: 1024px){

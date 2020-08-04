@@ -3,16 +3,12 @@ import Welcome from './Welcome';
 import Item from './Item';
 import './../css/Dashboard.css';
 import gameStore from './../stores/gameStore';
-import {loadThemes, loadTopThemes} from './../actions/gameActions';
+import {loadThemes, loadTopThemes, loadSessionSet} from './../actions/gameActions';
 
-const url = "https://images.pexels.com/photos/9606/people-woman-sport-muscles.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-const mockTheme = {
-    imgurl: url,
-    title: 'Sports'
-}
 function Dashboard(){
     const [themesList, setThemesList] = useState([]);
     const [topThemesList, setTopThemesList] = useState([]);
+    const [sessionSet, setSessionSet] = useState([]);
 
     useEffect(()=>{
         gameStore.addChangeListener(onChangeThemes);
@@ -25,6 +21,12 @@ function Dashboard(){
         if(topThemesList.length === 0){loadTopThemes()};
         return ()=>{gameStore.removeChangeListener(onChangeTopThemes);}
     }, []);
+
+    useEffect(()=>{
+        gameStore.addChangeListener(onChangeSessionSet);
+        if(sessionSet.length === 0){loadSessionSet()};
+        return ()=>{gameStore.removeChangeListener(onChangeSessionSet);}
+    }, [sessionSet]);
     
     function onChangeThemes(){
         setThemesList(gameStore.getThemes());
@@ -34,16 +36,16 @@ function Dashboard(){
         setTopThemesList(gameStore.getTopThemes());
     }
 
+    function onChangeSessionSet(){
+        setSessionSet(gameStore.getSessionSet());
+    }
+
+    if(sessionSet.length !== 0){console.log('component has received this data from API', sessionSet)};
+    //loadSessionSet();
+
     return (
         <>
             <div className="dashboard__container">
-<<<<<<< HEAD
-                <Welcome />
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl} />
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
-=======
                 <div className="dashboard__welcome">
                     <Welcome />
                 </div>
@@ -67,7 +69,20 @@ function Dashboard(){
                     ))}
                     </ul>
                 </div>
->>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
+                <div className="test__guarro">
+                    <h2 className="test__guarro__titulo">COSAS CHUNGAS</h2>
+                    <ul className="test__guarro__item">
+                    {sessionSet.map((question)=>(
+                        <li key={question.question}>
+                            <p>{question.question}</p>
+                            <p>A-{question.incorrect_answers[0]}</p>
+                            <p>B-{question.incorrect_answers[1]}</p>
+                            <p>C-{question.incorrect_answers[2]}</p>
+                            <p>D-{question.correct_answer}</p>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
             </div>
         </>
     )
