@@ -1,0 +1,22 @@
+.question__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    background-color: #d3de32;
+    box-sizing: border-box;
+
+}
+
+.question__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.question__item > p{
+    text-decoration: none;
+}

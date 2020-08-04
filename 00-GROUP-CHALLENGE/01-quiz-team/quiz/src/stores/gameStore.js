@@ -40,9 +40,11 @@ dispatcher.register((action) => {
         case actionTypes.GET_THEMES:
             _themes_list = action.data;
             gameStore.emitChange(_themes_list);
+            break;
         case actionTypes.GET_TOP_THEMES:
             _top_themes_list = action.data;
             gameStore.emitChange(_top_themes_list);
+            break;
         default:
             break;
     }    
