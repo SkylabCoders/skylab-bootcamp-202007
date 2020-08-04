@@ -5,11 +5,6 @@ import './../css/Dashboard.css';
 import gameStore from './../stores/gameStore';
 import {loadThemes, loadTopThemes} from './../actions/gameActions';
 
-const url = "https://images.pexels.com/photos/9606/people-woman-sport-muscles.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-const mockTheme = {
-    imgurl: url,
-    title: 'Sports'
-}
 function Dashboard(){
     const [themesList, setThemesList] = useState([]);
     const [topThemesList, setTopThemesList] = useState([]);
@@ -37,13 +32,6 @@ function Dashboard(){
     return (
         <>
             <div className="dashboard__container">
-<<<<<<< HEAD
-                <Welcome />
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl} />
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
-                <Item themeTitle={mockTheme.title} themeImgurl={mockTheme.imgurl}/>
-=======
                 <div className="dashboard__welcome">
                     <Welcome />
                 </div>
@@ -67,7 +55,6 @@ function Dashboard(){
                     ))}
                     </ul>
                 </div>
->>>>>>> a8868aadee8bf3af7fa026975d4a31806774c6fd
             </div>
         </>
     )
