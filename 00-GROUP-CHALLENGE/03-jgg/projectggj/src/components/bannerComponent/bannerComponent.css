@@ -1,22 +1,21 @@
 .bannerContainer {
-    background-image: url("https://wallpapercave.com/wp/wp4855908.png");
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 450px;
-    background-position: center;
-    opacity: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	background-image: url('https://wallpapercave.com/wp/wp4855908.png');
+	background-repeat: no-repeat;
+	height: 25vw;
+	background-position: center;
+	opacity: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 p {
-    text-align: center;
-    vertical-align: middle;
+	text-align: center;
+	vertical-align: middle;
 }
 
 h1 {
-    background-color: hsl(0, 0%, 100%, 0.8);
-    border-radius: 5px;
-    padding: 1px 20px;
+	background-color: hsl(0, 0%, 100%, 0.8);
+	border-radius: 5px;
+	padding: 1px 20px;
 }
