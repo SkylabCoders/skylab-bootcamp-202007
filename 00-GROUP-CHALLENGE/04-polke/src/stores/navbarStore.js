@@ -16,15 +16,21 @@ class NavbarStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
+
+	switchToDarkTheme(colors) {
+		//logica
+		console.log();
+	}
 }
 
 const navbarStore = new NavbarStore();
 
-dispatcher.dispatch((action) => {
+dispatcher.register((action) => {
+	//accion que tiene tipo y data
 	switch (action.type) {
-		case actionTypes.LOAD_REPOS: // This one is an example
-			// logic
-			loginStore.emit();
+		case actionTypes.LOAD_DARK_COLORS:
+			navbarStore.switchToDarkTheme(actions.data);
+			navbarStore.emit(); //notifica al compoente interesado de los cambios
 			break;
 	}
 });

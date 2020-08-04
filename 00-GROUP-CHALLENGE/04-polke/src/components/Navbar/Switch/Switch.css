@@ -1,0 +1,13 @@
+.switch {
+	display: flex;
+	flex-direction: row;
+	height: 41px;
+}
+
+@media only screen and (min-width: 1024px) {
+	.switch {
+		height: 21px;
+		align-items: center;
+		margin-top: 5px;
+	}
+}
