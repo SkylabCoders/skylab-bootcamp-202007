@@ -15,7 +15,12 @@ function HeaderNavbar() {
 	);
 	return (
 		<>
-			<Navbar expand="lg" bg="dark" variant="dark" className="navtttbar">
+			<Navbar
+				expand="lg"
+				bg="dark"
+				variant="dark"
+				className="navbar--flexNoWrap"
+			>
 				<Navbar.Brand>
 					<NavLink to="/">{imgLogo}</NavLink>
 				</Navbar.Brand>
@@ -31,13 +36,17 @@ function HeaderNavbar() {
 								readOnly
 							/>
 							<label
-								className="custom-control-label"
+								className="custom-control-label	"
 								htmlFor="customSwitches"
 							></label>
 						</div>
 						<img src={require('../../assets/img/moon.png')} alt="moon" />
 					</div> */}
-					<Navbar.Toggle aria-controls="basic-navbar-nav" bg="light" />
+					<Navbar.Toggle
+						className="toggle"
+						aria-controls="basic-navbar-nav"
+						bg="light"
+					/>
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Form inline>
 							<FormControl

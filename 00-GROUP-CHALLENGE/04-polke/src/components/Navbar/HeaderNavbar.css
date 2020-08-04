@@ -1,5 +1,6 @@
-.navtttbar {
+.navbar--flexNoWrap {
 	display: flex;
+	flex-wrap: nowrap;
 }
 
 .navbar__logo {
@@ -7,8 +8,14 @@
 }
 .navBar--flex {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	align-items: flex-end;
 }
+
+.toggle {
+	width: 56px;
+}
+
 .form-inline {
 	display: flex;
 	flex-wrap: nowrap;
