@@ -2,7 +2,7 @@ import { Link, Route } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './details.css';
-import film from './details.mock';
+import film from '../film.mock';
 
 const darkKnight = [...film][0];
 
@@ -17,7 +17,7 @@ function FilmDetails() {
 						<span> | </span>
 						<span>{darkKnight.duration}</span>
 						<span> | </span>
-						<span>{darkKnight.genres}</span>
+						<span>{darkKnight.genres.join(', ')}</span>
 					</span>
 				</div>
 				<div className="film-details__plot">
