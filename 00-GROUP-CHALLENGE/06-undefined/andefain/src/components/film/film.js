@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
+import FilmDetails from './details/details';
 
 function Film() {
 	return (
 		<>
-			<h1>Film works!</h1>
+			<FilmDetails />
 		</>
 	);
 }
