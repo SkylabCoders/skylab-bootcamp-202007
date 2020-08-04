@@ -24,3 +24,7 @@ p {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	color: rgb(75, 75, 165);
 }
+.body__box {
+	height: 35vh;
+	width: 70%;
+}
