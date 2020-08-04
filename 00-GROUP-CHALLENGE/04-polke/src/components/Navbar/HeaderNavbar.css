@@ -6,8 +6,12 @@
 .navbar__logo {
 	height: 60px;
 }
+.navbar--text {
+	margin-top: 6px;
+}
 .navbar--logoText {
 	display: flex;
+	color: whitesmoke;
 }
 .navBar--flex {
 	display: flex;
