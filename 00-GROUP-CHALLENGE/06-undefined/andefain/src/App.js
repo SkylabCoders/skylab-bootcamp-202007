@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import './App.css';
 
-import Header from './components/header';
+import Header from './components/header/header';
 import Footer from './components/footer';
 import Home from './components/home/home';
 import Finder from './components/finder/finder';
