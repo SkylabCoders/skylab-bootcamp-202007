@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import recipeStore from '../stores/RecipeStore';
 import { loadRecipe } from '../actions/RecipeAction';
+import './ListItemRecipe.css';
 
 function ListItemRecipe({ id }) {
 	const [recipesList, setRecipes] = useState(recipeStore.getRecipes());
@@ -27,7 +28,7 @@ function ListItemRecipe({ id }) {
 		setRecipes(recipeStore.getRecipes());
 	}
 	return (
-		<Link to={`/recipe-page/${id}`} key={id}>
+		<Link to={`/recipe-page/${id}`} key={id} className="recipe-list__item">
 			<img alt="Recipe" src={actualRecipePhoto}></img>
 			<h4>{actualRecipeTitle}</h4>
 		</Link>
