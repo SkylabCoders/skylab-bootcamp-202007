@@ -1,12 +1,17 @@
 import React from 'react';
 
+import ProfileComponent from './Profile.component';
 
-function Main(){
-    return(
-        <>
-          <p> I'm da Main!! And I work!!</p>
-        </>
-    );
+import Recommendation from './Recommendation';
+
+function Main() {
+	return (
+		<>
+			<ProfileComponent />
+
+			<Recommendation />
+		</>
+	);
 }
 
 export default Main;

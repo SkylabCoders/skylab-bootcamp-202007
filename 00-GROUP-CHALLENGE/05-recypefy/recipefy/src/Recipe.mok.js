@@ -122,6 +122,6 @@ function Preference(
 	alcoholFree = alcoholFree;
 }
 
-let receteList = [potato, spagueti, letuce, apple, meat];
+let receteListMoked = [potato, spagueti, letuce, apple, meat];
 
-export default receteList;
+export default receteListMoked;
