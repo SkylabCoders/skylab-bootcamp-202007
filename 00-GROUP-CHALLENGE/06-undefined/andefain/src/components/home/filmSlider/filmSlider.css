@@ -4,6 +4,10 @@
 	padding-bottom: 35px;
 }
 
+.slider__link {
+	padding: 20px;
+}
+
 .slider {
 	display: flex;
 	justify-content: center;
@@ -71,13 +75,16 @@
 
 @keyframes slider {
 	0% {
+		opacity: 5%;
+	}
+	30% {
 		opacity: 100%;
 	}
 	80% {
 		opacity: 100%;
 	}
 	100% {
-		opacity: 0%;
+		opacity: 5%;
 	}
 }
 

@@ -40,7 +40,7 @@ function Header(props) {
 						>
 							Login
 						</Link>
-						{login && (
+						{!login && (
 							<div className="hidden-list">
 								<div className="login-list__button">My profile</div>
 								<div className="login-list__button">My watchlist</div>

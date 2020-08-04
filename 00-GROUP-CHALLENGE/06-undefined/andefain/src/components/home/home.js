@@ -6,7 +6,6 @@ import FilmSlider from './filmSlider/filmSlider';
 function Home() {
 	return (
 		<>
-			<h1>Home works!</h1>
 			<FilmSlider />
 		</>
 	);
