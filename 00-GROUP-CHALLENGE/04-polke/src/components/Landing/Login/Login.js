@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormControl, FormGroup, Button, Control } from 'react-bootstrap';
+import { FormControl, FormGroup, Button } from 'react-bootstrap';
 import '../../../shared/generalStyles.css';
 import './Login-styles.css';
 
@@ -27,7 +27,11 @@ function Login() {
 				bsSize="large"
 			>
 				<FormControl className="Login__form__input" placeholder="&#128100;" />
-				<FormControl className="Login__form__input" placeholder="&#128272;" />
+				<FormControl
+					className="Login__form__input"
+					type="password"
+					placeholder="&#128272;"
+				/>
 
 				<Button className="Login__form__last-button">Enter</Button>
 			</FormGroup>
