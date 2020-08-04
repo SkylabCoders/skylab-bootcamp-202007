@@ -14,7 +14,7 @@
 .landing__container::after {
 	content: '';
 	background-image: url('../../assets/img/landing-bg.jpg');
-	height: 120%;
+	height: 100%;
 	background-size: cover;
 	opacity: 0.3;
 	top: 0;
@@ -25,13 +25,27 @@
 	z-index: -1;
 }
 
-.landing__content {
-	width: 80%;
+.landing__login-container {
+	display: flex;
+	justify-content: center;
+	width: 33%;
+}
+
+.landing__chart-container {
+	display: flex;
+	justify-content: center;
+	width: 66%;
+}
+
+.landing__chart-container img {
+	width: 50%;
 }
 
 @media screen and (min-width: 1024px) {
 	.landing__container {
 		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.landing__welcome {
