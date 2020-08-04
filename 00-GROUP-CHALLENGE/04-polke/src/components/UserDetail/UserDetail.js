@@ -1,12 +1,36 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import './UserDetail.css';
+import '../../shared/generalStyles.css';
+import useruserDetailStore from '../../stores/userDetailStore';
+import userDetailStore from '../../stores/userDetailStore';
+import { loadRepoList } from '../../actions/userDetailActions';
 
 function UserDetail() {
+	const [repoList, setRepoList] = useState([]);
+	const [userName, setUserName] = useState('gerardramonp');
+
+	useEffect(() => {
+		userDetailStore.addChangeListener(onChange);
+		if (repoList.length === 0) {
+			loadRepoList(userName);
+		}
+		console.log(repoList);
+
+		return () => userDetailStore.removeChangeListener(onChange);
+	}, [repoList.length]);
+
+	function onChange() {
+		setRepoList(userDetailStore.getRepoList());
+	}
+
 	return (
-		<>
-			<h1>UserDetail Works</h1>
-			<NavLink to="/repoDetail">SimulatedRepo#1</NavLink>
-		</>
+		<div className="userdetail__container">
+			{repoList.map((repo) => (
+				<p>
+					{repo.id} | {repo.name} | {repo.description || 'no description'}{' '}
+				</p>
+			))}
+		</div>
 	);
 }
 
