@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
-import './PopUpBox-styles.css';
+import '../../../shared/generalStyles.css';
+import './PopUpBox.css';
 
 function PopUpBox() {
 	return (
@@ -18,10 +19,7 @@ function PopUpBox() {
 						</Form.Text>
 					</Form.Group>
 
-					<Form.Group
-						controlId="formBasicPassword"
-						className="pop-up-modal__pop-up-form__password-button"
-					>
+					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Password</Form.Label>
 						<Form.Control type="password" placeholder="Password" />
 					</Form.Group>
