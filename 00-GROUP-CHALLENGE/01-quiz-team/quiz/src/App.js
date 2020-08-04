@@ -22,7 +22,6 @@ function App() {
 				<Route path="/login" exact component={LoginScreen} />
 				<Route component={PageNotFound} />
 			</Switch>
-			<QuizComponent />
 			<Footer />
 		</div>
 	);
