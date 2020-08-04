@@ -22,7 +22,7 @@ function TopFiveComponent() {
 
 	return (
 		<div className="body__box box__top-five">
-			<h2>TOP FIVE FACOURITES!</h2>
+			<h2>TOP FIVE FAVOURITES!</h2>
 			<ul>
 				{topFiveList.map((recipe) => (
 					<ListItemRecipe id={recipe.id} />

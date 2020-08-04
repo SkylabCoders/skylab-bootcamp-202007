@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
-import Logo from './logo.png';
 
 function Header() {
+	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';
 	return (
 		<>
 			<nav className="nav__menu">

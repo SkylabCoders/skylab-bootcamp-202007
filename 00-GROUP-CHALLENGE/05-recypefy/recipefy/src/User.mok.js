@@ -17,61 +17,16 @@ let userMoked = {
 	),
 	favouriteRecipe: [
 		{
-			photo:
-				'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg',
-			title: 'letuce',
-			id: 3,
-			description: 'bla bla bla',
-			prefences: new Preference(
-				false,
-				true,
-				true,
-				false,
-				false,
-				true,
-				false,
-				true,
-				false,
-				false
-			)
+			id:
+				'http://www.edamam.com/ontologies/edamam.owl#recipe_b79327d05b8e5b838ad6cfd9576b30b6'
 		},
 		{
-			photo:
-				'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg',
-			title: 'potato',
-			id: 4,
-			description: 'bla bla bla',
-			prefences: new Preference(
-				false,
-				true,
-				true,
-				false,
-				false,
-				true,
-				false,
-				true,
-				false,
-				false
-			)
+			id:
+				'http://www.edamam.com/ontologies/edamam.owl#recipe_8275bb28647abcedef0baaf2dcf34f8b'
 		},
 		{
-			photo:
-				'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg',
-			title: 'meat',
-			id: 5,
-			description: 'bla bla bla',
-			prefences: new Preference(
-				false,
-				true,
-				true,
-				false,
-				false,
-				true,
-				false,
-				true,
-				false,
-				false
-			)
+			id:
+				'http://www.edamam.com/ontologies/edamam.owl#recipe_2463f2482609d7a471dbbf3b268bd956'
 		}
 	]
 };

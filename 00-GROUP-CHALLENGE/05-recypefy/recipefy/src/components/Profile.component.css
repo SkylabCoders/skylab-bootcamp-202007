@@ -1,15 +1,23 @@
+.main__profile-component {
+	background: #efee9d;
+}
+
 .main__profile-component ul {
-	position: absolute;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	width: 30%;
+
+}
+
+.main__profile-component ul a {
+	align-items: center;
 }
 
 .main__profile-component--display-large {
 	display: none;
 }
+
 .main__profile-component--title {
 	margin: 20px 5px 5px 5px;
 }
@@ -17,9 +25,12 @@
 .main__profile-component--display-small {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	align-items: center;
 	text-align: center;
-	margin-top: 50px;
+	width: 100vw;
+	position: relative;
+	margin-top: 5vw;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -28,14 +39,21 @@
 	}
 
 	.main__profile-component--display-large {
+		width: 30%;
 		position: absolute;
 		display: flex;
 		flex-direction: column;
-		width: 20vw;
+		max-width: 20vw;
 		left: 10px;
 		align-items: center;
 		text-align: -webkit-center;
 		margin-top: 10px;
+		margin-left: 2vw;
+		padding: 10px;
+		height: 75%;
+		background: #efee9d;
+		overflow-y: scroll;
+		scroll-behavior: auto;
 	}
 
 	.main__profile-component--display-large ul {
@@ -47,9 +65,14 @@
 		margin-top: 30px;
 	}
 
+	.main__profile-component--display-large ul img {
+		max-width: 100px;
+	}
+
 	a ul {
 		margin: auto;
 	}
+
 	.profile-img {
 		border-radius: 50px;
 		width: 150px;

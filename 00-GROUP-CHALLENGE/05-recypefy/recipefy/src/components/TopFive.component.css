@@ -5,7 +5,6 @@
 	text-align: center;
 	margin-top: 50px;
 	height: 40vh;
-	padding: 5px;
 	width: 100%;
 }
 
@@ -17,9 +16,19 @@
 	width: auto;
 }
 
+@media screen and (min-width: 600px) {
+	.box__top-five {
+		height: auto;
+		width: 100vw;
+		margin-bottom: 85px;
+
+	}
+}
+
 @media screen and (min-width: 1024px) {
-	.box__recommendation {
-		width: 75%;
-		margin-left: 22%;
+	.box__top-five {
+		margin-left: 25vw;
+		width: 74vw;
+
 	}
 }
