@@ -1,18 +1,51 @@
-.navtttbar {
+.navbar--flexNoWrap {
 	display: flex;
+	flex-wrap: nowrap;
 }
 
 .navbar__logo {
 	height: 60px;
 }
+.navbar--text {
+	margin-top: 6px;
+}
+.navbar--logoText {
+	display: flex;
+	color: whitesmoke;
+}
 .navBar--flex {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.toggle {
+	width: 56px;
+}
+
+.form-inline {
+	display: flex;
+	flex-wrap: nowrap;
+	margin-top: 4px;
+}
+.searchbar--button {
+	width: 23%;
 }
 .switch {
 	display: flex;
 	flex-direction: row;
 	height: 41px;
+}
+
+@media only screen and (min-width: 600px) {
+	.form-inline {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.spacer {
+		display: flex;
+		flex: 1;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
@@ -26,8 +59,12 @@
 		flex: 1;
 	}
 	.switch {
-		height: 31px;
+		height: 21px;
 		align-items: center;
 		margin-top: 5px;
+	}
+	.form-inline {
+		display: flex;
+		flex-wrap: nowrap;
 	}
 }

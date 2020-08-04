@@ -15,13 +15,21 @@ function HeaderNavbar() {
 	);
 	return (
 		<>
-			<Navbar expand="lg" bg="dark" variant="dark" className="navtttbar">
-				<Navbar.Brand>
-					<NavLink to="/">{imgLogo}</NavLink>
-				</Navbar.Brand>
+			<Navbar
+				expand="lg"
+				bg="dark"
+				variant="dark"
+				className="navbar--flexNoWrap"
+			>
+				<div className="navbar--logoText">
+					<Navbar.Brand>
+						<NavLink to="/">{imgLogo}</NavLink>
+					</Navbar.Brand>
+					<h1 className="navbar--text">GitData</h1>
+				</div>
 				<div className="spacer"></div>
 				<div className="navBar--flex">
-					<div className="switch">
+					{/* <div className="switch">
 						<img src={require('../../assets/img/sun.png')} alt="sun" />
 						<div className="custom-control custom-switch">
 							<input
@@ -31,13 +39,17 @@ function HeaderNavbar() {
 								readOnly
 							/>
 							<label
-								className="custom-control-label"
+								className="custom-control-label	"
 								htmlFor="customSwitches"
 							></label>
 						</div>
 						<img src={require('../../assets/img/moon.png')} alt="moon" />
-					</div>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" bg="light" />
+					</div> */}
+					<Navbar.Toggle
+						className="toggle"
+						aria-controls="basic-navbar-nav"
+						bg="light"
+					/>
 					<Navbar.Collapse id="basic-navbar-nav">
 						<Form inline>
 							<FormControl
@@ -45,7 +57,9 @@ function HeaderNavbar() {
 								placeholder="Search"
 								className="mr-sm-2 navBar--input"
 							/>
-							<Button variant="outline-info">Go</Button>
+							<Button variant="outline-info" className="searchbar--button">
+								Go
+							</Button>
 						</Form>
 					</Navbar.Collapse>
 				</div>
