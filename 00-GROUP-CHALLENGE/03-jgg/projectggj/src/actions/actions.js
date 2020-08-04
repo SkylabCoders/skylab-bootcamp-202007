@@ -1,24 +1,7 @@
 import charList from '../mock.chars';
 import dispatcher from "../appDispatcher";
 import actionTypes from "./actionTypes";
-
-
-let planetsArr =[];
-
-let req = new XMLHttpRequest();
-    var filter = 'planet';
-    req.open('GET', `https://dragon-ball-api.herokuapp.com/api/${filter}/`, true);
-    req.onreadystatechange = function () {
-        if (req.readyState == 4) {
-            if (req.status == 200) {
-                return planetsArr = JSON.parse(req.responseText);
-            }
-            else
-                console.log("Error loading page\n");
-        }
-    };
-    req.send(null);
-
+import planetsArr from '../mock.Planets';
 
 
 export function loadCharList() {
@@ -53,3 +36,28 @@ export function loadPlanets() {
         });
     });
 }
+
+/* export function loadPlanets() {
+    return new Promise((resolve, reject) => {
+
+        let req = new XMLHttpRequest();
+        var filter = 'planet';
+        req.open('GET', `http://cors-anywhere.herokuapp.com/https://dragon-ball-api.herokuapp.com/api/${filter}/`, true);
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                if (req.status == 200) {
+                    resolve(JSON.parse(req.responseText));
+                }
+                else
+                    reject("Error loading page\n");
+            }
+        };
+        req.send(null);
+
+    }).then((planetsArr) => {
+        dispatcher.dispatch({
+            type: actionTypes.LOAD_PLANETS,
+            data: planetsArr
+        });
+    });
+} */

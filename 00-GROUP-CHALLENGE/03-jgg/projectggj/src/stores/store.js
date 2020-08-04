@@ -29,8 +29,6 @@ class DBStore extends EventEmitter {
     getSagas() {
         return _sagas;
     }
-
-
 }
 
 const store = new DBStore();

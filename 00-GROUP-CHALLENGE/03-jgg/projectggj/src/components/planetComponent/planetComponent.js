@@ -17,16 +17,17 @@ function PlanetComponent(prop) {
     }
 
     return (
+
         <div>
-            {planets.map((planet) => (
-                
-                <h2>{planet.originPlanet}</h2>
+            {planets && planets.map((planet) => (
+
+                <Link to='/charList'>{planet.name}</Link>
 
             ))}
-            <Link to='/charList'>Namek</Link>
+
         </div>
 
-    )
+    );
 }
 
 export default PlanetComponent;
