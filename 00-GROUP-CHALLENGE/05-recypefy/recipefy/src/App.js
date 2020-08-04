@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import RecipePage from './components/RecipePage';
 import SearchResult from './components/SearchResult';
 import UserFavourite from './components/UserFavourite';
+import './App.css';
 
 function App() {
 	return (
@@ -16,7 +17,9 @@ function App() {
 			<Switch>
 				<Route path="/" exact component={Main} />
 				<Route path="/profile" component={Profile} />
+
 				<Route path="/recipe-page/:recipeId" component={RecipePage} />
+
 				<Route path="/search-result" component={SearchResult} />
 				<Route path="/userfavourite" component={UserFavourite} />
 			</Switch>
