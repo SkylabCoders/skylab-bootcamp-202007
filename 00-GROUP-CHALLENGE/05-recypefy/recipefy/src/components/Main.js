@@ -1,15 +1,14 @@
 import React from 'react';
-
 import ProfileComponent from './Profile.component';
-
 import Recommendation from './Recommendation';
+import TopFiveComponent from './TopFive.component';
 
 function Main() {
 	return (
 		<>
-			<ProfileComponent />
-
 			<Recommendation />
+			<ProfileComponent />
+			<TopFiveComponent />
 		</>
 	);
 }

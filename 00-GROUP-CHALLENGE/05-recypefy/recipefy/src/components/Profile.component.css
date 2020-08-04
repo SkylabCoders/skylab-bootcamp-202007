@@ -27,7 +27,7 @@
     .main__profile-component--display-large {
         display: flex;
         flex-direction: column;
-        width: 400px;
+        width: 20%;
         align-items: center;
         text-align: -webkit-center;
         left: 10vw;
