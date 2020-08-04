@@ -9,6 +9,7 @@ let _sagas = [];
 
 class DBStore extends EventEmitter {
     addChangeListener(callback) {
+        debugger
         this.on(CHANGE_EVENT, callback);
     }
 
@@ -21,6 +22,7 @@ class DBStore extends EventEmitter {
     }
 
     getCharacters() {
+        debugger
         return _characters;
     }
     getPlanets() {
@@ -50,6 +52,10 @@ dispatcher.register((action) => {
             //logic
 
 
+            store.emitChange();
+            break;
+        case actionTypes.LOAD_SAGA_LIST:
+            _sagas = action.data
             store.emitChange();
             break;
         default:

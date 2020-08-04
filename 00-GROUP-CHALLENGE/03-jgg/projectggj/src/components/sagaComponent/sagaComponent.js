@@ -1,26 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { loadCharListAPI, loadSagaList } from '../../actions/actions';
 import store from "../../stores/store";
+import { loadSagaList } from '../../actions/actions';
+import './sagaComponent.css';
+
 
 function getSagaList() {
-    var seriesList = loadSagaList.filter((character) => {
+    debugger
+    var seriesList = loadSagaList();
+    seriesList.forEach(char => (char.series))
+}
+
+/*     .filter((character) => {
         return character.series
     });
 
     var uniqueSerieList = [...new Set(seriesList)];
 
     return uniqueSerieList;
-}
+} */
 
 function SagaComponent(props) {
-    const [sagas, setSagas] = useState(store.getSagas());
+    const [chars, setSagas] = useState(store.getSagas());
 
     useEffect(() => {
+        debugger
         store.addChangeListener(onChange);
-        if (sagas.length === 0) getSagaList();
+        if (chars.length === 0) getSagaList();
         return () => store.removeChangeListener(onChange)
-    }, [sagas.length]);
+    }, [chars.length]);
 
     function onChange() {
         setSagas(store.getSagas())
@@ -28,11 +36,11 @@ function SagaComponent(props) {
 
 
     return (
-        <div>
-            {sagas}
-            <Link to='/charList'>Z</Link>
-        </div>
-
+        <>
+            <div className='card-holder'>
+                {chars}
+            </div>
+        </>
     )
 }
 
