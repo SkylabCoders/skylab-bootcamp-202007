@@ -1,5 +1,6 @@
 import dispatcher from '../Dispatcher';
 import actionTypes from './actionTypes';
+import userListMoked from '../User.mok';
 
 export function createUser() {
 	return new Promise((resolve) => {
@@ -25,7 +26,7 @@ export function updateUser() {
 
 export function loadUser() {
 	return new Promise((resolve) => {
-		resolve(userList);
+		resolve(userListMoked);
 	}).then((users) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_USER,
