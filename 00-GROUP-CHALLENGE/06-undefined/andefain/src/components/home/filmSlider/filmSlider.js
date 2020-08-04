@@ -40,7 +40,7 @@ function FilmSlider() {
 	return (
 		<div className="slider-container">
 			<div className="slider">
-				<Link to="/film" className="slider__link">
+				<Link to={'/film/' + leftFilm.title} className="slider__link lateral">
 					<div
 						className="slider-lateral"
 						style={{ backgroundImage: `url(${leftFilm.img})` }}
@@ -48,7 +48,7 @@ function FilmSlider() {
 						<h2 className="slider__title">{leftFilm.title}</h2>
 					</div>
 				</Link>
-				<Link to="/film" className="slider__link">
+				<Link to={'/film/' + centerFilm.title} className="slider__link center">
 					<div
 						className="slider-center"
 						style={{ backgroundImage: `url(${centerFilm.img})` }}
@@ -56,7 +56,7 @@ function FilmSlider() {
 						<h2 className="slider__title">{centerFilm.title}</h2>
 					</div>
 				</Link>
-				<Link to="/film" className="slider__link">
+				<Link to={'/film/' + rightFilm.title} className="slider__link lateral">
 					<div
 						className="slider-lateral"
 						style={{ backgroundImage: `url(${rightFilm.img})` }}
