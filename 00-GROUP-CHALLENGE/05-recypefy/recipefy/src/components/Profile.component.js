@@ -6,10 +6,9 @@ import userStore from '../stores/UserStore';
 function ProfileComponent(props) {
 	const [userList, setUserList] = useState(userStore.getUsers());
 	const [actualFavourites, setActualFavourites] = useState([]);
-	const [userPhoto, setUserPhoto] = useState(null);
+	const [userPhoto, setUserPhoto] = useState('');
 
 	useEffect(() => {
-		debugger;
 		userStore.addChangeListener(onChange);
 		const userId = 1;
 		if (userList.length === 0) {

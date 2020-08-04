@@ -4,27 +4,32 @@ import recipeStore from '../stores/RecipeStore';
 import { loadRecipe } from '../actions/RecipeAction';
 
 function ListItemRecipe({ id }) {
-	const [recipes, setRecipes] = useState(recipeStore.getRecipes());
-
-	const actualRecipe = null;
+	const [recipesList, setRecipes] = useState(recipeStore.getRecipes());
+	const [actualRecipePhoto, setActualRecipePhoto] = useState('');
+	const [actualRecipeTitle, setActualRecipeTitle] = useState('');
 
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
-		if (recipes.length === 0) {
+		if (recipesList.length === 0) {
 			loadRecipe();
-		} else if (!actualRecipe) {
-			actualRecipe = recipeStore.getRecipeById(id);
+			console.log(recipesList);
+		} else {
+			const actualRecipe = recipeStore.getRecipeById(id);
+			if (actualRecipe) {
+				setActualRecipePhoto(actualRecipe.photo);
+				setActualRecipeTitle(actualRecipe.title);
+			}
 		}
 		return () => recipeStore.removeChangeListener(onChange);
-	});
+	}, [recipesList.length]);
 
 	function onChange() {
-		setRecipes(recipeStore.getRecipeById(id));
+		setRecipes(recipeStore.getRecipes());
 	}
 	return (
-		<Link to={`/recipe-page/${actualRecipe.id}`} key={actualRecipe.id}>
-			<img alt="Recipe image" src={actualRecipe.photo}></img>
-			<h4>{actualRecipe.title}</h4>
+		<Link to={`/recipe-page/${id}`} key={id}>
+			<img alt="Recipe" src={actualRecipePhoto}></img>
+			<h4>{actualRecipeTitle}</h4>
 		</Link>
 	);
 }

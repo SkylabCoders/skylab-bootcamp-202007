@@ -18,7 +18,8 @@ class RecipeStore extends EventEmitter {
 		return _recipes;
 	}
 	getRecipeById(id) {
-		return _recipes.find((recipe) => recipe.id === id);
+		const actualRecipe = _recipes.find((recipe) => recipe.id === id);
+		return actualRecipe;
 	}
 }
 
