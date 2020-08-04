@@ -1,60 +1,57 @@
 * {
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .footer-container {
-    display: flex;
-    flex-direction: column;
-    background-color: #000000;
-    width: 100%;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	background-color: #000000;
+	width: 100%;
+	align-items: center;
 }
 
 .footer-link-logo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .image-logo {
-    display: flex;
-    width: 30%;
-    margin-top: 30px;
+	display: flex;
+	width: 14%;
+	margin-top: 5px;
 }
 
 .footer--info {
-    display: flex;
-
+	display: flex;
 }
 
 .footer--info-general {
-    margin: 10px;
-    justify-content: center;
-    color: white;
-    font-size: 15px;
-    margin-top: 20px;
-    text-decoration: none;
+	margin: 10px;
+	justify-content: center;
+	color: white;
+	font-size: 15px;
+	margin-top: 5px;
+	text-decoration: none;
 }
 
 .footer--info-general:hover {
-    color: #DA1F26;
+	color: #da1f26;
 }
 
 .copyright {
-    color: #A7ABB3;
-    font-size: 13px;
-    margin-bottom: 30px;
+	color: #a7abb3;
+	font-size: 13px;
+	margin-bottom: 10px;
 }
-
-
 
 /* Privacy Policy and About Us styles */
 #main {
-    background-color: #212121;
-    margin-top: 20px;
-    color: white;
-    padding: 30px;
-    font-size: 13px;
-    bottom: 0;
+	background-color: #212121;
+	margin-top: 20px;
+	color: white;
+	padding: 30px;
+	font-size: 13px;
+	bottom: 0;
 }

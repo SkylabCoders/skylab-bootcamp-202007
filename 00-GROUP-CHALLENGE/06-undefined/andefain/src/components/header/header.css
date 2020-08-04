@@ -120,7 +120,7 @@ a {
 	.header-menu {
 		height: 35px;
 		width: 80px;
-		border-radius: 2px%;
+		border-radius: 2px;
 	}
 	.header-menu__text {
 		display: flex;

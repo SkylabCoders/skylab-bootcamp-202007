@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 
 import './filmSlider.css';
 
@@ -30,33 +31,39 @@ function FilmSlider() {
 	useEffect(() => {
 		setInterval(() => {
 			imageIndex === films.length - 1 ? (imageIndex = 0) : imageIndex++;
-			setRightFilm(films[imageIndex === films.length - 1 ? 0 : imageIndex + 1]);
+			setLeftFilm(films[imageIndex === 0 ? films.length - 1 : imageIndex - 1]);
 			setCenterFilm(films[imageIndex]);
-			setLeftFilm(films[imageIndex === 0 ? 2 : imageIndex - 1]);
+			setRightFilm(films[imageIndex === films.length - 1 ? 0 : imageIndex + 1]);
 		}, 5000);
 	}, []);
 
 	return (
 		<div className="slider-container">
 			<div className="slider">
-				<div
-					className="slider-lateral"
-					style={{ backgroundImage: `url(${rightFilm.img})` }}
-				>
-					<h2 className="slider__title">{rightFilm.title}</h2>
-				</div>
-				<div
-					className="slider-center"
-					style={{ backgroundImage: `url(${centerFilm.img})` }}
-				>
-					<h2 className="slider__title">{centerFilm.title}</h2>
-				</div>
-				<div
-					className="slider-lateral"
-					style={{ backgroundImage: `url(${leftFilm.img})` }}
-				>
-					<h2 className="slider__title">{leftFilm.title}</h2>
-				</div>
+				<Link to={'/film/' + leftFilm.title} className="slider__link lateral">
+					<div
+						className="slider-lateral"
+						style={{ backgroundImage: `url(${leftFilm.img})` }}
+					>
+						<h2 className="slider__title">{leftFilm.title}</h2>
+					</div>
+				</Link>
+				<Link to={'/film/' + centerFilm.title} className="slider__link center">
+					<div
+						className="slider-center"
+						style={{ backgroundImage: `url(${centerFilm.img})` }}
+					>
+						<h2 className="slider__title">{centerFilm.title}</h2>
+					</div>
+				</Link>
+				<Link to={'/film/' + rightFilm.title} className="slider__link lateral">
+					<div
+						className="slider-lateral"
+						style={{ backgroundImage: `url(${rightFilm.img})` }}
+					>
+						<h2 className="slider__title">{rightFilm.title}</h2>
+					</div>
+				</Link>
 			</div>
 			<div className="dots">
 				{films.map(() => {

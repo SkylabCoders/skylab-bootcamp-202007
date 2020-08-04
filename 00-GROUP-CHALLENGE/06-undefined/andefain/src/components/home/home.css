@@ -1,0 +1,11 @@
+.list-container {
+	display: flex;
+	flex-direction: column;
+	background-color: #212121;
+}
+
+@media only screen and (min-width: 600px) {
+	.list-container {
+		flex-direction: row;
+	}
+}
