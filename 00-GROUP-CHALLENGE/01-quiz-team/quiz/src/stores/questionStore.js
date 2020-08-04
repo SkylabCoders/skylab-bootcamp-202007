@@ -33,7 +33,7 @@ dispatcher.register((action) => {
     switch (action.type){
         case actionTypes.GET_QUESTION:
             _question = action.data;
-            gameStore.emitChange(_question);
+            questionStore.emitChange(_question);
             break;
         default:
             break;
