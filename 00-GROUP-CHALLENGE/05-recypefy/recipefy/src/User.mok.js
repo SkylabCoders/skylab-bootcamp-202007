@@ -1,8 +1,8 @@
-const userMoked = {
+let userMoked = {
 	name: 'Lolo',
 	id: 1,
 	password: null,
-	image: 'https://image.flaticon.com/icons/svg/929/929564.svg',
+	photo: 'https://image.flaticon.com/icons/svg/929/929564.svg',
 	preference: new Preference(
 		false,
 		true,
@@ -15,7 +15,27 @@ const userMoked = {
 		false,
 		false
 	),
-	favouriteRecipe: []
+	favouriteRecipe: [
+		{
+			photo:
+				'https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg',
+			title: 'letuce',
+			id: 3,
+			description: 'bla bla bla',
+			prefences: new Preference(
+				false,
+				true,
+				true,
+				false,
+				false,
+				true,
+				false,
+				true,
+				false,
+				false
+			)
+		}
+	]
 };
 
 function Preference(
@@ -41,5 +61,5 @@ function Preference(
 	treeNutFree = treeNutFree;
 	alcoholFree = alcoholFree;
 }
-
-export default userMoked;
+userListMoked = [userMoked];
+export default userListMoked;

@@ -1,12 +1,12 @@
 import React from 'react';
+import ProfileComponent from './Profile.component';
 
-
-function Main(){
-    return(
-        <>
-          <p> I'm da Main!! And I work!!</p>
-        </>
-    );
+function Main() {
+	return (
+		<>
+			<ProfileComponent />
+		</>
+	);
 }
 
 export default Main;

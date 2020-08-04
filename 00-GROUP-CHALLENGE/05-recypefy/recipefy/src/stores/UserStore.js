@@ -1,10 +1,10 @@
-import { EventEmittter } from 'events';
+import { EventEmitter } from 'events';
 import dispatcher from '../Dispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
-let user = {};
-class UserStore extends EventEmittter {
+let _users = {};
+class UserStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
 	}
@@ -14,19 +14,19 @@ class UserStore extends EventEmittter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
-	getuser() {
-		return _user;
+	getUsers() {
+		return _users;
 	}
 	getUserById(id) {
-		return _user.find((user) => user.id === id);
+		return _users.find((user) => user.id === id);
 	}
 }
 
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_USER:
-			_user = action.data;
-			userstore.emitChange(_user);
+			_users = action.data;
+			userStore.emitChange(_users);
 			break;
 		default:
 			break;
