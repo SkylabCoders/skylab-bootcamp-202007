@@ -1,7 +1,9 @@
 /*
 ** FORM INSIDE CONTAINER
 */
-
+.landing__login-container {
+	width: 100%;
+}
 .Login__form {
 	background-color: var(--form-color-background);
 	opacity: 0.8;
@@ -65,7 +67,7 @@
 
 @media only screen and (min-width: 1024px) {
 	.Login__form {
-		width: 45%;
+		width: 80%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

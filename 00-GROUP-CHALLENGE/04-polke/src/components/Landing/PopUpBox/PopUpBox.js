@@ -18,10 +18,7 @@ function PopUpBox() {
 						</Form.Text>
 					</Form.Group>
 
-					<Form.Group
-						controlId="formBasicPassword"
-						className="pop-up-modal__pop-up-form__password-button"
-					>
+					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Password</Form.Label>
 						<Form.Control type="password" placeholder="Password" />
 					</Form.Group>

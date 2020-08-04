@@ -30,6 +30,8 @@ function Login() {
 				<FormControl
 					className="Login__form__input"
 					type="password"
+					npm
+					start
 					placeholder="&#128272;"
 				/>
 
