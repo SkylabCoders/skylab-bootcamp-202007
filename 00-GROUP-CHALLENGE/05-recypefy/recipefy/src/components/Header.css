@@ -4,31 +4,27 @@ ul{
     padding: 0;
 }
 
-ul li {
-    position:relative;
-    float:left;
-    margin:0;
-    padding:0;
+.burger__container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-ul ul {
-    position:absolute;
-    top:100%;
-    left:0;
-    background:#eee;
-    padding:0;
+.burger__container:hover .desplegable__button{
+    display: flex;
+    flex-direction: column;
 }
-
-ul ul li {
+.desplegable__button{
+    position: absolute;
+    background-color: #efee9d;
+    border-radius: 5px;
     display: none;
-    float:none;
-    width:150px
+    top: 38px;
+    height: 110px;
 }
 
-ul ul li:hover {
-    display: block;
-    float:none;
-    width:150px
+.desplegable__button li{
+    margin: 7px;
 }
 
 .hamburguer__link, link{
@@ -66,10 +62,6 @@ ul ul li:hover {
     display: none;
 }
 
-.desplegable__button{
-    display: flex;
-}
-
 .search{
     height: 25px;
 }
@@ -81,11 +73,15 @@ ul ul li:hover {
 .main__boxes{
     display: none;
 }
-
-.icon__burguer:hover{
-    display: flex;
-    flex-direction: column;
+.icon__burguer{
+    padding: 5px;
 }
+
+.icon__burguer img{
+    width: 30px;
+    height: 30px;;
+}
+
 
 @media only screen and (min-width: 600px){
     .nav__mobile{
