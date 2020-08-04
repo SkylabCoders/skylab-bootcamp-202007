@@ -4,10 +4,11 @@
 .landing__login-container {
 	width: 100%;
 }
+
 .Login__form {
 	background-color: var(--form-color-background);
+	width: 90%;
 	opacity: 0.8;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -48,7 +49,7 @@
 }
 
 .Login__form__last-button {
-	width: 10 0% !important;
+	width: 100% !important;
 }
 
 /*
@@ -67,7 +68,8 @@
 
 @media only screen and (min-width: 1024px) {
 	.Login__form {
-		width: 80%;
+		min-width: 400px !important;
+		max-width: 500px !important;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
