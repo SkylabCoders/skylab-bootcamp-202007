@@ -4,6 +4,7 @@ import Item from './Item';
 import './../css/Dashboard.css';
 import gameStore from './../stores/gameStore';
 import {loadThemes, loadTopThemes} from './../actions/gameActions';
+import getApiData from './../api';
 
 function Dashboard(){
     const [themesList, setThemesList] = useState([]);
@@ -28,6 +29,13 @@ function Dashboard(){
     function onChangeTopThemes(){
         setTopThemesList(gameStore.getTopThemes());
     }
+
+    async function muestra(){
+        let response = await getApiData(22,'all','all','default',12);
+        console.log(response);
+    }
+
+    muestra();
 
     return (
         <>
