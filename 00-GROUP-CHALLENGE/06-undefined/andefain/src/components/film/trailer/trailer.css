@@ -5,7 +5,8 @@
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
-    padding: 20px;
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .poster {
@@ -47,5 +48,6 @@
     .icon-like-mobile {
         display: block;
         margin-right: 10px;
+        margin-top: 2px;
     }
 }
