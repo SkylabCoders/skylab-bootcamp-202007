@@ -9,6 +9,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	margin-top: 16px;
 }
 
 .landing__container::after {
@@ -41,15 +42,17 @@
 	width: 50%;
 }
 
+@media screen and (min-width: 600px) {
+	.landing__container {
+		margin-top: 32px;
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	.landing__container {
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-	}
-
-	.landing__welcome {
-		width: 70%;
-		margin: auto;
+		margin-top: 60px;
 	}
 }
