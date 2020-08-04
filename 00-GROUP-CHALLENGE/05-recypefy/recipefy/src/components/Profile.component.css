@@ -10,6 +10,7 @@
 .main__profile-component--display-large {
 	display: none;
 }
+
 .main__profile-component--title {
 	margin: 20px 5px 5px 5px;
 }
@@ -31,11 +32,15 @@
 		position: absolute;
 		display: flex;
 		flex-direction: column;
-		width: 20vw;
+		max-width: 20vw;
 		left: 10px;
 		align-items: center;
 		text-align: -webkit-center;
 		margin-top: 10px;
+		margin-left: 2vw;
+		padding: 10px;
+		background: #efee9d;
+		height: 70%;
 	}
 
 	.main__profile-component--display-large ul {
@@ -47,9 +52,14 @@
 		margin-top: 30px;
 	}
 
+	.main__profile-component--display-large ul img {
+		max-width: 100px;
+	}
+
 	a ul {
 		margin: auto;
 	}
+
 	.profile-img {
 		border-radius: 50px;
 		width: 150px;

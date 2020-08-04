@@ -1,4 +1,6 @@
-.nav__menu {
+.nav__menu,
+.nav__mobile,
+.nav__medium__big {
 	z-index: 90;
 }
 
@@ -18,6 +20,7 @@ ul {
 	display: flex;
 	flex-direction: column;
 }
+
 .desplegable__button {
 	position: absolute;
 	background-color: #efee9d;
@@ -38,6 +41,7 @@ ul {
 .link__header {
 	text-decoration: none;
 }
+
 .login__logo {
 	width: 30px;
 	height: 30px;
@@ -88,9 +92,9 @@ ul {
 
 @media only screen and (min-width: 600px) {
 	.login__logo {
-		filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg)
-			brightness(113%) contrast(87%);
+		filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg) brightness(113%) contrast(87%);
 	}
+
 	.nav__mobile {
 		display: none;
 	}
@@ -124,6 +128,7 @@ ul {
 		display: flex;
 		align-items: center;
 	}
+
 	.buttons__right--text {
 		margin-right: 5px;
 		color: #efee9d;
@@ -132,6 +137,7 @@ ul {
 	.main__boxes {
 		width: 100vw;
 	}
+
 	.section__logo {
 		display: flex;
 	}
@@ -196,9 +202,11 @@ ul {
 	.section__search p {
 		margin: 2px;
 	}
+
 	.search__icons--box {
 		margin-top: 10px;
 	}
+
 	.icon__search {
 		width: 70px;
 		height: 70px;
