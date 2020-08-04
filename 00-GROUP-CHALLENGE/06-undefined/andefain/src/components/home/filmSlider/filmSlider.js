@@ -5,17 +5,17 @@ import './filmSlider.css';
 
 const films = [
 	{
-		title: 'Title',
+		title: 1,
 		img:
 			'https://m.media-amazon.com/images/M/MV5BZTdjOTY4MmItMWI0OS00Y2UyLTlmOGQtZTViNGM0NTViYjM3XkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg'
 	},
 	{
-		title: 'Title',
+		title: 2,
 		img:
 			'https://m.media-amazon.com/images/M/MV5BZDZmYjQxNTctMWEzNS00NjMyLWFlNjQtM2IyNWJjYWQzOGQzXkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg'
 	},
 	{
-		title: 'Title',
+		title: 3,
 		img:
 			'https://m.media-amazon.com/images/M/MV5BNTRlMzhjMzYtNmY1NC00ODc5LWE1OWQtNjVjZTY4MzI5ZGNmXkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg'
 	}
@@ -23,25 +23,40 @@ const films = [
 
 function FilmSlider() {
 	let imageIndex = 0;
-	const [film, setFilm] = useState(films[0]);
+	const [rightFilm, setRightFilm] = useState(films[0]);
+	const [centerFilm, setCenterFilm] = useState(films[1]);
+	const [leftFilm, setLeftFilm] = useState(films[2]);
 
 	useEffect(() => {
 		setInterval(() => {
 			imageIndex === films.length - 1 ? (imageIndex = 0) : imageIndex++;
-			setFilm(films[imageIndex]);
+			setRightFilm(films[imageIndex === films.length - 1 ? 0 : imageIndex + 1]);
+			setCenterFilm(films[imageIndex]);
+			setLeftFilm(films[imageIndex === 0 ? 2 : imageIndex - 1]);
 		}, 5000);
 	}, []);
 
-	/*function onAnimationEnd{
-		i === films.length - 1 ? (i = 0) : i++;
-		console.log(i);
-		setFilm(films[i]);
-    }*/
-
 	return (
 		<div className="slider-container">
-			<div className="slider" style={{ backgroundImage: `url(${film.img})` }}>
-				<h2 className="slider__title">{film.title}</h2>
+			<div className="slider">
+				<div
+					className="slider-lateral"
+					style={{ backgroundImage: `url(${rightFilm.img})` }}
+				>
+					<h2 className="slider__title">{rightFilm.title}</h2>
+				</div>
+				<div
+					className="slider-center"
+					style={{ backgroundImage: `url(${centerFilm.img})` }}
+				>
+					<h2 className="slider__title">{centerFilm.title}</h2>
+				</div>
+				<div
+					className="slider-lateral"
+					style={{ backgroundImage: `url(${leftFilm.img})` }}
+				>
+					<h2 className="slider__title">{leftFilm.title}</h2>
+				</div>
 			</div>
 			<div className="dots">
 				{films.map(() => {
