@@ -50,8 +50,9 @@ dispatcher.register((action) => {
             _top_themes_list = action.data;
             gameStore.emitChange(_top_themes_list);
             break;
-        case actionTypes.GET_SESSION_sET:
+        case actionTypes.GET_SESSION_SET:
             _session_set = action.data;
+            console.log('Store has received following data', action.data)
             gameStore.emitChange(_session_set);
             break;
         default:

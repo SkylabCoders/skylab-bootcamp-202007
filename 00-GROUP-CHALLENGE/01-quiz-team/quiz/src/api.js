@@ -7,8 +7,8 @@ export default async function getApiData(category = 'all', difficulty = 'all', t
       const response = await fetch(URL);
       const apiData = await response.json();
   
-      return apiData;
-      
+      return apiData.results;
+
     } catch (err) {
       console.log('Fetch failed', err);
     }
