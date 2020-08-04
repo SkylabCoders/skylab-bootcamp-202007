@@ -1,67 +1,59 @@
-footer{
-    display: flex;
-    flex-direction: row;
-    background-color: #efee9d;
-    justify-content: space-evenly;
-    bottom: 0;
-    width: 100vw;
+footer {
+	display: flex;
+	flex-direction: row;
+	background-color: #efee9d;
+	justify-content: space-evenly;
+
+	width: 100vw;
 }
 
-.developers{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-around;
-    width: 50vw;
+.developers {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: space-around;
+	width: 50vw;
 }
 
-.developer__card{
-    max-width: 120px;
-    max-height: 120px;
-    margin: 15px;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
+.developer__card {
+	max-width: 120px;
+	max-height: 120px;
+	margin: 15px;
+	display: flex;
+	flex-direction: row;
+	margin: auto;
 }
 
-.developer__card img{
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
+.developer__card img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50px;
 }
 
-.cards__container{
-    display: flex;
-    flex-direction: row;
+.cards__container {
+	display: flex;
+	flex-direction: row;
 }
 
-.info__link__container{
-    display: flex;
-    flex-direction: column;
-    
+.info__link__container {
+	display: flex;
+	flex-direction: column;
 }
 
-.developer__card h4{
-    font-size: 14px;
-    width: 84px;
+.developer__card h4 {
+	font-size: 14px;
+	width: 84px;
 }
 
-.developer__card p{
-    margin-top: 5px;
-    align-items: baseline;
-    font-size: 14px;
-    width: 84px;
+.developer__card p {
+	margin-top: 5px;
+	align-items: baseline;
+	font-size: 14px;
+	width: 84px;
 }
 
-
-
-@media only screen and (max-width: 600px){
-    .developers{
-        display: none;
-    }
+@media only screen and (max-width: 600px) {
+	.developers {
+		display: none;
+	}
 }
-
-
-
-
-

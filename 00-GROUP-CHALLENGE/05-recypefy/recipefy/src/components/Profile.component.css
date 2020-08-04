@@ -1,57 +1,82 @@
-.main__profile-component--display-large {
-    display: none
-}
-
-.main__profile-component--display-small {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px
+.main__profile-component {
+	background: #efee9d;
 }
 
 .main__profile-component ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+
 }
 
+.main__profile-component ul a {
+	align-items: center;
+}
+
+.main__profile-component--display-large {
+	display: none;
+}
+
+.main__profile-component--title {
+	margin: 20px 5px 5px 5px;
+}
+
+.main__profile-component--display-small {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	text-align: center;
+	width: 100vw;
+	position: relative;
+	margin-top: 5vw;
+}
 
 @media only screen and (min-width: 1024px) {
-    .main__profile-component--display-small {
-        display: none
-    }
+	.main__profile-component--display-small {
+		display: none;
+	}
 
-    .main__profile-component--display-large {
-        display: flex;
-        flex-direction: column;
-        width: 20%;
-        align-items: center;
-        text-align: -webkit-center;
-        left: 10vw;
+	.main__profile-component--display-large {
+		width: 30%;
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		max-width: 20vw;
+		left: 10px;
+		align-items: center;
+		text-align: -webkit-center;
+		margin-top: 10px;
+		margin-left: 2vw;
+		padding: 10px;
+		height: 75%;
+		background: #efee9d;
+		overflow-y: scroll;
+		scroll-behavior: auto;
+	}
 
-    }
+	.main__profile-component--display-large ul {
+		width: auto;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		list-style: none;
+		margin-top: 30px;
+	}
 
-    .main__profile-component--display-large ul {
-        width: auto;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        list-style: none;
-    }
+	.main__profile-component--display-large ul img {
+		max-width: 100px;
+	}
 
-    .main__profile-component--display-large ul a {
-        margin: auto;
-    }
+	a ul {
+		margin: auto;
+	}
 
-    .profile-img {
-        border-radius: 50px;
-        width: 150px;
-        height: 150px;
-
-    }
-
-
+	.profile-img {
+		border-radius: 50px;
+		width: 150px;
+		height: 150px;
+		margin: 5px;
+	}
 }
