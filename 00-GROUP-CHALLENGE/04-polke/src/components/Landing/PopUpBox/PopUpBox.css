@@ -32,6 +32,11 @@
 */
 
 @media only screen and (min-width: 600px) and (max-width: 1023px) {
+	.modal-dialog,
+	.model-content {
+		margin: 0;
+		max-width: 100%;
+	}
 	.pop-up-modal {
 		width: 100%;
 	}
@@ -48,9 +53,13 @@
 }
 
 @media only screen and (min-width: 1024px) {
+	.modal-dialog,
+	.model-content {
+		margin: 0;
+		max-width: 38%;
+	}
 	.pop-up-modal {
 		left: 55%;
-		width: 45%;
 	}
 	.pop-up-modal__pop-up-form {
 		width: 100%;
