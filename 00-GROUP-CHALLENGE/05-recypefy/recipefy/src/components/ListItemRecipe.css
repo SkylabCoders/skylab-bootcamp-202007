@@ -13,5 +13,5 @@ ul a img {
 }
 
 h4 {
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
