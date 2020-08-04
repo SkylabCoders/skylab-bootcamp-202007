@@ -1,7 +1,0 @@
-:root {
-	--bg-color-navbar: #24292e;
-}
-
-.navbarColors {
-	background-color: var(--bg-color-navbar);
-}
