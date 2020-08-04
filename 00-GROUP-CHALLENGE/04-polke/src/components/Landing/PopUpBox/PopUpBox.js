@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
-import './PopUpBox-styles.css';
+import '../../../shared/generalStyles.css';
+import './PopUpBox.css';
 
 function PopUpBox() {
 	return (

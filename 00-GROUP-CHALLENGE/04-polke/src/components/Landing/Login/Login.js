@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, FormGroup, Button } from 'react-bootstrap';
 import '../../../shared/generalStyles.css';
-import './Login-styles.css';
+import './Login.css';
 
 function Login() {
 	return (
