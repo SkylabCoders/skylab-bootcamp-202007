@@ -1,0 +1,70 @@
+.flex__row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex__column {
+	display: flex;
+	flex-direction: column;
+}
+
+.info__container {
+	margin-top: 50px;
+    width: 100vw;
+    height: 40vh;
+	justify-content: space-around;
+}
+
+.buttons__container {
+	justify-content: center;
+	margin-top: 40px;
+    margin-bottom: 20px;
+    height: 20vh;
+    width: 100vw;
+}
+
+.ingredients__container {
+	align-items: center;
+	height: 60vh;
+}
+
+.data__container{
+    height: 100%;
+    justify-content: space-evenly;
+
+}
+
+.data__circle{
+    width: 50px;
+    height: 50px;
+    background-color: brown;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.title__img__container{
+    justify-content: center;
+    align-items: center;
+}
+
+.title__img__container img{
+    margin-top: 15px;
+    width: 40vw;
+    max-width: 250px;
+
+}
+
+.underphoto__button{
+    padding: 15px;
+    width: 20vw;
+}
+
+.buttons__container a {
+    background-color: cadetblue;
+    text-align: center;
+    margin: auto;
+}
+
+.rate__elem{
+    margin-right: 10px;
+}
