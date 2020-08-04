@@ -1,10 +1,17 @@
+.main__profile-component {
+	background: #efee9d;
+}
+
 .main__profile-component ul {
-	position: absolute;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	width: 30%;
+
+}
+
+.main__profile-component ul a {
+	align-items: center;
 }
 
 .main__profile-component--display-large {
@@ -18,9 +25,12 @@
 .main__profile-component--display-small {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	align-items: center;
 	text-align: center;
-	margin-top: 50px;
+	width: 100vw;
+	position: relative;
+	margin-top: 5vw;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -29,6 +39,7 @@
 	}
 
 	.main__profile-component--display-large {
+		width: 30%;
 		position: absolute;
 		display: flex;
 		flex-direction: column;
@@ -39,8 +50,10 @@
 		margin-top: 10px;
 		margin-left: 2vw;
 		padding: 10px;
+		height: 75%;
 		background: #efee9d;
-		height: 70%;
+		overflow-y: scroll;
+		scroll-behavior: auto;
 	}
 
 	.main__profile-component--display-large ul {
