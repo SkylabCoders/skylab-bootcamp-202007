@@ -30,38 +30,56 @@ function ProfileComponent(props) {
 	}
 
 	return (
-		<section className="main__profile-component body__box">
+		<section className="main__profile-component">
 			<div className="main__profile-component--display-large">
-				<h2>Your information</h2>
-				<img alt="your avatar" src={userPhoto} className="profile-img"></img>
+				<h2 className="wrapper">Your information</h2>
 				<div>
-					<h3>Your proferences</h3>
-					<ul>
-						<li className="preferences__icon preference__balanced">Balanced</li>
-						<li className="preferences__icon preference__hight-protein">
-							High protein
-						</li>
-						<li className="preferences__icon preference__low-fat">Low fat</li>
-						<li className="preferences__icon preference__low-carb">Low carb</li>
-						<li className="preferences__icon preference__vegan">Vegan</li>
-						<li className="preferences__icon preference__vegetarian">
-							Vegerarian
-						</li>
-						<li className="preferences__icon preference__sugar-concious">
-							Sugar concious
-						</li>
-						<li className="preferences__icon preference__peanut-free">
-							Peanut free
-						</li>
-						<li className="preferences__icon preference__treeNut-free">
-							Nut free
-						</li>
-						<li className="preferences__icon preference__alcohol-free">
-							Alcohol free
-						</li>
-					</ul>
+					<img alt="your avatar" src={userPhoto} className="profile-img"></img>
+					<h3 className="main__profile-component--title">Your preferences</h3>
+					<div className="recipe__text--preferences">
+						<img
+							className="preferences__icon preference__balanced"
+							src="https://image.flaticon.com/icons/png/512/30/30636.png"
+						></img>
+						<img
+							className="preferences__icon"
+							src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
+						></img>
+						<img
+							className="preferences__icon"
+							src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
+						></img>
+						<img
+							className="preferences__icon"
+							src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
+						></img>
+						<img
+							className="preferences__icon"
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
+						></img>
+						<img
+							className="preferences__icon"
+							src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
+						></img>
+						<img
+							className="preferences__icon"
+							src="https://www.footys.co.za/images/icon-sugar.png"
+						></img>
+						<img
+							className="preferences__icon preference__peanut-free"
+							src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
+						></img>
+						<img
+							className="preferences__icon preference__tree-nut-free"
+							src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
+						></img>
+						<img
+							className="preferences__icon preference__alcohol-free"
+							src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
+						></img>
+					</div>
 					<div>
-						<h3>Your Favourites</h3>
+						<h3 className="main__profile-component--title">Your Favourites</h3>
 						<ul>
 							{actualFavourites.map((recipe) => (
 								<ListItemRecipe id={recipe.id} />
@@ -71,7 +89,7 @@ function ProfileComponent(props) {
 				</div>
 			</div>
 			<div className="main__profile-component--display-small">
-				<h2>Your Favourites</h2>
+				<h2 className="main__profile-component--title">Your Favourites</h2>
 				<ul>
 					{actualFavourites.map((recipe) => (
 						<ListItemRecipe id={recipe.id} />

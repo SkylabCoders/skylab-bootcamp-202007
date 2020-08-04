@@ -55,7 +55,7 @@ function Recomendation() {
 				<Link to="./RecipePage" className="link">
 					<img
 						className="recipe__image"
-						src="https://www.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg"
+						src="https://media-cdn.tripadvisor.com/media/photo-s/0a/b7/12/c5/buena-comida-muy-buena.jpg"
 					></img>
 				</Link>
 			</div>
