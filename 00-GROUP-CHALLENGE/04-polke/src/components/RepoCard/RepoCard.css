@@ -9,12 +9,14 @@
 .repoCard__name-private {
 	display: flex;
 	flex-direction: row;
+	margin: 5px;
 }
 .repoCard__showlastUpdate-lang {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	width: 100%;
+	margin-bottom: 10px;
 }
 .repoCard__description {
 	text-align: center;
@@ -23,4 +25,5 @@
 .repoCard__details {
 	width: 100%;
 	text-align: center;
+	margin-bottom: 9px;
 }

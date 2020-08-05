@@ -12,11 +12,11 @@ function RepoCard() {
 						src={require('../../assets/img/padlock.png')}
 						alt="moon"
 					/>
-					<img
+					{/* <img
 						className="unlock"
 						src={require('../../assets/img/unlock.png')}
 						alt="moon"
-					/>
+					/> */}
 				</div>
 				<div className="repoCard__name">Name</div>
 			</div>
