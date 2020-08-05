@@ -7,13 +7,12 @@ const APP_API_ID = '46083075';
 const APP_API_KEY = '83cd4df2c64a04f570c8647f833a8a7e';
 const APP_IDENTIFICATION = `&app_id=${APP_API_ID}&app_key=${APP_API_KEY}`;
 
-const actualSearchLabel = 'q=chicken';
+const actualSearchLabel = 'q=beef';
 
 export function loadRecipe() {
 	function Recipe(
 		photo,
 		title,
-		id,
 		time,
 		url,
 		source,
@@ -26,7 +25,7 @@ export function loadRecipe() {
 		this.title = title;
 		this.time = time;
 		this.url = url;
-		this.sorrce = source;
+		this.source = source;
 		this.calories = calories;
 		this.yeld = yeld;
 		this.ingredients = ingredients;
