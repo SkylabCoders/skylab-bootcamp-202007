@@ -5,3 +5,15 @@ body {
 .userdetail__container {
 	height: 100%;
 }
+
+.userdetail__user-info {
+	width: 33%;
+}
+
+.userdetail__repo-list {
+	width: 66%;
+}
+
+.userdetail__repo-creation {
+	width: 100%;
+}
