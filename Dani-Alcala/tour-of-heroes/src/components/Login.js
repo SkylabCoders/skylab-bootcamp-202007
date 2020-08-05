@@ -28,7 +28,7 @@ function Login() {
         )}
         {isLogged && 
             <button onClick={() =>logout()}>Logout</button>}
-            {/* <img src={user && user.photoURL} /> */}
+            <img src={user && user.photoURL} />
             <p>{user && user.email}</p>
 		</>
 	);
