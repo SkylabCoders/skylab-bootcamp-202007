@@ -3,7 +3,13 @@ import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
+
 let _heroes = [];
+
+let nextId = 0;
+
+const generateNextId = (heroes) =>
+	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;
 
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -17,6 +23,8 @@ class HeroStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
+
+	//Estas funciones están en el store porque devuelven un array y jugamos con estos, no mutando los datos del mock
 
 	getHeroes() {
 		return _heroes;
@@ -33,13 +41,23 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
 			heroStore.emitChange(_heroes);
+			nextId = generateNextId(_heroes);
+			break;
+		case actionTypes.UPDATE_HERO:
+			_heroes = _heroes.map((hero) => {
+				if (hero.id === action.data.id) hero.name = action.data.name;
+				return hero;
+			});
+			heroStore.emitChange();
 			break;
 		case actionTypes.CREATE_HERO:
-			_heroes = [..._heroes, action.data];
+			_heroes = [..._heroes, { ...action.data, id: nextId }];
+			++nextId;
 			heroStore.emitChange();
 			break;
 		case actionTypes.DELETE_HERO:
-			_heroes = [..._heroes];
+			//filter nos da un nuevo array, no muta el mock
+			_heroes = _heroes.filter((hero) => hero.id !== action.data.id);
 			heroStore.emitChange();
 			break;
 		default:

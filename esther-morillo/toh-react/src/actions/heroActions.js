@@ -13,28 +13,25 @@ export function loadHeroes() {
 	});
 }
 
-export function createHero(hero) {
+export function saveHero(hero) {
 	return new Promise((resolve) => {
-		const hero = {
-			name: 'Gilber',
-			id: 99
-		};
 		resolve(hero);
-	}).then((hero) => {
+	}).then((savedHero) => {
 		dispatcher.dispatch({
-			type: actionTypes.CREATE_HERO,
-			data: hero
+			type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
+			data: savedHero
 		});
 	});
 }
 
-export function deleteHero(hero) {
+export function deleteHero(id) {
 	return new Promise((resolve) => {
-		resolve(hero);
-	}).then((hero) => {
+		resolve(id);
+	}).then((responseId) => {
 		dispatcher.dispatch({
 			type: actionTypes.DELETE_HERO,
-			data: hero
+			//en la acción de tipo delete lo que le paso por data es un objeto, le creo un objeto con el id. Pero sería lo mismo poner data: id y ya, pero es para que veamos que paso un objeto
+			data: { id: responseId }
 		});
 	});
 }
