@@ -50,6 +50,7 @@
 .header-search:focus {
 	transition: 0.1s;
 	background-color: #fff;
+	color: #000000;
 }
 
 .header-login {
@@ -129,4 +130,5 @@ a {
 	.header-search {
 		width: 33%;
 	}
+	.header-search: ;
 }
