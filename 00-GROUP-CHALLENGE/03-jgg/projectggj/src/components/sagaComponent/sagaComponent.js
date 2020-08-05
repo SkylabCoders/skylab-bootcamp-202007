@@ -23,7 +23,7 @@ function SagaComponent(props) {
         <>
             <div className='card-holder flex-item flex-col centred'>
                 {sagas && sagas.map((saga) => (
-                    <Link className='cont' to={`/charList/sega/${saga.series}`} key={saga.series}>
+                    <Link className='cont' to={`/charList/saga/${saga.series}`} key={saga.series}>
                         <div className='saga-holder banner flex-item'>
                             <img src={saga.image} alt="saga name" ></img>
                         </div>
