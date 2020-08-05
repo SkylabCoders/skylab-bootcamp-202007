@@ -13,7 +13,7 @@ function Switch() {
 					type="checkbox"
 					className="custom-control-input"
 					id="customSwitches"
-					onChange={changeSwitch}
+					onChange={handleChange}
 					readOnly
 				/>
 				<label
