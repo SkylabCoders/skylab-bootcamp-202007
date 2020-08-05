@@ -28,22 +28,13 @@ function UserDetail({ isUserGitHub }) {
 
 	return (
 		<div className="userdetail__container">
-<<<<<<< HEAD
-			<RepoCard />
-=======
 			<div className="userdetail__user-info"></div>
 			<div className="userdetail__repo-list">
-				{repoList.map((repo) => (
-					<p>
-						private: {repo.private.toString()} | {repo.name} |{' '}
-						{repo.description} | {repo.id} | {repo.language} | {repo.lastUpdate}
-					</p>
-				))}
+				<RepoCard />
 			</div>
 			<div className="userdetail__repo-creation">
 				{isUserGitHub ? createRepoButton : null}
 			</div>
->>>>>>> fd6cb4ad0576d78cdc1d1900547842ac925511de
 		</div>
 	);
 }
