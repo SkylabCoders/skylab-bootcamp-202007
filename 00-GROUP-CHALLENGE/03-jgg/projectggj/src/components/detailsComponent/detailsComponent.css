@@ -283,6 +283,7 @@
 @media only screen and (min-width: 577px) {
 	.card.hovercard {
 		width: 60%;
+		margin-top: 1vw;
 	}
 	.details-desc-content {
 		width: unset;
