@@ -1,7 +1,7 @@
 /* quizteam - skylab bootcamp 202007 */
 'use strict';
 
-export default QUESTION_SESSION = {
+const QUESTION_SESSION = {
 	response_code: 0,
 	results: [
 		{
@@ -108,3 +108,5 @@ export default QUESTION_SESSION = {
 		}
 	]
 };
+
+export default QUESTION_SESSION;
