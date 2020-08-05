@@ -15,11 +15,18 @@ export function login(email, password) {
 }
 
 export function logout() {
-	return new Promise((resolve) => {
-		resolve(true);
-	}).then(() => {
+	return authMethods.signout().then(() => {
 		dispatcher.dispatch({
 			type: actionTypes.LOGOUT
+		});
+	});
+}
+
+export function signInWithGoogle() {
+	return authMethods.signInWithGoogle().then(({ user }) => {
+		dispatcher.dispatch({
+			type: actionTypes.LOGIN,
+			user
 		});
 	});
 }

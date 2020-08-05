@@ -1,41 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import filmStore from '../../../stores/filmStore';
-import { sliderFilm, sliderData } from '../../../actions/filmActions';
-
 import './filmSlider.css';
 
-const films = [
-	{
-		title: 1,
-		img:
-			'https://m.media-amazon.com/images/M/MV5BZTdjOTY4MmItMWI0OS00Y2UyLTlmOGQtZTViNGM0NTViYjM3XkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg'
-	},
-	{
-		title: 2,
-		img:
-			'https://m.media-amazon.com/images/M/MV5BZDZmYjQxNTctMWEzNS00NjMyLWFlNjQtM2IyNWJjYWQzOGQzXkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg'
-	},
-	{
-		title: 3,
-		img:
-			'https://m.media-amazon.com/images/M/MV5BNTRlMzhjMzYtNmY1NC00ODc5LWE1OWQtNjVjZTY4MzI5ZGNmXkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg'
-	}
-];
-
-function FilmSlider() {
+function FilmSlider({ data }) {
 	let imageIndex = 0;
-	const [rightFilm, setRightFilm] = useState(films[0]);
-	const [centerFilm, setCenterFilm] = useState(films[1]);
-	const [leftFilm, setLeftFilm] = useState(films[2]);
+	const [rightFilm, setRightFilm] = useState(data[0]);
+	const [centerFilm, setCenterFilm] = useState(data[1]);
+	const [leftFilm, setLeftFilm] = useState(data[2]);
 
 	useEffect(() => {
 		setInterval(() => {
-			imageIndex === films.length - 1 ? (imageIndex = 0) : imageIndex++;
-			setLeftFilm(films[imageIndex === 0 ? films.length - 1 : imageIndex - 1]);
-			setCenterFilm(films[imageIndex]);
-			setRightFilm(films[imageIndex === films.length - 1 ? 0 : imageIndex + 1]);
+			imageIndex === data.length - 1 ? (imageIndex = 0) : imageIndex++;
+			setLeftFilm(data[imageIndex === 0 ? data.length - 1 : imageIndex - 1]);
+			setCenterFilm(data[imageIndex]);
+			setRightFilm(data[imageIndex === data.length - 1 ? 0 : imageIndex + 1]);
 		}, 5000);
 	}, []);
 
@@ -45,7 +24,7 @@ function FilmSlider() {
 				<Link to={'/film/' + leftFilm.title} className="slider__link lateral">
 					<div
 						className="slider-lateral"
-						style={{ backgroundImage: `url(${leftFilm.img})` }}
+						style={{ backgroundImage: `url(${leftFilm.image.url})` }}
 					>
 						<h2 className="slider__title">{leftFilm.title}</h2>
 					</div>
@@ -53,7 +32,7 @@ function FilmSlider() {
 				<Link to={'/film/' + centerFilm.title} className="slider__link center">
 					<div
 						className="slider-center"
-						style={{ backgroundImage: `url(${centerFilm.img})` }}
+						style={{ backgroundImage: `url(${centerFilm.image.url})` }}
 					>
 						<h2 className="slider__title">{centerFilm.title}</h2>
 					</div>
@@ -61,14 +40,14 @@ function FilmSlider() {
 				<Link to={'/film/' + rightFilm.title} className="slider__link lateral">
 					<div
 						className="slider-lateral"
-						style={{ backgroundImage: `url(${rightFilm.img})` }}
+						style={{ backgroundImage: `url(${rightFilm.image.url})` }}
 					>
 						<h2 className="slider__title">{rightFilm.title}</h2>
 					</div>
 				</Link>
 			</div>
 			<div className="dots">
-				{films.map(() => {
+				{data.map(() => {
 					return <span className="dot"></span>;
 				})}
 			</div>
