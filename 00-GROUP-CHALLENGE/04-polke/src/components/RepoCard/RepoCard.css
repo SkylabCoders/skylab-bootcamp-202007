@@ -7,6 +7,9 @@
 	margin: 13px;
 	word-wrap: break-word;
 	max-height: 250px;
+	border: 1px solid black;
+	border-radius: 0.25rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
 }
 .repoCard__name-private {
 	display: flex;
