@@ -28,3 +28,20 @@ export function loadRepoList(userName) {
 		})
 		.catch((error) => console.error(error.message));
 }
+
+export function loadUserImg(userName) {
+	const endPoint = `https://api.github.com/users/${userName}`;
+	fetch(endPoint, {
+		headers: {
+			accept: 'application/vnd.github.v3+json'
+		}
+	})
+		.then((response) => response.json())
+		.then((response) => {
+			dispatcher.dispatch({
+				type: actionTypes.LOAD_USER_IMG,
+				data: response
+			});
+		})
+		.catch((error) => console.error(error.message));
+}

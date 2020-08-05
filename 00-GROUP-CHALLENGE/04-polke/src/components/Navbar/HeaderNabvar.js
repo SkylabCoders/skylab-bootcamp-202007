@@ -24,7 +24,7 @@ function HeaderNavbar() {
 			>
 				<div className="navbar--logoText">
 					<Navbar.Brand>
-						<NavLink to="/">{imgLogo}</NavLink>
+						<NavLink to="/userDetail">{imgLogo}</NavLink>
 					</Navbar.Brand>
 					<h1 className="navbar--text">GitData</h1>
 				</div>

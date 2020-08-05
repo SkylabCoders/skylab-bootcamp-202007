@@ -5,10 +5,11 @@ import useruserDetailStore from '../../stores/userDetailStore';
 import userDetailStore from '../../stores/userDetailStore';
 import { loadRepoList } from '../../actions/userDetailActions';
 import RepoCard from '../RepoCard/RepoCard';
+import UserInfo from './UserInfo/UserInfo';
 
 function UserDetail({ isUserGitHub }) {
 	const [repoList, setRepoList] = useState([]);
-	const [userName, setUserName] = useState('gerardramonp');
+	const [userName, setUserName] = useState('phortela');
 
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);
@@ -28,7 +29,9 @@ function UserDetail({ isUserGitHub }) {
 
 	return (
 		<div className="userdetail__container">
-			<div className="userdetail__user-info"></div>
+			<div className="userdetail__user-info">
+				<UserInfo />
+			</div>
 			<div className="userdetail__repo-list">
 				<RepoCard />
 			</div>
