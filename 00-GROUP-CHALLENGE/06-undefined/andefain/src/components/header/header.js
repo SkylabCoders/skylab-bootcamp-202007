@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './header.css';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header(props) {
 	const [login, setLogin] = useState('Login');
@@ -9,8 +9,8 @@ function Header(props) {
 		console.log(search);
 	}
 
-	function submit(search) {
-		window.location.pathname = '/finder/' + search;
+	function submit(searchValue) {
+		window.location.pathname = '/finder/' + searchValue;
 	}
 
 	return (
@@ -37,7 +37,7 @@ function Header(props) {
 
 				<input
 					onInput={(event) => display(event.target.value)}
-					onSubmit={(event) => submit(event.target.value)}
+					onDoubleClick={(event) => submit(event.target.value)}
 					className="header-search"
 					placeholder="Search any title or name..."
 				></input>
