@@ -65,3 +65,9 @@ input.form-control:focus {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
 }
+
+@media only screen and (min-width: 601px) {
+    .login-container {
+        flex-direction: row
+    }
+}
