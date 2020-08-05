@@ -6,6 +6,7 @@
 	position: absolute;
 	border-radius: 0;
 	padding-bottom: 10px;
+	display: none;
 }
 
 .pop-up-modal__pop-up-form {
