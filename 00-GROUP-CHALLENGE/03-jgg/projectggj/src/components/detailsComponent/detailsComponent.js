@@ -38,7 +38,7 @@ function DetailsComponent(props) {
 
                             <div className="info">
                                 <div className="title">
-                                    <a target="_blank" href="https://scripteden.com/">{char.name}</a>
+                                    <a target="_blank" href="">{char.name}</a>
                                 </div>
                                 <div className='details-desc-content'>
                                     <div className="details-desc">RACE: <span>{char.species}</span></div>
