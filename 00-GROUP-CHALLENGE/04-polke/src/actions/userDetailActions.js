@@ -30,8 +30,7 @@ export function loadRepoList(userName) {
 }
 
 export function loadUserImg(userName) {
-	// Load data from somewhere
-	const endPoint = `https://api.github.com/users/${userName}/repos`;
+	const endPoint = `https://api.github.com/users/${userName}`;
 	fetch(endPoint, {
 		headers: {
 			accept: 'application/vnd.github.v3+json'
@@ -40,7 +39,7 @@ export function loadUserImg(userName) {
 		.then((response) => response.json())
 		.then((response) => {
 			dispatcher.dispatch({
-				type: actionTypes.LOAD_REPO_LIST,
+				type: actionTypes.LOAD_USER_IMG,
 				data: response
 			});
 		})

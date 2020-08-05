@@ -5,6 +5,7 @@ import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
 
 let _repoList = [];
+let _userInfo = [];
 
 class LoginStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -22,6 +23,9 @@ class LoginStore extends EventEmitter {
 	getRepoList() {
 		return _repoList;
 	}
+	getUserInfo() {
+		return _userInfo;
+	}
 }
 
 const userDetailStore = new LoginStore();
@@ -31,6 +35,10 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_REPO_LIST: // This one is an example
 			_repoList = action.data;
 			userDetailStore.emitChange(_repoList);
+			break;
+		case actionTypes.LOAD_USER_IMG:
+			_userInfo = action.data;
+			userDetailStore.emitChange(_userInfo);
 			break;
 		default:
 			break;

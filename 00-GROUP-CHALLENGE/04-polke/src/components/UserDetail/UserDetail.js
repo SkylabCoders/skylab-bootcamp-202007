@@ -28,7 +28,9 @@ function UserDetail({ isUserGitHub }) {
 
 	return (
 		<div className="userdetail__container">
-			<div className="userdetail__user-info"></div>
+			<div className="userdetail__user-info">
+				<UserInfo />
+			</div>
 			<div className="userdetail__repo-list">
 				{repoList.map((repo) => (
 					<p>
