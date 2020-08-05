@@ -9,6 +9,7 @@ let _sagas = [];
 
 class DBStore extends EventEmitter {
     addChangeListener(callback) {
+        debugger
         this.on(CHANGE_EVENT, callback);
     }
 
@@ -21,6 +22,7 @@ class DBStore extends EventEmitter {
     }
 
     getCharacters() {
+        debugger
         return _characters;
     }
     getPlanets() {
@@ -28,6 +30,10 @@ class DBStore extends EventEmitter {
     }
     getSagas() {
         return _sagas;
+    }
+
+    getCharByName(name) {
+        return _characters.find((char) => name === char.name)
     }
 
 
@@ -48,8 +54,14 @@ dispatcher.register((action) => {
         case actionTypes.UPDATE_PROFILE:
             //TODO : LOGIC
             //logic
-
-
+            store.emitChange();
+            break;
+        case actionTypes.LOAD_PLANETS:
+            _planets = action.data;
+            store.emitChange();
+            break;
+        case actionTypes.LOAD_SAGA_LIST:
+            _sagas = action.data
             store.emitChange();
             break;
         default:
