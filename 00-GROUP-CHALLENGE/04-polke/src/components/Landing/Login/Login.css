@@ -50,6 +50,15 @@
 
 .Login__form__last-button {
 	width: 100% !important;
+	height: 40px;
+	margin-top: 12px;
+}
+
+.form__button {
+	background-color: var(--bg-color-button);
+	border-radius: 5px;
+	border: none;
+	color: whitesmoke;
 }
 
 /*

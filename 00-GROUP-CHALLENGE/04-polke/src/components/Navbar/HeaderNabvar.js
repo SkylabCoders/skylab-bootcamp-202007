@@ -24,13 +24,12 @@ function HeaderNavbar() {
 			>
 				<div className="navbar--logoText">
 					<Navbar.Brand>
-						<NavLink to="/userDetail">{imgLogo}</NavLink>
+						<NavLink to="/">{imgLogo}</NavLink>
 					</Navbar.Brand>
 					<h1 className="navbar--text">GitData</h1>
 				</div>
 				<div className="spacer"></div>
 				<div className="navBar--flex">
-					<Switch />
 					<Navbar.Toggle
 						className="toggle"
 						aria-controls="basic-navbar-nav"
