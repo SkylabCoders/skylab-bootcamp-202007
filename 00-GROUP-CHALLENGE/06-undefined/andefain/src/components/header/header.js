@@ -5,6 +5,14 @@ import { Link, Route, Redirect } from 'react-router-dom';
 function Header(props) {
 	const [login, setLogin] = useState('Login');
 
+	function display(search) {
+		console.log(search);
+	}
+
+	function submit(search) {
+		window.location.pathname = '/finder/' + search;
+	}
+
 	return (
 		<>
 			<header className="header">
@@ -28,10 +36,12 @@ function Header(props) {
 				</Link>
 
 				<input
-					onSubmit
+					onInput={(event) => display(event.target.value)}
+					onSubmit={(event) => submit(event.target.value)}
 					className="header-search"
 					placeholder="Search any title or name..."
 				></input>
+
 				<div className="header-login">
 					<div className="header-login__hidden-menu">
 						<Link

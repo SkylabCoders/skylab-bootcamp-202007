@@ -21,7 +21,7 @@ function App() {
 			<Route path="/film" component={Film} />
 			<Route path="/name" component={Name} />
 			<Route path="/user" component={User} />
-			<Route path="/finder" component={Finder} />
+			<Route path="/finder/:q" component={Finder} />
 			<Route path="/privacy" component={PrivacyPolicy} />
 			<Route path="/about" component={AboutUs} />
 			<Footer />
