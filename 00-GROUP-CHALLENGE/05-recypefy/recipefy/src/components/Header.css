@@ -110,7 +110,23 @@
 	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg) brightness(113%) contrast(87%);
 }
 
+
 @media only screen and (min-width: 600px) {
+
+	.search-button {
+		padding: 5px;
+		border-radius: 50px;
+		background-color: #d1eaa3;
+		margin: 5px;
+	}
+
+	.search-button:active,
+	.search-button:link,
+	.search-button:visited,
+	.search-button:hover {
+		color: #0f5a15;
+	}
+
 
 	.nav__mobile {
 		display: none;
@@ -206,12 +222,16 @@
 
 	.main__search {
 		padding-left: 10px;
-		max-width: 272px;
 		height: 40px;
 		margin-bottom: 0;
 		border-radius: 15px;
-		margin-top: 20px;
-		width: 80%;
+	}
+
+	.main__search-input {
+		border-radius: 100px;
+		height: 25px;
+		max-width: 174px;
+		width: 55%;
 	}
 
 	.section__search p {
