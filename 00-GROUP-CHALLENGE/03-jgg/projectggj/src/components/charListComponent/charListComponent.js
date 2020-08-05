@@ -1,4 +1,4 @@
-import React,  { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import store from '../../stores/store';
 import './charListComponent.css';
@@ -19,11 +19,10 @@ function CharListComponent(props) {
 
 
     const [, , , , filter, name] = (window.location.href).split('/')
-     chars = store.filterChar(filter, name);
+    chars = store.filterChar(filter, name);
     console.log(chars);
     return (
         <>
-
             <div className='card-holder'>
                 {chars && chars.map((char) => (
                     <Link key={char._id} to={`/details/${char.name}`}>
