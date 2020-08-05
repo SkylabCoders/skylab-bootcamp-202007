@@ -22,9 +22,7 @@ export function loadTopThemes(){
 }
 
 export async function loadSessionSet(category, difficulty, type, encode, amount){
-    console.log('ACTION CALLED with params: ', category, difficulty, type, encode, amount);
     let result =  await getApiData(category, difficulty, type, encode, amount);
-    console.log('action has received following data form API:', await result);
     
     dispatcher.dispatch({
         type: actionTypes.GET_SESSION_SET,

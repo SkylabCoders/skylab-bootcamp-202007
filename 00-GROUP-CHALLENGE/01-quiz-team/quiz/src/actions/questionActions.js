@@ -1,12 +1,11 @@
 import actionTypes from './actionTypes';
 import dispatcher from './../AppDispatcher';
-import QUESTION_SESSION from './../mockdata/Questions';
 
-export function loadQuestion(){
-    let result = QUESTION_SESSION.results[0];
+export function loadQuestion(i){
+    let result = i;
 
     dispatcher.dispatch({
-        type: actionTypes.GET_QUESTION,
+        type: actionTypes.GET_QUESTION_FROM_SESSION,
         data: result
     })
 }
