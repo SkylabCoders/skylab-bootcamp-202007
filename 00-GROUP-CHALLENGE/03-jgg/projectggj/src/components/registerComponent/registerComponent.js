@@ -4,7 +4,7 @@ function RegisterComponent(props) {
     return (
         <section className="text-center container">
             <form className="form-signin">
-                <h1 className="m-2">Please sign in</h1>
+                <h1 className="m-2">Register</h1>
                 <label>Name</label>
                 <input id="inputName" className="m-1 form-control" type="email" placeholder="Name" required="" autoFocus=""></input>
                 <label>Last Name</label>
