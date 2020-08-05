@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Route } from 'react-router-dom';
 import './trailer.css';
+import { addFav } from '../../../actions/filmActions';
+import filmStore from '../../../stores/filmStore';
 
 const films = [
 	{
@@ -13,6 +15,22 @@ const films = [
 ];
 
 function Trailer() {
+	const [favFilmList, setFavFilm] = useState([]);
+	useEffect(() => {
+		filmStore.addChangeListener(onChange);
+		return () => filmStore.removeChangeListener(onChange);
+	}, [favFilmList.length]);
+
+	function onChange() {
+		const imgElement = document.getElementsByClassName('icon-like-mobile');
+		console.log(imgElement);
+		imgElement.src =
+			'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/978cb96aee01766475268b966dd68550/estrella.png';
+		setFavFilm(filmStore.getFavList);
+	}
+	function handleFavClick(title) {
+		addFav(title);
+	}
 	return (
 		<div className="trailer-container">
 			<Link to="/film">
@@ -31,6 +49,7 @@ function Trailer() {
 						width="30px"
 						height="30px"
 						className="icon-like-mobile"
+						onClick={() => handleFavClick('holi')}
 					/>
 				</div>
 			</Link>

@@ -7,6 +7,7 @@ let _sliderId = [];
 let _popularId = [];
 let _comingsoonId = [];
 let _sliderObj = [];
+let _favList = [];
 
 class AppStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -23,6 +24,9 @@ class AppStore extends EventEmitter {
 
 	getSliderId() {
 		return _sliderId;
+	}
+	getFavList() {
+		return _favList;
 	}
 }
 
@@ -41,6 +45,9 @@ dispatcher.register((action) => {
 		case actionTypes.COMING_SOON_FILM:
 			_comingsoonId = action.data;
 			break;
+		case actionTypes.ADD_FAV:
+			_favList = [..._favList, action.data];
+			filmStore.emitChange();
 		default:
 			console.log('Action error');
 			break;
