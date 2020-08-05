@@ -41,9 +41,6 @@ function Dashboard() {
         setSessionSet(gameStore.getSessionSet());
     }
 
-    if(sessionSet.length !== 0){console.log('component has received this data from API', sessionSet)};
-    //loadSessionSet()
-
     return (
         <>
             <div className="dashboard__container">
