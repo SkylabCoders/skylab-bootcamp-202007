@@ -70,7 +70,7 @@ function Header() {
 							Favourite
 						</NavLink>
 					</div>
-					<NavLink to="/algo">
+					<NavLink to="/login">
 						<div className="buttons__right">
 							<p className="buttons__right--text">LogIn</p>
 
