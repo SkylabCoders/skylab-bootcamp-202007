@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './login.css';
-import { login, logout } from '../../actions/authActions';
+import { login, logout, signInWithGoogle } from '../../actions/authActions';
 import authStore from '../../stores/authStore';
 
 function Login() {
@@ -23,7 +23,9 @@ function Login() {
 	return (
 		<div className="login-container">
 			<div className="newAccount">
-				<button className="button">Login with Google</button>
+				<button onClick={() => signInWithGoogle()} className="button">
+					Login with Google
+				</button>
 				<button className="button">Login with Facebook</button>
 				<button className="button">Create a new account</button>
 			</div>
