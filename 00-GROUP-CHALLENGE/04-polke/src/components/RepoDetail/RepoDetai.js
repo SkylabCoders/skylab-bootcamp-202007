@@ -17,6 +17,15 @@ function RepoDetail() {
 						<h3>User repositorie</h3>
 						<h3>&#128202;</h3>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3>User repositorie</h3>
+						<h3>&#128202;</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3>User repositorie</h3>
+						<h3>&#128202;</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3>User repositorie</h3>
+						<h3>&#128202;</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
