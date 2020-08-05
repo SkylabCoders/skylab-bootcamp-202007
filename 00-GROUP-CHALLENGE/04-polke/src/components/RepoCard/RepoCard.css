@@ -5,11 +5,19 @@
 	width: 40%;
 	border: 1px solid;
 	margin: 13px;
+	word-wrap: break-word;
+	max-height: 250px;
 }
 .repoCard__name-private {
 	display: flex;
 	flex-direction: row;
 	margin: 5px;
+	width: 100%;
+	justify-content: space-around;
+}
+.padlock {
+	width: 25px;
+	display: flex;
 }
 .repoCard__showlastUpdate-lang {
 	display: flex;
@@ -21,6 +29,7 @@
 .repoCard__description {
 	text-align: center;
 	width: 100%;
+	overflow: hidden;
 }
 .repoCard__details {
 	width: 100%;

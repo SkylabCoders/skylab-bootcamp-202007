@@ -15,7 +15,7 @@ function App() {
 				<Route path="/userDetail" component={UserDetail} />
 				<Route path="/repoDetail" component={RepoDetail} />
 			</Switch>
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 }
