@@ -16,7 +16,6 @@ function PlanetComponent(prop) {
         setPlanets(store.getPlanets());
     }
 
-
     return (
 
         <div className='card-holder'>
