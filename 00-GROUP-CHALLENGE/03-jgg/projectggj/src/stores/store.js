@@ -37,7 +37,23 @@ class DBStore extends EventEmitter {
     }
 
     charsByPlanets(planetName) {
-        return _characters.filter((planet) => planet.originPlanet === planetName);
+        return _characters.filter((char) => char.originPlanet === planetName);
+    }
+    charsBySagas(sagaName) {
+        return _characters.filter((char) => char.series === sagaName);
+    }
+
+    filterChar(filter, name) {
+        if (!filter) {
+            return _characters;
+        } else {
+            if (filter === 'planet') {
+                return this.charsByPlanets(name);
+            }
+            if (filter === 'saga') {
+                return this.charsBySagas(name);
+            }
+        }
     }
 
 }
