@@ -13,7 +13,6 @@ export function loadRecipe() {
 	function Recipe(
 		photo,
 		title,
-		id,
 		time,
 		url,
 		source,
@@ -26,7 +25,7 @@ export function loadRecipe() {
 		this.title = title;
 		this.time = time;
 		this.url = url;
-		this.sorrce = source;
+		this.source = source;
 		this.calories = calories;
 		this.yeld = yeld;
 		this.ingredients = ingredients;
