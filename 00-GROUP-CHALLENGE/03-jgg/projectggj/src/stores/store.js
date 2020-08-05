@@ -31,6 +31,12 @@ class DBStore extends EventEmitter {
     getSagas() {
         return _sagas;
     }
+
+    getCharByName(name) {
+        return _characters.find((char) => name === char.name)
+    }
+
+
 }
 
 const store = new DBStore();

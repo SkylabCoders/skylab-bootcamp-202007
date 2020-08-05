@@ -21,6 +21,7 @@ import './sagaComponent.css';
 } */
 
 function SagaComponent(props) {
+
     const [chars, setSagas] = useState(store.getSagas());
 
     useEffect(() => {
