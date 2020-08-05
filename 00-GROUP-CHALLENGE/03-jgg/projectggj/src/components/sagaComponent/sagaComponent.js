@@ -22,7 +22,8 @@ import './sagaComponent.css';
 
 function SagaComponent(props) {
 
-    const [chars, setSagas] = useState(store.getSagas());
+    let [chars, setSagas] = useState(store.getSagas());
+
 
     useEffect(() => {
         debugger
@@ -30,15 +31,13 @@ function SagaComponent(props) {
         if (chars.length === 0) loadSagaList();
         return () => store.removeChangeListener(onChange)
         function filterSagas() {
-            chars.forEach(char)
+            chars.forEach(chars)
         }
     }, [chars.length]);
 
     function onChange() {
         setSagas(store.getSagas())
     }
-
-
 
     return (
         <>

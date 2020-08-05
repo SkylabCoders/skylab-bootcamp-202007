@@ -282,11 +282,50 @@
 }
 @media only screen and (min-width: 577px) {
 	.card.hovercard {
-		width: 60%;
+		width: 50%;
 		margin-top: 1vw;
 	}
 	.details-desc-content {
 		width: unset;
 		width: unset;
+	}
+	.card.hovercard .cardheader {
+		background: url('https://4.bp.blogspot.com/-_U66X6-Rjhk/VcJe5_JANXI/AAAAAAAADAY/OC-Wv8hHxLU/s1600/Earth_%2528Bardock_Special%2529.jpg');
+		background-size: cover;
+		background-position: center;
+		height: 20vw;
+	}
+	.card.hovercard .info .details-desc {
+		font-size: 3vw;
+		line-height: 20px;
+		padding: 1vw;
+		color: black;
+		font-weight: 500;
+	}
+	.details-desc span {
+		font-size: 3vw;
+		color: grey;
+		font-weight: 300;
+	}
+	.card.hovercard .avatar {
+		position: relative;
+		top: -10vw;
+		margin-bottom: -10vw;
+	}
+	.card.hovercard .avatar img {
+		width: 20vw;
+		height: 20vw;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+	.card.hovercard .info .title {
+		margin-bottom: 4px;
+		padding: 1vw;
+		font-size: 5vw;
+		line-height: 1;
+		color: #262626;
+		vertical-align: middle;
 	}
 }
