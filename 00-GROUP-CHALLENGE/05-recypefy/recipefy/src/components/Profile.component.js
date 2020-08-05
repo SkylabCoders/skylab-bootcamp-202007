@@ -82,7 +82,7 @@ function ProfileComponent(props) {
 						<h3 className="main__profile-component--title">Your Favourites</h3>
 						<ul>
 							{actualFavourites.map((recipe) => (
-								<ListItemRecipe id={recipe.id} />
+								<ListItemRecipe title={recipe.title} />
 							))}
 						</ul>
 					</div>
@@ -92,7 +92,7 @@ function ProfileComponent(props) {
 				<h2 className="main__profile-component--title">Your Favourites</h2>
 				<ul>
 					{actualFavourites.map((recipe) => (
-						<ListItemRecipe id={recipe.id} />
+						<ListItemRecipe title={recipe.title} />
 					))}
 				</ul>
 			</div>
