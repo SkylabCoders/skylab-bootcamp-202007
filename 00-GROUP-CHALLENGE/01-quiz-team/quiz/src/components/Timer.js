@@ -41,7 +41,6 @@ function Timer(props) {
     return (
         <>
             <div className="timer__container">
-
                 <div>
                     {UrgeWithPleasureComponent()}
                     <p>{message()}</p>
