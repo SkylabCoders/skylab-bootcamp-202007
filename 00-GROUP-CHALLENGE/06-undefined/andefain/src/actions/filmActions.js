@@ -1,7 +1,7 @@
 import dispatcher from '../dispatcher';
 import actionTypes from './actionTypes';
 
-export function sliderFilm(id) {
+export function searchFilm(id) {
 	fetch(`https://imdb8.p.rapidapi.com/title/get-base?tconst=${id}`, {
 		method: 'GET',
 		headers: {
@@ -12,7 +12,7 @@ export function sliderFilm(id) {
 		.then((response) => response.json())
 		.then((response) => {
 			dispatcher.dispatch({
-				type: actionTypes,
+				type: actionTypes.SEARCH_FILM,
 				data: response
 			});
 		})
