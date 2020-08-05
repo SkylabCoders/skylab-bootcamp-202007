@@ -1,28 +1,32 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
+import { authMethods } from '../firebase/firebaseAuth';
 
 export function login() {
-	return new Promise((resolve) => {
-		resolve(true);
-	}).then((loginResponse) => {
-		dispatcher.dispatch({
-			type: actionTypes.LOGIN,
-			data: {
-				isLogged: loginResponse
+	const email = 'gilbe.cao@gmail.com';
+	const password = '1234567';
+	return authMethods
+		.signIn(email, password)
+		.then((loginResponse) => {
+			debugger;
+			if (loginResponse) {
+				dispatcher.dispatch({
+					type: actionTypes.LOGIN,
+					data: loginResponse
+				});
 			}
-		});
-	});
+		})
+		.catch(console.log);
 }
 
 export function logout() {
-	return new Promise((resolve) => {
-		resolve(false);
-	}).then((logoutResponse) => {
-		dispatcher.dispatch({
-			type: actionTypes.LOGOUT,
-			data: {
-				isLogged: logoutResponse
-			}
-		});
-	});
+	return authMethods
+		.signOut()
+		.then(() => {
+			debugger;
+			dispatcher.dispatch({
+				type: actionTypes.LOGOUT
+			});
+		})
+		.catch(console.log);
 }

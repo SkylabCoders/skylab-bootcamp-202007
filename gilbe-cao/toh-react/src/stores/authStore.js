@@ -3,7 +3,8 @@ import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
-let _isLogged = true;
+let _isLogged = false;
+let _profile = null;
 class AuthStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
@@ -20,6 +21,10 @@ class AuthStore extends EventEmitter {
 	getIsLogged() {
 		return _isLogged;
 	}
+
+	getProfile() {
+		return _profile;
+	}
 }
 
 const authStore = new AuthStore();
@@ -27,11 +32,12 @@ const authStore = new AuthStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOGIN:
-			_isLogged = action.data.isLogged;
+			_isLogged = !!action.data;
+			_profile = action.data.user;
 			authStore.emitChange();
 			break;
 		case actionTypes.LOGOUT:
-			_isLogged = action.data.isLogged;
+			_isLogged = false;
 			authStore.emitChange();
 			break;
 		default:
