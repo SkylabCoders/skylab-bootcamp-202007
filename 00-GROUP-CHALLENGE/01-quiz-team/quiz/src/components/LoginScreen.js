@@ -4,7 +4,7 @@ import './../css/LoginScreen.css'
 
 function LoginScreen(props) {
     const [userName,setUserName] = useState('');
-    const [userPassword,setUserPassword] = useState(null);
+    const [userPassword,setUserPassword] = useState(undefined);
 
     function onFieldChange(value,setValue){
         setValue(value);
@@ -24,7 +24,7 @@ function LoginScreen(props) {
                             <form method="post" action="">
                                 <p><input type="text" name="userName" value={userName} placeholder="Username or Email" onChange={(event) => onFieldChange(event.target.value, setUserName)}/></p>
                                 <p><input type="password" name="password" value={userPassword} placeholder="Password" onChange={(event) => onFieldChange(event.target.value, setUserPassword)}/></p>  
-                                <p class="submit"><input type="submit" name="commit" value="Login" /></p>
+                                <p className="submit"><input type="submit" name="commit" value="Login" /></p>
                             </form>
                         </div>
                     </div>
