@@ -4,3 +4,11 @@ section {
     align-content: center;
     justify-content: center;
 }
+
+a {
+    color: black
+}
+
+a:hover {
+    color: black;
+}
