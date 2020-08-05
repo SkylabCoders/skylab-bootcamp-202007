@@ -4,6 +4,7 @@ import '../../shared/generalStyles.css';
 import useruserDetailStore from '../../stores/userDetailStore';
 import userDetailStore from '../../stores/userDetailStore';
 import { loadRepoList } from '../../actions/userDetailActions';
+import RepoCard from '../RepoCard/RepoCard';
 
 function UserDetail() {
 	const [repoList, setRepoList] = useState([]);
@@ -25,11 +26,7 @@ function UserDetail() {
 
 	return (
 		<div className="userdetail__container">
-			{repoList.map((repo) => (
-				<p>
-					{repo.id} | {repo.name} | {repo.description || 'no description'}{' '}
-				</p>
-			))}
+			<RepoCard />
 		</div>
 	);
 }
