@@ -36,6 +36,9 @@ class DBStore extends EventEmitter {
         return _characters.find((char) => name === char.name)
     }
 
+    charsByPlanets(planetName) {
+        return _characters.filter((planet) => planet.originPlanet === planetName);
+    }
 
 }
 
