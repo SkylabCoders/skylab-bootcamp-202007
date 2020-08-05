@@ -1,12 +1,9 @@
-.generic-carrousel {
-}
-
 .generic-carrousel img {
 	height: 33vh;
 }
 
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
-	/**/
+	/*Same as mobile*/
 }
 
 @media only screen and (min-width: 1024px) {
