@@ -1,15 +1,6 @@
 import React from 'react';
 import './Switch.css';
 
-let switchElem = document.getElementsByClassName('custom-control-input');
-console.log(switchElem);
-
-function changeSwitch(event) {
-	switchElem = document.getElementsByClassName('custom-control-input');
-
-	console.log(switchElem.customSwitches.checked);
-}
-
 function Switch() {
 	return (
 		<div className="switch">
@@ -19,7 +10,6 @@ function Switch() {
 					type="checkbox"
 					className="custom-control-input"
 					id="customSwitches"
-					onChange={changeSwitch}
 					readOnly
 				/>
 				<label

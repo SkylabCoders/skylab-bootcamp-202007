@@ -8,22 +8,13 @@ function Footer() {
 		<div className="footer__container footer__container--color ">
 			<p className="footer__item">
 				Copyright &copy;{' '}
-				<a href="https://github.com/Dani-Alonso" target="_blank">
-					Dani Alonso
-				</a>{' '}
-				|{' '}
-				<a href="https://github.com/phortela1n" target="_blank">
-					Pablo Hortelano
-				</a>{' '}
-				|{' '}
-				<a href="https://github.com/gerardramonp" target="_blank">
-					Gerard Ramon
-				</a>
+				<a href="https://github.com/Dani-Alonso">Dani Alonso</a> |{' '}
+				<a href="https://github.com/phortela1n">Pablo Hortelano</a> |{' '}
+				<a href="https://github.com/gerardramonp">Gerard Ramon</a>
 			</p>
 
 			<a
 				href="https://github.com/SkylabCoders/skylab-bootcamp-202007/tree/master/00-GROUP-CHALLENGE/04-polke"
-				target="_blank"
 				className="footer__item"
 			>
 				About
