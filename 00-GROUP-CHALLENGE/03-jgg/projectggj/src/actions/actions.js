@@ -2,6 +2,7 @@ import charList from '../mock.chars';
 import dispatcher from "../appDispatcher";
 import actionTypes from "./actionTypes";
 import planetsArr from '../mock.Planets';
+import sagaList from '../mock.sagas';
 
 
 export function loadCharList() {
@@ -17,11 +18,11 @@ export function loadCharList() {
 
 export function loadSagaList() {
     return new Promise((resolve) => {
-        resolve(charList);
-    }).then((charList) => {
+        resolve(sagaList);
+    }).then((sagaList) => {
         dispatcher.dispatch({
             type: actionTypes.LOAD_SAGA_LIST,
-            data: charList
+            data: sagaList
         });
     });
 }
