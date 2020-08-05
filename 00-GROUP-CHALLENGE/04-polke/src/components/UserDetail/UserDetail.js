@@ -4,6 +4,7 @@ import '../../shared/generalStyles.css';
 import useruserDetailStore from '../../stores/userDetailStore';
 import userDetailStore from '../../stores/userDetailStore';
 import { loadRepoList } from '../../actions/userDetailActions';
+import RepoCard from '../RepoCard/RepoCard';
 import UserInfo from './UserInfo/UserInfo';
 
 function UserDetail({ isUserGitHub }) {
@@ -32,12 +33,7 @@ function UserDetail({ isUserGitHub }) {
 				<UserInfo />
 			</div>
 			<div className="userdetail__repo-list">
-				{repoList.map((repo) => (
-					<p>
-						private: {repo.private.toString()} | {repo.name} |{' '}
-						{repo.description} | {repo.id} | {repo.language} | {repo.lastUpdate}
-					</p>
-				))}
+				<RepoCard />
 			</div>
 			<div className="userdetail__repo-creation">
 				{isUserGitHub ? createRepoButton : null}
