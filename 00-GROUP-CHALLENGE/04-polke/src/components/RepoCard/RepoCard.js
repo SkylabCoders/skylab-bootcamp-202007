@@ -1,13 +1,22 @@
 import React from 'react';
 import './RepoCard.css';
+import { Button } from 'react-bootstrap';
 
 function RepoCard() {
 	return (
 		<section className="repoCard">
 			<div className="repoCard__name-private">
 				<div className="repoCard__private">
-					<img src={require('../../assets/img/padlock.png')} alt="moon" />
-					<img src={require('../../assets/img/unlock.png')} alt="moon" />
+					<img
+						className="padlock"
+						src={require('../../assets/img/padlock.png')}
+						alt="moon"
+					/>
+					<img
+						className="unlock"
+						src={require('../../assets/img/unlock.png')}
+						alt="moon"
+					/>
 				</div>
 				<div className="repoCard__name">Name</div>
 			</div>
@@ -17,9 +26,9 @@ function RepoCard() {
 				<div className="repoCard__lang">css, js, html</div>
 			</div>
 			<div className="repoCard__details">
-				<button variant="outline-secondary" className="button__details">
+				<Button variant="outline-secondary" className="button__details">
 					Details
-				</button>
+				</Button>
 			</div>
 		</section>
 	);

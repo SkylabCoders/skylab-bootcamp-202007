@@ -1,0 +1,26 @@
+.repoCard {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 40%;
+	border: 1px solid;
+	margin: 13px;
+}
+.repoCard__name-private {
+	display: flex;
+	flex-direction: row;
+}
+.repoCard__showlastUpdate-lang {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+.repoCard__description {
+	text-align: center;
+	width: 100%;
+}
+.repoCard__details {
+	width: 100%;
+	text-align: center;
+}
