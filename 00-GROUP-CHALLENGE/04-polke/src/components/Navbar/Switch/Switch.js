@@ -1,6 +1,6 @@
 import React from 'react';
 import './Switch.css';
-import { loadDarkColors } from '../../../actions/navbarActions';
+// import { loadDarkColors } from '../../../actions/navbarActions';
 
 function Switch() {
 	function handleChange() {}

@@ -1,0 +1,7 @@
+body {
+	background-color: var(--bg-color-body);
+}
+
+.userdetail__container {
+	height: 100%;
+}
