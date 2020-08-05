@@ -35,7 +35,7 @@ function NavComponent(props) {
                         <a className="nav-link" href="/saga">Sagas</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link nav__button--game" href="#">Game</a>
+                        <a className="nav-link nav__button--game" href="/game">Game</a>
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-md-0">
