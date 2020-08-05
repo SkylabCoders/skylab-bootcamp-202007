@@ -9,7 +9,7 @@ let _sagas = [];
 
 class DBStore extends EventEmitter {
     addChangeListener(callback) {
-        debugger
+
         this.on(CHANGE_EVENT, callback);
     }
 
@@ -22,7 +22,7 @@ class DBStore extends EventEmitter {
     }
 
     getCharacters() {
-        debugger
+
         return _characters;
     }
     getPlanets() {

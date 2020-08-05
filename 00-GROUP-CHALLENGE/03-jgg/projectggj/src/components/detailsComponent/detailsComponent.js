@@ -3,7 +3,17 @@ import store from '../../stores/store';
 import { loadCharList } from '../../actions/actions';
 import './detailsComponent.css'
 function DetailsComponent(props) {
+    const [chars, setChars] = useState(store.getCharacters());
 
+    useEffect(() => {
+        store.addChangeListener(onChange);
+        if (chars.length === 0) loadCharList();
+        return () => store.removeChangeListener(onChange);
+    }, [chars.length]);
+
+    function onChange() {
+        setChars(store.getCharacters());
+    }
     // let [chars, setChars] = useState(store.getCharacters());
     let char = {};
     const name = props.match.params.name;
@@ -13,7 +23,7 @@ function DetailsComponent(props) {
             image: ""
         }
     return (
-        <div classNameName='details-holder'>
+        <div className='details-holder'>
             <div className="flex-item">
                 <div className="row">
                     <div className="detail-container flex-item">
