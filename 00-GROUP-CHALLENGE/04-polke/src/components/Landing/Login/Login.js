@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FormControl, FormGroup, Button } from 'react-bootstrap';
-import { login, logout, loginGoogle } from '../../../actions/loginActions';
+import {
+	login,
+	logout,
+	loginGoogle,
+	loginGitHub
+} from '../../../actions/loginActions';
 import landingStore from '../../../stores/landingStore';
 import '../../../shared/generalStyles.css';
 import './Login.css';
@@ -47,7 +52,15 @@ function Login() {
 				controlId="password"
 				bsSize="large"
 			>
-				<button className="form__button">GitHub</button>
+				<button
+					className="form__button"
+					onClick={(event) => {
+						event.preventDefault();
+						loginGitHub();
+					}}
+				>
+					GitHub
+				</button>
 			</FormGroup>
 			<FormGroup
 				className="Login__form__container-input"

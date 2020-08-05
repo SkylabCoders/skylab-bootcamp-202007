@@ -27,6 +27,20 @@ export function loginGoogle() {
 		.catch((error) => console.error(error.message));
 }
 
+export function loginGitHub() {
+	return authMethods
+		.signInWithGitHub()
+		.then((data) => {
+			console.log(data);
+			debugger;
+			dispatcher.dispatch({
+				type: actionTypes.LOGIN,
+				data
+			});
+		})
+		.catch((error) => console.error(error.message));
+}
+
 export function logout() {
 	return authMethods
 		.logout()
