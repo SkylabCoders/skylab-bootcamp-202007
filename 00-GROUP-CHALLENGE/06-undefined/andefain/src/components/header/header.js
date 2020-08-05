@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './header.css';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 
 function Header(props) {
 	const [login, setLogin] = useState('Login');
@@ -28,6 +28,7 @@ function Header(props) {
 				</Link>
 
 				<input
+					onSubmit
 					className="header-search"
 					placeholder="Search any title or name..."
 				></input>
