@@ -21,7 +21,7 @@ function App(props) {
         <Route path='/login' component={LoginComponent} />
         <Route path='/register' component={RegisterComponent} />
         <Route path='/' exact component={HomeComponent} />
-        <Route path='/charList' component={CharListComponent} />
+        <Route path='/charList/:filter/:name' component={CharListComponent} />
         <Route path='/details/:name' component={DetailsComponent} />
         <Route path='/planet' component={PlanetComponent} />
         <Route path='/saga' component={SagaComponent} />
