@@ -20,7 +20,6 @@ function CharListComponent(props) {
 
     const [, , , , filter, name] = (window.location.href).split('/')
     chars = store.filterChar(filter, name);
-    console.log(chars);
     return (
         <>
             <div className='card-holder'>
