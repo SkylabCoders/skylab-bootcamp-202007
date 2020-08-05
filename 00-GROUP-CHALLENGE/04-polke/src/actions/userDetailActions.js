@@ -11,9 +11,19 @@ export function loadRepoList(userName) {
 	})
 		.then((response) => response.json())
 		.then((response) => {
+			const repoList = response.map((repo) => {
+				return {
+					private: repo.private,
+					name: repo.name,
+					description: repo.description || 'This repo has no description.',
+					id: repo.id,
+					language: repo.language || 'Language mix',
+					lastUpdate: repo.updated_at
+				};
+			});
 			dispatcher.dispatch({
 				type: actionTypes.LOAD_REPO_LIST,
-				data: response
+				data: repoList
 			});
 		})
 		.catch((error) => console.error(error.message));
