@@ -24,7 +24,6 @@ export function loadRecipe() {
 	) {
 		this.photo = photo;
 		this.title = title;
-		this.id = id; /*WHERE pendent to ask*/
 		this.time = time;
 		this.url = url;
 		this.sorrce = source;
@@ -42,7 +41,6 @@ export function loadRecipe() {
 		const newRecipe = new Recipe(
 			actualRecipe.image,
 			actualRecipe.label,
-			actualRecipe.uri,
 			actualRecipe.totalTime,
 			actualRecipe.url,
 			actualRecipe.source,
@@ -51,6 +49,7 @@ export function loadRecipe() {
 			actualRecipe.ingredientLines,
 			actualPreferencces
 		);
+		console.log(newRecipe);
 		return newRecipe;
 	}
 	return new Promise((resolve, reject) => {

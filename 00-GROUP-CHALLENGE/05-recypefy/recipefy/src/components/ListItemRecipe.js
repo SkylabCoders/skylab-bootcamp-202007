@@ -4,7 +4,7 @@ import recipeStore from '../stores/RecipeStore';
 import { loadRecipe } from '../actions/RecipeAction';
 import './ListItemRecipe.css';
 
-function ListItemRecipe({ id }) {
+function ListItemRecipe({ title }) {
 	const [recipesList, setRecipes] = useState(recipeStore.getRecipes());
 	const [actualRecipePhoto, setActualRecipePhoto] = useState('');
 	const [actualRecipeTitle, setActualRecipeTitle] = useState('');
@@ -15,7 +15,7 @@ function ListItemRecipe({ id }) {
 			loadRecipe();
 			console.log(recipesList);
 		} else {
-			const actualRecipe = recipeStore.getRecipeById(id);
+			const actualRecipe = recipeStore.getRecipeByTitle(title);
 			if (actualRecipe) {
 				setActualRecipePhoto(actualRecipe.photo);
 				setActualRecipeTitle(actualRecipe.title);
@@ -28,7 +28,11 @@ function ListItemRecipe({ id }) {
 		setRecipes(recipeStore.getRecipes());
 	}
 	return (
-		<Link to={`/recipe-page/${id}`} key={id} className="recipe-list__item">
+		<Link
+			to={`/recipe-page/${title}`}
+			key={title}
+			className="recipe-list__item"
+		>
 			<img alt="Recipe" src={actualRecipePhoto}></img>
 			<h4>{actualRecipeTitle}</h4>
 		</Link>

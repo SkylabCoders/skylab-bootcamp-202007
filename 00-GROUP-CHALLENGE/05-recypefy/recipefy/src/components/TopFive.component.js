@@ -12,7 +12,6 @@ function TopFiveComponent() {
 		if (topFiveList.length === 0) {
 			loadRecipe();
 		}
-		console.log(topFiveList);
 		return () => recipeStore.removeChangeListener;
 	}, [topFiveList.length]);
 
@@ -25,7 +24,7 @@ function TopFiveComponent() {
 			<h2>TOP FIVE FAVOURITES!</h2>
 			<ul>
 				{topFiveList.map((recipe) => (
-					<ListItemRecipe id={recipe.id} />
+					<ListItemRecipe title={recipe.title} />
 				))}
 			</ul>
 		</div>

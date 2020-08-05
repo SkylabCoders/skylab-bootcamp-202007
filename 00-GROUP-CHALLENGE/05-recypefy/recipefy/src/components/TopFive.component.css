@@ -6,6 +6,7 @@
 	margin-top: 50px;
 	height: 40vh;
 	width: 100%;
+	align-items: stretch;
 }
 
 .box__top-five ul {
@@ -21,7 +22,6 @@
 		height: auto;
 		width: 100vw;
 		margin-bottom: 85px;
-
 	}
 }
 
@@ -29,6 +29,5 @@
 	.box__top-five {
 		margin-left: 25vw;
 		width: 74vw;
-
 	}
 }

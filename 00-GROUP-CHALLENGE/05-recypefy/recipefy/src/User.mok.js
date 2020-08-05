@@ -17,16 +17,11 @@ let userMoked = {
 	),
 	favouriteRecipe: [
 		{
-			id:
-				'http://www.edamam.com/ontologies/edamam.owl#recipe_b79327d05b8e5b838ad6cfd9576b30b6'
+			title: 'Persian Chicken'
 		},
+		{ title: 'Dijon Chicken' },
 		{
-			id:
-				'http://www.edamam.com/ontologies/edamam.owl#recipe_8275bb28647abcedef0baaf2dcf34f8b'
-		},
-		{
-			id:
-				'http://www.edamam.com/ontologies/edamam.owl#recipe_2463f2482609d7a471dbbf3b268bd956'
+			title: 'Roast Chicken'
 		}
 	]
 };
