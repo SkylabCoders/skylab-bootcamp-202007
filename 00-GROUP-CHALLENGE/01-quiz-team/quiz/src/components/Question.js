@@ -1,47 +1,57 @@
 import React, { useState, useEffect } from 'react';
 import { loadQuestion } from './../actions/questionActions';
-import questionStore from './../stores/questionStore';
+import gameStore from './../stores/gameStore';
 import './../css/Question.css'
 import Option from './Option'
 import Timer from './Timer'
-import QUESTION_SESSION from './../mockdata/Questions'
 
-function Question() {
-    const [question, setQuestion] = useState(QUESTION_SESSION.results);
+function Question(props) {
+    const [question, setQuestion] = useState();
 
     useEffect(() => {
-        questionStore.addChangeListener(onChange);
-        if (question === {}) { loadQuestion() };
-        return () => { questionStore.removeChangeListener(onChange); }
-    }, []);
+        gameStore.addChangeListener(onChange);
+        loadQuestion(props.i);
+        return () => { gameStore.removeChangeListener(onChange); }
+    }, [props.i]);
 
-    function onChange() {
-        setQuestion(questionStore.getQuestion());
+    function onChange() {debugger
+        setQuestion(gameStore.getQuestion(props.i));
     }
-    console.log(question);
+    console.log('QUESTION COMPONENT, checking question current value before rendering', question);
 
     const typeOfAnswer = () => {
-        if(question[0].type === 'multiple') return (
-        <div>
-            <h2 className="question__title">Question: {question[0].category}</h2>
-            <p className="">{question[0].question}</p>
-            <p>Choose the correct answer</p>
-            <Option option={question[0].correct_answer}/>
-            <Option option={question[0].incorrect_answers[0]}/>
-            <Option option={question[0].incorrect_answers[1]}/>
-            <Option option={question[0].incorrect_answers[2]}/>
-        </div>
-        );
-        else if(question[0].type === Boolean)return (
-            <div>
-                <h2 className="question__title">Question: {question[0].category}</h2>
-                <p className="">{question[0].question}</p>
-                <p>True or false</p>
-                <Option option={question[0].correct_answer}/>
-                <Option option={question[0].incorrect_answers}/>
-            </div>
-            )
+        if (question === undefined){
+            console.log('... render called with undefined value -> not rendering question');
+            return null;
+        } else {
+            console.log('... render called with question value:', question);
+            console.log('... rendering question type:', question.type);
+            if(question.type === 'multiple') return (
+                <div>
+                    <h2 className="question__title">Question: {question.category}</h2>
+                    <p className="">{question.question}</p>
+                    <p>Choose the correct answer</p>
+                    <Option option={question.correct_answer}/>
+                    <Option option={question.incorrect_answers[0]}/>
+                    <Option option={question.incorrect_answers[1]}/>
+                    <Option option={question.incorrect_answers[2]}/>
+                    <button onClick={props.click}>Next Question</button>
+                </div>
+                )
+                else if (question.type === Boolean) return (
+                    <div>
+                        <h2 className="question__title">Question: {question.category}</h2>
+                        <p className="">{question.question}</p>
+                        <p>True or false</p>
+                        <Option option={question.correct_answer}/>
+                        <Option option={question.incorrect_answers}/>
+                        <button onClick={props.click}>Next Question</button>
+                    </div>
+                );
+        }
     }
+
+    console.log('RENDERING QUESTION WITH i', props.i)
 
     return (
         <>

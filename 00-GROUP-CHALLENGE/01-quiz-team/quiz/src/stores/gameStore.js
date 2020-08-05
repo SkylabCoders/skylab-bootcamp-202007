@@ -7,6 +7,7 @@ const CHANGE_EVENT = 'change';
 let _themes_list = [];
 let _top_themes_list = [];
 let _session_set = [];
+let _index = undefined;
 
 class GameStore extends EventEmitter{
 
@@ -34,6 +35,12 @@ class GameStore extends EventEmitter{
         return _session_set;
     }
 
+    getQuestion(index){
+        console.log('GAME STORE -> getQuestion method context: ', index, _session_set);
+        console.log('GAME STORE -> getQuestion method called, returning data: ', _session_set[index]);
+        return _session_set[index];
+    }
+
 }
 
 const gameStore = new GameStore();
@@ -52,8 +59,13 @@ dispatcher.register((action) => {
             break;
         case actionTypes.GET_SESSION_SET:
             _session_set = action.data;
-            console.log('Store has received following data', action.data)
             gameStore.emitChange(_session_set);
+            break;
+        case actionTypes.GET_QUESTION_FROM_SESSION:
+            console.log('INDEX BEFORE CHANGE', _index);
+            _index = action.data;
+            console.log('GAME STORE, has received following index: ', _index, action.data);
+            gameStore.emitChange(_index);
             break;
         default:
             break;
