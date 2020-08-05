@@ -2,7 +2,8 @@ let userMoked = {
 	name: 'Lolo',
 	id: 1,
 	password: null,
-	photo: 'https://image.flaticon.com/icons/svg/929/929564.svg',
+	photo:
+		'https://www.infojobs.net/ficha.foto?quina=6ccf4cf4-57d3-42a6-9571-58bf9eb9e25a',
 	preference: new Preference(
 		false,
 		true,

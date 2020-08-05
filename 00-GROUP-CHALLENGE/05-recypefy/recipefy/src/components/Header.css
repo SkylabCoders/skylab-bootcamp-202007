@@ -6,10 +6,9 @@
 
 .nav__mobile,
 .nav__medium__big {
-	padding: 5px;
+	padding: 5px 5% 5px 5%;
 
 }
-
 
 .nav__mobile>a {
 	color: #efee9d;
@@ -83,7 +82,7 @@
 	background-color: #50af58;
 	height: 40px;
 	position: fixed;
-	width: 100%;
+	width: 90%;
 }
 
 .nav__medium__big {
@@ -124,7 +123,7 @@
 		background-color: #50af58;
 		height: 40px;
 		position: fixed;
-		width: 100%;
+		width: 90%;
 	}
 
 	.buttons__left {
@@ -149,9 +148,6 @@
 		color: #efee9d;
 	}
 
-	.main__boxes {
-		width: 100vw;
-	}
 
 	.section__logo {
 		display: flex;
@@ -167,8 +163,10 @@
 	.main__boxes {
 		display: flex;
 		margin-top: 80px;
-		justify-content: space-around;
+		justify-content: space-between;
 		align-items: center;
+		width: 96%;
+		margin: 80px 2% 0 2%;
 	}
 
 	h1 {
@@ -206,12 +204,12 @@
 
 	.main__search {
 		padding-left: 10px;
-
+		max-width: 272px;
 		height: 40px;
 		margin-bottom: 0;
 		border-radius: 15px;
 		margin-top: 20px;
-		width: 272px;
+		width: 80%;
 	}
 
 	.section__search p {
