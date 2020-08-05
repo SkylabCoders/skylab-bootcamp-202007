@@ -14,7 +14,6 @@ function UserDetail({ isUserGitHub }) {
 		if (repoList.length === 0) {
 			loadRepoList(userName);
 		}
-		console.log(repoList);
 
 		return () => userDetailStore.removeChangeListener(onChange);
 	}, [repoList.length]);
@@ -24,6 +23,7 @@ function UserDetail({ isUserGitHub }) {
 	}
 
 	const createRepoButton = <button>New Repo</button>;
+	isUserGitHub = true;
 
 	return (
 		<div className="userdetail__container">
