@@ -31,8 +31,6 @@ class DBStore extends EventEmitter {
     getSagas() {
         return _sagas;
     }
-
-
 }
 
 const store = new DBStore();
@@ -50,8 +48,10 @@ dispatcher.register((action) => {
         case actionTypes.UPDATE_PROFILE:
             //TODO : LOGIC
             //logic
-
-
+            store.emitChange();
+            break;
+        case actionTypes.LOAD_PLANETS:
+            _planets = action.data;
             store.emitChange();
             break;
         case actionTypes.LOAD_SAGA_LIST:
