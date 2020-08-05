@@ -6,17 +6,18 @@ const sagasList = [
     },
     {
         "series": "DragonBall",
-        "name": ["Goku", "gaaaaaaaa", "Piccolo", "Krillin", "goku", "Bulma", "krilin"],
+        "characters": ["Goku", "gaaaaaaaa", "Piccolo", "Krillin", "goku", "Bulma", "krilin"],
         "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Dragon_Ball_anime_logo.png"
     },
     {
         "series": "Super",
-        "name": ["Cunbar", "Broly"],
+        "characters": ["Cunbar", "Broly"],
         "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Dragon_Ball_Super.png",
     },
     {
         "series": "GT",
-        "name": ["Piculo_olo"],
+        "characters": ["Piculo_olo"],
         "image": "https://pngimage.net/wp-content/uploads/2018/05/dragon-ball-gt-logo-png-6.png",
     }
 ]
+export default sagasList;

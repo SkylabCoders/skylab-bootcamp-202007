@@ -8,8 +8,10 @@
 }
 
 .mainContainer>p {
+    position: absolute;
     color: white;
     font-style: oblique;
+    right: 10px;
 }
 
 img {
@@ -20,11 +22,11 @@ img {
 }
 
 @media (min-width:640px) {
+    .mainContainer {
+        justify-content: center;
+    }
 
     .mainContainer>img {
         align-items: center;
-        margin-left: 45%;
     }
-
-
 }

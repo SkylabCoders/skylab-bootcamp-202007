@@ -9,7 +9,7 @@ let _sagas = [];
 
 class DBStore extends EventEmitter {
     addChangeListener(callback) {
-        debugger
+
         this.on(CHANGE_EVENT, callback);
     }
 
@@ -22,7 +22,7 @@ class DBStore extends EventEmitter {
     }
 
     getCharacters() {
-        debugger
+
         return _characters;
     }
     getPlanets() {
@@ -36,6 +36,25 @@ class DBStore extends EventEmitter {
         return _characters.find((char) => name === char.name)
     }
 
+    charsByPlanets(planetName) {
+        return _characters.filter((char) => char.originPlanet === planetName);
+    }
+    charsBySagas(sagaName) {
+        return _characters.filter((char) => char.series === sagaName);
+    }
+
+    filterChar(filter, name) {
+        if (!filter) {
+            return _characters;
+        } else {
+            if (filter === 'planet') {
+                return this.charsByPlanets(name);
+            }
+            if (filter === 'saga') {
+                return this.charsBySagas(name);
+            }
+        }
+    }
 
 }
 

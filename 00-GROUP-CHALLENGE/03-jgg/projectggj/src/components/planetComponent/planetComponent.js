@@ -5,7 +5,6 @@ import { loadPlanets } from "../../actions/actions";
 
 function PlanetComponent(prop) {
     const [planets, setPlanets] = useState(store.getPlanets());
-
     useEffect(() => {
         store.addChangeListener(onChange);
         if (planets.length === 0) loadPlanets();
@@ -20,7 +19,7 @@ function PlanetComponent(prop) {
 
         <div className='card-holder'>
             {planets && planets.map((planet) => (
-                <Link to='/charList' key={planet.__v}>
+                <Link to={`/charList/planet/${planet.name}`} key={planet.__v}>
                 <div className="card father-card" >
                     <div className="row no-gutters hinherit">
                         <div className='hinherit img-holder'>
