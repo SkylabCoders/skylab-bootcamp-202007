@@ -14,40 +14,43 @@ function Question(props) {
         return () => { gameStore.removeChangeListener(onChange); }
     }, [props.i]);
 
-    function onChange() {debugger
+    function onChange() {
+        debugger
         setQuestion(gameStore.getQuestion(props.i));
     }
     console.log('QUESTION COMPONENT, checking question current value before rendering', question);
 
     const typeOfAnswer = () => {
-        if (question === undefined){
+        if (question === undefined) {
             console.log('... render called with undefined value -> not rendering question');
             return null;
         } else {
             console.log('... render called with question value:', question);
             console.log('... rendering question type:', question.type);
-            if(question.type === 'multiple') return (
+            if (question.type === 'multiple') return (
                 <div>
                     <h2 className="question__title">Question: {question.category}</h2>
                     <p className="">{question.question}</p>
                     <p>Choose the correct answer</p>
-                    <Option option={question.correct_answer}/>
-                    <Option option={question.incorrect_answers[0]}/>
-                    <Option option={question.incorrect_answers[1]}/>
-                    <Option option={question.incorrect_answers[2]}/>
+                    <ul className="list__container">
+                        <Option option={question.correct_answer} />
+                        <Option option={question.incorrect_answers[0]} />
+                        <Option option={question.incorrect_answers[1]} />
+                        <Option option={question.incorrect_answers[2]} />
+                    </ul>
                     <button onClick={props.click}>Next Question</button>
                 </div>
-                )
-                else if (question.type === Boolean) return (
-                    <div>
-                        <h2 className="question__title">Question: {question.category}</h2>
-                        <p className="">{question.question}</p>
-                        <p>True or false</p>
-                        <Option option={question.correct_answer}/>
-                        <Option option={question.incorrect_answers}/>
-                        <button onClick={props.click}>Next Question</button>
-                    </div>
-                );
+            )
+            else if (question.type === Boolean) return (
+                <div>
+                    <h2 className="question__title">Question: {question.category}</h2>
+                    <p className="">{question.question}</p>
+                    <p>True or false</p>
+                    <Option option={question.correct_answer} />
+                    <Option option={question.incorrect_answers} />
+                    <button onClick={props.click}>Next Question</button>
+                </div>
+            );
         }
     }
 
@@ -57,7 +60,7 @@ function Question(props) {
         <>
             <div className="question__container">
                 <div className="question__item">
-                        {typeOfAnswer()}
+                    {typeOfAnswer()}
                 </div>
                 <Timer />
             </div>

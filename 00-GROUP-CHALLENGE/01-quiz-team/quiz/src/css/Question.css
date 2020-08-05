@@ -26,6 +26,17 @@
     text-decoration: none;
 }
 
+.list__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list__container li{
+    margin: 5px;
+}
+
 @media (min-width: 680px) and (max-width: 1024px){
     .question__item{
         width: 70vw;
