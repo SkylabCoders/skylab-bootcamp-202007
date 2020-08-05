@@ -1,6 +1,4 @@
-import { Link, Route } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import './names.css';
 import film from '../film.mock';
 
