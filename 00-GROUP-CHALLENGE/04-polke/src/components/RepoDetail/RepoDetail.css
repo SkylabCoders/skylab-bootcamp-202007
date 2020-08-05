@@ -1,0 +1,31 @@
+.generic-carrousel {
+}
+
+.generic-carrousel img {
+	height: 33vh;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) {
+	.carrousel-main-container {
+		height: 100vh;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-content: center;
+		padding: 10px;
+	}
+	.generic-carrousel {
+		height: 100%;
+		width: 33vw;
+		padding: 10px;
+	}
+	.generic-carrousel img {
+		height: 100vh;
+	}
+	.carousel-caption {
+		top: 30%;
+	}
+}
