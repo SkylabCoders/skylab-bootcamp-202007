@@ -27,7 +27,7 @@ function Game(props){
         <>
             <div className="game__container">
                 <div className="test__guarro">
-                    <h2 className="test__guarro__titulo">COSAS CHUNGAS</h2>
+                    <h2 className="test__guarro__titulo">EJEMPLO SET PREGUNTAS</h2>
                     <ul className="test__guarro__item">
                     {sessionSet.map((question)=>(
                         <li key={question.question}>
