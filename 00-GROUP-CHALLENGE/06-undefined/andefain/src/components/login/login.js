@@ -19,7 +19,7 @@ function Login() {
 					></input>
 				</label>
 				<label>
-					<input type="text" placeholder="password"></input>
+					<input type="text" placeholder="text"></input>
 				</label>
 				<button>Login</button>
 			</div>
