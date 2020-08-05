@@ -4,6 +4,10 @@
 	font-family: Arial, Helvetica, sans-serif !important;
 }
 
+#root {
+	width: 100%;
+}
+
 body {
 	background-color: #d1eaa3;
 	width: 100%;
