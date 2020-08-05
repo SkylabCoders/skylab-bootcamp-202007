@@ -8,7 +8,7 @@ import UserInfo from './UserInfo/UserInfo';
 
 function UserDetail({ isUserGitHub }) {
 	const [repoList, setRepoList] = useState([]);
-	const [userName, setUserName] = useState('gerardramonp');
+	const [userName, setUserName] = useState('phortela');
 
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);

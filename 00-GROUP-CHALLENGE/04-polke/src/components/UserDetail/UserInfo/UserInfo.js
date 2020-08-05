@@ -7,7 +7,7 @@ import { loadUserImg } from '../../../actions/userDetailActions';
 
 function UserInfo() {
 	const [userImg, setuserImg] = useState([]);
-	const [userName, setUserName] = useState('infohab');
+	const [userName, setUserName] = useState('phortela1n');
 
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);
@@ -25,7 +25,8 @@ function UserInfo() {
 	console.log(userImg);
 	return (
 		<Card className="user-info-card">
-			<Card.Img variant="top" src={userImg.avatar_url} />
+			<Card.Title className="user-info-card__main-title">USER INFO</Card.Title>
+			<Card.Img roundedCircle variant="top" src={userImg.avatar_url} />
 			<Card.Body>
 				<Card.Title className="user-info-card__name-title">
 					<a href={userImg.html_url}>{userImg.company}</a>
