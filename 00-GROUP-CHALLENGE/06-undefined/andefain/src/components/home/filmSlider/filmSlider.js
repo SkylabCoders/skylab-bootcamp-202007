@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
+import filmStore from '../../../stores/filmStore';
+import { sliderFilm, sliderData } from '../../../actions/filmActions';
+
 import './filmSlider.css';
 
 const films = [
@@ -21,8 +24,15 @@ const films = [
 			'https://m.media-amazon.com/images/M/MV5BNTRlMzhjMzYtNmY1NC00ODc5LWE1OWQtNjVjZTY4MzI5ZGNmXkEyXkFqcGdeQXVyMjk3NTUyOTc@._V1_.jpg'
 	}
 ];
-
+let oninit = true;
 function FilmSlider() {
+	if (oninit) {
+		oninit = false;
+		const a = filmStore.getSliderId();
+		if (a.length === 0) {
+			sliderData();
+		}
+	}
 	let imageIndex = 0;
 	const [rightFilm, setRightFilm] = useState(films[0]);
 	const [centerFilm, setCenterFilm] = useState(films[1]);
