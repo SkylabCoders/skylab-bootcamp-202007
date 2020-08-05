@@ -12,16 +12,12 @@ function Login() {
 			</div>
 			<div className="login">
 				<label>
-					<input
-						className="email"
-						type="text"
-						placeholder="user e-mail"
-					></input>
+					<input type="text" placeholder="user e-mail"></input>
 				</label>
 				<label>
-					<input type="text" placeholder="password"></input>
+					<input type="password" placeholder="password"></input>
 				</label>
-				<button>Login</button>
+				<button className="button">Login</button>
 			</div>
 		</div>
 	);
