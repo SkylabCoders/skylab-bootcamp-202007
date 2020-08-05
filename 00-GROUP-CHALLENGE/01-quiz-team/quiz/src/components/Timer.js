@@ -1,32 +1,50 @@
 import React, { useEffect, useState } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import './../css/Timer.css'
 
 function Timer(props) {
     let [countDown, setCountDown] = useState(30);
 
     useEffect(() => {
-		// heroStore.addChangeListener(onChange);
-        if (countDown === 30) {
-            // loadTimer();
-		} 
-		// return () => heroStore.removeChangeListener(onChange);
-	}, []);
-    
+        const timerInterval = setTimeout(() => {
+            if (countDown > 0) setCountDown(countDown - 1);
+            else if (countDown === 0) {
+                return;
+            }
 
-    function callTimer(){
-    const timer =  setTimeout(()=>{
-            countDown--;
-            setCountDown(countDown);
-            console.log(countDown);
-        },1000);
+        }, 1000);
+        return () => clearTimeout(timerInterval);
+    }, [countDown]);
+
+    const message = () => {
+        if (countDown === 0) return (
+            <p>
+                Time's Up!!
+            </p>
+        );
     }
 
-    callTimer();
+    const UrgeWithPleasureComponent = () => (
+        <CountdownCircleTimer
+            isPlaying
+            duration={30}
+            colors={[
+                ['#004777', 0.33],
+                ['#F7B801', 0.33],
+                ['#A30000', 0.33],
+            ]}
+        >
+            {({ remainingTime }) => remainingTime}
+        </CountdownCircleTimer>
+    )
 
     return (
         <>
-            <div className="">           
-                {countDown}
+            <div className="timer__container">
+
+                <div>
+                    <p>{UrgeWithPleasureComponent()}{message()}</p>
+                </div>
             </div>
         </>
     )

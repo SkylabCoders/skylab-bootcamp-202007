@@ -2,34 +2,57 @@ import React, { useState, useEffect } from 'react';
 import { loadQuestion } from './../actions/questionActions';
 import questionStore from './../stores/questionStore';
 import './../css/Question.css'
-import Answer from './Answer'
+import Option from './Option'
 import Timer from './Timer'
+import QUESTION_SESSION from './../mockdata/Questions'
 
-function Question(){
-    const [question, setQuestion] = useState({});
+function Question() {
+    const [question, setQuestion] = useState(QUESTION_SESSION.results);
 
-    useEffect(()=>{
+    useEffect(() => {
         questionStore.addChangeListener(onChange);
-        if(question === {}){loadQuestion()};
-        return ()=>{questionStore.removeChangeListener(onChange);}
+        if (question === {}) { loadQuestion() };
+        return () => { questionStore.removeChangeListener(onChange); }
     }, []);
-    
-    function onChange(){
+
+    function onChange() {
         setQuestion(questionStore.getQuestion());
     }
+    console.log(question);
 
-    return(
+    const typeOfAnswer = () => {
+        if(question[0].type === 'multiple') return (
+        <div>
+            <h2 className="question__title">Question: {question[0].category}</h2>
+            <p className="">{question[0].question}</p>
+            <p>Choose the correct answer</p>
+            <Option option={question[0].correct_answer}/>
+            <Option option={question[0].incorrect_answers[0]}/>
+            <Option option={question[0].incorrect_answers[1]}/>
+            <Option option={question[0].incorrect_answers[2]}/>
+        </div>
+        );
+        else if(question[0].type === Boolean)return (
+            <div>
+                <h2 className="question__title">Question: {question[0].category}</h2>
+                <p className="">{question[0].question}</p>
+                <p>True or false</p>
+                <Option option={question[0].correct_answer}/>
+                <Option option={question[0].incorrect_answers}/>
+            </div>
+            )
+    }
+
+    return (
         <>
             <div className="question__container">
-                <div className = "question__item">
-                <h2 className="question__title">Question</h2>
-                <p className="">Who's the current president of Uganda's country?</p>
-                <Answer/>
+                <div className="question__item">
+                        {typeOfAnswer()}
                 </div>
-                <Timer/>
+                <Timer />
             </div>
         </>
-        )
+    )
 }
 
 export default Question;
@@ -38,4 +61,3 @@ export default Question;
 
 
 
-    

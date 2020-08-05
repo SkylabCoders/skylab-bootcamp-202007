@@ -1,0 +1,17 @@
+.list__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.answer__item{
+    border: solid 1px goldenrod;
+    text-align: center;
+    color: white;
+    background-color: goldenrod;
+    width: 200px;
+    padding: 5px;
+    text-size-adjust: bold;
+}

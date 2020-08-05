@@ -42,7 +42,7 @@ function Dashboard() {
     }
 
     if(sessionSet.length !== 0){console.log('component has received this data from API', sessionSet)};
-    //loadSessionSet();
+    //loadSessionSet()
 
     return (
         <>
