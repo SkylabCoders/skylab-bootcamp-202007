@@ -9,7 +9,12 @@ function Header() {
 			<nav className="nav__menu">
 				<div className="nav__mobile">
 					<div className="burger__container">
-						<div className="icon__burguer"></div>
+						<div className="icon__burguer">
+							<img
+								alt="burger-button"
+								src="https://image.flaticon.com/icons/svg/953/953223.svg"
+							></img>
+						</div>
 						<ul className="desplegable__button">
 							<li>
 								<NavLink
@@ -39,10 +44,10 @@ function Header() {
 							</li>
 						</ul>
 					</div>
-					<img className="nav__brand__logo" src={Logo} />
-					<NavLink to="/profile" className="hamburguer__link">
-						Preferences
-					</NavLink>
+					<Link to="/">
+						<img className="nav__brand__logo" src={Logo} />
+					</Link>
+					<NavLink to="/profile">Preferences</NavLink>
 					<input className="search" placeholder="Search" />
 					<Link to="/login">
 						<img
@@ -78,10 +83,12 @@ function Header() {
 				</div>
 			</nav>
 			<section className="main__boxes">
-				<div className="section__logo">
-					<img className="main__logo" src={Logo} />
-					<h1>RECIPEFY</h1>
-				</div>
+				<Link to="/">
+					<div className="section__logo">
+						<img className="main__logo" src={Logo} />
+						<h1>RECIPEFY</h1>
+					</div>
+				</Link>
 
 				<div className="section__search">
 					<input
