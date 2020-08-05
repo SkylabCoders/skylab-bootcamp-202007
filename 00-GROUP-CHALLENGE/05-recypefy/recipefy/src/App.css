@@ -1,16 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-<<<<<<< HEAD
-	font-family: Arial, Helvetica, sans-serif;
-	text-transform: capitalize;
-}
-
-#root {
-	width: 100%;
-=======
 	font-family: Arial, Helvetica, sans-serif !important;
->>>>>>> 8ad9bb33c9483643e6ab4e82ed3ae6f3cd064758
 }
 
 body {
