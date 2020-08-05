@@ -6,7 +6,7 @@ function Option(props) {
         <div className="list__container">
             <ul  id="answer">
                 <li className="answer__item">{props.option}</li>
-            </ul>
+            </ul> 
         </div>
 
     )
