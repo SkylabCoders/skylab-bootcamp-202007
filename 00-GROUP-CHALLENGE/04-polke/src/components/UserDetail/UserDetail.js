@@ -5,7 +5,7 @@ import useruserDetailStore from '../../stores/userDetailStore';
 import userDetailStore from '../../stores/userDetailStore';
 import { loadRepoList } from '../../actions/userDetailActions';
 
-function UserDetail() {
+function UserDetail({ isUserGitHub }) {
 	const [repoList, setRepoList] = useState([]);
 	const [userName, setUserName] = useState('gerardramonp');
 
@@ -23,13 +23,22 @@ function UserDetail() {
 		setRepoList(userDetailStore.getRepoList());
 	}
 
+	const createRepoButton = <button>New Repo</button>;
+
 	return (
 		<div className="userdetail__container">
-			{repoList.map((repo) => (
-				<p>
-					{repo.id} | {repo.name} | {repo.description || 'no description'}{' '}
-				</p>
-			))}
+			<div className="userdetail__user-info"></div>
+			<div className="userdetail__repo-list">
+				{repoList.map((repo) => (
+					<p>
+						private: {repo.private.toString()} | {repo.name} |{' '}
+						{repo.description} | {repo.id} | {repo.language} | {repo.lastUpdate}
+					</p>
+				))}
+			</div>
+			<div className="userdetail__repo-creation">
+				{isUserGitHub ? createRepoButton : null}
+			</div>
 		</div>
 	);
 }
