@@ -56,7 +56,7 @@ function Dashboard() {
                         <ul className="themes__grid">
                             {themesList.map((theme) => (
                                 <li key={theme.title}>
-                                        <Item themeTitle={theme.title} themeImgurl={theme.url} themeId={theme.id} />
+                                        <Item themeTitle={theme.title} themeImgurl={theme.url} themeId={theme.id} themeSlug={theme.slug}/>
                                 </li>
                             ))}
                         </ul>
@@ -66,7 +66,7 @@ function Dashboard() {
                     <ul className="topThemes__grid">
                         {topThemesList.map((topTheme) => (
                             <li key={topTheme.title}>
-                                <Item themeTitle={topTheme.title} themeImgurl={topTheme.url} themeId={topTheme.id} />
+                                <Item themeTitle={topTheme.title} themeImgurl={topTheme.url} themeId={topTheme.id} themeSlug={topTheme.slug}/>
                             </li>
                         ))}
                     </ul>

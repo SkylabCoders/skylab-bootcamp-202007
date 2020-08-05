@@ -21,8 +21,9 @@ export function loadTopThemes(){
     })
 }
 
-export async function loadSessionSet(){
-    let result =  await getApiData(22,'all','all','default',12);
+export async function loadSessionSet(category, difficulty, type, encode, amount){
+    console.log('ACTION CALLED with params: ', category, difficulty, type, encode, amount);
+    let result =  await getApiData(category, difficulty, type, encode, amount);
     console.log('action has received following data form API:', await result);
     
     dispatcher.dispatch({
