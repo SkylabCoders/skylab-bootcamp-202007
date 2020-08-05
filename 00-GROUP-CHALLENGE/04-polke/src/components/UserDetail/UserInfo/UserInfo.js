@@ -24,12 +24,24 @@ function UserInfo() {
 	}
 	console.log(userImg);
 	return (
-		<Card style={{ width: '18rem' }}>
+		<Card className="user-info-card">
 			<Card.Img variant="top" src={userImg.avatar_url} />
 			<Card.Body>
-				<Card.Title>{userName}</Card.Title>
-				<Card.Text>Followers: {userImg.followers}</Card.Text>
-				<Card.Text>Following: {userImg.following}</Card.Text>
+				<Card.Title className="user-info-card__name-title">
+					<a href={userImg.html_url}>{userImg.company}</a>
+				</Card.Title>
+				<Card.Text>
+					<span className="user-info-card__category">Followers: </span>{' '}
+					{userImg.followers}
+				</Card.Text>
+				<Card.Text>
+					<span className="user-info-card__category">Bio: </span>
+					{userImg.bio || 'No bio available'}
+				</Card.Text>
+				<Card.Text>
+					<span className="user-info-card__category">Location: </span>{' '}
+					{userImg.location || 'No location available'}
+				</Card.Text>
 			</Card.Body>
 		</Card>
 	);
