@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import recipeStore from '../stores/RecipeStore';
 import { loadRecipe } from '../actions/RecipeAction';
 import ListItemRecipe from './ListItemRecipe';
-import './TopFive.component.css';
 
 function TopFiveComponent() {
 	const [topFiveList, setTopFiveList] = useState(recipeStore.getTopFiveRecipes);
@@ -20,7 +19,7 @@ function TopFiveComponent() {
 	}
 
 	return (
-		<div className="body__box box__top-five">
+		<div className="body__box body__list box__top-five">
 			<h2>TOP FIVE FAVOURITES!</h2>
 			<ul>
 				{topFiveList.map((recipe) => (

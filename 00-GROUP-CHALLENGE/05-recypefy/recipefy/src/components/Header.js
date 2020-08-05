@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './Header.css';
+import '../App.css';
 
 function Header() {
 	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';
@@ -16,6 +17,11 @@ function Header() {
 							></img>
 						</div>
 						<ul className="desplegable__button">
+							<li>
+								<NavLink to="/" className="link__header">
+									Main
+								</NavLink>
+							</li>
 							<li>
 								<NavLink
 									to="/recomended"
@@ -58,6 +64,9 @@ function Header() {
 				</div>
 				<div className="nav__medium__big">
 					<div className="buttons__left">
+						<NavLink to="/" className="link__header">
+							Main
+						</NavLink>
 						<NavLink to="/recomended" className="link__header">
 							Recomended
 						</NavLink>

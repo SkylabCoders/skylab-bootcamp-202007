@@ -3,8 +3,8 @@ footer {
 	flex-direction: row;
 	background-color: #efee9d;
 	justify-content: space-evenly;
-
-	width: 100vw;
+	padding: 2%;
+	width: 96%;
 }
 
 .developers {
@@ -12,16 +12,18 @@ footer {
 	flex-direction: column;
 	text-align: center;
 	justify-content: space-around;
-	width: 50vw;
+	width: 70%;
 }
 
 .developer__card {
-	max-width: 120px;
+	max-width: auto;
 	max-height: 120px;
 	margin: 15px;
 	display: flex;
 	flex-direction: row;
 	margin: auto;
+	margin-right: 2%;
+	margin-left: 2%;
 	align-items: center;
 }
 
@@ -29,6 +31,7 @@ footer {
 	width: 70px;
 	height: 70px;
 	border-radius: 50px;
+	padding: 4%
 }
 
 .cards__container {
@@ -39,6 +42,15 @@ footer {
 .info__link__container {
 	display: flex;
 	flex-direction: column;
+	align-self: center;
+	text-align: center;
+
+}
+
+.info__link__container a:visited,
+.info__link__container:active,
+.info__link__container :-webkit-any-link() {
+	color: rgb(75, 75, 165);
 }
 
 .developer__card h4 {
@@ -55,6 +67,12 @@ footer {
 
 @media only screen and (max-width: 600px) {
 	.developers {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.developers img {
 		display: none;
 	}
 }
