@@ -14,7 +14,7 @@ function TopFilmList({ title, data }) {
 							<img
 								src={element.image.url}
 								className="details__img"
-								alt="Film Image"
+								alt="Poster film"
 							></img>
 							<div className="details__text">
 								<h3>{element.title}</h3>

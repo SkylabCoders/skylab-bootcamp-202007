@@ -7,7 +7,6 @@ const CHANGE_EVENT = 'change';
 let _sliderId = [];
 let _popularId = [];
 let _comingsoonId = [];
-let _sliderObj = [];
 
 class FilmStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -47,10 +46,11 @@ dispatcher.register((action) => {
 			filmStore.emitChange(_popularId);
 			break;
 		case actionTypes.COMING_SOON_FILM:
-			filmStore.emitChange(action.data);
+			_comingsoonId = action.data;
+			filmStore.emitChange(_comingsoonId);
 			break;
 		default:
-			console.log('Action error');
+			console.log('FilmStore Action error');
 			break;
 	}
 });
