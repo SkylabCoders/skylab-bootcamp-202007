@@ -4,7 +4,7 @@ import './bannerComponent.css';
 function BannerComponent(props) {
     return (
         <div className="bannerContainer">
-            <h1>HOME</h1>
+            <h1>WELCOME</h1>
         </div>
     )
 }

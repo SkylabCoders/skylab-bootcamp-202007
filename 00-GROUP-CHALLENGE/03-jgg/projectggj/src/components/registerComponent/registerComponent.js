@@ -1,4 +1,5 @@
 import React from 'react';
+import './registerComponent.css';
 
 function RegisterComponent(props) {
     return (
@@ -16,7 +17,10 @@ function RegisterComponent(props) {
                 <input id="inputEmail" className="m-1 form-control" type="email" placeholder="Email address" required="" autoFocus=""></input>
                 <label>Password</label>
                 <input id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
-                <button className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit">Create account!</button>
+                <div className="rowflex">
+                    <button className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit">Create account!</button>
+                    <img className="capsule" src="https://i.pinimg.com/originals/c8/3e/92/c83e92534f8ce734d123c1445d1adf14.jpg" alt="capsule"></img>
+                </div>
             </form>
         </section >
     )
