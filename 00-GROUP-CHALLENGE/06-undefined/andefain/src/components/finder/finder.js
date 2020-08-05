@@ -19,18 +19,25 @@ function Finder(title, name) {
 	}
 
 	return (
-		<>
-			<div className="finder">
-				{finder.map((element) => {
-					return (
-						<div key={element.i} className="finder-result">
+		<div className="finder">
+			{finder.map((element) => {
+				return (
+					<div key={element.i} className="finder-result">
+						<img
+							className="finder-result__img"
+							src={element.i.imageUrl === undefined ? '' : element.i.imageUrl}
+						/>
+						<div className="finder-result__details">
 							<div className="finder-result__name">{element.l}</div>
-							<div className="finder-result__type">{element.id}</div>
+							<div className="finder-result__type">
+								{element.id.slice(0, 2) === 'tt' ? 'Title' : 'Name'}
+							</div>
+							<div className="finder-result__year">{element.s}</div>
 						</div>
-					);
-				})}
-			</div>
-		</>
+					</div>
+				);
+			})}
+		</div>
 	);
 }
 
