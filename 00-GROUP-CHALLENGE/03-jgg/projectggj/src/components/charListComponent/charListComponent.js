@@ -5,6 +5,7 @@ import { loadCharList } from '../../actions/actions';
 import './charListComponent.css';
 
 function CharListComponent() {
+
     const [chars, setChars] = useState(store.getCharacters());
 
     useEffect(() => {
@@ -16,9 +17,9 @@ function CharListComponent() {
     function onChange() {
         setChars(store.getCharacters());
     }
+
     return (
         <>
-
             <div className='card-holder'>
                 {chars.map((char) => (
                     <Link key={char._id} to={`/details/${char.name}`}>
