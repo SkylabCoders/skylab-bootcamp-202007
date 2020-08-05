@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './login.css';
+import { login, logout } from '../../actions/authActions';
+import authStore from '../../stores/authStore';
 
 function Login() {
+	let email = 'v.cucchiararo@gmail.com';
+	let password = 'password';
+
+	const [isLogged, setIsLogged] = useState(authStore.isLogged());
+	const [user, setUser] = useState(authStore.getUserProfile());
+
+	useEffect(() => {
+		authStore.addChangeListener(onAuthChange);
+
+		return () => authStore.removeChangeListener(onAuthChange);
+	}, [isLogged, user]);
+
+	function onAuthChange() {
+		setIsLogged(authStore.isLogged());
+		setUser(authStore.getUserProfile());
+	}
 	return (
 		<div className="login-container">
 			<div className="newAccount">
@@ -16,7 +34,19 @@ function Login() {
 				<label>
 					<input type="password" placeholder="password"></input>
 				</label>
-				<button className="button">Login</button>
+				{!isLogged && (
+					<button onClick={() => login(email, password)} className="button">
+						Login
+					</button>
+				)}
+				{isLogged && (
+					<>
+						<p className="welcome-login">Welcome {user && user.email} </p>
+						<button onClick={() => logout()} className="button">
+							Logout
+						</button>
+					</>
+				)}
 			</div>
 		</div>
 	);
