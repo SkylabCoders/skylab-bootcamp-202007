@@ -4,7 +4,9 @@ import { EventEmitter } from 'events';
 
 const CHANGE_EVENT = 'change';
 
-class repoDetailStore extends EventEmitter {
+let _repoInfo = [];
+
+class RepoInfoStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
 	}
@@ -16,17 +18,22 @@ class repoDetailStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
+	getRepoInfo() {
+		return _repoInfo;
+	}
 }
 
-const repoDetailStore = new repoDetailStore();
+const RepoInfoStore = new RepoInfoStore();
 
-dispatcher.dispatch((action) => {
+dispatcher.register((action) => {
 	switch (action.type) {
-		case actionTypes.LOAD_REPOS: // This one is an example
-			// logic
-			repoDetailStore.emit();
+		case actionTypes.LOAD_REPO_INFO:
+			_repoList = action.data;
+			userDetailStore.emitChange(_repoList);
+			break;
+		default:
 			break;
 	}
 });
 
-export default repoDetailStore;
+export default userDetailStore;
