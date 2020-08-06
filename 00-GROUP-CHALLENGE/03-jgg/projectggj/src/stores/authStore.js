@@ -43,8 +43,6 @@ dispatcher.register((action) => {
             break;
         case actionTypes.CREATE_PROFILE:
             break;
-
-
         default:
             break;
     }
