@@ -37,17 +37,18 @@ export function loadRecipe() {
 		const actualPreferencces = actualRecipe.healthLabels.concat(
 			actualRecipe.dietLabels
 		);
-		const newRecipe = new Recipe(
-			actualRecipe.image,
-			actualRecipe.label,
-			actualRecipe.totalTime,
-			actualRecipe.url,
-			actualRecipe.source,
-			actualRecipe.calories,
-			actualRecipe.yeld,
-			actualRecipe.ingredientLines,
-			actualPreferencces
-		);
+	
+	const newRecipe = new Recipe(
+		actualRecipe.image,
+		actualRecipe.label,
+		actualRecipe.totalTime,
+		actualRecipe.url,
+		actualRecipe.source,
+		actualRecipe.calories,
+		actualRecipe.yeld,
+		actualRecipe.ingredientLines,
+		actualPreferencces
+	);
 		console.log(newRecipe);
 		return newRecipe;
 	}
