@@ -35,6 +35,7 @@
 
 .list__container li{
     margin: 5px;
+    cursor: pointer;
 }
 
 @media (min-width: 680px) and (max-width: 1024px){
