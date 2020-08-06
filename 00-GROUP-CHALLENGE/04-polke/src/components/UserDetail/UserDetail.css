@@ -4,6 +4,8 @@ body {
 
 .userdetail__container {
 	height: 100%;
+	display: flex;
+	flex-direction: row;
 }
 
 .userdetail__user-info {

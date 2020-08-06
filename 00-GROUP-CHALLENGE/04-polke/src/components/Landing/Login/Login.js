@@ -27,10 +27,7 @@ function Login() {
 
 	return (
 		<form className="Login__form">
-			<h2 className="Login__form__login-title--colored">
-				{isLogged && 'Welcome, bitch'}
-				{!isLogged && 'You are not logged in'}
-			</h2>
+			<h2 className="Login__form__login-title--colored">Log In</h2>
 			<FormGroup
 				className="Login__login-with-button"
 				controlId="username"
@@ -92,16 +89,18 @@ function Login() {
 				>
 					Enter
 				</button>
+				<a className="Login__form__anchor--colored anchor">Register</a>
+				{'   |   '}
+				<a
+					className="login__log-anonym anchor"
+					onClick={(event) => {
+						event.preventDefault();
+						loginAnonyomously();
+					}}
+				>
+					Log In Anonymously
+				</a>
 			</FormGroup>
-			<a
-				className="Login__form__anchor--colored"
-				onClick={(event) => {
-					event.preventDefault();
-					loginAnonyomously();
-				}}
-			>
-				Register
-			</a>
 		</form>
 	);
 }
