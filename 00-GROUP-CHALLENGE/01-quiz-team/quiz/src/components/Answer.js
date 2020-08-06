@@ -2,17 +2,16 @@ import React from 'react';
 import './../css/Answer.css'
 
 function Answer(props){
+    console.log(props.answer)
     
-    function validateAnswer(){
-
-    }
     
     return(
         <>
-            <div className="" >
-                <p>Prueba</p>
+            <div className="answer_container" >
+                <p>{props.answer}</p>
             </div>
-    </>)
+    </>
+    )
 }
 
 export default Answer;

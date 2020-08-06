@@ -9,6 +9,7 @@ import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import Question from './components/Question';
 import Game from './components/Game';
+import Answer from './components/Answer';
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/login" component={LoginScreen} />
 				<Route path="/question" component={Question} />
 				<Route path="/themes/:themeSlug" component={Game} />
+				<Route path="/answer" component={Answer} />
 				<Route component={PageNotFound} />
 			</Switch>
 			<Footer />
