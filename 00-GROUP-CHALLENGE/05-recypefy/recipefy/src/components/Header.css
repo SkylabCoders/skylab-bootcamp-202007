@@ -22,7 +22,6 @@
 	flex-direction: row;
 }
 
-.main__search {}
 
 .burger__container {
 	position: relative;
@@ -90,6 +89,10 @@
 	height: 40px;
 	position: fixed;
 	width: 90%;
+}
+
+.nav__mobile .search-button {
+	vertical-align: sub;
 }
 
 .nav__medium__big {
