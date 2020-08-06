@@ -31,6 +31,7 @@ function Trailer() {
 						width="30px"
 						height="30px"
 						className="icon-like-mobile"
+						alt="Start icon"
 					/>
 				</div>
 			</Link>
@@ -39,6 +40,7 @@ function Trailer() {
 				width="30px"
 				height="30px"
 				className="icon-like-desktop"
+				alt="Start icon"
 			/>
 		</div>
 	);

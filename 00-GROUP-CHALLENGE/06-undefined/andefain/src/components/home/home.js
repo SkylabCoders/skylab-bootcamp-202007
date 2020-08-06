@@ -12,43 +12,34 @@ import filmStore from '../../stores/filmStore';
 
 import './home.css';
 
-const films = [
-	{
-		img:
-			'https://m.media-amazon.com/images/M/MV5BNmI0MTliMTAtMmJhNC00NTJmLTllMzQtMDI3NzA1ODMyZWI1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg',
-		title: 'Dil Bechara',
-		year: 2020,
-		rating: 9.2
-	},
-	{
-		img:
-			'https://m.media-amazon.com/images/M/MV5BNmI0MTliMTAtMmJhNC00NTJmLTllMzQtMDI3NzA1ODMyZWI1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg',
-		title: 'Dil Bechara',
-		year: 2020,
-		rating: 9.2
-	}
-];
-
 function Home() {
 	const [comingSoon, setComingSoon] = useState(filmStore.getComingsoonId());
+	const [mostPopular, setMostPopular] = useState(filmStore.getPopularId());
+	const [slider, setSlider] = useState(filmStore.getSliderId());
 
 	useEffect(() => {
 		filmStore.addChangeListener(onChange);
 		if (comingSoon.length === 0) comingSoonData();
+		if (mostPopular.length === 0) mostPopularData();
+		if (slider.length === 0) sliderData();
 		return () => filmStore.removeChangeListener(onChange);
 	}, [comingSoon.length]);
 
 	function onChange() {
 		setComingSoon(filmStore.getComingsoonId());
+		setMostPopular(filmStore.getPopularId());
+		setSlider(filmStore.getSliderId());
 	}
 	return (
 		<>
-			<FilmSlider />
+			<FilmSlider data={slider} />
 			<div className="list-container">
 				{comingSoon.length === 5 && (
 					<TopFilmList title="Coming soon Movies" data={comingSoon} />
 				)}
-				<TopFilmList title={'Most popular movies'} data={[]} />
+				{mostPopular.length === 5 && (
+					<TopFilmList title={'Most popular movies'} data={mostPopular} />
+				)}
 			</div>
 		</>
 	);
