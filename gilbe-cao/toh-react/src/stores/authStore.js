@@ -1,11 +1,10 @@
-import EventEmitter from 'events';
-import actionTypes from '../actions/actionTypes';
+import { EventEmitter } from 'events';
 import dispatcher from '../appDispatcher';
+import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 let _isLogged = false;
-let _userProfile = null;
-
+let _profile = null;
 class AuthStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
@@ -19,11 +18,12 @@ class AuthStore extends EventEmitter {
 		this.emit(CHANGE_EVENT);
 	}
 
-	isLogged() {
+	getIsLogged() {
 		return _isLogged;
 	}
-	getUserProfile() {
-		return _userProfile;
+
+	getProfile() {
+		return _profile;
 	}
 }
 
@@ -32,13 +32,12 @@ const authStore = new AuthStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOGIN:
-			_userProfile = action.data;
 			_isLogged = !!action.data;
+			_profile = action.data.user;
 			authStore.emitChange();
 			break;
 		case actionTypes.LOGOUT:
 			_isLogged = false;
-			_userProfile = null;
 			authStore.emitChange();
 			break;
 		default:
