@@ -2,35 +2,47 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import './RepoDetail.css';
 import RepoInfoStore from '../../stores/repoDetailStore';
-import { loadRepoInfo } from '../../actions/repoDetailActions';
+import { loadUserRepoInfo } from '../../actions/repoDetailActions';
+import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 
 function RepoDetail() {
 	//repoInfo
 	const [repoInfo, setrepoInfo] = useState([]);
-	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //propsObject.repoName
-	const [orgName, setOrgName] = useState('SkylabCoders'); //propsObject.orgName
-	const [userName, setUserName] = useState('Gilberto Cao'); //propsObject.userName
+	const [groupInfo, setgroupInfo] = useState([]);
+	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
+	const [orgName, setOrgName] = useState('SkylabCoders'); //obj.orgName
+	const [userName, setUserName] = useState('Gilberto Cao'); //obj.userName
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);
 		if (repoInfo.length === 0) {
-			loadRepoInfo(userName, repoName, orgName);
+			loadUserRepoInfo(userName, repoName, orgName);
 		}
-		console.log(repoInfo);
-
 		return () => RepoInfoStore.removeChangeListener(onChange);
 	}, [repoInfo.length]);
 
+	useEffect(() => {
+		RepoInfoStore.addChangeListener(onChangeGroup);
+		if (groupInfo.length === 0) {
+			loadGroupRepoInfo(repoName, orgName);
+		}
+		return () => RepoInfoStore.removeChangeListener(onChangeGroup);
+	}, [repoInfo.length]);
+
 	function onChange() {
-		setrepoInfo(RepoInfoStore.getRepoInfo(userName));
+		setrepoInfo(RepoInfoStore.getUserRepoInfo(userName));
+	}
+	function onChangeGroup() {
+		setgroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
 	}
 	console.log(repoInfo);
+	console.log('este', groupInfo);
 
 	return (
 		<div className="carrousel-main-container">
 			<Carousel interval={3000} className="user-repositorie generic-carrousel">
 				<Carousel.Item>
-					<h3>{userName}</h3>
+					<h3>User Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -47,7 +59,7 @@ function RepoDetail() {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<h3>{userName}</h3>
+					<h3>User Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -66,7 +78,7 @@ function RepoDetail() {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<h3>{userName}</h3>
+					<h3>User Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -75,10 +87,14 @@ function RepoDetail() {
 
 					<Carousel.Caption>
 						<h3 className="user-repositorie__category-title">
-							Last fourth messages:
+							Last commits messages:
 						</h3>
 						<h3>&#128202;</h3>
-						{repoInfo.authourLastComments}
+						{/* 	{repoInfo.authourLastComments && repoInfo.authourLastComments[0]} */}
+						{repoInfo.authourLastComments &&
+							repoInfo.authourLastComments.map((elem) => {
+								return <h5>- {elem}</h5>;
+							})}
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
@@ -90,11 +106,19 @@ function RepoDetail() {
 						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
 						alt="Third slide"
 					/>
-
 					<Carousel.Caption>
-						<h3>Group </h3>
-						<h3>&#128200;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Repo Group Name
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {repoName}</h3>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Total Commits:
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {groupInfo.total}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -106,9 +130,18 @@ function RepoDetail() {
 					/>
 
 					<Carousel.Caption>
-						<h3>Group repositorie</h3>
-						<h3>&#128200;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Weeks of work last Year
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {groupInfo.weeksOfWorkLastYear}</h3>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Total Commits:
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {groupInfo.total}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
