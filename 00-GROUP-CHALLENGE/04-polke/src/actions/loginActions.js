@@ -18,7 +18,6 @@ export function loginGoogle() {
 	return authMethods
 		.signInWithGoogle()
 		.then((data) => {
-			console.log(data);
 			dispatcher.dispatch({
 				type: actionTypes.LOGIN,
 				data

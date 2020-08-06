@@ -5,6 +5,8 @@ import './HeaderNavbar.css';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Switch from './Switch/Switch';
+import { logout } from '../../actions/loginActions';
+import landingStore from '../../stores/landingStore';
 
 function HeaderNavbar() {
 	const imgLogo = (
@@ -45,6 +47,16 @@ function HeaderNavbar() {
 							<Button variant="outline-info" className="searchbar--button">
 								Go
 							</Button>
+							<button
+								className="nav__button"
+								onClick={(event) => {
+									event.preventDefault();
+									logout();
+									alert(landingStore.isLogged().toString());
+								}}
+							>
+								Log Out
+							</button>
 						</Form>
 					</Navbar.Collapse>
 				</div>
