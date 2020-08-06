@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './navComponent.css';
+import { globalSearch } from '../../actions/actions';
 
 function NavComponent(props) {
+	const [search, setSearch] = useState('');
+	const [, , , , filter, name] = window.location.href.split('/');
+
+	function handleChange(event, setValueCallback) {
+		event.preventDefault();
+		setValueCallback(event.target.value);
+		globalSearch(event.target.value, filter, name);
+	}
+
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 			<a className="navbar-brand" href="/">
@@ -54,6 +64,8 @@ function NavComponent(props) {
 				</ul>
 				<form className="form-inline my-2 my-md-0">
 					<input
+						value={search}
+						onChange={(event) => handleChange(event, setSearch)}
 						className="form-control"
 						type="text"
 						placeholder="Dragon search..."
