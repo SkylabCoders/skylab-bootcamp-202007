@@ -26,6 +26,7 @@ function App(props) {
         <Route path='/planet' component={PlanetComponent} />
         <Route path='/saga' component={SagaComponent} />
         <Route path='/game' component={GameComponent} />
+
       </Switch>
       <FooterComponent />
 
