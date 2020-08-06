@@ -39,7 +39,7 @@ export function loadGroupRepoInfo(repoName, orgName) {
 }
 
 export function loadRankingRepoInfo(repoName, orgName) {
-	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}//stats/contributors`;
+	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}/stats/contributors`;
 
 	fetch(endPoint, {
 		headers: {

@@ -4,6 +4,7 @@ import './RepoDetail.css';
 import RepoInfoStore from '../../stores/repoDetailStore';
 import { loadUserRepoInfo } from '../../actions/repoDetailActions';
 import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
+import { loadRankingRepoInfo } from '../../actions/repoDetailActions';
 
 function RepoDetail() {
 	//repoInfo
@@ -30,14 +31,25 @@ function RepoDetail() {
 		return () => RepoInfoStore.removeChangeListener(onChangeGroup);
 	}, [repoInfo.length]);
 
+	useEffect(() => {
+		RepoInfoStore.addChangeListener(onChangeRanking);
+		if (rankingInfo.length === 0) {
+			loadRankingRepoInfo(repoName, orgName);
+		}
+		return () => RepoInfoStore.removeChangeListener(onChangeRanking);
+	}, [rankingInfo.length]);
+
 	function onChange() {
 		setRepoInfo(RepoInfoStore.getUserRepoInfo(userName));
 	}
 	function onChangeGroup() {
 		setGroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
 	}
-	console.log(repoInfo);
-	console.log('este', groupInfo);
+	function onChangeRanking() {
+		setRankingInfo(RepoInfoStore.getRankingRepoInfo(userName));
+	}
+	console.log(repoInfo, groupInfo);
+	console.log('esta', rankingInfo);
 
 	return (
 		<div className="carrousel-main-container">
@@ -52,7 +64,7 @@ function RepoDetail() {
 
 					<Carousel.Caption>
 						<h3 className="user-repositorie__category-title">Author's Name</h3>
-						<h3>&#128202;</h3>
+						<h3>&#128537;</h3>
 						<h4 class="user-repositorio__bottom-tittle"> {repoInfo.name}</h4>
 						<h3 className="user-repositorie__category-title">Total Commits:</h3>
 						<h3>&#128202;</h3>
@@ -69,13 +81,16 @@ function RepoDetail() {
 
 					<Carousel.Caption>
 						<h3 className="user-repositorie__category-title">
-							Commits done in:
+							Recent Commits:
 						</h3>
-						<h3>&#128202;</h3>
-						<h4 class="user-repositorio__bottom-tittle"> {repoInfo.time}</h4>
+						<h3>&#8987;</h3>
+						<h4 class="user-repositorio__bottom-tittle">
+							{' '}
+							{repoInfo.authorCommitsLength} in {repoInfo.time}
+						</h4>
 						<h3 className="user-repositorie__category-title">Last Activity:</h3>
 						<h3>&#128202;</h3>
-						<h4> {repoInfo.lastActivity}</h4>
+						<h3> {repoInfo.lastActivity}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -90,7 +105,7 @@ function RepoDetail() {
 						<h3 className="user-repositorie__category-title">
 							Last commits messages:
 						</h3>
-						<h3>&#128202;</h3>
+						<h3>&#128234;</h3>
 						{/* 	{repoInfo.authourLastComments && repoInfo.authourLastComments[0]} */}
 						{repoInfo.authourLastComments &&
 							repoInfo.authourLastComments.map((elem) => {
@@ -114,7 +129,7 @@ function RepoDetail() {
 							{' '}
 							Repo Group Name
 						</h3>
-						<h3>&#128202;</h3>
+						<h3>&#127969;</h3>
 						<h3> {repoName}</h3>
 						<h3 className="user-repositorie__category-title">
 							{' '}
@@ -139,13 +154,13 @@ function RepoDetail() {
 							{' '}
 							Weeks of work last Year
 						</h3>
-						<h3>&#128202;</h3>
+						<h3>&#128197;</h3>
 						<h3> {groupInfo.weeksOfWorkLastYear}</h3>
 						<h3 className="user-repositorie__category-title">
 							{' '}
 							Total Commits:
 						</h3>
-						<h3>&#128202;</h3>
+						<h3>&#128200;</h3>
 						<h3> {groupInfo.total}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
@@ -164,19 +179,19 @@ function RepoDetail() {
 							{' '}
 							Is the group active?
 						</h3>
-						<h3>&#128202;</h3>
+						<h3>&#128283;</h3>
 						<h3> {groupInfo.active}</h3>
 						<h3 className="user-repositorie__category-title">
 							{' '}
 							Commits in the last fourth weeks:
 						</h3>
-						<h3>&#128202;</h3>
+						<h3>&#128204;</h3>
 						<h3> {groupInfo.lastFourthWeekCommits}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
 			<Carousel
-				interval={3000}
+				controls={false}
 				className="ranking-repositorie generic-carrousel"
 			>
 				<Carousel.Item>
@@ -188,37 +203,11 @@ function RepoDetail() {
 					/>
 
 					<Carousel.Caption>
-						<h3>Ranking repositorie</h3>
-						<h3>&#128201;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<h3 className="carrousel-main-container__main-title">Ranking</h3>
-					<img
-						className="d-block w-100"
-						src="https://todoparaelcomercio.com/450-home_default/bobina-polipropileno-con-fondo-fuxia.jpg"
-						alt="Third slide"
-					/>
-
-					<Carousel.Caption>
-						<h3>Ranking repositorie</h3>
-						<h3>&#128201;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<h3 className="carrousel-main-container__main-title">Ranking</h3>
-					<img
-						className="d-block w-100"
-						src="https://todoparaelcomercio.com/450-home_default/bobina-polipropileno-con-fondo-fuxia.jpg"
-						alt="Third slide"
-					/>
-
-					<Carousel.Caption>
-						<h3>Ranking repositorie</h3>
-						<h3>&#128201;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3>Commits Hall of Fame</h3>
+						<h3>&#127942;</h3>
+						<h5>1</h5>
+						<h5>2</h5>
+						<h5>3</h5>
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
