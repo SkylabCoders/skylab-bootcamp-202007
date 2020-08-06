@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
@@ -21,7 +21,7 @@ function App() {
 			<Route path="/film" component={Film} />
 			<Route path="/name" component={Name} />
 			<Route path="/user" component={User} />
-			<Route path="/finder" component={Finder} />
+			<Route path="/finder/:id" component={Finder} />
 			<Route path="/privacy" component={PrivacyPolicy} />
 			<Route path="/about" component={AboutUs} />
 			<Footer />

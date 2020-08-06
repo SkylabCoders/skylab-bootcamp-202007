@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './trailer.css';
 import { addFav } from '../../../actions/filmActions';
 import filmStore from '../../../stores/filmStore';
@@ -51,7 +51,8 @@ function Trailer() {
 						width="30px"
 						height="30px"
 						className="icon-like-mobile"
-						onClick={() => handleFavClick('holi')}
+						onClick={() => handleFavClick()}
+						alt="Start icon"
 					/>
 				</div>
 			</Link>
@@ -60,6 +61,7 @@ function Trailer() {
 				width="30px"
 				height="30px"
 				className="icon-like-desktop"
+				alt="Start icon"
 			/>
 		</div>
 	);

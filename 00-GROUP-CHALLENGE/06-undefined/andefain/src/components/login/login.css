@@ -65,3 +65,7 @@ input.form-control:focus {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
 }
+
+.welcome-login {
+    color: white;
+}

@@ -1,5 +1,7 @@
 export default {
 	CREATE_USER: 'CREATE_USER',
+	LOGIN: 'LOGIN',
+	LOGOUT: 'LOGOUT',
 
 	/////////////Film Store/////////////////
 	SEARCH_FILM: 'SEARCH_FILM',
