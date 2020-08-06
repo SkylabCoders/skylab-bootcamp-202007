@@ -147,16 +147,29 @@ function Header() {
 						<h1>RECIPEFY</h1>
 					</div>
 				</Link>
-
 				<div className="section__search">
 					<div className="main__search">
 						<input
-							className="main__search-input"
-							placeholder="SEARCH YOUR RECIPE HERE"
+							className="search"
+							value={actualSearch}
+							placeholder="Search"
+							name="search"
+							onChange={(event) =>
+								onFieldChange(event.target.value, setActualSearch)
+							}
 						/>
-						<Link className="search-button" to="/search-result">
-							SEARCH!
-						</Link>
+						{actualSearch !== initialState && (
+							<Link
+								onClick={() => {
+									searchAlert();
+								}}
+								className="search-button"
+								to="/search-result"
+								to="/search-result"
+							>
+								SEARCH!
+							</Link>
+						)}
 					</div>
 
 					<div className="recipe__text--preferences search__icons--box">
