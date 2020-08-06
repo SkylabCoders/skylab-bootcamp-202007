@@ -13,14 +13,12 @@ export function loadRepoInfo(repoName) {
 		.then((response) => {
 			const repoInfoList = response.map((repo) => {
 				return {
-					/*
 					private: repo.private,
 					name: repo.name,
 					description: repo.description || 'This repo has no description.',
 					id: repo.id,
 					language: repo.language || 'Language mix',
-                    lastUpdate: repo.updated_at
-                    */
+					lastUpdate: repo.updated_at
 				};
 			});
 			dispatcher.dispatch({
