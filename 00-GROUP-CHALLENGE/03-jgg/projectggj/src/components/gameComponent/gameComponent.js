@@ -1,12 +1,8 @@
-import React from "react";
-import store from '../../stores/store';
+import React from 'react';
 import './gameComponent.css';
 
 function GameComponent() {
-
-    return (
-        <p>Game Component works!</p>
-    )
+	return <p>Game Component works!</p>;
 }
 
 export default GameComponent;
