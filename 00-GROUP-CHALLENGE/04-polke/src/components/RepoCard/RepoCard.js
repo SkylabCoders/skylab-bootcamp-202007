@@ -5,23 +5,23 @@ import { Button } from 'react-bootstrap';
 function RepoCard({ repoInfoList }) {
 	const lockImg = null;
 
-	if (repoInfoList.private === true) {
-		lockImg = (
-			<img
-				className="padlock"
-				src={require('../../assets/img/padlock.png')}
-				alt="padlock"
-			/>
-		);
-	} else {
-		lockImg = (
-			<img
-				className="padlock"
-				src={require('../../assets/img/unlock.png')}
-				alt="unlock"
-			/>
-		);
-	}
+	// if (repoInfoList.private === true) {
+	// 	lockImg = (
+	// 		<img
+	// 			className="padlock"
+	// 			src={require('../../assets/img/padlock.png')}
+	// 			alt="padlock"
+	// 		/>
+	// 	);
+	// } else {
+	// 	lockImg = (
+	// 		<img
+	// 			className="padlock"
+	// 			src={require('../../assets/img/unlock.png')}
+	// 			alt="unlock"
+	// 		/>
+	// 	);
+	// }
 
 	return (
 		<section className="repoCard">
