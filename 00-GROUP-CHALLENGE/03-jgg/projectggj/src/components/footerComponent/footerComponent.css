@@ -9,7 +9,7 @@
 
 .mainContainer>p {
     position: absolute;
-    color: white;
+    color: rgb(212, 211, 211);
     font-style: oblique;
     right: 10px;
 }

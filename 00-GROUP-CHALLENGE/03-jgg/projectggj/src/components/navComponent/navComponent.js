@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './navComponent.css';
 
 function NavComponent(props) {
+
+	const [search, setSearch] = useState('');
+
+	function handleChange(event, setValueCallback) {
+		console.log(event.target.value);
+		event.preventDefault();
+		setValueCallback(event.target.value);
+	}
+
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 			<a className="navbar-brand" href="/">
@@ -54,6 +63,8 @@ function NavComponent(props) {
 				</ul>
 				<form className="form-inline my-2 my-md-0">
 					<input
+						value={search}
+						onChange={(event) => handleChange(event, setSearch)}
 						className="form-control"
 						type="text"
 						placeholder="Dragon search..."

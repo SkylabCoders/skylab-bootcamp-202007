@@ -11,7 +11,6 @@ const [password, setPassword] = useState('');
 
 
 function handleChange(event, setValueCallback) {
-    console.log(event.target.value)
     event.preventDefault();
     setValueCallback(event.target.value);
 }
