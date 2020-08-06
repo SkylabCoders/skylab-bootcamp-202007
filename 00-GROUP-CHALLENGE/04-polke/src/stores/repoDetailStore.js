@@ -63,7 +63,7 @@ class RepoInfoStore extends EventEmitter {
 		);
 		repoInfoStats.authourLastComments = repoInfoStats.authorComments.slice(
 			0,
-			4
+			3
 		);
 		return repoInfoStats;
 	}

@@ -75,10 +75,14 @@ function RepoDetail() {
 
 					<Carousel.Caption>
 						<h3 className="user-repositorie__category-title">
-							Last fourth messages:
+							Last commits messages:
 						</h3>
 						<h3>&#128202;</h3>
-						{repoInfo.authourLastComments && repoInfo.authourLastComments[0]}
+						{/* 	{repoInfo.authourLastComments && repoInfo.authourLastComments[0]} */}
+						{repoInfo.authourLastComments &&
+							repoInfo.authourLastComments.map((elem) => {
+								return <h5>{elem}</h5>;
+							})}
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
