@@ -55,6 +55,12 @@ function DetailsComponent(props) {
 									<div className="details-desc">
 										SERIE: <span>{char.series}</span>
 									</div>
+
+								</div>
+								<div >
+									<a href={`/game/${char.name}`} >
+										<button className='row figthlink btn'> FIGTH!</button>
+									</a>
 								</div>
 							</div>
 						</div>

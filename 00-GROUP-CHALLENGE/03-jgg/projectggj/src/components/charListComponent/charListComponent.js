@@ -17,7 +17,7 @@ function CharListComponent(props) {
         setChars(store.getCharacters());
     }
 
-
+    //Get last two elements from URL
     const [, , , , filter, name] = (window.location.href).split('/')
     chars = store.filterChar(filter, name);
     return (
