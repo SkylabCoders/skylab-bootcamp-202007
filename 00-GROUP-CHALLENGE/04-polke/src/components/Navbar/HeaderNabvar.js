@@ -45,7 +45,15 @@ function HeaderNavbar() {
 								placeholder="Search"
 								className="mr-sm-2 navBar--input"
 							/>
-							<Button variant="outline-info" className="searchbar--button">
+							<Button
+								variant="outline-info"
+								className="searchbar--button"
+								onClick={() => {
+									const searchInput = document.getElementsByClassName(
+										'navBar--input'
+									)[0].value;
+								}}
+							>
 								Go
 							</Button>
 							<NavLink
