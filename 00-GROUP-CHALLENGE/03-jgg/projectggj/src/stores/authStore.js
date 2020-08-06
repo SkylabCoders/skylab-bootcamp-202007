@@ -34,6 +34,7 @@ dispatcher.register((action) => {
         case actionTypes.LOGIN:
             _userProfile = action.data;
             _isLogged = !!action.data;
+            _userName = action.data.user.displayName;
             authStore.emitChange();
             break;
         case actionTypes.LOGOUT:
