@@ -23,7 +23,12 @@ function Film() {
 			{!!film[0] && <Trailer details={film[0]} trailer={film[3]} />}
 			<div className="film-description">
 				{!!film[0] && (
-					<FilmDetails details={film[0]} plot={film[1]} genres={film[2]} />
+					<FilmDetails
+						details={film[0]}
+						plot={film[1]}
+						genres={film[2]}
+						names={film[4]}
+					/>
 				)}
 			</div>
 		</>

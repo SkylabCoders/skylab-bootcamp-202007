@@ -4,11 +4,12 @@ import film from '../film.mock';
 
 const darkKnight = [...film][0];
 
-function FilmDetails({ details, plot, genres }) {
+function FilmDetails({ details, plot, genres, names }) {
 	return (
 		<>
 			<div className="film-details">
 				<h1 className="film-details__title">{details.title}</h1>
+				<span>{names.d[0].s}</span>
 				<div className="film-details__head">
 					<span>
 						<span>{details.year}</span>
