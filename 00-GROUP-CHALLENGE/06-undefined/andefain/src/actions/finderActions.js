@@ -7,7 +7,7 @@ export function finderSearch() {
 		method: 'GET',
 		headers: {
 			'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-			'x-rapidapi-key': '7ee9a7fbe9mshbd3d34f7a64739fp1e4c4ajsn2f0787bb76e0'
+			'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
 		}
 	})
 		.then((response) => response.json())

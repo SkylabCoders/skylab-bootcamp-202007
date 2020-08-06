@@ -9,6 +9,7 @@ export default {
 	POPULAR_FILM: 'POPULAR_FILM',
 	COMING_SOON_FILM: 'COMING_SOON_FILM',
 	ADD_FAV: 'ADD_FAV',
+	FILM_DETAILS: 'FILM_DETAILS',
 
 	/////////////Finder Store/////////////////
 	SEARCH_FINDER: 'SEARCH_FINDER'

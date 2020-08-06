@@ -12,7 +12,7 @@ function Finder(title, name) {
 		finderStore.addChangeListener(onChange);
 		if (finder.length === 0) finderSearch();
 		return () => finderStore.removeChangeListener(onChange);
-	}, [finder.length]);
+	}, []);
 
 	function onChange() {
 		setImageNotAvailable(
@@ -23,28 +23,52 @@ function Finder(title, name) {
 
 	return (
 		<div className="finder">
-			{finder.map((element) => {
-				return (
-					<Link
-						to={'/film/' + element.id}
-						key={element.i}
-						className="finder-result"
-					>
-						<img
-							className="finder-result__img"
-							src={!element.i ? imageNotAvailable : element.i.imageUrl}
-							alt="Search result"
-						/>
-						<div className="finder-result__details">
-							<div className="finder-result__name">{element.l}</div>
-							<div className="finder-result__type">{element.s}</div>
-							<div className="finder-result__type">
-								{isNaN(+element.y) ? null : element.y}
+			{finder ? (
+				finder.map((element) => {
+					return (
+						<div
+							to={'/film/' + element.id}
+							key={element.i}
+							className="finder-result"
+						>
+							{element.id.slice(0, 2) === 'tt' ? (
+								<Link to={'/film/' + element.id}>
+									<img
+										className="finder-result__img"
+										src={!element.i ? imageNotAvailable : element.i.imageUrl}
+										alt="Search result"
+									/>
+								</Link>
+							) : (
+								<div>
+									<img
+										className="finder-result__img"
+										src={!element.i ? imageNotAvailable : element.i.imageUrl}
+										alt="Search result"
+									/>
+								</div>
+							)}
+
+							<div className="finder-result__details">
+								{element.id.slice(0, 2) === 'tt' ? (
+									<Link to={'/film/' + element.id}>
+										<div className="finder-result__name">{element.l}</div>
+									</Link>
+								) : (
+									<div className="finder-result__name">{element.l}</div>
+								)}
+
+								<div className="finder-result__type">{element.s}</div>
+								<div className="finder-result__type">
+									{isNaN(+element.y) ? null : element.y}
+								</div>
 							</div>
 						</div>
-					</Link>
-				);
-			})}
+					);
+				})
+			) : (
+				<div className="finder-no-results">No results found</div>
+			)}
 		</div>
 	);
 }

@@ -10,7 +10,7 @@ function TopFilmList({ title, data }) {
 			{data.map((element, i) => {
 				return (
 					<Link
-						to={'finder/' + element.id.split('/')[2]}
+						to={'film/' + element.id.split('/')[2]}
 						className="list__item"
 						key={i}
 					>
