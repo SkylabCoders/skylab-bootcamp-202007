@@ -13,15 +13,13 @@ import AboutUs from './components/footer/footer-about';
 function App() {
 	return (
 		<>
-			<div className="margin-bottom">
-				<Header />
-				<Route path="/" exact component={Home} />
-				<Route path="/login" component={Login} />
-				<Route path="/film" component={Film} />
-				<Route path="/finder/:id" component={Finder} />
-				<Route path="/privacy" component={PrivacyPolicy} />
-				<Route path="/about" component={AboutUs} />
-			</div>
+			<Header />
+			<Route path="/" exact component={Home} />
+			<Route path="/login" component={Login} />
+			<Route path="/film" component={Film} />
+			<Route path="/finder/:id" component={Finder} />
+			<Route path="/privacy" component={PrivacyPolicy} />
+			<Route path="/about" component={AboutUs} />
 			<Footer />
 		</>
 	);
