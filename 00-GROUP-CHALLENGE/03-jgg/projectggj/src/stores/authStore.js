@@ -6,6 +6,7 @@ const CHANGE_EVENT = 'change';
 let _isLogged = false;
 let _userProfile = null;
 let _userName = false;
+let _photoUser = null;
 
 class AuthStore extends EventEmitter {
     addChangeListener(callback) {
@@ -29,6 +30,9 @@ class AuthStore extends EventEmitter {
     getUserName() {
         return _userName;
     }
+    getUserPhoto() {
+        return _photoUser;
+    }
 }
 
 const authStore = new AuthStore();
@@ -39,6 +43,8 @@ dispatcher.register((action) => {
             _userProfile = action.data;
             _isLogged = !!action.data;
             _userName = action.data.user.displayName;
+            _photoUser = action.data.user.photoURL;
+            console.log(action)
             authStore.emitChange();
             break;
         case actionTypes.LOGOUT:

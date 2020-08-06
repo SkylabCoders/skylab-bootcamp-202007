@@ -14,12 +14,13 @@ function LoginComponent(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState(authStore.getUserName());
+    const [userPhoto, setUserPhoto] = useState(authStore.getUserPhoto());
 
     useEffect(() => {
         authStore.addChangeListener(onAuthChange);
 
         return () => authStore.removeChangeListener(onAuthChange);
-    }, [isLogged, user, email, isLoggedWithGoogle]);
+    }, [isLogged, user, email, isLoggedWithGoogle, userPhoto]);
 
     //Is activated in ChangeListener and controls the flux of the log
     function onAuthChange() {
@@ -27,6 +28,7 @@ function LoginComponent(props) {
         setIsLoogedWithGoogle(authStore.isLogged());
         setUser(authStore.getUserProfile());
         setUserName(authStore.getUserName());
+        setUserPhoto(authStore.getUserPhoto());
     }
 
     function handleChange(event, setValueCallback) {
@@ -54,6 +56,7 @@ function LoginComponent(props) {
                     <>
                         <h1>You are logged!</h1>
                         <h2>Welcome {user && user.email || userName}!</h2>
+                        <img src={userPhoto} alt="user photo"></img>
                         <button onClick={(event) => { event.preventDefault(); logout() }} className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block">Logout</button>
 
                     </>
