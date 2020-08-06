@@ -34,6 +34,7 @@ prueba/
 firebase.json
 .firebase/
 
+
 #media files
 *.apng
 *.jpg

@@ -1,10 +1,4 @@
 {
-<<<<<<< HEAD
-=======
-  "database": {
-    "rules": "database.rules.json"
-  },
->>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
   "hosting": {
     "public": "build",
     "ignore": [

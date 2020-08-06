@@ -4,9 +4,27 @@ import gameStore from './../stores/gameStore';
 import './../css/Question.css'
 import Option from './Option'
 import Timer from './Timer'
+import Answer from './Answer';
 
 function Question(props) {
     const [question, setQuestion] = useState();
+    const [resultat, setResultat] = useState('');
+    let sendResult = undefined;
+
+    function getValue(value){
+        if(value){
+            sendResult = true;
+            console.log('printing getAnswer',value);
+            setResultat('YOU ARE RIGHT!');
+        }
+        else{
+            sendResult = false;
+            console.log('printing getAnswer',value);
+            setResultat(`The correct answer is ${question.correct_answer}`);
+        }
+    }
+
+
 
     useEffect(() => {
         gameStore.addChangeListener(onChange);
@@ -32,10 +50,11 @@ function Question(props) {
                     <p className="">{question.question}</p>
                     <p>Choose the correct answer</p>
                     <ul className="list__container">
-                        <Option option={question.correct_answer} type={question}/>
-                        <Option option={question.incorrect_answers[0]} type={question}/>
-                        <Option option={question.incorrect_answers[1]} type={question}/>
-                        <Option option={question.incorrect_answers[2]} type={question}/>
+                        <Option option={question.correct_answer} answer={function getAnswer(){getValue(true)}}/>
+                        <Option option={question.incorrect_answers[0]} answer={function getAnswer(){getValue(false)}}/>
+                        <Option option={question.incorrect_answers[1]} answer={function getAnswer(){getValue(false)}}/>
+                        <Option option={question.incorrect_answers[2]} answer={function getAnswer(){getValue(false)}}/>
+                        {resultat}
                     </ul>
                     <button onClick={props.click}>Next Question</button>
                 </div>
@@ -47,7 +66,8 @@ function Question(props) {
                     <p>True or false</p>
                     <Option option={question.correct_answer} />
                     <Option option={question.incorrect_answers} />
-                    <button onClick={props.click}>Next Question</button>
+                    {resultat}
+                    <button onClick={()=>{props.click(sendResult)}}>Next Question</button>
                 </div>
             );
         }
@@ -62,6 +82,7 @@ function Question(props) {
                     {typeOfAnswer()}
                 </div>
                 <Timer />
+                <Answer />
             </div>
         </>
     )
