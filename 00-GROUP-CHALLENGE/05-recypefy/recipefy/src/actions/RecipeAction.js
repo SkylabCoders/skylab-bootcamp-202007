@@ -7,7 +7,7 @@ const APP_API_ID = '46083075';
 const APP_API_KEY = '83cd4df2c64a04f570c8647f833a8a7e';
 const APP_IDENTIFICATION = `&app_id=${APP_API_ID}&app_key=${APP_API_KEY}`;
 
-const actualSearchLabel = 'q=beef';
+const actualSearchLabel = 'q=chicken';
 
 export function loadRecipe() {
 	function Recipe(
@@ -37,17 +37,18 @@ export function loadRecipe() {
 		const actualPreferencces = actualRecipe.healthLabels.concat(
 			actualRecipe.dietLabels
 		);
-		const newRecipe = new Recipe(
-			actualRecipe.image,
-			actualRecipe.label,
-			actualRecipe.totalTime,
-			actualRecipe.url,
-			actualRecipe.source,
-			actualRecipe.calories,
-			actualRecipe.yeld,
-			actualRecipe.ingredientLines,
-			actualPreferencces
-		);
+	
+	const newRecipe = new Recipe(
+		actualRecipe.image,
+		actualRecipe.label,
+		actualRecipe.totalTime,
+		actualRecipe.url,
+		actualRecipe.source,
+		actualRecipe.calories,
+		actualRecipe.yeld,
+		actualRecipe.ingredientLines,
+		actualPreferencces
+	);
 		console.log(newRecipe);
 		return newRecipe;
 	}
