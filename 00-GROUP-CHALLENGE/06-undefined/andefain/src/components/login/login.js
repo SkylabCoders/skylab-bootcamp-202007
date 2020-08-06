@@ -21,23 +21,33 @@ function Login() {
 		setUser(authStore.getUserProfile());
 	}
 	return (
-		<div className="login-container">
-			<div className="newAccount">
-				<button onClick={() => signInWithGoogle()} className="button">
+		<div className="login">
+			<div className="login-box">
+				<button onClick={() => signInWithGoogle()} className="login-button">
+					<img
+						className="login-img"
+						src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/235px-Google_%22G%22_Logo.svg.png"
+					/>
 					Login with Google
 				</button>
-				<button className="button">Login with Facebook</button>
-				<button className="button">Create a new account</button>
+				<button className="login-button">
+					{' '}
+					<img
+						className="login-img"
+						src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/600px-Facebook_f_logo_%282019%29.svg.png"
+					/>
+					Login with Facebook
+				</button>
+				<button className="login-button">Create a new account</button>
 			</div>
-			<div className="login">
-				<label>
-					<input type="text" placeholder="user e-mail"></input>
-				</label>
-				<label>
-					<input type="password" placeholder="password"></input>
-				</label>
+			<div className="login-box">
+				<input type="text" placeholder="user e-mail"></input>
+				<input type="password" placeholder="password"></input>
 				{!isLogged && (
-					<button onClick={() => login(email, password)} className="button">
+					<button
+						onClick={() => login(email, password)}
+						className="login-button"
+					>
 						Login
 					</button>
 				)}

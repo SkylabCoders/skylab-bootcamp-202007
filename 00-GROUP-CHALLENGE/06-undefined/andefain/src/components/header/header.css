@@ -7,6 +7,8 @@
 .header-container {
 	background-color: #000000;
 	border-bottom: 1px solid grey;
+	position: sticky;
+	top: 0;
 }
 
 .header {
