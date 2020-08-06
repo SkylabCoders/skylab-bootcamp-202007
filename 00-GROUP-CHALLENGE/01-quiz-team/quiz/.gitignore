@@ -29,6 +29,11 @@ assets/
 borrar/
 prueba/
 
+#firebase
+.firebaserc
+firebase.json
+.firebase/
+
 #media files
 *.apng
 *.jpg
