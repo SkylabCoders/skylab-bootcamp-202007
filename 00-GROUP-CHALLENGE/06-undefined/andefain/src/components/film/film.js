@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Trailer from './trailer/trailer';
 import FilmDetails from './details/details';
-import FilmNames from './names/names';
 import filmStore from '../../stores/filmStore';
 import { callFilm } from '../../actions/filmActions';
 import './film.css';
@@ -13,7 +12,7 @@ function Film() {
 		filmStore.addChangeListener(onChange);
 		if (film.length === 0) callFilm();
 		return () => filmStore.removeChangeListener(onChange);
-	}, []);
+	});
 
 	function onChange() {
 		setFilm(filmStore.getFilmDetails());

@@ -23,7 +23,7 @@ function Home() {
 		if (mostPopular.length === 0) mostPopularData();
 		if (slider.length === 0) sliderData();
 		return () => filmStore.removeChangeListener(onChange);
-	}, []);
+	});
 
 	function onChange() {
 		setComingSoon(filmStore.getComingsoonId());

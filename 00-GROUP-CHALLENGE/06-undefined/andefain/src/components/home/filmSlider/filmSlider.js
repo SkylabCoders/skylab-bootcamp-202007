@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './filmSlider.css';
 
@@ -83,3 +84,7 @@ function FilmSlider({ data }) {
 }
 
 export default FilmSlider;
+
+FilmSlider.propTypes = {
+	data: PropTypes.array
+};
