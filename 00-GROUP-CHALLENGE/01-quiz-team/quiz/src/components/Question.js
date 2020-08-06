@@ -15,10 +15,6 @@ function Question(props) {
     }, [props.i]);
 
     function onChange() {
-<<<<<<< HEAD
-        
-=======
->>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
         setQuestion(gameStore.getQuestion(props.i));
     }
     //console.log('QUESTION COMPONENT, checking question current value before rendering', question);

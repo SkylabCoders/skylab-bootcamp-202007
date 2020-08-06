@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect} from "react";
-import './../css/LoginScreen.css';
-import {login, logout} from './../actions/authActions'
-import authStore from './../stores/authStore'
-
-function Login() {
-    const email = 'pepe@gmail.com';
-    const password = '123456';
-    const [isLogged, setIsLogged] = useState(authStore.isLogged());
-    const [user, setUser] = useState(authStore.getUserProfile());
-    useEffect(() => {
-        authStore.addChangeListener(onAuthChange);
-    }, [isLogged]);
-    function onAuthChange() {
-        setIsLogged(authStore.isLogged());
-        setUser(authStore.getUserProfile());
-=======
 import React, { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import './../css/LoginScreen.css';
@@ -43,19 +25,9 @@ function LoginScreen() {
 
     function onFieldChange(value,setValue){
         setValue(value);
->>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
     }
     return (
         <>
-<<<<<<< HEAD
-            {!isLogged && <button onClick={() => login(email, password)}>Login</button>}
-            {isLogged && (
-                <>
-                    <p>Welcome {user && user.email}!</p>
-                    <button onClick={() => logout()}>Logout</button>
-                </>
-            )}
-=======
             <NavLink to={`/login`} >
                 <div className="login__wrapper">
                     <div className="login__left__container">
@@ -78,8 +50,7 @@ function LoginScreen() {
                     </div>
                 </div>
             </NavLink>
->>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
         </>
     );
 }
-export default Login;
+export default LoginScreen;
