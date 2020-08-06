@@ -9,13 +9,10 @@ body {
 }
 
 .userdetail__user-info {
-	width: 33%;
+	width: 29%;
 }
 
 .userdetail__repo-list {
-	width: 66%;
-}
-
-.userdetail__repo-creation {
-	width: 100%;
+	width: 71%;
+	display: flex;
 }
