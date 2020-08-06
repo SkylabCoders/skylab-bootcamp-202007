@@ -13,33 +13,34 @@ import filmStore from '../../stores/filmStore';
 import './home.css';
 
 function Home() {
-	//const [comingSoon, setComingSoon] = useState(filmStore.getComingsoonId());
-	//const [mostPopular, setMostPopular] = useState(filmStore.getPopularId());
+	const [comingSoon, setComingSoon] = useState(filmStore.getComingsoonId());
+	const [mostPopular, setMostPopular] = useState(filmStore.getPopularId());
 	const [slider, setSlider] = useState(filmStore.getSliderId());
 
 	useEffect(() => {
 		filmStore.addChangeListener(onChange);
-		//if (comingSoon.length === 0) comingSoonData();
-		//if (mostPopular.length === 0) mostPopularData();
+		if (comingSoon.length === 0) comingSoonData();
+		if (mostPopular.length === 0) mostPopularData();
 		if (slider.length === 0) sliderData();
 		return () => filmStore.removeChangeListener(onChange);
 	}, []);
 
 	function onChange() {
-		//setComingSoon(filmStore.getComingsoonId());
-		//setMostPopular(filmStore.getPopularId());
+		setComingSoon(filmStore.getComingsoonId());
+		setMostPopular(filmStore.getPopularId());
 		setSlider(filmStore.getSliderId());
 	}
+	console.log(mostPopular.length);
 	return (
 		<>
 			{slider.length === 5 && <FilmSlider data={slider} />}
 			<div className="list-container">
-				{/*comingSoon.length === 5 && (
+				{comingSoon.length === 5 && (
 					<TopFilmList title="Coming soon Movies" data={comingSoon} />
 				)}
 				{mostPopular.length === 5 && (
-					<TopFilmList title={'Most popular movies'} data={mostPopular} />
-				)*/}
+					<TopFilmList title="Most popular movies" data={mostPopular} />
+				)}
 			</div>
 		</>
 	);
