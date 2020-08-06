@@ -27,9 +27,9 @@ const RepoInfoStore = new RepoInfoStore();
 
 dispatcher.register((action) => {
 	switch (action.type) {
-		case actionTypes.LOAD_REPO_INFO:
+		case actionTypes.LOAD_REPO:
 			_repoList = action.data;
-			userDetailStore.emitChange(_repoList);
+			userDetailStore.emitChange(_repoInfo);
 			break;
 		default:
 			break;

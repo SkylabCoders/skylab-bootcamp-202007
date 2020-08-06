@@ -24,7 +24,7 @@ export function loadRepoInfo(repoName) {
 				};
 			});
 			dispatcher.dispatch({
-				type: actionTypes.LOAD_REPO_INFO,
+				type: actionTypes.LOAD_REPO,
 				data: repoList
 			});
 		})
