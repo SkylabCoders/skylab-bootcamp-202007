@@ -6,7 +6,9 @@ const CHANGE_EVENT = 'change';
 let _characters = [];
 let _charactersFiltered = [];
 let _planets = [];
+let _planetsFiltered = [];
 let _sagas = [];
+let _sagasFiltered = [];
 let _searchValue = '';
 
 class DBStore extends EventEmitter {
@@ -33,8 +35,17 @@ class DBStore extends EventEmitter {
 	getPlanets() {
 		return _planets;
 	}
+
+	getPlanetsFiltered() {
+		return _planetsFiltered;
+	}
+
 	getSagas() {
 		return _sagas;
+	}
+
+	getSagasFiltered() {
+		return _sagasFiltered;
 	}
 
 	getCharByName(name) {
@@ -108,6 +119,12 @@ dispatcher.register((action) => {
 		case actionTypes.GLOBAL_SEARCH:
 			_searchValue = action.data;
 			_charactersFiltered = store.filterChar(text, filter, name);
+			_planetsFiltered = _planets.filter((planet) =>
+				planet.name.toLowerCase().includes(text.toLowerCase())
+			);
+			_sagasFiltered = _sagas.filter((saga) =>
+				saga.series.toLowerCase().includes(text.toLowerCase())
+			);
 			store.emitChange();
 			break;
 		default:
