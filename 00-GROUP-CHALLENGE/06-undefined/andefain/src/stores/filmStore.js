@@ -7,6 +7,7 @@ const CHANGE_EVENT = 'change';
 let _sliderId = [];
 let _popularId = [];
 let _comingsoonId = [];
+let _favList = [];
 
 class FilmStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -25,6 +26,9 @@ class FilmStore extends EventEmitter {
 		return _sliderId;
 	}
 
+	getFavList() {
+		return _favList;
+	}
 	getComingsoonId() {
 		return _comingsoonId;
 	}
@@ -49,6 +53,9 @@ dispatcher.register((action) => {
 			_comingsoonId = action.data;
 			filmStore.emitChange(_comingsoonId);
 			break;
+		case actionTypes.ADD_FAV:
+			_favList = [..._favList, action.data];
+			filmStore.emitChange();
 		default:
 			console.log('FilmStore Action error');
 			break;

@@ -125,3 +125,14 @@ export function comingSoonData() {
 		})
 		.catch((err) => console.log(err));
 }
+
+export function addFav(filmName) {
+	return new Promise((resolve) => {
+		resolve(filmName);
+	}).then((response) => {
+		dispatcher.dispatch({
+			type: actionTypes.ADD_FAV,
+			data: response
+		});
+	});
+}
