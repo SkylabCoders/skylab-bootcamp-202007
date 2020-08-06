@@ -5,6 +5,7 @@ import './charListComponent.css';
 import { loadCharList } from '../../actions/actions';
 
 function CharListComponent(props) {
+
 	let [chars, setChars] = useState(store.getCharacters());
 	const [, , , , filter, name] = window.location.href.split('/');
 
@@ -44,6 +45,7 @@ function CharListComponent(props) {
 			</div>
 		</>
 	);
+
 }
 
 export default CharListComponent;

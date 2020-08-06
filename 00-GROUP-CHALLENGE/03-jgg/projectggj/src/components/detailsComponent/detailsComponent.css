@@ -280,6 +280,18 @@
 	text-align-last: justify;
 	width: 70%;
 }
+.figthlink {
+	margin: auto;
+	margin-top: 20px;
+	color: white;
+	background-color: red;
+	border-radius: 10px;
+	width: auto;
+	height: 11vw;
+	align-content: center;
+	font-size: 7vw;
+}
+
 @media only screen and (min-width: 577px) {
 	.card.hovercard {
 		width: 50%;
@@ -327,5 +339,9 @@
 		line-height: 1;
 		color: #262626;
 		vertical-align: middle;
+	}
+	.figthlink {
+		height: 5vw;
+		font-size: 3vw;
 	}
 }

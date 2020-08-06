@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(#343a40, rgb(0, 0, 0));
+    background: #343a40;
     padding: 0 5px;
 }
 

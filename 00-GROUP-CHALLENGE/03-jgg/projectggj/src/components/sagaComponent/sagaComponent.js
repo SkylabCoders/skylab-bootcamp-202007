@@ -13,6 +13,7 @@ function SagaComponent(props) {
 		return () => store.removeChangeListener(onChange);
 	}, [sagas.length]);
 
+
 	function onChange() {
 		if (store.getSearchValue()) {
 			setSagas(store.getSagasFiltered());
@@ -20,7 +21,7 @@ function SagaComponent(props) {
 			setSagas(store.getSagas());
 		}
 	}
-	console.log(sagas);
+
 	return (
 		<>
 			<div className="card-holder flex-item flex-col centred">

@@ -57,7 +57,7 @@ function NavComponent(props) {
 						</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link nav__button--game" href="/game">
+						<a className="nav-link nav__button--game" href="/game/Machine">
 							Game
 						</a>
 					</li>

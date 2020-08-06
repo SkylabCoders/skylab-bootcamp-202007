@@ -1,15 +1,16 @@
-const CHARGE = 'Charge'; const AVOID = 'Avoid'; const ATTACK = 'Attack'; const FAIL = 'FAIL';
+export const CHARGE = 'Charge';
+export const AVOID = 'Avoid';
+export const ATTACK = 'Attack';
+const FAIL = 'FAIL';
 
-function player(names, isMachine = false) {
+function player(names = 'Machine', isMachine = false) {
     let name = names;
     let charges = 1;
     let action = '';
     let lives = 3;
     let ret;
 
-    function getAction() {
-        return action;
-    }
+
     function setAction(newAction) {
         action = newAction;
         calculateAction(action)
@@ -40,25 +41,25 @@ function player(names, isMachine = false) {
         let log = '';
         if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
             --lives;
-            log = name + ' recived an attack! ' + lives + ' remain';
+            log = name + ' recived an attack! ';
         } else if (comingAction === ATTACK && action === AVOID) {
-            log = name + 'Avoid the attack!';
+            log = name + ' avoid the attack!';
         } else if (comingAction === ATTACK && action === ATTACK) {
             log = ('Both attacks, noone gets hurt')
         } else {
-            log = ('enemy doesnt attack ')
+            log = ("Enemy doesn't attack ")
         }
 
         return log;
     }
-    function recibeActionRobot(comingAction) {
-        let log = "";
-        if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
-            --lives;
-            log = name + ' recived an attack! ' + lives + ' remain';
-        }
-        return log;
-    }
+    // function recibeActionRobot(comingAction) {
+    //     let log = "";
+    //     if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
+    //         --lives;
+    //         log = name + ' recived an attack! ' + lives + ' remain';
+    //     }
+    //     return log;
+    // }
 
     function translateAction(naction) {
         if (naction === '0')
@@ -67,6 +68,9 @@ function player(names, isMachine = false) {
             action = AVOID;
         else
             action = ATTACK;
+    }
+    function getAction() {
+        return action;
     }
 
     function getLives() {
@@ -79,7 +83,7 @@ function player(names, isMachine = false) {
         return name;
     }
     if (isMachine)
-        ret = { generateAction, recibeActionRobot, getAction, getLives, getName, getCharges }
+        ret = { generateAction, recibeAction, getAction, getLives, getName, getCharges }
     else
         ret = { setAction, recibeAction, getAction, getLives, getCharges, getName }
 
