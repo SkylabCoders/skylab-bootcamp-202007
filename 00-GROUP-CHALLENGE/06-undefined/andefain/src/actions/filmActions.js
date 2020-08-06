@@ -159,6 +159,18 @@ export async function callFilm() {
 	);
 	result[3] = await videoPromise.json();
 
+	const actorsPromise = await fetch(
+		`https://imdb8.p.rapidapi.com/title/auto-complete?q=${id}`,
+		{
+			method: 'GET',
+			headers: {
+				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
+			}
+		}
+	);
+	result[4] = await actorsPromise.json();
+
 	Promise.all(result).then((result) => {
 		dispatcher.dispatch({
 			type: actionTypes.FILM_DETAILS,
