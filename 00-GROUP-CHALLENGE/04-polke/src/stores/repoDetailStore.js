@@ -6,6 +6,7 @@ const CHANGE_EVENT = 'change';
 
 let _repoInfo = [];
 let _groupInfo = [];
+let _rankingInfo = [];
 
 class RepoInfoStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -19,6 +20,7 @@ class RepoInfoStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
+	//FIRST CARD METHODS
 	calculateDate(first, last) {
 		let firsDateArr = first;
 		let secondDateArr = last;
@@ -32,11 +34,28 @@ class RepoInfoStore extends EventEmitter {
 	calculateLastActivity(dates) {
 		return dates.last[0];
 	}
+	retrieveAuthorCommitsLength(userRepos) {
+		return userRepos.length;
+	}
+	retrieveAuthorCommits(data, AuthorName) {
+		let AuthorCommits = data.filter(
+			(elem) => elem.commit.author.name === AuthorName
+		);
+		return AuthorCommits;
+	}
+	retrieveAuthorComments(data) {
+		let AuthorComments = data.map((elem) => elem.commit.message);
+		return AuthorComments;
+	}
+	retrieveLastAuthorComments(data) {
+		let AuthorLastCommits = data.slice(0, 2);
+		return AuthorLastCommits;
+	}
 	setUserRepoInfo(userName) {
 		let repoInfoStats = {
 			length: _repoInfo.length,
 			data: _repoInfo,
-			name: 'null',
+			name: userName,
 			time: 'null',
 			authorCommits: 'null',
 			authorCommitsLength: 'null',
@@ -44,13 +63,13 @@ class RepoInfoStore extends EventEmitter {
 			authourLastComments: 'null',
 			lastActivity: 'null'
 		};
-		repoInfoStats.name = userName; //Sets user
-		/* 	repoInfoStats.time = this.calculateDate(dates.first, dates.last); */
-		repoInfoStats.authorCommits = repoInfoStats.data.filter(
-			//Set user Data
-			(elem) => elem.commit.author.name === repoInfoStats.name
+		repoInfoStats.authorCommits = this.retrieveAuthorCommits(
+			repoInfoStats.data,
+			repoInfoStats.name
 		);
-		repoInfoStats.authorCommitsLength = repoInfoStats.authorCommits.length; //Set number of user commits
+		repoInfoStats.authorCommitsLength = this.retrieveAuthorCommitsLength(
+			repoInfoStats.authorCommits
+		);
 		let dates = {
 			last: repoInfoStats.authorCommits[0].commit.author.date.split('-'),
 			first: repoInfoStats.authorCommits[
@@ -59,13 +78,11 @@ class RepoInfoStore extends EventEmitter {
 		};
 		repoInfoStats.time = this.calculateDate(dates.first, dates.last);
 		repoInfoStats.lastActivity = this.calculateLastActivity(dates);
-		repoInfoStats.authorComments = repoInfoStats.authorCommits.map(
-			//Set author comments
-			(elem) => elem.commit.message
+		repoInfoStats.authorComments = this.retrieveAuthorComments(
+			repoInfoStats.authorCommits
 		);
-		repoInfoStats.authourLastComments = repoInfoStats.authorComments.slice(
-			0,
-			2
+		repoInfoStats.authourLastComments = this.retrieveLastAuthorComments(
+			repoInfoStats.authorComments
 		);
 		return repoInfoStats;
 	}
@@ -73,6 +90,7 @@ class RepoInfoStore extends EventEmitter {
 		let repoInfoStats = this.setUserRepoInfo(userName);
 		return repoInfoStats;
 	}
+	//SECOND CARD METHODS
 	calculateTotalGroupCommits(data) {
 		let totalComits = data.map((elem) => elem.total).reduce((a, b) => a + b, 0);
 		return totalComits;
@@ -120,6 +138,10 @@ class RepoInfoStore extends EventEmitter {
 		let repoGroupInfoStats = this.setGroupRepoInfo();
 		return repoGroupInfoStats;
 	}
+	//THIRD CARD METHODS
+	getRankingRepoInfo() {
+		return _rankingInfo;
+	}
 }
 
 const repoInfoStore = new RepoInfoStore();
@@ -133,6 +155,10 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_GROUP:
 			_groupInfo = action.data;
 			repoInfoStore.emitChange(_groupInfo);
+			break;
+		case actionTypes.LOAD_RANKING:
+			_rankingInfo = action.data;
+			repoInfoStore.emitChange(_rankingInfo);
 			break;
 		default:
 			break;
