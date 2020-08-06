@@ -73,6 +73,11 @@ function Game(props){
         return result;
     }
 
+    function newGame(){
+        setSessionSet([]);
+        setCounter(0);
+    }
+
     if(sessionSet.length !== 0){
         if(counter < sessionSet.length){
             return (
@@ -82,6 +87,7 @@ function Game(props){
             )
         } else if (counter >= sessionSet.length) {
             updateGameStatistics();
+            console.log(sessionSet, counter)
             return (
                 <>
                     <Results 
@@ -90,7 +96,7 @@ function Game(props){
                         data_started={GAME_DATA.startedStr}
                         data_ended={GAME_DATA.endedStr}
                         data_played={GAME_DATA.played}
-                        newGameClick={console.log('CLICK TO PLAY NEW GAME FROM CHILD - RESULTS')}
+                        newGameClick={newGame}
                     />
                 </>
             )
