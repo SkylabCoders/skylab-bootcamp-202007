@@ -7,11 +7,7 @@ const CHANGE_EVENT = 'change';
 let _sliderId = [];
 let _popularId = [];
 let _comingsoonId = [];
-<<<<<<< HEAD
-let _sliderObj = [];
 let _favList = [];
-=======
->>>>>>> e94548d546ed6d78c46d5b436436910f08a57ff5
 
 class FilmStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -29,18 +25,16 @@ class FilmStore extends EventEmitter {
 	getSliderId() {
 		return _sliderId;
 	}
-<<<<<<< HEAD
+
 	getFavList() {
 		return _favList;
-=======
-
+	}
 	getComingsoonId() {
 		return _comingsoonId;
 	}
 
 	getPopularId() {
 		return _popularId;
->>>>>>> e94548d546ed6d78c46d5b436436910f08a57ff5
 	}
 }
 

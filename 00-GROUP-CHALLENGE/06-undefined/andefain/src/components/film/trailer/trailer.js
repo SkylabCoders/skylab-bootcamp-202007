@@ -57,10 +57,11 @@ function Trailer() {
 				</div>
 			</Link>
 			<img
-				src="https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png"
+				src={likeImage}
 				width="30px"
 				height="30px"
 				className="icon-like-desktop"
+				onClick={() => handleFavClick()}
 				alt="Start icon"
 			/>
 		</div>
