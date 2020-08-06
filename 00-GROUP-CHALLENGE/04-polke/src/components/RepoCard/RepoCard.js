@@ -3,25 +3,29 @@ import './RepoCard.css';
 import { Button } from 'react-bootstrap';
 
 function RepoCard({ repoInfoList }) {
-	const lockImg = null;
+	let lockImg = null;
 
-	// if (repoInfoList.private === true) {
-	// 	lockImg = (
-	// 		<img
-	// 			className="padlock"
-	// 			src={require('../../assets/img/padlock.png')}
-	// 			alt="padlock"
-	// 		/>
-	// 	);
-	// } else {
-	// 	lockImg = (
-	// 		<img
-	// 			className="padlock"
-	// 			src={require('../../assets/img/unlock.png')}
-	// 			alt="unlock"
-	// 		/>
-	// 	);
-	// }
+	if (repoInfoList.private === true) {
+		lockImg = (
+			<img
+				className="padlock"
+				src={require('../../assets/img/padlock.png')}
+				alt="padlock"
+			/>
+		);
+	} else {
+		lockImg = (
+			<img
+				className="padlock"
+				src={require('../../assets/img/unlock.png')}
+				alt="unlock"
+			/>
+		);
+	}
+	let desc = repoInfoList.description;
+	if (desc.length > 50) {
+		desc = desc.slice(0, 47) + '...';
+	}
 
 	return (
 		<section className="repoCard">
@@ -30,15 +34,19 @@ function RepoCard({ repoInfoList }) {
 					{lockImg}
 					{/* git  */}
 				</div>
-				<div className="repoCard__name">{repoInfoList.name}</div>
+				<div className="repoCard__name">
+					<b>{repoInfoList.name}</b>
+				</div>
 			</div>
-			<div className="repoCard__description">{repoInfoList.description}</div>
+			<div className="repoCard__description">{desc}</div>
 			<div className="repoCard__showlastUpdate-lang">
-				<div className="repoCard__lastUpdate">{repoInfoList.lastUpdate}</div>
+				<div className="repoCard__lastUpdate">
+					{repoInfoList.lastUpdate.split('T')[0]}
+				</div>
 				<div className="repoCard__lang">{repoInfoList.language}</div>
 			</div>
 			<div className="repoCard__details">
-				<Button variant="outline-secondary" className="button__details">
+				<Button variant="primary" className="button__details">
 					Details
 				</Button>
 			</div>
