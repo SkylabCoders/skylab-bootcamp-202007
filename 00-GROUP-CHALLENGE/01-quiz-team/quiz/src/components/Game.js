@@ -90,6 +90,7 @@ function Game(props){
                         data_started={GAME_DATA.startedStr}
                         data_ended={GAME_DATA.endedStr}
                         data_played={GAME_DATA.played}
+                        newGameClick={console.log('CLICK TO PLAY NEW GAME FROM CHILD - RESULTS')}
                     />
                 </>
             )
