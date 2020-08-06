@@ -52,7 +52,6 @@ function HeaderNavbar() {
 								onClick={(event) => {
 									event.preventDefault();
 									logout();
-									alert(landingStore.isLogged().toString());
 								}}
 							>
 								Log Out

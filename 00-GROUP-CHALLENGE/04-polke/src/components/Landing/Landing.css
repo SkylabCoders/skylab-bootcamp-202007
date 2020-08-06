@@ -5,6 +5,14 @@
 	justify-content: flex-start;
 }
 
+html {
+	min-height: 100vh;
+}
+
+body {
+	height: 100vh;
+}
+
 .landing__container::after {
 	content: '';
 	background-image: url('../../assets/img/landing-bg.jpg');

@@ -1,6 +1,7 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 import { authMethods } from '../firebase/firebaseAuthMethods';
+import firebase from 'firebase';
 
 export function login(email, password) {
 	return authMethods
@@ -60,4 +61,19 @@ export function logout() {
 			});
 		})
 		.catch((error) => console.error(error.message));
+}
+
+export function createNewUser(userId, userEmail, password) {
+	userId = '1';
+	userEmail = 'gerardramonlol@gmail.com';
+	password = '1234567';
+
+	debugger;
+	firebase
+		.database()
+		.ref('users/' + userId)
+		.set({
+			email: userEmail,
+			password: password
+		});
 }

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { FormControl, FormGroup, Button } from 'react-bootstrap';
 import {
 	login,
-	logout,
 	loginGoogle,
 	loginGitHub,
-	loginAnonyomously
+	loginAnonyomously,
+	createNewUser
 } from '../../../actions/loginActions';
 import landingStore from '../../../stores/landingStore';
 import '../../../shared/generalStyles.css';
@@ -14,6 +14,8 @@ import './Login.css';
 function Login() {
 	const [isLogged, setIsLogged] = useState(false);
 	const [user, setUser] = useState(null);
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
 	useEffect(() => {
 		landingStore.addChangeListener(onAuthChange);
@@ -89,7 +91,15 @@ function Login() {
 				>
 					Enter
 				</button>
-				<a className="Login__form__anchor--colored anchor">Register</a>
+				<a
+					className="Login__form__anchor--colored anchor"
+					onClick={(event) => {
+						event.preventDefault();
+						createNewUser();
+					}}
+				>
+					Register
+				</a>
 				{'   |   '}
 				<a
 					className="login__log-anonym anchor"
