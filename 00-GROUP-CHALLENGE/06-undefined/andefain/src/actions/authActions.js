@@ -30,3 +30,12 @@ export function signInWithGoogle() {
 		});
 	});
 }
+
+export function signInAnonymously() {
+	return authMethods.signInAnonymously().then(({ user }) => {
+		dispatcher.dispatch({
+			type: actionTypes.LOGIN,
+			user
+		});
+	});
+}
