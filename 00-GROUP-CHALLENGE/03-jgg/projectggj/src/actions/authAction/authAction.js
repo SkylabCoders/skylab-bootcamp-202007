@@ -5,7 +5,7 @@ import { authMethods } from '../../firebase/firebaseAuthMethods';
 export function login(email, password) {
     return authMethods
         .signin(email, password)
-        .then(({ user }) => {
+        .then((user) => {
             dispatcher.dispatch({
                 type: actionTypes.LOGIN,
                 data: user
