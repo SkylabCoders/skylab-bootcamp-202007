@@ -3,8 +3,9 @@ import dispatcher from './../AppDispatcher';
 import actionTypes from './../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
+let _leaderboard = [];
 
-class LeaderboardStore extends React.Component{
+class LeaderboardStore extends EventEmitter{
 
     addChangeListener(callback){
         this.on(CHANGE_EVENT, callback);
@@ -14,18 +15,26 @@ class LeaderboardStore extends React.Component{
         this.removeListener(CHANGE_EVENT, callback);
     }
 
-    getEmitter(){
+    emitChange(){
         this.emit(CHANGE_EVENT);
+    }
+
+    getLeaderboard(){
+        return _leaderboard;
     }
 
 }
 
-const leaderboardStore = new LeaderBoardStore();
+const leaderboardStore = new LeaderboardStore();
 
-export default leaderboard;
+export default leaderboardStore;
 
-dispatch.register((action) => {
+dispatcher.register((action) => {
     switch (action.type){
+        case actionTypes.GET_LEADERBOARD:
+            _leaderboard = action.data;
+            leaderboardStore.emitChange(_leaderboard);
+            break;
         default:
             break;
     }    

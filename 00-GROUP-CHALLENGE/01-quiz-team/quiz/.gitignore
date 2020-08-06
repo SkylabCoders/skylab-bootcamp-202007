@@ -21,3 +21,36 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#project media files
+images/
+media/
+assets/
+borrar/
+prueba/
+
+#media files
+*.apng
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.raw
+*.tiff
+*.eps
+*.ico
+*.WebP
+*.bmp
+*.ai
+*.mpg
+*.mpeg
+*.wav
+*.pdf
+*.mp3
+*.mp4
+*.ogg
+*.mov
+*.WebM
+*.flac
+*.adts
+*.3gp

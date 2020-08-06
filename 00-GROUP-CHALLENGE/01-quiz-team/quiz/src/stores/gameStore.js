@@ -4,7 +4,10 @@ import actionTypes from './../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 
-class GameStore extends React.Component{
+let _themes_list = [];
+let _top_themes_list = [];
+
+class GameStore extends EventEmitter{
 
     addChangeListener(callback){
         this.on(CHANGE_EVENT, callback);
@@ -14,8 +17,16 @@ class GameStore extends React.Component{
         this.removeListener(CHANGE_EVENT, callback);
     }
 
-    getEmitter(){
+    emitChange(){
         this.emit(CHANGE_EVENT);
+    }
+
+    getThemes(){
+        return _themes_list;
+    }
+
+    getTopThemes(){
+        return _top_themes_list;
     }
 
 }
@@ -24,8 +35,14 @@ const gameStore = new GameStore();
 
 export default gameStore;
 
-dispatch.register((action) => {
+dispatcher.register((action) => {
     switch (action.type){
+        case actionTypes.GET_THEMES:
+            _themes_list = action.data;
+            gameStore.emitChange(_themes_list);
+        case actionTypes.GET_TOP_THEMES:
+            _top_themes_list = action.data;
+            gameStore.emitChange(_top_themes_list);
         default:
             break;
     }    
