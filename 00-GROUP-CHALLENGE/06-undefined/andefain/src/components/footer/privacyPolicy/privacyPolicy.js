@@ -1,18 +1,11 @@
 import React from 'react';
-import './footer.css';
+import './privacyPolicy.css';
 
 function PrivacyPolicy() {
 	return (
-		<div id="main">
-			<p>
-				<h1>Andefain Privacy Notice</h1>
-			</p>
-
-			<p>
-				<h2>Last Updated, July 22, 2020</h2>
-				To see prior version, click here.
-			</p>
-
+		<section className="privacy-container">
+			<h1>Andefain Privacy Notice</h1>
+			<h2>Last Updated, July 22, 2020</h2>
 			<p>
 				We know that you care how information about you is used and shared, and
 				we appreciate your trust that we will do so carefully and sensibly. This
@@ -25,18 +18,12 @@ function PrivacyPolicy() {
 					described in this Privacy Notice.
 				</strong>
 			</p>
-
-			<p>
-				<h2>What Personal Information About Users Does Andefain Collect?</h2>
-			</p>
-
+			<h2>What Personal Information About Users Does Andefain Collect?</h2>
 			<p>
 				We collect your personal information in order to provide and continually
 				improve our services and your experience at Andefain.
 			</p>
-
 			<h3>Here are the types of personal information we collect:</h3>
-
 			<ul>
 				<li>
 					<strong>Information You Give Us</strong>: We receive and store any
@@ -63,17 +50,12 @@ function PrivacyPolicy() {
 					information we receive.
 				</li>
 			</ul>
-
-			<p>
-				<h2>For What Purposes Does Andefain Use Your Personal Information?</h2>
-			</p>
-
+			<h2>For What Purposes Does Andefain Use Your Personal Information?</h2>
 			<p>
 				We use your personal information to operate, provide, develop, and
 				improve the products and services that we offer our customers. These
 				purposes include.
 			</p>
-
 			<p>
 				<strong>Information from Other Sources</strong>: We might receive
 				information about you from other sources, such as your name and email
@@ -81,7 +63,7 @@ function PrivacyPolicy() {
 				service.&nbsp;Click &nbsp;to see additional examples of the information
 				we receive.
 			</p>
-		</div>
+		</section>
 	);
 }
 

@@ -18,9 +18,15 @@ function Film() {
 		setFilm(filmStore.getFilmDetails());
 	}
 	return (
-		<>
-			{!!film[0] && <Trailer details={film[0]} trailer={film[3]} />}
-			<div className="film-description">
+		<section className="film-container">
+			{!!film[0] && (
+				<Trailer
+					className="trailer-container"
+					details={film[0]}
+					trailer={film[3]}
+				/>
+			)}
+			<div className="details-container">
 				{!!film[0] && (
 					<FilmDetails
 						details={film[0]}
@@ -30,7 +36,7 @@ function Film() {
 					/>
 				)}
 			</div>
-		</>
+		</section>
 	);
 }
 

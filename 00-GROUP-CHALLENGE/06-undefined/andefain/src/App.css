@@ -1,8 +1,14 @@
-body {
-	font-family: 'Roboto', sans-serif;
+html {
 	background-color: #101010;
+	height: 100%;
 }
 
-.margin-bottom {
-	margin-bottom: 150px;
+#root {
+	background-color: #101010;
+	font-family: 'Roboto', sans-serif;
+	height: 100vh;
+	min-height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
 }
