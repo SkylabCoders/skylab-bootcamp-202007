@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import dispatcher from "../Dispatcher";
 import actionTypes from "../actions/actionTypes";
 import {authMethods} from "../firebase/firebaseAuthMethods";
@@ -51,37 +50,3 @@ export function createUser(email, password){
         })
     }).catch(e => alert(e));
 }
-=======
-import dispatcher from "../Dispatcher";
-import actionTypes from "../actions/actionTypes";
-import {authMethods} from "../firebase/firebaseAuthMethods";
-
-export function login(email, password){
-    return authMethods.signin(email, password).then(data => {
-        console.log(data);
-        dispatcher.dispatch({
-            type: actionTypes.LOGIN,
-            data
-        })
-    }).catch(console.log(error => console.log(error)))
-
-   
-}
-
-export function logout(){
-    return authMethods.signout().then(() => {
-            dispatcher.dispatch({
-                type: actionTypes.LOGOUT
-            })
-        })
-}
-
-export function googleLogin(){
-    return authMethods.signInWithGoogle().then((data)=>{
-        dispatcher.dispatch({
-            type: actionTypes.LOGIN,
-            data
-        })
-    }).catch(console.log(e => console.log(e)))
-}
->>>>>>> 0015d0e15021bd2360381e9b71730546559d9d47
