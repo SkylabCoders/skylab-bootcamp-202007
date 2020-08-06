@@ -30,7 +30,6 @@ function Home() {
 		setMostPopular(filmStore.getPopularId());
 		setSlider(filmStore.getSliderId());
 	}
-	console.log(mostPopular.length);
 	return (
 		<>
 			{slider.length === 5 && <FilmSlider data={slider} />}

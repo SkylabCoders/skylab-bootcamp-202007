@@ -39,7 +39,7 @@ function FilmSlider({ data }) {
 					</div>
 				</Link>
 				<Link
-					to={'film/' + centerFilm.id.split('/')[2]}
+					to={'finder/' + centerFilm.id.split('/')[2]}
 					className="slider__link center"
 				>
 					<div
@@ -56,7 +56,7 @@ function FilmSlider({ data }) {
 					</div>
 				</Link>
 				<Link
-					to={'film/' + rightFilm.id.split('/')[2]}
+					to={'finder/' + rightFilm.id.split('/')[2]}
 					className="slider__link lateral"
 				>
 					<div
