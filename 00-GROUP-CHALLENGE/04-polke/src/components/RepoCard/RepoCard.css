@@ -19,6 +19,7 @@
 	justify-content: space-around;
 	padding: 3px;
 	background-color: #f1f2f3;
+	height: 75px;
 }
 .repoCard__private {
 	border-right: 1px solid #d4d6d7;
@@ -35,6 +36,7 @@
 	width: 100%;
 	padding: 10px 0;
 	border-bottom: 1px solid #d4d6d7;
+	height: 50px;
 }
 .repoCard__name {
 	width: 76%;
@@ -49,10 +51,12 @@
 	max-height: 150px;
 	padding: 12px;
 	text-overflow: ellipsis;
+	height: 100px;
 }
 .repoCard__details {
 	width: 100%;
 	text-align: center;
 	padding: 10px 0;
 	background-color: #f1f2f3;
+	height: 75px;
 }

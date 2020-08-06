@@ -17,7 +17,7 @@ export function loadRepoInfo(repoName) {
 					name: repo.name,
 					description: repo.description || 'This repo has no description.',
 					id: repo.id,
-					language: repo.language || 'Language mix',
+					language: repo.language || 'Lang. mix',
 					lastUpdate: repo.updated_at
 				};
 			});

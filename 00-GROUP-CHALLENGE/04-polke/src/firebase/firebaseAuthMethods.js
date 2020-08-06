@@ -14,9 +14,9 @@ export const authMethods = {
 		return firebase.auth().signInAnonymously();
 	},
 
-	createUser: (email, password)=>{
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-	}
+	createUser: (email, password) => {
+		firebase.auth().createUserWithEmailAndPassword(email, password);
+	},
 
 	signInWithGoogle: () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
