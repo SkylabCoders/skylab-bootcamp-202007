@@ -27,7 +27,19 @@ export function loginWithGoogle() {
     return authMethods.signInWithGoogle().then((user) => {
         dispatcher.dispatch({
             type: actionTypes.LOGIN,
-            data: user,
+            data: user
         });
     });
+}
+
+//Function to call createAccount via flux
+export function sendAccountRegister(email, password) {
+    return authMethods
+        .createAccount(email, password)
+        .then((data) =>
+            dispatcher.dispatch({
+                type: actionTypes.CREATE_PROFILE,
+                data
+            })
+        )
 }

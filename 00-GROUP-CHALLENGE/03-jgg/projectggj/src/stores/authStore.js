@@ -7,43 +7,47 @@ let _isLogged = false;
 let _userProfile = null;
 
 class AuthStore extends EventEmitter {
-	addChangeListener(callback) {
-		this.on(CHANGE_EVENT, callback);
-	}
+    addChangeListener(callback) {
+        this.on(CHANGE_EVENT, callback);
+    }
 
-	removeChangeListener(callback) {
-		this.removeListener(CHANGE_EVENT, callback);
-	}
+    removeChangeListener(callback) {
+        this.removeListener(CHANGE_EVENT, callback);
+    }
 
-	emitChange() {
-		this.emit(CHANGE_EVENT);
-	}
+    emitChange() {
+        this.emit(CHANGE_EVENT);
+    }
 
-	isLogged() {
-		return _isLogged;
-	}
-	getUserProfile() {
-		return _userProfile;
-	}
+    isLogged() {
+        return _isLogged;
+    }
+    getUserProfile() {
+        return _userProfile;
+    }
 }
 
 const authStore = new AuthStore();
 
 dispatcher.register((action) => {
-	switch (action.type) {
-		case actionTypes.LOGIN:
-			_userProfile = action.data;
-			_isLogged = !!action.data;
-			authStore.emitChange();
-			break;
-		case actionTypes.LOGOUT:
-			_isLogged = false;
-			_userProfile = null;
-			authStore.emitChange();
-			break;
-		default:
-			break;
-	}
+    switch (action.type) {
+        case actionTypes.LOGIN:
+            _userProfile = action.data;
+            _isLogged = !!action.data;
+            authStore.emitChange();
+            break;
+        case actionTypes.LOGOUT:
+            _isLogged = false;
+            _userProfile = null;
+            authStore.emitChange();
+            break;
+
+        //CREATE.PROFILE doesn't need any data because is not sending anything, in fact you don't have to add any
+        case actionTypes.CREATE_PROFILE:
+            break;
+        default:
+            break;
+    }
 });
 
 export default authStore;
