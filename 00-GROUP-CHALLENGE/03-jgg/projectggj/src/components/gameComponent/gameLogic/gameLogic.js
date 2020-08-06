@@ -1,7 +1,7 @@
 export const CHARGE = 'Charge';
 export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
-const FAIL = 'FAIL';
+export const FAIL = 'FAIL';
 
 function player(names = 'Machine', isMachine = false) {
     let name = names;
@@ -39,15 +39,21 @@ function player(names = 'Machine', isMachine = false) {
     }
     function recibeAction(comingAction) {
         let log = '';
-        if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
+        if (comingAction === ATTACK && action === CHARGE) {
             --lives;
             log = name + ' recived an attack! ';
+        } else if (comingAction === ATTACK && action === FAIL) {
+            --lives;
+            log = name + ' run out of KI! and recives an attack! ';
+
         } else if (comingAction === ATTACK && action === AVOID) {
             log = name + ' avoid the attack!';
         } else if (comingAction === ATTACK && action === ATTACK) {
-            log = ('Both attacks, noone gets hurt')
+            log = ('Both attacks, no one gets hurt')
+        } else if (action === FAIL) {
+            log = ("Can not attack! No Ki remain! ")
         } else {
-            log = ("Enemy doesn't attack ")
+            log = ("Enemy does't attack!")
         }
 
         return log;
