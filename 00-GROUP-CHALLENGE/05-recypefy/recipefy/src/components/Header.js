@@ -30,47 +30,10 @@ function Header() {
 		<>
 			<nav className="nav__menu">
 				<div className="nav__mobile">
-					<div className="burger__container">
-						<div className="icon__burguer">
-							<img
-								alt="burger-button"
-								src="https://image.flaticon.com/icons/svg/953/953223.svg"
-							></img>
-						</div>
-						<ul className="desplegable__button">
-							<li>
-								<NavLink to="/" className="link__header">
-									Main
-								</NavLink>
-							</li>
-							<li>
-								<NavLink
-									to="/recomended"
-									className="link__header hamburguer__link"
-								>
-									Recomended
-								</NavLink>
-							</li>
+					<NavLink to="/" className="link__header">
+						Main
+					</NavLink>
 
-							<li>
-								<NavLink
-									to="/ranking"
-									className="link__header hamburguer__link"
-								>
-									Ranking
-								</NavLink>
-							</li>
-
-							<li>
-								<NavLink
-									to="/userfavourite"
-									className="link__header hamburguer__link"
-								>
-									Favourite
-								</NavLink>
-							</li>
-						</ul>
-					</div>
 					<Link to="/">
 						<img className="nav__brand__logo" src={Logo} />
 					</Link>
@@ -110,24 +73,13 @@ function Header() {
 				</div>
 				<div className="nav__medium__big">
 					<div className="buttons__left">
-						<NavLink to="/" className="link__header">
+						<NavLink to="/main" className="link__header">
 							Main
-						</NavLink>
-						<NavLink to="/recomended" className="link__header">
-							Recomended
-						</NavLink>
-						<br />
-						<NavLink to="/ranking" className="link__header">
-							Ranking
-						</NavLink>
-						<br />
-						<NavLink to="/userfavourite" className="link__header">
-							Favourite
 						</NavLink>
 					</div>
 					<NavLink to="/login">
 						<div className="buttons__right">
-							<p className="buttons__right--text">LogIn</p>
+							<p className="buttons__right--text">LOG</p>
 
 							<img
 								className="login__logo"
@@ -138,7 +90,7 @@ function Header() {
 				</div>
 			</nav>
 			<section className="main__boxes">
-				<Link to="/">
+				<Link to="/main">
 					<div className="section__logo">
 						<img className="main__logo" src={Logo} />
 						<h1>RECIPEFY</h1>

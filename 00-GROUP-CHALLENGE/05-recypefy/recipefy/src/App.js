@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -9,21 +9,31 @@ import SearchResult from './components/SearchResult';
 import UserFavourite from './components/UserFavourite';
 import './App.css';
 import Login from './components/Login';
+import authStore from './stores/AuthStore';
 
 function App() {
+	const [userLogued, setUserLogued] = useState(false);
+
+	useEffect(() => {
+		authStore.addChangeListener(onChange);
+		return () => authStore.removeChangeListener(onChange);
+	}, [userLogued]);
+
+	function onChange() {
+		setUserLogued(authStore.isLogged());
+	}
 	return (
 		<>
-			<Header />
-
+			{' '}
+			{userLogued && <Header />}
 			<Switch>
-				<Route path="/" exact component={Main} />
+				<Route path="/main" exact component={Main} />
 				<Route path="/profile" component={Profile} />
 				<Route path="/recipe-page/:recipeId" component={RecipePage} />
 				<Route path="/search-result" component={SearchResult} />
 				<Route path="/userfavourite" component={UserFavourite} />
-				<Route path="/login" component={Login} />
+				<Route path="/" component={Login} />
 			</Switch>
-
 			<Footer />
 		</>
 	);
