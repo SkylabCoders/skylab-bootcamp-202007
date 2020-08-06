@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './registerComponent.css';
+import { sendAccountRegister } from '../../actions/authAction/authAction'
 
 function RegisterComponent(props) {
 
@@ -8,10 +9,15 @@ function RegisterComponent(props) {
     const [birthDate, setBirthDate] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    useEffect(() => {
-
-    })
+    /*     const [password2, setPassword] = useState('');
+     */
+    /*     useEffect(() => {
+            function setPassword() {
+                if (password1 !== password2) {
+                    alert("Las contraseñas deben coincidir")
+                }
+            }
+        }) */
 
     function handleChange(event, setValueCallback) {
         console.log(event.target.value)
@@ -19,7 +25,9 @@ function RegisterComponent(props) {
         setValueCallback(event.target.value);
     }
 
-    const { ...profileInfo } = { name, lastName, birthDate, email, password };
+    /*     const { ...profileInfo } = { name, lastName, birthDate, email, password1 };
+     */
+
 
     return (
         <section className="text-center container">
@@ -35,9 +43,11 @@ function RegisterComponent(props) {
                 <label>Email address</label>
                 <input value={email} onChange={(event) => handleChange(event, setEmail)} id="inputEmail" className="m-1 form-control" type="email" placeholder="Email address" required="" autoFocus=""></input>
                 <label>Password</label>
+                {/*                 <input value={password1} onChange={(event) => handleChange(event, setPassword)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
+                <label>Repite password</label> */}
                 <input value={password} onChange={(event) => handleChange(event, setPassword)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
                 <div className="rowflex">
-                    <button className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit">Create account!</button>
+                    <button className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit" onClick={() => sendAccountRegister(email, password)}>Create account!</button>
                     <img className="capsule" src="https://i.pinimg.com/originals/c8/3e/92/c83e92534f8ce734d123c1445d1adf14.jpg" alt="capsule"></img>
                 </div>
             </form>

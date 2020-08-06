@@ -7,10 +7,15 @@ export const authMethods = {
     },
     signout: () => firebase.auth().signOut(),
     signInWithGoogle: () => {
-        debugger
         const provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
         return firebase.auth().signInWithPopup(provider)
     },
-
+    createAccount: (email, password) => {
+        return firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((result) => console.log(result))
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 };
