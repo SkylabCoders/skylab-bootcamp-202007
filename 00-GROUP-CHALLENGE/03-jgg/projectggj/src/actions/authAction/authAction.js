@@ -24,7 +24,6 @@ export function logout() {
 }
 
 export function loginWithGoogle() {
-    debugger
     return authMethods.signInWithGoogle().then((user) => {
         dispatcher.dispatch({
             type: actionTypes.LOGIN,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './loginComponent.css'
-import { login, logout, loginWithGoogle, logoutWithGoogle } from '../../actions/authAction/authAction'
+import { login, logout, loginWithGoogle } from '../../actions/authAction/authAction'
 import authStore from '../../stores/authStore'
 
 
