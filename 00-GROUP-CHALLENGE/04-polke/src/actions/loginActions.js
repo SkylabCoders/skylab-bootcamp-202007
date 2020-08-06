@@ -31,6 +31,7 @@ export function loginGitHub() {
 	return authMethods
 		.signInWithGitHub()
 		.then((data) => {
+			console.log(data);
 			dispatcher.dispatch({
 				type: actionTypes.LOGIN,
 				data
@@ -43,7 +44,6 @@ export function loginAnonyomously() {
 	return authMethods
 		.signInAnonymously()
 		.then((data) => {
-			console.log(data);
 			dispatcher.dispatch({
 				type: actionTypes.LOGIN,
 				data
@@ -63,17 +63,6 @@ export function logout() {
 		.catch((error) => console.error(error.message));
 }
 
-export function createNewUser(userId, userEmail, password) {
-	userId = '1';
-	userEmail = 'gerardramonlol@gmail.com';
-	password = '1234567';
-
-	debugger;
-	firebase
-		.database()
-		.ref('users/' + userId)
-		.set({
-			email: userEmail,
-			password: password
-		});
+export function createNewUser(email, password) {
+	return authMethods.createUser(email, password);
 }

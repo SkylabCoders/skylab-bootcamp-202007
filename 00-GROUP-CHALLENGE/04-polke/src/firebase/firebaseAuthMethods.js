@@ -26,7 +26,6 @@ export const authMethods = {
 
 	signInWithGitHub: () => {
 		const provider = new firebase.auth.GithubAuthProvider();
-		provider.addScope('repo');
 		return firebase.auth().signInWithPopup(provider);
 	}
 };

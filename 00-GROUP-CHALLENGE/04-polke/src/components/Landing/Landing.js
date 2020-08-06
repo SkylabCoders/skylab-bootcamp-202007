@@ -10,7 +10,6 @@ function Landing() {
 			<div className="landing__borders">
 				<div className="landing__login-container">
 					<Login />
-					<PopUpBox />
 				</div>
 				<div className="landing__chart-container">
 					<img
