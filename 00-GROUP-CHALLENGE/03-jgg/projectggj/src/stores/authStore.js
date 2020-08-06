@@ -5,6 +5,7 @@ import dispatcher from '../appDispatcher';
 const CHANGE_EVENT = 'change';
 let _isLogged = false;
 let _userProfile = null;
+let _userName = false;
 
 class AuthStore extends EventEmitter {
     addChangeListener(callback) {
@@ -24,6 +25,9 @@ class AuthStore extends EventEmitter {
     }
     getUserProfile() {
         return _userProfile;
+    }
+    getUserName() {
+        return _userName;
     }
 }
 
