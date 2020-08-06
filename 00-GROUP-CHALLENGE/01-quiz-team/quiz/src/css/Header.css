@@ -1,6 +1,6 @@
 .header {
 	width: 100%;
-	background-color: #ccc7c7;
+	background-color: black;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -22,12 +22,24 @@ nav{
 }
 
 .nav__item{
-    margin: 0 .75rem;
-    color: black;
+    color: white;
+    text-decoration: underline dotted white;
 }
 
 .nav__item:hover{
+    text-decoration: underline dotted coral;
+    color: coral;
+}
+
+.nav__list{
+    list-style-type: none;
+}
+
+.nav__list > li {
     color: white;
+    text-decoration: underline dotted white;
+    display: inline-block;
+    padding: 0 1rem;
 }
 
 .logo__header{
