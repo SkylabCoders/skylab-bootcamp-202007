@@ -100,10 +100,15 @@ function Header() {
 				</Link>
 
 				<div className="section__search">
-					<input
-						className="main__search"
-						placeholder="SEARCH YOUR RECIPE HERE"
-					/>
+					<div className="main__search">
+						<input
+							className="main__search-input"
+							placeholder="SEARCH YOUR RECIPE HERE"
+						/>
+						<Link className="search-button" to="/search-result">
+							SEARCH!
+						</Link>
+					</div>
 
 					<div className="recipe__text--preferences search__icons--box">
 						<img
