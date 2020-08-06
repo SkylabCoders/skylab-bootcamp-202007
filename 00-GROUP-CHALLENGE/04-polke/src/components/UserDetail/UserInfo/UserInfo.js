@@ -5,14 +5,15 @@ import { Card } from 'react-bootstrap';
 import userDetailStore from '../../../stores/userDetailStore';
 import { loadUserImg } from '../../../actions/userDetailActions';
 
-function UserInfo() {
+function UserInfo({ githubUserName }) {
 	const [userImg, setuserImg] = useState([]);
-	const [userName, setUserName] = useState('phortela1n');
+	const [userName, setUserName] = useState(githubUserName);
 
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);
-		if (userImg.length === 0) {
-			loadUserImg(userName);
+		if (userImg.length === 0 && githubUserName) {
+			debugger;
+			loadUserImg(githubUserName);
 		}
 
 		return () => userDetailStore.removeChangeListener(onChange);

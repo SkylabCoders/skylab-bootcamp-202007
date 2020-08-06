@@ -21,13 +21,13 @@ export default withRouter(function ({ history }) {
 
 	useEffect(() => {
 		landingStore.addChangeListener(onAuthChange);
+		user ? history.push('./userDetail') : history.push('');
 		return () => landingStore.removeChangeListener(onAuthChange);
-	}, [isLogged]);
+	}, [isLogged, user]);
 
 	function onAuthChange() {
 		setIsLogged(landingStore.isLogged());
 		setUser(landingStore.getUserProfile());
-		history.push('./userDetail');
 	}
 
 	return (
@@ -76,8 +76,6 @@ export default withRouter(function ({ history }) {
 					<FormControl
 						className="Login__form__input input-password"
 						type="password"
-						npm
-						start
 						placeholder="&#128272;"
 					/>
 
