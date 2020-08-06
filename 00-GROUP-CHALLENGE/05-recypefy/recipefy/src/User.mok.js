@@ -4,6 +4,7 @@ let userMoked = {
 	password: null,
 	photo:
 		'https://www.infojobs.net/ficha.foto?quina=6ccf4cf4-57d3-42a6-9571-58bf9eb9e25a',
+
 	preference: new Preference(
 		false,
 		true,

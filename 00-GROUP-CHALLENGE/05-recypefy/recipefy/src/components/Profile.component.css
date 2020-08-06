@@ -2,7 +2,9 @@
 	display: none
 }
 
+
 @media only screen and (min-width: 1024px) {
+
 	.main__profile-component {
 		background: #efee9d;
 		display: flex;
@@ -59,11 +61,19 @@
 		margin: auto;
 	}
 
-	.profile-img {
+	.profile-img--container {
 		border-radius: 100px;
 		width: 150px;
 		height: 150px;
-		margin: 5%;
 		border: 5px solid #50af58;
+		overflow: hidden;
+		margin: auto;
+
+	}
+
+	.profile-img,
+	.profile-img--no-avatar {
+		width: 100%;
+		height: auto;
 	}
 }
