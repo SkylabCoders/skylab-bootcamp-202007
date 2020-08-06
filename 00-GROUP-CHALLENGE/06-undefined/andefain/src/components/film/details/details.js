@@ -1,8 +1,7 @@
 import React from 'react';
 import './details.css';
-import film from '../film.mock';
-
-const darkKnight = [...film][0];
+import PropTypes from 'prop-types';
+import Film from '../film';
 
 function FilmDetails({ details, plot, genres, names }) {
 	return (
@@ -27,5 +26,12 @@ function FilmDetails({ details, plot, genres, names }) {
 		</>
 	);
 }
+
+FilmDetails.propTypes = {
+	details: PropTypes.object,
+	plot: PropTypes.object,
+	genres: PropTypes.array,
+	names: PropTypes.string
+};
 
 export default FilmDetails;
