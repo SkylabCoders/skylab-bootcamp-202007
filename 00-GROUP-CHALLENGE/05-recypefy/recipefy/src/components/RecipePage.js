@@ -45,7 +45,7 @@ function RecipePage() {
 		return decodeURI(title);
 	}
 
-	for (let i = 0; i < recipeElement.preferences.length - 1; i++) {
+	for (let i = 0; i < recipeElement.preferences.length; i++) {
 		if (recipeElement.preferences[i] === 'Balanced') {
 			balanced = true;
 		} else if (recipeElement.preferences[i] === 'High-Protein') {
@@ -116,6 +116,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__balanced"
 											id="balanced"
+											alt=""
 											src="https://image.flaticon.com/icons/png/512/30/30636.png"
 										></img>
 									)}
@@ -123,6 +124,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="protein"
+											alt=""
 											src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
 										></img>
 									)}
@@ -130,6 +132,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="low_fat"
+											alt=""
 											src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
 										></img>
 									)}
@@ -137,6 +140,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="low_carb"
+											alt=""
 											src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
 										></img>
 									)}
@@ -144,6 +148,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="vegan"
+											alt=""
 											src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
 										></img>
 									)}
@@ -152,6 +157,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="vegetarian"
+											alt=""
 											src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
 										></img>
 									)}
@@ -159,6 +165,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="sugar"
+											alt=""
 											src="https://www.footys.co.za/images/icon-sugar.png"
 										></img>
 									)}
@@ -166,6 +173,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__peanut-free"
 											id="peanut"
+											alt=""
 											src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
 										></img>
 									)}
@@ -173,6 +181,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__tree-nut-free"
 											id="treenut"
+											alt=""
 											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
 										></img>
 									)}
@@ -180,6 +189,7 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__alcohol-free"
 											id="alcohol"
+											alt=""
 											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
 										></img>
 									)}
