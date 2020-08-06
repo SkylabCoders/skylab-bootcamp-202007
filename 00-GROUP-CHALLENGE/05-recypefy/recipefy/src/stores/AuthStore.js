@@ -4,6 +4,7 @@ import dispatcher from "../Dispatcher";
 
 
 const CHANGE_EVENT = 'change';
+
 let _isLogged = false;
 let _userProfile = null;
 
@@ -29,6 +30,7 @@ class AuthStore extends EventEmitter{
         return _userProfile;
     }
 
+
 }
 
 const authStore = new AuthStore();
@@ -38,12 +40,17 @@ dispatcher.register((action) => {
         case actionTypes.LOGIN:
             _userProfile = action.data;
             _isLogged = !!action.data;
+            console.log(_userProfile, _isLogged);
             authStore.emitChange()
             break;
         case actionTypes.LOGOUT:
             _isLogged = false;
             _userProfile = null;
             authStore.emitChange()
+            break;
+        case actionTypes.CREATE_USER:
+            _userProfile = action.data;
+            authStore.emitChange();
             break;
         
     }
