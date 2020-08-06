@@ -4,9 +4,6 @@ import { login, logout, signInWithGoogle } from '../../actions/authActions';
 import authStore from '../../stores/authStore';
 
 function Login() {
-	let email = 'v.cucchiararo@gmail.com';
-	let password = 'password';
-
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
 	const [user, setUser] = useState(authStore.getUserProfile());
 
@@ -41,11 +38,21 @@ function Login() {
 				<button className="login-button">Create a new account</button>
 			</div>
 			<div className="login-box">
-				<input type="text" placeholder="user e-mail"></input>
-				<input type="password" placeholder="password"></input>
+				<input type="text" placeholder="user e-mail" className="email"></input>
+				<input
+					type="password"
+					placeholder="password"
+					className="password"
+				></input>
 				{!isLogged && (
 					<button
-						onClick={() => login(email, password)}
+						onClick={() => {
+							const emailInput = document.getElementsByClassName('email')[0]
+								.value;
+							const passInput = document.getElementsByClassName('password')[0]
+								.value;
+							login(emailInput, passInput);
+						}}
 						className="login-button"
 					>
 						Login
