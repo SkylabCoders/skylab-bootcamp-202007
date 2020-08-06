@@ -16,6 +16,7 @@ function Game(props){
     const GAME_DATA = {
         totalQuestions: 0,
         scores: [],
+        points: 0,
         started: started,
         startedStr: '',
         ended: 0,
@@ -35,7 +36,10 @@ function Game(props){
         setSessionSet(gameStore.getSessionSet());
     }
 
-    function updateCounter(){
+    function updateCounter(value = undefined){
+        console.log('valor entrada', value);
+        GAME_DATA.scores.push({question: sessionSet[counter], userAnser: value});
+        console.log('here are the stores', GAME_DATA.scores);
         if (counter < sessionSet.length){ 
             setCounter(counter + 1); 
         } else { 
@@ -73,7 +77,7 @@ function Game(props){
         if(counter < sessionSet.length){
             return (
                 <>
-                    <Question i={counter} click={updateCounter}/>
+                    <Question i={counter} click={(v)=>updateCounter(v)}/>
                 </>
             )
         } else if (counter >= sessionSet.length) {
