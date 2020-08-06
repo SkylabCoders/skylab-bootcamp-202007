@@ -33,11 +33,11 @@
 
 .burger__container:hover .desplegable__button {
 	display: flex;
-	flex-direction: column;
-	list-style: none;
 }
 
 .desplegable__button {
+	flex-direction: column;
+	list-style: none;
 	position: absolute;
 	background-color: #efee9d;
 	border-radius: 5px;

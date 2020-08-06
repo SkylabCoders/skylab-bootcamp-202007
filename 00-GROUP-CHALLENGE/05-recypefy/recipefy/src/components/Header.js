@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { loadRecipe } from '../actions/RecipeAction';
+import RecipeStore from '../stores/RecipeStore';
 import './Header.css';
 import '../App.css';
 
 function Header() {
+	const initialState = '';
+	const [actualSearch, setActualSearch] = useState(initialState);
+
+	useEffect(() => {
+		RecipeStore.addChangeListener(onChange);
+		return () => RecipeStore.removeChangeListener(onChange);
+	}, [actualSearch]);
+
+	function onChange() {
+		setActualSearch(initialState);
+	}
+
+	function onFieldChange(value, setValue) {
+		setValue(value);
+	}
+	function searchAlert() {
+		const message = 'Please put something in the search bar';
+		if (!actualSearch.trim()) {
+			window.alert(message);
+		} else {
+			loadRecipe(actualSearch);
+			onFieldChange(initialState, setActualSearch);
+		}
+	}
 	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';
 	return (
 		<>
@@ -53,8 +79,31 @@ function Header() {
 					<Link to="/">
 						<img className="nav__brand__logo" src={Logo} />
 					</Link>
-					<NavLink to="/profile">Preferences</NavLink>
-					<input className="search" placeholder="Search" />
+					<div>
+						<NavLink to="/profile">Preferences</NavLink>
+						<form>
+							<input
+								className="search"
+								value={actualSearch}
+								placeholder="Search"
+								name="search"
+								onChange={(event) =>
+									onFieldChange(event.target.value, setActualSearch)
+								}
+							/>
+							{actualSearch !== initialState && (
+								<Link
+									onClick={() => {
+										searchAlert();
+									}}
+									className="search-button"
+									to="/search-result"
+								>
+									SEARCH!
+								</Link>
+							)}
+						</form>
+					</div>
 					<Link to="/login">
 						<img
 							className="login__logo"
