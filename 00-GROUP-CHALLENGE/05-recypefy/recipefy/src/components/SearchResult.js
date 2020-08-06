@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import recipeStore from '../stores/RecipeStore';
+import { loadRecipe } from '../actions/RecipeAction';
+import RecipeCard from './RecipeCard.component';
+import './SearchResult.css';
 
+function SearchResult() {
+	const [searchListResult, setSearchListResult] = useState(
+		recipeStore.getRecipes
+	);
 
-function SearchResult(){
-    return(
-        <>
-          <div>
-            
-          </div>
-        </>
-    );
+	useEffect(() => {
+		recipeStore.addChangeListener(onChange);
+		if (searchListResult.length === 0) {
+			loadRecipe();
+		}
+		return () => recipeStore.removeChangeListener;
+	}, [searchListResult.length]);
+
+	function onChange() {
+		setSearchListResult(recipeStore.getRecipes);
+	}
+	return (
+		<div className="result-section">
+			<h2>YOUR RESULTS!</h2>
+			{searchListResult.map((recipe) => (
+				<RecipeCard title={recipe.title} />
+			))}
+		</div>
+	);
 }
 
 export default SearchResult;
