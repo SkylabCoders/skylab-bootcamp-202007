@@ -8,7 +8,6 @@ function NavComponent(props) {
 				<img
 					src="https://i.pinimg.com/originals/a5/f9/a2/a5f9a2eb5c0bfb1f66988696e1f31334.png"
 					width="30"
-					height=""
 					alt="Dragon Ball One Start"
 					loading="lazy"
 				/>
@@ -17,15 +16,15 @@ function NavComponent(props) {
 				className="navbar-toggler"
 				type="button"
 				data-toggle="collapse"
-				data-target="#navbarsExample03"
-				aria-controls="navbarsExample03"
+				data-target="#global-area__menu"
+				aria-controls="global-area__menu"
 				aria-expanded="false"
 				aria-label="Toggle navigation"
 			>
 				<span className="navbar-toggler-icon"></span>
 			</button>
 
-			<div className="collapse navbar-collapse" id="navbarsExample03">
+			<div className="collapse navbar-collapse" id="global-area__menu">
 				<ul className="navbar-nav mr-auto">
 					<li className="nav-item">
 						<a className="nav-link" href="/login">
