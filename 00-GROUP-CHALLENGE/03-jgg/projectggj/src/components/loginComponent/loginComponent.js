@@ -8,27 +8,30 @@ function LoginComponent(props) {
 
 
     const [isLogged, setIsLogged] = useState(authStore.isLogged());
+    const [isLoggedWithGoogle, setIsLoogedWithGoogle] = useState(authStore.isLogged());
     const [user, setUser] = useState(authStore.getUserProfile());
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     useEffect(() => {
         authStore.addChangeListener(onAuthChange);
-        console.log(user);
 
         return () => authStore.removeChangeListener(onAuthChange);
-    }, [isLogged, user, email]);
+    }, [isLogged, user, email, isLoggedWithGoogle]);
 
     function onAuthChange() {
         setIsLogged(authStore.isLogged());
+        setIsLoogedWithGoogle(authStore.isLogged());
         setUser(authStore.getUserProfile());
     }
 
     function handleChange(event, setValueCallback) {
-        console.log(event.target.value);
         event.preventDefault();
         setValueCallback(event.target.value);
     }
+
+
+
 
     return (
         <section className="text-center container">
@@ -46,13 +49,17 @@ function LoginComponent(props) {
                 {isLogged && (
                     <>
                         <p>Welcome {user && user.email}!</p>
-                        <button onClick={(event) => { event.preventDefault(); logout() }}>Logout</button>
+                        <button onClick={(event) => { event.preventDefault(); logout() }} className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block">Logout</button>
 
                     </>
                 )}
-                <p>Or login with:</p>
                 <div>
-                    <img src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg" alt="google" onClick={(event) => { event.preventDefault(); loginWithGoogle() }}></img>
+                    {!isLoggedWithGoogle && (
+                        <div>
+                            <p>Or login with:</p>
+                            <img src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg" alt="google" onClick={(event) => { event.preventDefault(); loginWithGoogle() }}></img>
+                        </div>
+                    )}
                 </div>
             </form>
         </section >

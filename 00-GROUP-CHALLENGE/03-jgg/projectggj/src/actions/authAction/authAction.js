@@ -24,11 +24,10 @@ export function logout() {
 }
 
 export function loginWithGoogle() {
-    return authMethods
-        .signInWithGoogle(({ user }) => {
-            dispatcher.dispatch({
-                type: actionTypes.LOGIN,
-                user
-            });
+    return authMethods.signInWithGoogle().then((user) => {
+        dispatcher.dispatch({
+            type: actionTypes.LOGIN,
+            data: user,
         });
+    });
 }
