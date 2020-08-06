@@ -7,7 +7,6 @@ import {
 	signInAnonymously
 } from '../../actions/authActions';
 import authStore from '../../stores/authStore';
-import PropTypes from 'prop-types';
 
 function Login() {
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
