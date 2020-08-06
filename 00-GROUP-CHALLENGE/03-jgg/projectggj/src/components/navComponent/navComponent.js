@@ -3,9 +3,7 @@ import './navComponent.css';
 import authStore from '../../stores/authStore'
 import { globalSearch } from '../../actions/actions';
 
-
 function NavComponent(props) {
-
 
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
 
