@@ -18,7 +18,6 @@ function SagaComponent(props) {
     function onChange() {
         setSagas(store.getSagas());
     }
-    console.log(sagas)
     return (
         <>
             <div className='card-holder flex-item flex-col centred'>

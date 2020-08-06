@@ -6,10 +6,12 @@
 	width: 32vw;
 	object-fit: cover;
 	height: 24vw;
-	margin-top: 7vw;
 	border-radius: 5px;
 	border-style: double;
 	border-color: forestgreen;
+}
+.user-action_container span {
+	margin-top: 2vw;
 }
 .user-action_container img:hover {
 	border-color: rgb(228, 83, 83);
@@ -31,4 +33,17 @@
 	border-radius: 5px;
 	border-style: solid;
 	border-color: brown;
+}
+
+.game-log {
+	text-align: center;
+	font-size: larger;
+	font-weight: 300;
+	border-style: inset;
+	border-radius: 4px;
+	min-height: 8vw;
+	position: absolute;
+	top: 18vw;
+	width: 41vw;
+	background: aliceblue;
 }
