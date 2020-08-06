@@ -7,9 +7,10 @@ import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 
 function RepoDetail() {
 	//repoInfo
-	const [repoInfo, setrepoInfo] = useState([]);
-	const [groupInfo, setgroupInfo] = useState([]);
-	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
+	const [repoInfo, setRepoInfo] = useState([]);
+	const [groupInfo, setGroupInfo] = useState([]);
+	const [rankingInfo, setRankingInfo] = useState([]);
+	const [repoName, setRepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
 	const [orgName, setOrgName] = useState('SkylabCoders'); //obj.orgName
 	const [userName, setUserName] = useState('Gilberto Cao'); //obj.userName
 
@@ -30,10 +31,10 @@ function RepoDetail() {
 	}, [repoInfo.length]);
 
 	function onChange() {
-		setrepoInfo(RepoInfoStore.getUserRepoInfo(userName));
+		setRepoInfo(RepoInfoStore.getUserRepoInfo(userName));
 	}
 	function onChangeGroup() {
-		setgroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
+		setGroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
 	}
 	console.log(repoInfo);
 	console.log('este', groupInfo);
