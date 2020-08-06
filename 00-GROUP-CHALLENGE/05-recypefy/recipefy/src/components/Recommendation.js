@@ -18,10 +18,8 @@ function Recomendation() {
 	}, [recipeList.length]);
 
 	function onChange() {
-		debugger;
 		setRecipeList(recipeStore.getRecipes);
 	}
-	console.log(recipeList, 'i Want my recipe list');
 
 	return (
 		<section className="body__box--recipe-details body__box body__box--main-recomendations ">
