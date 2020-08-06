@@ -1,59 +1,66 @@
 import charList from '../mock.chars';
-import dispatcher from "../appDispatcher";
-import actionTypes from "./actionTypes";
+import dispatcher from '../appDispatcher';
+import actionTypes from './actionTypes';
 import planetsArr from '../mock.Planets';
 import sagaList from '../mock.sagas';
 
-export function globalSearch(search) {
-    dispatcher.dispatch({
-        type: actionTypes.GLOBAL_SEARCH,
-        search
-    });
+export function globalSearch(text, filter, name) {
+	dispatcher.dispatch({
+		type: actionTypes.GLOBAL_SEARCH,
+		data: {
+			text,
+			filter,
+			name
+		}
+	});
 }
 
-
-export function loadCharList() {
-    return new Promise((resolve) => {
-        resolve(charList);
-    }).then((charList) => {
-        dispatcher.dispatch({
-            type: actionTypes.LOAD_CHAR_LIST,
-            data: charList
-        });
-    });
+export function loadCharList(filter, name) {
+	return new Promise((resolve) => {
+		resolve(charList);
+	}).then((charList) => {
+		dispatcher.dispatch({
+			type: actionTypes.LOAD_CHAR_LIST,
+			data: {
+				charList,
+				filter,
+				name
+			}
+		});
+	});
 }
 
 export function loadSagaList() {
-    return new Promise((resolve) => {
-        resolve(sagaList);
-    }).then((sagaList) => {
-        dispatcher.dispatch({
-            type: actionTypes.LOAD_SAGA_LIST,
-            data: sagaList
-        });
-    });
+	return new Promise((resolve) => {
+		resolve(sagaList);
+	}).then((sagaList) => {
+		dispatcher.dispatch({
+			type: actionTypes.LOAD_SAGA_LIST,
+			data: sagaList
+		});
+	});
 }
 
 export function saveUser(user) {
-    return new Promise((resolve) => {
-        resolve(user);
-    }).then((savedUser) => {
-        dispatcher.dispatch({
-            type: (user ? actionTypes.CREATE_PROFILE : actionTypes.UPDATE_PROFILE),
-            data: savedUser
-        })
-    })
+	return new Promise((resolve) => {
+		resolve(user);
+	}).then((savedUser) => {
+		dispatcher.dispatch({
+			type: user ? actionTypes.CREATE_PROFILE : actionTypes.UPDATE_PROFILE,
+			data: savedUser
+		});
+	});
 }
 
 export function loadPlanets() {
-    return new Promise((resolve) => {
-        resolve(planetsArr);
-    }).then((planetsArr) => {
-        dispatcher.dispatch({
-            type: actionTypes.LOAD_PLANETS,
-            data: planetsArr
-        });
-    });
+	return new Promise((resolve) => {
+		resolve(planetsArr);
+	}).then((planetsArr) => {
+		dispatcher.dispatch({
+			type: actionTypes.LOAD_PLANETS,
+			data: planetsArr
+		});
+	});
 }
 
 /* export function loadCharListAPI() {

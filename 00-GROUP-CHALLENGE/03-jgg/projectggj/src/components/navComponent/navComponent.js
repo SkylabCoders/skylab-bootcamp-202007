@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import './navComponent.css';
-import { globalSearch } from "../../actions/actions";
+import { globalSearch } from '../../actions/actions';
 
 function NavComponent(props) {
-
 	const [search, setSearch] = useState('');
+	const [, , , , filter, name] = window.location.href.split('/');
 
 	function handleChange(event, setValueCallback) {
-		console.log(event.target.value);
 		event.preventDefault();
 		setValueCallback(event.target.value);
-		globalSearch(event.target.value);
+		globalSearch(event.target.value, filter, name);
 	}
 
 	return (
