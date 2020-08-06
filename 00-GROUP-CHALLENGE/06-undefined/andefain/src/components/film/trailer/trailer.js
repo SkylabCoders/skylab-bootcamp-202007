@@ -5,24 +5,17 @@ import { addFav } from '../../../actions/filmActions';
 import filmStore from '../../../stores/filmStore';
 import PropTypes from 'prop-types';
 
+const blankHeart =
+	'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png';
+const fullHeart =
+	'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/978cb96aee01766475268b966dd68550/estrella.png';
+
 function Trailer({ details, trailer }) {
-	const [favFilmList, setFavFilm] = useState([]);
-	const [likeImage, setLikeImage] = useState(
-		'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png'
-	);
-	useEffect(() => {
-		filmStore.addChangeListener(onChange);
-		return () => filmStore.removeChangeListener(onChange);
-	}, [favFilmList.length]);
+	const [likeImage, setLikeImage] = useState(blankHeart);
 
 	function onChange() {
-		setLikeImage(
-			'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/978cb96aee01766475268b966dd68550/estrella.png'
-		);
-		setFavFilm(filmStore.getFavList);
-	}
-	function handleFavClick(title) {
-		addFav(title);
+		if (likeImage === blankHeart) setLikeImage(fullHeart);
+		else setLikeImage(blankHeart);
 	}
 	return (
 		<div className="trailer-container">
@@ -44,7 +37,7 @@ function Trailer({ details, trailer }) {
 						width="30px"
 						height="30px"
 						className="icon-like-mobile"
-						onClick={() => handleFavClick()}
+						onClick={() => onChange()}
 						alt="Start icon"
 					/>
 				</div>
@@ -54,7 +47,7 @@ function Trailer({ details, trailer }) {
 				width="30px"
 				height="30px"
 				className="icon-like-desktop"
-				onClick={() => handleFavClick()}
+				onClick={() => onChange()}
 				alt="Start icon"
 			/>
 		</div>

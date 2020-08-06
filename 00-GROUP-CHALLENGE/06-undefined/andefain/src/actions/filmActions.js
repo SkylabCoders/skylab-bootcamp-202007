@@ -46,7 +46,7 @@ export async function sliderData() {
 }
 
 export async function mostPopularData() {
-	const key = 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'; //Vanesa
+	const key = 'fb406b5cdfmshc0ca65107c86112p12530ajsncfbd0c2467c8'; //Laia
 	const idPromise = await fetch(
 		'https://imdb8.p.rapidapi.com/title/get-most-popular-movies?purchaseCountry=US&homeCountry=US&currentCountry=US',
 		{
@@ -117,7 +117,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+				'x-rapidapi-key': 'fb406b5cdfmshc0ca65107c86112p12530ajsncfbd0c2467c8'
 			}
 		}
 	);
@@ -129,7 +129,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+				'x-rapidapi-key': 'fb406b5cdfmshc0ca65107c86112p12530ajsncfbd0c2467c8'
 			}
 		}
 	);
@@ -141,7 +141,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+				'x-rapidapi-key': 'fb406b5cdfmshc0ca65107c86112p12530ajsncfbd0c2467c8'
 			}
 		}
 	);
@@ -153,7 +153,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+				'x-rapidapi-key': 'fb406b5cdfmshc0ca65107c86112p12530ajsncfbd0c2467c8'
 			}
 		}
 	);
@@ -165,7 +165,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
+				'x-rapidapi-key': 'fb406b5cdfmshc0ca65107c86112p12530ajsncfbd0c2467c8'
 			}
 		}
 	);
