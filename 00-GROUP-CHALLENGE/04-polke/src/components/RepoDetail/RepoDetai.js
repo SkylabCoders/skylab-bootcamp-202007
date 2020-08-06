@@ -4,12 +4,14 @@ import './RepoDetail.css';
 import RepoInfoStore from '../../stores/repoDetailStore';
 import { loadRepoInfo } from '../../actions/repoDetailActions';
 
-function RepoDetail() {
+function RepoDetail(props) {
+	const orgNameURL = props.match.params.userName;
+	const repoNameURL = props.match.params.repoName;
 	//repoInfo
 	const [repoInfo, setrepoInfo] = useState([]);
-	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //propsObject.repoName
-	const [orgName, setOrgName] = useState('SkylabCoders'); //propsObject.orgName
-	const [userName, setUserName] = useState('Gilberto Cao'); //propsObject.userName
+	const [repoName, setrepoName] = useState(repoNameURL); //propsObject.repoName
+	const [orgName, setOrgName] = useState(orgNameURL); //propsObject.orgName
+	const [userName, setUserName] = useState(orgNameURL); //propsObject.userName
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);
