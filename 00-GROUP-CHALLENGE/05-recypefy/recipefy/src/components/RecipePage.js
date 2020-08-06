@@ -35,11 +35,8 @@ function RecipePage() {
 	const [source] = useState(`source: ${recipeElement.source}`);
 
 	function getUrl() {
-		//Se obtiene el valor de la URL desde el navegador
 		var actual = window.location + '';
-		//Se realiza la división de la URL
 		var split = actual.split('/');
-		//Se obtiene el ultimo valor de la URL
 		var title = split[split.length - 1];
 
 		return decodeURI(title);
