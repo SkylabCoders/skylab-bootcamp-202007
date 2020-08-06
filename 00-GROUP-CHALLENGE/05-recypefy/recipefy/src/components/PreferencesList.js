@@ -1,43 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import authStore from '../stores/AuthStore';
-import './Profile.component.css';
+import React from 'react';
+import './PreferenceList.css';
 
-function ProfileComponent() {
-	const [user, setUser] = useState(authStore.getUserProfile());
-	const [userPhoto, setUserPhoto] = useState('');
-
-	useEffect(() => {
-		debugger;
-		authStore.addChangeListener(onChange);
-		if (!user) {
-			setUser(authStore.getUserProfile());
-		}
-		if (user.user.photoURL) {
-			setUserPhoto(user.user.photoURL);
-		}
-		console.log(userPhoto);
-		return () => authStore.removeChangeListener;
-	}, [user]);
-
-	function onChange() {
-		setUser(authStore.getUserProfile());
-	}
+function PreferenceList() {
 	return (
-		<aside className="main__profile-component">
-			<h2 className="wrapper">Your information</h2>
-			<div>
-				{userPhoto && (
-					<img alt="your avatar" src={userPhoto} className="profile-img"></img>
-				)}
-				{!userPhoto && (
-					<img
-						alt="your avatar"
-						src="https://image.flaticon.com/icons/svg/843/843260.svg"
-						className="profile-img"
-					></img>
-				)}
-				<h3 className="main__profile-component--title">Preferences</h3>
-				<ul className="profile--preferences">
+		<div className="body__box body__propertie-list body__list">
+			<h2 className="body__propertie-list--title">The properties</h2>
+			<ul>
+				<ul className="small-display-preferences">
 					<li key="balanced">
 						<p>Balanced</p>
 						<img
@@ -119,9 +88,9 @@ function ProfileComponent() {
 						></img>
 					</li>
 				</ul>
-			</div>
-		</aside>
+			</ul>
+		</div>
 	);
 }
 
-export default ProfileComponent;
+export default PreferenceList;

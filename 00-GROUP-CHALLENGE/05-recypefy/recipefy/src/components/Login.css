@@ -17,6 +17,7 @@
     width: fit-content;
     padding: 16px;
     border-radius: 10px;
+    margin-bottom: 80px;
 }
 
 form {
@@ -46,6 +47,7 @@ form {
     cursor: pointer;
     outline: inherit;
     border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 .login__container p {
@@ -69,4 +71,14 @@ form {
     width: 12vw;
     text-align: center;
     cursor: pointer;
+}
+
+.register__form{
+    background-color: rgba(128, 128, 128, 0.514);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.login__container a:hover{
+    margin-right: 12px;
 }

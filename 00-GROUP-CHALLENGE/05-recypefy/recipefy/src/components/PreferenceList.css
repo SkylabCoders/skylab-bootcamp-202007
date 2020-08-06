@@ -1,0 +1,15 @@
+.small-display-preferences {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.small-display-preferences li {
+    padding: 1%;
+}
+
+@media only screen and (min-width: 1024px) {
+    .preferences-list {
+        display: none;
+    }
+}

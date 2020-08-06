@@ -9,7 +9,7 @@ export function login(email, password){
             type: actionTypes.LOGIN,
             data
         })
-    }).catch(console.log(error => console.log(error)))
+    }).catch(error => console.log(error))
 
    
 }
@@ -28,5 +28,25 @@ export function googleLogin(){
             type: actionTypes.LOGIN,
             data
         })
-    }).catch(console.log(e => console.log(e)))
+    }).catch(e => console.log(e))
+}
+
+export function anonymousLogin(){
+  
+    return authMethods.signInAnonnymusly().then((data)=> {
+        dispatcher.dispatch({
+            type: actionTypes.LOGIN,
+            data
+        })
+    });
+}
+
+export function createUser(email, password){
+
+    return authMethods.createUser(email, password).then((data)=>{
+        dispatcher.dispatch({
+            type: actionTypes.CREATE_USER,
+            data
+        })
+    }).catch(e => alert(e));
 }

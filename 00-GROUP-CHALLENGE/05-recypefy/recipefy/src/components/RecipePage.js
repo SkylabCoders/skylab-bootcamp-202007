@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import receteListMoked from '../Recipe.mok.js';
+import React, { useState } from 'react';
 import './RecipePage.css';
 import recipe from '../stores/RecipeStore';
 function RecipePage() {
-
 	let balanced = false;
 	let protein = false;
 	let low_fat = false;
@@ -14,7 +12,6 @@ function RecipePage() {
 	let peanut = false;
 	let treenut = false;
 	let alcohol = false;
-
 
 	let [recipeElement] = useState(recipe.getRecipeByTitle(getUrl()));
 	const [titleString] = useState(recipeElement.title);
@@ -35,17 +32,14 @@ function RecipePage() {
 	const [source] = useState(`source: ${recipeElement.source}`);
 
 	function getUrl() {
-		//Se obtiene el valor de la URL desde el navegador
 		var actual = window.location + '';
-		//Se realiza la división de la URL
 		var split = actual.split('/');
-		//Se obtiene el ultimo valor de la URL
 		var title = split[split.length - 1];
 
 		return decodeURI(title);
 	}
 
-	for (let i = 0; i < recipeElement.preferences.length; i++) {
+	for (let i = 0; i < recipeElement.preferences.length - 1; i++) {
 		if (recipeElement.preferences[i] === 'Balanced') {
 			balanced = true;
 		} else if (recipeElement.preferences[i] === 'High-Protein') {
@@ -69,8 +63,6 @@ function RecipePage() {
 		}
 	}
 
-	debugger;
-
 	return (
 		<div className="desktop__display">
 			<div className="desktop__display--right">
@@ -79,18 +71,18 @@ function RecipePage() {
 						<div className="recipe__icon-list">
 							<div className="box__icon">
 								<p className="text__icon">{time}</p>
-								<div id="time" className="data__circle time__background">
-								</div>
+								<div id="time" className="data__circle time__background"></div>
 							</div>
 							<div className="box__icon">
 								<p className="text__icon">{calories}</p>
-								<div id="calories" className="data__circle calories__background">
-								</div>
+								<div
+									id="calories"
+									className="data__circle calories__background"
+								></div>
 							</div>
 							<div className="box__icon">
 								<p className="text__icon">{yeld}</p>
-								<div id="yeld" className="data__circle yield__background">
-								</div>
+								<div id="yeld" className="data__circle yield__background"></div>
 							</div>
 						</div>
 						<div className="title__img__container flex__column">
@@ -116,7 +108,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__balanced"
 											id="balanced"
-											alt=""
 											src="https://image.flaticon.com/icons/png/512/30/30636.png"
 										></img>
 									)}
@@ -124,7 +115,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="protein"
-											alt=""
 											src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
 										></img>
 									)}
@@ -132,7 +122,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="low_fat"
-											alt=""
 											src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
 										></img>
 									)}
@@ -140,7 +129,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="low_carb"
-											alt=""
 											src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
 										></img>
 									)}
@@ -148,7 +136,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="vegan"
-											alt=""
 											src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
 										></img>
 									)}
@@ -157,7 +144,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="vegetarian"
-											alt=""
 											src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
 										></img>
 									)}
@@ -165,7 +151,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon"
 											id="sugar"
-											alt=""
 											src="https://www.footys.co.za/images/icon-sugar.png"
 										></img>
 									)}
@@ -173,7 +158,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__peanut-free"
 											id="peanut"
-											alt=""
 											src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
 										></img>
 									)}
@@ -181,7 +165,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__tree-nut-free"
 											id="treenut"
-											alt=""
 											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
 										></img>
 									)}
@@ -189,7 +172,6 @@ function RecipePage() {
 										<img
 											className="preferences__icon preference__alcohol-free"
 											id="alcohol"
-											alt=""
 											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
 										></img>
 									)}
@@ -208,7 +190,6 @@ function RecipePage() {
 							<li>{ingredient}</li>
 						))}
 					</ul>
-
 				</section>
 			</div>
 		</div>
