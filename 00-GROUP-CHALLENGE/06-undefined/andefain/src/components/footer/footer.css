@@ -8,6 +8,7 @@
 	background-color: #000000;
 	width: 100%;
 	align-items: center;
+	flex-shrink: 0;
 }
 
 .footer-link-logo {
