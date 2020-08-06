@@ -14,7 +14,6 @@ function UserInfo() {
 		if (userImg.length === 0) {
 			loadUserImg(userName);
 		}
-		console.log(userImg);
 
 		return () => userDetailStore.removeChangeListener(onChange);
 	}, [userImg.length]);
@@ -22,7 +21,6 @@ function UserInfo() {
 	function onChange() {
 		setuserImg(userDetailStore.getUserInfo());
 	}
-	console.log(userImg);
 	return (
 		<Card className="user-info-card">
 			<Card.Title className="user-info-card__main-title">USER INFO</Card.Title>

@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import Switch from './Switch/Switch';
 import { logout } from '../../actions/loginActions';
 import landingStore from '../../stores/landingStore';
+import navbarStore from '../../stores/navbarStore';
 
 function HeaderNavbar() {
 	const imgLogo = (
