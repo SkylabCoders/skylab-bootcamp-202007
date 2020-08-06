@@ -8,14 +8,12 @@ let _repoInfo = [];
 function calculateDate(first, last) {
 	let firsDateArr = first;
 	let secondDateArr = last;
-	let month;
-
-	if (last[1] - first[1] === 0) {
-		month = 0;
-	} else {
-		month = last[1] - first[1];
-	}
-	return month;
+	let days;
+	let startDay = firsDateArr[2].split('').slice(0, 2).join('');
+	let endDay = secondDateArr[2].split('').slice(0, 2).join('');
+	days = endDay - startDay;
+	let definitString = `${days} days`;
+	return definitString;
 }
 
 class RepoInfoStore extends EventEmitter {
@@ -30,14 +28,19 @@ class RepoInfoStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
-	getRepoInfo() {
+	getRepoInfo(userName) {
 		let repoInfoStats = {
 			length: _repoInfo.length,
 			data: _repoInfo,
 			name: 'null',
-			time: 'null'
+			time: 'null',
+			authorCommits: 'null',
+			authorCommitsLength: 'null',
+			authorComments: 'null',
+			authourLastComments: 'null',
+			lastActivity: 'null'
 		};
-		let name = repoInfoStats.data[0].commit.author.name;
+		let name = userName;
 		repoInfoStats.name = name;
 		let dates = {
 			last: repoInfoStats.data[0].commit.author.date.split('-'),
@@ -45,7 +48,20 @@ class RepoInfoStore extends EventEmitter {
 				repoInfoStats.length - 1
 			].commit.author.date.split('-')
 		};
-		console.log('mira' + calculateDate(dates.first, dates.last));
+		repoInfoStats.time = calculateDate(dates.first, dates.last);
+		repoInfoStats.authorCommits = repoInfoStats.data.filter(
+			(elem) => elem.commit.author.name === repoInfoStats.name
+		);
+		repoInfoStats.authorCategory = repoInfoStats.authorCommits[0].author.type;
+		repoInfoStats.authorCommitsLength = repoInfoStats.authorCommits.length;
+		repoInfoStats.lastActivity = dates.last[0];
+		repoInfoStats.authorComments = repoInfoStats.authorCommits.map(
+			(elem) => elem.commit.message
+		);
+		repoInfoStats.authourLastComments = repoInfoStats.authorComments.slice(
+			0,
+			4
+		);
 		return repoInfoStats;
 	}
 }
