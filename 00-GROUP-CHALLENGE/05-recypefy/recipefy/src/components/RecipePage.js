@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import receteListMoked from '../Recipe.mok.js';
 import './RecipePage.css';
 import recipe from '../stores/RecipeStore';
-debugger;
 function RecipePage() {
 	const [preferencies, setPreferencies] = useState({
 		balanced: false,

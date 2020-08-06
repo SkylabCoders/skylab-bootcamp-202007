@@ -17,6 +17,12 @@
 	padding: 0;
 }
 
+.nav__menu form {
+	display: flex;
+	flex-direction: row;
+}
+
+
 .burger__container {
 	position: relative;
 	display: flex;
@@ -33,11 +39,11 @@
 
 .burger__container:hover .desplegable__button {
 	display: flex;
-	flex-direction: column;
-	list-style: none;
 }
 
 .desplegable__button {
+	flex-direction: column;
+	list-style: none;
 	position: absolute;
 	background-color: #efee9d;
 	border-radius: 5px;
@@ -85,6 +91,10 @@
 	width: 90%;
 }
 
+.nav__mobile .search-button {
+	vertical-align: sub;
+}
+
 .nav__medium__big {
 	display: none;
 }
@@ -111,14 +121,15 @@
 }
 
 
+.search-button {
+	padding: 5px;
+	border-radius: 50px;
+	background-color: #d1eaa3;
+	margin: 5px;
+}
+
 @media only screen and (min-width: 600px) {
 
-	.search-button {
-		padding: 5px;
-		border-radius: 50px;
-		background-color: #d1eaa3;
-		margin: 5px;
-	}
 
 	.search-button:active,
 	.search-button:link,
