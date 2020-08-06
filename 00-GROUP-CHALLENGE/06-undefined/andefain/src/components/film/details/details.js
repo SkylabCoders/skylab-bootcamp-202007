@@ -1,7 +1,6 @@
 import React from 'react';
 import './details.css';
 import PropTypes from 'prop-types';
-import Film from '../film';
 
 function FilmDetails({ details, plot, genres, names }) {
 	return (

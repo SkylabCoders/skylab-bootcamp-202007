@@ -5,16 +5,6 @@ import { addFav } from '../../../actions/filmActions';
 import filmStore from '../../../stores/filmStore';
 import PropTypes from 'prop-types';
 
-const films = [
-	{
-		title: 'The Dark Knight',
-		image:
-			'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg',
-		trailer:
-			'https://m.media-amazon.com/images/M/MV5BNWJkYWJlOWMtY2ZhZi00YWM0LTliZDktYmRiMGYwNzczMTZhXkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_CR0,45,480,270_AL_UX477_CR0,0,477,268_AL_.jpg'
-	}
-];
-
 function Trailer({ details, trailer }) {
 	const [favFilmList, setFavFilm] = useState([]);
 	const [likeImage, setLikeImage] = useState(
