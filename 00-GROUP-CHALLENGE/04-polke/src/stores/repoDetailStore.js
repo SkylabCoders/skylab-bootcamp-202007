@@ -5,17 +5,6 @@ import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
 
 let _repoInfo = [];
-function calculateDate(first, last) {
-	let firsDateArr = first;
-	let secondDateArr = last;
-	let days;
-	let startDay = firsDateArr[2].split('').slice(0, 2).join('');
-	let endDay = secondDateArr[2].split('').slice(0, 2).join('');
-	days = endDay - startDay;
-	let definitString = `${days} days`;
-	return definitString;
-}
-
 class RepoInfoStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
@@ -27,6 +16,19 @@ class RepoInfoStore extends EventEmitter {
 
 	emitChange() {
 		this.emit(CHANGE_EVENT);
+	}
+	calculateDate(first, last) {
+		let firsDateArr = first;
+		let secondDateArr = last;
+		let days;
+		let startDay = firsDateArr[2].split('').slice(0, 2).join('');
+		let endDay = secondDateArr[2].split('').slice(0, 2).join('');
+		days = endDay - startDay;
+		let definitString = `${days} days`;
+		return definitString;
+	}
+	calculateLastActivity(dates) {
+		return dates.last[0];
 	}
 	getRepoInfo(userName) {
 		let repoInfoStats = {
@@ -40,22 +42,23 @@ class RepoInfoStore extends EventEmitter {
 			authourLastComments: 'null',
 			lastActivity: 'null'
 		};
-		let name = userName;
-		repoInfoStats.name = name;
-		let dates = {
-			last: repoInfoStats.data[0].commit.author.date.split('-'),
-			first: repoInfoStats.data[
-				repoInfoStats.length - 1
-			].commit.author.date.split('-')
-		};
-		repoInfoStats.time = calculateDate(dates.first, dates.last);
+		repoInfoStats.name = userName; //Sets user
+		/* 	repoInfoStats.time = this.calculateDate(dates.first, dates.last); */
 		repoInfoStats.authorCommits = repoInfoStats.data.filter(
+			//Set user Data
 			(elem) => elem.commit.author.name === repoInfoStats.name
 		);
-		repoInfoStats.authorCategory = repoInfoStats.authorCommits[0].author.type;
-		repoInfoStats.authorCommitsLength = repoInfoStats.authorCommits.length;
-		repoInfoStats.lastActivity = dates.last[0];
+		repoInfoStats.authorCommitsLength = repoInfoStats.authorCommits.length; //Set number of user commits
+		let dates = {
+			last: repoInfoStats.authorCommits[0].commit.author.date.split('-'),
+			first: repoInfoStats.authorCommits[
+				repoInfoStats.authorCommitsLength - 1
+			].commit.author.date.split('-')
+		};
+		repoInfoStats.time = this.calculateDate(dates.first, dates.last);
+		repoInfoStats.lastActivity = this.calculateLastActivity(dates);
 		repoInfoStats.authorComments = repoInfoStats.authorCommits.map(
+			//Set author comments
 			(elem) => elem.commit.message
 		);
 		repoInfoStats.authourLastComments = repoInfoStats.authorComments.slice(

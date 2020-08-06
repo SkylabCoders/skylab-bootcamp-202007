@@ -7,9 +7,9 @@ import { loadRepoInfo } from '../../actions/repoDetailActions';
 function RepoDetail() {
 	//repoInfo
 	const [repoInfo, setrepoInfo] = useState([]);
-	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //propsObject.repoName
-	const [orgName, setOrgName] = useState('SkylabCoders'); //propsObject.orgName
-	const [userName, setUserName] = useState('Gilberto Cao'); //propsObject.userName
+	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
+	const [orgName, setOrgName] = useState('SkylabCoders'); //obj.orgName
+	const [userName, setUserName] = useState('Gilberto Cao'); //obj.userName
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);
@@ -78,7 +78,7 @@ function RepoDetail() {
 							Last fourth messages:
 						</h3>
 						<h3>&#128202;</h3>
-						{repoInfo.authourLastComments}
+						{repoInfo.authourLastComments && repoInfo.authourLastComments[0]}
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
