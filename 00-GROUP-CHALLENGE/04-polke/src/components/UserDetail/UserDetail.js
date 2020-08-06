@@ -9,7 +9,7 @@ import UserInfo from './UserInfo/UserInfo';
 
 function UserDetail({ isUserGitHub }) {
 	const [repoList, setRepoList] = useState([]);
-	const [userName, setUserName] = useState('phortela');
+	const [userName, setUserName] = useState('gerardramonp');
 
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);
@@ -25,7 +25,10 @@ function UserDetail({ isUserGitHub }) {
 	}
 
 	const createRepoButton = <button>New Repo</button>;
-	isUserGitHub = true;
+<<<<<<< HEAD
+	isUserGitHub = false;
+=======
+>>>>>>> e2d1c34deb4b03414db6bfe9f3af6ad32f5d37ed
 
 	return (
 		<div className="userdetail__container">
@@ -33,7 +36,9 @@ function UserDetail({ isUserGitHub }) {
 				<UserInfo />
 			</div>
 			<div className="userdetail__repo-list">
-				<RepoCard />
+				{repoList.map((repo) => {
+					return <RepoCard repoInfoList={repo} />;
+				})}
 			</div>
 			<div className="userdetail__repo-creation">
 				{isUserGitHub ? createRepoButton : null}

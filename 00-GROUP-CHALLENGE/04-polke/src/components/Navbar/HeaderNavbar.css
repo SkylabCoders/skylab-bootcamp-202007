@@ -6,13 +6,16 @@
 .navbar__logo {
 	height: 60px;
 }
+
 .navbar--text {
 	margin-top: 6px;
 }
+
 .navbar--logoText {
 	display: flex;
 	color: whitesmoke;
 }
+
 .navBar--flex {
 	display: flex;
 	flex-direction: column;
@@ -28,13 +31,25 @@
 	flex-wrap: nowrap;
 	margin-top: 4px;
 }
+
 .searchbar--button {
 	width: 23%;
 }
+
 .switch {
 	display: flex;
 	flex-direction: row;
 	height: 41px;
+}
+
+.nav__button {
+	background-color: var(--bg-color-button);
+	margin-left: 50px;
+	border-radius: 2px;
+	width: 120px;
+	padding: 8px;
+	border: none;
+	color: whitesmoke;
 }
 
 @media only screen and (min-width: 600px) {

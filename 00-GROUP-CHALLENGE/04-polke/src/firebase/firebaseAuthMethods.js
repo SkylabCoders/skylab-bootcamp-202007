@@ -14,6 +14,10 @@ export const authMethods = {
 		return firebase.auth().signInAnonymously();
 	},
 
+	createUser: (email, password)=>{
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+	}
+
 	signInWithGoogle: () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
 		provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
