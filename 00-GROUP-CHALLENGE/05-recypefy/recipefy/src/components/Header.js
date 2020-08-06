@@ -79,19 +79,18 @@ function Header() {
 					<Link to="/">
 						<img className="nav__brand__logo" src={Logo} />
 					</Link>
-					<div>
-						<NavLink to="/profile">Preferences</NavLink>
-						<form>
-							<input
-								className="search"
-								value={actualSearch}
-								placeholder="Search"
-								name="search"
-								onChange={(event) =>
-									onFieldChange(event.target.value, setActualSearch)
-								}
-							/>
-							{actualSearch !== initialState && (
+					<form>
+						<input
+							className="search"
+							value={actualSearch}
+							placeholder="Search"
+							name="search"
+							onChange={(event) =>
+								onFieldChange(event.target.value, setActualSearch)
+							}
+						/>
+						<div>
+							{actualSearch !== '' && (
 								<Link
 									onClick={() => {
 										searchAlert();
@@ -102,8 +101,11 @@ function Header() {
 									SEARCH!
 								</Link>
 							)}
-						</form>
-					</div>
+							{actualSearch === '' && (
+								<span className="search-button">SEARCH!</span>
+							)}
+						</div>
+					</form>
 					<Link to="/login">
 						<img
 							className="login__logo"
@@ -147,10 +149,11 @@ function Header() {
 						<h1>RECIPEFY</h1>
 					</div>
 				</Link>
+
 				<div className="section__search">
-					<div className="main__search">
+					<form className="main__search">
 						<input
-							className="search"
+							className="main__search-input"
 							value={actualSearch}
 							placeholder="Search"
 							name="search"
@@ -158,19 +161,23 @@ function Header() {
 								onFieldChange(event.target.value, setActualSearch)
 							}
 						/>
-						{actualSearch !== initialState && (
-							<Link
-								onClick={() => {
-									searchAlert();
-								}}
-								className="search-button"
-								to="/search-result"
-								to="/search-result"
-							>
-								SEARCH!
-							</Link>
-						)}
-					</div>
+						<div>
+							{actualSearch !== '' && (
+								<Link
+									onClick={() => {
+										searchAlert();
+									}}
+									className="search-button"
+									to="/search-result"
+								>
+									SEARCH!
+								</Link>
+							)}
+							{actualSearch === '' && (
+								<span className="search-button">SEARCH!</span>
+							)}
+						</div>
+					</form>
 
 					<div className="recipe__text--preferences search__icons--box">
 						<img
