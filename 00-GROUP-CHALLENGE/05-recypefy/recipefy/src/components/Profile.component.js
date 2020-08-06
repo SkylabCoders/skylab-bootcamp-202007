@@ -16,6 +16,7 @@ function ProfileComponent(props) {
 			loadUser();
 		} else {
 			const user = userStore.getUserById(userId);
+			console.log(user);
 			if (user) {
 				setActualFavourites(userStore.getUserFavouriteList(user));
 				setUserPhoto(user.photo);
@@ -32,22 +33,7 @@ function ProfileComponent(props) {
 		<aside className="main__profile-component">
 			<h2 className="wrapper">Your information</h2>
 			<div>
-				<div className="profile-img--container">
-					{userPhoto && (
-						<img
-							alt="your avatar"
-							className="profile-img"
-							src={userPhoto}
-						></img>
-					)}
-					{!userPhoto && (
-						<img
-							alt="You don't have any avatar"
-							className="profile-img--no-avatar "
-							src="https://image.flaticon.com/icons/svg/843/843260.svg"
-						></img>
-					)}
-				</div>
+				<img alt="your avatar" src={userPhoto} className="profile-img"></img>
 				<h3 className="main__profile-component--title">Your preferences</h3>
 				<div className="recipe__text--preferences">
 					<img
