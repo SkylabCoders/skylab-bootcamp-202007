@@ -5,6 +5,18 @@ import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
 
 let _repoInfo = [];
+function calculateDate(first, last) {
+	let firsDateArr = first;
+	let secondDateArr = last;
+	let month;
+
+	if (last[1] - first[1] === 0) {
+		month = 0;
+	} else {
+		month = last[1] - first[1];
+	}
+	return month;
+}
 
 class RepoInfoStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -27,11 +39,13 @@ class RepoInfoStore extends EventEmitter {
 		};
 		let name = repoInfoStats.data[0].commit.author.name;
 		repoInfoStats.name = name;
-		let firstObject = repoInfoStats.data[0].commit.author.date;
-		let lastObject = repoInfoStats.data[
-			repoInfoStats.length - 1
-		].commit.author.date.split('-');
-		console.log(name, firstObject, lastObject);
+		let dates = {
+			last: repoInfoStats.data[0].commit.author.date.split('-'),
+			first: repoInfoStats.data[
+				repoInfoStats.length - 1
+			].commit.author.date.split('-')
+		};
+		console.log('mira' + calculateDate(dates.first, dates.last));
 		return repoInfoStats;
 	}
 }

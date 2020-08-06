@@ -5,14 +5,16 @@ import RepoInfoStore from '../../stores/repoDetailStore';
 import { loadRepoInfo } from '../../actions/repoDetailActions';
 
 function RepoDetail() {
+	//repoInfo
 	const [repoInfo, setrepoInfo] = useState([]);
-	const [repoName, setrepoName] = useState('skylab-bootcamp-202007');
-	const [userName, setUserName] = useState('gerardramonp');
+	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //repoInfo.repoName
+	const [orgName, setOrgName] = useState('SkylabCoders'); //repoInfo.orgName
+	const [userName, setUserName] = useState('gerardramonp'); //repoInfo.userName
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);
 		if (repoInfo.length === 0) {
-			loadRepoInfo(userName, repoName);
+			loadRepoInfo(userName, repoName, orgName);
 		}
 		console.log(repoInfo);
 
@@ -28,7 +30,7 @@ function RepoDetail() {
 		<div className="carrousel-main-container">
 			<Carousel interval={5000} className="user-repositorie generic-carrousel">
 				<Carousel.Item>
-					<h3>{userName} repositorie</h3>
+					<h3>{userName}</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -40,15 +42,15 @@ function RepoDetail() {
 						<h3>&#128202;</h3>
 						<h4> {repoInfo.name}</h4>
 						<h3 className="user-repositorie__category-title">Total Commits</h3>
-						<h4>&#128202;</h4>
+						<h3>&#128202;</h3>
 						<h3> {repoInfo.length}</h3>
 						<h3 className="user-repositorie__category-title">Time spent</h3>
-						<h4>&#128202;</h4>
-						<h3> {repoInfo.length}</h3>
+						<h3>&#128202;</h3>
+						<h4> 1 month, 13 days and 15 hours </h4>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<h3>{userName} repositorie</h3>
+					<h3>{userName}</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -62,7 +64,7 @@ function RepoDetail() {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<h3>{userName} repositorie</h3>
+					<h3>{userName}</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -80,7 +82,21 @@ function RepoDetail() {
 			</Carousel>
 			<Carousel interval={4000} className="group-repositorie generic-carrousel">
 				<Carousel.Item>
-					<h3>Group repositorie</h3>
+					<h3>Repositorie Stats</h3>
+					<img
+						className="d-block w-100"
+						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
+						alt="Third slide"
+					/>
+
+					<Carousel.Caption>
+						<h3>Group </h3>
+						<h3>&#128200;</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</Carousel.Caption>
+				</Carousel.Item>
+				<Carousel.Item>
+					<h3>Repositorie Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
@@ -94,21 +110,7 @@ function RepoDetail() {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<h3>Group repositorie</h3>
-					<img
-						className="d-block w-100"
-						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
-						alt="Third slide"
-					/>
-
-					<Carousel.Caption>
-						<h3>Group repositorie</h3>
-						<h3>&#128200;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<h3>Group repositorie</h3>
+					<h3>Repositorie Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
