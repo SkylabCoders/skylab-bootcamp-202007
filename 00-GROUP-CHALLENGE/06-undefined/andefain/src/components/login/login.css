@@ -8,10 +8,12 @@
 	margin: auto;
 	width: 90%;
 	display: flex;
-	flex: 1;
+	flex: 1 1;
 	flex-direction: column-reverse;
 	justify-content: center;
 	align-items: center;
+	height: 1;
+	height: 500px;
 }
 
 .login-box:nth-child(-n + 1) {
@@ -23,19 +25,21 @@
 }
 
 .login-box {
-	border: 1px solid #c01f25;
 	height: 200px;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background: #dcdada;
+	border-radius: 3px;
+	max-width: 500px;
+	min-width: 270px;
 }
 
 .login-button {
 	background-color: black;
 	border-radius: 2px;
-	color: white;
+	color: #ffffffd6;
 	font-size: 16px;
 	height: 40px;
 	margin: 10px;

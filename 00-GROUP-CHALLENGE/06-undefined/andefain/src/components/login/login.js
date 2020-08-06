@@ -39,7 +39,7 @@ function Login() {
 						src="https://trello-attachments.s3.amazonaws.com/5f2589eca6761a4c8f4d10e1/5f294480df57d910f5d84ab9/3d91789127ba7164795f5acc1559d6ca/usuario.png"
 						alt="Anonymously img"
 					/>
-					Login anonymously
+					Anonymous login
 				</button>
 			</div>
 			<div className="login-box">
