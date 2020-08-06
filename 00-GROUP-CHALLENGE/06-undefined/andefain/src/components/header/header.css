@@ -47,12 +47,17 @@
 	display: none;
 }
 
-.header-search {
+.header-form {
+	display: flex;
+	width: 60%;
+}
+
+.header-form__search {
 	background-color: #212121;
 	border: none;
 	border-radius: 2px;
 	padding: 20px;
-	width: 60%;
+	width: 100%;
 }
 
 .header-search:focus {
@@ -118,7 +123,7 @@ a {
 
 @media only screen and (min-width: 601px) {
 	.header {
-		justify-content: center;
+		justify-content: flex-end;
 	}
 	.header-logo {
 		min-width: 171px;
@@ -133,7 +138,8 @@ a {
 		display: flex;
 	}
 
-	.header-search {
+	.header-form {
+		margin: 10%;
 		width: 50%;
 	}
 }
