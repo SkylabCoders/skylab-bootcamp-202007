@@ -70,4 +70,9 @@ function Trailer({ details, trailer }) {
 	);
 }
 
+Trailer.propTypes = {
+	details: PropTypes.object,
+	trailer: PropTypes.object
+};
+
 export default Trailer;
