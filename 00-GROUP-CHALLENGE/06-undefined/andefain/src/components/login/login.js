@@ -27,14 +27,6 @@ function Login() {
 					/>
 					Login with Google
 				</button>
-				<button className="login-button">
-					{' '}
-					<img
-						className="login-img"
-						src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/600px-Facebook_f_logo_%282019%29.svg.png"
-					/>
-					Login with Facebook
-				</button>
 				<button className="login-button">Create a new account</button>
 			</div>
 			<div className="login-box">
@@ -61,7 +53,7 @@ function Login() {
 				{isLogged && (
 					<>
 						<p className="welcome-login">Welcome {user && user.email} </p>
-						<button onClick={() => logout()} className="button">
+						<button onClick={() => logout()} className="login-button">
 							Logout
 						</button>
 					</>

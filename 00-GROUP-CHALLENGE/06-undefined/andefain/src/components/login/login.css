@@ -17,6 +17,7 @@
 .login-box:nth-child(-n + 1) {
 	margin: 10px 0px 0px 0px;
 }
+
 .login-box:nth-last-child(-n + 1) {
 	margin: 0px 0px 10px 0px;
 }
@@ -80,20 +81,6 @@ input.form-control:focus {
 	color: white;
 }
 
-<<<<<<< HEAD
-    outline: none !important;
-    outline-width: 0 !important;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-@media only screen and (min-width: 601px) {
-    .login-container {
-        flex-direction: row
-    }
-}
-=======
 @media only screen and (min-width: 601px) {
 	.login {
 		flex-direction: row;
@@ -102,6 +89,7 @@ input.form-control:focus {
 	.login-box:nth-child(-n + 1) {
 		margin: 0px 3% 0px 0px;
 	}
+
 	.login-box:nth-last-child(-n + 1) {
 		margin: 0px 0px 0px 3%;
 	}
@@ -110,4 +98,3 @@ input.form-control:focus {
 		width: 50%;
 	}
 }
->>>>>>> f3adf3209551fc5d14d3b0d5d2f46e1be28cf7bc
