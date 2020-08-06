@@ -2,48 +2,55 @@ import React, { useEffect, useState } from 'react';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import './../css/Timer.css'
 
-function Timer(props) {
-    let [countDown, setCountDown] = useState(30);
+function Timer(){
 
-    useEffect(() => {
-        const timerInterval = setTimeout(() => {
-            if (countDown > 0) setCountDown(countDown - 1);
-            else if (countDown === 0) {
-                return;
-            }
-
-        }, 1000);
-        return () => clearTimeout(timerInterval);
-    }, [countDown]);
-
-    const message = () => {
-        if (countDown === 0) return (
-            <p>
-                Time's Up!!
-            </p>
-        );
+const renderTime = ({ remainingTime }) => {
+    if (remainingTime === 0) {
+      return <div className="timer">Time's Up!!!!</div>;
     }
+  
+    return (
+      <div className="timer">
+        <div className="text">Remaining</div>
+        <div className="value">{remainingTime}</div>
+        <div className="text">seconds</div>
+      </div>
+    );
+  };
 
-    const UrgeWithPleasureComponent = () => (
-        <CountdownCircleTimer
+  function UrgeWithPleasureComponent() {
+    const [key, setKey] = useState(0);
+    return (
+      <div className="App">
+        <div className="timer-wrapper">
+          <CountdownCircleTimer
+            key={key}
             isPlaying
-            duration={30}
-            colors={[
-                ['#004777', 0.33],
-                ['#F7B801', 0.33],
-                ['#A30000', 0.33],
-            ]}
-        >
-            {({ remainingTime }) => remainingTime}
-        </CountdownCircleTimer>
-    )
+            duration={5}
+            colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
+            
+          >
+            {renderTime}
+          </CountdownCircleTimer>
+        </div>
+        <div className="button-wrapper">
+          <button onClick={() => setKey(prevKey => prevKey + 1)}>
+            Restart Timer
+          </button>
+        </div>
+      </div>
+    );
+  }
+    
+
+
 
     return (
         <>
             <div className="timer__container">
+                {console.log('before render timer')}
                 <div>
                     {UrgeWithPleasureComponent()}
-                    <p>{message()}</p>
                 </div>
             </div>
         </>

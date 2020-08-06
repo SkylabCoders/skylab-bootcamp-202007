@@ -30,7 +30,7 @@ function Option(props) {
         
     return (
         <>  
-         <NavLink to='/answer'>
+         <NavLink to='/answer' respuesta={answer}>
             <li className="answer__item" onClick={()=> handleAnswer()}> {props.option} </li>
         </NavLink>   
         </>

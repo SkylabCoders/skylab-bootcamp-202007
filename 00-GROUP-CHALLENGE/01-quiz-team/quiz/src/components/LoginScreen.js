@@ -25,19 +25,9 @@ function LoginScreen() {
 
     function onFieldChange(value,setValue){
         setValue(value);
->>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
     }
     return (
         <>
-<<<<<<< HEAD
-            {!isLogged && <button onClick={() => login(email, password)}>Login</button>}
-            {isLogged && (
-                <>
-                    <p>Welcome {user && user.email}!</p>
-                    <button onClick={() => logout()}>Logout</button>
-                </>
-            )}
-=======
             <NavLink to={`/login`} >
                 <div className="login__wrapper">
                     <div className="login__left__container">
@@ -60,8 +50,7 @@ function LoginScreen() {
                     </div>
                 </div>
             </NavLink>
->>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
         </>
     );
 }
-export default Login;
+export default LoginScreen;
