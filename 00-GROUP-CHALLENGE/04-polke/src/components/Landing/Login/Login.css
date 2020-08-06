@@ -1,13 +1,10 @@
 /*
 ** FORM INSIDE CONTAINER
 */
-.landing__login-container {
-	width: 100%;
-}
 
 .Login__form {
 	background-color: var(--form-color-background);
-	width: 90%;
+	width: 80%;
 	opacity: 0.8;
 	display: flex;
 	flex-direction: column;
@@ -37,9 +34,6 @@
 .Login__form__container-input {
 	width: 80% !important;
 }
-.form-control {
-	width: 100% !important;
-}
 
 .Login__form__anchor--colored {
 	color: var(--form-color-headers);
@@ -61,6 +55,14 @@
 	color: whitesmoke;
 }
 
+.login__log-anonym {
+	cursor: pointer;
+}
+
+.anchor:hover {
+	color: #2d8ff9 !important;
+}
+
 /*
 ** MEDIA QUERIES
 */
@@ -77,8 +79,8 @@
 
 @media only screen and (min-width: 1024px) {
 	.Login__form {
-		min-width: 400px !important;
-		max-width: 500px !important;
+		min-width: 375px !important;
+		max-width: 450px !important;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -91,12 +93,5 @@
 	}
 	.Login__form__container-input {
 		width: 300px !important;
-	}
-	.form-control {
-		width: 74%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 	}
 }

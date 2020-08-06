@@ -29,19 +29,19 @@ class LandingStore extends EventEmitter {
 	}
 }
 
-const loginStore = new LandingStore();
+const landingStore = new LandingStore();
 
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOGIN:
 			_userProfile = action.data;
 			_isLogged = !!action.data;
-			loginStore.emitChange();
+			landingStore.emitChange();
 			break;
 		case actionTypes.LOGOUT:
 			_isLogged = false;
 			_userProfile = null;
-			loginStore.emitChange();
+			landingStore.emitChange();
 			break;
 
 		default:
@@ -49,4 +49,4 @@ dispatcher.register((action) => {
 	}
 });
 
-export default loginStore;
+export default landingStore;

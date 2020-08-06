@@ -25,6 +25,10 @@ function UserDetail({ isUserGitHub }) {
 	}
 
 	const createRepoButton = <button>New Repo</button>;
+<<<<<<< HEAD
+	isUserGitHub = false;
+=======
+>>>>>>> e2d1c34deb4b03414db6bfe9f3af6ad32f5d37ed
 
 	return (
 		<div className="userdetail__container">
