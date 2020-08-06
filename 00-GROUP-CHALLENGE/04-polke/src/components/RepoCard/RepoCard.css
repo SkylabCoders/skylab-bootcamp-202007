@@ -13,6 +13,7 @@
 .repoCard__name-private {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	border-bottom: 1px solid #d4d6d7;
 	width: 100%;
 	justify-content: space-around;
@@ -21,7 +22,7 @@
 }
 .repoCard__private {
 	border-right: 1px solid #d4d6d7;
-	width: 19%;
+	width: 16%;
 }
 .padlock {
 	width: 25px;
@@ -32,11 +33,12 @@
 	flex-direction: row;
 	justify-content: space-around;
 	width: 100%;
-	padding: 2px;
+	padding: 10px 0;
 	border-bottom: 1px solid #d4d6d7;
 }
 .repoCard__name {
 	width: 76%;
+	padding: 10px 0;
 }
 .repoCard__description {
 	text-align: center;
@@ -51,6 +53,6 @@
 .repoCard__details {
 	width: 100%;
 	text-align: center;
-	padding: 8px;
+	padding: 10px 0;
 	background-color: #f1f2f3;
 }
