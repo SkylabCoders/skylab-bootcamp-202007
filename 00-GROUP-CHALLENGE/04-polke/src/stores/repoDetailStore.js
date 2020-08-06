@@ -5,6 +5,8 @@ import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
 
 let _repoInfo = [];
+let _groupInfo = [];
+
 class RepoInfoStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
@@ -30,7 +32,7 @@ class RepoInfoStore extends EventEmitter {
 	calculateLastActivity(dates) {
 		return dates.last[0];
 	}
-	getRepoInfo(userName) {
+	setUserRepoInfo(userName) {
 		let repoInfoStats = {
 			length: _repoInfo.length,
 			data: _repoInfo,
@@ -67,6 +69,20 @@ class RepoInfoStore extends EventEmitter {
 		);
 		return repoInfoStats;
 	}
+	getUserRepoInfo(userName) {
+		let repoInfoStats = this.setUserRepoInfo(userName);
+		return repoInfoStats;
+	}
+	setGroupRepoInfo() {
+		let repoGroupInfoStats = {
+			data: _groupInfo
+		};
+		return repoGroupInfoStats;
+	}
+	getGroupRepoInfo() {
+		let repoGroupInfoStats = this.setGroupRepoInfo();
+		return repoGroupInfoStats;
+	}
 }
 
 const repoInfoStore = new RepoInfoStore();
@@ -76,6 +92,10 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_REPO:
 			_repoInfo = action.data;
 			repoInfoStore.emitChange(_repoInfo);
+			break;
+		case actionTypes.LOAD_GROUP:
+			_groupInfo = action.data;
+			repoInfoStore.emitChange(_groupInfo);
 			break;
 		default:
 			break;

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import './RepoDetail.css';
 import RepoInfoStore from '../../stores/repoDetailStore';
-import { loadRepoInfo } from '../../actions/repoDetailActions';
+import { loadUserRepoInfo } from '../../actions/repoDetailActions';
+import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 
 function RepoDetail() {
 	//repoInfo
 	const [repoInfo, setrepoInfo] = useState([]);
+	const [groupInfo, setgroupInfo] = useState([]);
 	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
 	const [orgName, setOrgName] = useState('SkylabCoders'); //obj.orgName
 	const [userName, setUserName] = useState('Gilberto Cao'); //obj.userName
@@ -14,17 +16,27 @@ function RepoDetail() {
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);
 		if (repoInfo.length === 0) {
-			loadRepoInfo(userName, repoName, orgName);
+			loadUserRepoInfo(userName, repoName, orgName);
 		}
-		console.log(repoInfo);
-
 		return () => RepoInfoStore.removeChangeListener(onChange);
 	}, [repoInfo.length]);
 
+	useEffect(() => {
+		RepoInfoStore.addChangeListener(onChangeGroup);
+		if (groupInfo.length === 0) {
+			loadGroupRepoInfo(repoName, orgName);
+		}
+		return () => RepoInfoStore.removeChangeListener(onChangeGroup);
+	}, [repoInfo.length]);
+
 	function onChange() {
-		setrepoInfo(RepoInfoStore.getRepoInfo(userName));
+		setrepoInfo(RepoInfoStore.getUserRepoInfo(userName));
+	}
+	function onChangeGroup() {
+		setgroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
 	}
 	console.log(repoInfo);
+	console.log('este', groupInfo);
 
 	return (
 		<div className="carrousel-main-container">
@@ -81,7 +93,7 @@ function RepoDetail() {
 						{/* 	{repoInfo.authourLastComments && repoInfo.authourLastComments[0]} */}
 						{repoInfo.authourLastComments &&
 							repoInfo.authourLastComments.map((elem) => {
-								return <h5>{elem}</h5>;
+								return <h5>- {elem}</h5>;
 							})}
 					</Carousel.Caption>
 				</Carousel.Item>
