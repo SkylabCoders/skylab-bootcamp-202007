@@ -21,7 +21,7 @@ function App() {
 				<Route path="/recipe-page/:recipeId" component={RecipePage} />
 				<Route path="/search-result" component={SearchResult} />
 				<Route path="/userfavourite" component={UserFavourite} />
-				<Route path="/login" component={Login}/>
+				<Route path="/login" component={Login} />
 			</Switch>
 
 			<Footer />
