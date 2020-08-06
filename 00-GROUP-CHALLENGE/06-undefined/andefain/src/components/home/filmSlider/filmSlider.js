@@ -21,26 +21,53 @@ function FilmSlider({ data }) {
 	return (
 		<div className="slider-container">
 			<div className="slider">
-				<Link to={'/film/' + leftFilm.title} className="slider__link lateral">
+				<Link
+					to={'finder/' + leftFilm.id.split('/')[2]}
+					className="slider__link lateral"
+				>
 					<div
 						className="slider-lateral"
-						style={{ backgroundImage: `url(${leftFilm.image.url})` }}
+						style={{
+							backgroundImage: `url(${
+								!!leftFilm.image
+									? leftFilm.image.url
+									: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+							})`
+						}}
 					>
 						<h2 className="slider__title">{leftFilm.title}</h2>
 					</div>
 				</Link>
-				<Link to={'/film/' + centerFilm.title} className="slider__link center">
+				<Link
+					to={'finder/' + centerFilm.id.split('/')[2]}
+					className="slider__link center"
+				>
 					<div
 						className="slider-center"
-						style={{ backgroundImage: `url(${centerFilm.image.url})` }}
+						style={{
+							backgroundImage: `url(${
+								!!centerFilm.image
+									? centerFilm.image.url
+									: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+							})`
+						}}
 					>
 						<h2 className="slider__title">{centerFilm.title}</h2>
 					</div>
 				</Link>
-				<Link to={'/film/' + rightFilm.title} className="slider__link lateral">
+				<Link
+					to={'finder/' + rightFilm.id.split('/')[2]}
+					className="slider__link lateral"
+				>
 					<div
 						className="slider-lateral"
-						style={{ backgroundImage: `url(${rightFilm.image.url})` }}
+						style={{
+							backgroundImage: `url(${
+								!!rightFilm.image
+									? rightFilm.image.url
+									: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+							})`
+						}}
 					>
 						<h2 className="slider__title">{rightFilm.title}</h2>
 					</div>

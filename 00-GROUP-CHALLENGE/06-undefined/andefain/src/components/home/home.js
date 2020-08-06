@@ -23,7 +23,7 @@ function Home() {
 		if (mostPopular.length === 0) mostPopularData();
 		if (slider.length === 0) sliderData();
 		return () => filmStore.removeChangeListener(onChange);
-	}, [comingSoon.length]);
+	}, []);
 
 	function onChange() {
 		setComingSoon(filmStore.getComingsoonId());
@@ -32,13 +32,13 @@ function Home() {
 	}
 	return (
 		<>
-			<FilmSlider data={slider} />
+			{slider.length === 5 && <FilmSlider data={slider} />}
 			<div className="list-container">
 				{comingSoon.length === 5 && (
 					<TopFilmList title="Coming soon Movies" data={comingSoon} />
 				)}
 				{mostPopular.length === 5 && (
-					<TopFilmList title={'Most popular movies'} data={mostPopular} />
+					<TopFilmList title="Most popular movies" data={mostPopular} />
 				)}
 			</div>
 		</>
