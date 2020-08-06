@@ -42,7 +42,16 @@ function LoginComponent(props) {
                 )}
                 <p>Or login with:</p>
                 <div>
-                    <img src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg" alt="google" onClick={(event) => { event.preventDefault(); loginWithGoogle() }}></img>
+                    {!isLogged && (
+                        <img src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg" alt="google" onClick={(event) => { event.preventDefault(); loginWithGoogle() }}></img>
+                    )}
+                    {isLogged && (
+                        <>
+                            <p>You are logged with google! {user && user.email}!</p>
+                            <button onClick={(event) => { event.preventDefault(); logout() }}>Click me to log out!</button>
+
+                        </>
+                    )}
                 </div>
             </form>
         </section >
