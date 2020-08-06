@@ -2,10 +2,10 @@ import React from 'react';
 import './RepoCard.css';
 import { Button } from 'react-bootstrap';
 
-function RepoCard({ repoInfo }) {
+function RepoCard({ repoInfoList }) {
 	const lockImg = null;
 
-	if (repoInfo.private === true) {
+	if (repoInfoList.private === true) {
 		lockImg = (
 			<img
 				className="padlock"
@@ -30,12 +30,12 @@ function RepoCard({ repoInfo }) {
 					{lockImg}
 					{/* git  */}
 				</div>
-				<div className="repoCard__name">{repoInfo.repoName}</div>
+				<div className="repoCard__name">{repoInfoList.name}</div>
 			</div>
-			<div className="repoCard__description">{repoInfo.repoDesc}</div>
+			<div className="repoCard__description">{repoInfoList.description}</div>
 			<div className="repoCard__showlastUpdate-lang">
-				<div className="repoCard__lastUpdate">{repoInfo.repoDate}</div>
-				<div className="repoCard__lang">{repoInfo.repoLang}</div>
+				<div className="repoCard__lastUpdate">{repoInfoList.lastUpdate}</div>
+				<div className="repoCard__lang">{repoInfoList.language}</div>
 			</div>
 			<div className="repoCard__details">
 				<Button variant="outline-secondary" className="button__details">
