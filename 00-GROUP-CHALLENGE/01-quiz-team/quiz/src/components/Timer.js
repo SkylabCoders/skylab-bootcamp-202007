@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import './../css/Timer.css'
+import { checkPropTypes } from 'prop-types';
 
 function Timer(){
+    
+
+function launch(){
+}
+   
 
 const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
@@ -29,7 +35,7 @@ const renderTime = ({ remainingTime }) => {
             isPlaying
             duration={5}
             colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
-            
+            onComplete={() => [true],1000}
           >
             {renderTime}
           </CountdownCircleTimer>
@@ -48,7 +54,7 @@ const renderTime = ({ remainingTime }) => {
             <div className="timer__container">
                 {console.log('before render timer')}
                 <div>
-                    {UrgeWithPleasureComponent()}
+                    {launch()}
                 </div>
             </div>
         </>
