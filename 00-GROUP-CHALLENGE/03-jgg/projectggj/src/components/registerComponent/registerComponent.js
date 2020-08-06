@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './registerComponent.css';
 
 function RegisterComponent(props) {
 
-const [name, setName] = useState('');
-const [lastName, setLastName] = useState('');
-const [birthDate, setBirthDate] = useState('');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [birthDate, setBirthDate] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    useEffect(() => {
 
-function handleChange(event, setValueCallback) {
-    console.log(event.target.value)
-    event.preventDefault();
-    setValueCallback(event.target.value);
-}
+    })
 
+    function handleChange(event, setValueCallback) {
+        console.log(event.target.value)
+        event.preventDefault();
+        setValueCallback(event.target.value);
+    }
+
+    const { ...profileInfo } = { name, lastName, birthDate, email, password };
 
     return (
         <section className="text-center container">
