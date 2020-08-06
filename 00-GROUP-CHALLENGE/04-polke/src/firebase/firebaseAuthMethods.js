@@ -14,9 +14,9 @@ export const authMethods = {
 		return firebase.auth().signInAnonymously();
 	},
 
-	createUser: (email, password)=>{
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-	}
+	createUser: (email, password) => {
+		firebase.auth().createUserWithEmailAndPassword(email, password);
+	},
 
 	signInWithGoogle: () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
@@ -26,7 +26,6 @@ export const authMethods = {
 
 	signInWithGitHub: () => {
 		const provider = new firebase.auth.GithubAuthProvider();
-		provider.addScope('repo');
 		return firebase.auth().signInWithPopup(provider);
 	}
 };
