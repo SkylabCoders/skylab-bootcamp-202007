@@ -12,11 +12,11 @@ function RegisterComponent() {
     const [password1, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
 
+function handleChange(event, setValueCallback) {
+    event.preventDefault();
+    setValueCallback(event.target.value);
+}
 
-    function handleChange(event, setValueCallback) {
-        event.preventDefault();
-        setValueCallback(event.target.value);
-    }
 
 
     return (

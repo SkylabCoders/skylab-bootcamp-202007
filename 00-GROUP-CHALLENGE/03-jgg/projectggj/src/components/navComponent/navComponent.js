@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './navComponent.css';
 import authStore from '../../stores/authStore'
+import { globalSearch } from '../../actions/actions';
+
 
 function NavComponent(props) {
+
 
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
 
@@ -13,6 +16,15 @@ function NavComponent(props) {
 
 	function onAuthChange() {
 		setIsLogged(authStore.isLogged())
+	}
+
+	const [search, setSearch] = useState('');
+	const [, , , , filter, name] = window.location.href.split('/');
+
+	function handleChange(event, setValueCallback) {
+		event.preventDefault();
+		setValueCallback(event.target.value);
+		globalSearch(event.target.value, filter, name);
 	}
 
 	return (
@@ -69,13 +81,15 @@ function NavComponent(props) {
 						</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link nav__button--game" href="/game">
+						<a className="nav-link nav__button--game" href="/game/Machine">
 							Game
 						</a>
 					</li>
 				</ul>
 				<form className="form-inline my-2 my-md-0">
 					<input
+						value={search}
+						onChange={(event) => handleChange(event, setSearch)}
 						className="form-control"
 						type="text"
 						placeholder="Dragon search..."
