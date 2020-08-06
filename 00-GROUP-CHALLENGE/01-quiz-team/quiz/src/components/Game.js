@@ -37,9 +37,9 @@ function Game(props){
     }
 
     function updateCounter(value = undefined){
-        console.log('valor entrada', value);
-        GAME_DATA.scores.push({question: sessionSet[counter], userAnser: value});
-        console.log('here are the stores', GAME_DATA.scores);
+        console.log('valor entrada al component parent GAME', value);
+        GAME_DATA.scores.push({question: sessionSet[counter], completed: true, userAnser: value});
+        console.log('here are the scores from GAME', GAME_DATA.scores);
         if (counter < sessionSet.length){ 
             setCounter(counter + 1); 
         } else { 
