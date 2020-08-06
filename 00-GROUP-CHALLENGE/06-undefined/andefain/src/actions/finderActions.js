@@ -2,7 +2,7 @@ import dispatcher from '../dispatcher';
 import actionTypes from './actionTypes';
 
 export function finderSearch() {
-	let searchInput = 'matrix';
+	let searchInput = window.location.pathname.split('/')[2];
 	fetch('https://imdb8.p.rapidapi.com/title/auto-complete?q=' + searchInput, {
 		method: 'GET',
 		headers: {

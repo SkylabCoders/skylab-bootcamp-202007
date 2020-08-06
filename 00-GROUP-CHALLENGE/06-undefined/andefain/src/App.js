@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
@@ -15,15 +15,17 @@ import AboutUs from './components/footer/footer-about';
 function App() {
 	return (
 		<>
-			<Header />
-			<Route path="/" exact component={Home} />
-			<Route path="/login" component={Login} />
-			<Route path="/film" component={Film} />
-			<Route path="/name" component={Name} />
-			<Route path="/user" component={User} />
-			<Route path="/finder" component={Finder} />
-			<Route path="/privacy" component={PrivacyPolicy} />
-			<Route path="/about" component={AboutUs} />
+			<div className="margin-bottom">
+				<Header />
+				<Route path="/" exact component={Home} />
+				<Route path="/login" component={Login} />
+				<Route path="/film" component={Film} />
+				<Route path="/name" component={Name} />
+				<Route path="/user" component={User} />
+				<Route path="/finder/:id" component={Finder} />
+				<Route path="/privacy" component={PrivacyPolicy} />
+				<Route path="/about" component={AboutUs} />
+			</div>
 			<Footer />
 		</>
 	);

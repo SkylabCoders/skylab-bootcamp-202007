@@ -1,6 +1,8 @@
-import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './trailer.css';
+import { addFav } from '../../../actions/filmActions';
+import filmStore from '../../../stores/filmStore';
 
 const films = [
 	{
@@ -13,6 +15,24 @@ const films = [
 ];
 
 function Trailer() {
+	const [favFilmList, setFavFilm] = useState([]);
+	const [likeImage, setLikeImage] = useState(
+		'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png'
+	);
+	useEffect(() => {
+		filmStore.addChangeListener(onChange);
+		return () => filmStore.removeChangeListener(onChange);
+	}, [favFilmList.length]);
+
+	function onChange() {
+		setLikeImage(
+			'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/978cb96aee01766475268b966dd68550/estrella.png'
+		);
+		setFavFilm(filmStore.getFavList);
+	}
+	function handleFavClick(title) {
+		addFav(title);
+	}
 	return (
 		<div className="trailer-container">
 			<Link to="/film">
@@ -27,18 +47,22 @@ function Trailer() {
 					style={{ backgroundImage: `url(${films[0].trailer})` }}
 				>
 					<img
-						src="https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png"
+						src={likeImage}
 						width="30px"
 						height="30px"
 						className="icon-like-mobile"
+						onClick={() => handleFavClick()}
+						alt="Start icon"
 					/>
 				</div>
 			</Link>
 			<img
-				src="https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png"
+				src={likeImage}
 				width="30px"
 				height="30px"
 				className="icon-like-desktop"
+				onClick={() => handleFavClick()}
+				alt="Start icon"
 			/>
 		</div>
 	);

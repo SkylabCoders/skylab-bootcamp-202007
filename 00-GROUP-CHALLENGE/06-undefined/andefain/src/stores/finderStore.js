@@ -32,7 +32,7 @@ dispatcher.register((action) => {
 			finderStore.emitChange(_finder);
 			break;
 		default:
-			console.log('Action error');
+			console.log('Finder Action error');
 			break;
 	}
 });
