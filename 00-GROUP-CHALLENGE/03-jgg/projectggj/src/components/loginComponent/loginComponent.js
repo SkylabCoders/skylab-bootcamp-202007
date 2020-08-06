@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './loginComponent.css'
-import { login, logout, loginWithGoogle, logoutWithGoogle } from '../../actions/authAction/authAction'
+import { login, logout, loginWithGoogle } from '../../actions/authAction/authAction'
 import authStore from '../../stores/authStore'
 
 
@@ -26,7 +26,6 @@ function LoginComponent(props) {
     }
 
     function handleChange(event, setValueCallback) {
-        console.log(event.target.value);
         event.preventDefault();
         setValueCallback(event.target.value);
     }
@@ -50,7 +49,7 @@ function LoginComponent(props) {
                 {isLogged && (
                     <>
                         <p>Welcome {user && user.email}!</p>
-                        <button onClick={(event) => { event.preventDefault(); logout() }}>Logout</button>
+                        <button onClick={(event) => { event.preventDefault(); logout() }} className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block">Logout</button>
 
                     </>
                 )}
