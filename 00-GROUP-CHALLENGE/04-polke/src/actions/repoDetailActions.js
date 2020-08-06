@@ -1,9 +1,8 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 
-export function loadRepoInfo(repoName) {
-	// Load data from somewhere
-	const endPoint = '';
+export function loadRepoInfo(userName, repoName, orgName) {
+	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}/commits`;
 	fetch(endPoint, {
 		headers: {
 			accept: 'application/vnd.github.v3+json'
@@ -11,19 +10,10 @@ export function loadRepoInfo(repoName) {
 	})
 		.then((response) => response.json())
 		.then((response) => {
-			const repoInfoList = response.map((repo) => {
-				return {
-					private: repo.private,
-					name: repo.name,
-					description: repo.description || 'This repo has no description.',
-					id: repo.id,
-					language: repo.language || 'Lang. mix',
-					lastUpdate: repo.updated_at
-				};
-			});
 			dispatcher.dispatch({
-				type: actionTypes.LOAD_REPO_INFO,
-				data: repoList
+				type: actionTypes.LOAD_REPO,
+				data: response,
+				userName: userName
 			});
 		})
 		.catch((error) => console.error(error.message));

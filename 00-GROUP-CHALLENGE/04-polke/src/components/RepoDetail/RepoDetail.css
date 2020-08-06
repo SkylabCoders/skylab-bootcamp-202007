@@ -1,6 +1,9 @@
 .generic-carrousel img {
 	height: 33vh;
 }
+.user-repositorie__category-title {
+	color: black;
+}
 
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
 	/*Same as mobile*/
@@ -24,6 +27,6 @@
 		height: 85vh;
 	}
 	.carousel-caption {
-		top: 5%;
+		top: 40%;
 	}
 }
