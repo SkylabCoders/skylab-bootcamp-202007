@@ -39,7 +39,8 @@ function CharListComponent(props) {
                         </div>
                     </Link>
 
-                ))}</div>
+                ))}
+            </div>
 
         </>
     );

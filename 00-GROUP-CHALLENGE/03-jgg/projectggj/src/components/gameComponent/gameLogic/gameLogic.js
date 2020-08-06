@@ -1,17 +1,17 @@
 const CHARGE = 'Charge'; const AVOID = 'Avoid'; const ATTACK = 'Attack'; const FAIL = 'FAIL';
 
-function player(names) {
+function player(names, isMachine = false) {
     let name = names;
     let charges = 1;
     let action = '';
     let lives = 3;
+    let ret;
 
     function getAction() {
         return action;
     }
-    function setAction() {
-        let setnAction = prompt('Select an action! 0 Charge 1 Avoid 2 Attack')
-        translateAction(setnAction);
+    function setAction(newAction) {
+        action = newAction;
         calculateAction(action)
     }
 
@@ -23,7 +23,7 @@ function player(names) {
             naction = Math.floor(Math.random() * 2)
 
         translateAction(naction.toString());
-        calculateAction(action);
+        return calculateAction();
     }
 
     function calculateAction() {
@@ -34,18 +34,32 @@ function player(names) {
         } else if (action === ATTACK && charges <= 0) {
             action = FAIL;
         }
+        return action;
     }
     function recibeAction(comingAction) {
         let log = '';
         if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
             --lives;
-            log = name + ' recived an attack!';
+            log = name + ' recived an attack! ' + lives + ' remain';
+        } else if (comingAction === ATTACK && action === AVOID) {
+            log = name + 'Avoid the attack!';
+        } else if (comingAction === ATTACK && action === ATTACK) {
+            log = ('Both attacks, noone gets hurt')
         } else {
-            log = 'no attack comming';
+            log = ('enemy doesnt attack ')
         }
 
         return log;
     }
+    function recibeActionRobot(comingAction) {
+        let log = "";
+        if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
+            --lives;
+            log = name + ' recived an attack! ' + lives + ' remain';
+        }
+        return log;
+    }
+
     function translateAction(naction) {
         if (naction === '0')
             action = CHARGE;
@@ -58,25 +72,17 @@ function player(names) {
     function getLives() {
         return lives;
     }
-    return { setAction, generateAction, recibeAction, getAction, getLives };
-}
-function play() {
-
-    let player1 = new player('gabriel');
-    let machine = new player('machine');
-
-    do {
-        player1.setAction();
-
-        machine.generateAction();
-        console.log('Player human does' + player1.getAction());
-        console.log('Machine does' + machine.getAction());
-        console.log('player ' + player1.recibeAction(machine.getAction()));
-        console.log('machine ' + machine.recibeAction(player1.getAction()));
-
-    } while (player1.getLives() > 0 && machine.getLives() > 0)
-    if (player1.getLives() > 0)
-        console.log('congrats player wins')
+    function getCharges() {
+        return charges;
+    }
+    function getName() {
+        return name;
+    }
+    if (isMachine)
+        ret = { generateAction, recibeActionRobot, getAction, getLives, getName, getCharges }
     else
-        console.log('player looses');
+        ret = { setAction, recibeAction, getAction, getLives, getCharges, getName }
+
+    return ret
 }
+export default player;
