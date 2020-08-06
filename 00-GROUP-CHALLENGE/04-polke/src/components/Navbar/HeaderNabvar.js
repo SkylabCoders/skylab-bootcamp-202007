@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import Switch from './Switch/Switch';
 import { logout } from '../../actions/loginActions';
 import landingStore from '../../stores/landingStore';
+import navbarStore from '../../stores/navbarStore';
 
 function HeaderNavbar() {
 	const imgLogo = (
@@ -26,7 +27,7 @@ function HeaderNavbar() {
 			>
 				<div className="navbar--logoText">
 					<Navbar.Brand>
-						<NavLink to="/">{imgLogo}</NavLink>
+						<NavLink to="/userDetail">{imgLogo}</NavLink>
 					</Navbar.Brand>
 					<h1 className="navbar--text">GitData</h1>
 				</div>
@@ -47,15 +48,15 @@ function HeaderNavbar() {
 							<Button variant="outline-info" className="searchbar--button">
 								Go
 							</Button>
-							<button
+							<NavLink
+								to="/"
 								className="nav__button"
 								onClick={(event) => {
-									event.preventDefault();
 									logout();
 								}}
 							>
 								Log Out
-							</button>
+							</NavLink>
 						</Form>
 					</Navbar.Collapse>
 				</div>
