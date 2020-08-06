@@ -65,7 +65,7 @@ class RepoInfoStore extends EventEmitter {
 		);
 		repoInfoStats.authourLastComments = repoInfoStats.authorComments.slice(
 			0,
-			3
+			2
 		);
 		return repoInfoStats;
 	}
@@ -82,17 +82,37 @@ class RepoInfoStore extends EventEmitter {
 		let weeksWithWorkArrLength = weeksWithWorkArr.length;
 		return weeksWithWorkArrLength;
 	}
+	calculateCommitsLastWeek(data, weeksOfWork) {
+		let weeksWithWorkArr = data.filter((elem) => elem.total >= 1);
+		let lastWeek = weeksWithWorkArr
+			.slice(weeksOfWork - 4)
+			.map((elem) => elem.total)
+			.reduce((a, b) => a + b, 0);
+		return lastWeek;
+	}
+	isActive(lastFourthWeeks) {
+		return lastFourthWeeks > 0 ? 'Active' : 'No Active';
+	}
 	setGroupRepoInfo() {
 		let repoGroupInfoStats = {
 			data: _groupInfo,
 			total: 'null',
-			weeksOfWorkLastYear: 'null'
+			weeksOfWorkLastYear: 'null',
+			lastFourthWeekCommits: 'null',
+			active: 'null'
 		};
 		repoGroupInfoStats.total = this.calculateTotalGroupCommits(
 			repoGroupInfoStats.data
 		);
 		repoGroupInfoStats.weeksOfWorkLastYear = this.calculateWeeksofWorkLastYear(
 			repoGroupInfoStats.data
+		);
+		repoGroupInfoStats.lastFourthWeekCommits = this.calculateCommitsLastWeek(
+			repoGroupInfoStats.data,
+			repoGroupInfoStats.weeksOfWorkLastYear
+		);
+		repoGroupInfoStats.active = this.isActive(
+			repoGroupInfoStats.lastFourthWeekCommits
 		);
 		return repoGroupInfoStats;
 	}
