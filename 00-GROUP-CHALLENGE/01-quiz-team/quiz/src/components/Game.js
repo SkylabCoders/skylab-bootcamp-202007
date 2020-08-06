@@ -9,6 +9,7 @@ function Game(props){
     const URL_QUERY = props.match.params.themeSlug;
     let theme = THEMES_LIST.find(e=>e.slug === URL_QUERY);
     let themeId = theme.id;
+    
     const [themeSlug] = useState(URL_QUERY);
     const [sessionSet, setSessionSet] = useState([]);
     const [counter, setCounter] = useState(0);
@@ -37,9 +38,9 @@ function Game(props){
     }
 
     function updateCounter(value = undefined){
-        console.log('valor entrada', value);
-        GAME_DATA.scores.push({question: sessionSet[counter], userAnser: value});
-        console.log('here are the stores', GAME_DATA.scores);
+        console.log('valor entrada al component parent GAME', value);
+        GAME_DATA.scores.push({question: sessionSet[counter], completed: true, userAnser: value});
+        console.log('here are the scores from GAME', GAME_DATA.scores);
         if (counter < sessionSet.length){ 
             setCounter(counter + 1); 
         } else { 
@@ -73,6 +74,11 @@ function Game(props){
         return result;
     }
 
+    function newGame(){
+        setSessionSet([]);
+        setCounter(0);
+    }
+
     if(sessionSet.length !== 0){
         if(counter < sessionSet.length){
             return (
@@ -82,6 +88,7 @@ function Game(props){
             )
         } else if (counter >= sessionSet.length) {
             updateGameStatistics();
+            console.log(sessionSet, counter)
             return (
                 <>
                     <Results 
@@ -90,7 +97,7 @@ function Game(props){
                         data_started={GAME_DATA.startedStr}
                         data_ended={GAME_DATA.endedStr}
                         data_played={GAME_DATA.played}
-                        newGameClick={console.log('CLICK TO PLAY NEW GAME FROM CHILD - RESULTS')}
+                        newGameClick={newGame}
                     />
                 </>
             )

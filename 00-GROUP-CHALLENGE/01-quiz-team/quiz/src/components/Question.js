@@ -10,24 +10,22 @@ import { get } from 'http';
 function Question(props) {
     const [question, setQuestion] = useState();
     const [resultat, setResultat] = useState('');
+    const [success, setSuccess] = useState('');
     const [key, setKey] = useState(0);
     const [timerIsOn, setTimerIsOn] = useState(false);
     const [clicked, setClicked] = useState(false);
-    let sendResult = undefined;
 
     function getValue(value,listenClick) {
         if (!listenClick) {
             setClicked(true);
-            console.log('has hecho click!')
-            if (value) {
-                sendResult = true;
-                console.log('printing getAnswer', value);
+            //console.log('has hecho click!')
+            if(value){
                 setResultat('YOU ARE RIGHT!');
+                setSuccess(true);
             }
-            else {
-                sendResult = false;
-                console.log('printing getAnswer', value);
-                setResultat(`INCORRECT!!The correct answer is ${question.correct_answer}`);
+            else{
+                setResultat(`Incorrect!! The correct answer is ${question.correct_answer}`);
+                setSuccess(false);
             }
         }
     }
@@ -79,15 +77,11 @@ function Question(props) {
     function onChange() {
         setQuestion(gameStore.getQuestion(props.i));
     }
-    //console.log('QUESTION COMPONENT, checking question current value before rendering', question);
 
     const typeOfAnswer = () => {
         if (question === undefined) {
-            //console.log('... render called with undefined value -> not rendering question');
             return null;
         } else {
-            //console.log('... render called with question value:', question);
-            //console.log('... rendering question type:', question.type);
             if (question.type === 'multiple') return (
                 <div>
                     <h2 className="question__title">Question: {question.category}</h2>
@@ -100,7 +94,7 @@ function Question(props) {
                         <Option option={question.incorrect_answers[2]}  answer={function getAnswer() { getValue(false, clicked) }} />
                         {resultat}
                     </ul>
-                    <button onClick={props.click}>Next Question</button>
+                    <button onClick={()=>{props.click(success)}}>Next Question</button>
                 </div>
             )
             else if (question.type === Boolean) return (
@@ -111,13 +105,11 @@ function Question(props) {
                     <Option option={question.correct_answer} />
                     <Option option={question.incorrect_answers} />
                     {resultat}
-                    <button onClick={() => { props.click(sendResult) }}>Next Question</button>
+                    <button onClick={()=>{props.click(success)}}>Next Question</button>
                 </div>
             );
         }
     }
-
-    // console.log('RENDERING QUESTION WITH i', props.i)
 
     return (
         <>

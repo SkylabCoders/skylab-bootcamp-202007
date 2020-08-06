@@ -1,8 +1,10 @@
 import React from "react";
 import './../css/results.css';
+import { NavLink } from 'react-router-dom';
 
 function Results(props){
     // console.log('RESULTS COMPONENT: props', props);
+
     return (
         <div className="results">
             <section>
@@ -15,7 +17,9 @@ function Results(props){
                         <button onClick={props.newGameClick}>Play again, same theme</button>
                     </div>
                     <div className="playAgain__anotherTheme">
-                        <button onClick={props.newGameClick}>Play again, another theme</button>
+                        <NavLink to='/'>
+                            <button onClick={props.newGameClick}>Play a new theme</button>
+                        </NavLink>
                     </div>
                 </div>
             </section>
