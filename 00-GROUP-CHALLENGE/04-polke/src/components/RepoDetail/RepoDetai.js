@@ -53,7 +53,7 @@ function RepoDetail() {
 
 	return (
 		<div className="carrousel-main-container">
-			<Carousel interval={3000} className="user-repositorie generic-carrousel">
+			<Carousel interval={7000} className="user-repositorie generic-carrousel">
 				<Carousel.Item>
 					<h3 className="carrousel-main-container__main-title">User Stats</h3>
 					<img
@@ -114,7 +114,10 @@ function RepoDetail() {
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
-			<Carousel interval={4000} className="group-repositorie generic-carrousel">
+			<Carousel
+				interval={14000}
+				className="group-repositorie generic-carrousel"
+			>
 				<Carousel.Item>
 					<h3 className="carrousel-main-container__main-title">
 						Repositorie Stats
@@ -202,12 +205,34 @@ function RepoDetail() {
 						alt="Third slide"
 					/>
 
-					<Carousel.Caption>
-						<h3>Commits Hall of Fame</h3>
-						<h3>&#127942;</h3>
-						<h5>1</h5>
-						<h5>2</h5>
-						<h5>3</h5>
+					<Carousel.Caption className="carrousel-main-container__ranking-caption">
+						<h3 className="carrousel-main-container__ranking-title user-repositorie__category-title">
+							Commits Hall of Fame
+						</h3>
+						<h3>&#129351; </h3>
+						<h3>
+							Esther <span>-</span>
+							<span className="carrousel-main-container__ranking-title user-repositorie__commits-title">
+								{' '}
+								15 commits
+							</span>
+						</h3>
+						<h3>&#129352;</h3>
+						<h3>
+							Esther <span>-</span>
+							<span className="carrousel-main-container__ranking-title user-repositorie__commits-title">
+								{' '}
+								15 commits
+							</span>
+						</h3>
+						<h3>&#129353;</h3>
+						<h3>
+							Esther <span>-</span>
+							<span className="user-repositorie__commits-title">
+								{' '}
+								15 commits
+							</span>
+						</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 			</Carousel>
