@@ -33,6 +33,7 @@ prueba/
 .firebaserc
 firebase.json
 .firebase/
+firebaseInit.js
 
 #media files
 *.apng
