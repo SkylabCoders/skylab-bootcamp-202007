@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import receteListMoked from '../Recipe.mok.js';
+import React, { useState } from 'react';
 import './RecipePage.css';
 import recipe from '../stores/RecipeStore';
 function RecipePage() {
-
 	let balanced = false;
 	let protein = false;
 	let low_fat = false;
@@ -14,7 +12,6 @@ function RecipePage() {
 	let peanut = false;
 	let treenut = false;
 	let alcohol = false;
-
 
 	let [recipeElement] = useState(recipe.getRecipeByTitle(getUrl()));
 	const [titleString] = useState(recipeElement.title);
@@ -66,8 +63,6 @@ function RecipePage() {
 		}
 	}
 
-	debugger;
-
 	return (
 		<div className="desktop__display">
 			<div className="desktop__display--right">
@@ -76,18 +71,18 @@ function RecipePage() {
 						<div className="recipe__icon-list">
 							<div className="box__icon">
 								<p className="text__icon">{time}</p>
-								<div id="time" className="data__circle time__background">
-								</div>
+								<div id="time" className="data__circle time__background"></div>
 							</div>
 							<div className="box__icon">
 								<p className="text__icon">{calories}</p>
-								<div id="calories" className="data__circle calories__background">
-								</div>
+								<div
+									id="calories"
+									className="data__circle calories__background"
+								></div>
 							</div>
 							<div className="box__icon">
 								<p className="text__icon">{yeld}</p>
-								<div id="yeld" className="data__circle yield__background">
-								</div>
+								<div id="yeld" className="data__circle yield__background"></div>
 							</div>
 						</div>
 						<div className="title__img__container flex__column">
@@ -195,7 +190,6 @@ function RecipePage() {
 							<li>{ingredient}</li>
 						))}
 					</ul>
-
 				</section>
 			</div>
 		</div>

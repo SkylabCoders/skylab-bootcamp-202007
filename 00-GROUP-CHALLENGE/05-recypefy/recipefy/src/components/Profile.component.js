@@ -1,40 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import ListItemRecipe from './ListItemRecipe';
-import { loadUser } from '../actions/UserAction';
-import userStore from '../stores/UserStore';
+import authStore from '../stores/AuthStore';
 import './Profile.component.css';
 
-function ProfileComponent(props) {
-	const [userList, setUserList] = useState(userStore.getUsers());
-	const [actualFavourites, setActualFavourites] = useState([]);
+function ProfileComponent() {
+	const [user, setUser] = useState(authStore.getUserProfile());
 	const [userPhoto, setUserPhoto] = useState('');
 
 	useEffect(() => {
-		userStore.addChangeListener(onChange);
-		const userId = 1;
-		if (userList.length === 0) {
-			loadUser();
-		} else {
-			const user = userStore.getUserById(userId);
-			console.log(user);
-			if (user) {
-				setActualFavourites(userStore.getUserFavouriteList(user));
-				setUserPhoto(user.photo);
-			}
+		debugger;
+		authStore.addChangeListener(onChange);
+		if (!user) {
+			setUser(authStore.getUserProfile());
 		}
-		return () => userStore.removeChangeListener;
-	}, [userList.length]);
+		if (user.user.photoURL) {
+			setUserPhoto(user.user.photoURL);
+		}
+		console.log(userPhoto);
+		return () => authStore.removeChangeListener;
+	}, [user]);
 
 	function onChange() {
-		setUserList(userStore.getUsers());
+		setUser(authStore.getUserProfile());
 	}
-
 	return (
 		<aside className="main__profile-component">
 			<h2 className="wrapper">Your information</h2>
 			<div>
-				<img alt="your avatar" src={userPhoto} className="profile-img"></img>
-				<h3 className="main__profile-component--title">Your preferences</h3>
+				{userPhoto && (
+					<img alt="your avatar" src={userPhoto} className="profile-img"></img>
+				)}
+				{!userPhoto && (
+					<img
+						alt="your avatar"
+						src="https://image.flaticon.com/icons/svg/843/843260.svg"
+						className="profile-img"
+					></img>
+				)}
+				<h3 className="main__profile-component--title">Preferences</h3>
 				<ul className="profile--preferences">
 					<li key="balanced">
 						<p>Balanced</p>
