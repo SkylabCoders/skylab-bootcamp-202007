@@ -31,9 +31,8 @@ export function loginGitHub() {
 	return authMethods
 		.signInWithGitHub()
 		.then((data) => {
-			console.log(data);
 			dispatcher.dispatch({
-				type: actionTypes.LOGIN,
+				type: actionTypes.LOGIN_GITHUB,
 				data
 			});
 		})
