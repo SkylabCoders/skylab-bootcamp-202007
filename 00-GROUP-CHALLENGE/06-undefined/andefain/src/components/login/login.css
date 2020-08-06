@@ -17,6 +17,7 @@
 .login-box:nth-child(-n + 1) {
 	margin: 10px 0px 0px 0px;
 }
+
 .login-box:nth-last-child(-n + 1) {
 	margin: 0px 0px 10px 0px;
 }
@@ -88,6 +89,7 @@ input.form-control:focus {
 	.login-box:nth-child(-n + 1) {
 		margin: 0px 3% 0px 0px;
 	}
+
 	.login-box:nth-last-child(-n + 1) {
 		margin: 0px 0px 0px 3%;
 	}

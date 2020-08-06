@@ -9,10 +9,18 @@ function TopFilmList({ title, data }) {
 			<h2 className="list__title">{title}</h2>
 			{data.map((element, i) => {
 				return (
-					<Link to={'film/' + element.title} className="list__item" key={i}>
+					<Link
+						to={'finder/' + element.id.split('/')[2]}
+						className="list__item"
+						key={i}
+					>
 						<div className="item__details">
 							<img
-								src={element.image.url}
+								src={
+									!!element.image
+										? element.image.url
+										: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+								}
 								className="details__img"
 								alt="Poster film"
 							></img>

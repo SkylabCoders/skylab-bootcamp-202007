@@ -19,12 +19,13 @@
 
 .slider-center {
 	width: 100%;
+	height: 650px;
 	margin: 0 auto;
 
 	text-align: center;
 
 	background-repeat: 'no-repeat';
-	background-size: 100%;
+	background-size: 100% 100%;
 
 	animation: slider 5s infinite;
 
@@ -34,12 +35,14 @@
 
 .slider-lateral {
 	width: 100%;
+	height: 250px;
+
 	margin: 0 auto;
 
 	text-align: center;
 
 	background-repeat: 'no-repeat';
-	background-size: 100%;
+	background-size: 100% 100%;
 
 	animation: slider 5s infinite;
 
@@ -58,8 +61,6 @@
 
 .slider__title {
 	width: 100%;
-	margin-top: 45%;
-	bottom: 0;
 
 	background-color: white;
 	opacity: 80%;
