@@ -2,6 +2,10 @@
 	margin: 10px;
 }
 
+.card-img {
+	height: 90px;
+}
+
 .hinherit {
 	height: inherit;
 }
@@ -43,6 +47,7 @@
 		height: -webkit-fill-available;
 		border-radius: unset;
 		object-fit: cover;
+		height: 290px;
 	}
 
 	.img-holder {
