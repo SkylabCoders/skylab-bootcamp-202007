@@ -20,6 +20,7 @@ const renderTime = ({ remainingTime }) => {
 
   function UrgeWithPleasureComponent() {
     const [key, setKey] = useState(0);
+    console.log('after')
     return (
       <div className="App">
         <div className="timer-wrapper">
@@ -41,9 +42,6 @@ const renderTime = ({ remainingTime }) => {
       </div>
     );
   }
-    
-
-
 
     return (
         <>
