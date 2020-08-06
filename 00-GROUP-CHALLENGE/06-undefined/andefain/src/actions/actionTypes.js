@@ -8,6 +8,7 @@ export default {
 	SLIDER_FILM: 'SLIDER_FILM',
 	POPULAR_FILM: 'POPULAR_FILM',
 	COMING_SOON_FILM: 'COMING_SOON_FILM',
+	ADD_FAV: 'ADD_FAV',
 
 	/////////////Finder Store/////////////////
 	SEARCH_FINDER: 'SEARCH_FINDER'

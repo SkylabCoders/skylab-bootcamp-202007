@@ -16,6 +16,9 @@ function Finder(title, name) {
 		setFinder(finderStore.getFinder());
 	}
 
+	const imageNotAvailable = () => {
+		return 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg';
+	};
 	return (
 		<div className="finder">
 			{finder.map((element) => {
@@ -23,15 +26,19 @@ function Finder(title, name) {
 					<div key={element.i} className="finder-result">
 						<img
 							className="finder-result__img"
-							src={element.i.imageUrl === undefined ? '' : element.i.imageUrl}
-							alt="Film poster"
+							src={
+								!element.i
+									? 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+									: element.i.imageUrl
+							}
+							alt="Search result"
 						/>
 						<div className="finder-result__details">
 							<div className="finder-result__name">{element.l}</div>
+							<div className="finder-result__type">{element.s}</div>
 							<div className="finder-result__type">
-								{element.id.slice(0, 2) === 'tt' ? 'Title' : 'Name'}
+								{isNaN(+element.y) ? null : element.y}
 							</div>
-							<div className="finder-result__year">{element.s}</div>
 						</div>
 					</div>
 				);
