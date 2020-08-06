@@ -9,6 +9,7 @@ function Game(props){
     const URL_QUERY = props.match.params.themeSlug;
     let theme = THEMES_LIST.find(e=>e.slug === URL_QUERY);
     let themeId = theme.id;
+    
     const [themeSlug] = useState(URL_QUERY);
     const [sessionSet, setSessionSet] = useState([]);
     const [counter, setCounter] = useState(0);
