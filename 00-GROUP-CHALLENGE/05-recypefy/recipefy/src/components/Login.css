@@ -1,18 +1,14 @@
-.main__boxes{
-    display: none;
-}
-
-.login__container{
+.login__container {
     width: 100vw;
     margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
-}  
 
-.login__box{
+}
+
+.login__box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,11 +19,11 @@
     border-radius: 10px;
 }
 
-form{
+form {
     text-align: center;
 }
 
-.form__input{
+.form__input {
     margin-top: 5px;
     margin-bottom: 15px;
     height: 30px;
@@ -41,13 +37,13 @@ form{
     font-size: 18px;
 }
 
-.login__button{
+.login__button {
     background: none;
-	background-color: #efee9d;
-	border: 1px solid black;
-	padding: 8px 16px;
-	font: inherit;
-	cursor: pointer;
+    background-color: #efee9d;
+    border: 1px solid black;
+    padding: 8px 16px;
+    font: inherit;
+    cursor: pointer;
     outline: inherit;
     border-radius: 4px;
 }
@@ -60,11 +56,11 @@ form{
     text-align: center;
 }
 
-.login__container h2{
+.login__container h2 {
     margin: 8px;
 }
 
-.login__container a{
+.login__container a {
     padding: 12px;
     margin: 5px;
     background-color: rgba(156, 149, 149, 0.24);
@@ -73,11 +69,4 @@ form{
     width: 12vw;
     text-align: center;
     cursor: pointer;
-}
-
-
-
-footer{
-    position: absolute;
-    bottom: 0;
 }
