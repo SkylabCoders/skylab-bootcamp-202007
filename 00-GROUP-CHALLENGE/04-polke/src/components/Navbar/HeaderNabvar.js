@@ -45,19 +45,22 @@ function HeaderNavbar() {
 								placeholder="Search URL repo"
 								className="mr-sm-2 navBar--input"
 							/>
-							<NavLink
+							<Button
 								variant="outline-info"
 								className="searchbar--button"
 								onClick={(event) => {
 									debugger;
 									event.preventDefault();
 									const URLSearch =
-										document.getElementsByClassName('navBar--input')[0].value ||
-										'Need a valid URL';
+										document
+											.getElementsByClassName('navBar--input')[0]
+											.value.split('/') || 'Need a valid URL';
+									const username = URLSearch[1];
+									const project = URLSearch[2];
 								}}
 							>
 								Go
-							</NavLink>
+							</Button>
 						</Form>
 					</Navbar.Collapse>
 				</div>
