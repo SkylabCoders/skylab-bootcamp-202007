@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './login.css';
-import { login, logout, signInWithGoogle } from '../../actions/authActions';
+import {
+	login,
+	logout,
+	signInWithGoogle,
+	signInAnonymously
+} from '../../actions/authActions';
 import authStore from '../../stores/authStore';
 
 function Login() {
@@ -27,7 +32,13 @@ function Login() {
 					/>
 					Login with Google
 				</button>
-				<button className="login-button">Create a new account</button>
+				<button onClick={() => signInAnonymously()} className="login-button">
+					<img
+						className="login-img"
+						src="https://trello-attachments.s3.amazonaws.com/5f2589eca6761a4c8f4d10e1/5f294480df57d910f5d84ab9/3d91789127ba7164795f5acc1559d6ca/usuario.png"
+					/>
+					Login anonymously
+				</button>
 			</div>
 			<div className="login-box">
 				<input type="text" placeholder="user e-mail" className="email"></input>
