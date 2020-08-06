@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './header.css';
 import { Link } from 'react-router-dom';
+import authStore from '../../stores/authStore';
+import { logout } from '../../actions/authActions';
 
 function Header(props) {
-	const [login, setLogin] = useState('Login');
 	const [search, setSearch] = useState('');
+	const [login, setLogin] = useState(authStore.isLogged());
+
+	useEffect(() => {
+		authStore.addChangeListener(onChange);
+		return () => authStore.removeChangeListener(onChange);
+	});
+
+	function onChange() {
+		setLogin(authStore.isLogged());
+	}
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -28,21 +39,14 @@ function Header(props) {
 
 					<div className="header-login">
 						<div className="header-login__hidden-menu">
-							<Link
-								to="/login"
-								className="header-login__button"
-								onClick={setLogin}
-							>
-								Login
-							</Link>
-							{!login && (
-								<div className="hidden-list">
-									<div className="login-list__button">My profile</div>
-									<div className="login-list__button">My watchlist</div>
-									<div className="login-list__button">My reviews</div>
-									<div className="login-list__button">User settings</div>
-									<div className="login-list__button">Logout</div>
+							{authStore.isLogged() ? (
+								<div className="header-login__button" onClick={() => logout()}>
+									Logout
 								</div>
+							) : (
+								<Link to="/login">
+									<div className="header-login__button">Login</div>
+								</Link>
 							)}
 						</div>
 					</div>

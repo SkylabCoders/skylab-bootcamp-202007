@@ -41,12 +41,20 @@ function Login() {
 				</button>
 			</div>
 			<div className="login-box">
-				<input type="text" placeholder="user e-mail" className="email"></input>
-				<input
-					type="password"
-					placeholder="password"
-					className="password"
-				></input>
+				{!isLogged && (
+					<input
+						type="text"
+						placeholder="user e-mail"
+						className="email"
+					></input>
+				)}
+				{!isLogged && (
+					<input
+						type="password"
+						placeholder="password"
+						className="password"
+					></input>
+				)}
 				{!isLogged && (
 					<button
 						onClick={() => {
