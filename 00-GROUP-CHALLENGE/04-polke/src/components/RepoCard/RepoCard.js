@@ -17,10 +17,9 @@ function RepoCard() {
 				<div className="repoCard__name">Polke!!</div>
 			</div>
 			<div className="repoCard__description">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-				provident minima odit pariatur totam ipsum nam vel harum quas
-				reprehenderit laudantium dolorum sapiente fuga, non perspiciatis, ex ut
-				consequuntur modi.
+				As a user I want to log in with Github / Google / Email So that I can
+				access the app. **Scenario #1** Given an empty form, and a `checkForm`
+				function When user tries to log in Then it should throw an Error
 			</div>
 			<div className="repoCard__showlastUpdate-lang">
 				<div className="repoCard__lastUpdate">13/06/1985</div>
