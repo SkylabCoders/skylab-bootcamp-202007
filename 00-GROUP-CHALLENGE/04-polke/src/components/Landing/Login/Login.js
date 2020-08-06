@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { FormControl, FormGroup, Button } from 'react-bootstrap';
-import { login, logout, loginGoogle } from '../../../actions/loginActions';
+import {
+	login,
+	logout,
+	loginGoogle,
+	loginGitHub,
+	loginAnonyomously
+} from '../../../actions/loginActions';
 import landingStore from '../../../stores/landingStore';
 import '../../../shared/generalStyles.css';
 import './Login.css';
 
 function Login() {
-	const email = 'gilbe.cao@gmail.com';
-	const password = '1234567';
-
 	const [isLogged, setIsLogged] = useState(false);
 	const [user, setUser] = useState(null);
 
@@ -25,7 +28,8 @@ function Login() {
 	return (
 		<form className="Login__form">
 			<h2 className="Login__form__login-title--colored">
-				{isLogged.toString()}
+				{isLogged && 'Welcome, bitch'}
+				{!isLogged && 'You are not logged in'}
 			</h2>
 			<FormGroup
 				className="Login__login-with-button"
@@ -47,7 +51,15 @@ function Login() {
 				controlId="password"
 				bsSize="large"
 			>
-				<button className="form__button">GitHub</button>
+				<button
+					className="form__button"
+					onClick={(event) => {
+						event.preventDefault();
+						loginGitHub();
+					}}
+				>
+					GitHub
+				</button>
 			</FormGroup>
 			<FormGroup
 				className="Login__form__container-input"
@@ -81,7 +93,15 @@ function Login() {
 					Enter
 				</button>
 			</FormGroup>
-			<a className="Login__form__anchor--colored">Register</a>
+			<a
+				className="Login__form__anchor--colored"
+				onClick={(event) => {
+					event.preventDefault();
+					loginAnonyomously();
+				}}
+			>
+				Register
+			</a>
 		</form>
 	);
 }
