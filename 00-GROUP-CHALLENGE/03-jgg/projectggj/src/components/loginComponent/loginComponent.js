@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './loginComponent.css'
-import { login, logout, loginWithGoogle } from '../../actions/authAction/authAction'
+import { login, logout, loginWithGoogle, logoutWithGoogle } from '../../actions/authAction/authAction'
 import authStore from '../../stores/authStore'
 
 
@@ -8,19 +8,20 @@ function LoginComponent(props) {
 
 
     const [isLogged, setIsLogged] = useState(authStore.isLogged());
+    const [isLoggedWithGoogle, setIsLoogedWithGoogle] = useState(authStore.isLogged());
     const [user, setUser] = useState(authStore.getUserProfile());
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     useEffect(() => {
         authStore.addChangeListener(onAuthChange);
-        console.log(user);
 
         return () => authStore.removeChangeListener(onAuthChange);
-    }, [isLogged, user, email]);
+    }, [isLogged, user, email, isLoggedWithGoogle]);
 
     function onAuthChange() {
         setIsLogged(authStore.isLogged());
+        setIsLoogedWithGoogle(authStore.isLogged());
         setUser(authStore.getUserProfile());
     }
 
@@ -29,6 +30,9 @@ function LoginComponent(props) {
         event.preventDefault();
         setValueCallback(event.target.value);
     }
+
+
+
 
     return (
         <section className="text-center container">
@@ -52,12 +56,12 @@ function LoginComponent(props) {
                 )}
                 <p>Or login with:</p>
                 <div>
-                    {!isLogged && (
+                    {!isLoggedWithGoogle && (
                         <img src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg" alt="google" onClick={(event) => { event.preventDefault(); loginWithGoogle() }}></img>
                     )}
-                    {isLogged && (
+                    {isLoggedWithGoogle && (
                         <>
-                            <p>You are logged with google! {user && user.email}!</p>
+                            <p>You are logged with google {user && user.email}!</p>
                             <button onClick={(event) => { event.preventDefault(); logout() }}>Click me to log out!</button>
 
                         </>

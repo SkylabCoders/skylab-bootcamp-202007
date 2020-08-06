@@ -6,9 +6,11 @@ export const authMethods = {
         return firebase.auth().signInWithEmailAndPassword(email, password);
     },
     signout: () => firebase.auth().signOut(),
-    signInWithGoogle: async () => {
+    signInWithGoogle: () => {
+        debugger
         const provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-        await firebase.auth().signInWithPopup(provider)
-    }
+        return firebase.auth().signInWithPopup(provider)
+    },
+
 };
