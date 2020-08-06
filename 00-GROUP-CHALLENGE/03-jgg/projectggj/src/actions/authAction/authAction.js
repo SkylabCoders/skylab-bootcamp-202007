@@ -5,7 +5,7 @@ import { authMethods } from '../../firebase/firebaseAuthMethods';
 export function login(email, password) {
     return authMethods
         .signin(email, password)
-        .then(({ user }) => {
+        .then((user) => {
             dispatcher.dispatch({
                 type: actionTypes.LOGIN,
                 data: user
@@ -24,12 +24,22 @@ export function logout() {
 }
 
 export function loginWithGoogle() {
-    debugger
-    return authMethods
-        .signInWithGoogle(({ user }) => {
-            dispatcher.dispatch({
-                type: actionTypes.LOGIN,
-                user
-            });
+    return authMethods.signInWithGoogle().then((user) => {
+        dispatcher.dispatch({
+            type: actionTypes.LOGIN,
+            data: user
         });
+    });
+}
+
+//Function to call createAccount via flux
+export function sendAccountRegister(email, password) {
+    return authMethods
+        .createAccount(email, password)
+        .then((data) =>
+            dispatcher.dispatch({
+                type: actionTypes.CREATE_PROFILE,
+                data
+            })
+        )
 }

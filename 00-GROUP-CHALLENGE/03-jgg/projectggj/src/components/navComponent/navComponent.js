@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './navComponent.css';
+import authStore from '../../stores/authStore'
+import { globalSearch } from '../../actions/actions';
 
 function NavComponent(props) {
+
+	const [isLogged, setIsLogged] = useState(authStore.isLogged());
+
+	useEffect(() => {
+		authStore.addChangeListener(onAuthChange);
+		return () => authStore.removeChangeListener(onAuthChange)
+	}, [isLogged])
+
+	function onAuthChange() {
+		setIsLogged(authStore.isLogged())
+	}
+
+	const [search, setSearch] = useState('');
+	const [, , , , filter, name] = window.location.href.split('/');
+
+	function handleChange(event, setValueCallback) {
+		event.preventDefault();
+		setValueCallback(event.target.value);
+		globalSearch(event.target.value, filter, name);
+	}
+
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
 			<a className="navbar-brand" href="/">
@@ -26,11 +49,20 @@ function NavComponent(props) {
 
 			<div className="collapse navbar-collapse" id="global-area__menu">
 				<ul className="navbar-nav mr-auto">
-					<li className="nav-item">
-						<a className="nav-link" href="/login">
-							Login
+					{!isLogged && (
+						<li className="nav-item">
+							<a className="nav-link" href="/login">
+								Login
 						</a>
-					</li>
+						</li>
+					)}
+					{isLogged && (
+						<li className="nav-item">
+							<a className="nav-link" href="/login">
+								Logout
+						</a>
+						</li>
+					)}
 					<li className="nav-item active">
 						<a className="nav-link" href="/">
 							Home <span className="sr-only">(current)</span>
@@ -47,13 +79,15 @@ function NavComponent(props) {
 						</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link nav__button--game" href="/game">
+						<a className="nav-link nav__button--game" href="/game/Machine">
 							Game
 						</a>
 					</li>
 				</ul>
 				<form className="form-inline my-2 my-md-0">
 					<input
+						value={search}
+						onChange={(event) => handleChange(event, setSearch)}
 						className="form-control"
 						type="text"
 						placeholder="Dragon search..."
