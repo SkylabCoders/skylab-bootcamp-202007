@@ -9,7 +9,7 @@
 }
 
 body {
-	background-color: #d1eaa3;
+	background-color: #ffff;
 	width: 100%;
 	display: flex;
 }
@@ -20,37 +20,35 @@ a {
 
 h2 {
 	font-family: Georgia, 'Times New Roman', Times, serif;
-	color: rgb(75, 75, 165);
+	color: rgb(0, 0, 0);
 	font-size: 18px;
 	text-transform: uppercase;
 }
 
 h3 {
 	font-family: Georgia, 'Times New Roman', Times, serif;
-	color: rgb(75, 75, 165);
+	color: rgb(1, 1, 14);
 }
 
 h4 {
 	font-family: Georgia, 'Times New Roman', Times, serif;
-	color: rgb(75, 75, 165);
+	color: rgb(1, 1, 19);
 }
 
 p {
 	font-family: Georgia, 'Times New Roman', Times, serif;
-	color: rgb(75, 75, 165);
-
+	color: rgb(1, 1, 17);
 }
 
 .body__box {
 	height: 35vh;
 	height: auto;
 	width: 90%;
-	background-color: #efee9d;
+	background-color: #f8f8f0;
 	margin: 5% 2% 5% 2%;
 	padding: 3%;
 	border-radius: 25px;
 }
-
 
 .body__list {
 	display: flex;
@@ -74,11 +72,13 @@ p {
 }
 
 .body__box--recipe-details {
-
-	background-color: #efee9d;
+	background-color: #f8f8f0;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+}
+a {
+	color: black;
 }
 
 .body__box .recipe__text {
@@ -95,7 +95,7 @@ p {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	max-width: 40 vw;
-	color: black;
+	color: rgb(24, 1, 1);
 	margin-left: 20px;
 	font-size: 17px;
 }
@@ -105,7 +105,6 @@ p {
 	width: 100%;
 	height: auto;
 	margin-right: 5px;
-
 }
 
 .body__box--recipe-details a {
@@ -123,15 +122,18 @@ p {
 }
 
 .preference__peanut-free {
-	filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg) brightness(99%) contrast(94%);
+	filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg)
+		brightness(99%) contrast(94%);
 }
 
 .preference__tree-nut-free {
-	filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg) brightness(95%) contrast(66%);
+	filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg)
+		brightness(95%) contrast(66%);
 }
 
 .preference__alcohol-free {
-	filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg) brightness(81%) contrast(92%);
+	filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg)
+		brightness(81%) contrast(92%);
 }
 
 .preferences__icon {
@@ -146,7 +148,7 @@ p {
 .box__title {
 	margin-top: 20px;
 	margin-left: 20px;
-	color: rgb(106, 106, 185);
+	color: rgb(1, 1, 19);
 }
 
 .recipe__text--preferences {
@@ -169,7 +171,6 @@ p {
 	.body__box--recipe-details a {
 		text-align-last: center;
 	}
-
 }
 
 @media screen and (min-width: 1024px) {
