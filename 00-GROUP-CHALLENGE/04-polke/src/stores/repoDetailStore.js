@@ -139,13 +139,19 @@ class RepoInfoStore extends EventEmitter {
 		return repoGroupInfoStats;
 	}
 	//THIRD CARD METHODS
-	setRankingRepoInfo() {
-		let repoGroupInfoStats = {
-			data: _groupInfo
+	setRankingRepoInfo(userName) {
+		let repoRankingInfoStats = {
+			data: _rankingInfo,
+			user: userName,
+			userCommits: 'null',
+			commitsRanking: 'null'
 		};
+		debugger;
+		return repoRankingInfoStats;
 	}
-	getRankingRepoInfo() {
-		return _rankingInfo;
+	getRankingRepoInfo(userName) {
+		let repoRankingInfoStats = this.setRankingRepoInfo(userName);
+		return repoRankingInfoStats;
 	}
 }
 

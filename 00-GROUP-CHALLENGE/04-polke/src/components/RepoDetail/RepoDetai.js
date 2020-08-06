@@ -48,7 +48,7 @@ function RepoDetail() {
 	function onChangeRanking() {
 		setRankingInfo(RepoInfoStore.getRankingRepoInfo(userName));
 	}
-	console.log(repoInfo, groupInfo);
+	/* console.log(repoInfo, groupInfo); */
 	console.log('esta', rankingInfo);
 
 	return (
