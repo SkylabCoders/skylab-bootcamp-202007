@@ -29,6 +29,7 @@ function Question(props) {
     useEffect(() => {
         gameStore.addChangeListener(onChange);
         loadQuestion(props.i);
+        setResultat('');
         return () => { gameStore.removeChangeListener(onChange); }
     }, [props.i]);
 
