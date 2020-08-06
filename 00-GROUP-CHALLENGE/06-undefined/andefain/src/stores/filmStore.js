@@ -59,9 +59,13 @@ dispatcher.register((action) => {
 		case actionTypes.ADD_FAV:
 			_favList = [..._favList, action.data];
 			filmStore.emitChange();
+			break;
 		case actionTypes.FILM_DETAILS:
 			_filmDetails = action.data;
 			filmStore.emitChange();
+			break;
+		default:
+			break;
 	}
 });
 
