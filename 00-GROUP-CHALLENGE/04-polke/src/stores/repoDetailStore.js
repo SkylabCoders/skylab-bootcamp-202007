@@ -31,7 +31,7 @@ class RepoInfoStore extends EventEmitter {
 		let lastObject = repoInfoStats.data[
 			repoInfoStats.length - 1
 		].commit.author.date.split('-');
-		console.log(firstObject, lastObject);
+		console.log(name, firstObject, lastObject);
 		return repoInfoStats;
 	}
 }
