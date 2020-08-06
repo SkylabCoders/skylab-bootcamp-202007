@@ -22,3 +22,14 @@ export function logout() {
             });
         })
 }
+
+export function loginWithGoogle() {
+    debugger
+    return authMethods
+        .signInWithGoogle(({ user }) => {
+            dispatcher.dispatch({
+                type: actionTypes.LOGIN,
+                user
+            });
+        });
+}
