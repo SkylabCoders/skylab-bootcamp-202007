@@ -14,7 +14,7 @@ const films = [
 	}
 ];
 
-function Trailer() {
+function Trailer({ details, trailer }) {
 	const [favFilmList, setFavFilm] = useState([]);
 	const [likeImage, setLikeImage] = useState(
 		'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png'
@@ -38,13 +38,15 @@ function Trailer() {
 			<Link to="/film">
 				<div
 					className="poster"
-					style={{ backgroundImage: `url(${films[0].image})` }}
+					style={{ backgroundImage: `url(${details.image.url})` }}
 				/>
 			</Link>
 			<Link to="/film">
 				<div
 					className="trailer-img"
-					style={{ backgroundImage: `url(${films[0].trailer})` }}
+					style={{
+						backgroundImage: `url(${trailer.resource.videos[0].image.url})`
+					}}
 				>
 					<img
 						src={likeImage}

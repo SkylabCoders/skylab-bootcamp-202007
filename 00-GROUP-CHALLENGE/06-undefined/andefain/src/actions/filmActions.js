@@ -107,3 +107,62 @@ export function addFav(filmName) {
 		});
 	});
 }
+
+export async function callFilm() {
+	let result = [];
+	let id = window.location.pathname.split('/')[2];
+	const detailsPromise = await fetch(
+		`https://imdb8.p.rapidapi.com/title/get-details?tconst=${id}`,
+		{
+			method: 'GET',
+			headers: {
+				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+			}
+		}
+	);
+	result[0] = await detailsPromise.json();
+
+	const plotPromise = await fetch(
+		`https://imdb8.p.rapidapi.com/title/get-plots?tconst=${id}`,
+		{
+			method: 'GET',
+			headers: {
+				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+			}
+		}
+	);
+	result[1] = await plotPromise.json();
+
+	const genresPromise = await fetch(
+		`https://imdb8.p.rapidapi.com/title/get-genres?tconst=${id}`,
+		{
+			method: 'GET',
+			headers: {
+				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+			}
+		}
+	);
+	result[2] = await genresPromise.json();
+
+	const videoPromise = await fetch(
+		`https://imdb8.p.rapidapi.com/title/get-videos?limit=25&region=US&tconst=${id}`,
+		{
+			method: 'GET',
+			headers: {
+				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+				'x-rapidapi-key': 'fad4d85ea9mshfb3b4b1043cf257p1860a2jsnbb3a4625e340'
+			}
+		}
+	);
+	result[3] = await videoPromise.json();
+
+	Promise.all(result).then((result) => {
+		dispatcher.dispatch({
+			type: actionTypes.FILM_DETAILS,
+			data: result
+		});
+	});
+}
