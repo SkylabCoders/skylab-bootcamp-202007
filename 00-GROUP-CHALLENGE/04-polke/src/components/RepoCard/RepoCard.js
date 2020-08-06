@@ -14,11 +14,16 @@ function RepoCard() {
 					/>
 					{/* git  */}
 				</div>
-				<div className="repoCard__name">Name</div>
+				<div className="repoCard__name">Polke!!</div>
 			</div>
-			<div className="repoCard__description">Description</div>
+			<div className="repoCard__description">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+				provident minima odit pariatur totam ipsum nam vel harum quas
+				reprehenderit laudantium dolorum sapiente fuga, non perspiciatis, ex ut
+				consequuntur modi.
+			</div>
 			<div className="repoCard__showlastUpdate-lang">
-				<div className="repoCard__lastUpdate">Last update</div>
+				<div className="repoCard__lastUpdate">13/06/1985</div>
 				<div className="repoCard__lang">css, js, html</div>
 			</div>
 			<div className="repoCard__details">
