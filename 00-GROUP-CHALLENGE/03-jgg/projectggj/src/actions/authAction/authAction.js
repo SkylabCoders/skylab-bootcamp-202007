@@ -27,7 +27,7 @@ export function loginWithGoogle() {
     return authMethods.signInWithGoogle().then((user) => {
         dispatcher.dispatch({
             type: actionTypes.LOGIN,
-            data: user,
+            data: user
         });
     });
 }
