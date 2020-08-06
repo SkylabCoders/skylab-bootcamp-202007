@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { finderSearch } from '../../actions/finderActions';
 import finderStore from '../../stores/finderStore';
 import './finder.css';
+import { Link } from 'react-router-dom';
 
 function Finder(title, name) {
 	const [finder, setFinder] = useState(finderStore.getFinder());
+	const [imageNotAvailable, setImageNotAvailable] = useState('');
 
 	useEffect(() => {
 		finderStore.addChangeListener(onChange);
@@ -13,24 +15,24 @@ function Finder(title, name) {
 	}, [finder.length]);
 
 	function onChange() {
+		setImageNotAvailable(
+			'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+		);
 		setFinder(finderStore.getFinder());
 	}
 
-	const imageNotAvailable = () => {
-		return 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg';
-	};
 	return (
 		<div className="finder">
 			{finder.map((element) => {
 				return (
-					<div key={element.i} className="finder-result">
+					<Link
+						to={'/film/' + element.id}
+						key={element.i}
+						className="finder-result"
+					>
 						<img
 							className="finder-result__img"
-							src={
-								!element.i
-									? 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
-									: element.i.imageUrl
-							}
+							src={!element.i ? imageNotAvailable : element.i.imageUrl}
 							alt="Search result"
 						/>
 						<div className="finder-result__details">
@@ -40,7 +42,7 @@ function Finder(title, name) {
 								{isNaN(+element.y) ? null : element.y}
 							</div>
 						</div>
-					</div>
+					</Link>
 				);
 			})}
 		</div>
