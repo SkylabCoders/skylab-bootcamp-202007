@@ -20,7 +20,7 @@ async function callFilmArray(array, key) {
 }
 
 export async function sliderData() {
-	const key = '1daf9227damsh148ae3c6e67b59cp19105ejsn53386eedfa1d'; //Olasz
+	const key = 'edcb741827mshe5d039928244129p14ac3djsne27352959b3c'; //Geza
 	const idPromise = await fetch(
 		'https://imdb8.p.rapidapi.com/title/get-popular-movies-by-genre?genre=%252Fchart%252Fpopular%252Fgenre%252Fadventure',
 		{
@@ -165,7 +165,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': 'fb406b5cdfmshc0ca65107c86112p12530ajsncfbd0c2467c8'
+				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
 			}
 		}
 	);
