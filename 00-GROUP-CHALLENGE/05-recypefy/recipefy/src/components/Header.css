@@ -17,6 +17,13 @@
 	padding: 0;
 }
 
+.nav__menu form {
+	display: flex;
+	flex-direction: row;
+}
+
+.main__search {}
+
 .burger__container {
 	position: relative;
 	display: flex;
@@ -111,14 +118,15 @@
 }
 
 
+.search-button {
+	padding: 5px;
+	border-radius: 50px;
+	background-color: #d1eaa3;
+	margin: 5px;
+}
+
 @media only screen and (min-width: 600px) {
 
-	.search-button {
-		padding: 5px;
-		border-radius: 50px;
-		background-color: #d1eaa3;
-		margin: 5px;
-	}
 
 	.search-button:active,
 	.search-button:link,

@@ -21,14 +21,9 @@ function Header() {
 	function onFieldChange(value, setValue) {
 		setValue(value);
 	}
-	function searchAlert() {
-		const message = 'Please put something in the search bar';
-		if (!actualSearch.trim()) {
-			window.alert(message);
-		} else {
-			loadRecipe(actualSearch);
-			onFieldChange(initialState, setActualSearch);
-		}
+	function sendSearch() {
+		loadRecipe(actualSearch);
+		onFieldChange(initialState, setActualSearch);
 	}
 	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';
 	return (
@@ -93,7 +88,7 @@ function Header() {
 							{actualSearch !== '' && (
 								<Link
 									onClick={() => {
-										searchAlert();
+										sendSearch();
 									}}
 									className="search-button"
 									to="/search-result"
@@ -161,11 +156,11 @@ function Header() {
 								onFieldChange(event.target.value, setActualSearch)
 							}
 						/>
-						<div>
+						<>
 							{actualSearch !== '' && (
 								<Link
 									onClick={() => {
-										searchAlert();
+										sendSearch();
 									}}
 									className="search-button"
 									to="/search-result"
@@ -176,7 +171,7 @@ function Header() {
 							{actualSearch === '' && (
 								<span className="search-button">SEARCH!</span>
 							)}
-						</div>
+						</>
 					</form>
 
 					<div className="recipe__text--preferences search__icons--box">
