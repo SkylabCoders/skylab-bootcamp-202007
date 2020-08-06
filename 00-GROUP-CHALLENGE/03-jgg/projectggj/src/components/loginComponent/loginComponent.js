@@ -6,7 +6,8 @@ import authStore from '../../stores/authStore'
 
 function LoginComponent(props) {
 
-
+    //isLogged is a variable that controls when is logged a user and we display one button or other depending on his state
+    //Declaration of every variable
     const [isLogged, setIsLogged] = useState(authStore.isLogged());
     const [isLoggedWithGoogle, setIsLoogedWithGoogle] = useState(authStore.isLogged());
     const [user, setUser] = useState(authStore.getUserProfile());
@@ -19,6 +20,7 @@ function LoginComponent(props) {
         return () => authStore.removeChangeListener(onAuthChange);
     }, [isLogged, user, email, isLoggedWithGoogle]);
 
+    //Is activated in ChangeListener and controls the flux of the log
     function onAuthChange() {
         setIsLogged(authStore.isLogged());
         setIsLoogedWithGoogle(authStore.isLogged());
@@ -29,10 +31,6 @@ function LoginComponent(props) {
         event.preventDefault();
         setValueCallback(event.target.value);
     }
-
-
-
-
 
     return (
         <section className="text-center container">

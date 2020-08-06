@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './registerComponent.css';
 import { sendAccountRegister } from '../../actions/authAction/authAction'
 
-function RegisterComponent(props) {
+function RegisterComponent() {
 
+    //We declare every variable of the value fields here
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    /*     const [password2, setPassword] = useState('');
-     */
-    /*     useEffect(() => {
-            function setPassword() {
-                if (password1 !== password2) {
-                    alert("Las contraseñas deben coincidir")
-                }
-            }
-        }) */
+    const [password1, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
+
 
     function handleChange(event, setValueCallback) {
-        console.log(event.target.value)
         event.preventDefault();
         setValueCallback(event.target.value);
     }
-
-    /*     const { ...profileInfo } = { name, lastName, birthDate, email, password1 };
-     */
 
 
     return (
@@ -37,17 +27,18 @@ function RegisterComponent(props) {
                 <label>Name</label>
                 <input value={name} onChange={(event) => handleChange(event, setName)} id="inputName" className="m-1 form-control" type="email" placeholder="Name" required="" autoFocus=""></input>
                 <label>Last Name</label>
-                <input value={lastName} onChange={(event) => handleChange(event, setLastName)} id="inputLastName" className="m-1 form-control" type="email" placeholder="Name" required="" autoFocus=""></input>
+                <input value={lastName} onChange={(event) => handleChange(event, setLastName)} id="inputLastName" className="m-1 form-control" type="email" placeholder="Last Name" required="" autoFocus=""></input>
                 <label>Birth Date</label>
-                <input value={birthDate} onChange={(event) => handleChange(event, setBirthDate)} id="inputBirthDate" className="m-1 form-control" type="date" placeholder="Fecha" required="" autoFocus=""></input>
+                <input value={birthDate} onChange={(event) => handleChange(event, setBirthDate)} id="inputBirthDate" className="m-1 form-control" type="date" placeholder="Date" required="" autoFocus=""></input>
                 <label>Email address</label>
                 <input value={email} onChange={(event) => handleChange(event, setEmail)} id="inputEmail" className="m-1 form-control" type="email" placeholder="Email address" required="" autoFocus=""></input>
                 <label>Password</label>
-                {/*                 <input value={password1} onChange={(event) => handleChange(event, setPassword)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
-                <label>Repite password</label> */}
-                <input value={password} onChange={(event) => handleChange(event, setPassword)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
+                <input value={password1} onChange={(event) => handleChange(event, setPassword)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
+                <label>Repite password</label>
+                <input value={password2} onChange={(event) => handleChange(event, setPassword2)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
                 <div className="rowflex">
-                    <button className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit" onClick={() => sendAccountRegister(email, password)}>Create account!</button>
+                    {password1 !== password2 && <button className="m-1 mt-3 mb-3 btn-light btn-lg btn-block" onClick={() => alert("Passwords don't match! Please enter the same password in both fields")}> Create account!</button>}
+                    {password1 === password2 && <button className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit" onClick={() => sendAccountRegister(email, password1)}>Create account!</button>}
                     <img className="capsule" src="https://i.pinimg.com/originals/c8/3e/92/c83e92534f8ce734d123c1445d1adf14.jpg" alt="capsule"></img>
                 </div>
             </form>

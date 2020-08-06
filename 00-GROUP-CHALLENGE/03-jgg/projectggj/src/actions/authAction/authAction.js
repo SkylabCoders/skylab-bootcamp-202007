@@ -32,8 +32,8 @@ export function loginWithGoogle() {
     });
 }
 
+//Function to call createAccount via flux
 export function sendAccountRegister(email, password) {
-    debugger
     return authMethods
         .createAccount(email, password)
         .then((data) =>
