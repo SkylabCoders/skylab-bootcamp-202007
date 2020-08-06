@@ -1,7 +1,6 @@
 import React from "react";
 import './../css/results.css';
 import { NavLink } from 'react-router-dom';
-import gameStore from './../stores/gameStore';
 
 function Results(props){
     // console.log('RESULTS COMPONENT: props', props);
