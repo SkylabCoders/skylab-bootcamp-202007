@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './trailer.css';
 import { addFav } from '../../../actions/filmActions';
 import filmStore from '../../../stores/filmStore';
+import PropTypes from 'prop-types';
 
 const films = [
 	{
