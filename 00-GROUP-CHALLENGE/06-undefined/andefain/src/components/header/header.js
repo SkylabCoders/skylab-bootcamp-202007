@@ -24,8 +24,8 @@ function Header(props) {
 
 	return (
 		<>
-			<div className="header-container">
-				<header className="header">
+			<header className="header-container">
+				<div className="header">
 					<Link className="header-logo" to="/"></Link>
 					<form className="header-form" onSubmit={handleSubmit}>
 						<input
@@ -50,8 +50,8 @@ function Header(props) {
 							)}
 						</div>
 					</div>
-				</header>
-			</div>
+				</div>
+			</header>
 		</>
 	);
 }
