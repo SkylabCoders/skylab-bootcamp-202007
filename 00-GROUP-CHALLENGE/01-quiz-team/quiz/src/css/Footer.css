@@ -1,10 +1,20 @@
 .footer{
     width: 100%;
-    background-color: #ccc7c7;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
     padding: 1.5rem 0;
+    color: white;
+    font-size: .8rem;
+}
+.footer a{
+    color: white;
+    text-decoration: underline dotted white;
+}
+.footer a:hover{
+    color: coral;
+    text-decoration: underline dotted coral;
 }

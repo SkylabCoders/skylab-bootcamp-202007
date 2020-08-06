@@ -1,12 +1,12 @@
 import React from 'react';
-import './../css/Footer.css'
+import './../css/footer.css'
 
 function Footer(){
     return (
     <>
-    <div className="footer">     
-        <small>Created by Francesc & Victor for Skylab Coders Bootcamp</small>
-    </div>
+        <div className="footer">     
+            <p>Created by Francesc & Victor for <a href="https://www.skylabcoders.com/es/">Skylab Coders</a> Bootcamp</p>
+        </div>
     </>
     )
 }

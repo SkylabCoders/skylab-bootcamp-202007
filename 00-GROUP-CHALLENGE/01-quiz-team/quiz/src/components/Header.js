@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './../css/Header.css'
+import './../css/header.css'
 
 
 function Header(props) {
@@ -12,13 +12,19 @@ function Header(props) {
 							<img className="img__header" src="https://storage.needpix.com/rsynced_images/quiz-2074324_1280.png" alt="quiz logo" />
 						</div>
 					<nav>
-						<NavLink className="nav__item" activeClassName="my-active-class link" to="/">
-							Home
-				</NavLink>{' '}
-						{' | '}
-						<NavLink className="nav__item" activeClassName="my-active-class link" to="/leaderboard">
-							Leaderboard
-				</NavLink>
+						<ul className="nav__list">
+							<li>
+								<NavLink className="nav__item" activeClassName="my-active-class link" to="/">
+									Home
+								</NavLink>
+							</li>
+							<li> {' | '} </li>
+							<li>
+								<NavLink className="nav__item" activeClassName="my-active-class link" to="/leaderboard">
+									Leaderboard
+								</NavLink>
+							</li>
+						</ul>
 					</nav>
 					<NavLink activeClassName="my-active-class" to="/login">
 						<button type="button" className="login__button">Login</button>

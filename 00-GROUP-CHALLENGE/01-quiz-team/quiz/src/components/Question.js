@@ -15,18 +15,21 @@ function Question(props) {
     }, [props.i]);
 
     function onChange() {
+<<<<<<< HEAD
         
+=======
+>>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
         setQuestion(gameStore.getQuestion(props.i));
     }
-    console.log('QUESTION COMPONENT, checking question current value before rendering', question);
+    //console.log('QUESTION COMPONENT, checking question current value before rendering', question);
 
     const typeOfAnswer = () => {
         if (question === undefined) {
-            console.log('... render called with undefined value -> not rendering question');
+            //console.log('... render called with undefined value -> not rendering question');
             return null;
         } else {
-            console.log('... render called with question value:', question);
-            console.log('... rendering question type:', question.type);
+            //console.log('... render called with question value:', question);
+            //console.log('... rendering question type:', question.type);
             if (question.type === 'multiple') return (
                 <div>
                     <h2 className="question__title">Question: {question.category}</h2>
@@ -54,7 +57,7 @@ function Question(props) {
         }
     }
 
-    console.log('RENDERING QUESTION WITH i', props.i)
+    // console.log('RENDERING QUESTION WITH i', props.i)
 
     return (
         <>
