@@ -73,10 +73,27 @@ class RepoInfoStore extends EventEmitter {
 		let repoInfoStats = this.setUserRepoInfo(userName);
 		return repoInfoStats;
 	}
+	calculateTotalGroupCommits(data) {
+		let totalComits = data.map((elem) => elem.total).reduce((a, b) => a + b, 0);
+		return totalComits;
+	}
+	calculateWeeksofWorkLastYear(data) {
+		let weeksWithWorkArr = data.filter((elem) => elem.total >= 1);
+		let weeksWithWorkArrLength = weeksWithWorkArr.length;
+		return weeksWithWorkArrLength;
+	}
 	setGroupRepoInfo() {
 		let repoGroupInfoStats = {
-			data: _groupInfo
+			data: _groupInfo,
+			total: 'null',
+			weeksOfWorkLastYear: 'null'
 		};
+		repoGroupInfoStats.total = this.calculateTotalGroupCommits(
+			repoGroupInfoStats.data
+		);
+		repoGroupInfoStats.weeksOfWorkLastYear = this.calculateWeeksofWorkLastYear(
+			repoGroupInfoStats.data
+		);
 		return repoGroupInfoStats;
 	}
 	getGroupRepoInfo() {

@@ -42,7 +42,7 @@ function RepoDetail() {
 		<div className="carrousel-main-container">
 			<Carousel interval={3000} className="user-repositorie generic-carrousel">
 				<Carousel.Item>
-					<h3>{userName}</h3>
+					<h3>User Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -59,7 +59,7 @@ function RepoDetail() {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<h3>{userName}</h3>
+					<h3>User Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -78,7 +78,7 @@ function RepoDetail() {
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
-					<h3>{userName}</h3>
+					<h3>User Stats</h3>
 					<img
 						className="d-block w-100"
 						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
@@ -106,11 +106,19 @@ function RepoDetail() {
 						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
 						alt="Third slide"
 					/>
-
 					<Carousel.Caption>
-						<h3>Group </h3>
-						<h3>&#128200;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Repo Group Name
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {repoName}</h3>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Total Commits:
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {groupInfo.total}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -122,9 +130,18 @@ function RepoDetail() {
 					/>
 
 					<Carousel.Caption>
-						<h3>Group repositorie</h3>
-						<h3>&#128200;</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Weeks of work last Year
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {groupInfo.weeksOfWorkLastYear}</h3>
+						<h3 className="user-repositorie__category-title">
+							{' '}
+							Total Commits:
+						</h3>
+						<h3>&#128202;</h3>
+						<h3> {groupInfo.total}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
