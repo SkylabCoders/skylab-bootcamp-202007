@@ -55,8 +55,8 @@ function HeaderNavbar() {
 										document
 											.getElementsByClassName('navBar--input')[0]
 											.value.split('/') || 'Need a valid URL';
-									const username = URLSearch[1];
-									const project = URLSearch[2];
+									const username = URLSearch[3];
+									const project = URLSearch[4];
 								}}
 							>
 								Go
