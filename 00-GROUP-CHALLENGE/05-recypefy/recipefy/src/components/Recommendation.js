@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Recommendation.css';
+import recipeStore from '../stores/RecipeStore';
 import { Link } from 'react-router-dom';
+import { loadRecipe } from '../actions/RecipeAction';
 
 function Recomendation() {
+	const [recipeList, setRecipeList] = useState(recipeStore.getRecipes);
+	const [actualRecipe, setActualRecipe] = useState({});
+	useEffect(() => {
+		recipeStore.addChangeListener(onChange);
+		if (recipeList.length === 0) {
+			loadRecipe();
+		} else {
+			setActualRecipe(recipeList[Math.floor(Math.random() * 10)]);
+		}
+		return () => recipeStore.removeChangeListener;
+	}, [recipeList.length]);
+
+	function onChange() {
+		setRecipeList(recipeStore.getRecipes);
+	}
+
 	return (
 		<section className="body__box--recipe-details body__box body__box--main-recomendations ">
 			<div className="recipe__text">
-				<h2 className="box__title">RECOMMENDATION FOR YOU</h2>
-				<h3 className="recipe__text--title">potato with tomato and chips</h3>
+				<h2 className="box__title">RECOMMENDATION:</h2>
+				<h3 className="recipe__text--title">{actualRecipe.title}</h3>
 				<div className="recipe__text--preferences">
 					<img
 						className="preferences__icon preference__balanced"
@@ -52,10 +70,7 @@ function Recomendation() {
 				</div>
 			</div>
 			<Link to="./RecipePage" className="link">
-				<img
-					className="recipe__image"
-					src="https://media-cdn.tripadvisor.com/media/photo-s/0a/b7/12/c5/buena-comida-muy-buena.jpg"
-				></img>
+				<img className="recipe__image" src={actualRecipe.photo}></img>
 			</Link>
 		</section>
 	);

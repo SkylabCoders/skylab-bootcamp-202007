@@ -24,7 +24,7 @@ function SearchResult() {
 		<div className="result-section">
 			<h2>YOUR RESULTS!</h2>
 			{searchListResult.map((recipe) => (
-				<RecipeCard title={recipe.title} />
+				<RecipeCard title={recipe.title} key={recipe.title} />
 			))}
 		</div>
 	);

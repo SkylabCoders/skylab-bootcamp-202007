@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import EventEmitter from "events";
 import actionTypes from "../actions/actionTypes";
 import dispatcher from "../Dispatcher";
@@ -56,4 +57,57 @@ dispatcher.register((action) => {
     }
 })
 
+=======
+import EventEmitter from "events";
+import actionTypes from "../actions/actionTypes";
+import dispatcher from "../Dispatcher";
+
+
+const CHANGE_EVENT = 'change';
+let _isLogged = false;
+let _userProfile = null;
+
+class AuthStore extends EventEmitter{
+
+    addChangeListener(callback){
+        this.on(CHANGE_EVENT, callback);
+    }
+
+    removeChangeListener(callback){
+        this.removeListener(CHANGE_EVENT, callback);
+    }
+
+    emitChange(){
+        this.emit(CHANGE_EVENT);
+    }
+
+    isLogged(){
+        return _isLogged;
+    }
+
+    getUserProfile(){
+        return _userProfile;
+    }
+
+}
+
+const authStore = new AuthStore();
+
+dispatcher.register((action) => {
+    switch(action.type){
+        case actionTypes.LOGIN:
+            _userProfile = action.data;
+            _isLogged = !!action.data;
+            authStore.emitChange()
+            break;
+        case actionTypes.LOGOUT:
+            _isLogged = false;
+            _userProfile = null;
+            authStore.emitChange()
+            break;
+        
+    }
+})
+
+>>>>>>> 0015d0e15021bd2360381e9b71730546559d9d47
 export default authStore;

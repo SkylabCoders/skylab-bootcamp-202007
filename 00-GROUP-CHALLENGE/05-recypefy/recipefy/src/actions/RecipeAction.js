@@ -7,9 +7,9 @@ const APP_API_ID = '46083075';
 const APP_API_KEY = '83cd4df2c64a04f570c8647f833a8a7e';
 const APP_IDENTIFICATION = `&app_id=${APP_API_ID}&app_key=${APP_API_KEY}`;
 
-const actualSearchLabel = 'q=chicken';
-
-export function loadRecipe() {
+const searchDefaultItem = 'q=chicken';
+export function loadRecipe(newSearch = searchDefaultItem) {
+	const actualSearchLabel = 'q=' + newSearch;
 	function Recipe(
 		photo,
 		title,
@@ -37,19 +37,18 @@ export function loadRecipe() {
 		const actualPreferencces = actualRecipe.healthLabels.concat(
 			actualRecipe.dietLabels
 		);
-	
-	const newRecipe = new Recipe(
-		actualRecipe.image,
-		actualRecipe.label,
-		actualRecipe.totalTime,
-		actualRecipe.url,
-		actualRecipe.source,
-		actualRecipe.calories,
-		actualRecipe.yeld,
-		actualRecipe.ingredientLines,
-		actualPreferencces
-	);
-		console.log(newRecipe);
+
+		const newRecipe = new Recipe(
+			actualRecipe.image,
+			actualRecipe.label,
+			actualRecipe.totalTime,
+			actualRecipe.url,
+			actualRecipe.source,
+			actualRecipe.calories,
+			actualRecipe.yeld,
+			actualRecipe.ingredientLines,
+			actualPreferencces
+		);
 		return newRecipe;
 	}
 	return new Promise((resolve, reject) => {
