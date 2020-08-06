@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './loginComponent.css'
-import { login, logout } from '../../actions/authAction/authAction'
+import { login, logout, loginWithGoogle } from '../../actions/authAction/authAction'
 import authStore from '../../stores/authStore'
 
 
@@ -48,8 +48,13 @@ function LoginComponent(props) {
                     <>
                         <p>Welcome {user && user.email}!</p>
                         <button onClick={(event) => { event.preventDefault(); logout() }}>Logout</button>
+
                     </>
                 )}
+                <p>Or login with:</p>
+                <div>
+                    <img src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg" alt="google" onClick={(event) => { event.preventDefault(); loginWithGoogle() }}></img>
+                </div>
             </form>
         </section >
     )
