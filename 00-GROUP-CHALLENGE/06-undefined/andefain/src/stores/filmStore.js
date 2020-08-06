@@ -1,7 +1,6 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher';
 import actionTypes from '../actions/actionTypes';
-import { comingSoonData } from '../actions/filmActions';
 
 const CHANGE_EVENT = 'change';
 let _sliderId = [];
