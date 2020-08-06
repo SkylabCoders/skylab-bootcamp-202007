@@ -4,15 +4,15 @@ import player, { CHARGE, ATTACK, AVOID } from './gameLogic/gameLogic';
 let player1;
 let machine;
 function GameComponent(props) {
-    let Mname = props.match.params.enemy;
 
+    let Mname = props.match.params.enemy;
     if (typeof player1 === 'undefined') {
         player1 = new player('You');
     }
     if (typeof machine === 'undefined') {
         machine = new player(Mname, true);
     }
-
+    let machineImg = 'https://thumbs.gfycat.com/PleasedLividGreyhounddog-size_restricted.gif';
     let acctionMachine = '';
     const actions = {
         charge: 'https://64.media.tumblr.com/tumblr_m6autdMQ8q1r72ht7o1_500.gif',
@@ -20,9 +20,10 @@ function GameComponent(props) {
         attack:
             'https://steamuserimages-a.akamaihd.net/ugc/844842824162102286/E0C77C22F2E6904ED76E6769FD9072D308C6BB86/'
     };
-    const [machineAction, setMachineAction] = useState(
-        'https://thumbs.gfycat.com/PleasedLividGreyhounddog-size_restricted.gif'
-    );
+    const imgLive = 'https://images-na.ssl-images-amazon.com/images/I/31t66UdClqL.png';
+    const imgCharge = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3eb70ccc-e7ad-4e1a-87fa-f97df9ef1c52/d9rqdji-5ec98122-7e1c-4da7-a7c7-4b0f6ab86b7a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2ViNzBjY2MtZTdhZC00ZTFhLTg3ZmEtZjk3ZGY5ZWYxYzUyXC9kOXJxZGppLTVlYzk4MTIyLTdlMWMtNGRhNy1hN2M3LTRiMGY2YWI4NmI3YS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.lF5QwNjLFrIa5o9dCpU_kaTqPdq1Vk1zzk3YbRjRVOo';
+
+    const [machineAction, setMachineAction] = useState(machineImg);
     const [machLives, setMachLives] = useState(machine.getLives());
     const [machCharges, setMachCharges] = useState(machine.getCharges());
     const [playerLives, setPlayerLives] = useState(player1.getLives());
@@ -77,15 +78,13 @@ function GameComponent(props) {
                 break;
         }
     }
-    var imgLive = 'https://images-na.ssl-images-amazon.com/images/I/31t66UdClqL.png';
-    var imgCharge = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3eb70ccc-e7ad-4e1a-87fa-f97df9ef1c52/d9rqdji-5ec98122-7e1c-4da7-a7c7-4b0f6ab86b7a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2ViNzBjY2MtZTdhZC00ZTFhLTg3ZmEtZjk3ZGY5ZWYxYzUyXC9kOXJxZGppLTVlYzk4MTIyLTdlMWMtNGRhNy1hN2M3LTRiMGY2YWI4NmI3YS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.lF5QwNjLFrIa5o9dCpU_kaTqPdq1Vk1zzk3YbRjRVOo';
 
     return (
         <div className="game-holder flex-item-row">
             <div className='flex-col user-col'>
                 <div className="user-action_container flex-col-user">
                     <div className=" flex-col">
-                        <span>Charge Ki</span>
+                        <p>Charge Ki</p>
                         <img
                             src={actions.charge}
                             onClick={() => setAnAction(CHARGE)}
@@ -93,7 +92,7 @@ function GameComponent(props) {
                         ></img>
                     </div>
                     <div className=" flex-col" >
-                        <span>Avoid attack</span>
+                        <p>Avoid attack</p>
                         <img
                             src={actions.avoid}
                             onClick={() => setAnAction(AVOID)}
@@ -101,7 +100,7 @@ function GameComponent(props) {
                         ></img>
                     </div>
                     <div className=" flex-col">
-                        <span>ATTACK!</span>
+                        <p>ATTACK!</p>
                         <img
                             src={actions.attack}
                             onClick={() => setAnAction(ATTACK)}

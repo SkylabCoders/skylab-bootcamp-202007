@@ -14,7 +14,6 @@ function DetailsComponent(props) {
 	function onChange() {
 		setChars(store.getCharacters());
 	}
-	// let [chars, setChars] = useState(store.getCharacters());
 	let char = {};
 	const name = props.match.params.name;
 	char = store.getCharByName(name);
