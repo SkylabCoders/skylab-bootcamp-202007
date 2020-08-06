@@ -5,16 +5,7 @@ import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
 
 let _repoInfo = [];
-function calculateDate(first, last) {
-	let firsDateArr = first;
-	let secondDateArr = last;
-	let days;
-	let startDay = firsDateArr[2].split('').slice(0, 2).join('');
-	let endDay = secondDateArr[2].split('').slice(0, 2).join('');
-	days = endDay - startDay;
-	let definitString = `${days} days`;
-	return definitString;
-}
+let _groupInfo = [];
 
 class RepoInfoStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -28,7 +19,20 @@ class RepoInfoStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
-	getRepoInfo(userName) {
+	calculateDate(first, last) {
+		let firsDateArr = first;
+		let secondDateArr = last;
+		let days;
+		let startDay = firsDateArr[2].split('').slice(0, 2).join('');
+		let endDay = secondDateArr[2].split('').slice(0, 2).join('');
+		days = endDay - startDay;
+		let definitString = `${days} days`;
+		return definitString;
+	}
+	calculateLastActivity(dates) {
+		return dates.last[0];
+	}
+	setUserRepoInfo(userName) {
 		let repoInfoStats = {
 			length: _repoInfo.length,
 			data: _repoInfo,
@@ -40,29 +44,61 @@ class RepoInfoStore extends EventEmitter {
 			authourLastComments: 'null',
 			lastActivity: 'null'
 		};
-		let name = userName;
-		repoInfoStats.name = name;
-		let dates = {
-			last: repoInfoStats.data[0].commit.author.date.split('-'),
-			first: repoInfoStats.data[
-				repoInfoStats.length - 1
-			].commit.author.date.split('-')
-		};
-		repoInfoStats.time = calculateDate(dates.first, dates.last);
+		repoInfoStats.name = userName; //Sets user
+		/* 	repoInfoStats.time = this.calculateDate(dates.first, dates.last); */
 		repoInfoStats.authorCommits = repoInfoStats.data.filter(
+			//Set user Data
 			(elem) => elem.commit.author.name === repoInfoStats.name
 		);
-		repoInfoStats.authorCategory = repoInfoStats.authorCommits[0].author.type;
-		repoInfoStats.authorCommitsLength = repoInfoStats.authorCommits.length;
-		repoInfoStats.lastActivity = dates.last[0];
+		repoInfoStats.authorCommitsLength = repoInfoStats.authorCommits.length; //Set number of user commits
+		let dates = {
+			last: repoInfoStats.authorCommits[0].commit.author.date.split('-'),
+			first: repoInfoStats.authorCommits[
+				repoInfoStats.authorCommitsLength - 1
+			].commit.author.date.split('-')
+		};
+		repoInfoStats.time = this.calculateDate(dates.first, dates.last);
+		repoInfoStats.lastActivity = this.calculateLastActivity(dates);
 		repoInfoStats.authorComments = repoInfoStats.authorCommits.map(
+			//Set author comments
 			(elem) => elem.commit.message
 		);
 		repoInfoStats.authourLastComments = repoInfoStats.authorComments.slice(
 			0,
-			4
+			3
 		);
 		return repoInfoStats;
+	}
+	getUserRepoInfo(userName) {
+		let repoInfoStats = this.setUserRepoInfo(userName);
+		return repoInfoStats;
+	}
+	calculateTotalGroupCommits(data) {
+		let totalComits = data.map((elem) => elem.total).reduce((a, b) => a + b, 0);
+		return totalComits;
+	}
+	calculateWeeksofWorkLastYear(data) {
+		let weeksWithWorkArr = data.filter((elem) => elem.total >= 1);
+		let weeksWithWorkArrLength = weeksWithWorkArr.length;
+		return weeksWithWorkArrLength;
+	}
+	setGroupRepoInfo() {
+		let repoGroupInfoStats = {
+			data: _groupInfo,
+			total: 'null',
+			weeksOfWorkLastYear: 'null'
+		};
+		repoGroupInfoStats.total = this.calculateTotalGroupCommits(
+			repoGroupInfoStats.data
+		);
+		repoGroupInfoStats.weeksOfWorkLastYear = this.calculateWeeksofWorkLastYear(
+			repoGroupInfoStats.data
+		);
+		return repoGroupInfoStats;
+	}
+	getGroupRepoInfo() {
+		let repoGroupInfoStats = this.setGroupRepoInfo();
+		return repoGroupInfoStats;
 	}
 }
 
@@ -73,6 +109,10 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_REPO:
 			_repoInfo = action.data;
 			repoInfoStore.emitChange(_repoInfo);
+			break;
+		case actionTypes.LOAD_GROUP:
+			_groupInfo = action.data;
+			repoInfoStore.emitChange(_groupInfo);
 			break;
 		default:
 			break;
