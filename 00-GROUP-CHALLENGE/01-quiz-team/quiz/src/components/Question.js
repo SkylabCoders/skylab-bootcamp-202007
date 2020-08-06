@@ -15,6 +15,10 @@ function Question(props) {
     }, [props.i]);
 
     function onChange() {
+<<<<<<< HEAD
+        
+=======
+>>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
         setQuestion(gameStore.getQuestion(props.i));
     }
     //console.log('QUESTION COMPONENT, checking question current value before rendering', question);
@@ -32,10 +36,10 @@ function Question(props) {
                     <p className="">{question.question}</p>
                     <p>Choose the correct answer</p>
                     <ul className="list__container">
-                        <Option option={question.correct_answer} />
-                        <Option option={question.incorrect_answers[0]} />
-                        <Option option={question.incorrect_answers[1]} />
-                        <Option option={question.incorrect_answers[2]} />
+                        <Option option={question.correct_answer} type={question}/>
+                        <Option option={question.incorrect_answers[0]} type={question}/>
+                        <Option option={question.incorrect_answers[1]} type={question}/>
+                        <Option option={question.incorrect_answers[2]} type={question}/>
                     </ul>
                     <button onClick={props.click}>Next Question</button>
                 </div>
@@ -68,8 +72,3 @@ function Question(props) {
 }
 
 export default Question;
-
-
-
-
-

@@ -1,4 +1,39 @@
 import dispatcher from './../AppDispatcher';
+<<<<<<< HEAD
+import actionTypes from './actionTypes'
+import {authMethods} from './../firebase/firebaseAuthMethods'
+
+
+export function login(email,password){
+    return authMethods
+    .signin(email,password)
+    .then(({user}) =>{
+        dispatcher.dispatch({
+            type: actionTypes.LOGIN,
+            data: user
+        })
+    }).catch((error) => console.log(error))
+}
+
+export function logout(){
+    return authMethods.signout()
+    .then(()=>{
+        dispatcher.dispatch({
+            type: actionTypes.LOGOUT
+        })
+    })
+}
+
+/* export function login(){
+    return authMethods.signInWithGoogle()
+    .then(({data})=>{
+        dispatcher.dispatch({
+            type: actionTypes.LOGIN,
+            data
+        })
+    })
+} */
+=======
 import actionTypes from './actionTypes';
 import { authMethods } from './../firebase/firebaseAuthMethods';
 
@@ -24,3 +59,4 @@ export function logout(){
         })
     })
 }
+>>>>>>> f29ec03621641ad5dd945f1546cf5ba63e6060f2
