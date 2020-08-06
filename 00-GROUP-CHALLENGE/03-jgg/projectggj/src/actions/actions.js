@@ -4,6 +4,13 @@ import actionTypes from "./actionTypes";
 import planetsArr from '../mock.Planets';
 import sagaList from '../mock.sagas';
 
+export function globalSearch(search) {
+    dispatcher.dispatch({
+        type: actionTypes.GLOBAL_SEARCH,
+        search
+    });
+}
+
 
 export function loadCharList() {
     return new Promise((resolve) => {
@@ -23,6 +30,28 @@ export function loadSagaList() {
         dispatcher.dispatch({
             type: actionTypes.LOAD_SAGA_LIST,
             data: sagaList
+        });
+    });
+}
+
+export function saveUser(user) {
+    return new Promise((resolve) => {
+        resolve(user);
+    }).then((savedUser) => {
+        dispatcher.dispatch({
+            type: (user ? actionTypes.CREATE_PROFILE : actionTypes.UPDATE_PROFILE),
+            data: savedUser
+        })
+    })
+}
+
+export function loadPlanets() {
+    return new Promise((resolve) => {
+        resolve(planetsArr);
+    }).then((planetsArr) => {
+        dispatcher.dispatch({
+            type: actionTypes.LOAD_PLANETS,
+            data: planetsArr
         });
     });
 }
@@ -49,28 +78,6 @@ export function loadSagaList() {
         });
     });
 } */
-
-export function saveUser(user) {
-    return new Promise((resolve) => {
-        resolve(user);
-    }).then((savedUser) => {
-        dispatcher.dispatch({
-            type: (user ? actionTypes.CREATE_PROFILE : actionTypes.UPDATE_PROFILE),
-            data: savedUser
-        })
-    })
-}
-
-export function loadPlanets() {
-    return new Promise((resolve) => {
-        resolve(planetsArr);
-    }).then((planetsArr) => {
-        dispatcher.dispatch({
-            type: actionTypes.LOAD_PLANETS,
-            data: planetsArr
-        });
-    });
-}
 
 /* export function loadPlanets() {
     return new Promise((resolve, reject) => {

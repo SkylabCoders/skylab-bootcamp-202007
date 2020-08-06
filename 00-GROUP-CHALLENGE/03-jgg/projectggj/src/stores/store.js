@@ -6,6 +6,8 @@ const CHANGE_EVENT = 'change';
 let _characters = [];
 let _planets = [];
 let _sagas = [];
+let _searchValue = '';
+let _charactersFiltered = [];
 
 class DBStore extends EventEmitter {
     addChangeListener(callback) {
@@ -22,9 +24,12 @@ class DBStore extends EventEmitter {
     }
 
     getCharacters() {
-
         return _characters;
     }
+    getCharactersFiltered() {
+        return _charactersFiltered;
+    }
+
     getPlanets() {
         return _planets;
     }
@@ -56,6 +61,10 @@ class DBStore extends EventEmitter {
         }
     }
 
+    getSearchValue() {
+        return _searchValue;
+    }
+
 }
 
 const store = new DBStore();
@@ -81,6 +90,12 @@ dispatcher.register((action) => {
             break;
         case actionTypes.LOAD_SAGA_LIST:
             _sagas = action.data
+            store.emitChange();
+            break;
+        case actionTypes.GLOBAL_SEARCH:
+            debugger;
+            _searchValue = action.search;
+            _charactersFiltered = _searchValue ? _characters.filter((char) => char.name.toLowerCase() === _searchValue.toLowerCase()) : _characters;
             store.emitChange();
             break;
         default:

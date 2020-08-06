@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './navComponent.css';
+import { globalSearch } from "../../actions/actions";
 
 function NavComponent(props) {
 
@@ -9,6 +10,7 @@ function NavComponent(props) {
 		console.log(event.target.value);
 		event.preventDefault();
 		setValueCallback(event.target.value);
+		globalSearch(event.target.value);
 	}
 
 	return (

@@ -9,12 +9,16 @@ function CharListComponent(props) {
     let [chars, setChars] = useState(store.getCharacters());
     useEffect(() => {
         store.addChangeListener(onChange);
-        if (chars.length === 0) loadCharList();
+        if (chars.length === 0 && !store.getSearchValue()) loadCharList();
         return () => store.removeChangeListener(onChange);
     }, [chars.length]);
 
     function onChange() {
-        setChars(store.getCharacters());
+        if (store.getSearchValue()) {
+            setChars(store.getCharactersFiltered())
+        } else {
+            setChars(store.getCharacters());
+        }
     }
 
 
