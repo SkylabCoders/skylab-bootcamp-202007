@@ -6,6 +6,7 @@ import HeroDashboard from './components/HeroDashboard';
 import { Route, Switch } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
 import HeroesPage from './components/HeroesPage';
+import Login from './components/Login';
 
 function App(props) {
 	return (
@@ -16,6 +17,7 @@ function App(props) {
 				<Route path="/hero/:heroId" component={HeroDetail} />
 				<Route path="/hero" component={HeroDetail} />
 				<Route path="/heroes" component={HeroesPage} />
+				<Route path="/login" component={Login} />
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>
