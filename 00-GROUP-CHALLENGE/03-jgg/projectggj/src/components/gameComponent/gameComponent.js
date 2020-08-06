@@ -4,11 +4,13 @@ import player, { CHARGE, ATTACK, AVOID } from './gameLogic/gameLogic';
 let player1;
 let machine;
 function GameComponent(props) {
+    let Mname = props.match.params.enemy;
+
     if (typeof player1 === 'undefined') {
         player1 = new player('You');
     }
     if (typeof machine === 'undefined') {
-        machine = new player('machine', true);
+        machine = new player(Mname, true);
     }
 
     let acctionMachine = '';
@@ -25,7 +27,7 @@ function GameComponent(props) {
     const [machCharges, setMachCharges] = useState(machine.getCharges());
     const [playerLives, setPlayerLives] = useState(player1.getLives());
     const [playerCharges, setPlayerCharges] = useState(player1.getCharges());
-    const [gameLog, setGameLog] = useState(props.match.params.enemy + ' challenges You!');
+    const [gameLog, setGameLog] = useState(machine.getName() + ' challenges You!');
 
     function setAnAction(acc) {
         if (player1.getLives() > 0 && machine.getLives() > 0) {
@@ -58,7 +60,6 @@ function GameComponent(props) {
                 setGameLog('YOU LOOSE...');
                 setMachineAction('https://media1.tenor.com/images/dbfa07ecdabe6c27ef6a6927666d4725/tenor.gif?itemid=9943214');
             }, 1500);
-
         }
     }
     function setImage(acctionMachine) {
@@ -76,40 +77,64 @@ function GameComponent(props) {
                 break;
         }
     }
+    var imgLive = 'https://images-na.ssl-images-amazon.com/images/I/31t66UdClqL.png';
+    var imgCharge = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3eb70ccc-e7ad-4e1a-87fa-f97df9ef1c52/d9rqdji-5ec98122-7e1c-4da7-a7c7-4b0f6ab86b7a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2ViNzBjY2MtZTdhZC00ZTFhLTg3ZmEtZjk3ZGY5ZWYxYzUyXC9kOXJxZGppLTVlYzk4MTIyLTdlMWMtNGRhNy1hN2M3LTRiMGY2YWI4NmI3YS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.lF5QwNjLFrIa5o9dCpU_kaTqPdq1Vk1zzk3YbRjRVOo';
 
     return (
-        <div className="game-holder flex-item">
-            <div className="user-action_container flex-col">
-                <span>Charge Ki</span>
-                <img
-                    src={actions.charge}
-                    onClick={() => setAnAction(CHARGE)}
-                    alt="Charge"
-                ></img>
-                <span>Avoid attack</span>
-                <img
-                    src={actions.avoid}
-                    onClick={() => setAnAction(AVOID)}
-                    alt="Avoid"
-                ></img>
-                <span>ATTACK!</span>
-                <img
-                    src={actions.attack}
-                    onClick={() => setAnAction(ATTACK)}
-                    alt="Attack"
-                ></img>
-                <p>Player lives: {playerLives}</p>
-                <p>Player charges: {playerCharges}</p>
+        <div className="game-holder flex-item-row">
+            <div className='flex-col user-col'>
+                <div className="user-action_container flex-col-user">
+                    <div className=" flex-col">
+                        <span>Charge Ki</span>
+                        <img
+                            src={actions.charge}
+                            onClick={() => setAnAction(CHARGE)}
+                            alt="Charge"
+                        ></img>
+                    </div>
+                    <div className=" flex-col" >
+                        <span>Avoid attack</span>
+                        <img
+                            src={actions.avoid}
+                            onClick={() => setAnAction(AVOID)}
+                            alt="Avoid"
+                        ></img>
+                    </div>
+                    <div className=" flex-col">
+                        <span>ATTACK!</span>
+                        <img
+                            src={actions.attack}
+                            onClick={() => setAnAction(ATTACK)}
+                            alt="Attack"
+                        ></img >
+                    </div >
+
+                </div >
+                <div className='flex-col-user__data'>
+
+                    <img src={imgLive} alt='lives'></img>
+                    <span>{playerLives}</span>
+                    <img src={imgCharge} alt='ki'></img>
+                    <span>{playerCharges}</span>
+
+                </div>
             </div>
             <div className="machine-action_container">
                 <div className='game-log'>
                     <span>{gameLog}</span>
                 </div>
-                <img src={machineAction} alt="machine action"></img>
-                <p>Machine lives: {machLives}</p>
-                <p>Machine charges: {machCharges}</p>
+                <img className='machine-img' src={machineAction} alt="machine action"></img>
+
+                <div className='flex-col-user__data'>
+
+                    <img src={imgLive} alt='lives'></img>
+                    <span>{machLives}</span>
+                    <img src={imgCharge} alt='ki'></img>
+                    <span>{machCharges}</span>
+
+                </div>
             </div>
-        </div>
+        </div >
     );
 }
 

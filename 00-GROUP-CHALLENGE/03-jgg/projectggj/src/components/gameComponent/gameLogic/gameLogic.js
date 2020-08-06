@@ -3,7 +3,7 @@ export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
 const FAIL = 'FAIL';
 
-function player(names, isMachine = false) {
+function player(names = 'Machine', isMachine = false) {
     let name = names;
     let charges = 1;
     let action = '';
@@ -47,7 +47,7 @@ function player(names, isMachine = false) {
         } else if (comingAction === ATTACK && action === ATTACK) {
             log = ('Both attacks, noone gets hurt')
         } else {
-            log = ('Enemy doesnt attack ')
+            log = ("Enemy doesn't attack ")
         }
 
         return log;
