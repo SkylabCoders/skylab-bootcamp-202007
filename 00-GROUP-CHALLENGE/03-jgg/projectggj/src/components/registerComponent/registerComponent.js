@@ -12,10 +12,10 @@ function RegisterComponent() {
     const [password1, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
 
-function handleChange(event, setValueCallback) {
-    event.preventDefault();
-    setValueCallback(event.target.value);
-}
+    function handleChange(event, setValueCallback) {
+        event.preventDefault();
+        setValueCallback(event.target.value);
+    }
 
 
 
@@ -25,9 +25,9 @@ function handleChange(event, setValueCallback) {
                 <h1 className="m-2">Register</h1>
 
                 <label>Name</label>
-                <input value={name} onChange={(event) => handleChange(event, setName)} id="inputName" className="m-1 form-control" type="email" placeholder="Name" required="" autoFocus=""></input>
+                <input value={name} onChange={(event) => handleChange(event, setName)} id="inputName" className="m-1 form-control" type="text" placeholder="Name" required="" autoFocus=""></input>
                 <label>Last Name</label>
-                <input value={lastName} onChange={(event) => handleChange(event, setLastName)} id="inputLastName" className="m-1 form-control" type="email" placeholder="Last Name" required="" autoFocus=""></input>
+                <input value={lastName} onChange={(event) => handleChange(event, setLastName)} id="inputLastName" className="m-1 form-control" type="text" placeholder="Last Name" required="" autoFocus=""></input>
                 <label>Birth Date</label>
                 <input value={birthDate} onChange={(event) => handleChange(event, setBirthDate)} id="inputBirthDate" className="m-1 form-control" type="date" placeholder="Date" required="" autoFocus=""></input>
                 <label>Email address</label>
