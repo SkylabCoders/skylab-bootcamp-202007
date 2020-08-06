@@ -7,6 +7,7 @@ import { loadRepoList } from '../../actions/userDetailActions';
 import RepoCard from '../RepoCard/RepoCard';
 import UserInfo from './UserInfo/UserInfo';
 import landingStore from '../../stores/landingStore';
+import { FormControl, Button } from 'react-bootstrap';
 
 function UserDetail() {
 	const [repoList, setRepoList] = useState([]);
@@ -28,24 +29,47 @@ function UserDetail() {
 		setRepoList(userDetailStore.getRepoList());
 	}
 
-	const createRepoButton = <button>New Repo</button>;
+	const createRepoButton = <button className="create__button">New Repo</button>;
 
-	return (
+	const repoListLayout = (
 		<div className="userdetail__container">
-			<div className="userdetail__user-info">
-				{console.log(userName)}
-				{userName && <UserInfo githubUserName={userName} />}
-			</div>
-			<div className="userdetail__repo-list">
-				{repoList.map((repo) => {
-					return <RepoCard repoInfoList={repo} />;
-				})}
+			<div className="topContent">
+				<div className="userdetail__user-info">
+					{userName && <UserInfo githubUserName={userName} />}
+				</div>
+				<div className="userdetail__repo-list">
+					{repoList.map((repo) => {
+						return <RepoCard repoInfoList={repo} />;
+					})}
+				</div>
 			</div>
 			<div className="userdetail__repo-creation">
-				{isUserGitHub ? createRepoButton : null}
+				<div className="creation__left">
+					{isUserGitHub ? createRepoButton : null}
+				</div>
+				<div className="creation__right"></div>
 			</div>
 		</div>
 	);
+
+	const searchBarLayout = (
+		<div className="search__container">
+			<p>
+				Seems you're nog logged in with GitHub,
+				<strong> but you can still search for any public repo</strong>
+			</p>
+			<FormControl
+				type="text"
+				placeholder="Repo URL..."
+				className="mr-sm-2 search__input"
+			/>
+			<Button variant="outline-info" className="searchbar--button">
+				Go
+			</Button>
+		</div>
+	);
+
+	return isUserGitHub ? repoListLayout : searchBarLayout;
 }
 
 export default UserDetail;
