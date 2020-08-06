@@ -139,14 +139,43 @@ class RepoInfoStore extends EventEmitter {
 		return repoGroupInfoStats;
 	}
 	//THIRD CARD METHODS
+	setCommitsRankingWinnersArr(data) {
+		let usersRanking = [...data]
+			.sort((a, b) => {
+				return a.total - b.total;
+			})
+			.reverse()
+			.splice(0, 3);
+		return usersRanking;
+	}
+	retrieveNamesFromArray(arr) {
+		let nameArray = arr.map((elem) => elem.author.login);
+
+		return nameArray;
+	}
+	retrieveNumberOfCommitsFromArray(arr) {
+		let numberOfCommits = arr.map((elem) => elem.total);
+
+		return numberOfCommits;
+	}
 	setRankingRepoInfo(userName) {
 		let repoRankingInfoStats = {
 			data: _rankingInfo,
 			user: userName,
 			userCommits: 'null',
-			commitsRanking: 'null'
+			commitsRankingArr: 'null',
+			commitsRankingNames: 'null',
+			commitsRankingTotalNumber: 'null'
 		};
-		debugger;
+		repoRankingInfoStats.commitsRankingArr = this.setCommitsRankingWinnersArr(
+			repoRankingInfoStats.data
+		);
+		repoRankingInfoStats.commitsRankingNames = this.retrieveNamesFromArray(
+			repoRankingInfoStats.commitsRankingArr
+		);
+		repoRankingInfoStats.commitsRankingTotalNumber = this.retrieveNumberOfCommitsFromArray(
+			repoRankingInfoStats.commitsRankingArr
+		);
 		return repoRankingInfoStats;
 	}
 	getRankingRepoInfo(userName) {

@@ -41,7 +41,6 @@ export function loadGroupRepoInfo(repoName, orgName) {
 export function loadRankingRepoInfo(repoName, orgName) {
 	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}/stats/contributors`;
 	/* https://api.github.com/repos/SkylabCoders/skylab-bootcamp-202007/stats/contributors */
-	debugger;
 
 	fetch(endPoint, {
 		headers: {

@@ -211,26 +211,38 @@ function RepoDetail() {
 						</h3>
 						<h3>&#129351; </h3>
 						<h3>
-							Esther <span>-</span>
+							{rankingInfo.commitsRankingNames &&
+								rankingInfo.commitsRankingNames[0]}{' '}
+							<span>-</span>
 							<span className="carrousel-main-container__ranking-title user-repositorie__commits-title">
 								{' '}
-								15 commits
+								{rankingInfo.commitsRankingTotalNumber &&
+									rankingInfo.commitsRankingTotalNumber[0]}{' '}
+								commits
 							</span>
 						</h3>
 						<h3>&#129352;</h3>
 						<h3>
-							Esther <span>-</span>
+							{rankingInfo.commitsRankingNames &&
+								rankingInfo.commitsRankingNames[1]}{' '}
+							<span>-</span>
 							<span className="carrousel-main-container__ranking-title user-repositorie__commits-title">
 								{' '}
-								15 commits
+								{rankingInfo.commitsRankingTotalNumber &&
+									rankingInfo.commitsRankingTotalNumber[1]}{' '}
+								commits
 							</span>
 						</h3>
 						<h3>&#129353;</h3>
 						<h3>
-							Esther <span>-</span>
-							<span className="user-repositorie__commits-title">
+							{rankingInfo.commitsRankingNames &&
+								rankingInfo.commitsRankingNames[2]}{' '}
+							<span>-</span>
+							<span className="carrousel-main-container__ranking-title user-repositorie__commits-title">
 								{' '}
-								15 commits
+								{rankingInfo.commitsRankingTotalNumber &&
+									rankingInfo.commitsRankingTotalNumber[2]}{' '}
+								commits
 							</span>
 						</h3>
 					</Carousel.Caption>
