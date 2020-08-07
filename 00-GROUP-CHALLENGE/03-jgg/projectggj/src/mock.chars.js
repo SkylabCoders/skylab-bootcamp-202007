@@ -241,7 +241,7 @@ const charList = [
         "_id": "5e55d34d1e28cdDS00173fb799",
         "name": "Beerus",
         "series": "Super",
-        "image": "https://static.wikia.nocookie.net/dragonball-next-future/images/6/64/Photo02.jpg/revision/latest?cb=20180206080713",
+        "image": "https://static.zerochan.net/Beerus.full.2189426.jpg",
         "created": "2020-02-26T02:09:17.175Z",
         "url": "/api/character/beerus",
         "__v": 0
