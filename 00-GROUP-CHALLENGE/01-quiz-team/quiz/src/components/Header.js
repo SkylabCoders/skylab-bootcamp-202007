@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import '../css/header.css'
 
 
-function Header(props) {
+function Header() {
 	return (
 		<>
 			<div className="header border border-info">
