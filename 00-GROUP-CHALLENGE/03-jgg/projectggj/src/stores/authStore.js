@@ -55,6 +55,8 @@ dispatcher.register((action) => {
 
         //CREATE.PROFILE doesn't need any data because is not sending anything, in fact you don't have to add any
         case actionTypes.CREATE_PROFILE:
+            _userProfile = action.data;
+            authStore.emitChange();
             break;
         default:
             break;
