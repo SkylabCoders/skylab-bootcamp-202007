@@ -12,8 +12,7 @@ function ListItemRecipe({ title }) {
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 		if (recipesList.length === 0) {
-			loadRecipe();
-
+			recipeStore.getRecipes()
 		} else {
 			const actualRecipe = recipeStore.getRecipeByTitle(title);
 			if (actualRecipe) {

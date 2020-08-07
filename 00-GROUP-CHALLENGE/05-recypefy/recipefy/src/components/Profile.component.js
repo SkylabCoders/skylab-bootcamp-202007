@@ -7,7 +7,6 @@ function ProfileComponent() {
 	const [userPhoto, setUserPhoto] = useState('');
 
 	useEffect(() => {
-		debugger;
 		authStore.addChangeListener(onChange);
 		if (!user) {
 			setUser(authStore.getUserProfile());
@@ -15,7 +14,6 @@ function ProfileComponent() {
 		if (user.user.photoURL) {
 			setUserPhoto(user.user.photoURL);
 		}
-		console.log(userPhoto);
 		return () => authStore.removeChangeListener;
 	}, [user]);
 
