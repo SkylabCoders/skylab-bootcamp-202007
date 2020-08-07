@@ -39,7 +39,7 @@ function Header(props) {
 
 					<div className="header-login">
 						<div className="header-login__hidden-menu">
-							{authStore.isLogged() ? (
+							{login ? (
 								<div className="header-login__button" onClick={() => logout()}>
 									Logout
 								</div>
