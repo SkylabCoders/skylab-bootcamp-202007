@@ -62,3 +62,8 @@ body {
 	width: 50%;
 	margin: 10px;
 }
+
+.repoCard__navlink {
+	color: white;
+	text-decoration: none;
+}
