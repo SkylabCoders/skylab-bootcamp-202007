@@ -73,7 +73,7 @@ input.form-control:focus {
 }
 
 .welcome-login {
-	color: #ffffff;
+	color: black;
 }
 
 @media only screen and (min-width: 600px) {
