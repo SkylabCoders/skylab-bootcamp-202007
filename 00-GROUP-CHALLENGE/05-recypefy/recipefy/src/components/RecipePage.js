@@ -39,27 +39,30 @@ function RecipePage() {
 		return decodeURI(title);
 	}
 
-	for (let i = 0; i < recipeElement.preferences.length; i++) {
-		if (recipeElement.preferences[i] === 'Balanced') {
-			balanced = true;
-		} else if (recipeElement.preferences[i] === 'High-Protein') {
-			protein = true;
-		} else if (recipeElement.preferences[i] === 'Low-Fat') {
-			low_fat = true;
-		} else if (recipeElement.preferences[i] === 'Low-Carb') {
-			low_carb = true;
-		} else if (recipeElement.preferences[i] === 'Vegan') {
-			vegan = true;
-		} else if (recipeElement.preferences[i] === 'Vegetarian') {
-			vegetarian = true;
-		} else if (recipeElement.preferences[i] === 'Sugar-Conscious') {
-			sugar = true;
-		} else if (recipeElement.preferences[i] === 'Peanut-Free') {
-			peanut = true;
-		} else if (recipeElement.preferences[i] === 'Tree-Nut-Free') {
-			treenut = true;
-		} else if (recipeElement.preferences[i] === 'Alcohol-Free') {
-			alcohol = true;
+	if (recipeElement.preferences) {
+
+		for (let i = 0; i < recipeElement.preferences.length; i++) {
+			if (recipeElement.preferences[i] === 'Balanced') {
+				balanced = true;
+			} else if (recipeElement.preferences[i] === 'High-Protein') {
+				protein = true;
+			} else if (recipeElement.preferences[i] === 'Low-Fat') {
+				low_fat = true;
+			} else if (recipeElement.preferences[i] === 'Low-Carb') {
+				low_carb = true;
+			} else if (recipeElement.preferences[i] === 'Vegan') {
+				vegan = true;
+			} else if (recipeElement.preferences[i] === 'Vegetarian') {
+				vegetarian = true;
+			} else if (recipeElement.preferences[i] === 'Sugar-Conscious') {
+				sugar = true;
+			} else if (recipeElement.preferences[i] === 'Peanut-Free') {
+				peanut = true;
+			} else if (recipeElement.preferences[i] === 'Tree-Nut-Free') {
+				treenut = true;
+			} else if (recipeElement.preferences[i] === 'Alcohol-Free') {
+				alcohol = true;
+			}
 		}
 	}
 
@@ -178,6 +181,9 @@ function RecipePage() {
 										></img>
 									)}
 								</div>
+								{!recipeElement.preferences &&
+									<p className="error_text">No preferences</p>
+								}
 							</div>
 
 						</div>

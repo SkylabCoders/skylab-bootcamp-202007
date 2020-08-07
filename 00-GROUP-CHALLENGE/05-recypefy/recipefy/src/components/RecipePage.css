@@ -90,6 +90,9 @@ p {
 	max-width: 250px;
 	border-radius: 15px;
 }
+.error_text {
+	text-align: center;
+}
 
 .underphoto__button {
 	padding: 15px;
