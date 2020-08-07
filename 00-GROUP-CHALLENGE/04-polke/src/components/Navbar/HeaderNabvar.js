@@ -45,7 +45,8 @@ function HeaderNavbar() {
 								placeholder="Search URL repo"
 								className="mr-sm-2 navBar--input"
 							/>
-							<Button
+							<NavLink
+								to="/repoDetail/username/reponame"
 								variant="outline-info"
 								className="searchbar--button"
 								onClick={(event) => {
@@ -60,7 +61,7 @@ function HeaderNavbar() {
 								}}
 							>
 								Go
-							</Button>
+							</NavLink>
 						</Form>
 					</Navbar.Collapse>
 				</div>
