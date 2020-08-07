@@ -10,12 +10,13 @@
 }
 
 .inner__header{
-    width: 90%;
+    width: 80vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
+
 nav{
     margin: 0 1rem;
     width: 100%;
@@ -35,6 +36,7 @@ nav{
 
 .nav__list{
     list-style-type: none;
+    padding-inline-start: 0;
 }
 
 .nav__list > li {
@@ -49,6 +51,10 @@ nav{
 
 .img__header{
     width: 25%;
+}
+
+.login__button__link{
+    display: none;
 }
 
 .login__button{
@@ -71,6 +77,10 @@ nav{
     color: black;
     text-decoration: underline dotted black;
 } 
+
+.login__icon{
+    width: 10vw;
+}
 
 
 
@@ -98,6 +108,14 @@ nav{
         width: 25%;
     }
 
+    .login__button__link{
+        display:  contents;
+    }
+
+    .login__icon{
+        display:none;
+    }
+
 }
 
 @media (min-width: 1024px) {
@@ -123,5 +141,14 @@ nav{
         justify-content: left;
         align-items: center;
     }
+    
+    .login__button__link{
+        display: contents;
+    }
+
+    .login__icon{
+        display:none;
+    }
+
 }
 
