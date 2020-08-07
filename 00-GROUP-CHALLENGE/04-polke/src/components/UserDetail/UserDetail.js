@@ -8,11 +8,14 @@ import RepoCard from '../RepoCard/RepoCard';
 import UserInfo from './UserInfo/UserInfo';
 import landingStore from '../../stores/landingStore';
 import { FormControl, Button } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 function UserDetail() {
 	const [repoList, setRepoList] = useState([]);
 	const [userName, setUserName] = useState(null);
 	const [isUserGitHub, setIsUserGitHub] = useState(false);
+	const [searchUsername, setSearchUsername] = useState('');
+	const [searchProject, setSearchProject] = useState('');
 
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);
@@ -62,9 +65,23 @@ function UserDetail() {
 				type="text"
 				placeholder="Repo URL..."
 				className="mr-sm-2 search__input"
+				onKeyUp={(event) => {
+					event.preventDefault();
+					const URLSearch =
+						document
+							.getElementsByClassName('search__input')[0]
+							.value.split('/') || 'Need a valid URL';
+					setSearchUsername(URLSearch[3]);
+					setSearchProject(URLSearch[4]);
+				}}
 			/>
 			<Button variant="outline-info" className="searchbar--button">
-				Go
+				<NavLink
+					to={`/repoDetail/${searchUsername}/${searchProject}`}
+					className="searchbar__navlink"
+				>
+					Go
+				</NavLink>
 			</Button>
 		</div>
 	);

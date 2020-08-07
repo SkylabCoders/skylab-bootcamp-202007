@@ -67,3 +67,11 @@ body {
 	color: white;
 	text-decoration: none;
 }
+
+.searchbar__navlink {
+	color: #17a2b8;
+}
+
+.searchbar__navlink:hover {
+	color: white;
+}

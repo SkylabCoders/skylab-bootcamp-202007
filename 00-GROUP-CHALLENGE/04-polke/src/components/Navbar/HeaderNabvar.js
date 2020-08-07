@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../shared/generalStyles.css';
 import './HeaderNavbar.css';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Switch from './Switch/Switch';
-import { logout } from '../../actions/loginActions';
-import landingStore from '../../stores/landingStore';
-import navbarStore from '../../stores/navbarStore';
 
 function HeaderNavbar() {
+	const [username, setUsername] = useState('');
+	const [project, setProject] = useState('');
+
 	const imgLogo = (
 		<img
 			src={require('../../assets/img/logo.png')}
@@ -17,6 +16,7 @@ function HeaderNavbar() {
 			className="navbar__logo"
 		/>
 	);
+
 	return (
 		<>
 			<Navbar
@@ -47,24 +47,24 @@ function HeaderNavbar() {
 								type="text"
 								placeholder="Search URL repo"
 								className="mr-sm-2 navBar--input"
-							/>
-							<NavLink
-								to="/repoDetail/username/reponame"
-								variant="outline-info"
-								className="searchbar--button"
-								onClick={(event) => {
-									debugger;
+								onKeyUp={(event) => {
 									event.preventDefault();
 									const URLSearch =
 										document
 											.getElementsByClassName('navBar--input')[0]
 											.value.split('/') || 'Need a valid URL';
-									const username = URLSearch[3];
-									const project = URLSearch[4];
+									setUsername(URLSearch[3]);
+									setProject(URLSearch[4]);
 								}}
-							>
-								Go
-							</NavLink>
+							/>
+							<Button variant="outline-info" className="searchbar--button">
+								<NavLink
+									to={`/repoDetail/${username}/${project}`}
+									className="navbar__button-nav"
+								>
+									Go
+								</NavLink>
+							</Button>
 						</Form>
 					</Navbar.Collapse>
 				</div>
