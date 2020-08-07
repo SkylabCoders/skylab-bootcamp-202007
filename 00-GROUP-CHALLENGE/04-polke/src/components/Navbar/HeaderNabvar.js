@@ -4,6 +4,7 @@ import '../../shared/generalStyles.css';
 import './HeaderNavbar.css';
 import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { logout } from '../../actions/loginActions';
 
 function HeaderNavbar() {
 	const [username, setUsername] = useState('');
@@ -65,6 +66,15 @@ function HeaderNavbar() {
 									Go
 								</NavLink>
 							</Button>
+							<NavLink
+								to="/"
+								className="nav__button"
+								onClick={(event) => {
+									logout();
+								}}
+							>
+								Log Out
+							</NavLink>
 						</Form>
 					</Navbar.Collapse>
 				</div>

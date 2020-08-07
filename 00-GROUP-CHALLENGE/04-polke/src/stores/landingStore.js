@@ -59,6 +59,8 @@ dispatcher.register((action) => {
 		case actionTypes.LOGOUT:
 			_isLogged = false;
 			_userProfile = null;
+			_isGitHubUser = false;
+			_gitHubUserName = '';
 			landingStore.emitChange();
 			break;
 
