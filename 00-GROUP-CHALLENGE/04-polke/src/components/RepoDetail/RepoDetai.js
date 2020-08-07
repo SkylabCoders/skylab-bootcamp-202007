@@ -9,13 +9,12 @@ import { loadRankingRepoInfo } from '../../actions/repoDetailActions';
 function RepoDetail(props) {
 	const orgNameURL = props.match.params.userName;
 	const repoNameURL = props.match.params.repoName;
-	//repoInfo
 	const [repoInfo, setRepoInfo] = useState([]);
 	const [groupInfo, setGroupInfo] = useState([]);
 	const [rankingInfo, setRankingInfo] = useState([]);
-	const [repoName, setRepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
-	const [orgName, setOrgName] = useState('SkylabCoders'); //obj.orgName
-	const [userName, setUserName] = useState('Gilberto Cao'); //obj.userName
+	const [repoName, setRepoName] = useState(repoNameURL);
+	const [orgName, setOrgName] = useState(orgNameURL);
+	const [userName, setUserName] = useState(orgNameURL);
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);

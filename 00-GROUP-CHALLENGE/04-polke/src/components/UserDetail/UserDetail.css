@@ -21,6 +21,7 @@ body {
 .userdetail__repo-list {
 	width: 71%;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .userdetail__repo-creation {
