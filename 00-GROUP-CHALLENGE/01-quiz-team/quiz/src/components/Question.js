@@ -5,8 +5,6 @@ import './../css/Question.css'
 import Option from './Option'
 import Answer from './Answer';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import { get } from 'http';
-import { SlowBuffer } from 'buffer';
 
 function Question(props) {
     const [question, setQuestion] = useState();
@@ -16,39 +14,36 @@ function Question(props) {
     const [timerIsOn, setTimerIsOn] = useState(false);
     const [clicked, setClicked] = useState(false);
 
-    function getValue(value,listenClick) {
+    function getValue(value, listenClick) {
 
-        if(timerIsOn === false){
-            setResultat(`Time!! The correct answer is ${question.correct_answer}`);
-        }
-        else if (!listenClick) {
-            setClicked(true);
-            //console.log('has hecho click!')
-            if(value){
-                setResultat('YOU ARE RIGHT!');
-                setSuccess(true);
-                setTimerIsOn(false)
-            }
-            else{
-                setResultat(`Incorrect!! The correct answer is ${question.correct_answer}`);
-                setSuccess(false);
-                setTimerIsOn(false)
+        if (timerIsOn) {
+
+            if (!listenClick) {
+                setClicked(true);
+                if (value) {
+                    setResultat('YOU ARE RIGHT!');
+                    setSuccess(true);
+                    setTimerIsOn(false)
+                }
+                else {
+                    setResultat(`Incorrect!! The correct answer is ${question.correct_answer}`);
+                    setSuccess(false);
+                    setTimerIsOn(false)
+                }
             }
         }
     }
-
-   
 
     function launchTimer() {
 
         const renderTime = ({ remainingTime }) => {
             if (remainingTime === 0) {
                 setTimerIsOn(false)
+                setResultat(`Time!! The correct answer is ${question.correct_answer}`);
                 return <div className="timer">Time's Up!!!!</div>;
             }
-    
+
             return (
-    
                 <div className="timer">
                     <div className="text">Remaining</div>
                     <div className="value">{remainingTime}</div>
@@ -74,7 +69,7 @@ function Question(props) {
             );
         }
 
-      
+
     }
 
     useEffect(() => {
@@ -100,13 +95,13 @@ function Question(props) {
                     <p className="">{question.question}</p>
                     <p>Choose the correct answer</p>
                     <ul className="list__container">
-                        <Option option={question.correct_answer} answer={function getAnswer() { getValue(true,clicked) }} />
-                        <Option option={question.incorrect_answers[0]}  answer={function getAnswer() { getValue(false,clicked) }} />
-                        <Option option={question.incorrect_answers[1]}  answer={function getAnswer() { getValue(false, clicked) }} />
-                        <Option option={question.incorrect_answers[2]}  answer={function getAnswer() { getValue(false, clicked) }} />
+                        <Option option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />
+                        <Option option={question.incorrect_answers[0]} answer={function getAnswer() { getValue(false, clicked) }} />
+                        <Option option={question.incorrect_answers[1]} answer={function getAnswer() { getValue(false, clicked) }} />
+                        <Option option={question.incorrect_answers[2]} answer={function getAnswer() { getValue(false, clicked) }} />
                         {resultat}
                     </ul>
-                    <button onClick={()=>{props.click(success)}}>Next Question</button>
+                    <button onClick={() => { props.click(success) }}>Next Question</button>
                 </div>
             )
             else if (question.type === Boolean) return (
@@ -117,7 +112,7 @@ function Question(props) {
                     <Option option={question.correct_answer} />
                     <Option option={question.incorrect_answers} />
                     {resultat}
-                    <button onClick={()=>{props.click(success)}}>Next Question</button>
+                    <button onClick={() => { props.click(success) }}>Next Question</button>
                 </div>
             );
         }
