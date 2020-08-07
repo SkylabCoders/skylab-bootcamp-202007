@@ -6,7 +6,7 @@ export default function decodeFast(string){
         .replace(/&lsquo;/g, '<<')
         .replace(/&rsquo;/g, '>>');
 
-    while ((/&/g).test(result)){
+    if ((/&/g).test(result)){
         result = runDecodeMap(result);
     }
 

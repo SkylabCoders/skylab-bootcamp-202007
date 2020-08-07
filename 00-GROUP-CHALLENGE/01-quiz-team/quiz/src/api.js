@@ -12,8 +12,8 @@ export default async function getApiData(category = 'all', difficulty = 'all', t
       for(let el of result){
         el.question = decodeFast(el.question);
         el.correct_answer = decodeFast(el.correct_answer);
-        for (let a of el.incorrect_answers){
-            a = decodeFast(a);
+        for (let i = 0; i < el.incorrect_answers.length; i++){
+          el.incorrect_answers[i] = decodeFast(el.incorrect_answers[i]);
         }
       }
 
