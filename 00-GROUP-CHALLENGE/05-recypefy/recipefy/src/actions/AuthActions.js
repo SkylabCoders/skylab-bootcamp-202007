@@ -4,12 +4,11 @@ import {authMethods} from "../firebase/firebaseAuthMethods";
 
 export function login(email, password){
     return authMethods.signin(email, password).then(data => {
-        console.log(data);
         dispatcher.dispatch({
             type: actionTypes.LOGIN,
             data
         })
-    }).catch(error => console.log(error))
+    }).catch((event) => window.alert('Error in loggin process'))
 
    
 }
@@ -28,7 +27,7 @@ export function googleLogin(){
             type: actionTypes.LOGIN,
             data
         })
-    }).catch(e => console.log(e))
+    }).catch(e => window.alert('Error in login process'))
 }
 
 export function anonymousLogin(){

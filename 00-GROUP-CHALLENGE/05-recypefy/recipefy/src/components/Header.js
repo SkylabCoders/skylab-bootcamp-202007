@@ -23,7 +23,7 @@ function Header() {
 	}
 	function sendSearch() {
 		loadRecipe(actualSearch);
-		onFieldChange(initialState, setActualSearch);
+		onFieldChange(initialState, setActualSearch)
 	}
 	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';
 	return (

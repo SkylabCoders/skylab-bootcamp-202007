@@ -21,20 +21,19 @@ function RecipeCard({ title }) {
 	const [actualRecipeTitle, setActualRecipeTitle] = useState('');
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
-		if (actualRecipe.length === 0) {
-			loadRecipe();
-		} else {
+
 			if (actualRecipe) {
 				setActualRecipePhoto(actualRecipe.photo);
 				setActualRecipeTitle(actualRecipe.title);
 			}
-		}
+		
 		return () => recipeStore.removeChangeListener(onChange);
 	}, []);
 
 	function onChange() {
 		setActualRecipe(recipeStore.getRecipeByTitle(title));
 	}
+
 	for (let i = 0; i < actualRecipe.preferences.length; i++) {
 		if (actualRecipe.preferences[i] === 'Balanced') {
 			balanced = true;
