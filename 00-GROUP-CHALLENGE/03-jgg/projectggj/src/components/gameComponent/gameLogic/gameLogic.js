@@ -52,14 +52,6 @@ function player(names = 'Machine', isMachine = false) {
 
         return log;
     }
-    // function recibeActionRobot(comingAction) {
-    //     let log = "";
-    //     if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
-    //         --lives;
-    //         log = name + ' recived an attack! ' + lives + ' remain';
-    //     }
-    //     return log;
-    // }
 
     function translateAction(naction) {
         if (naction === '0')
