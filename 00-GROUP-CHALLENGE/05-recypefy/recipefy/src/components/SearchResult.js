@@ -11,9 +11,6 @@ function SearchResult() {
 
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
-		if (searchListResult.length === 0) {
-			loadRecipe();
-		}
 		return () => recipeStore.removeChangeListener;
 	}, [searchListResult.length]);
 
