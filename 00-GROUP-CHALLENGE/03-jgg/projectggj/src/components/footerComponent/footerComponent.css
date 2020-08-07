@@ -8,25 +8,24 @@
 }
 
 .mainContainer>p {
-    position: absolute;
     color: rgb(212, 211, 211);
     font-style: oblique;
     right: 10px;
+    margin: 0;
 }
 
 img {
     cursor: pointer;
-    width: 100px;
-    margin-left: 0;
-
+    width: 80px;
 }
 
 @media (min-width:640px) {
     .mainContainer {
-        justify-content: center;
+        justify-content: space-between;
     }
 
     .mainContainer>img {
         align-items: center;
     }
+    
 }
