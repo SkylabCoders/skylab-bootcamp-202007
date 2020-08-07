@@ -139,6 +139,12 @@ class RepoInfoStore extends EventEmitter {
 		return repoGroupInfoStats;
 	}
 	//THIRD CARD METHODS
+	retrieveUserTotalCommits(data, user) {
+		let userCommits = data
+			.filter((elem) => elem.author.login === 'infohab')
+			.map((elem) => elem.total);
+		return userCommits;
+	}
 	setCommitsRankingWinnersArr(data) {
 		let usersRanking = [...data]
 			.sort((a, b) => {
@@ -175,6 +181,10 @@ class RepoInfoStore extends EventEmitter {
 		);
 		repoRankingInfoStats.commitsRankingTotalNumber = this.retrieveNumberOfCommitsFromArray(
 			repoRankingInfoStats.commitsRankingArr
+		);
+		repoRankingInfoStats.userCommits = this.retrieveUserTotalCommits(
+			repoRankingInfoStats.data,
+			repoRankingInfoStats.user
 		);
 		return repoRankingInfoStats;
 	}

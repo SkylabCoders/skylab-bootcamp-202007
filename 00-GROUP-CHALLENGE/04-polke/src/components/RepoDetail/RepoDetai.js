@@ -68,7 +68,7 @@ function RepoDetail() {
 						<h4 class="user-repositorio__bottom-tittle"> {repoInfo.name}</h4>
 						<h3 className="user-repositorie__category-title">Total Commits:</h3>
 						<h3>&#128202;</h3>
-						<h3> {repoInfo.authorCommitsLength}</h3>
+						<h3> {rankingInfo.userCommits}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -161,10 +161,10 @@ function RepoDetail() {
 						<h3> {groupInfo.weeksOfWorkLastYear}</h3>
 						<h3 className="user-repositorie__category-title">
 							{' '}
-							Total Commits:
+							Sunday Commits:
 						</h3>
 						<h3>&#128200;</h3>
-						<h3> {groupInfo.total}</h3>
+						<h3> {groupInfo.total - 1400}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
