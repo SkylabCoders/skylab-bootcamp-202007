@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { loadQuestion } from './../actions/questionActions';
 import gameStore from './../stores/gameStore';
-import './../css/Question.css'
-import Option from './Option'
+import './../css/Question.css';
+import Option from './Option';
 import Answer from './Answer';
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import shuffleArray from './../utils/shuffleArray';
 
 function Question(props) {
     const [question, setQuestion] = useState();
@@ -98,8 +99,24 @@ function Question(props) {
                 </div>
             );
         }
+    }
 
+    function shuffleOptionsMulti(){
+        let arr = [
+            <Option option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />,
+            <Option option={question.incorrect_answers[0]} answer={function getAnswer() { getValue(false, clicked) }} />,
+            <Option option={question.incorrect_answers[1]} answer={function getAnswer() { getValue(false, clicked) }} />,
+            <Option option={question.incorrect_answers[2]} answer={function getAnswer() { getValue(false, clicked) }} />,
+        ];
+        return shuffleArray(arr);
+    }
 
+    function shuffleOptionsBoolean(){
+        let arr = [
+            <Option option={question.incorrect_answers} answer={function getAnswer() { getValue(false, clicked) }} />,
+            <Option option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />
+        ];
+        return shuffleArray(arr); 
     }
 
     const typeOfAnswer = () => {
@@ -112,23 +129,21 @@ function Question(props) {
                     <p className="">{question.question}</p>
                     <p>Choose the correct answer</p>
                     <ul className="list__container">
-                        <Option option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />
-                        <Option option={question.incorrect_answers[0]} answer={function getAnswer() { getValue(false, clicked) }} />
-                        <Option option={question.incorrect_answers[1]} answer={function getAnswer() { getValue(false, clicked) }} />
-                        <Option option={question.incorrect_answers[2]} answer={function getAnswer() { getValue(false, clicked) }} />
+                        {shuffleOptionsMulti()}
                         {resultat}
                     </ul>
                     <button onClick={() => { props.click(success) }}>Next Question</button>
                 </div>
             )
-            else if (question.type === Boolean) return (
+            else if (question.type === 'boolean') return (
                 <div>
                     <h2 className="question__title">Question: {question.category}</h2>
                     <p className="">{question.question}</p>
                     <p>True or false</p>
-                    <Option option={question.correct_answer} />
-                    <Option option={question.incorrect_answers} />
-                    {resultat}
+                    <ul className="list__container">
+                        {shuffleOptionsBoolean()}
+                        {resultat}
+                    </ul>
                     <button onClick={() => { props.click(success) }}>Next Question</button>
                 </div>
             );
