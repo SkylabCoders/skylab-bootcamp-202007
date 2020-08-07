@@ -27,10 +27,13 @@ function HeaderNavbar() {
 			>
 				<div className="navbar--logoText">
 					<Navbar.Brand>
-						<NavLink to="/userDetail">{imgLogo}</NavLink>
+						<NavLink to="/">{imgLogo}</NavLink>
 					</Navbar.Brand>
-					<h1 className="navbar--text">GitData</h1>
+					<h1 className="navbar--text">GitData |</h1>
 				</div>
+				<NavLink to="/userDetail" className="navbar__navlink">
+					User Repos
+				</NavLink>
 				<div className="spacer"></div>
 				<div className="navBar--flex">
 					<Navbar.Toggle
