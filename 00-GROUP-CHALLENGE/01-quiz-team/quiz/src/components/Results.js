@@ -7,7 +7,10 @@ function Results(props){
     return (
         <div className="results">
             <section className="section__results">
-                <h2>Game results:</h2>
+                <h2>Your scores:</h2>
+                <p>·</p>
+                <p className='results__message'>{props.data_points} points, {props.data_message}</p>
+                <p>·</p>
                 <p>Game started at {props.data_started} and ended at {props.data_ended}</p>
                 <p>Total playtime: {props.data_played}.</p>
                 <p>Number of questions asked: {props.data_questions_total}</p>
