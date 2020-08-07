@@ -5,13 +5,15 @@ import RepoInfoStore from '../../stores/repoDetailStore';
 import { loadUserRepoInfo } from '../../actions/repoDetailActions';
 import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 
-function RepoDetail() {
-	//repoInfo
-	const [repoInfo, setrepoInfo] = useState([]);
+function RepoDetail(props) {
+	const orgNameURL = props.match.params.userName;
+	const repoNameURL = props.match.params.repoName;
+
 	const [groupInfo, setgroupInfo] = useState([]);
-	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
-	const [orgName, setOrgName] = useState('SkylabCoders'); //obj.orgName
-	const [userName, setUserName] = useState('Gilberto Cao'); //obj.userName
+	const [repoInfo, setrepoInfo] = useState([]);
+	const [repoName, setrepoName] = useState('skylab-bootcamp-202007'); //propsObject.repoName
+	const [orgName, setOrgName] = useState('SkylabCoders'); //propsObject.orgName
+	const [userName, setUserName] = useState('Gilberto Cao'); //propsObject.userName
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);
@@ -35,7 +37,6 @@ function RepoDetail() {
 	function onChangeGroup() {
 		setgroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
 	}
-	console.log(repoInfo);
 	console.log('este', groupInfo);
 
 	return (
