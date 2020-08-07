@@ -58,7 +58,7 @@ function Login(){
     return(
         <div className="login__container">
             <div className="login__box">
-                <img src='https://image.flaticon.com/icons/svg/770/770906.svg'/>
+                <img className="login__logo--size" src='https://image.flaticon.com/icons/svg/770/770906.svg'/>
                 <h2 className="login__title">Login with</h2>
                     <form>
                         

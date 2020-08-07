@@ -6,7 +6,7 @@
 
 
 .login__container {
-    width: 100vw;
+    width: 100%;
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -98,4 +98,8 @@ form {
 
 .api__link:hover{
     color: honeydew;
+}
+
+.login__logo--size{
+    width: 50%;
 }
