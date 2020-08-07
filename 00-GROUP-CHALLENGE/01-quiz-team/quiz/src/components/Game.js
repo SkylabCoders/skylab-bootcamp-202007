@@ -14,15 +14,18 @@ function Game(props){
     const [sessionSet, setSessionSet] = useState([]);
     const [counter, setCounter] = useState(0);
     const [started] = useState(new Date().toISOString());
+    const [scores, setScores] = useState([]);
     const GAME_DATA = {
         totalQuestions: 0,
-        scores: [],
         points: 0,
         started: started,
         startedStr: '',
         ended: 0,
         endedStr: '',
-        playTime: 0
+        playTime: 0,
+        wrong: 0,
+        right: 0,
+        unanswered: 0
     }
 
     useEffect(()=>{
@@ -38,9 +41,7 @@ function Game(props){
     }
 
     function updateCounter(value = undefined){
-        console.log('valor entrada al component parent GAME', value);
-        GAME_DATA.scores.push({question: sessionSet[counter], completed: true, userAnser: value});
-        console.log('here are the scores from GAME', GAME_DATA.scores);
+        setScores([...scores, {question: sessionSet[counter], completed: true, userAnser: value}]);
         if (counter < sessionSet.length){ 
             setCounter(counter + 1); 
         } else { 
@@ -56,6 +57,11 @@ function Game(props){
         let end = new Date(GAME_DATA.ended);
         GAME_DATA.startedStr = `${start.getUTCHours()}:${start.getUTCMinutes()}:${start.getUTCSeconds()}`;
         GAME_DATA.endedStr = `${end.getUTCHours()}:${end.getUTCMinutes()}:${end.getUTCSeconds()}`;
+        for (let el of scores){
+            if(el.userAnser === true){ GAME_DATA.right++ }
+            if(el.userAnser === false){ GAME_DATA.wrong++ }
+            if(el.userAnser === ''){ GAME_DATA.unanswered++ }
+        }
     }
 
     function getPlayTime(){ 
@@ -97,6 +103,9 @@ function Game(props){
                         data_started={GAME_DATA.startedStr}
                         data_ended={GAME_DATA.endedStr}
                         data_played={GAME_DATA.played}
+                        data_right={GAME_DATA.right}
+                        data_wrong={GAME_DATA.wrong}
+                        data_unanswered={GAME_DATA.unanswered}
                         newGameClick={newGame}
                     />
                 </>
