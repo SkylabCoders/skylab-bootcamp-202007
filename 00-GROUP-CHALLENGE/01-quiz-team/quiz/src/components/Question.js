@@ -17,6 +17,11 @@ function Question(props) {
     useEffect(() => {
         gameStore.addChangeListener(onChange);
         loadQuestion(props.i);
+        return () => { gameStore.removeChangeListener(onChange); }
+    }, [props.i]);
+
+    useEffect(() => {
+        gameStore.addChangeListener(onChange);
         setResultat('');
         setClicked(false);
         return () => { gameStore.removeChangeListener(onChange); }
