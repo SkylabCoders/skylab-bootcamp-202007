@@ -19,17 +19,16 @@ class AuthStore extends EventEmitter{
     }
 
     emitChange(){
-        console.log('STORE emitting Event');
         this.emit(CHANGE_EVENT);
     }
     
     isLogged(){
-        console.log('STORE isLogged called from authStore with:', _SESSION_DATA.isLogged);
+        //console.log('STORE isLogged called from authStore with:', _SESSION_DATA.isLogged);
         return _SESSION_DATA.isLogged;
     }
 
     getUserProfile(){
-        console.log('STORE getUserProfile called from authStore with:', _SESSION_DATA.userProfile);
+        //console.log('STORE getUserProfile called from authStore with:', _SESSION_DATA.userProfile);
         return _SESSION_DATA.userProfile;
     }
 
@@ -42,13 +41,13 @@ export default authStore;
 dispatcher.register((action) => {
     switch (action.type){
         case actionTypes.LOGIN:
-            console.log('STORE registering action from dispatcher: LOGIN with data:', action.data);
+            //console.log('STORE registering action from dispatcher: LOGIN with data:', action.data);
             _SESSION_DATA.userProfile = action.data;
             _SESSION_DATA.isLogged = !!action.data;
             authStore.emitChange();
             break;
         case actionTypes.LOGOUT:
-            console.log('STORE registering action from dispatcher: LOGOUT');
+            //console.log('STORE registering action from dispatcher: LOGOUT');
             _SESSION_DATA.isLogged = false;
             _SESSION_DATA.userProfile = '';
             authStore.emitChange();
