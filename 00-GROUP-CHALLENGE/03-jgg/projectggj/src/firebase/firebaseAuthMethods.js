@@ -19,6 +19,7 @@ export const authMethods = {
 
     //This function to create a user in firebase throw reegisterComponent
     createAccount: (email, password) => {
+        debugger
         return firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((result) => console.log(result))
             .catch((error) => {
