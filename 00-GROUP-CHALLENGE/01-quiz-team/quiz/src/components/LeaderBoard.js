@@ -19,7 +19,7 @@ function LeaderBoard(){
     console.log('DATA AQUI', leaderboardList);
 
     return (
-        <div className="">
+        <div className="leaderboard">
             <h1>Leaderboard</h1>
             <ul>
                 {leaderboardList.map((e)=>(
