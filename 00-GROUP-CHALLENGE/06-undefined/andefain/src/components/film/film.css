@@ -6,6 +6,7 @@
 }
 
 .film-container {
+	background-color: #212121;
 	flex: 1;
 	margin: 0 auto;
 	width: 90%;
@@ -14,11 +15,10 @@
 }
 
 @media only screen and (min-width: 600px) {
-	.film-description {
+	.film-container {
 		width: 70%;
-		flex-direction: row;
 	}
 }
 
-@media only screen and (min-width: 1024) {
+@media only screen and (min-width: 1024px) {
 }
