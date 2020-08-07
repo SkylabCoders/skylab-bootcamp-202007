@@ -10,8 +10,8 @@
 .mainContainer>p {
     color: rgb(212, 211, 211);
     font-style: oblique;
-    right: 10px;
     margin: 0;
+    margin-right: 20px;
 }
 
 img {
