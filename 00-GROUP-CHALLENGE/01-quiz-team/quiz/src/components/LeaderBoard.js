@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import leaderboardStore from './../stores/leaderboardStore';
 import { loadLeaderboard } from './../actions/leaderboardActions';
+import './../css/leaderboard.css';
 
 function LeaderBoard(){
     const [leaderboardList, setLeaderboardList] = useState([]);
@@ -15,9 +16,16 @@ function LeaderBoard(){
         setLeaderboardList(leaderboardStore.getLeaderboard());
     }
 
+    console.log('DATA AQUI', leaderboardList);
+
     return (
         <div className="">
             <h1>Leaderboard</h1>
+            <ul>
+                {leaderboardList.map((e)=>(
+                    <li key={e.name}><strong>{e.name}</strong>, {e.points} points</li>
+                ))}
+            </ul>
         </div>
     )
 }
