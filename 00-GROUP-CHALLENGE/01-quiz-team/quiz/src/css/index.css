@@ -14,7 +14,8 @@ code {
 }
 
 button{
-  height: 25px;
+  min-width: 200px;
+  height: 35px;
   margin: 0 5px;
   background-color: goldenrod;
   box-sizing: border-box;
@@ -24,6 +25,8 @@ button{
   letter-spacing: 1px;
   border-radius: .25rem;
   border-style: none;
+  padding: 5px;
+  margin: 5px;
 } 
 
 button:hover{
