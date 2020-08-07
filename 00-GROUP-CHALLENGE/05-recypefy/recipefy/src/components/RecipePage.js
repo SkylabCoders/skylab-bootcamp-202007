@@ -39,7 +39,7 @@ function RecipePage() {
 		return decodeURI(title);
 	}
 
-	for (let i = 0; i < recipeElement.preferences.length - 1; i++) {
+	for (let i = 0; i < recipeElement.preferences.length; i++) {
 		if (recipeElement.preferences[i] === 'Balanced') {
 			balanced = true;
 		} else if (recipeElement.preferences[i] === 'High-Protein') {
@@ -62,6 +62,7 @@ function RecipePage() {
 			alcohol = true;
 		}
 	}
+
 
 	return (
 		<div className="desktop__display">
@@ -87,7 +88,7 @@ function RecipePage() {
 						</div>
 						<div className="title__img__container flex__column">
 							<h2>{titleString}</h2>
-							<img id="image-recipe" src={photo} />
+							<img className="image-recipe" id="image-recipe" src={photo} />
 							<p className="ingredients__source">{source}</p>
 						</div>
 					</div>
@@ -102,7 +103,8 @@ function RecipePage() {
 								{titleString}
 							</h2>
 
-							<div className="underphoto__button preference__box">
+							<div className="underphoto__button">
+
 								<div className="recipe__text--preferences">
 									{balanced && (
 										<img
@@ -177,8 +179,9 @@ function RecipePage() {
 									)}
 								</div>
 							</div>
+
 						</div>
-						<a href={url} className="underphoto__button">
+						<a href={url} className="underphoto__button--source">
 							LET'S COOK IT!<br></br> CLICK HERE
 						</a>
 					</div>
