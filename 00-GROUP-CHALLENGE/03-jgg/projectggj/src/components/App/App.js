@@ -11,6 +11,7 @@ import GameComponent from "../gameComponent/gameComponent";
 import authStore from '../../stores/authStore'
 import { Route, Switch } from "react-router-dom";
 import NavComponent from '../navComponent/navComponent';
+import ProfileComponent from '../profileComponent/profileComponent';
 
 
 function App(props) {
@@ -39,6 +40,7 @@ function App(props) {
         <Route path='/planet' component={PlanetComponent} />
         <Route path='/saga' component={SagaComponent} />
         <Route path='/game/:enemy' component={GameComponent} />
+        <Route path='/profile' component={ProfileComponent} />
 
       </Switch>
       <FooterComponent />
