@@ -6,6 +6,7 @@ const CHANGE_EVENT = 'change';
 
 let _repoInfo = [];
 let _groupInfo = [];
+let _rankingInfo = [];
 
 class RepoInfoStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -19,6 +20,7 @@ class RepoInfoStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
+	//FIRST CARD METHODS
 	calculateDate(first, last) {
 		let firsDateArr = first;
 		let secondDateArr = last;
@@ -32,11 +34,28 @@ class RepoInfoStore extends EventEmitter {
 	calculateLastActivity(dates) {
 		return dates.last[0];
 	}
+	retrieveAuthorCommitsLength(userRepos) {
+		return userRepos.length;
+	}
+	retrieveAuthorCommits(data, AuthorName) {
+		let AuthorCommits = data.filter(
+			(elem) => elem.commit.author.name === AuthorName
+		);
+		return AuthorCommits;
+	}
+	retrieveAuthorComments(data) {
+		let AuthorComments = data.map((elem) => elem.commit.message);
+		return AuthorComments;
+	}
+	retrieveLastAuthorComments(data) {
+		let AuthorLastCommits = data.slice(0, 2);
+		return AuthorLastCommits;
+	}
 	setUserRepoInfo(userName) {
 		let repoInfoStats = {
 			length: _repoInfo.length,
 			data: _repoInfo,
-			name: 'null',
+			name: userName,
 			time: 'null',
 			authorCommits: 'null',
 			authorCommitsLength: 'null',
@@ -44,13 +63,13 @@ class RepoInfoStore extends EventEmitter {
 			authourLastComments: 'null',
 			lastActivity: 'null'
 		};
-		repoInfoStats.name = userName; //Sets user
-		/* 	repoInfoStats.time = this.calculateDate(dates.first, dates.last); */
-		repoInfoStats.authorCommits = repoInfoStats.data.filter(
-			//Set user Data
-			(elem) => elem.commit.author.name === repoInfoStats.name
+		repoInfoStats.authorCommits = this.retrieveAuthorCommits(
+			repoInfoStats.data,
+			repoInfoStats.name
 		);
-		repoInfoStats.authorCommitsLength = repoInfoStats.authorCommits.length; //Set number of user commits
+		repoInfoStats.authorCommitsLength = this.retrieveAuthorCommitsLength(
+			repoInfoStats.authorCommits
+		);
 		let dates = {
 			last: repoInfoStats.authorCommits[0].commit.author.date.split('-'),
 			first: repoInfoStats.authorCommits[
@@ -59,13 +78,11 @@ class RepoInfoStore extends EventEmitter {
 		};
 		repoInfoStats.time = this.calculateDate(dates.first, dates.last);
 		repoInfoStats.lastActivity = this.calculateLastActivity(dates);
-		repoInfoStats.authorComments = repoInfoStats.authorCommits.map(
-			//Set author comments
-			(elem) => elem.commit.message
+		repoInfoStats.authorComments = this.retrieveAuthorComments(
+			repoInfoStats.authorCommits
 		);
-		repoInfoStats.authourLastComments = repoInfoStats.authorComments.slice(
-			0,
-			3
+		repoInfoStats.authourLastComments = this.retrieveLastAuthorComments(
+			repoInfoStats.authorComments
 		);
 		return repoInfoStats;
 	}
@@ -73,6 +90,7 @@ class RepoInfoStore extends EventEmitter {
 		let repoInfoStats = this.setUserRepoInfo(userName);
 		return repoInfoStats;
 	}
+	//SECOND CARD METHODS
 	calculateTotalGroupCommits(data) {
 		let totalComits = data.map((elem) => elem.total).reduce((a, b) => a + b, 0);
 		return totalComits;
@@ -82,11 +100,24 @@ class RepoInfoStore extends EventEmitter {
 		let weeksWithWorkArrLength = weeksWithWorkArr.length;
 		return weeksWithWorkArrLength;
 	}
+	calculateCommitsLastWeek(data, weeksOfWork) {
+		let weeksWithWorkArr = data.filter((elem) => elem.total >= 1);
+		let lastWeek = weeksWithWorkArr
+			.slice(weeksOfWork - 4)
+			.map((elem) => elem.total)
+			.reduce((a, b) => a + b, 0);
+		return lastWeek;
+	}
+	isActive(lastFourthWeeks) {
+		return lastFourthWeeks > 0 ? 'Active' : 'No Active';
+	}
 	setGroupRepoInfo() {
 		let repoGroupInfoStats = {
 			data: _groupInfo,
 			total: 'null',
-			weeksOfWorkLastYear: 'null'
+			weeksOfWorkLastYear: 'null',
+			lastFourthWeekCommits: 'null',
+			active: 'null'
 		};
 		repoGroupInfoStats.total = this.calculateTotalGroupCommits(
 			repoGroupInfoStats.data
@@ -94,11 +125,72 @@ class RepoInfoStore extends EventEmitter {
 		repoGroupInfoStats.weeksOfWorkLastYear = this.calculateWeeksofWorkLastYear(
 			repoGroupInfoStats.data
 		);
+		repoGroupInfoStats.lastFourthWeekCommits = this.calculateCommitsLastWeek(
+			repoGroupInfoStats.data,
+			repoGroupInfoStats.weeksOfWorkLastYear
+		);
+		repoGroupInfoStats.active = this.isActive(
+			repoGroupInfoStats.lastFourthWeekCommits
+		);
 		return repoGroupInfoStats;
 	}
 	getGroupRepoInfo() {
 		let repoGroupInfoStats = this.setGroupRepoInfo();
 		return repoGroupInfoStats;
+	}
+	//THIRD CARD METHODS
+	retrieveUserTotalCommits(data, user) {
+		let userCommits = data
+			.filter((elem) => elem.author.login === 'infohab')
+			.map((elem) => elem.total);
+		return userCommits;
+	}
+	setCommitsRankingWinnersArr(data) {
+		let usersRanking = [...data]
+			.sort((a, b) => {
+				return a.total - b.total;
+			})
+			.reverse()
+			.splice(0, 3);
+		return usersRanking;
+	}
+	retrieveNamesFromArray(arr) {
+		let nameArray = arr.map((elem) => elem.author.login);
+
+		return nameArray;
+	}
+	retrieveNumberOfCommitsFromArray(arr) {
+		let numberOfCommits = arr.map((elem) => elem.total);
+
+		return numberOfCommits;
+	}
+	setRankingRepoInfo(userName) {
+		let repoRankingInfoStats = {
+			data: _rankingInfo,
+			user: userName,
+			userCommits: 'null',
+			commitsRankingArr: 'null',
+			commitsRankingNames: 'null',
+			commitsRankingTotalNumber: 'null'
+		};
+		repoRankingInfoStats.commitsRankingArr = this.setCommitsRankingWinnersArr(
+			repoRankingInfoStats.data
+		);
+		repoRankingInfoStats.commitsRankingNames = this.retrieveNamesFromArray(
+			repoRankingInfoStats.commitsRankingArr
+		);
+		repoRankingInfoStats.commitsRankingTotalNumber = this.retrieveNumberOfCommitsFromArray(
+			repoRankingInfoStats.commitsRankingArr
+		);
+		repoRankingInfoStats.userCommits = this.retrieveUserTotalCommits(
+			repoRankingInfoStats.data,
+			repoRankingInfoStats.user
+		);
+		return repoRankingInfoStats;
+	}
+	getRankingRepoInfo(userName) {
+		let repoRankingInfoStats = this.setRankingRepoInfo(userName);
+		return repoRankingInfoStats;
 	}
 }
 
@@ -113,6 +205,10 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_GROUP:
 			_groupInfo = action.data;
 			repoInfoStore.emitChange(_groupInfo);
+			break;
+		case actionTypes.LOAD_RANKING:
+			_rankingInfo = action.data;
+			repoInfoStore.emitChange(_rankingInfo);
 			break;
 		default:
 			break;

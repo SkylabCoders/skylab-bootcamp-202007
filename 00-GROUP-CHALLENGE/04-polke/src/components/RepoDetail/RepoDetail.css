@@ -5,11 +5,32 @@
 	color: black;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 1024px) {
-	/*Same as mobile*/
+.carousel-caption {
+	top: 15%;
 }
 
-@media only screen and (min-width: 1024px) {
+.user-repositorio__bottom-tittle {
+	padding-bottom: 40px;
+}
+
+.carrousel-main-container__main-title {
+	text-align: center;
+}
+.carrousel-main-container__ranking-title {
+	padding-bottom: 15px;
+}
+.user-repositorie__commits-title {
+	color: black;
+	font-size: 0.8em;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+	.generic-carrousel img {
+		height: 45vh;
+	}
+}
+
+@media only screen and (min-width: 1025px) {
 	.carrousel-main-container {
 		height: 100vh;
 		display: flex;
@@ -24,9 +45,16 @@
 		padding: 10px;
 	}
 	.generic-carrousel img {
-		height: 85vh;
+		height: 75vh;
 	}
 	.carousel-caption {
-		top: 40%;
+		top: 20%;
+	}
+
+	.carousel-caption h3 {
+		padding-bottom: 40px;
+	}
+	.carrousel-main-container__ranking-caption h3 {
+		padding-bottom: 25px !important;
 	}
 }
