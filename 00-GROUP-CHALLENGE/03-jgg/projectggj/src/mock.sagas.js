@@ -11,12 +11,12 @@ const sagasList = [
     },
     {
         "series": "Super",
-        "characters": ["Cunbar", "Broly"],
+        "characters": ["Beerus", "Broly", "Whis"],
         "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Dragon_Ball_Super.png",
     },
     {
         "series": "GT",
-        "characters": ["Piculo_olo"],
+        "characters": ["Syn Shenlon", "Si Xin Long, Giru"],
         "image": "https://pngimage.net/wp-content/uploads/2018/05/dragon-ball-gt-logo-png-6.png",
     }
 ]

@@ -4,6 +4,7 @@ import player, { CHARGE, ATTACK, AVOID, FAIL } from './gameLogic/gameLogic';
 let player1;
 let machine;
 function GameComponent(props) {
+
     //Instancing the new Players
     let Mname = props.match.params.enemy;
     if (typeof player1 === 'undefined') {
