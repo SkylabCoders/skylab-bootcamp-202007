@@ -6,25 +6,19 @@ import './Header.css';
 import '../App.css';
 
 function Header() {
-	const initialState = '';
-	const [actualSearch, setActualSearch] = useState(initialState);
-
-	useEffect(() => {
-		RecipeStore.addChangeListener(onChange);
-		return () => RecipeStore.removeChangeListener(onChange);
-	}, [actualSearch]);
-
-	function onChange() {
-		setActualSearch(initialState);
-	}
+	const [actualSearch, setActualSearch] = useState('');
 
 	function onFieldChange(value, setValue) {
 		setValue(value);
 	}
+
 	function sendSearch() {
 		loadRecipe(actualSearch);
-		onFieldChange(initialState, setActualSearch)
+
+		setActualSearch('');
+
 	}
+
 	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';
 	return (
 		<>
