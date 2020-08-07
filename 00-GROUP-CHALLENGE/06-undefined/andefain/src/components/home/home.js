@@ -31,7 +31,7 @@ function Home() {
 		setSlider(filmStore.getSliderId());
 	}
 	return (
-		<>
+		<section className="home-container">
 			{slider.length === 5 && <FilmSlider data={slider} />}
 			<div className="list-container">
 				{comingSoon.length === 5 && (
@@ -41,7 +41,7 @@ function Home() {
 					<TopFilmList title="Most popular movies" data={mostPopular} />
 				)}
 			</div>
-		</>
+		</section>
 	);
 }
 

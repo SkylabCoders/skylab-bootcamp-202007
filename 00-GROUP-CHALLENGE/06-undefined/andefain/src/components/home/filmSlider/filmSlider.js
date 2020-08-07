@@ -26,52 +26,40 @@ function FilmSlider({ data }) {
 					to={'film/' + leftFilm.id.split('/')[2]}
 					className="slider__link lateral"
 				>
-					<div
+					<img
 						className="slider-lateral"
-						style={{
-							backgroundImage: `url(${
-								!!leftFilm.image
-									? leftFilm.image.url
-									: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
-							})`
-						}}
-					>
-						<h2 className="slider__title">{leftFilm.title}</h2>
-					</div>
+						src={
+							!!leftFilm.image
+								? leftFilm.image.url
+								: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+						}
+					></img>
 				</Link>
 				<Link
 					to={'film/' + centerFilm.id.split('/')[2]}
 					className="slider__link center"
 				>
-					<div
+					<img
 						className="slider-center"
-						style={{
-							backgroundImage: `url(${
-								!!centerFilm.image
-									? centerFilm.image.url
-									: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
-							})`
-						}}
-					>
-						<h2 className="slider__title">{centerFilm.title}</h2>
-					</div>
+						src={
+							!!centerFilm.image
+								? centerFilm.image.url
+								: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+						}
+					></img>
 				</Link>
 				<Link
 					to={'film/' + rightFilm.id.split('/')[2]}
 					className="slider__link lateral"
 				>
-					<div
+					<img
 						className="slider-lateral"
-						style={{
-							backgroundImage: `url(${
-								!!rightFilm.image
-									? rightFilm.image.url
-									: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
-							})`
-						}}
-					>
-						<h2 className="slider__title">{rightFilm.title}</h2>
-					</div>
+						src={
+							!!rightFilm.image
+								? rightFilm.image.url
+								: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
+						}
+					></img>
 				</Link>
 			</div>
 			<div className="dots">
