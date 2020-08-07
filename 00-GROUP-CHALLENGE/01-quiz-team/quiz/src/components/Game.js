@@ -32,7 +32,7 @@ function Game(props){
     useEffect(()=>{
         gameStore.addChangeListener(onChangeSessionSet);
         if(sessionSet.length === 0){
-            loadSessionSet(themeId, 'all', 'all', 'default', 3)
+            loadSessionSet(themeId, 'all', 'all', 'default', 10)
         };
         return ()=>{gameStore.removeChangeListener(onChangeSessionSet);}
     }, [sessionSet, themeSlug]);
