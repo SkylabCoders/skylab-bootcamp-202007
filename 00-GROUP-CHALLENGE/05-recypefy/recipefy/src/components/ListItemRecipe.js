@@ -13,7 +13,7 @@ function ListItemRecipe({ title }) {
 		recipeStore.addChangeListener(onChange);
 		if (recipesList.length === 0) {
 			loadRecipe();
-			console.log(recipesList);
+
 		} else {
 			const actualRecipe = recipeStore.getRecipeByTitle(title);
 			if (actualRecipe) {
