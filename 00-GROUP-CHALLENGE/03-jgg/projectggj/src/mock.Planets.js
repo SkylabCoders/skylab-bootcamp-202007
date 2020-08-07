@@ -10,7 +10,7 @@ const planetsArr = [
     },
     {
         "residents": ["Piccolo", "<h1>gaaaaaaaa</h1>"],
-        "_id": "5c7c8a9c12b25c00177aa154",
+        "_id": "5c7c8a9c12b25asdc00177aa154",
         "created": "2019-03-04T02:17:00.471Z",
         "name": "Namek",
         "url": "/api/planet/Namek",
@@ -20,7 +20,7 @@ const planetsArr = [
     { "residents": ["Goku", "Vegeta", "Raditz", "Gabriel", "Broly"], "_id": "5c7c8a8312b25c00177aa152", "created": "2019-03-04T02:16:35.038Z", "name": "Vegeta", "url": "/api/planet/Vegeta", "image": "https://vignette.wikia.nocookie.net/dragonball/images/d/d6/PlanetVegetaBeforeItWasD.png/revision/latest?cb=20091127173530", "__v": 0 },
     {
         "residents": ["Beerus"],
-        "_id": "5c7c8a9c12b25c00177aa154",
+        "_id": "5c7c8a9c12b25cfd00177aa154",
         "created": "2019-03-04T02:17:00.471Z",
         'name': 'Planet_temple',
         "url": "/api/planet/beerus_temple",
@@ -28,7 +28,7 @@ const planetsArr = [
     },
     {
         "residents": ["Giru"],
-        "_id": "5c7c8a9c12b25c00177aa154",
+        "_id": "5c7c8a9c12b25c0d0177aa154",
         "created": "2019-03-04T02:17:00.471Z",
         'name': 'M2',
         "url": "/api/planet/M2",
