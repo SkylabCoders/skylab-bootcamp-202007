@@ -1,11 +1,10 @@
 import React from 'react';
-import './footer.css';
+import './about.css';
 
 function AboutUs() {
 	return (
-		<div id="main">
+		<section className="about-container">
 			<h2>Brand Guideline</h2>
-
 			<p>
 				The Andefain Brand Guideline is comprised of a set of corporate brand
 				rules and regulations that details the usage of corporate brand assets
@@ -20,7 +19,6 @@ function AboutUs() {
 				please check with the person in charge you were contacting for details
 				of the confirmation process.
 			</p>
-
 			<p>
 				Regarding the use of brand assets, please obtain prior permission and
 				adhere to the rules indicated in the Andefain Brand Guideline. Any
@@ -28,9 +26,7 @@ function AboutUs() {
 				other graphics similar to Andefain’s registered trademark will be
 				subjected to.
 			</p>
-
 			<h2>Brand Rules</h2>
-
 			<p>
 				The Andefain Brand Guideline offers a set of important rules describing
 				the treatment of brand assets such as logos, colors and our typeface. By
@@ -39,7 +35,6 @@ function AboutUs() {
 				creating design deliverables such as websites, mobile applications,
 				posters, TV commercials etc.
 			</p>
-
 			<p>
 				Regarding the use of brand assets, please obtain prior permission and
 				adhere to the rules indicated in the Andefain Brand Guideline. Any
@@ -47,7 +42,6 @@ function AboutUs() {
 				other graphics similar to Andefain’s registered trademark will be
 				subjected to.
 			</p>
-
 			<p>
 				Do not release designs that have not been approved by the Andefain
 				group. or create any unauthorized brand assets. It is necessary to
@@ -55,14 +49,11 @@ function AboutUs() {
 				please check with the person in charge you were contacting for details
 				of the confirmation process.
 			</p>
-
 			<h2>Art files (For Internal Staff Only)</h2>
-
 			<p>
 				In this section, you can browse and download logos of Andefain and its
 				subsidiaries’.
 			</p>
-
 			<p>
 				Regarding the use of brand assets, please obtain prior permission and
 				adhere to the rules indicated in the Andefain Brand Guideline. Any
@@ -70,9 +61,8 @@ function AboutUs() {
 				other graphics similar to Andefain’s registered trademark will be
 				subjected to.
 			</p>
-
 			<p> · Logos, Templates and Visual Elements (For Internal Staff Only)</p>
-		</div>
+		</section>
 	);
 }
 

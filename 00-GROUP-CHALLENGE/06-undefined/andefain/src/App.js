@@ -7,8 +7,8 @@ import Home from './components/home/home';
 import Finder from './components/finder/finder';
 import Login from './components/login/login';
 import Film from './components/film/film';
-import PrivacyPolicy from './components/footer/footer-privacyPolicy';
-import AboutUs from './components/footer/footer-about';
+import AboutUs from './components/footer/about/about';
+import PrivacyPolicy from './components/footer/privacyPolicy/privacyPolicy';
 
 function App() {
 	return (

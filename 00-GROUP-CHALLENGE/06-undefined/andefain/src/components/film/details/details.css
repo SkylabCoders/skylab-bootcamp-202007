@@ -5,13 +5,15 @@
 	padding: 0;
 }
 
-.film-details {
+.details-container {
 	background-color: #212121;
 	color: white;
+	flex: 1;
+	margin: 0 auto;
 	margin-bottom: 10px;
 	margin-top: 10px;
 	padding: 20px;
-	width: 100%;
+	width: 90%;
 	display: flex;
 	flex-direction: column;
 }
@@ -35,7 +37,7 @@
 	.film-details {
 		margin-left: 5px;
 		margin-bottom: 20px;
-		width: 50%;
+		width: 90%;
 		justify-content: flex-end;
 	}
 }

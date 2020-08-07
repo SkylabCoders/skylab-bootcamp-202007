@@ -22,7 +22,7 @@ function Finder(title, name) {
 	}
 
 	return (
-		<div className="finder">
+		<section className="finder-container ">
 			{finder ? (
 				finder.map((element) => {
 					return (
@@ -69,7 +69,7 @@ function Finder(title, name) {
 			) : (
 				<div className="finder-no-results">No results found</div>
 			)}
-		</div>
+		</section>
 	);
 }
 
