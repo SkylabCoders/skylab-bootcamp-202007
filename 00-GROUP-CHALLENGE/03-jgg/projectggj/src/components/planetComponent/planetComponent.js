@@ -25,7 +25,7 @@ function PlanetComponent(prop) {
 			<div className="card-holder" >
 				{planets &&
 					planets.map((planet) => (
-						<Link to={`/charList/planet/${planet.name}`} key={planet.name}>
+						<a href={`/charList/planet/${planet.name}`} key={planet.name}>
 							<div className="card father-card">
 								<div className="row no-gutters hinherit">
 									<div className="hinherit img-holder">
@@ -36,7 +36,7 @@ function PlanetComponent(prop) {
 									</div>
 								</div>
 							</div>
-						</Link>
+						</a>
 					))}
 			</div>
 		</>
