@@ -9,7 +9,7 @@
 	padding: 5px 5% 5px 5%;
 }
 
-.nav__mobile > a {
+.nav__mobile>a {
 	color: white;
 	list-style: none;
 	margin: 0;
@@ -47,6 +47,7 @@
 	position: fixed;
 	width: 90%;
 }
+
 .nav__mobile .search-button {
 	background-color: #f8f8f0;
 	padding: 5px;
@@ -56,6 +57,7 @@
 .nav__mobile .search-button-inative {
 	background-color: #65dfc3;
 }
+
 .nav__mobile .search-button {
 	vertical-align: sub;
 }
@@ -80,8 +82,7 @@
 
 .icon__burguer,
 .login__logo {
-	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg)
-		brightness(113%) contrast(87%);
+	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg) brightness(113%) contrast(87%);
 }
 
 @media only screen and (min-width: 600px) {
@@ -164,6 +165,7 @@
 		align-items: center;
 		width: 96%;
 		margin: 80px 2% 0 2%;
+
 	}
 
 	h1 {
@@ -231,4 +233,12 @@
 		width: 70px;
 		height: 70px;
 	}
+
+	.section__search,
+	.section__logo {
+		-webkit-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+		-moz-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+		box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+	}
+
 }

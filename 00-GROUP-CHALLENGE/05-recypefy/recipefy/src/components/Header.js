@@ -9,14 +9,12 @@ function Header() {
 	const [actualSearch, setActualSearch] = useState('');
 
 	function onFieldChange(value, setValue) {
-		setValue(value);
+		setValue(value.trim());
 	}
 
 	function sendSearch() {
 		loadRecipe(actualSearch);
-
 		setActualSearch('');
-
 	}
 
 	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';

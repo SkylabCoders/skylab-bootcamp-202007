@@ -11,9 +11,29 @@
 	margin-top: 100px;
 }
 
+.other-details__item {
+	width: fit-content;
+	height: fit-content;
+	align-items: center;
+}
+
+.recomendation__other-details {
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+}
+
+.recomendation__other-details .data__circle {
+	height: 75px;
+	width: 75px;
+}
 
 @media screen and (min-width: 1024px) {
 	.body__box--main-recomendations {
 		margin-top: 5%px;
+	}
+
+	.recipe__text--preferences {
+		display: flex;
 	}
 }

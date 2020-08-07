@@ -40,7 +40,6 @@ function RecipePage() {
 	}
 
 	if (recipeElement.preferences) {
-
 		for (let i = 0; i < recipeElement.preferences.length; i++) {
 			if (recipeElement.preferences[i] === 'Balanced') {
 				balanced = true;
@@ -66,9 +65,8 @@ function RecipePage() {
 		}
 	}
 
-
 	return (
-		<div className="desktop__display">
+		<div className="desktop__display body-content">
 			<div className="desktop__display--right">
 				<section className="flex__row info__container">
 					<div className="flex__column data__container">
@@ -107,7 +105,6 @@ function RecipePage() {
 							</h2>
 
 							<div className="underphoto__button">
-
 								<div className="recipe__text--preferences">
 									{balanced && (
 										<img
@@ -181,11 +178,10 @@ function RecipePage() {
 										></img>
 									)}
 								</div>
-								{!recipeElement.preferences &&
+								{!recipeElement.preferences && (
 									<p className="error_text">No preferences</p>
-								}
+								)}
 							</div>
-
 						</div>
 						<a href={url} className="underphoto__button--source">
 							LET'S COOK IT!<br></br> CLICK HERE
