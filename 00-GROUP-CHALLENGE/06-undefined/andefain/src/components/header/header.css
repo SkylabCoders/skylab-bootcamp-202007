@@ -19,7 +19,7 @@
 	margin: 0 auto;
 	width: 90%;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 }
 
@@ -62,7 +62,7 @@
 	width: 100%;
 }
 
-.header-search:focus {
+.header-form__search:focus {
 	transition: 0.1s;
 	background-color: #fff;
 	color: #000000;
@@ -128,10 +128,8 @@ a {
 
 @media only screen and (min-width: 600px) {
 	.header {
+		width: 70%;
 		justify-content: flex-end;
-	}
-	.header-logo {
-		min-width: 171px;
 	}
 
 	.header-menu {
@@ -149,5 +147,8 @@ a {
 	}
 }
 
-@media only screen and (min-width: 1024) {
+@media only screen and (min-width: 1024px) {
+	.header-logo {
+		min-width: 171px;
+	}
 }

@@ -4,24 +4,15 @@
 	padding: 0;
 }
 
-.login {
+.login-container {
+	background-color: #212121;
 	margin: auto;
 	width: 90%;
 	display: flex;
-	flex: 1 1;
+	flex: 1;
 	flex-direction: column-reverse;
 	justify-content: center;
 	align-items: center;
-	height: 1;
-	height: 500px;
-}
-
-.login-box:nth-child(-n + 1) {
-	margin: 10px 0px 0px 0px;
-}
-
-.login-box:nth-last-child(-n + 1) {
-	margin: 0px 0px 10px 0px;
 }
 
 .login-box {
@@ -32,8 +23,8 @@
 	align-items: center;
 	background: #dcdada;
 	border-radius: 3px;
-	max-width: 500px;
-	min-width: 270px;
+	width: 90%;
+	margin: 3%;
 }
 
 .login-button {
@@ -82,23 +73,24 @@ input.form-control:focus {
 }
 
 .welcome-login {
-	color: white;
+	color: #ffffff;
 }
 
-@media only screen and (min-width: 601px) {
-	.login {
-		flex-direction: row;
-	}
-
-	.login-box:nth-child(-n + 1) {
-		margin: 0px 3% 0px 0px;
-	}
-
-	.login-box:nth-last-child(-n + 1) {
-		margin: 0px 0px 0px 3%;
+@media only screen and (min-width: 600px) {
+	.login-container {
+		width: 70%;
 	}
 
 	.login-box {
-		width: 50%;
+		width: 80%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.login-container {
+		flex-direction: row;
+	}
+	.login-box {
+		width: 40%;
 	}
 }

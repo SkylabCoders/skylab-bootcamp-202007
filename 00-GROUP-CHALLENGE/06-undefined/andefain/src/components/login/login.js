@@ -23,7 +23,7 @@ function Login() {
 		setUser(authStore.getUserProfile());
 	}
 	return (
-		<div className="login">
+		<section className="login-container">
 			<div className="login-box">
 				<button onClick={() => signInWithGoogle()} className="login-button">
 					<img
@@ -80,7 +80,7 @@ function Login() {
 					</>
 				)}
 			</div>
-		</div>
+		</section>
 	);
 }
 
