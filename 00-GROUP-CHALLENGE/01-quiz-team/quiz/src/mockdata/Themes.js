@@ -22,10 +22,10 @@ const THEMES_LIST = [
     {title: 'Celebrities', id: 26, slug: 'celebrities', url: 'https://images.pexels.com/photos/270968/pexels-photo-270968.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
     {title: 'Animals', id: 27, slug: 'animals', url: 'https://images.pexels.com/photos/4588065/pexels-photo-4588065.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
     {title: 'Vehicles', id: 28, slug: 'vehicles', url: 'https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
-    {title: 'Entertainment: Comics', id: 29, slug: 'comics', url: 'https://images.pexels.com/photos/2678108/pexels-photo-2678108.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'},
-    {title: 'Science: Gadgets', id: 30, slug: 'gadgets', url: 'https://images.pexels.com/photos/1337753/pexels-photo-1337753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
+    {title: 'Comics', id: 29, slug: 'comics', url: 'https://images.pexels.com/photos/2678108/pexels-photo-2678108.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'},
+    {title: 'Gadgets', id: 30, slug: 'gadgets', url: 'https://images.pexels.com/photos/1337753/pexels-photo-1337753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
     {title: 'Anime & Manga', id: 31, slug: 'anime-manga', url: 'https://images.pexels.com/photos/1049622/pexels-photo-1049622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
-    {title: 'Cartoon & Animations', id: 32, slug: 'cartoons', url: 'https://images.pexels.com/photos/3706/black-and-white-cartoon-donald-duck-spotlight.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
+    {title: 'Cartoons', id: 32, slug: 'cartoons', url: 'https://images.pexels.com/photos/3706/black-and-white-cartoon-donald-duck-spotlight.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'},
     {title: 'All', id: undefined, slug: 'mix', url: 'https://images.pexels.com/photos/1111597/pexels-photo-1111597.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
 ];		
 

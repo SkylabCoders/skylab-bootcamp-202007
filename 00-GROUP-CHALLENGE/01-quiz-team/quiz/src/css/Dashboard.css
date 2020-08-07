@@ -16,6 +16,7 @@
     display: grid;
     justify-items: center;
     grid-template-columns: 1;
+    padding: 0;
 }
 
 @media (min-width: 680px) and (max-width: 1024px){
@@ -30,9 +31,4 @@
     .themes__grid{
         grid-template-columns: repeat(5, 1fr);
     }
-}
-
-.test__guarro__item,
-.test__guarro__titulo{
-    color: white;
 }

@@ -23,13 +23,18 @@ img{
     top: -3rem;
     text-align: center;
     color: white;
-    background: #ffffff55;
+    background: #111111aa;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
 }
 
 .img__title:hover{
-    text-decoration: underline;
+    text-decoration: underline dotted yellow;
     color: yellow;
-    background: #ffffff22;
+    background: #11111122;
 }
 
 
