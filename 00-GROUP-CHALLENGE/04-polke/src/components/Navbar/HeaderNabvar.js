@@ -42,20 +42,25 @@ function HeaderNavbar() {
 						<Form inline>
 							<FormControl
 								type="text"
-								placeholder="Search"
+								placeholder="Search URL repo"
 								className="mr-sm-2 navBar--input"
 							/>
-							<Button variant="outline-info" className="searchbar--button">
-								Go
-							</Button>
 							<NavLink
-								to="/"
-								className="nav__button"
+								to="/repoDetail/username/reponame"
+								variant="outline-info"
+								className="searchbar--button"
 								onClick={(event) => {
-									logout();
+									debugger;
+									event.preventDefault();
+									const URLSearch =
+										document
+											.getElementsByClassName('navBar--input')[0]
+											.value.split('/') || 'Need a valid URL';
+									const username = URLSearch[3];
+									const project = URLSearch[4];
 								}}
 							>
-								Log Out
+								Go
 							</NavLink>
 						</Form>
 					</Navbar.Collapse>
