@@ -1,9 +1,9 @@
 .answer__item{
-    height: 25px;
     text-align: center;
     color: white;
     background-color: goldenrod;
-    width: 300px;
+    min-width: 200px;
+    width: 20vw;
     padding: 5px;
     text-size-adjust: bold;
     border-radius: .25rem;
