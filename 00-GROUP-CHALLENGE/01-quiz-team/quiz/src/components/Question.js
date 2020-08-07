@@ -32,6 +32,7 @@ function Question(props) {
                 }
             }
         }
+        return success;
     }
 
     function launchTimer() {
