@@ -72,7 +72,7 @@ export async function mostPopularData() {
 }
 
 export async function comingSoonData() {
-	const key = '6a52826a3fmsh59822a609a85992p14bb9fjsn6ce08971f6aa'; //Jorge
+	const key = '8addb8a378msh3e0ba16130cfe5ap103ec1jsne8750679f740'; //Jorge
 	const idPromise = await fetch(
 		'https://imdb8.p.rapidapi.com/title/get-coming-soon-movies?homeCountry=US&purchaseCountry=US&currentCountry=US',
 		{
