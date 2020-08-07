@@ -1,5 +1,6 @@
 import CONFIG_DATA from './config';
 import getEndpoint from './utils/endpoint';
+import decodeFast from './utils/simpleDecoder';
 
 export default async function getApiData(category = 'all', difficulty = 'all', type = 'all', encode='default', amount = 10) {
     const URL = `https://${CONFIG_DATA.HOST}?${getEndpoint(category, difficulty, type, encode, amount)}`;
@@ -9,19 +10,10 @@ export default async function getApiData(category = 'all', difficulty = 'all', t
   
       const result = apiData.results;
       for(let el of result){
-        el.question = el.question.replace(/&#039;/g, '\'')
-                                .replace(/&quot;/g, '\"')
-                                .replace(/&lsquo;/g, '<<')
-                                .replace(/&rsquo;/g, '>>');
-        el.correct_answer = el.correct_answer.replace(/&#039;/g, '\'')
-                                .replace(/&quot;/g, '\"')
-                                .replace(/&lsquo;/g, '<<')
-                                .replace(/&rsquo;/g, '>>');
+        el.question = decodeFast(el.question);
+        el.correct_answer = decodeFast(el.correct_answer);
         for (let a of el.incorrect_answers){
-            a = a.replace(/&#039;/g, '\'')
-                    .replace(/&quot;/g, '\"')
-                    .replace(/&lsquo;/g, '<<')
-                    .replace(/&rsquo;/g, '>>');
+            a = decodeFast(a);
         }
       }
 
