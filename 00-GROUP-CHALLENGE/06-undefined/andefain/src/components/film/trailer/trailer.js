@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './trailer.css';
-import { addFav } from '../../../actions/filmActions';
-import filmStore from '../../../stores/filmStore';
 import PropTypes from 'prop-types';
 
 const blankHeart =
