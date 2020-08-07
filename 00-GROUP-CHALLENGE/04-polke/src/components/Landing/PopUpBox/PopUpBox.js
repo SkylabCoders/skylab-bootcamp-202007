@@ -7,7 +7,13 @@ import { createNewUser } from '../../../actions/loginActions';
 function PopUpBox() {
 	return (
 		<Modal.Dialog className="pop-up-modal">
-			<Modal.Header closeButton>
+			<Modal.Header
+				closeButton
+				onClick={() => {
+					document.getElementsByClassName('pop-up-modal')[0].style.display =
+						'none';
+				}}
+			>
 				<Modal.Title>Register New User</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
