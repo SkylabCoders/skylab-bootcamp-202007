@@ -3,6 +3,7 @@ import actionTypes from './../actionTypes';
 import { authMethods } from '../../firebase/firebaseAuthMethods';
 
 export function login(email, password) {
+    debugger
     return authMethods
         .signin(email, password)
         .then((user) => {
@@ -36,10 +37,10 @@ export function loginWithGoogle() {
 export function sendAccountRegister(email, password) {
     return authMethods
         .createAccount(email, password)
-        .then((data) =>
+        .then(() =>
             dispatcher.dispatch({
-                type: actionTypes.CREATE_PROFILE,
-                data
+                type: actionTypes.CREATE_PROFILE
+
             })
         )
 }
