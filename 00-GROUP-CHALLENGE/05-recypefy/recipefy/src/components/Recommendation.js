@@ -17,7 +17,7 @@ function Recomendation() {
 	let alcohol = false;
 	const [recipeList, setRecipeList] = useState(recipeStore.getRecipes);
 	const [actualRecipe, setActualRecipe] = useState({});
-	let title = "";
+	let title = '';
 	if (actualRecipe.preferences) {
 		title = `recipe-page/${actualRecipe.title}`;
 	}
@@ -60,30 +60,30 @@ function Recomendation() {
 		}
 	}
 
-
 	return (
 		<section className="body__box--recipe-details body__box body__box--main-recomendations ">
 			<div className="recipe__text">
 				<h2 className="box__title">RECOMMENDATION:</h2>
 				<h3 className="recipe__text--title">{actualRecipe.title}</h3>
-				<div className="recipe__text--preferences">
-
-				</div>
+				<div className="recipe__text--preferences"></div>
 				<div className="recipe__text--preferences"></div>
 				{balanced && (
 					<img
 						alt="preference"
 						className="preferences__icon preference__balanced"
 						src="https://image.flaticon.com/icons/png/512/30/30636.png"
-					></img>)}
+					></img>
+				)}
 				{protein && (
 					<img
 						alt="preference"
 						className="preferences__icon"
 						src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
-					></img>)}
+					></img>
+				)}
 				{low_fat && (
 					<img
+						earch-result
 						alt="preference"
 						className="preferences__icon"
 						src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
@@ -108,31 +108,36 @@ function Recomendation() {
 						alt="preference"
 						className="preferences__icon"
 						src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
-					></img>)}
+					></img>
+				)}
 				{sugar && (
 					<img
 						alt="preference"
 						className="preferences__icon"
 						src="https://www.footys.co.za/images/icon-sugar.png"
-					></img>)}
+					></img>
+				)}
 				{peanut && (
 					<img
 						alt="preference"
 						className="preferences__icon preference__peanut-free"
 						src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
-					></img>)}
+					></img>
+				)}
 				{treenut && (
 					<img
 						alt="preference"
 						className="preferences__icon preference__tree-nut-free"
 						src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
-					></img>)}
+					></img>
+				)}
 				{alcohol && (
 					<img
 						alt="preference"
 						className="preferences__icon preference__alcohol-free"
 						src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
-					></img>)}
+					></img>
+				)}
 			</div>
 			<Link to={title} className="link">
 				<img className="recipe__image" src={actualRecipe.photo}></img>

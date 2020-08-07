@@ -22,39 +22,40 @@ function RecipeCard({ title }) {
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 
-			if (actualRecipe) {
-				setActualRecipePhoto(actualRecipe.photo);
-				setActualRecipeTitle(actualRecipe.title);
-			}
-		
+		if (actualRecipe) {
+			setActualRecipePhoto(actualRecipe.photo);
+			setActualRecipeTitle(actualRecipe.title);
+		}
+
 		return () => recipeStore.removeChangeListener(onChange);
 	}, []);
 
 	function onChange() {
 		setActualRecipe(recipeStore.getRecipeByTitle(title));
 	}
-
-	for (let i = 0; i < actualRecipe.preferences.length; i++) {
-		if (actualRecipe.preferences[i] === 'Balanced') {
-			balanced = true;
-		} else if (actualRecipe.preferences[i] === 'High-Protein') {
-			protein = true;
-		} else if (actualRecipe.preferences[i] === 'Low-Fat') {
-			low_fat = true;
-		} else if (actualRecipe.preferences[i] === 'Low-Carb') {
-			low_carb = true;
-		} else if (actualRecipe.preferences[i] === 'Vegan') {
-			vegan = true;
-		} else if (actualRecipe.preferences[i] === 'Vegetarian') {
-			vegetarian = true;
-		} else if (actualRecipe.preferences[i] === 'Sugar-Conscious') {
-			sugar = true;
-		} else if (actualRecipe.preferences[i] === 'Peanut-Free') {
-			peanut = true;
-		} else if (actualRecipe.preferences[i] === 'Tree-Nut-Free') {
-			treenut = true;
-		} else if (actualRecipe.preferences[i] === 'Alcohol-Free') {
-			alcohol = true;
+	if (actualRecipe) {
+		for (let i = 0; i < actualRecipe.preferences.length; i++) {
+			if (actualRecipe.preferences[i] === 'Balanced') {
+				balanced = true;
+			} else if (actualRecipe.preferences[i] === 'High-Protein') {
+				protein = true;
+			} else if (actualRecipe.preferences[i] === 'Low-Fat') {
+				low_fat = true;
+			} else if (actualRecipe.preferences[i] === 'Low-Carb') {
+				low_carb = true;
+			} else if (actualRecipe.preferences[i] === 'Vegan') {
+				vegan = true;
+			} else if (actualRecipe.preferences[i] === 'Vegetarian') {
+				vegetarian = true;
+			} else if (actualRecipe.preferences[i] === 'Sugar-Conscious') {
+				sugar = true;
+			} else if (actualRecipe.preferences[i] === 'Peanut-Free') {
+				peanut = true;
+			} else if (actualRecipe.preferences[i] === 'Tree-Nut-Free') {
+				treenut = true;
+			} else if (actualRecipe.preferences[i] === 'Alcohol-Free') {
+				alcohol = true;
+			}
 		}
 	}
 
@@ -69,13 +70,15 @@ function RecipeCard({ title }) {
 								alt="preference"
 								className="preferences__icon preference__balanced"
 								src="https://image.flaticon.com/icons/png/512/30/30636.png"
-							></img>)}
+							></img>
+						)}
 						{protein && (
 							<img
 								alt="preference"
 								className="preferences__icon"
 								src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
-							></img>)}
+							></img>
+						)}
 						{low_fat && (
 							<img
 								alt="preference"
@@ -102,31 +105,36 @@ function RecipeCard({ title }) {
 								alt="preference"
 								className="preferences__icon"
 								src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
-							></img>)}
+							></img>
+						)}
 						{sugar && (
 							<img
 								alt="preference"
 								className="preferences__icon"
 								src="https://www.footys.co.za/images/icon-sugar.png"
-							></img>)}
+							></img>
+						)}
 						{peanut && (
 							<img
 								alt="preference"
 								className="preferences__icon preference__peanut-free"
 								src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
-							></img>)}
+							></img>
+						)}
 						{treenut && (
 							<img
 								alt="preference"
 								className="preferences__icon preference__tree-nut-free"
 								src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
-							></img>)}
+							></img>
+						)}
 						{alcohol && (
 							<img
 								alt="preference"
 								className="preferences__icon preference__alcohol-free"
 								src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
-							></img>)}
+							></img>
+						)}
 					</div>
 				</div>
 				<img
