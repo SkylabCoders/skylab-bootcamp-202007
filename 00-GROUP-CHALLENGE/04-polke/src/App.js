@@ -13,7 +13,7 @@ function App() {
 			<Switch>
 				<Route path="/" exact component={Landing} />
 				<Route path="/userDetail" component={UserDetail} />
-				<Route path="/repoDetail" component={RepoDetail} />
+				<Route path="/repoDetail/:userName/:repoName" component={RepoDetail} />
 			</Switch>
 			<Footer />
 		</>

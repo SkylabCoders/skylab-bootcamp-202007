@@ -1,6 +1,7 @@
 import React from 'react';
 import './RepoCard.css';
 import { Button } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 function RepoCard({ repoInfoList }) {
 	let lockImg = null;
@@ -30,10 +31,7 @@ function RepoCard({ repoInfoList }) {
 	return (
 		<section className="repoCard">
 			<div className="repoCard__name-private">
-				<div className="repoCard__private">
-					{lockImg}
-					{/* git  */}
-				</div>
+				<div className="repoCard__private">{lockImg}</div>
 				<div className="repoCard__name">
 					<b>{repoInfoList.name}</b>
 				</div>
@@ -47,7 +45,11 @@ function RepoCard({ repoInfoList }) {
 			</div>
 			<div className="repoCard__details">
 				<Button variant="primary" className="button__details">
-					Details
+					<NavLink
+						to={`/repoDetail/${repoInfoList.userName}/${repoInfoList.name}`}
+					>
+						Details
+					</NavLink>
 				</Button>
 			</div>
 		</section>

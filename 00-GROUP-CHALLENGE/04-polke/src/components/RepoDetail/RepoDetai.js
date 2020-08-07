@@ -7,6 +7,8 @@ import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 import { loadRankingRepoInfo } from '../../actions/repoDetailActions';
 
 function RepoDetail() {
+	const orgNameURL = props.match.params.userName;
+	const repoNameURL = props.match.params.repoName;
 	//repoInfo
 	const [repoInfo, setRepoInfo] = useState([]);
 	const [groupInfo, setGroupInfo] = useState([]);
@@ -14,6 +16,7 @@ function RepoDetail() {
 	const [repoName, setRepoName] = useState('skylab-bootcamp-202007'); //obj.repoName
 	const [orgName, setOrgName] = useState('SkylabCoders'); //obj.orgName
 	const [userName, setUserName] = useState('Gilberto Cao'); //obj.userName
+function RepoDetail(props) {
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChange);
@@ -45,11 +48,15 @@ function RepoDetail() {
 	function onChangeGroup() {
 		setGroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
 	}
+<<<<<<< HEAD
 	function onChangeRanking() {
 		setRankingInfo(RepoInfoStore.getRankingRepoInfo(userName));
 	}
 	/* console.log(repoInfo, groupInfo); */
 	console.log('esta', rankingInfo);
+=======
+	console.log('este', groupInfo);
+>>>>>>> 4c29101bdbeb59b8eb321f7d82dd875a5ecf6b1f
 
 	return (
 		<div className="carrousel-main-container">

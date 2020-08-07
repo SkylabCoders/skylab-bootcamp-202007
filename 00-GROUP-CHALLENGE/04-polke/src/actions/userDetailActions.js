@@ -17,7 +17,8 @@ export function loadRepoList(userName) {
 					description: repo.description || 'This repo has no description.',
 					id: repo.id,
 					language: repo.language || 'Lang. mix',
-					lastUpdate: repo.updated_at
+					lastUpdate: repo.updated_at,
+					userName: repo.owner.login
 				};
 			});
 			dispatcher.dispatch({
