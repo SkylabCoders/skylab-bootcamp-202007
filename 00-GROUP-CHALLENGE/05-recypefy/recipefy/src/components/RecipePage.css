@@ -38,6 +38,7 @@ p {
 	flex-direction: column;
 	text-align: center;
 	justify-content: center;
+	align-items: center;
 }
 
 .rate__recipe {
@@ -46,31 +47,32 @@ p {
 }
 
 .info__container {
-	margin-top: 50px;
+	margin-top: 70px;
 	width: 100%;
 	height: 40vh;
 	justify-content: space-around;
 }
 
 .buttons__container {
-	justify-content: center;
-	height: 100%;
-	width: 100%;
-	align-items: center;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    display: flex;
+	flex-direction: column;
+	margin-top: 20px;
 }
 
 .ingredients__container {
 	text-align: center;
 	align-items: center;
 	height: fit-content;
-	margin-top: 15vh;
-	margin-bottom: 10vh;
+	margin-top: 10%;
+	margin-bottom: 10%;
 }
 
 .data__container {
 	height: 100%;
 	justify-content: space-evenly;
-	margin-top: 180px;
 }
 
 .data__circle {
@@ -104,7 +106,6 @@ p {
 	background-color: #f8f8f0;
 	border-radius: 10px;
 	margin-bottom: 20px;
-	margin-top: 32vh;
 }
 
 a {
@@ -167,13 +168,14 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
 }
 
 .underphoto__button--source {
-	margin-top: 10px;
+	margin-top: 20px;
 	background-color: #65dfc3;
 	padding: 15px;
-	font-style: bold;
+	border-radius: 10px;
 }
 
 @media screen and (min-width: 600px) {
@@ -211,14 +213,12 @@ a {
 
 	.buttons__container {
 		justify-content: center;
-		margin-top: 88px;
+		margin-top: 49px;
 		margin-bottom: 20px;
-		height: 20vh;
+		height: 100%;
 		width: 100%;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		padding-bottom: 100px;
 	}
 
 	.info__container {
