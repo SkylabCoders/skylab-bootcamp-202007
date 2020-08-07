@@ -12,7 +12,6 @@ function UserInfo({ githubUserName }) {
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);
 		if (userImg.length === 0 && githubUserName) {
-			debugger;
 			loadUserImg(githubUserName);
 		}
 
