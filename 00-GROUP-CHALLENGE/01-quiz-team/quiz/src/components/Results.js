@@ -3,11 +3,10 @@ import './../css/results.css';
 import { NavLink } from 'react-router-dom';
 
 function Results(props){
-    // console.log('RESULTS COMPONENT: props', props);
-
+    
     return (
         <div className="results">
-            <section>
+            <section className="section__results">
                 <h2>Game results:</h2>
                 <p>Game started at {props.data_started} and ended at {props.data_ended}</p>
                 <p>Total playtime: {props.data_played}.</p>

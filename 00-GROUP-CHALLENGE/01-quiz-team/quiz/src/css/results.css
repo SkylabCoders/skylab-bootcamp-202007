@@ -3,4 +3,10 @@
 .results section h2,
 .results section h3{
     color: white;
+    text-align: center;
+}
+
+.playAgain__sameTheme,
+.playAgain__anotherTheme{
+    margin: auto;
 }
