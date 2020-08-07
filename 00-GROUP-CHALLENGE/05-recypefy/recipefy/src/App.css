@@ -48,6 +48,9 @@ p {
 	margin: 5% 2% 5% 2%;
 	padding: 3%;
 	border-radius: 25px;
+	-webkit-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+	box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
 }
 
 .body__list {
@@ -77,6 +80,7 @@ p {
 	align-items: center;
 	flex-direction: column;
 }
+
 a {
 	color: black;
 }
@@ -122,18 +126,15 @@ a {
 }
 
 .preference__peanut-free {
-	filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg)
-		brightness(99%) contrast(94%);
+	filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg) brightness(99%) contrast(94%);
 }
 
 .preference__tree-nut-free {
-	filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg)
-		brightness(95%) contrast(66%);
+	filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg) brightness(95%) contrast(66%);
 }
 
 .preference__alcohol-free {
-	filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg)
-		brightness(81%) contrast(92%);
+	filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg) brightness(81%) contrast(92%);
 }
 
 .preferences__icon {
@@ -178,5 +179,11 @@ a {
 		width: 62%;
 		margin: 2%;
 		margin-top: 5%;
+	}
+
+	.body-content {
+		position: relative;
+		width: 80%;
+		margin: auto;
 	}
 }

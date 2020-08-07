@@ -59,6 +59,17 @@ function RecipeCard({ title }) {
 		}
 	}
 
+	if (
+		actualRecipe.yeld === null ||
+		actualRecipe.yeld === undefined ||
+		actualRecipe.yeld === ''
+	) {
+		actualRecipe.yeld = 4;
+	}
+	if (actualRecipe.time === '0 min') {
+		actualRecipe.time = '65 min';
+	}
+
 	return (
 		<div className="body__box">
 			<Link className="recipe-card" to={`/recipe-page/${actualRecipeTitle}`}>
@@ -135,6 +146,23 @@ function RecipeCard({ title }) {
 								src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
 							></img>
 						)}
+					</div>
+					<div className="recomendation__other-details flex__row">
+						<div>
+							<div id="time" className="data__circle time__background"></div>
+							<p className="text__icon">{actualRecipe.time}</p>
+						</div>
+						<div className="other-details__item">
+							<div
+								id="calories"
+								className="data__circle calories__background"
+							></div>
+							<p className="text__icon">{Math.floor(actualRecipe.calories)}</p>
+						</div>
+						<div className="other-details__item">
+							<div id="yeld" className="data__circle yield__background"></div>
+							<p className="text__icon">{actualRecipe.yeld}</p>
+						</div>
 					</div>
 				</div>
 				<img
