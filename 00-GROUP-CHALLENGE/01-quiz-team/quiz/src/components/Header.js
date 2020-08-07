@@ -26,7 +26,9 @@ function Header(props) {
 							</li>
 						</ul>
 					</nav>
-					<div className="login__icon"><img src={require('../assets/user_icon.png')} /> </div>
+					<NavLink activeClassName="my-active-class" to="/login">
+						<div className="login__icon"><img src={require('../assets/user_icon.png')} /> </div>
+					</NavLink>
 					<NavLink activeClassName="my-active-class" className="login__button__link" to="/login">
 						<button type="button" className="login__button">Login</button>
 					</NavLink>
