@@ -44,9 +44,6 @@ function Dashboard() {
     return (
         <>
             <div className="dashboard__container">
-                <div className="dashboard__welcome">
-                    <Welcome />
-                </div>
                 <div className="dashboard__themes">
                     <h2 className="section__title">THEMES</h2>
                     

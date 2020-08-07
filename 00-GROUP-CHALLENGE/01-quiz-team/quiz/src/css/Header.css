@@ -23,7 +23,9 @@ nav{
 
 .nav__item{
     color: white;
-    text-decoration: underline dotted white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .nav__item:hover{
@@ -37,7 +39,6 @@ nav{
 
 .nav__list > li {
     color: white;
-    text-decoration: underline dotted white;
     display: inline-block;
     padding: 0 1rem;
 }
@@ -52,15 +53,25 @@ nav{
 
 .login__button{
     width: 100px;
-    height: 50px;
+    height: 38px;
     margin: 0 5px;
-    background-color: lightseagreen;
+    background-color: goldenrod;
     box-sizing: border-box;
-    padding: 5px;
-    color: white;
-    border-radius: .2em;
+    padding: .2rem;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: .25rem;
     border-style: none;
 } 
+
+.login__button:hover{
+    background-color: coral;
+    color: black;
+    text-decoration: underline dotted black;
+} 
+
 
 
 @media (min-width: 680px) and (max-width: 1024px) {

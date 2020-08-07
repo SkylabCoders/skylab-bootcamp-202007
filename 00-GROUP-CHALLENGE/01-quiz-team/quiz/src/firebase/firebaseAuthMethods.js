@@ -1,6 +1,6 @@
 /* puede haber múltiples métodos de autentificación */
 
-import './firebaseInit';
+import './firebaseinit';
 import firebase from 'firebase';
 
 export const authMethods = {
