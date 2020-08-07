@@ -90,7 +90,6 @@ class DBStore extends EventEmitter {
 
 const store = new DBStore();
 dispatcher.register((action) => {
-
 	if (typeof (action.data) !== 'undefined')
 		var { text, filter, name } = action.data;
 
@@ -99,8 +98,6 @@ dispatcher.register((action) => {
 			_characters = action.data.charList;
 			_characters = store.filterChar(null, filter, name);
 			store.emitChange();
-			break;
-		case actionTypes.CREATE_PROFILE:
 			break;
 
 		case actionTypes.UPDATE_PROFILE:
