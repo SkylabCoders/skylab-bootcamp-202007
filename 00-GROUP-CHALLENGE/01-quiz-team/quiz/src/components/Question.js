@@ -23,6 +23,11 @@ function Question(props) {
     useEffect(() => {
         gameStore.addChangeListener(onChange);
         setResultat('');
+        return () => { gameStore.removeChangeListener(onChange); }
+    }, [props.i]);
+
+    useEffect(() => {
+        gameStore.addChangeListener(onChange);
         setClicked(false);
         return () => { gameStore.removeChangeListener(onChange); }
     }, [props.i]);
