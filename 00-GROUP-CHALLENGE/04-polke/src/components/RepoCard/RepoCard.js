@@ -47,6 +47,7 @@ function RepoCard({ repoInfoList }) {
 				<Button variant="primary" className="button__details">
 					<NavLink
 						to={`/repoDetail/${repoInfoList.userName}/${repoInfoList.name}`}
+						className="repoCard__navlink"
 					>
 						Details
 					</NavLink>
