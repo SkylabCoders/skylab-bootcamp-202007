@@ -3,7 +3,6 @@ import actionTypes from './actionTypes';
 
 export function loadUserRepoInfo(userName, repoName, orgName) {
 	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}/commits`;
-
 	fetch(endPoint, {
 		headers: {
 			accept: 'application/vnd.github.v3+json'
