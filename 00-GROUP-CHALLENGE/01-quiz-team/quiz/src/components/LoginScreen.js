@@ -37,14 +37,16 @@ function LoginScreen() {
                         <div className="login">
                             <h1>Login</h1>
                             <form method="post" action="">
-                                <p><input type="text" name="userName" value={userName} placeholder="Username or Email" onChange={(event) => onFieldChange(event.target.value, setUserName)}/></p>
-                                <p><input type="password" name="password" value={userPassword} placeholder="Password" onChange={(event) => onFieldChange(event.target.value, setUserPassword)}/></p>  
-                                    <input type="submit" name="login" value="Login" />
-                                    <input type="submit" name="logout" value="Logout" />
+                                <input type="text" name="userName" value={userName} placeholder="Username or Email" onChange={(event) => onFieldChange(event.target.value, setUserName)}/>
+                                <input type="password" name="password" value={userPassword} placeholder="Password" onChange={(event) => onFieldChange(event.target.value, setUserPassword)}/>
+                                    <input className='notDisplayed' type="submit" name="login" value="Login" />
+                                    <input className='notDisplayed' type="submit" name="logout" value="Logout" />
+                                    <div className="login__button">
                                     {!isLogged && (<button onClick={(event) => {
                                         event.preventDefault();
                                         login(email, password)}}>Login</button>)}
                                     {isLogged && (<button onClick={() => logout()}>Logout {user.email}</button>)}
+                                    </div>
                             </form>
                         </div>
                     </div>
