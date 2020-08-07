@@ -25,7 +25,8 @@ function Game(props){
         playTime: 0,
         wrong: 0,
         right: 0,
-        unanswered: 0
+        unanswered: 0,
+        message: ''
     }
 
     useEffect(()=>{
@@ -58,10 +59,15 @@ function Game(props){
         GAME_DATA.startedStr = `${start.getUTCHours()}:${start.getUTCMinutes()}:${start.getUTCSeconds()}`;
         GAME_DATA.endedStr = `${end.getUTCHours()}:${end.getUTCMinutes()}:${end.getUTCSeconds()}`;
         for (let el of scores){
-            if(el.userAnser === true){ GAME_DATA.right++ }
-            if(el.userAnser === false){ GAME_DATA.wrong++ }
-            if(el.userAnser === ''){ GAME_DATA.unanswered++ }
+            if(el.userAnser === true){ GAME_DATA.right++; GAME_DATA.points += 25 }
+            if(el.userAnser === false){ GAME_DATA.wrong++; GAME_DATA.points -= 10 }
+            if(el.userAnser === ''){ GAME_DATA.unanswered++; GAME_DATA.points -= 5 }
         }
+        if(GAME_DATA.points < 0) { GAME_DATA.points = 0 }
+        if((GAME_DATA.totalQuestions * 25 * 0.7) < GAME_DATA.points){ GAME_DATA.message=' well done!' }
+        else if((GAME_DATA.totalQuestions * 25 * 0.4) < GAME_DATA.points){ GAME_DATA.message=' keep trying!' }
+        else if((GAME_DATA.totalQuestions * 25 * 0.15) < GAME_DATA.points){ GAME_DATA.message=' don\'t give up yet!' }
+        else { GAME_DATA.message=' not your best day.' }
     }
 
     function getPlayTime(){ 
@@ -106,6 +112,8 @@ function Game(props){
                         data_right={GAME_DATA.right}
                         data_wrong={GAME_DATA.wrong}
                         data_unanswered={GAME_DATA.unanswered}
+                        data_points={GAME_DATA.points}
+                        data_message={GAME_DATA.message}
                         newGameClick={newGame}
                     />
                 </>
