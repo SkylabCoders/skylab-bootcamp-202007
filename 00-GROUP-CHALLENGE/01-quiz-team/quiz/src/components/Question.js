@@ -14,6 +14,30 @@ function Question(props) {
     const [timerIsOn, setTimerIsOn] = useState(false);
     const [clicked, setClicked] = useState(false);
 
+    useEffect(() => {
+        gameStore.addChangeListener(onChange);
+        loadQuestion(props.i);
+        return () => { gameStore.removeChangeListener(onChange); }
+    }, [props.i]);
+
+    useEffect(() => {
+        gameStore.addChangeListener(onChange);
+        setResultat('');
+        setClicked(false);
+        return () => { gameStore.removeChangeListener(onChange); }
+    }, [props.i]);
+
+    useEffect(() => {
+        gameStore.addChangeListener(onChange);
+        setTimerIsOn(true);
+        return () => { gameStore.removeChangeListener(onChange); }
+    }, [props.i]);
+
+    function onChange() {
+        setQuestion(gameStore.getQuestion(props.i));
+    }
+
+
     function getValue(value, listenClick) {
 
         if (timerIsOn) {
@@ -60,7 +84,7 @@ function Question(props) {
                         <CountdownCircleTimer
                             key={key}
                             isPlaying
-                            duration={3}
+                            duration={20}
                             colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                         >
                             {renderTime}
@@ -71,19 +95,6 @@ function Question(props) {
         }
 
 
-    }
-
-    useEffect(() => {
-        gameStore.addChangeListener(onChange);
-        loadQuestion(props.i);
-        setResultat('');
-        setTimerIsOn(true);
-        setClicked(false);
-        return () => { gameStore.removeChangeListener(onChange); }
-    }, [props.i]);
-
-    function onChange() {
-        setQuestion(gameStore.getQuestion(props.i));
     }
 
     const typeOfAnswer = () => {
