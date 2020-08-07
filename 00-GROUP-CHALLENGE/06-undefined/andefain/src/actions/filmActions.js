@@ -20,7 +20,7 @@ async function callFilmArray(array, key) {
 }
 
 export async function sliderData() {
-	const key = 'edcb741827mshe5d039928244129p14ac3djsne27352959b3c'; //Geza
+	const key = '67f99dfe9bmshd10528bcbee94a7p1c05acjsna635b838f390';
 	const idPromise = await fetch(
 		'https://imdb8.p.rapidapi.com/title/get-popular-movies-by-genre?genre=%252Fchart%252Fpopular%252Fgenre%252Fadventure',
 		{
@@ -46,7 +46,7 @@ export async function sliderData() {
 }
 
 export async function mostPopularData() {
-	const key = '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'; //Laia
+	const key = '51b8d9e5damshc674c1d67bee7bbp142978jsn9784ef1b0b75';
 	const idPromise = await fetch(
 		'https://imdb8.p.rapidapi.com/title/get-most-popular-movies?purchaseCountry=US&homeCountry=US&currentCountry=US',
 		{
@@ -72,7 +72,7 @@ export async function mostPopularData() {
 }
 
 export async function comingSoonData() {
-	const key = '8addb8a378msh3e0ba16130cfe5ap103ec1jsne8750679f740'; //Jorge
+	const key = '0f971b5c32msh287a8f60f14e044p177b39jsnd90683f23777';
 	const idPromise = await fetch(
 		'https://imdb8.p.rapidapi.com/title/get-coming-soon-movies?homeCountry=US&purchaseCountry=US&currentCountry=US',
 		{
@@ -117,7 +117,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
+				'x-rapidapi-key': '0f971b5c32msh287a8f60f14e044p177b39jsnd90683f23777'
 			}
 		}
 	);
@@ -129,7 +129,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
+				'x-rapidapi-key': '0f971b5c32msh287a8f60f14e044p177b39jsnd90683f23777'
 			}
 		}
 	);
@@ -141,7 +141,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
+				'x-rapidapi-key': '0f971b5c32msh287a8f60f14e044p177b39jsnd90683f23777'
 			}
 		}
 	);
@@ -153,7 +153,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
+				'x-rapidapi-key': '0f971b5c32msh287a8f60f14e044p177b39jsnd90683f23777'
 			}
 		}
 	);
@@ -165,7 +165,7 @@ export async function callFilm() {
 			method: 'GET',
 			headers: {
 				'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-				'x-rapidapi-key': '6a3ab48c9fmsh9bd19938f44ca6dp1c9e06jsn1c9d2f122e27'
+				'x-rapidapi-key': '0f971b5c32msh287a8f60f14e044p177b39jsnd90683f23777'
 			}
 		}
 	);
