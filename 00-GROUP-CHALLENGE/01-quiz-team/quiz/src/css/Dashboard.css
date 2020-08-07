@@ -19,10 +19,18 @@
     padding: 0;
 }
 
+.dashboard__topThemes{
+    display: none;
+}
+
 @media (min-width: 680px) and (max-width: 1024px){
     .topThemes__grid,
     .themes__grid{
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard__topThemes{
+        display: contents;
     }
 }
 
@@ -30,5 +38,8 @@
     .topThemes__grid,
     .themes__grid{
         grid-template-columns: repeat(5, 1fr);
+    }
+    .dashboard__topThemes{
+        display: contents;
     }
 }
