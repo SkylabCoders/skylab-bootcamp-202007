@@ -58,7 +58,8 @@ function Login(){
     return(
         <div className="login__container">
             <div className="login__box">
-
+                <img className="login__logo--size" src='https://image.flaticon.com/icons/svg/770/770906.svg'/>
+                <h2 className="login__title">Login with</h2>
                     <form>
                         
                  {showLogin &&(<> 
@@ -81,9 +82,10 @@ function Login(){
 
                     </form>
                 
-                <a onClick={displayLogin}>LOGIN</a>
+                <a onClick={displayLogin}>EMAIL</a>
                 <a onClick={googleLogin}>GOOGLE</a>
-                <a onClick={anonymousLogin}>ANONYMOUS</a>
+                <a onClick={anonymousLogin}>ANON</a>
+                <h2 className="login__title">OR</h2>
                 <a onClick={displayRegister}>REGISTER</a>
 
             {showRegister && ( <> 
