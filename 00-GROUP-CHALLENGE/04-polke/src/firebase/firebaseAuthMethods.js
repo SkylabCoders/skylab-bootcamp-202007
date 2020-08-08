@@ -27,12 +27,7 @@ export const authMethods = {
 	signInWithGitHub: () => {
 		const provider = new firebase.auth.GithubAuthProvider();
 		return firebase.auth().signInWithPopup(provider);
-	},
-
-	signInWithGitHubToken: () => {
-		const provider = new firebase.auth.GithubAuthProvider();
-		return fetch(
-			'https://github.com/login/oauth/authorize?client_id=2b0c487b96dcfdab49d2&scope=repo, user&login'
-		);
 	}
+
+	
 };
