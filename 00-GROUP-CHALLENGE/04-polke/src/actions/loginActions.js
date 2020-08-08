@@ -1,7 +1,7 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 import { authMethods } from '../firebase/firebaseAuthMethods';
-import firebase from 'firebase';
+import githubApiConst from '../shared/githubApiConst';
 
 export function login(email, password) {
 	return authMethods
@@ -84,8 +84,11 @@ export function createNewUser(email, password) {
 }
 
 export function getGitHubAuthCode() {
-	const gitURL = window.location;
-	console.log(gitURL);
-
-	debugger;
+	const searchParams = new URLSearchParams(window.location.search);
+	const gitCode = searchParams.get('code');
+	fetch(
+		`https://github.com/login/oauth/access_token?client_id=${githubApiConst.GITHUB_CLIENTID}&client_secret=${githubApiConst.GITHUB_CLIENTSECRET}&code=${gitCode}`
+	).then((response) => {
+		console.log(response);
+	});
 }
