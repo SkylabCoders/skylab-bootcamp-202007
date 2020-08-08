@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import './gameComponent.css';
 import player, { CHARGE, ATTACK, AVOID, FAIL } from './gameLogic/gameLogic';
+import useSound from "use-sound";
+import attackSound from '../../sounds/attack.wav'
+
 let player1;
 let machine;
 function GameComponent(props) {
+
+    
+    const [play] = useSound(attackSound);
 
     //Instancing the new Players
     let Mname = props.match.params.enemy;
@@ -97,7 +103,7 @@ function GameComponent(props) {
                         <p>Charge Ki</p>
                         <img
                             src={actions.charge}
-                            onClick={() => setAnAction(CHARGE)}
+                            onClick={() => {setAnAction(CHARGE)}}
                             alt="Charge"
                         ></img>
                     </div>
@@ -113,7 +119,7 @@ function GameComponent(props) {
                         <p>ATTACK!</p>
                         <img
                             src={actions.attack}
-                            onClick={() => setAnAction(ATTACK)}
+                            onClick={() => {setAnAction(ATTACK); play()}}
                             alt="Attack"
                         ></img >
                     </div >
