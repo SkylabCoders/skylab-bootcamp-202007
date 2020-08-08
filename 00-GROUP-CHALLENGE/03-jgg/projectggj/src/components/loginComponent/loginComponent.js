@@ -65,6 +65,7 @@ function LoginComponent(props) {
                         }
                         <button onClick={(event) => { event.preventDefault(); logout() }} className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block">Logout</button>
                         <Link to="/">Click here to go home</Link>
+                        <Link to="/profile">Or click here to go to your profile</Link>
                     </>
                 )}
                 <div>
