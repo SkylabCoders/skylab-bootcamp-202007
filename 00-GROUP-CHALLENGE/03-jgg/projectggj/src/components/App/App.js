@@ -30,6 +30,7 @@ function App(props) {
   return (
     <div>
       <NavComponent />
+      <div className='bodyClass'>
       <Switch>
         <Route path='/login' component={LoginComponent} />
         <Route path='/register' component={RegisterComponent} />
@@ -39,8 +40,8 @@ function App(props) {
         <Route path='/planet' component={PlanetComponent} />
         <Route path='/saga' component={SagaComponent} />
         <Route path='/game/:enemy' component={GameComponent} />
-
       </Switch>
+      </div>
       <FooterComponent />
 
     </div>
