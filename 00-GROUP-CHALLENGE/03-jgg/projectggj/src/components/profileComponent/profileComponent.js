@@ -77,6 +77,8 @@ function ProfileComponent() {
                                     {/*                                     <div className="details-desc">
                                         GENDER: <span>{char.gender}</span>
                                     </div> */}
+                                    <p>Do you want to increase your victories?</p>
+                                    <Link to="/game/:enemy">Click here to fight!</Link>
 
                                 </div>
                                 <div >
