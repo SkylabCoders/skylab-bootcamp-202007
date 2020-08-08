@@ -1,8 +1,25 @@
 import React from "react";
 import './../css/results.css';
 import { NavLink } from 'react-router-dom';
+import { saveResults } from '../actions/leaderboardActions' 
+import leaderboardStore from "../stores/leaderboardStore";
 
 function Results(props){
+
+    function handleResult() {
+        
+        saveResults({ 
+            name: 'USER A',
+            points: 10000,
+            gameStarted: props.data_started, 
+            gameEnded: props.data_ended, 
+            gamesPlayed: props.data_played,
+            questionsAsked: props.data_questions_total,
+            rightAnswers: props.data_right,
+            wronAnswers: props.data_wrong,
+            unanswered: props.data_unanswered
+        })
+	}
     
     return (
         <div className="results">
@@ -27,6 +44,7 @@ function Results(props){
                         </NavLink>
                     </div>
                 </div>
+                <div><button onClick={()=>handleResult()}>PRUEBA GUARDADO</button></div>
             </section>
         </div>
     );
