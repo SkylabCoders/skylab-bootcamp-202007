@@ -10,3 +10,10 @@ export function loadLeaderboard(){
         data: result
     })
 }
+
+export function saveResults(value) {
+		dispatcher.dispatch({
+			type: actionTypes.ADD_RESULTS,
+			data: value
+		});
+}

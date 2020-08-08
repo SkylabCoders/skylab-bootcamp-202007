@@ -4,13 +4,13 @@ import { loadLeaderboard } from './../actions/leaderboardActions';
 import './../css/leaderboard.css';
 
 function LeaderBoard(){
-    const [leaderboardList, setLeaderboardList] = useState([]);
+    const [leaderboardList, setLeaderboardList] = useState(leaderboardStore.getLeaderboard());
 
     useEffect(()=>{
         leaderboardStore.addChangeListener(onChange);
         if(leaderboardList.length === 0){loadLeaderboard()};
         return ()=>{leaderboardStore.removeChangeListener(onChange);}
-    }, []);
+    }, [leaderboardList.length]);
     
     function onChange(){
         setLeaderboardList(leaderboardStore.getLeaderboard());
@@ -22,6 +22,7 @@ function LeaderBoard(){
         <div className="leaderboard">
             <h1>Leaderboard</h1>
             <ul>
+                {console.log(leaderboardList)}
                 {leaderboardList.map((e)=>(
                     <li key={e.name}><strong>{e.name}</strong>, {e.points} points</li>
                 ))}
