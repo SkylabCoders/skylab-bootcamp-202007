@@ -7,14 +7,14 @@ import './Main.css';
 
 function Main() {
 	return (
-		<>
+		<div className="body-content">
 			<ProfileComponent />
 			<main className="Main-page">
 				<Recommendation />
 				<TopFiveComponent />
 				<PreferencesList />
 			</main>
-		</>
+		</div>
 	);
 }
 

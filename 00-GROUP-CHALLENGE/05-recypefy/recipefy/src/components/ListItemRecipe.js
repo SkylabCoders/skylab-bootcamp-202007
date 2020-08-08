@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import recipeStore from '../stores/RecipeStore';
-import { loadRecipe } from '../actions/RecipeAction';
 import './ListItemRecipe.css';
 
 function ListItemRecipe({ title }) {
@@ -12,8 +11,7 @@ function ListItemRecipe({ title }) {
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 		if (recipesList.length === 0) {
-			loadRecipe();
-
+			recipeStore.getRecipes();
 		} else {
 			const actualRecipe = recipeStore.getRecipeByTitle(title);
 			if (actualRecipe) {

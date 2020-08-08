@@ -18,7 +18,7 @@ function SearchResult() {
 		setSearchListResult(recipeStore.getRecipes);
 	}
 	return (
-		<div className="result-section">
+		<div className="result-section body-content">
 			<h2>YOUR RESULTS!</h2>
 			{searchListResult.map((recipe) => (
 				<RecipeCard title={recipe.title} key={recipe.title} />

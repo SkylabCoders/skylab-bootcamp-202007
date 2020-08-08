@@ -7,19 +7,9 @@ import '../App.css';
 
 function Header() {
 	const [actualSearch, setActualSearch] = useState('');
-	let [balanced, setBalanced] = useState('');
-	let [protein, setProtein] = useState('');
-	let [low_fat, setLow_fat] = useState('');
-	let [low_carb, setLow_carb] = useState('');
-	let [vegan, setVegan] = useState('');;
-	let [vegetarian, setVegetarian] = useState('');
-	let [sugar, setSugar] = useState('');
-	let [peanut, setPeanut] = useState('');
-	let [treenut, setTreenut] = useState('');
-	let [alcohol, setAlcohol] = useState('');
 
 	function onFieldChange(value, setValue) {
-		setValue(value);
+		setValue(value.trim());
 	}
 
 	function sendSearch() {
@@ -132,38 +122,6 @@ function Header() {
 								</span>
 							)}
 						</>
-					</div>
-					<div>
-						<td class="checkbox__preferences">
-							<button src="https://image.flaticon.com/icons/png/512/30/30636.png" id="cell--0--0" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--1" src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg" />
-						</td>
-						<td class="checkbox__preferences">
-							<button src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png" id="cell--0--2" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--3" src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--5" src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--2" src="https://www.footys.co.za/images/icon-sugar.png" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--3" src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--4" src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png" />
-						</td>
-						<td class="checkbox__preferences">
-							<button id="cell--0--5" src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png" />
-						</td>
 					</div>
 				</div>
 			</section>
