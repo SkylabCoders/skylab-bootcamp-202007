@@ -9,6 +9,7 @@ import Login from './components/login/login';
 import Film from './components/film/film';
 import AboutUs from './components/footer/about/about';
 import PrivacyPolicy from './components/footer/privacyPolicy/privacyPolicy';
+import User from './components/user/user';
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 			<Route path="/finder/:id" component={Finder} />
 			<Route path="/privacy" component={PrivacyPolicy} />
 			<Route path="/about" component={AboutUs} />
+			<Route path="/profile" component={User} />
 			<Footer />
 		</>
 	);
