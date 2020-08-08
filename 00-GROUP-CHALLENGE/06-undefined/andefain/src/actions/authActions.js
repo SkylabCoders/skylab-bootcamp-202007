@@ -26,7 +26,7 @@ export function signInWithGoogle() {
 	return authMethods.signInWithGoogle().then(({ user }) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOGIN,
-			user
+			data: user
 		});
 	});
 }
@@ -35,7 +35,7 @@ export function signInAnonymously() {
 	return authMethods.signInAnonymously().then(({ user }) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOGIN,
-			user
+			data: user
 		});
 	});
 }
