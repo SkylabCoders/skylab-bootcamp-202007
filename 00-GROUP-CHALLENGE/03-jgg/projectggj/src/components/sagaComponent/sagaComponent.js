@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import store from '../../stores/store';
 import { loadSagaList } from '../../actions/actions';
 import './sagaComponent.css';

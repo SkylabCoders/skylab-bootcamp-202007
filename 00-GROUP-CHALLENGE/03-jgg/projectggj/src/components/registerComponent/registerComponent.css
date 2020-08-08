@@ -7,6 +7,6 @@
     cursor: default;
 }
 
-.redirectLink {
-    display: block;
+a {
+    display: block
 }

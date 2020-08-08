@@ -1,12 +1,18 @@
 .bannerContainer {
-	background-image: url('https://wallpapercave.com/wp/wp4855908.png');
-	background-repeat: no-repeat;
 	height: 25vw;
 	background-position: center;
-	opacity: 80%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+}
+
+.bannerImage {
+	position: absolute;
+	height: 25vw;
+	width: 100vw;
+	object-fit: cover;
+	z-index: -1;
 }
 
 p {

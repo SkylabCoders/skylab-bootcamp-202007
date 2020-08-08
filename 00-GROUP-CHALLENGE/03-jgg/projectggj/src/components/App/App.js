@@ -11,6 +11,7 @@ import GameComponent from "../gameComponent/gameComponent";
 import authStore from '../../stores/authStore'
 import { Route, Switch } from "react-router-dom";
 import NavComponent from '../navComponent/navComponent';
+import ProfileComponent from '../profileComponent/profileComponent';
 
 
 function App(props) {
@@ -30,17 +31,19 @@ function App(props) {
   return (
     <div>
       <NavComponent />
-      <Switch>
-        <Route path='/login' component={LoginComponent} />
-        <Route path='/register' component={RegisterComponent} />
-        <Route path='/' exact component={HomeComponent} />
-        <Route path='/charList/:filter/:name' component={CharListComponent} />
-        <Route path='/details/:name' component={DetailsComponent} />
-        <Route path='/planet' component={PlanetComponent} />
-        <Route path='/saga' component={SagaComponent} />
-        <Route path='/game/:enemy' component={GameComponent} />
-
-      </Switch>
+      <div className='bodyClass'>
+        <Switch>
+          <Route path='/login' component={LoginComponent} />
+          <Route path='/register' component={RegisterComponent} />
+          <Route path='/' exact component={HomeComponent} />
+          <Route path='/charList/:filter/:name' component={CharListComponent} />
+          <Route path='/details/:name' component={DetailsComponent} />
+          <Route path='/planet' component={PlanetComponent} />
+          <Route path='/saga' component={SagaComponent} />
+          <Route path='/game/:enemy' component={GameComponent} />
+          <Route path='/profile' component={ProfileComponent} />
+        </Switch>
+      </div>
       <FooterComponent />
 
     </div>

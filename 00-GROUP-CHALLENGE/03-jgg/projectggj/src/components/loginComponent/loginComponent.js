@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './loginComponent.css'
 import { login, logout, loginWithGoogle } from '../../actions/authAction/authAction'
 import authStore from '../../stores/authStore'
+import { Link } from 'react-router-dom';
 
 
 function LoginComponent(props) {
@@ -55,17 +56,16 @@ function LoginComponent(props) {
                 {isLogged && (
                     <>
                         <h1>You are logged!</h1>
-                        <h2>Welcome {user && email || userName}!</h2>
+                        <h2>Welcome {user && (email || userName)}!</h2>
                         {userPhoto &&
-                            <img src={userPhoto} alt="user photo"></img>
+                            <img src={userPhoto} alt="user logo"></img>
                         }
                         {!userPhoto &&
                             <img src="https://w7.pngwing.com/pngs/304/275/png-transparent-user-profile-computer-icons-profile-miscellaneous-logo-monochrome.png" alt="user profile"></img>
                         }
-
                         <button onClick={(event) => { event.preventDefault(); logout() }} className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block">Logout</button>
-                        <a href="/">Click here to go home</a>
-
+                        <Link to="/">Click here to go home</Link>
+                        <Link to="/profile">Or click here to go to your profile</Link>
                     </>
                 )}
                 <div>
