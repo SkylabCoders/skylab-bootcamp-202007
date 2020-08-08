@@ -54,10 +54,10 @@ function ProfileComponent() {
                                 </div>
                                 <div className="details-desc-content">
                                     <div className="details-desc">
-                                        FULL NAME: <span>{userName}</span>
+                                        FULL NAME: <span>{userName || 'Undefined'}</span>
                                     </div>
                                     <div className="details-desc">
-                                        EMAIL: <span>{email}</span>
+                                        EMAIL: <span>{email || 'Undefined'}</span>
                                     </div>
                                     <div className="details-desc">
                                         RACE: <span>Human</span>
