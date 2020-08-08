@@ -86,9 +86,15 @@ export function createNewUser(email, password) {
 export function getGitHubAuthCode() {
 	const searchParams = new URLSearchParams(window.location.search);
 	const gitCode = searchParams.get('code');
+	debugger;
 	fetch(
-		`https://github.com/login/oauth/access_token?client_id=${githubApiConst.GITHUB_CLIENTID}&client_secret=${githubApiConst.GITHUB_CLIENTSECRET}&code=${gitCode}`
-	).then((response) => {
-		console.log(response);
-	});
+		`https://github.com/login/oauth/access_token?client_id=${githubApiConst.GITHUB_CLIENTID}&client_secret=${githubApiConst.GITHUB_CLIENTSECRET}&code=${gitCode}`,
+		{
+			method: 'POST'
+		}
+	)
+		.then((response) => {
+			console.log(response);
+		})
+		.catch((error) => console.log(error.message));
 }
