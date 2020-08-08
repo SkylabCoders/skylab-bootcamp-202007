@@ -51,7 +51,13 @@ dispatcher.register((action) => {
 		case actionTypes.LOGIN_GITHUB:
 			_isGitHubUser = true;
 			_gitHubUserName = action.data.additionalUserInfo.username;
-			console.log('[landingStore] I set _UProfile with:', action.data);
+			_userProfile = action.data;
+			_isLogged = !!action.data;
+			landingStore.emitChange();
+			break;
+		case actionTypes.LOGIN_GITHUB_POPUP:
+			_isGitHubUser = true;
+			_gitHubUserName = action.data.additionalUserInfo.username;
 			_userProfile = action.data;
 			_isLogged = !!action.data;
 			landingStore.emitChange();

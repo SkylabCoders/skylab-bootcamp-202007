@@ -39,6 +39,23 @@ export function loginGitHub() {
 		.catch((error) => console.error(error.message));
 }
 
+export function loginGitHubToken() {
+	return authMethods
+		.signInWithGitHubToken()
+		.then((data) => {
+			var token = data.credential.accessToken;
+			var user = data.user;
+			console.log(token);
+			console.log(user);
+			debugger;
+			dispatcher.dispatch({
+				type: actionTypes.LOGIN_GITHUB_POPUP,
+				data
+			});
+		})
+		.catch((error) => console.error(error.message));
+}
+
 export function loginAnonyomously() {
 	return authMethods
 		.signInAnonymously()

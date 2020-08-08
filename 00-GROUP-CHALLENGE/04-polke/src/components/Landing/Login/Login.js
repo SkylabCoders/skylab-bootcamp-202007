@@ -4,6 +4,7 @@ import {
 	login,
 	loginGoogle,
 	loginGitHub,
+	loginGitHubToken,
 	loginAnonyomously,
 	createNewUser
 } from '../../../actions/loginActions';
@@ -54,14 +55,10 @@ export default withRouter(function ({ history }) {
 					controlId="password"
 					bsSize="large"
 				>
-					<button
-						className="form__button"
-						onClick={(event) => {
-							event.preventDefault();
-							loginGitHub();
-						}}
-					>
-						GitHub
+					<button className="form__button">
+						<a href="https://github.com/login/oauth/authorize?client_id=2b0c487b96dcfdab49d2&scope=repo,user&login">
+							GitHub
+						</a>
 					</button>
 				</FormGroup>
 				<FormGroup
