@@ -49,9 +49,9 @@ function ProfileComponent() {
 
                                 </div>
                                 <div >
-                                    <Link to="/login" >
-                                        <button onClick={(event) => { event.preventDefault(); logout() }} className="'row figthlink btn'">Logout</button>
-                                    </Link>
+                                    <button onClick={(event) => { event.preventDefault(); logout() }} className="'row figthlink btn'">
+                                        <Link to="/login" >Logout</Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
