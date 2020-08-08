@@ -30,7 +30,7 @@
 
 @media screen and (min-width: 1024px) {
 	.body__box--main-recomendations {
-		margin-top: 5%px;
+		margin-top: 5%;
 	}
 
 	.recipe__text--preferences {

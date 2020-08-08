@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     margin: 10%;
-    margin-top: 15%;
 }
 
 .result-section>h2 {
@@ -36,7 +35,8 @@
         flex-direction: row;
     }
 
-    .result-section {
-        margin: 5%;
+    .body__box{
+        max-width: 800px;
     }
+
 }
