@@ -1,7 +1,7 @@
 import React from 'react';
 import { logout } from '../../actions/authAction/authAction'
 import { Link } from 'react-router-dom';
-
+import './profileComponent.css'
 
 function ProfileComponent() {
     return (
@@ -10,20 +10,23 @@ function ProfileComponent() {
                 <div className="row">
                     <div className="detail-container flex-item">
                         <div className="card hovercard">
-                            <div className="cardheader"></div>
+                            <div className="photoProfile"></div>
                             <div className="avatar">
                                 {/*                                 <img alt="" src={char.image}></img>
  */}                            </div>
 
                             <div className="info">
                                 <div className="title">
-                                    <a target="_blank" href="/">
+                                    <div>
                                         PROFILE
-                                    </a>
+                                    </div>
                                 </div>
                                 <div className="details-desc-content">
                                     <div className="details-desc">
-                                        NAME: <span>Human</span>
+                                        FULL NAME: <span>Name profile</span>
+                                    </div>
+                                    <div className="details-desc">
+                                        EMAIL: <span>Name profile</span>
                                     </div>
                                     <div className="details-desc">
                                         RACE: <span>Human</span>
@@ -34,6 +37,12 @@ function ProfileComponent() {
                                     <div className="details-desc">
                                         PLANET: <span>Earth</span>
                                     </div>
+                                    <div className="details-desc">
+                                        Nº OF VICTORIES: <span>0</span>
+                                    </div>
+                                    <div className="details-desc">
+                                        Nº OF DEFEATS: <span>0</span>
+                                    </div>
                                     {/*                                     <div className="details-desc">
                                         GENDER: <span>{char.gender}</span>
                                     </div> */}
@@ -41,7 +50,7 @@ function ProfileComponent() {
                                 </div>
                                 <div >
                                     <Link to="/login" >
-                                        <button onClick={(event) => { event.preventDefault(); logout() }} className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block">Logout</button>
+                                        <button onClick={(event) => { event.preventDefault(); logout() }} className="'row figthlink btn'">Logout</button>
                                     </Link>
                                 </div>
                             </div>
