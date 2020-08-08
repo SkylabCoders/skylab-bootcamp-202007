@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import recipeStore from '../stores/RecipeStore';
-import { loadRecipe } from '../actions/RecipeAction';
 
 function RecipeCard({ title }) {
 	let balanced = false;

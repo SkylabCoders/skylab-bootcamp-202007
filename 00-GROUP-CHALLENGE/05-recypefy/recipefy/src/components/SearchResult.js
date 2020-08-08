@@ -12,6 +12,9 @@ function SearchResult() {
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 		chargeList();
+		if (searchListResult.length != 0) {
+			resetTime(false);
+		}
 		return () => recipeStore.removeChangeListener;
 	}, [searchListResult.length, chargeTime]);
 
@@ -22,7 +25,10 @@ function SearchResult() {
 	function chargeList() {
 		setTimeout(() => {
 			setChargeTime(true);
-		}, 2000);
+		}, 3000);
+	}
+	function resetTime() {
+		setChargeTime(false);
 	}
 	return (
 		<div className="result-section body-content">
