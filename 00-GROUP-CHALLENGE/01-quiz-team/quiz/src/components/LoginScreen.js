@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from 'react-router-dom';
 import './../css/LoginScreen.css';
-import { login, logout } from './../actions/authActions';
+import { login, logout, loginGoogle } from './../actions/authActions';
 import authStore from './../stores/authStore';
 
 function LoginScreen() {
@@ -41,10 +41,13 @@ function LoginScreen() {
                                 <input type="password" name="password" value={userPassword} placeholder="Password" onChange={(event) => onFieldChange(event.target.value, setUserPassword)}/>
                                     <input className='notDisplayed' type="submit" name="login" value="Login" />
                                     <input className='notDisplayed' type="submit" name="logout" value="Logout" />
-                                    <div className="login__button">
+                                    <div className="login__set">
                                     {!isLogged && (<button onClick={(event) => {
                                         event.preventDefault();
                                         login(email, password)}}>Login</button>)}
+                                    {!isLogged && (<button onClick={(event) => {
+                                        event.preventDefault();
+                                        loginGoogle()}}>Sign in with google</button>)}
                                     {isLogged && (<button onClick={() => logout()}>Logout {user.email}</button>)}
                                     </div>
                             </form>
