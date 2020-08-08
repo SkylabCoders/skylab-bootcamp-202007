@@ -82,3 +82,10 @@ export function logout() {
 export function createNewUser(email, password) {
 	return authMethods.createUser(email, password);
 }
+
+export function getGitHubAuthCode() {
+	const gitURL = window.location;
+	console.log(gitURL);
+
+	debugger;
+}
