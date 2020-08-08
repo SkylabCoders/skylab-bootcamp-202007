@@ -31,6 +31,9 @@
 	width: 80% !important;
 	height: 60px;
 }
+.Login__form__container-input > a {
+	color: var(--font-color-input);
+}
 .Login__form__container-input {
 	width: 80% !important;
 }
