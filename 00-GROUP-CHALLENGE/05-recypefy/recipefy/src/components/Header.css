@@ -83,6 +83,11 @@
 	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg)
 		brightness(113%) contrast(87%);
 }
+button {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+}
 
 @media only screen and (min-width: 600px) {
 	h1 {

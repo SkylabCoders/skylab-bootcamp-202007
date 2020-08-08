@@ -9,7 +9,6 @@ const APP_IDENTIFICATION = `&app_id=${APP_API_ID}&app_key=${APP_API_KEY}`;
 
 const searchDefaultItem = 'chicken';
 export function loadRecipe(newSearch = searchDefaultItem) {
-	debugger;
 	const actualSearchLabel = 'q=' + newSearch;
 	function Recipe(
 		photo,
