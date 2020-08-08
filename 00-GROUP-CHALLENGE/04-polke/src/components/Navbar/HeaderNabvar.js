@@ -5,6 +5,7 @@ import './HeaderNavbar.css';
 import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../../actions/loginActions';
+import Switch from './Switch/Switch';
 
 function HeaderNavbar() {
 	const [username, setUsername] = useState('');
@@ -35,7 +36,9 @@ function HeaderNavbar() {
 				<NavLink to="/userDetail" className="navbar__navlink">
 					User Repos
 				</NavLink>
+
 				<div className="spacer"></div>
+				<Switch />
 				<div className="navBar--flex">
 					<Navbar.Toggle
 						className="toggle"
