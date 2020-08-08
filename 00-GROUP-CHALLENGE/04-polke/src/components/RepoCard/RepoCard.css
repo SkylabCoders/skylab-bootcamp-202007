@@ -8,6 +8,7 @@
 	max-height: 300px;
 	border-radius: 0.25rem;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	color: var(--font-color-repoCard);
 	background-color: var(--bg-color-repoCard);
 }
 .repoCard__name-private {

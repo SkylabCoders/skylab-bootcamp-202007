@@ -7,9 +7,11 @@ function Switch() {
 	// codi obligatori x poder cridar a stylesheet
 	var styleEl = document.createElement('style');
 	document.head.appendChild(styleEl);
+
 	var styleSheet = styleEl.sheet;
 	// insertem la primera rule (light mode)
-	styleSheet.insertLightModeRule(
+
+	styleSheet.insertRule(
 		`:root {--bg-color-navbar: #24292e;
 			--bg-color-box: #f8f9fa9f;
 			--font-color-footer: #f8f9fa;
@@ -31,29 +33,45 @@ function Switch() {
 			isDarkActive = false;
 			styleSheet.deleteRule(0);
 			styleSheet.insertRule(
-				`:root {--bg-color-navbar: #24292e;
+				`:root {
+					--bg-color-navbar: #24292e;
 					--bg-color-box: #f8f9fa9f;
-					--font-color-footer: #f8f9fa;
-					--form-color-headers: #212529;
-					--form-color-background: #bec0c5;
 					--bg-color-body: #f5f5f5;
 					--bg-color-button: #007bff;
 					--bg-color-repoCard: #f8f9fa;
-					--font-color-repoCard: black;
 					--bg-color-repoCard__name-private: #f1f2f3;
 					--bg-color-repoCard__details: #f1f2f3;
 					--bg-color-user-info-card: #f8f9fa;
-					--font-color-user-info-card: black;}`,
+					--font-color-footer: #f8f9fa;
+					--font-color-repoCard: black;
+					--font-color-user-info-card: black;
+					--font-color-input:black;
+					--font-color-carousel:black;
+					--form-color-headers: #212529;
+					--form-color-background: #bec0c5;
+					;}`,
 				0
 			);
 		} else {
 			styleSheet.deleteRule(0);
 			styleSheet.insertRule(
-				`:root {--bg-color-body: #20252D;--bg-color-repoCard: #4D5157;
-				--font-color-repoCard: white;
+				`:root {
+				--bg-color-repoCard: #4D5157;
+				--bg-color-body: #20252D;
+				--bg-color-navbar: #24292e;
 				--bg-color-repoCard__name-private: #46494D;
 			    --bg-color-repoCard__details: #46494D;
 				--bg-color-user-info-card: #4D5157;	
+				--bg-color-button: #007bff;
+				--font-color-footer: #f8f9fa;
+				--font-color-repoCard: white;
+				--font-color-repoCard: white;
+				--font-color-user-info-card: white;
+				--font-color-input:white;
+				--font-color-carousel:white;
+				--form-color-headers: white;
+				--form-color-background: #24292e;
+
 				}`,
 				0
 			);
@@ -62,9 +80,14 @@ function Switch() {
 	};
 	return (
 		<div className="switch">
-			<img src={require('../../../assets/img/sun.png')} alt="sun" />
+			<img
+				src={require('../../../assets/img/sun.png')}
+				alt="sun"
+				className="sun"
+			/>
 			<div className="custom-control custom-switch">
 				<input
+					onChange={switchColor}
 					type="checkbox"
 					className="custom-control-input"
 					id="customSwitches"
@@ -75,7 +98,11 @@ function Switch() {
 					htmlFor="customSwitches"
 				></label>
 			</div>
-			<img src={require('../../../assets/img/moon.png')} alt="moon" />
+			<img
+				src={require('../../../assets/img/moon.png')}
+				alt="moon"
+				className="moon"
+			/>
 		</div>
 	);
 }

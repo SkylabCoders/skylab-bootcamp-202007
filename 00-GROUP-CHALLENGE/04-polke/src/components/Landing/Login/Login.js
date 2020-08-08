@@ -94,7 +94,7 @@ export default withRouter(function ({ history }) {
 						Enter
 					</button>
 					<a
-						className="Login__form__anchor--colored anchor"
+						className="Login__form__anchor--colored anchor Login-anchor"
 						onClick={(event) => {
 							event.preventDefault();
 							document.getElementsByClassName('pop-up-modal')[0].style.display =
@@ -105,7 +105,7 @@ export default withRouter(function ({ history }) {
 					</a>
 					{'   |   '}
 					<a
-						className="login__log-anonym anchor"
+						className="login__log-anonym anchor Login-anchor"
 						onClick={(event) => {
 							event.preventDefault();
 							loginAnonyomously();

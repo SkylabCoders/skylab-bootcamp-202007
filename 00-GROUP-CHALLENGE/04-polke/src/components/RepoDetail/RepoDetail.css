@@ -15,6 +15,7 @@
 
 .carrousel-main-container__main-title {
 	text-align: center;
+	color: var(--font-color-carousel);
 }
 .carrousel-main-container__ranking-title {
 	padding-bottom: 15px;
