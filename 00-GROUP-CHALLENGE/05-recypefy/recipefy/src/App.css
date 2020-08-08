@@ -158,6 +158,11 @@ a {
 	justify-content: space-around;
 }
 
+.loading {
+	width: 100px;
+	height: 100px;
+}
+
 @media screen and (min-width: 600px) {
 	.body__box .recipe__image {
 		margin-right: 5px;

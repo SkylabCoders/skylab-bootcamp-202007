@@ -37,10 +37,14 @@ function SearchResult() {
 			{searchListResult.length === 0 && (
 				<>
 					{!chargeTime && (
-						<img
-							alt="loading"
-							src="https://media1.tenor.com/images/556e9ff845b7dd0c62dcdbbb00babb4b/tenor.gif?itemid=5345658"
-						></img>
+						<>
+							<img
+								className="loading"
+								alt="loading"
+								src="https://media1.tenor.com/images/8a1df0caea44830aa0ecf99ac223c747/tenor.gif?itemid=15085886"
+							></img>
+							<p>loading...</p>
+						</>
 					)}
 					{chargeTime && (
 						<>
