@@ -56,9 +56,9 @@ function LoginComponent(props) {
                 {isLogged && (
                     <>
                         <h1>You are logged!</h1>
-                        <h2>Welcome {user && email || userName}!</h2>
+                        <h2>Welcome {user && (email || userName)}!</h2>
                         {userPhoto &&
-                            <img src={userPhoto} alt="user photo"></img>
+                            <img src={userPhoto} alt="user logo"></img>
                         }
                         {!userPhoto &&
                             <img src="https://w7.pngwing.com/pngs/304/275/png-transparent-user-profile-computer-icons-profile-miscellaneous-logo-monochrome.png" alt="user profile"></img>
