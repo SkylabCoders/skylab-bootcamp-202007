@@ -60,7 +60,14 @@ function NavComponent(props) {
 						<li className="nav-item">
 							<a className="nav-link" href="/login">
 								Logout
-						</a>
+							</a>
+						</li>
+					)}
+					{isLogged && (
+						<li className="nav-item">
+							<a className="nav-link" href="/profile">
+								Profile <span className="sr-only"></span>
+							</a>
 						</li>
 					)}
 					<li className="nav-item active">

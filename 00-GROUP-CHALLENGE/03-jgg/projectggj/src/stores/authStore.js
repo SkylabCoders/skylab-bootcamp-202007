@@ -44,7 +44,6 @@ dispatcher.register((action) => {
             _isLogged = !!action.data;
             _userName = action.data.user.displayName;
             _photoUser = action.data.user.photoURL;
-            console.log(action)
             authStore.emitChange();
             break;
         case actionTypes.LOGOUT:
@@ -55,6 +54,8 @@ dispatcher.register((action) => {
 
         //CREATE.PROFILE doesn't need any data because is not sending anything, in fact you don't have to add any
         case actionTypes.CREATE_PROFILE:
+            _userProfile = action.data;
+            authStore.emitChange();
             break;
         default:
             break;
