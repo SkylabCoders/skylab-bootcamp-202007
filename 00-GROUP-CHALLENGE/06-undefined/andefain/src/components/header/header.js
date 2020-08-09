@@ -39,6 +39,10 @@ function Header(props) {
 
 					<div className="header-login">
 						<div className="header-login__hidden-menu">
+							{authStore.isLogged() &&
+								(!!authStore.getUserProfile().email
+									? authStore.getUserProfile().email
+									: 'Anonymous')}
 							{login ? (
 								<div className="header-login__button" onClick={() => logout()}>
 									Logout
