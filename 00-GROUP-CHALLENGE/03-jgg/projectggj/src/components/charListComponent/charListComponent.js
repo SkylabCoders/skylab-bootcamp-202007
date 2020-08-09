@@ -7,19 +7,26 @@ import { loadCharList } from '../../actions/actions';
 function CharListComponent(props) {
 
 	let [chars, setChars] = useState(store.getCharacters());
-	const [, , , , filter, name] = window.location.href.split('/');
+
+	let [, , , , filter, name] = window.location.href.split('/');
+	console.log(filter, name);
 
 	useEffect(() => {
 		store.addChangeListener(onChange);
-		if (chars.length === 0 && !store.getSearchValue())
+		console.log(store.getSearchValue())
+		if (store.getSearchValue().text === '')
 			loadCharList(filter, name);
+
+
 		return () => store.removeChangeListener(onChange);
-	}, [chars.length, filter, name]);
+	}, [chars.length], name, filter);
 
 	function onChange() {
-		if (store.getSearchValue()) {
+		console.log(!!filter)
+		if (store.getSearchValue() || !!name || !!filter) {
 			setChars(store.getCharactersFiltered());
 		} else {
+			console.log('else')
 			setChars(store.getCharacters());
 		}
 	}

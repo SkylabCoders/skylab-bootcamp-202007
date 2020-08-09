@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import store from '../../stores/store';
 import { loadSagaList } from '../../actions/actions';
 import './sagaComponent.css';
+import { Link } from 'react-router-dom';
 
 function SagaComponent(props) {
 	let [sagas, setSagas] = useState(store.getSagas());
@@ -10,7 +11,7 @@ function SagaComponent(props) {
 		store.addChangeListener(onChange);
 		if (sagas.length === 0) loadSagaList();
 		return () => store.removeChangeListener(onChange);
-	}, [sagas.length]);
+	}, [sagas.length, sagas]);
 
 
 	function onChange() {
@@ -26,15 +27,15 @@ function SagaComponent(props) {
 			<div className="card-holder flex-item flex-col centred">
 				{sagas &&
 					sagas.map((saga) => (
-						<a
+						<Link
 							className="cont"
-							href={`/charList/saga/${saga.series}`}
+							to={`/charList/saga/${saga.series}`}
 							key={saga.series}
 						>
 							<div className="saga-holder banner flex-item">
 								<img src={saga.image} alt="saga name"></img>
 							</div>
-						</a>
+						</Link>
 					))}
 			</div>
 		</>

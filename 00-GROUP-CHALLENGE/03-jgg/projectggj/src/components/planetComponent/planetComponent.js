@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import store from '../../stores/store';
 import { loadPlanets } from '../../actions/actions';
+import { Link } from 'react-router-dom';
 
 function PlanetComponent(prop) {
 	const [planets, setPlanets] = useState(store.getPlanets());
@@ -9,7 +10,7 @@ function PlanetComponent(prop) {
 		store.addChangeListener(onChange);
 		if (planets.length === 0) loadPlanets();
 		return () => store.removeChangeListener(onChange);
-	}, [planets.length]);
+	}, [planets.length, planets]);
 
 	function onChange() {
 		if (store.getSearchValue()) {
@@ -24,7 +25,9 @@ function PlanetComponent(prop) {
 			<div className="card-holder" >
 				{planets &&
 					planets.map((planet) => (
-						<a href={`/charList/planet/${planet.name}`} key={planet.name}>
+						<Link
+							to={`/charList/planet/${planet.name}`}
+							key={planet.name}>
 							<div className="card father-card">
 								<div className="row no-gutters hinherit">
 									<div className="hinherit img-holder">
@@ -35,7 +38,7 @@ function PlanetComponent(prop) {
 									</div>
 								</div>
 							</div>
-						</a>
+						</Link>
 					))}
 			</div>
 		</>
