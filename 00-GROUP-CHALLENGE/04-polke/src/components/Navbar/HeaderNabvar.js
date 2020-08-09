@@ -18,6 +18,13 @@ function HeaderNavbar() {
 			className="navbar__logo"
 		/>
 	);
+	const imgLogoDark = (
+		<img
+			src={require('../../assets/img/logo-dark.png')}
+			alt="logo"
+			className="navbar__logo"
+		/>
+	);
 
 	return (
 		<>
@@ -29,7 +36,7 @@ function HeaderNavbar() {
 			>
 				<div className="navbar--logoText">
 					<Navbar.Brand>
-						<NavLink to="/">{imgLogo}</NavLink>
+						<NavLink to="/">{imgLogoLight}</NavLink>
 					</Navbar.Brand>
 					<h1 className="navbar--text">GitData |</h1>
 				</div>
