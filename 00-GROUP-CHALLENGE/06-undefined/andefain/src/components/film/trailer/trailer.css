@@ -4,27 +4,32 @@
 	flex: 1;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
 }
 
-.poster {
-	height: 99%;
-	width: 53%;
+.poster-img {
 	display: none;
 }
 
 .trailer-img {
+	margin: auto;
 	width: 100%;
+	display: flex;
 }
 
 @media only screen and (min-width: 600px) {
 	.trailer-container {
-		width: 80%;
+		width: 100%;
 	}
 }
 
 @media only screen and (min-width: 1024px) {
-	.poster {
+	.poster-img {
+		width: 50%;
 		display: flex;
+	}
+	.trailer-img {
+		width: 100%;
 	}
 }
