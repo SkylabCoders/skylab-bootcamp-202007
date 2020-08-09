@@ -8,7 +8,7 @@ const APP_API_KEY = '83cd4df2c64a04f570c8647f833a8a7e';
 const APP_IDENTIFICATION = `&app_id=${APP_API_ID}&app_key=${APP_API_KEY}`;
 
 
-export function loadRecipe(newSearch) {
+export function loadRecipe(newSearch, dietPreferences, healthPreferences) {
 	if (!newSearch) {
 		newSearch = 'salad';
 	}
@@ -58,7 +58,7 @@ export function loadRecipe(newSearch) {
 	return new Promise((resolve, reject) => {
 		req.open(
 			'GET',
-			URL_API_SEARCH + actualSearchLabel + APP_IDENTIFICATION,
+			URL_API_SEARCH + actualSearchLabel + APP_IDENTIFICATION + dietPreferences + healthPreferences,
 			true
 		);
 		req.onreadystatechange = function () {
