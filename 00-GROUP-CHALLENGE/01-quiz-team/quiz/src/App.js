@@ -10,18 +10,19 @@ import Dashboard from './components/Dashboard';
 import Question from './components/Question';
 import Game from './components/Game';
 import Answer from './components/Answer';
+import * as ROUTES from './config/routes';
 
 function App() {
 	return (
 		<div className="app">
 			<Header />
 			<Switch>
-				<Route path="/" exact component={Dashboard} />
-				<Route path="/leaderboard" component={LeaderBoard} />
-				<Route path="/login" component={LoginScreen} />
-				<Route path="/question" component={Question} />
-				<Route path="/themes/:themeSlug" component={Game} />
-				<Route path="/answer" component={Answer} />
+				<Route path={ROUTES.HOME} exact component={Dashboard} />
+				<Route path={ROUTES.LEADERBOARD} component={LeaderBoard} />
+				<Route path={ROUTES.LOGIN} component={LoginScreen} />
+				<Route path={ROUTES.QUESTION} component={Question} />
+				<Route path={ROUTES.THEMES_WILDCARD} component={Game} />
+				<Route path={ROUTES.ANSWER} component={Answer} />
 				<Route component={PageNotFound} />
 			</Switch>
 			<Footer />

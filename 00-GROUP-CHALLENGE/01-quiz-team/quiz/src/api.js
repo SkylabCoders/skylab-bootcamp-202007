@@ -1,4 +1,4 @@
-import CONFIG_DATA from './config';
+import CONFIG_DATA from './config/apiConfig';
 import getEndpoint from './utils/endpoint';
 import decodeFast from './utils/simpleDecoder';
 

@@ -6,6 +6,7 @@ import Option from './Option';
 import Answer from './Answer';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import shuffleArray from './../utils/shuffleArray';
+import * as GAME_PARAMS from './../config/gameParameters';
 
 function Question(props) {
     const [question, setQuestion] = useState();
@@ -90,7 +91,7 @@ function Question(props) {
                         <CountdownCircleTimer
                             key={key}
                             isPlaying
-                            duration={20}
+                            duration={GAME_PARAMS.TIME_PER_QUESTION}
                             colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                         >
                             {renderTime}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Welcome from './Welcome';
 import Item from './Item';
 import './../css/Dashboard.css';
 import gameStore from './../stores/gameStore';

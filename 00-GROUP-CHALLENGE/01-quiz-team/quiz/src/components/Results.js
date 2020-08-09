@@ -2,7 +2,7 @@ import React from "react";
 import './../css/results.css';
 import { NavLink } from 'react-router-dom';
 import { saveResults } from '../actions/leaderboardActions' 
-import leaderboardStore from "../stores/leaderboardStore";
+import * as ROUTES from './../config/routes';
 
 function Results(props){
 
@@ -39,7 +39,7 @@ function Results(props){
                         <button onClick={props.newGameClick}>Play again, same theme</button>
                     </div>
                     <div className="playAgain__anotherTheme">
-                        <NavLink to='/'>
+                        <NavLink to={ROUTES.HOME}>
                             <button onClick={props.newGameClick}>Play a new theme</button>
                         </NavLink>
                     </div>
