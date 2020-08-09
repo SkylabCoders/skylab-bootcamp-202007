@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './gameComponent.css';
-import player, { CHARGE, ATTACK, AVOID, FAIL } from './gameLogic/gameLogic';
+
+import player, { CHARGE, ATTACK, AVOID } from './gameLogic/gameLogic';
+
 import useSound from "use-sound";
 import attackSound from '../../sounds/attack.mp3'
 import chargeSound from '../../sounds/charge.mp3'

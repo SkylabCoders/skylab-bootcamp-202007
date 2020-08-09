@@ -9,7 +9,9 @@ let _planets = [];
 let _planetsFiltered = [];
 let _sagas = [];
 let _sagasFiltered = [];
-let _searchValue = '';
+let _searchValue = {
+	text: ''
+};
 
 class DBStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -62,7 +64,9 @@ class DBStore extends EventEmitter {
 	filterChar(text, filter, name) {
 		_charactersFiltered = _characters;
 
+
 		if (text) {
+
 			_charactersFiltered = _characters.filter((char) =>
 				char.name.toLowerCase().includes(text.toLowerCase())
 			);
@@ -79,7 +83,6 @@ class DBStore extends EventEmitter {
 				(char) => char.series === name
 			);
 		}
-
 		return _charactersFiltered;
 	}
 
@@ -90,13 +93,11 @@ class DBStore extends EventEmitter {
 
 const store = new DBStore();
 dispatcher.register((action) => {
-	if (typeof (action.data) !== 'undefined')
-		var { text, filter, name } = action.data;
 
 	switch (action.type) {
 		case actionTypes.LOAD_CHAR_LIST:
 			_characters = action.data.charList;
-			_characters = store.filterChar(null, filter, name);
+			_charactersFiltered = store.filterChar(null, action.data.filter, action.data.name);
 			store.emitChange();
 			break;
 
@@ -115,12 +116,12 @@ dispatcher.register((action) => {
 			break;
 		case actionTypes.GLOBAL_SEARCH:
 			_searchValue = action.data;
-			_charactersFiltered = store.filterChar(text, filter, name);
+			_charactersFiltered = store.filterChar(action.data.text, action.data.filter, action.data.name);
 			_planetsFiltered = _planets.filter((planet) =>
-				planet.name.toLowerCase().includes(text.toLowerCase())
+				planet.name.toLowerCase().includes(action.data.text.toLowerCase())
 			);
 			_sagasFiltered = _sagas.filter((saga) =>
-				saga.series.toLowerCase().includes(text.toLowerCase())
+				saga.series.toLowerCase().includes(action.data.text.toLowerCase())
 			);
 			store.emitChange();
 			break;
