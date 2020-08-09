@@ -4,29 +4,37 @@ import store from '../../stores/store';
 import './charListComponent.css';
 import { loadCharList } from '../../actions/actions';
 
+const useBeforeFirstRender = (f) => {
+	const [hasRendered, setHasRendered] = useState(false)
+	useEffect(() => setHasRendered(true), [hasRendered])
+	if (!hasRendered) {
+		f()
+	}
+}
+
+
 function CharListComponent(props) {
 
 	let [chars, setChars] = useState(store.getCharacters());
 
 	let [, , , , filter, name] = window.location.href.split('/');
-	console.log(filter, name);
 
+	useBeforeFirstRender(() => {
+		loadCharList(filter, name)
+	})
 	useEffect(() => {
 		store.addChangeListener(onChange);
-		console.log(store.getSearchValue())
-		if (store.getSearchValue().text === '')
-			loadCharList(filter, name);
-
+		if (store.getSearchValue().text === '') {
+			setChars(store.getCharactersFiltered());
+		}
 
 		return () => store.removeChangeListener(onChange);
-	}, [chars.length], name, filter);
+	}, [chars.length, name, filter]);
 
 	function onChange() {
-		console.log(!!filter)
-		if (store.getSearchValue() || !!name || !!filter) {
+		if (store.getSearchValue()) {
 			setChars(store.getCharactersFiltered());
 		} else {
-			console.log('else')
 			setChars(store.getCharacters());
 		}
 	}

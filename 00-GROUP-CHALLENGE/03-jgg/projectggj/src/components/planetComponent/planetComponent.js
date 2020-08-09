@@ -1,16 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import store from '../../stores/store';
 import { loadPlanets } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 
-function PlanetComponent(prop) {
-	const [planets, setPlanets] = useState(store.getPlanets());
+const useBeforeFirstRender = (f) => {
+	const [hasRendered, setHasRendered] = useState(false)
+	useEffect(() => setHasRendered(true), [hasRendered])
+	if (!hasRendered) {
+		f()
+	}
+}
 
+function PlanetComponent(prop) {
+
+	const [planets, setPlanets] = useState(store.getPlanets());
+	useBeforeFirstRender(() => {
+		loadPlanets();
+	})
 	useEffect(() => {
 		store.addChangeListener(onChange);
-		if (planets.length === 0) loadPlanets();
+		if (store.getSearchValue().text === '') setPlanets(store.getPlanets())
 		return () => store.removeChangeListener(onChange);
-	}, [planets.length, planets]);
+	}, [planets.length]);
 
 	function onChange() {
 		if (store.getSearchValue()) {

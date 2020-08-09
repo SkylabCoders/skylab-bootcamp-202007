@@ -52,7 +52,7 @@ export function saveUser(user) {
 	});
 }
 
-export function loadPlanets(filter, name) {
+export function loadPlanets() {
 	return new Promise((resolve) => {
 		resolve(planetsArr);
 	}).then((planetsArr) => {

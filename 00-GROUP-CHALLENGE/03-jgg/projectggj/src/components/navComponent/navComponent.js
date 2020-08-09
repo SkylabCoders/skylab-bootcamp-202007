@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './navComponent.css';
 import authStore from '../../stores/authStore'
-import { globalSearch } from '../../actions/actions';
+import { globalSearch, loadCharList } from '../../actions/actions';
 
 import { Link } from 'react-router-dom';
 
 function NavComponent(props) {
 
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
-
+	const [search, setSearch] = useState('');
+	let [, , , , filter, name] = window.location.href.split('/');
 	useEffect(() => {
 		authStore.addChangeListener(onAuthChange);
 		return () => authStore.removeChangeListener(onAuthChange)
-	}, [isLogged])
+	}, [isLogged, filter, name])
 
 	function onAuthChange() {
 		setIsLogged(authStore.isLogged())
 	}
 
-	const [search, setSearch] = useState('');
-	const [, , , , filter, name] = window.location.href.split('/');
-
 	function handleChange(event, setValueCallback) {
 		event.preventDefault();
+		loadCharList(filter, name)
 		setValueCallback(event.target.value);
 		globalSearch(event.target.value, filter, name);
 	}

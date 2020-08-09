@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import store from '../../stores/store';
 import { loadSagaList } from '../../actions/actions';
 import './sagaComponent.css';
 import { Link } from 'react-router-dom';
-
+const useBeforeFirstRender = (f) => {
+	const [hasRendered, setHasRendered] = useState(false)
+	useEffect(() => setHasRendered(true), [hasRendered])
+	if (!hasRendered) {
+		f()
+	}
+}
 function SagaComponent(props) {
-	let [sagas, setSagas] = useState(store.getSagas());
 
+
+	let [sagas, setSagas] = useState(store.getSagas());
+	useBeforeFirstRender(() => {
+		loadSagaList();
+	})
 	useEffect(() => {
 		store.addChangeListener(onChange);
-		if (sagas.length === 0) loadSagaList();
+		if (store.getSearchValue().text === '') setSagas(store.getSagas())
 		return () => store.removeChangeListener(onChange);
-	}, [sagas.length, sagas]);
+	}, [sagas.length]);
 
 
 	function onChange() {

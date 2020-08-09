@@ -17,10 +17,7 @@ function DetailsComponent(props) {
 	let char = {};
 	const name = props.match.params.name;
 	char = store.getCharByName(name);
-	if (!char)
-		char = {
-			image: ''
-		};
+
 	return (
 		<div className="details-holder">
 			<div className="flex-item">
@@ -29,7 +26,7 @@ function DetailsComponent(props) {
 						<div className="card hovercard">
 							<div className="cardheader"></div>
 							<div className="avatar">
-								<img alt="" src={char.image}></img>
+								{char && <img alt="" src={char.image}></img>}
 							</div>
 
 							<div className="info">
