@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import recipeStore from '../stores/RecipeStore';
+import PropTypes from 'prop-types';
 
 function RecipeCard({ title }) {
 	let balanced = false;
@@ -185,6 +186,10 @@ function RecipeCard({ title }) {
 			)}
 		</div>
 	);
+}
+
+RecipeCard.propTypes = {
+	title: PropTypes.string.isRequired
 }
 
 export default RecipeCard;
