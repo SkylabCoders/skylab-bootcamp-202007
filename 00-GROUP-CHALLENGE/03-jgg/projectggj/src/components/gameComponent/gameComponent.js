@@ -151,7 +151,7 @@ function GameComponent(props) {
 
                 </div >
                 <div className='flex-col-user__data'>
-
+                    <p>YOU:</p>
                     <img src={imgLive} alt='lives'></img>
                     <span>{playerLives}</span>
                     <img src={imgCharge} alt='ki'></img>
@@ -166,7 +166,7 @@ function GameComponent(props) {
                 <img className='machine-img' src={machineAction} alt="machine action"></img>
 
                 <div className='flex-col-user__data'>
-
+                    <p>ENEMY:</p>
                     <img src={imgLive} alt='lives'></img>
                     <span>{machLives}</span>
                     <img src={imgCharge} alt='ki'></img>
