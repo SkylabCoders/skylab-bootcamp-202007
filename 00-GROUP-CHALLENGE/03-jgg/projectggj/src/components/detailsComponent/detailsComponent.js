@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import store from '../../stores/store';
 import { loadCharList } from '../../actions/actions';
 import './detailsComponent.css';
+
+import { Link } from 'react-router-dom';
 function DetailsComponent(props) {
 	const [chars, setChars] = useState(store.getCharacters());
 
@@ -31,9 +33,9 @@ function DetailsComponent(props) {
 
 							<div className="info">
 								<div className="title">
-									<a target="_blank" href="/">
-										{char.name}
-									</a>
+									<Link target="_blank" to="/">
+										{char && char.name}
+									</Link>
 								</div>
 								<div className="details-desc-content">
 									<div className="details-desc">
@@ -54,9 +56,9 @@ function DetailsComponent(props) {
 
 								</div>
 								<div >
-									<a href={`/game/${char.name}`} >
+									<Link to={`/game/${char.name}`} >
 										<button className='row figthlink btn'> FIGTH!</button>
-									</a>
+									</Link>
 								</div>
 							</div>
 						</div>

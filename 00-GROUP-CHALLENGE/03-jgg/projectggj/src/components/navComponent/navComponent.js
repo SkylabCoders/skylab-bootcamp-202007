@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './navComponent.css';
-import authStore from '../../stores/authStore'
-
+import authStore from '../../stores/authStore';
+import store from '../../stores/store'
 import { globalSearch } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 import useSound from "use-sound";
+import { loadCharList } from '../../actions/actions'
 import introSound from "../../sounds/intro.mp3";
 
 
@@ -98,7 +99,7 @@ function NavComponent(props) {
 						</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link" href="/about">
+						<Link className="nav-link" to="/about">
 							About us
 						</Link>
 
