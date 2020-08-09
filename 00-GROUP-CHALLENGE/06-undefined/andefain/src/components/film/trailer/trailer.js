@@ -9,7 +9,7 @@ function Trailer({ details, trailer }) {
 			<Link to="/film">
 				<img
 					src={details.image.url}
-					className="poster"
+					className="poster-img"
 					//style={{ backgroundImage: `url(${details.image.url})` }}
 				/>
 			</Link>
