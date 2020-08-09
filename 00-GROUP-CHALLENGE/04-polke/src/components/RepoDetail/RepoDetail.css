@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 .carrousel-main-container h3 {
 	font-size: 1.7em !important;
 }
-=======
->>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 .generic-carrousel img {
 	height: 65vh;
 }
@@ -12,11 +9,7 @@
 }
 
 .carousel-caption {
-<<<<<<< HEAD
 	top: 10%;
-=======
-	top: 15%;
->>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 }
 
 .user-repositorio__bottom-tittle {
@@ -34,7 +27,6 @@
 	color: black;
 	font-size: 0.8em;
 }
-<<<<<<< HEAD
 .carrousel-main-container__user-img {
 	border-radius: 50%;
 	width: 120px;
@@ -61,13 +53,6 @@
 	.ranking-repositorie h3 {
 		font-size: 1.7em !important;
 	}
-=======
-
-@media only screen and (min-width: 600px) and (max-width: 1024px) {
-	.generic-carrousel img {
-		height: 45vh;
-	}
->>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 }
 
 @media only screen and (min-width: 1025px) {
@@ -97,7 +82,6 @@
 	.carrousel-main-container__ranking-caption h3 {
 		padding-bottom: 25px !important;
 	}
-<<<<<<< HEAD
 
 	.carrousel-main-container__user-img {
 		border-radius: 50%;
@@ -107,6 +91,4 @@
 	.ranking-repositorie h3 {
 		font-size: 1.7em !important;
 	}
-=======
->>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 }
