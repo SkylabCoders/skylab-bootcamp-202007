@@ -1,3 +1,6 @@
+.carrousel-main-container h3 {
+	font-size: 1.7em !important;
+}
 .generic-carrousel img {
 	height: 65vh;
 }
@@ -6,7 +9,7 @@
 }
 
 .carousel-caption {
-	top: 15%;
+	top: 10%;
 }
 
 .user-repositorio__bottom-tittle {
@@ -24,10 +27,31 @@
 	color: black;
 	font-size: 0.8em;
 }
+.carrousel-main-container__user-img {
+	border-radius: 50%;
+	width: 120px;
+	height: 120px !important;
+}
+
+.ranking-repositorie .user-repositorie__ranking-minor-title {
+	font-size: 1.4em !important;
+}
 
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
+	.carousel-caption {
+		top: 10%;
+	}
+
 	.generic-carrousel img {
 		height: 45vh;
+	}
+	.carrousel-main-container__user-img {
+		border-radius: 50%;
+		width: 120px;
+		height: 120px !important;
+	}
+	.ranking-repositorie h3 {
+		font-size: 1.7em !important;
 	}
 }
 
@@ -57,5 +81,14 @@
 	}
 	.carrousel-main-container__ranking-caption h3 {
 		padding-bottom: 25px !important;
+	}
+
+	.carrousel-main-container__user-img {
+		border-radius: 50%;
+		width: 160px;
+		height: 160px !important;
+	}
+	.ranking-repositorie h3 {
+		font-size: 1.7em !important;
 	}
 }
