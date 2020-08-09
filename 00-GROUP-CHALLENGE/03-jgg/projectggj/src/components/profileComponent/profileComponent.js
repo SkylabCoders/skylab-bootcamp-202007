@@ -55,7 +55,7 @@ function ProfileComponent() {
                                         PROFILE
                                     </div>
                                 </div>
-                                <div className="details-desc-content">
+                                <div className="details-desc-content text-profile">
                                     <div className="details-desc">
                                         FULL NAME: <span>{userName || 'Undefined'}</span>
                                     </div>

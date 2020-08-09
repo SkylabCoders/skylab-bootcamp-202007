@@ -7,7 +7,7 @@ import player, { CHARGE, ATTACK, AVOID } from './gameLogic/gameLogic';
 import useSound from "use-sound";
 import attackSound from '../../sounds/attack.mp3'
 import chargeSound from '../../sounds/charge.mp3'
-import avoidSound from '../../sounds/avoid.mp3'
+import avoidSound from '../../sounds/avoid.wav'
 
 let player1;
 let machine;
