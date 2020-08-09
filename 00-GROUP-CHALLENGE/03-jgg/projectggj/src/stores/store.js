@@ -8,6 +8,8 @@ let _charactersFiltered = [];
 let _planets = [];
 let _planetsFiltered = [];
 let _sagas = [];
+let _wins = 6;
+let _loss = 0;
 let _sagasFiltered = [];
 let _searchValue = {
 	text: ''
@@ -52,6 +54,14 @@ class DBStore extends EventEmitter {
 
 	getCharByName(name) {
 		return _characters.find((char) => name === char.name);
+	}
+
+	getWins() {
+		return _wins;
+	}
+
+	getLoss() {
+		return _loss;
 	}
 
 	charsByPlanets(planetName) {
@@ -124,6 +134,12 @@ dispatcher.register((action) => {
 				saga.series.toLowerCase().includes(action.data.text.toLowerCase())
 			);
 			store.emitChange();
+			break;
+		case actionTypes.WIN_INC:
+			++_wins;
+			break;
+		case actionTypes.LOSS_INC:
+			++_loss;
 			break;
 		default:
 			break;
