@@ -28,7 +28,9 @@ function CharListComponent(props) {
 			setChars(store.getCharactersFiltered());
 		}
 
-		return () => store.removeChangeListener(onChange);
+		return () => {
+			store.removeChangeListener(onChange)
+		};
 	}, [chars.length, name, filter]);
 
 	function onChange() {

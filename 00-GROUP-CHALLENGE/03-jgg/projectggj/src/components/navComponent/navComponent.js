@@ -4,6 +4,8 @@ import authStore from '../../stores/authStore'
 import { globalSearch, loadCharList } from '../../actions/actions';
 
 import { Link } from 'react-router-dom';
+import store from '../../stores/store';
+
 
 function NavComponent(props) {
 
@@ -12,6 +14,7 @@ function NavComponent(props) {
 	let [, , , , filter, name] = window.location.href.split('/');
 	useEffect(() => {
 		authStore.addChangeListener(onAuthChange);
+		if (store.getSearchValue().text !== '') loadCharList(filter, name);
 		return () => authStore.removeChangeListener(onAuthChange)
 	}, [isLogged, filter, name])
 
@@ -21,7 +24,6 @@ function NavComponent(props) {
 
 	function handleChange(event, setValueCallback) {
 		event.preventDefault();
-		loadCharList(filter, name)
 		setValueCallback(event.target.value);
 		globalSearch(event.target.value, filter, name);
 	}
