@@ -1,32 +1,40 @@
-.burguer-button{
+.burguer-button {
 	display: flex;
 	height: 100%;
 	padding: 7px;
 	position: relative;
 }
-.burguer-button img{
+.burguer-button img {
 	width: 30px;
 }
 
-.burguer-button ul{
+.burguer-button ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	list-style: none;
+	-webkit-box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+	-moz-box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+	box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+	border-radius: 10px;
 }
 
-.burguer-preferences{
+.burguer-preferences {
 	display: none;
 	position: absolute;
-	background-color: #65dfc3;
+	top: 52px;
 }
 .burguer-button:hover .burguer-preferences {
 	display: flex;
-	width: 60%;
+	flex-direction: row;
+	background-color: #65dfc3;
 	flex-wrap: wrap;
-	height:fit-content;
+	width: 200px;
 }
 .burguer-preferences ul {
 	display: flex;
+	flex-direction: row;
 }
-
 
 .nav__menu,
 .nav__mobile,
