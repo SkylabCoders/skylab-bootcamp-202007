@@ -22,7 +22,7 @@ function Finder(title, name) {
 	}
 
 	return (
-		<section className="finder-container ">
+		<section className="finder-container">
 			{finder ? (
 				finder.map((element) => {
 					return (
