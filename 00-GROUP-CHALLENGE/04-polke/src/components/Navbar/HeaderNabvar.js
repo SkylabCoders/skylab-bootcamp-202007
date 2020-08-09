@@ -11,7 +11,7 @@ function HeaderNavbar() {
 	const [username, setUsername] = useState('');
 	const [project, setProject] = useState('');
 
-	const imgLogo = (
+	const imgLogoLight = (
 		<img
 			src={require('../../assets/img/logo.png')}
 			alt="logo"
