@@ -1,34 +1,56 @@
 import React from 'react';
 import './RepoCard.css';
 import { Button } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
-function RepoCard() {
+function RepoCard({ repoInfoList }) {
+	let lockImg = null;
+
+	if (repoInfoList.private === true) {
+		lockImg = (
+			<img
+				className="padlock"
+				src={require('../../assets/img/padlock.png')}
+				alt="padlock"
+			/>
+		);
+	} else {
+		lockImg = (
+			<img
+				className="padlock"
+				src={require('../../assets/img/unlock.png')}
+				alt="unlock"
+			/>
+		);
+	}
+	let desc = repoInfoList.description;
+	if (desc.length > 50) {
+		desc = desc.slice(0, 47) + '...';
+	}
+
 	return (
 		<section className="repoCard">
 			<div className="repoCard__name-private">
-				<div className="repoCard__private">
-					<img
-						className="padlock"
-						src={require('../../assets/img/padlock.png')}
-						alt="moon"
-					/>
-					{/* git  */}
+				<div className="repoCard__private">{lockImg}</div>
+				<div className="repoCard__name">
+					<b>{repoInfoList.name}</b>
 				</div>
-				<div className="repoCard__name">Polke!!</div>
 			</div>
-			<div className="repoCard__description">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-				provident minima odit pariatur totam ipsum nam vel harum quas
-				reprehenderit laudantium dolorum sapiente fuga, non perspiciatis, ex ut
-				consequuntur modi.
-			</div>
+			<div className="repoCard__description">{desc}</div>
 			<div className="repoCard__showlastUpdate-lang">
-				<div className="repoCard__lastUpdate">13/06/1985</div>
-				<div className="repoCard__lang">css, js, html</div>
+				<div className="repoCard__lastUpdate">
+					{repoInfoList.lastUpdate.split('T')[0]}
+				</div>
+				<div className="repoCard__lang">{repoInfoList.language}</div>
 			</div>
 			<div className="repoCard__details">
-				<Button variant="outline-secondary" className="button__details">
-					Details
+				<Button variant="primary" className="button__details">
+					<NavLink
+						to={`/repoDetail/${repoInfoList.userName}/${repoInfoList.name}`}
+						className="repoCard__navlink"
+					>
+						Details
+					</NavLink>
 				</Button>
 			</div>
 		</section>

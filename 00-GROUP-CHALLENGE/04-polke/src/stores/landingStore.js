@@ -6,6 +6,8 @@ const CHANGE_EVENT = 'change';
 
 let _isLogged = false;
 let _userProfile = null;
+let _isGitHubUser = false;
+let _gitHubUserName = null;
 
 class LandingStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -27,21 +29,39 @@ class LandingStore extends EventEmitter {
 	getUserProfile() {
 		return _userProfile;
 	}
+
+	isUserGitHub() {
+		return _isGitHubUser;
+	}
+
+	getGitHubUserName() {
+		return _gitHubUserName;
+	}
 }
 
-const loginStore = new LandingStore();
+const landingStore = new LandingStore();
 
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOGIN:
 			_userProfile = action.data;
 			_isLogged = !!action.data;
-			loginStore.emitChange();
+			landingStore.emitChange();
+			break;
+		case actionTypes.LOGIN_GITHUB:
+			_isGitHubUser = true;
+			_gitHubUserName = action.data.additionalUserInfo.username;
+			console.log('[landingStore] I set _UProfile with:', action.data);
+			_userProfile = action.data;
+			_isLogged = !!action.data;
+			landingStore.emitChange();
 			break;
 		case actionTypes.LOGOUT:
 			_isLogged = false;
 			_userProfile = null;
-			loginStore.emitChange();
+			_isGitHubUser = false;
+			_gitHubUserName = '';
+			landingStore.emitChange();
 			break;
 
 		default:
@@ -49,4 +69,4 @@ dispatcher.register((action) => {
 	}
 });
 
-export default loginStore;
+export default landingStore;

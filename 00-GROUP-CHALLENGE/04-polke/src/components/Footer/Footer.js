@@ -5,7 +5,7 @@ import './Footer.css';
 
 function Footer() {
 	return (
-		<div className="footer__container footer__container--color ">
+		<div className="footer__container footer__container--color fixed-bottom">
 			<p className="footer__item">
 				Copyright &copy;{' '}
 				<a href="https://github.com/Dani-Alonso">Dani Alonso</a> |{' '}
