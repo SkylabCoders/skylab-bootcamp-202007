@@ -18,6 +18,7 @@
 
 .finder-result {
 	background-color: black;
+	border: 2px solid grey;
 	height: 80px;
 	margin: 10px 0 0px 0;
 	width: 95%;
