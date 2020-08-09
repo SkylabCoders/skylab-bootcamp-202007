@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Recommendation.css';
 import recipeStore from '../stores/RecipeStore';
 import { Link } from 'react-router-dom';
-import { loadRecipe } from '../actions/RecipeAction';
 
 function Recomendation() {
 	let balanced = false;
@@ -24,7 +23,7 @@ function Recomendation() {
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 		if (recipeList.length === 0) {
-			loadRecipe();
+			setRecipeList(recipeStore.getRecipes);
 		} else {
 			setActualRecipe(recipeList[Math.floor(Math.random() * 10)]);
 		}
