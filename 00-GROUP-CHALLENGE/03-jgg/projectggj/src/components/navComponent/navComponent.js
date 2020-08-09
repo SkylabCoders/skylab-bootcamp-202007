@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './navComponent.css';
 import authStore from '../../stores/authStore'
-import { globalSearch, loadCharList } from '../../actions/actions';
 
+import { globalSearch } from '../../actions/actions';
 import { Link } from 'react-router-dom';
-import store from '../../stores/store';
+import useSound from "use-sound";
+import introSound from "../../sounds/intro.mp3";
 
 
 function NavComponent(props) {
+
+	const [introSong] = useSound(introSound);
 
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
 	const [search, setSearch] = useState('');
@@ -88,10 +91,17 @@ function NavComponent(props) {
 							Sagas
 						</Link>
 					</li>
-					<li className="nav-item">
+
+					<li onClick={() => introSong()} className="nav-item">
 						<Link className="nav-link nav__button--game" to="/game/Machine">
 							Game
 						</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" href="/about">
+							About us
+						</Link>
+
 					</li>
 				</ul>
 				<form className="form-inline my-2 my-md-0">
