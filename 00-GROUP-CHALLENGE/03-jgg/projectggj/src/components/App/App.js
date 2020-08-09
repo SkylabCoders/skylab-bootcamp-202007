@@ -12,6 +12,7 @@ import authStore from '../../stores/authStore'
 import { Route, Switch } from "react-router-dom";
 import NavComponent from '../navComponent/navComponent';
 import ProfileComponent from '../profileComponent/profileComponent';
+import AboutComponent from '../aboutComponent/aboutComponent';
 
 
 function App(props) {
@@ -42,6 +43,7 @@ function App(props) {
           <Route path='/saga' component={SagaComponent} />
           <Route path='/game/:enemy' component={GameComponent} />
           <Route path='/profile' component={ProfileComponent} />
+          <Route path='/about' component={AboutComponent} />
         </Switch>
       </div>
       <FooterComponent />

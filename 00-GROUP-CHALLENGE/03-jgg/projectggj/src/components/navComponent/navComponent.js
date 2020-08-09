@@ -95,6 +95,11 @@ function NavComponent(props) {
 							Game
 						</Link>
 					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="/about">
+							About us
+						</a>
+					</li>
 				</ul>
 				<form className="form-inline my-2 my-md-0">
 					<input

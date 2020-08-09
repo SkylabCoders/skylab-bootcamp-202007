@@ -38,7 +38,7 @@ function LoginComponent(props) {
     }
 
     return (
-        <section className="text-center container">
+        <section className="text-center container containerLogin">
             <form className="form-signin">
                 {!isLogged && (
                     <>
