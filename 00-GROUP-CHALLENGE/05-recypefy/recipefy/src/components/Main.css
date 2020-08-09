@@ -13,8 +13,18 @@ main {
 	align-items: center;
 }
 
+
 @media screen and (min-width: 1024px) {
 	main {
 		align-items: flex-end;
+	}
+
+	.loading-container {
+		display: flex;
+		width: 62%;
+		flex-direction: column;
+		margin: auto;
+		align-items: center;
+		height: 80vw;
 	}
 }

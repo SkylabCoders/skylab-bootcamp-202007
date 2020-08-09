@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import recipeStore from '../stores/RecipeStore';
-import { loadRecipe } from '../actions/RecipeAction';
 import ListItemRecipe from './ListItemRecipe';
 
 function TopFiveComponent() {
@@ -9,7 +8,7 @@ function TopFiveComponent() {
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 		if (topFiveList.length === 0) {
-			loadRecipe();
+			setTopFiveList(recipeStore.getTopFiveRecipes);
 		}
 		return () => recipeStore.removeChangeListener;
 	}, [topFiveList.length]);
