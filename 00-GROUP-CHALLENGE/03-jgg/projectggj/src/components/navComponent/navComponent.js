@@ -3,8 +3,12 @@ import './navComponent.css';
 import authStore from '../../stores/authStore'
 import { globalSearch } from '../../actions/actions';
 import { Link } from 'react-router-dom';
+import useSound from "use-sound";
+import introSound from "../../sounds/intro.mp3";
 
 function NavComponent(props) {
+
+	const [introSong] = useSound(introSound);
 
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
 
@@ -86,7 +90,7 @@ function NavComponent(props) {
 							Sagas
 						</Link>
 					</li>
-					<li className="nav-item">
+					<li onClick={() => introSong()} className="nav-item">
 						<Link className="nav-link nav__button--game" to="/game/Machine">
 							Game
 						</Link>
