@@ -9,7 +9,7 @@
 	padding: 5px 5% 5px 5%;
 }
 
-.nav__mobile>a {
+.nav__mobile > a {
 	color: white;
 	list-style: none;
 	margin: 0;
@@ -70,7 +70,6 @@
 	height: 25px;
 	width: 105px;
 	margin: 0 10px 0 10px;
-
 }
 
 .main__logo {
@@ -83,7 +82,51 @@
 
 .icon__burguer,
 .login__logo {
-	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg) brightness(113%) contrast(87%);
+	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg)
+		brightness(113%) contrast(87%);
+}
+.container__icon {
+	max-width: 30px;
+	max-height: 30px;
+}
+
+.button {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	margin: 5px;
+}
+.gray {
+	filter: grayscale(100%) opacity(30%);
+}
+
+.protein {
+	background: url('https://icon-library.com/images/protein-icon/protein-icon-0.jpg')
+		3px 5px no-repeat;
+}
+.low_fat {
+	background: url() 3px 5px no-repeat;
+}
+.low_carb {
+	background: url() 3px 5px no-repeat;
+}
+.vegan {
+	background: url() 3px 5px no-repeat;
+}
+.vegetarian {
+	background: url() 3px 5px no-repeat;
+}
+.sugar {
+	background: url() 3px 5px no-repeat;
+}
+.peanut {
+	background: url() 3px 5px no-repeat;
+}
+.treenut {
+	background: url() 3px 5px no-repeat;
+}
+.alcohol {
+	background: url() 3px 5px no-repeat;
 }
 
 @media only screen and (min-width: 600px) {
@@ -166,7 +209,6 @@
 		align-items: center;
 		width: 96%;
 		margin: 80px 2% 0 2%;
-
 	}
 
 	h1 {
@@ -242,5 +284,4 @@
 		-moz-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
 		box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
 	}
-
 }
