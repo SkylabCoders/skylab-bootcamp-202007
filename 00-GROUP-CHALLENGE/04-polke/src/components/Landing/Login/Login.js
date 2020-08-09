@@ -12,12 +12,15 @@ import '../../../shared/generalStyles.css';
 import './Login.css';
 import PopUpBox from '../PopUpBox/PopUpBox';
 import { withRouter } from 'react-router-dom';
+import githubApiConst from '../../../shared/githubApiConst';
 
 export default withRouter(function ({ history }) {
 	const [isLogged, setIsLogged] = useState(false);
 	const [user, setUser] = useState(null);
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const USERDETAIL_PATH = './userDetail';
 
 	useEffect(() => {
 		landingStore.addChangeListener(onAuthChange);
@@ -54,14 +57,12 @@ export default withRouter(function ({ history }) {
 					controlId="password"
 					bsSize="large"
 				>
-					<button
-						className="form__button"
-						onClick={(event) => {
-							event.preventDefault();
-							loginGitHub();
-						}}
-					>
-						GitHub
+					<button className="form__button">
+						<a
+							href={`https://github.com/login/oauth/authorize?client_id=${githubApiConst.GITHUB_CLIENTID}&scope=${githubApiConst.GITHUB_SCOPE}&login`}
+						>
+							GitHub
+						</a>
 					</button>
 				</FormGroup>
 				<FormGroup

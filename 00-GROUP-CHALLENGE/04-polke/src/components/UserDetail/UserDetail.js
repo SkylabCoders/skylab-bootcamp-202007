@@ -5,6 +5,7 @@ import useruserDetailStore from '../../stores/userDetailStore';
 import userDetailStore from '../../stores/userDetailStore';
 import { loadRepoList } from '../../actions/userDetailActions';
 import RepoCard from '../RepoCard/RepoCard';
+import RepoCreation from './RepoCreation/RepoCreation';
 import UserInfo from './UserInfo/UserInfo';
 import landingStore from '../../stores/landingStore';
 import { FormControl, Button } from 'react-bootstrap';
@@ -50,7 +51,9 @@ function UserDetail() {
 				<div className="creation__left">
 					{isUserGitHub ? createRepoButton : null}
 				</div>
-				<div className="creation__right"></div>
+				<div className="creation__right">
+					<RepoCreation />
+				</div>
 			</div>
 		</div>
 	);
@@ -83,6 +86,7 @@ function UserDetail() {
 					Go
 				</NavLink>
 			</Button>
+			<RepoCreation />
 		</div>
 	);
 
