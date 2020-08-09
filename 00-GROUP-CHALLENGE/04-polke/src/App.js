@@ -13,9 +13,9 @@ function App() {
 			<HeaderNavbar />
 			<Switch>
 				<Route path="/" exact component={Landing} />
-				<Route path="/userDetail" component={UserDetail} />
+				<Route path="/userDetail" exact component={UserDetail} />
 				<Route path="/repoDetail/:userName/:repoName" component={RepoDetail} />
-				<Route path="/__/auth/" component={AuthComp} />
+				<Route path="/userDetail/__/auth/" component={AuthComp} />
 			</Switch>
 			<Footer />
 		</>

@@ -4,7 +4,6 @@ import {
 	login,
 	loginGoogle,
 	loginGitHub,
-	loginGitHubToken,
 	loginAnonyomously,
 	createNewUser
 } from '../../../actions/loginActions';

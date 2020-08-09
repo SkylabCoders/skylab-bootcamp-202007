@@ -39,23 +39,6 @@ export function loginGitHub() {
 		.catch((error) => console.error(error.message));
 }
 
-export function loginGitHubToken() {
-	return authMethods
-		.signInWithGitHubToken()
-		.then((data) => {
-			var token = data.credential.accessToken;
-			var user = data.user;
-			console.log(token);
-			console.log(user);
-			debugger;
-			dispatcher.dispatch({
-				type: actionTypes.LOGIN_GITHUB_POPUP,
-				data
-			});
-		})
-		.catch((error) => console.error(error.message));
-}
-
 export function loginAnonyomously() {
 	return authMethods
 		.signInAnonymously()
@@ -86,15 +69,37 @@ export function createNewUser(email, password) {
 export function getGitHubAuthCode() {
 	const searchParams = new URLSearchParams(window.location.search);
 	const gitCode = searchParams.get('code');
-	debugger;
-	fetch(
-		`https://github.com/login/oauth/access_token?client_id=${githubApiConst.GITHUB_CLIENTID}&client_secret=${githubApiConst.GITHUB_CLIENTSECRET}&code=${gitCode}`,
-		{
-			method: 'POST'
+	const fetchUrl = `https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token?client_id=${githubApiConst.GITHUB_CLIENTID}&client_secret=${githubApiConst.GITHUB_CLIENTSECRET}&code=${gitCode}`;
+	fetch(fetchUrl, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
 		}
-	)
+	})
+		.then((response) => response.text())
 		.then((response) => {
-			console.log(response);
+			dispatcher.dispatch({
+				type: actionTypes.LOGIN_GITHUB_TOKEN,
+				data: response
+			});
 		})
 		.catch((error) => console.log(error.message));
+}
+
+export function getGitHubAuthUser(accessToken) {
+	const fetchUrl = 'https://api.github.com/user';
+	const bearer = 'Bearer ' + accessToken;
+	fetch(fetchUrl, {
+		headers: {
+			Authorization: bearer,
+			'Content-Type': 'application/json'
+		}
+	})
+		.then((response) => response.json())
+		.then((response) => {
+			dispatcher.dispatch({
+				type: actionTypes.GET_GITHUB_AUTH_USER,
+				data: response
+			});
+		});
 }
