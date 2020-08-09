@@ -109,7 +109,7 @@ function GameComponent(props) {
                         <p>Charge Ki</p>
                         <img
                             src={actions.charge}
-                            onClick={() => {setAnAction(CHARGE); charge()}}
+                            onClick={() => { setAnAction(CHARGE); charge() }}
                             alt="Charge"
                         ></img>
                     </div>
@@ -117,7 +117,7 @@ function GameComponent(props) {
                         <p>Avoid attack</p>
                         <img
                             src={actions.avoid}
-                            onClick={() => {setAnAction(AVOID); avoid()}}
+                            onClick={() => { setAnAction(AVOID); avoid() }}
                             alt="Avoid"
                         ></img>
                     </div>
@@ -125,7 +125,7 @@ function GameComponent(props) {
                         <p>ATTACK!</p>
                         <img
                             src={actions.attack}
-                            onClick={() => {setAnAction(ATTACK); attack()}}
+                            onClick={() => { setAnAction(ATTACK); attack() }}
                             alt="Attack"
                         ></img >
                     </div >

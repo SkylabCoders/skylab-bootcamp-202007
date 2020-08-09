@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './navComponent.css';
-import authStore from '../../stores/authStore'
-
+import authStore from '../../stores/authStore';
+import store from '../../stores/store'
 import { globalSearch } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 import useSound from "use-sound";
+import { loadCharList } from '../../actions/actions'
 import introSound from "../../sounds/intro.mp3";
 
 
