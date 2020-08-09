@@ -1,3 +1,33 @@
+.burguer-button{
+	display: flex;
+	height: 100%;
+	padding: 7px;
+	position: relative;
+}
+.burguer-button img{
+	width: 30px;
+}
+
+.burguer-button ul{
+	list-style: none;
+}
+
+.burguer-preferences{
+	display: none;
+	position: absolute;
+	background-color: #65dfc3;
+}
+.burguer-button:hover .burguer-preferences {
+	display: flex;
+	width: 60%;
+	flex-wrap: wrap;
+	height:fit-content;
+}
+.burguer-preferences ul {
+	display: flex;
+}
+
+
 .nav__menu,
 .nav__mobile,
 .nav__medium__big {
