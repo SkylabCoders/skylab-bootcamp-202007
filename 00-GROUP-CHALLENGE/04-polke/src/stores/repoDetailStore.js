@@ -4,6 +4,10 @@ import { EventEmitter } from 'events';
 
 const CHANGE_EVENT = 'change';
 
+<<<<<<< HEAD
+=======
+let _repoInfo = [];
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 let _groupInfo = [];
 let _rankingInfo = [];
 
@@ -19,8 +23,82 @@ class RepoInfoStore extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE_EVENT);
 	}
+<<<<<<< HEAD
 
 	//GROUP CARD METHODS
+=======
+	//FIRST CARD METHODS
+	calculateDate(first, last) {
+		let firsDateArr = first;
+		let secondDateArr = last;
+		let days;
+		let startDay = firsDateArr[2].split('').slice(0, 2).join('');
+		let endDay = secondDateArr[2].split('').slice(0, 2).join('');
+		days = endDay - startDay;
+		let definitString = `${days} days`;
+		return definitString;
+	}
+	calculateLastActivity(dates) {
+		return dates.last[0];
+	}
+	retrieveAuthorCommitsLength(userRepos) {
+		return userRepos.length;
+	}
+	retrieveAuthorCommits(data, AuthorName) {
+		let AuthorCommits = data.filter(
+			(elem) => elem.commit.author.name === AuthorName
+		);
+		return AuthorCommits;
+	}
+	retrieveAuthorComments(data) {
+		let AuthorComments = data.map((elem) => elem.commit.message);
+		return AuthorComments;
+	}
+	retrieveLastAuthorComments(data) {
+		let AuthorLastCommits = data.slice(0, 2);
+		return AuthorLastCommits;
+	}
+	setUserRepoInfo(userName) {
+		let repoInfoStats = {
+			length: _repoInfo.length,
+			data: _repoInfo,
+			name: userName,
+			time: 'null',
+			authorCommits: 'null',
+			authorCommitsLength: 'null',
+			authorComments: 'null',
+			authourLastComments: 'null',
+			lastActivity: 'null'
+		};
+		repoInfoStats.authorCommits = this.retrieveAuthorCommits(
+			repoInfoStats.data,
+			repoInfoStats.name
+		);
+		repoInfoStats.authorCommitsLength = this.retrieveAuthorCommitsLength(
+			repoInfoStats.authorCommits
+		);
+		let dates = {
+			last: repoInfoStats.authorCommits[0].commit.author.date.split('-'),
+			first: repoInfoStats.authorCommits[
+				repoInfoStats.authorCommitsLength - 1
+			].commit.author.date.split('-')
+		};
+		repoInfoStats.time = this.calculateDate(dates.first, dates.last);
+		repoInfoStats.lastActivity = this.calculateLastActivity(dates);
+		repoInfoStats.authorComments = this.retrieveAuthorComments(
+			repoInfoStats.authorCommits
+		);
+		repoInfoStats.authourLastComments = this.retrieveLastAuthorComments(
+			repoInfoStats.authorComments
+		);
+		return repoInfoStats;
+	}
+	getUserRepoInfo(userName) {
+		let repoInfoStats = this.setUserRepoInfo(userName);
+		return repoInfoStats;
+	}
+	//SECOND CARD METHODS
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 	calculateTotalGroupCommits(data) {
 		let totalComits = data.map((elem) => elem.total).reduce((a, b) => a + b, 0);
 		return totalComits;
@@ -39,15 +117,26 @@ class RepoInfoStore extends EventEmitter {
 		return lastWeek;
 	}
 	isActive(lastFourthWeeks) {
+<<<<<<< HEAD
 		return lastFourthWeeks > 0 ? 'Active' : 'Inactive';
+=======
+		return lastFourthWeeks > 0 ? 'Active' : 'No Active';
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 	}
 	setGroupRepoInfo() {
 		let repoGroupInfoStats = {
 			data: _groupInfo,
+<<<<<<< HEAD
 			total: null,
 			weeksOfWorkLastYear: null,
 			lastFourthWeekCommits: null,
 			active: null
+=======
+			total: 'null',
+			weeksOfWorkLastYear: 'null',
+			lastFourthWeekCommits: 'null',
+			active: 'null'
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 		};
 		repoGroupInfoStats.total = this.calculateTotalGroupCommits(
 			repoGroupInfoStats.data
@@ -68,6 +157,7 @@ class RepoInfoStore extends EventEmitter {
 		let repoGroupInfoStats = this.setGroupRepoInfo();
 		return repoGroupInfoStats;
 	}
+<<<<<<< HEAD
 	//USER/RANKING CARD METHODS
 	retrieveWeeksSinceInit(data) {
 		let weeks = data
@@ -87,6 +177,14 @@ class RepoInfoStore extends EventEmitter {
 			.map((elem) => elem.total)
 			.reduce((a, b) => a + b, 0);
 		return groupCommits;
+=======
+	//THIRD CARD METHODS
+	retrieveUserTotalCommits(data, user) {
+		let userCommits = data
+			.filter((elem) => elem.author.login === 'infohab')
+			.map((elem) => elem.total);
+		return userCommits;
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 	}
 	setCommitsRankingWinnersArr(data) {
 		let usersRanking = [...data]
@@ -107,6 +205,7 @@ class RepoInfoStore extends EventEmitter {
 
 		return numberOfCommits;
 	}
+<<<<<<< HEAD
 	setUserImg(user, data) {
 		let userUrl = data
 			.filter((elem) => elem.author.login === user)
@@ -163,6 +262,16 @@ class RepoInfoStore extends EventEmitter {
 			userName: userName,
 			userWeeksSinceFirstCommit: null,
 			userImg: null
+=======
+	setRankingRepoInfo(userName) {
+		let repoRankingInfoStats = {
+			data: _rankingInfo,
+			user: userName,
+			userCommits: 'null',
+			commitsRankingArr: 'null',
+			commitsRankingNames: 'null',
+			commitsRankingTotalNumber: 'null'
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 		};
 		repoRankingInfoStats.commitsRankingArr = this.setCommitsRankingWinnersArr(
 			repoRankingInfoStats.data
@@ -175,6 +284,7 @@ class RepoInfoStore extends EventEmitter {
 		);
 		repoRankingInfoStats.userCommits = this.retrieveUserTotalCommits(
 			repoRankingInfoStats.data,
+<<<<<<< HEAD
 			repoRankingInfoStats.userName
 		);
 		repoRankingInfoStats.groupCommits = this.retrieveGroupTotalCommits(
@@ -203,6 +313,14 @@ class RepoInfoStore extends EventEmitter {
 	}
 	getRankingRepoInfo(username) {
 		let repoRankingInfoStats = this.setRankingRepoInfo(username);
+=======
+			repoRankingInfoStats.user
+		);
+		return repoRankingInfoStats;
+	}
+	getRankingRepoInfo(userName) {
+		let repoRankingInfoStats = this.setRankingRepoInfo(userName);
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 		return repoRankingInfoStats;
 	}
 }
@@ -211,6 +329,13 @@ const repoInfoStore = new RepoInfoStore();
 
 dispatcher.register((action) => {
 	switch (action.type) {
+<<<<<<< HEAD
+=======
+		case actionTypes.LOAD_REPO:
+			_repoInfo = action.data;
+			repoInfoStore.emitChange(_repoInfo);
+			break;
+>>>>>>> 47e408ce5730d3f36146b029c256030cce7c6204
 		case actionTypes.LOAD_GROUP:
 			_groupInfo = action.data;
 			repoInfoStore.emitChange(_groupInfo);
