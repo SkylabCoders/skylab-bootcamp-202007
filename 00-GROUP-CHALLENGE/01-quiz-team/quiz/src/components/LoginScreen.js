@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './../css/LoginScreen.css';
 import { login, logout, loginGoogle } from './../actions/authActions';
 import authStore from './../stores/authStore';
+import * as ROUTES from './../config/routes';
 
 function LoginScreen() {
     const [userName,setUserName] = useState('');
@@ -28,7 +29,7 @@ function LoginScreen() {
     }
     return (
         <>
-            <NavLink to={`/login`} >
+            <NavLink to={ROUTES.LOGIN} >
                 <div className="login__wrapper">
                     <div className="login__left__container">
                         <img src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?cs=srgb&dl=pexels-johannes-plenio-1103970.jpg&fm=jpg"></img>

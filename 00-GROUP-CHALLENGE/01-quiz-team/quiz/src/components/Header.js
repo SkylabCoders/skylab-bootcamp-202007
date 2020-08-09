@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../css/header.css'
+import '../css/header.css';
+import * as ROUTES from './../config/routes';
 
 
 function Header() {
@@ -14,13 +15,13 @@ function Header() {
 					<nav>
 						<ul className="nav__list">
 							<li>
-								<NavLink className="nav__item" activeClassName="my-active-class link" to="/">
+								<NavLink className="nav__item" activeClassName="my-active-class link" to={ROUTES.HOME}>
 									Home
 								</NavLink>
 							</li>
 							<li> {' | '} </li>
 							<li>
-								<NavLink className="nav__item" activeClassName="my-active-class link" to="/leaderboard">
+								<NavLink className="nav__item" activeClassName="my-active-class link" to={ROUTES.LEADERBOARD}>
 									Leaderboard
 								</NavLink>
 							</li>
@@ -29,7 +30,7 @@ function Header() {
 					<NavLink activeClassName="my-active-class" to="/login">
 						<div className="login__icon"><img src={require('../assets/user_icon.png')} /> </div>
 					</NavLink>
-					<NavLink activeClassName="my-active-class" className="login__button__link" to="/login">
+					<NavLink activeClassName="my-active-class" className="login__button__link" to={ROUTES.LOGIN}>
 						<button type="button" className="login__button">Login</button>
 					</NavLink>
 				</div>
