@@ -32,9 +32,12 @@ function Details(props) {
 	}
 	function handleSubmit(event) {
 		event.preventDefault();
-		saveHero({ name: heroName, id: heroId }).then(() =>
-			props.history.push('/heroes')
-		);
+		const name = heroName.trim();
+		if (name) {
+			saveHero({ name: heroName, id: heroId }).then(() =>
+				props.history.push('/heroes')
+			);
+		}
 	}
 	return (
 		<div id="hero-detail__container">

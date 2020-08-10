@@ -7,7 +7,7 @@ function Header() {
 			<h1>Tour of Heroes</h1>
 			<nav>
 				<NavLink to="/">Dashboad</NavLink>
-				<NavLink to="/hero-list">Heroes</NavLink>
+				<NavLink to="/heroes">Heroes</NavLink>
 			</nav>
 		</header>
 	);
