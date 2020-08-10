@@ -37,7 +37,7 @@ dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
-			heroStore.emitChange(_heroes);
+			heroStore.emitChange();
 			nextId = generateNextId(_heroes);
 			break;
 		case actionTypes.UPDATE_HERO:
