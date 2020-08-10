@@ -69,7 +69,9 @@ export function loadPaginatedHeroes(page, itemsPerPage){
 }
 
 export function loadHeroById(id){
-    let result = HERO_LIST.find(e=>e.id===id)
+    console.log('ENTERING ACION loadHeroById WITH id:', id);
+    let result = LOAD_HERO_LIST.find(e=>e.id===id)
+    console.log('Result to be dispatched:', result)
     dispatcher.dispatch({
         type: actionTypes.LOAD_HERO_BY_ID,
         data: result

@@ -13,6 +13,8 @@ function HeroDetail(){
     const [currentHero, setcurrentHero] = useState(undefined);
     const [id] = useState(urlId);
 
+    console.log('ENTERING HERODETAIL:', urlId, id, currentHero);
+
     useEffect(()=>{
         HeroStore.addChangeListener(onChange);
         if( currentHero === undefined){ loadHeroById(id) }
@@ -23,7 +25,7 @@ function HeroDetail(){
         setcurrentHero(HeroStore.getHeroById(id)); 
     }
 
-    console.log(currentHero);
+    console.log('AFTER USEEFFECT BEFORE RENDERING:', urlId, id, currentHero);
 
     return (        
         <div className="heroDetail">
