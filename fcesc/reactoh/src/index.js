@@ -2,23 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import MainMenu from './components/MainMenu';
 import * as serviceWorker from './serviceWorker';
-
-
-const title = 'hola pepsicola';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
-    <MainMenu />
-    <App 
-      click={(arg)=>{console.log(arg)}}
-      title={title}
-    />
-    <Footer />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
