@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 import { saveResults } from '../actions/leaderboardActions' 
 import * as ROUTES from './../config/routes';
 
-function Results(props){
+function Results(props) {
 
     function handleResult() {
-        
-        saveResults({ 
+
+        saveResults({
             name: 'USER A',
             points: props.data_points,
             gameStarted: props.data_started, 
@@ -19,8 +19,8 @@ function Results(props){
             wronAnswers: props.data_wrong,
             unanswered: props.data_unanswered
         })
-	}
-    
+    }
+
     return (
         <div className="results">
             <section className="section__results">
@@ -31,9 +31,9 @@ function Results(props){
                 <p>Game started at {props.data_started} and ended at {props.data_ended}</p>
                 <p>Total playtime: {props.data_played}.</p>
                 <p>Number of questions asked: {props.data_questions_total}</p>
-                <p>Right:      {props.data_right} - {((Number(props.data_right) / Number(props.data_questions_total))*100).toFixed(2)}%</p>
-                <p>Wrong:      {props.data_wrong} - {((Number(props.data_wrong) / Number(props.data_questions_total))*100).toFixed(2)}%</p>
-                <p>Unanswered: {props.data_unanswered} - {((Number(props.data_unanswered) / Number(props.data_questions_total))*100).toFixed(2)}%</p>
+                <p>Right:      {props.data_right} - {((Number(props.data_right) / Number(props.data_questions_total)) * 100).toFixed(2)}%</p>
+                <p>Wrong:      {props.data_wrong} - {((Number(props.data_wrong) / Number(props.data_questions_total)) * 100).toFixed(2)}%</p>
+                <p>Unanswered: {props.data_unanswered} - {((Number(props.data_unanswered) / Number(props.data_questions_total)) * 100).toFixed(2)}%</p>
                 <div className="playAgain">
                     <div className="playAgain__sameTheme">
                         <button onClick={props.newGameClick}>Play again, same theme</button>
@@ -43,8 +43,10 @@ function Results(props){
                             <button onClick={props.newGameClick}>Play a new theme</button>
                         </NavLink>
                     </div>
+                    <div>
+                        <button onClick={() => handleResult()}>Save results</button>
+                    </div>
                 </div>
-                <div><button onClick={()=>handleResult()}>PRUEBA GUARDADO</button></div>
             </section>
         </div>
     );
