@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './navComponent.css';
-import authStore from '../../stores/authStore'
+import authStore from '../../stores/authStore';
+import store from '../../stores/store'
 import { globalSearch } from '../../actions/actions';
 import { Link } from 'react-router-dom';
 import useSound from "use-sound";
+import { loadCharList } from '../../actions/actions'
 import introSound from "../../sounds/intro.mp3";
+
 
 function NavComponent(props) {
 
 	const [introSong] = useSound(introSound);
 
 	const [isLogged, setIsLogged] = useState(authStore.isLogged());
-
+	const [search, setSearch] = useState('');
+	let [, , , , filter, name] = window.location.href.split('/');
 	useEffect(() => {
 		authStore.addChangeListener(onAuthChange);
+		if (store.getSearchValue().text !== '') loadCharList(filter, name);
 		return () => authStore.removeChangeListener(onAuthChange)
-	}, [isLogged])
+	}, [isLogged, filter, name])
 
 	function onAuthChange() {
 		setIsLogged(authStore.isLogged())
 	}
-
-	const [search, setSearch] = useState('');
-	const [, , , , filter, name] = window.location.href.split('/');
 
 	function handleChange(event, setValueCallback) {
 		event.preventDefault();
@@ -90,15 +92,17 @@ function NavComponent(props) {
 							Sagas
 						</Link>
 					</li>
+
 					<li onClick={() => introSong()} className="nav-item">
 						<Link className="nav-link nav__button--game" to="/game/Machine">
 							Game
 						</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="/about">
+						<Link className="nav-link" to="/about">
 							About us
-						</a>
+						</Link>
+
 					</li>
 				</ul>
 				<form className="form-inline my-2 my-md-0">

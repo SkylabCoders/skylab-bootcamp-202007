@@ -10,7 +10,11 @@ function player(names = 'Machine', isMachine = false) {
     let lives = 3;
     let ret;
 
-
+    function resetPlayer() {
+        lives = 3;
+        charges = 1;
+        action = "";
+    }
     function setAction(newAction) {
         action = newAction;
         calculateAction(action)
@@ -81,9 +85,9 @@ function player(names = 'Machine', isMachine = false) {
         return name;
     }
     if (isMachine)
-        ret = { generateAction, recibeAction, getAction, getLives, getName, getCharges }
+        ret = { generateAction, recibeAction, getAction, getLives, getName, getCharges, resetPlayer }
     else
-        ret = { setAction, recibeAction, getAction, getLives, getCharges, getName }
+        ret = { setAction, recibeAction, getAction, getLives, getCharges, getName, resetPlayer }
 
     return ret
 }
