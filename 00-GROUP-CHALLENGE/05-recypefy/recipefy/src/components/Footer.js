@@ -18,7 +18,7 @@ function Footer(){
                         <div className="developer__card">
                             <img src="https://media-exp1.licdn.com/dms/image/C5603AQEZPiAr7_RCxA/profile-displayphoto-shrink_400_400/0?e=1602115200&v=beta&t=z8RyBtkp3SCyRZEnFBW1KU286hrCLlbxDYxbfSLyen8"/>
                             <div>
-                                <h4>Martí Amat</h4>
+                                <h4>Martí Amat Vila</h4>
                                 <p>FullStack Web Developer</p>
                             </div>
                         </div>
@@ -32,9 +32,8 @@ function Footer(){
                     </div>
                 </div>
                 <div className="info__link__container">
-                    <h3>Info</h3>
-                    <a href="https://developer.edamam.com/es/api-recetas-edamam-documentacion">Edaman API</a>
-                    <a href="https://colorhunt.co/">Colors</a>
+                    <h3 className="info__title">Info</h3>
+                    <a href="https://developer.edamam.com/es/api-recetas-edamam-documentacion" className="api__link">Edamam API</a>
                 </div>
             </footer>
         </>

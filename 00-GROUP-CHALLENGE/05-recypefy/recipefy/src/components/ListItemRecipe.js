@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import recipeStore from '../stores/RecipeStore';
-import { loadRecipe } from '../actions/RecipeAction';
 import './ListItemRecipe.css';
+import Proptypes from "prop-types";
+
 
 function ListItemRecipe({ title }) {
 	const [recipesList, setRecipes] = useState(recipeStore.getRecipes());
@@ -12,8 +13,7 @@ function ListItemRecipe({ title }) {
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 		if (recipesList.length === 0) {
-			loadRecipe();
-			console.log(recipesList);
+			recipeStore.getRecipes();
 		} else {
 			const actualRecipe = recipeStore.getRecipeByTitle(title);
 			if (actualRecipe) {
@@ -37,6 +37,10 @@ function ListItemRecipe({ title }) {
 			<h4>{actualRecipeTitle}</h4>
 		</Link>
 	);
+}
+
+ListItemRecipe.propTypes = {
+	title: Proptypes.string.isRequired
 }
 
 export default ListItemRecipe;

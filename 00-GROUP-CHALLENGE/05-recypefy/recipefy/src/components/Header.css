@@ -1,3 +1,41 @@
+.burguer-button {
+	display: flex;
+	height: 100%;
+	padding: 7px;
+	position: relative;
+}
+.burguer-button img {
+	width: 30px;
+}
+
+.burguer-button ul {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
+	-webkit-box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+	-moz-box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+	box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+	border-radius: 10px;
+}
+
+.burguer-preferences {
+	display: none;
+	position: absolute;
+	top: 52px;
+}
+.burguer-button:hover .burguer-preferences {
+	display: flex;
+	flex-direction: row;
+	background-color: #65dfc3;
+	flex-wrap: wrap;
+	width: 200px;
+}
+.burguer-preferences ul {
+	display: flex;
+	flex-direction: row;
+}
+
 .nav__menu,
 .nav__mobile,
 .nav__medium__big {
@@ -6,57 +44,19 @@
 
 .nav__mobile,
 .nav__medium__big {
-	padding: 5px;
-
+	padding: 5px 5% 5px 5%;
 }
 
-
-.nav__mobile>a {
-	color: #efee9d;
+.nav__mobile > a {
+	color: white;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.burger__container {
-	position: relative;
+.nav__menu .search-container {
 	display: flex;
-	flex-direction: column;
-}
-
-
-.icon__burguer {
-	width: 30px;
-	height: auto;
-	padding: 10px;
-}
-
-
-.burger__container:hover .desplegable__button {
-	display: flex;
-	flex-direction: column;
-	list-style: none;
-}
-
-.desplegable__button {
-	position: absolute;
-	background-color: #efee9d;
-	border-radius: 5px;
-	display: none;
-	top: 50px;
-	height: 110px;
-}
-
-.desplegable__button li {
-	margin: 7px;
-}
-
-.li>a,
-.li>a:active,
-.li>a:visited,
-.li>a:-webkit-any() {
-	color: rgb(75, 75, 165);
-	text-decoration: none;
+	flex-direction: row;
 }
 
 .link__header {
@@ -80,19 +80,34 @@
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
-	background-color: #50af58;
+	background-color: #65dfc3;
 	height: 40px;
 	position: fixed;
-	width: 100%;
+	width: 90%;
+}
+
+.nav__mobile .search-button {
+	background-color: #f8f8f0;
+	padding: 5px;
+	border-radius: 25px;
+}
+
+.nav__mobile .search-button-inative {
+	background-color: #65dfc3;
+}
+
+.nav__mobile .search-button {
+	vertical-align: sub;
 }
 
 .nav__medium__big {
 	display: none;
 }
 
-
 .search {
 	height: 25px;
+	width: 105px;
+	margin: 0 10px 0 10px;
 }
 
 .main__logo {
@@ -103,13 +118,78 @@
 	display: none;
 }
 
-
 .icon__burguer,
 .login__logo {
-	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg) brightness(113%) contrast(87%);
+	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg)
+		brightness(113%) contrast(87%);
+}
+.container__icon {
+	max-width: 30px;
+	max-height: 30px;
+}
+
+.button {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	margin: 5px;
+}
+.gray {
+	filter: grayscale(100%) opacity(30%);
+}
+
+.protein {
+	background: url('https://icon-library.com/images/protein-icon/protein-icon-0.jpg')
+		3px 5px no-repeat;
+}
+.low_fat {
+	background: url() 3px 5px no-repeat;
+}
+.low_carb {
+	background: url() 3px 5px no-repeat;
+}
+.vegan {
+	background: url() 3px 5px no-repeat;
+}
+.vegetarian {
+	background: url() 3px 5px no-repeat;
+}
+.sugar {
+	background: url() 3px 5px no-repeat;
+}
+.peanut {
+	background: url() 3px 5px no-repeat;
+}
+.treenut {
+	background: url() 3px 5px no-repeat;
+}
+.alcohol {
+	background: url() 3px 5px no-repeat;
 }
 
 @media only screen and (min-width: 600px) {
+	h1 {
+		color: #10725b;
+		font-size: 30px;
+	}
+
+	.search-button {
+		padding: 5px;
+		border-radius: 50px;
+		background-color: #65dfc3;
+		margin: auto;
+	}
+
+	.search-button-inative {
+		background-color: #f8f8f0;
+	}
+
+	.search-button:active,
+	.search-button:link,
+	.search-button:visited,
+	.search-button:hover {
+		color: #5a3c0f;
+	}
 
 	.nav__mobile {
 		display: none;
@@ -121,10 +201,10 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #50af58;
+		background-color: #65dfc3;
 		height: 40px;
 		position: fixed;
-		width: 100%;
+		width: 90%;
 	}
 
 	.buttons__left {
@@ -134,7 +214,7 @@
 
 	.link__header {
 		margin-left: 10px;
-		color: #efee9d;
+		color: #f8f8f0;
 	}
 
 	.buttons__right {
@@ -146,11 +226,7 @@
 
 	.buttons__right--text {
 		margin-right: 5px;
-		color: #efee9d;
-	}
-
-	.main__boxes {
-		width: 100vw;
+		color: #f8f8f0;
 	}
 
 	.section__logo {
@@ -167,8 +243,10 @@
 	.main__boxes {
 		display: flex;
 		margin-top: 80px;
-		justify-content: space-around;
+		justify-content: space-between;
 		align-items: center;
+		width: 96%;
+		margin: 80px 2% 0 2%;
 	}
 
 	h1 {
@@ -179,7 +257,7 @@
 	.section__logo {
 		display: flex;
 		flex-direction: row;
-		background-color: #efee9d;
+		background-color: #f8f8f0;
 		justify-content: center;
 		align-items: center;
 		width: 40vw;
@@ -189,7 +267,7 @@
 	}
 
 	.section__search {
-		background-color: #efee9d;
+		background-color: #f8f8f0;
 		justify-content: center;
 		text-align: center;
 		width: 40vw;
@@ -205,13 +283,24 @@
 	}
 
 	.main__search {
-		padding-left: 10px;
-
-		height: 40px;
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		height: 100%;
+		width: 100%;
 		margin-bottom: 0;
 		border-radius: 15px;
-		margin-top: 20px;
-		width: 272px;
+	}
+
+	.main__search-input {
+		margin: auto;
+		border-radius: 100px;
+		height: 25px;
+		max-width: 174px;
+		width: 100%;
+		padding: 10px;
+		text-align: center;
+		outline: none;
 	}
 
 	.section__search p {
@@ -219,11 +308,18 @@
 	}
 
 	.search__icons--box {
-		margin-top: 10px;
+		margin-top: 47px;
 	}
 
 	.icon__search {
 		width: 70px;
 		height: 70px;
+	}
+
+	.section__search,
+	.section__logo {
+		-webkit-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+		-moz-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+		box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
 	}
 }
