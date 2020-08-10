@@ -1,11 +1,8 @@
 .photoProfile {
-    height: 200px;
-    width: auto;
+	height: 200px;
+	width: auto;
 }
 
-.details-desc-content {
-    text-align-last: left;
-}
-a {
-    text-align-last: center;
+.profile-desc-content {
+	text-align-last: left;
 }
