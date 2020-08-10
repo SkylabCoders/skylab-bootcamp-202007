@@ -6,7 +6,6 @@ import './user.css';
 
 function User() {
 	const data = authStore.getUserProfile();
-	console.log(data);
 	return (
 		<div className="user-container">
 			<section className="user-info">
