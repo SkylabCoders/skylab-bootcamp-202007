@@ -7,7 +7,6 @@ import * as ROUTES from './../config/routes';
 import * as PARAMS from './../config/appParameters';
 
 function PaginatedList(){
-    console.log(PARAMS);
 
     let urlQuery = useRouteMatch()
     let urlPage = +urlQuery.params.currentPage;
@@ -20,7 +19,7 @@ function PaginatedList(){
         HeroStore.addChangeListener(onChange);
         if( currentHeroes.length === 0 ){ loadPaginatedHeroes(page, itemsPerPage) }
         return ()=>{HeroStore.removeChangeListener(onChange);}
-    }, [currentHeroes.length, page, itemsPerPage]);
+    }, [currentHeroes, page, itemsPerPage]);
 
     function onChange(){
         setHeroes(HeroStore.getPaginatedHeroes(page, itemsPerPage));
@@ -35,7 +34,7 @@ function PaginatedList(){
                     </li>
                 ))}
             </ul>
-            <Link to={ROUTES.HERO_LIST_PAGINATED_ROOT + '/' + (page - 1)}>Previous Page</Link> <Link to={ROUTES.HERO_LIST_PAGINATED_ROOT + '/' + (page + 1)}>Next Page</Link>
+            <Link to={ROUTES.HERO_LIST_PAGINATED_ROOT + '/' + (page - 1)}>Previous Page</Link><Link to={ROUTES.HERO_LIST_PAGINATED_ROOT + '/' + (page + 1)}>Next Page</Link>
         </div>
     );
 }

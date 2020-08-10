@@ -7,17 +7,16 @@ import HERO_LIST from './../superHeroData';
 import * as ROUTES from './../config/routes';
 
 function FullList(){
-    const [heroes, setHeroes] = useState(HERO_LIST); // hook per guardar la variable heroes al state del component
+    const [heroes, setHeroes] = useState(HERO_LIST); 
 
     useEffect(()=>{
         HeroStore.addChangeListener(onChange);
         if( heroes.length === 0){ loadHeroes() }
-        // el return del useEffect ejecuta una acción
         return ()=>{HeroStore.removeChangeListener(onChange);}
     }, [heroes.length]);
 
     function onChange(){
-        setHeroes(HeroStore.getHeroes());  // setter del hook
+        setHeroes(HeroStore.getHeroes()); 
     }
 
     return (
