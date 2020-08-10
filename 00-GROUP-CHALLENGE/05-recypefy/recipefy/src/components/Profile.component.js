@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import authStore from '../stores/AuthStore';
-import './Profile.component.css';
+import './Profile.component.scss';
 
 function ProfileComponent() {
 	const [user, setUser] = useState(authStore.getUserProfile());
