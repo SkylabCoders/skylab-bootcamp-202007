@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import HeroDetail from './components/HeroDetail';
 import Header from './components/Header';
@@ -10,17 +11,19 @@ import Login from './components/Login';
 
 function App(props) {
 	return (
-		<div className="container">
-			<Header />
-			<Switch>
-				<Route path="/" exact component={HeroDashboard} />
-				<Route path="/hero/:heroId" component={HeroDetail} />
-				<Route path="/hero" component={HeroDetail} />
-				<Route path="/heroes" component={HeroesPage} />
-				<Route path="/login" component={Login} />
-				<Route component={PageNotFound} />
-			</Switch>
-		</div>
+		<Router>
+			<div className="container">
+				<Header />
+				<Switch>
+					<Route path="/" exact component={HeroDashboard} />
+					<Route path="/hero/:heroId" component={HeroDetail} />
+					<Route path="/hero" component={HeroDetail} />
+					<Route path="/heroes" component={HeroesPage} />
+					<Route path="/login" component={Login} />
+					<Route component={PageNotFound} />
+				</Switch>
+			</div>
+		</Router>
 	);
 }
 
