@@ -38,7 +38,7 @@ function FilmSlider({ data }) {
 						alt="Left arrow"
 						onClick={() => {
 							sliderIndex === 0
-								? setSliderIndex(data.length)
+								? setSliderIndex(data.length - 1)
 								: setSliderIndex(sliderIndex - 1);
 						}}
 					/>
@@ -63,7 +63,7 @@ function FilmSlider({ data }) {
 						class="arrow__right"
 						alt="Right arrow"
 						onClick={() => {
-							sliderIndex === data.length
+							sliderIndex === data.length - 1
 								? setSliderIndex(0)
 								: setSliderIndex(sliderIndex + 1);
 						}}
