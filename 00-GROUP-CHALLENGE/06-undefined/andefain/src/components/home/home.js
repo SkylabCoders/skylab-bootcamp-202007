@@ -10,7 +10,7 @@ import {
 } from '../../actions/filmActions';
 import filmStore from '../../stores/filmStore';
 
-import './home.css';
+import './home.scss';
 
 function Home() {
 	const [comingSoon, setComingSoon] = useState(filmStore.getComingsoonId());
