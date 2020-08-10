@@ -1,6 +1,9 @@
+@use 'colors';
+@use 'breakpoints';
+
 .header {
 	width: 100%;
-	background-color: black;
+	background-color: colors.$background;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -23,15 +26,15 @@ nav{
 }
 
 .nav__item{
-    color: white;
+    color: colors.$text--white;
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 1px;
 }
 
 .nav__item:hover{
-    text-decoration: underline dotted coral;
-    color: coral;
+    text-decoration: underline dotted colors.$a--hover;
+    color: colors.$a--hover;
 }
 
 .nav__list{
@@ -40,7 +43,7 @@ nav{
 }
 
 .nav__list > li {
-    color: white;
+    color: colors.$text--white;
     display: inline-block;
     padding: 0 1rem;
 }
@@ -61,10 +64,10 @@ nav{
     width: 100px;
     height: 38px;
     margin: 0 5px;
-    background-color: goldenrod;
+    background-color: colors.$button;
     box-sizing: border-box;
     padding: .2rem;
-    color: black;
+    color: colors.$text--dark;
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 1px;
@@ -73,9 +76,9 @@ nav{
 } 
 
 .login__button:hover{
-    background-color: coral;
-    color: black;
-    text-decoration: underline dotted black;
+    background-color: colors.$button--hover;
+    color: colors.$text--dark;
+    text-decoration: underline dotted colors.$text--dark;
 } 
 
 .login__icon{
@@ -84,7 +87,7 @@ nav{
 
 
 
-@media (min-width: 680px) and (max-width: 1024px) {
+@media (min-width: breakpoints.$mobile) and (max-width: breakpoints.$desktop) {
 	.logo__header{ 
         width: 90%;  
         justify-content: center;
@@ -118,7 +121,7 @@ nav{
 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: breakpoints.$desktop) {
     .logo__header{ 
         width: 80%;  
         justify-content: center;

@@ -1,3 +1,6 @@
+@use 'colors';
+@use 'breakpoints';
+
 .login__wrapper{
     width: 100vw;
     display: flex;
@@ -213,7 +216,7 @@
   }
 
 
-@media (min-width: 680px) and (max-width: 1024px){
+@media (min-width: breakpoints.$mobile) and (max-width: breakpoints.$desktop){
     .login__right__container{
         width: 50vw;
         height: 50vh;
@@ -228,7 +231,7 @@
     }
 }
 
-@media (min-width: 1024px){
+@media (min-width: breakpoints.$desktop){
 
 
     .login__right__container{

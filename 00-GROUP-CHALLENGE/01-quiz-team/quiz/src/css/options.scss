@@ -1,7 +1,9 @@
+@use 'colors';
+
 .answer__item{
     text-align: center;
-    color: white;
-    background-color: goldenrod;
+    color: colors.$text--white;
+    background-color: colors.$button;
     min-width: 200px;
     width: 20vw;
     padding: 5px;
