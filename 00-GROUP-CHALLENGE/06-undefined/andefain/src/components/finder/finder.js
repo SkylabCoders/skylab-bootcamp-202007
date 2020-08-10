@@ -12,7 +12,7 @@ function Finder(title, name) {
 		finderStore.addChangeListener(onChange);
 		if (finder.length === 0) finderSearch();
 		return () => finderStore.removeChangeListener(onChange);
-	});
+	}, []);
 
 	function onChange() {
 		setImageNotAvailable(

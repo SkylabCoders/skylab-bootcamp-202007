@@ -3,8 +3,8 @@ import actionTypes from './actionTypes';
 
 export function finderSearch() {
 	let searchInput = window.location.pathname.split('/')[2];
-	let apiKey = 'k_iv723l7m';
-	var requestOptions = {
+	let apiKey = 'k_iv723l7m'; //Aleix
+	let requestOptions = {
 		method: 'GET',
 		redirect: 'follow'
 	};
