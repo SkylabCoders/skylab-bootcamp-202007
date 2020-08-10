@@ -1,9 +1,20 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+describe('App', () => {
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+    beforeAll(() => {
+        console.log('Before All!');
+    });
+    it('should sum', () => {
+        expect(2 + 2).toEqual(4);
+    });
+    it('should duplicate', () => {
+        expect(2 * 2).toEqual(4);
+    });
+
+    afterEach(() => {
+        console.log('After each!')
+    })
+
+    afterAll(() => {
+        console.log('After All!')
+    })
+})
