@@ -28,6 +28,7 @@ media/
 assets/
 borrar/
 prueba/
+tests/
 
 #firebase
 .firebaserc
