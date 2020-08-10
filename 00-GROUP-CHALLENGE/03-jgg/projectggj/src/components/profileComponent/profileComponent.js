@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { logout } from '../../actions/authAction/authAction'
 import { Link } from 'react-router-dom';
-import './profileComponent.css'
+import './profileComponent.scss'
 import authStore from '../../stores/authStore'
 import store from '../../stores/store'
 
