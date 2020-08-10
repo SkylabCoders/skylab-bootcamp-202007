@@ -1,23 +1,21 @@
 describe('ToH', () => {
-	beforeEach(() => {
-		console.log('Before Each!');
-	});
-	beforeAll(() => {
-		console.log('Before All!');
-	});
 	it('should sum', () => {
-		console.log('test!');
 		expect(2 + 2).toEqual(4);
 	});
 	it('should duplicate', () => {
-		console.log('test!');
 		expect(2 * 2).toEqual(4);
 	});
 
-	afterEach(() => {
-		console.log('after Each');
+	it('asinc test 1', (done) => {
+		setTimeout(done, 100);
 	});
-	afterAll(() => {
-		console.log('after All');
+	it('asinc test 2', () => {
+		return new Promise((resolve) => setTimeout(resolve, 100));
+	});
+	it('asinc test 3', () => {
+		async () => await delay(100);
+	});
+	it('asinc test 4', async () => {
+		return await new Promise((resolve) => setTimeout(resolve, 1000));
 	});
 });
