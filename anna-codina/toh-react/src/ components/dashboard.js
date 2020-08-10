@@ -4,7 +4,6 @@ import heroStore from '../stores/heroStore';
 import { loadHeroes } from '../actions/heroActions';
 
 function Dashboard(props) {
-	debugger;
 	const [heroes, setHeroes] = useState([]);
 	let actualHeroList = [];
 
