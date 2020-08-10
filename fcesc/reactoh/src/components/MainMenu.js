@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainMenu.css';
 import { NavLink } from 'react-router-dom';
+import * as ROUTES from './../config/routes';
 
 class MainMenu extends React.Component{
     constructor(props){
@@ -14,11 +15,11 @@ class MainMenu extends React.Component{
         let result = (
             <nav className="nav__menu">
                 <ul className="menu__list--horizontal">
-                    <li className="menu__item--horizontal"><NavLink to="/">Hero list</NavLink></li> 
-                    <li className="menu__item--horizontal"><NavLink to="/top-heroes">Top 5 heroes</NavLink></li>
-                    <li className="menu__item--horizontal"><NavLink to="/full-flux">Full list</NavLink></li>
-                    <li className="menu__item--horizontal"><NavLink to="/hero-search">Hero search</NavLink></li>
-                    <li className="menu__item--horizontal"><NavLink to={'/hero/?heroId=' + this.state.random}>Random hero</NavLink></li>
+                    <li className="menu__item--horizontal"><NavLink to={ROUTES.HOME}>Hero list</NavLink></li> 
+                    <li className="menu__item--horizontal"><NavLink to={ROUTES.TOP_HEROES}>Top 5 heroes</NavLink></li>
+                    <li className="menu__item--horizontal"><NavLink to={ROUTES.HERO_LIST_FULL}>Full list</NavLink></li>
+                    <li className="menu__item--horizontal"><NavLink to={ROUTES.HERO_SEARCH}>Hero search</NavLink></li>
+                    <li className="menu__item--horizontal"><NavLink to={ROUTES.HERO_DETAIL_SOME + this.state.random}>Random hero</NavLink></li>
                 </ul>
             </nav>
         );

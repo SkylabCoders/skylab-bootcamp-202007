@@ -5,6 +5,7 @@ import ShowImage from './ShowImage';
 import HeroStore from './../stores/heroStore';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import { loadHeroById } from './../actions/heroActions';
+import * as ROUTES from './../config/routes';
 
 function HeroDetail(){
     let urlQuery = useRouteMatch()
@@ -39,7 +40,7 @@ function HeroDetail(){
                 <p>Race: {currentHero.appearance.race}, gender: {currentHero.appearance.gender}, height: {currentHero.appearance.height[1]}, weight: {currentHero.appearance.weight[1]}</p>
                 <p>Occupation: {currentHero.work.occupation}, alignment: {currentHero.biography.alignment}</p>
                 <p>First appearance: {currentHero.biography.firstAppearance}, publisher {currentHero.biography.publisher}</p>
-                <NavLink to="/paginated-flux">Go back to list</NavLink>
+                <NavLink to={ROUTES.HERO_LIST_PAGINATED_FIRST}>Go back to list</NavLink>
             </div>
         </div>
     );

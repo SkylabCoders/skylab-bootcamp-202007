@@ -10,6 +10,7 @@ import PageNotFound from './PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import PaginatedList from './PaginatedList';
 import FullList from './FullList';
+import * as ROUTES from './config/routes';
 
 function App(){
   return(
@@ -17,13 +18,13 @@ function App(){
       <Header/>
       <MainMenu/>
       <Switch>
-        <Route path="/" exact><PaginatedList/></Route>
-        <Route path="/hero-list/:currentPage"><PaginatedList/></Route>
-        <Route path="/top-heroes" exact><TopHeroes/></Route>
-        <Route path="/hero/:heroId"><HeroDetail/></Route>
-        <Route path="/hero-search"><HeroQuery/></Route>
-        <Route path="/random-hero"><HeroDetail/></Route>
-        <Route path="/full-flux"><FullList/></Route>
+        <Route path={ROUTES.HOME} exact><PaginatedList/></Route>
+        <Route path={ROUTES.HERO_LIST_PAGINATED_WILDCARD}><PaginatedList/></Route>
+        <Route path={ROUTES.TOP_HEROES} exact><TopHeroes/></Route>
+        <Route path={ROUTES.HERO_DETAIL_WILDCARD}><HeroDetail/></Route>
+        <Route path={ROUTES.HERO_SEARCH}><HeroQuery/></Route>
+        <Route path={ROUTES.HERO_DETAIL_RANDOM}><HeroDetail/></Route>
+        <Route path={ROUTES.HERO_LIST_FULL}><FullList/></Route>
         <Route><PageNotFound/></Route>
       </Switch>
       <Footer/>

@@ -1,12 +1,13 @@
 import React from 'react';
 import './PaginatedList.css';
 import { NavLink } from 'react-router-dom';
+import * as ROUTES from './../config/routes';
 
 function PaginatedList(props){
   const data = props.data;
   let empty = [];
   for (let i=0; i<data.length; i++){
-    empty.push(<li key={i}><NavLink to={'/hero/?heroId='+data[i].id}><strong>{data[i].name}</strong>, id: {data[i].id}</NavLink></li>);
+    empty.push(<li key={i}><NavLink to={ROUTES.HERO_DETAIL_SOME + data[i].id}><strong>{data[i].name}</strong>, id: {data[i].id}</NavLink></li>);
   }
   let result = (         
     <div className="App">

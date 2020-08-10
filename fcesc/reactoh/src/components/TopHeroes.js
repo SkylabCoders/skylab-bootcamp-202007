@@ -3,6 +3,7 @@ import './PaginatedList.css';
 import { Link } from 'react-router-dom';
 import HeroStore from './../stores/heroStore';
 import { loadPaginatedHeroes } from './../actions/heroActions';
+import * as ROUTES from './../config/routes';
 
 function TopHeroes(){
     const [currentHeroes, setHeroes] = useState([]);
@@ -24,7 +25,7 @@ function TopHeroes(){
             <ul>
                 {currentHeroes.map((hero)=>(
                     <li key={hero.id}>
-                        <Link to={'/hero/' + hero.id}>{hero.id}:{hero.name}</Link>
+                        <Link to={ROUTES.HERO_DETAIL_ROOT + '/' + hero.id}>{hero.id}:{hero.name}</Link>
                     </li>
                 ))}
             </ul>

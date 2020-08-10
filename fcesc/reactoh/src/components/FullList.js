@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import HeroStore from './../stores/heroStore';
 import { loadHeroes } from './../actions/heroActions';
 import HERO_LIST from './../superHeroData';
+import * as ROUTES from './../config/routes';
 
 function FullList(){
     const [heroes, setHeroes] = useState(HERO_LIST); // hook per guardar la variable heroes al state del component
@@ -24,7 +25,7 @@ function FullList(){
             <ul>
                 {heroes.map(hero=>
                     <li key={hero.id}>
-                        <Link to={'/hero/' + hero.id}>{hero.id}:{hero.name}</Link>
+                        <Link to={ROUTES.HERO_DETAIL_ROOT + '/' + hero.id}>{hero.id}:{hero.name}</Link>
                     </li>
                 )}
             </ul>
