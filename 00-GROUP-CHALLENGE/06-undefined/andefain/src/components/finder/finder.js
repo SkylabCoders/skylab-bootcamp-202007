@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { finderSearch } from '../../actions/finderActions';
 import finderStore from '../../stores/finderStore';
-import './finder.css';
+import './finder.scss';
 import { Link } from 'react-router-dom';
 
 function Finder(title, name) {

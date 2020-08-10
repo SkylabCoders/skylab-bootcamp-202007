@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './trailer.css';
+import './trailer.scss';
 import PropTypes from 'prop-types';
 
-function Trailer({ trailer }) {
+function FilmTrailer({ trailer }) {
 	debugger;
 	return (
 		<div className="trailer-container">
@@ -25,9 +25,9 @@ function Trailer({ trailer }) {
 	);
 }
 
-Trailer.propTypes = {
+FilmTrailer.propTypes = {
 	details: PropTypes.object,
 	trailer: PropTypes.object
 };
 
-export default Trailer;
+export default FilmTrailer;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Trailer from './trailer/trailer';
+import FilmTrailer from './trailer/trailer';
 import FilmDetails from './details/details';
 import filmStore from '../../stores/filmStore';
 import { callFilm } from '../../actions/filmActions';
-import './film.css';
+import './film.scss';
 
 function Film() {
 	const [film, setFilm] = useState(filmStore.getFilmDetails());
@@ -19,7 +19,7 @@ function Film() {
 	}
 	return (
 		<section className="film-container">
-			{film !== [] && <Trailer trailer={film} />}
+			{film !== [] && <FilmTrailer trailer={film} />}
 			{film !== [] && <FilmDetails details={film} />}
 		</section>
 	);

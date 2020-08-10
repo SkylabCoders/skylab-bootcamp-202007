@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './details.css';
+import './details.scss';
 import PropTypes from 'prop-types';
 
 const blankHeart =
