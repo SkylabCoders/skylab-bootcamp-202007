@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RecipePage.css';
+import './RecipePage.scss';
 import recipe from '../stores/RecipeStore';
 function RecipePage() {
 	let balanced = false;
