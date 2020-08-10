@@ -1,6 +1,7 @@
 import renderer from 'react-test-renderer';
-import SagaComponent from './sagaComponent';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import SagaComponent from './sagaComponent';
 
 
 describe('sagaComponent', () => {
@@ -10,6 +11,6 @@ describe('sagaComponent', () => {
         </Router>
     );
     it('should macth', () => {
-        expect(heroDashboardTree).toMatchSnapshot();
+        expect(sagaComponentTree).toMatchSnapshot();
     })
 });
