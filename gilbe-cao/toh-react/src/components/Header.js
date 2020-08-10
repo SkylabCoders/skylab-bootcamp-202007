@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 
-function Header(props) {
+function Header() {
 	return (
 		<>
 			<h1>Tour of Heroes</h1>
