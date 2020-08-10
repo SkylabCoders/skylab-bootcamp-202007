@@ -35,20 +35,13 @@ dispatcher.register((action) => {
             _leaderboard = action.data;
             leaderboardStore.emitChange(_leaderboard);
             break;
-        default:
-            break;
-    }    
-})
-
-dispatcher.register((action) => {
-    switch (action.type){
         case actionTypes.ADD_RESULTS:
             _leaderboard = [..._leaderboard,{...action.data}];
-            console.log('Updated Leaderboard with new results per user',_leaderboard);
             leaderboardStore.emitChange(_leaderboard);
             break;
         default:
             break;
     }    
 })
+
 

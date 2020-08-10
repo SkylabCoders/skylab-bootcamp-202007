@@ -1,7 +1,8 @@
 import React from "react";
 import './../css/results.css';
 import { NavLink } from 'react-router-dom';
-import { saveResults } from '../actions/leaderboardActions'
+import { saveResults } from '../actions/leaderboardActions' 
+import * as ROUTES from './../config/routes';
 
 function Results(props) {
 
@@ -10,8 +11,8 @@ function Results(props) {
         saveResults({
             name: 'USER A',
             points: props.data_points,
-            gameStarted: props.data_started,
-            gameEnded: props.data_ended,
+            gameStarted: props.data_started, 
+            gameEnded: props.data_ended, 
             gamesPlayed: props.data_played,
             questionsAsked: props.data_questions_total,
             rightAnswers: props.data_right,
@@ -38,7 +39,7 @@ function Results(props) {
                         <button onClick={props.newGameClick}>Play again, same theme</button>
                     </div>
                     <div className="playAgain__anotherTheme">
-                        <NavLink to='/'>
+                        <NavLink to={ROUTES.HOME}>
                             <button onClick={props.newGameClick}>Play a new theme</button>
                         </NavLink>
                     </div>

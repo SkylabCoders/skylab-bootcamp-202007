@@ -4,6 +4,7 @@ import { loadSessionSet } from './../actions/gameActions';
 import THEMES_LIST from './../mockdata/Themes';
 import Question from './Question';
 import Results from './Results';
+import * as GAME_PARAMS from './../config/gameParameters';
     
 function Game(props){
     const URL_QUERY = props.match.params.themeSlug;
@@ -32,7 +33,7 @@ function Game(props){
     useEffect(()=>{
         gameStore.addChangeListener(onChangeSessionSet);
         if(sessionSet.length === 0){
-            loadSessionSet(themeId, 'all', 'all', 'default', 10)
+            loadSessionSet(themeId, GAME_PARAMS.DIFFICULTY, GAME_PARAMS.TYPE, GAME_PARAMS.ENCODING, GAME_PARAMS.SESSION_QUESTIONS_NUMBER)
         };
         return ()=>{gameStore.removeChangeListener(onChangeSessionSet);}
     }, [sessionSet, themeSlug]);
@@ -59,14 +60,14 @@ function Game(props){
         GAME_DATA.startedStr = `${start.getUTCHours()}:${start.getUTCMinutes()}:${start.getUTCSeconds()}`;
         GAME_DATA.endedStr = `${end.getUTCHours()}:${end.getUTCMinutes()}:${end.getUTCSeconds()}`;
         for (let el of scores){
-            if(el.userAnser === true){ GAME_DATA.right++; GAME_DATA.points += 25 }
-            if(el.userAnser === false){ GAME_DATA.wrong++; GAME_DATA.points -= 10 }
-            if(el.userAnser === ''){ GAME_DATA.unanswered++; GAME_DATA.points -= 5 }
+            if(el.userAnser === true){ GAME_DATA.right++; GAME_DATA.points += GAME_PARAMS.POINTS_RIGHT_ANSWER }
+            if(el.userAnser === false){ GAME_DATA.wrong++; GAME_DATA.points += GAME_PARAMS.POINTS_WRONG_ANSWER }
+            if(el.userAnser === ''){ GAME_DATA.unanswered++; GAME_DATA.points += GAME_PARAMS.POINTS_IF_UNANSWERED }
         }
         if(GAME_DATA.points < 0) { GAME_DATA.points = 0 }
-        if((GAME_DATA.totalQuestions * 25 * 0.7) < GAME_DATA.points){ GAME_DATA.message=' well done!' }
-        else if((GAME_DATA.totalQuestions * 25 * 0.4) < GAME_DATA.points){ GAME_DATA.message=' keep trying!' }
-        else if((GAME_DATA.totalQuestions * 25 * 0.15) < GAME_DATA.points){ GAME_DATA.message=' don\'t give up yet!' }
+        if((GAME_DATA.totalQuestions * GAME_PARAMS.POINTS_RIGHT_ANSWER * 0.7) < GAME_DATA.points){ GAME_DATA.message=' well done!' }
+        else if((GAME_DATA.totalQuestions * GAME_PARAMS.POINTS_RIGHT_ANSWER * 0.4) < GAME_DATA.points){ GAME_DATA.message=' keep trying!' }
+        else if((GAME_DATA.totalQuestions * GAME_PARAMS.POINTS_RIGHT_ANSWER * 0.15) < GAME_DATA.points){ GAME_DATA.message=' don\'t give up yet!' }
         else { GAME_DATA.message=' not your best day.' }
     }
 
