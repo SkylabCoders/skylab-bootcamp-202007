@@ -1,4 +1,4 @@
-export const environment = {
+/* export const environment = {
 	isProdEnabled: false,
 	firebaseConfig: {
 		apiKey: 'AIzaSyCvzrQX1jYUxNxYiGYZR0G12xFSalQA4vM',
@@ -10,3 +10,4 @@ export const environment = {
 		appId: '1:22437365054:web:41f0217ffd7b52055c586f'
 	}
 };
+ */

@@ -1,4 +1,4 @@
-import './firebaseIndex';
+/* import './firebaseIndex';
 import firebase from 'firebase';
 
 export const authMethods = {
@@ -6,3 +6,4 @@ export const authMethods = {
 		firebase.auth().signInWithEmailAndPassword(email, password),
 	signOut: () => firebase.auth().signOut()
 };
+ */
