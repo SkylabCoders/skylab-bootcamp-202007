@@ -1,5 +1,5 @@
 import dispatcher from '../appDispatcher';
-import actionTypes from './actionTypes';
+import actionTypes from './action-types';
 import { authMethods } from '../firebase/firebaseAuth';
 
 export function login() {
