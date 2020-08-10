@@ -10,7 +10,7 @@ describe('Test of hero service', function testHeroService(){
           "intelligence": 90,
           "strength": 55,
           "speed": 67,
-          "durability": 75,
+          "durabiltesty": 75,
           "power": 74,
           "combat": 85
         },
@@ -62,10 +62,10 @@ describe('Test of hero service', function testHeroService(){
           "relatives": "Richard Parker (father, deceased), Mary Parker(mother, deceased), Benjamin Parker (uncle, deceased), May Parker (aunt), Mary Jane Watson-Parker (wife), May Parker (daughter, allegedly deceased)"
         },
         "images": {
-          "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/620-spider-man.jpg",
-          "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/620-spider-man.jpg",
-          "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/620-spider-man.jpg",
-          "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/620-spider-man.jpg"
+          "xs": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/xs/620-spider-man.jpg",
+          "sm": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/sm/620-spider-man.jpg",
+          "md": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/md/620-spider-man.jpg",
+          "lg": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/lg/620-spider-man.jpg"
         }
       };
 
@@ -73,19 +73,19 @@ describe('Test of hero service', function testHeroService(){
         heroService = new HeroService();
     });
 
-    it('Should create a HeroService', function testHeroServiceCreation() {
+    test('Should create a HeroService', function testHeroServiceCreation() {
         expect(heroService).toBeTruthy();
     });
 
-    it('Sould return a HeroService list', function testGetFullHeroList(){
+    test('Sould return a HeroService list', function testGetFullHeroList(){
         return heroService.getHeroList().then(
           (result) => {expect(result).toEqual(HERO_LIST);}
         );
     });
 
-    it('Sould return a paginated HeroService list', function testGetPaginatedHeroList(){
+    test('Sould return a paginated HeroService list', function testGetPaginatedHeroList(){
         const page = 0;
-        const itemsPerPage = 2;
+        const testemsPerPage = 2;
         const paginatedList = [
             {
                 "id": 1,
@@ -95,7 +95,7 @@ describe('Test of hero service', function testHeroService(){
                   "intelligence": 38,
                   "strength": 100,
                   "speed": 17,
-                  "durability": 80,
+                  "durabiltesty": 80,
                   "power": 24,
                   "combat": 64
                 },
@@ -130,13 +130,13 @@ describe('Test of hero service', function testHeroService(){
                 },
                 "connections": {
                   "groupAffiliation": "Hulk Family; Excelsior (sponsor), Avengers (honorary member); formerly partner of the Hulk, Captain America and Captain Marvel; Teen Brigade; ally of Rom",
-                  "relatives": "Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Keith Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased); Jackie Shorr (alleged mother; unconfirmed)"
+                  "relatives": "Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Ketesth Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased); Jackie Shorr (alleged mother; unconfirmed)"
                 },
                 "images": {
-                  "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/1-a-bomb.jpg",
-                  "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/1-a-bomb.jpg",
-                  "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/1-a-bomb.jpg",
-                  "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/1-a-bomb.jpg"
+                  "xs": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/xs/1-a-bomb.jpg",
+                  "sm": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/sm/1-a-bomb.jpg",
+                  "md": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/md/1-a-bomb.jpg",
+                  "lg": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/lg/1-a-bomb.jpg"
                 }
               },
               {
@@ -147,7 +147,7 @@ describe('Test of hero service', function testHeroService(){
                   "intelligence": 88,
                   "strength": 28,
                   "speed": 35,
-                  "durability": 65,
+                  "durabiltesty": 65,
                   "power": 100,
                   "combat": 85
                 },
@@ -184,63 +184,63 @@ describe('Test of hero service', function testHeroService(){
                 },
                 "connections": {
                   "groupAffiliation": "Bureau for Paranormal Research and Defense",
-                  "relatives": "Edith Howard (wife, deceased)"
+                  "relatives": "Edtesth Howard (wife, deceased)"
                 },
                 "images": {
-                  "xs": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/2-abe-sapien.jpg",
-                  "sm": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/2-abe-sapien.jpg",
-                  "md": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/2-abe-sapien.jpg",
-                  "lg": "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/2-abe-sapien.jpg"
+                  "xs": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/xs/2-abe-sapien.jpg",
+                  "sm": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/sm/2-abe-sapien.jpg",
+                  "md": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/md/2-abe-sapien.jpg",
+                  "lg": "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/lg/2-abe-sapien.jpg"
                 }
               }
             ];
-        return heroService.getHeroListPage(page, itemsPerPage).then(
+        return heroService.getHeroListPage(page, testemsPerPage).then(
           (result) => {expect(result).toEqual(paginatedList);}
         );
     });
 
-    it('Should get one hero by id', function testGetHeroById(){
+    test('Should get one hero by id', function testGetHeroById(){
         const id = 620;
         return heroService.getHeroById(id).then(
           (result) => {expect(result).toEqual(hero);}
         );
     });
 
-    it('Should get one hero by name', function testGetHeroByName(){
+    test('Should get one hero by name', function testGetHeroByName(){
         const name = 'Spider-Man';
         return heroService.getHeroByName(name).then(
           (result) => {expect(result).toEqual(hero);}
         );
     });
 
-    it('Should get one hero by real name', function testGetHeroByRealName(){
+    test('Should get one hero by real name', function testGetHeroByRealName(){
         const realName = 'Peter Parker';
         return heroService.getHeroByRealName(realName).then(
           (result) => {expect(result).toEqual(hero);}
         );
     });
 
-    it('Should get one hero by slug', function testGetHeroBySlug(){
+    test('Should get one hero by slug', function testGetHeroBySlug(){
         const slug = '620-spider-man';
         return heroService.getHeroBySlug(slug).then(
           (result) => {expect(result).toEqual(hero);}
         );
     });
 
-    it('Should get URL of hero images', function testGetHeroImagesUrls(){
+    test('Should get URL of hero images', function testGetHeroImagesUrls(){
         const id = 505;
         const imageURLs = {
-            xs: "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/505-oracle.jpg",
-            sm: "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/505-oracle.jpg",
-            md: "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/505-oracle.jpg",
-            lg: "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/505-oracle.jpg"
+            xs: "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/xs/505-oracle.jpg",
+            sm: "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/sm/505-oracle.jpg",
+            md: "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/md/505-oracle.jpg",
+            lg: "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/lg/505-oracle.jpg"
         }
         return heroService.getHeroImageURLsById(id).then(
           (result) => {expect(result).toEqual(imageURLs);}
         );
     });
 
-    it('Should get a biography of a given hero id', function testGetHeroBiographyById(){
+    test('Should get a biography of a given hero id', function testGetHeroBiographyById(){
         const id = 620;
         const biography = hero.biography;
         return heroService.getHeroBiographyById(id).then(
@@ -248,7 +248,7 @@ describe('Test of hero service', function testHeroService(){
         );
     });
 
-    it('Should get the appearance of a given hero id', function testGetHeroAppearanceById(){
+    test('Should get the appearance of a given hero id', function testGetHeroAppearanceById(){
         const id = 620;
         const appearance = hero.appearance;
         return heroService.getHeroAppearanceById(id).then(
@@ -256,7 +256,7 @@ describe('Test of hero service', function testHeroService(){
         );
     });
 
-    it('Should get connections of a given hero id', function testGetHeroConnectionsById(){
+    test('Should get connections of a given hero id', function testGetHeroConnectionsById(){
         const id = 620;
         const connections = hero.connections;
         return heroService.getHeroConnectionsById(id).then(
