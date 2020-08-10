@@ -4,67 +4,102 @@ import PropTypes from 'prop-types';
 
 import './filmSlider.css';
 
-function FilmSlider({ data }) {
-	let imageIndex = 0;
-	const [rightFilm, setRightFilm] = useState(data[0]);
-	const [centerFilm, setCenterFilm] = useState(data[1]);
-	const [leftFilm, setLeftFilm] = useState(data[2]);
+let leftSlider = null;
+let centerSlider = null;
+let rightSlider = null;
 
-	useEffect(() => {
-		setInterval(() => {
-			imageIndex === data.length - 1 ? (imageIndex = 0) : imageIndex++;
-			setLeftFilm(data[imageIndex === 0 ? data.length - 1 : imageIndex - 1]);
-			setCenterFilm(data[imageIndex]);
-			setRightFilm(data[imageIndex === data.length - 1 ? 0 : imageIndex + 1]);
-		}, 5000);
-	}, []);
+function FilmSlider({ data }) {
+	const [sliderIndex, setSliderIndex] = useState(0);
+	leftSlider = data[sliderIndex === 0 ? data.length - 1 : sliderIndex - 1];
+	centerSlider = data[sliderIndex];
+	rightSlider = data[sliderIndex === data.length - 1 ? 0 : sliderIndex + 1];
 
 	return (
 		<div className="slider-container">
 			<div className="slider">
 				<Link
-					to={'film/' + leftFilm.id.split('/')[2]}
+					to={'film/' + leftSlider.id.split('/')[2]}
 					className="slider__link lateral"
 				>
 					<img
 						className="slider-lateral"
+						alt={leftSlider.title}
 						src={
-							!!leftFilm.image
-								? leftFilm.image.url
+							!!leftSlider.image
+								? leftSlider.image.url
 								: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
 						}
 					></img>
 				</Link>
+				<div class="arrow">
+					<img
+						src="https://image.flaticon.com/icons/svg/566/566011.svg"
+						class="arrow__left"
+						alt="Left arrow"
+						onClick={() => {
+							sliderIndex === 0
+								? setSliderIndex(data.length)
+								: setSliderIndex(sliderIndex - 1);
+						}}
+					/>
+				</div>
 				<Link
-					to={'film/' + centerFilm.id.split('/')[2]}
+					to={'film/' + centerSlider.id.split('/')[2]}
 					className="slider__link center"
 				>
 					<img
 						className="slider-center"
+						alt={centerSlider.title}
 						src={
-							!!centerFilm.image
-								? centerFilm.image.url
+							!!centerSlider.image
+								? centerSlider.image.url
 								: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
 						}
 					></img>
 				</Link>
+				<div class="arrow">
+					<img
+						src="https://image.flaticon.com/icons/svg/566/566011.svg"
+						class="arrow__right"
+						alt="Right arrow"
+						onClick={() => {
+							sliderIndex === data.length
+								? setSliderIndex(0)
+								: setSliderIndex(sliderIndex + 1);
+						}}
+					/>
+				</div>
 				<Link
-					to={'film/' + rightFilm.id.split('/')[2]}
+					to={'film/' + rightSlider.id.split('/')[2]}
 					className="slider__link lateral"
 				>
 					<img
 						className="slider-lateral"
+						alt={rightSlider.title}
 						src={
-							!!rightFilm.image
-								? rightFilm.image.url
+							!!rightSlider.image
+								? rightSlider.image.url
 								: 'https://www.filmaffinity.com/imgs/movies/noimgfull.jpg'
 						}
 					></img>
 				</Link>
 			</div>
 			<div className="dots">
-				{data.map(() => {
-					return <span className="dot"></span>;
+				{data.map((obj, i) => {
+					let dot = null;
+					dot = (
+						<span
+							key={i}
+							className="dot"
+							onClick={() => {
+								setSliderIndex(i);
+							}}
+						></span>
+					);
+					if (i === sliderIndex) {
+						dot = <span className="selected-dot" key={i}></span>;
+					}
+					return dot;
 				})}
 			</div>
 		</div>
