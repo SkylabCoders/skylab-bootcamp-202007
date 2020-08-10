@@ -11,7 +11,7 @@ function User() {
 
 	useEffect(() => {
 		userStore.addChangeListener(onChange);
-		if (favoriteMovie === 0) listFavoriteFilms();
+		listFavoriteFilms();
 		return () => userStore.removeChangeListener(onChange);
 	});
 
