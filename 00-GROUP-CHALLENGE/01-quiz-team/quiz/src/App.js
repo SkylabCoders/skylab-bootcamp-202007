@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/App.css';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -15,6 +15,7 @@ import * as ROUTES from './config/routes';
 function App() {
 	return (
 		<div className="app">
+			<Router>
 			<Header />
 			<Switch>
 				<Route path={ROUTES.HOME} exact component={Dashboard} />
@@ -26,6 +27,7 @@ function App() {
 				<Route component={PageNotFound} />
 			</Switch>
 			<Footer />
+			</Router>
 		</div>
 	);
 }
