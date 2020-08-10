@@ -44,7 +44,7 @@ function Results(props) {
                         </NavLink>
                     </div>
                     <div>
-                        <button onClick={() => handleResult()}>PRUEBA GUARDADO</button>
+                        <button onClick={() => handleResult()}>Save results</button>
                     </div>
                 </div>
             </section>
