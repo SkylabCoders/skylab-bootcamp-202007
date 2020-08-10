@@ -1,12 +1,21 @@
+* {
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .user-container {
-    height: 100%;
+    background-color: #212121;
+    margin: auto;
     display: flex;
+    flex: 1;
     flex-direction: column;
+    width: 100%;
 }
 
 .user-info {
-    height: 50%;
-    margin: 10px;
+    margin: 30px 30px 0px 30px;
     display: flex;
 }
 
@@ -27,17 +36,45 @@
 
 .user-detail p {
     font-size: 16px;
+    text-align: start;
+}
+
+.favorite-movies-title {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .user-favorite-movie {
-    border: 1px solid red;
-    height: auto;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
 }
 
 .movies {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
 }
 
-.movie {}
+.movie {
+    margin: 10px;
+    text-align: center;
+}
+
+.movie img {
+    width: 200px;
+
+}
+
+.movie p {
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0px;
+}

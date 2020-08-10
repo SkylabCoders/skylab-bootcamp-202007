@@ -1,40 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { users } from '../../mocks/user/userMock';
 import userStore from '../../stores/userStore';
-import { listFavoriteFilms } from '../../actions/userActions';
+import authStore from '../../stores/authStore';
+//import { listFavoriteFilms } from '../../actions/userActions';
 import './user.css';
 
 function User() {
-	const [favoriteMovie, setFavoriteMovie] = useState(
-		userStore.getFavoriteFilms()
-	);
-
-	useEffect(() => {
-		userStore.addChangeListener(onChange);
-		listFavoriteFilms();
-		return () => userStore.removeChangeListener(onChange);
-	});
-
-	function onChange() {
-		setFavoriteMovie(userStore.getFavoriteFilms());
-	}
-
+	const data = authStore.getUserProfile();
 	return (
 		<div className="user-container">
 			<section className="user-info">
 				<div className="user-image">
-					<img src={users[0].image} alt="User profile image" />
+					<img
+						src={!!data.photoURL ? data.photoURL : ''}
+						alt="User profile image"
+					/>
 				</div>
 				<div className="user-detail">
-					<p>{users[0].name.toUpperCase()}</p>
-					<p>{users[0].lastName.toUpperCase()}</p>
-					<p>{users[0].email}</p>
+					<p>{!!data.displayName ? data.displayName.toUpperCase() : 'Name'}</p>
+					<p>{!!data.email ? data.email : 'email@mail.com'}</p>
 				</div>
 			</section>
 			<section className="user-favorite-movie">
-				<p>{'Favorites Movies'.toUpperCase()}</p>
+				<p className="favorite-movies-title">
+					{'Favorites Movies'.toUpperCase()}
+				</p>
 				<section className="movies">
-					<div className="movie"></div>
+					{userStore.getFavoriteFilms().map((element, i) => {
+						return (
+							<div className="movie" key={i}>
+								<p className="title-film">{element.title}</p>
+								<img src={element.image.url} />
+							</div>
+						);
+					})}
 				</section>
 			</section>
 		</div>
