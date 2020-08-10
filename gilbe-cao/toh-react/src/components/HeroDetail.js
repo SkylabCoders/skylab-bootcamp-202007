@@ -36,9 +36,13 @@ function HeroDetail(props) {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		saveHero({ name: heroName, id: heroId }).then(() =>
-			props.history.push('/heroes')
-		);
+
+		// Delete leading and trailing white spaces from name input before saving
+		const name = heroName.trim();
+
+		if (name) {
+			saveHero({ name, id: heroId }).then(() => props.history.push('/heroes'));
+		}
 	}
 
 	return (
