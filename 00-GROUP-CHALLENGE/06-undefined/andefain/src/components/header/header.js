@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './header.css';
+import './header.scss';
 import { Link } from 'react-router-dom';
 import authStore from '../../stores/authStore';
 import { logout } from '../../actions/authActions';
