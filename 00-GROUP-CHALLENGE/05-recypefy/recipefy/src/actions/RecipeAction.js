@@ -12,7 +12,6 @@ export async function loadRecipe(
 	dietPreferences,
 	healthPreferences
 ) {
-	let recipeObject = null;
 	if (!newSearch && !dietPreferences && !healthPreferences) {
 		newSearch = 'salad';
 		dietPreferences = '';
@@ -68,7 +67,7 @@ export async function loadRecipe(
 		);
 		return newRecipe;
 	}
-	return (recipeObject = await new Promise((resolve, reject) => {
+	const recipeObjectApi = await new Promise((resolve, reject) => {
 		req.open(
 			'GET',
 			URL_API_SEARCH +
@@ -88,14 +87,21 @@ export async function loadRecipe(
 			}
 		};
 		req.send(null);
-	})
-		.then((apiObject) => {
-			return apiObject.hits.map(objectConversor);
-		})
-		.then((recipeList) => {
-			dispatcher.dispatch({
-				type: actionTypes.LOAD_RECIPE,
-				data: recipeList
-			});
-		}));
+	});
+
+	const objectConverted = await recipeObjectApi.hits.map(objectConversor);
+
+	const actualAction = await myDispatch(
+		actionTypes.LOAD_RECIPE,
+		objectConverted
+	);
+
+	return actualAction;
+}
+
+function myDispatch(actualActionType, actualData) {
+	return dispatcher.dispatch({
+		type: actualActionType,
+		data: actualData
+	});
 }
