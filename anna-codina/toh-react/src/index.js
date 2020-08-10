@@ -6,9 +6,7 @@ import ToH from './ToH';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Router>
-			<ToH />
-		</Router>
+		<ToH />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
