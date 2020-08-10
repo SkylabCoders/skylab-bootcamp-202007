@@ -52,7 +52,7 @@ export function saveUser(user) {
 	});
 }
 
-export function loadPlanets(filter, name) {
+export function loadPlanets() {
 	return new Promise((resolve) => {
 		resolve(planetsArr);
 	}).then((planetsArr) => {
@@ -62,6 +62,25 @@ export function loadPlanets(filter, name) {
 		});
 	});
 }
+export function winIncrement() {
+	return new Promise((resolve) => {
+		resolve();
+	}).then(() => {
+		dispatcher.dispatch({
+			type: actionTypes.WIN_INC
+		})
+	})
+}
+export function lossIncrement() {
+	return new Promise((resolve) => {
+		resolve();
+	}).then(() => {
+		dispatcher.dispatch({
+			type: actionTypes.LOSS_INC
+		})
+	})
+}
+
 
 /* export function loadCharListAPI() {
     return new Promise((resolve, reject) => {

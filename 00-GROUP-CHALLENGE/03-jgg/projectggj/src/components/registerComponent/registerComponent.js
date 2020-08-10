@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './registerComponent.css';
 import { sendAccountRegister } from '../../actions/authAction/authAction'
+import { Link } from 'react-router-dom';
 
 function RegisterComponent() {
 
@@ -38,10 +39,10 @@ function RegisterComponent() {
                 <input value={password2} onChange={(event) => handleChange(event, setPassword2)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
                 <div className="rowflex">
                     {password1 !== password2 && <button className="m-1 mt-3 mb-3 btn-light btn-lg btn-block" onClick={() => alert("Passwords don't match! Please enter the same password in both fields")}> Create account!</button>}
-                    {password1 === password2 && <button className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit" onClick={() => sendAccountRegister(email, password1)}>Create account!</button>}
+                    {password1 === password2 && <Link to="/login" className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit" onClick={() => sendAccountRegister(email, password1)}>Create account!</Link>}
                     <img className="capsule" src="https://i.pinimg.com/originals/c8/3e/92/c83e92534f8ce734d123c1445d1adf14.jpg" alt="capsule"></img>
                 </div>
-                <a className="redirectLink" href="/login">Go back to login</a>
+                <Link to="/login">Go back to login</Link>
             </form>
         </section >
     )

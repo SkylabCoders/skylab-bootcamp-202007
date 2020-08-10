@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
 import './gameComponent.css';
-import player, { CHARGE, ATTACK, AVOID, FAIL } from './gameLogic/gameLogic';
+
+import { winIncrement, lossIncrement } from '../../actions/actions';
+import player, { CHARGE, ATTACK, AVOID } from './gameLogic/gameLogic';
+
+import useSound from "use-sound";
+import attackSound from '../../sounds/attack.mp3'
+import chargeSound from '../../sounds/charge.mp3'
+import avoidSound from '../../sounds/avoid.wav'
+
 let player1;
 let machine;
 function GameComponent(props) {
+
+    //get sounds efects
+    const [attack] = useSound(attackSound);
+    const [charge] = useSound(chargeSound);
+    const [avoid] = useSound(avoidSound);
 
     //Instancing the new Players
     let Mname = props.match.params.enemy;
@@ -25,6 +38,7 @@ function GameComponent(props) {
     const imgLive = 'https://images-na.ssl-images-amazon.com/images/I/31t66UdClqL.png';
     const imgCharge = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3eb70ccc-e7ad-4e1a-87fa-f97df9ef1c52/d9rqdji-5ec98122-7e1c-4da7-a7c7-4b0f6ab86b7a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2ViNzBjY2MtZTdhZC00ZTFhLTg3ZmEtZjk3ZGY5ZWYxYzUyXC9kOXJxZGppLTVlYzk4MTIyLTdlMWMtNGRhNy1hN2M3LTRiMGY2YWI4NmI3YS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.lF5QwNjLFrIa5o9dCpU_kaTqPdq1Vk1zzk3YbRjRVOo';
 
+
     //States of acctions and lives and Ki
     const [machineAction, setMachineAction] = useState(machineImg);
     const [machLives, setMachLives] = useState(machine.getLives());
@@ -32,6 +46,7 @@ function GameComponent(props) {
     const [playerLives, setPlayerLives] = useState(player1.getLives());
     const [playerCharges, setPlayerCharges] = useState(player1.getCharges());
     const [gameLog, setGameLog] = useState(machine.getName() + ' challenges You!');
+
 
     function setAnAction(acc) {
         let acctionMachine = '';
@@ -57,14 +72,27 @@ function GameComponent(props) {
         }
         if (player1.getLives() > 0 && machine.getLives() === 0) {
             setGameLog('YOU WIN!');
-            setMachineAction(
-                'https://thumbs.gfycat.com/EnergeticShortGalapagoshawk-size_restricted.gif'
-            );
-        } else if (machine.getLives() > 0 && player1.getLives() === 0) {
+            winIncrement();
             setTimeout(function () {
-                setGameLog('YOU LOOSE...');
+                setMachineAction(
+                    'https://thumbs.gfycat.com/EnergeticShortGalapagoshawk-size_restricted.gif'
+                );
+            }, 1500);
+            setTimeout(function () {
+                player1.resetPlayer();
+                machine.resetPlayer();
+            }, 2750);
+        } else if (machine.getLives() > 0 && player1.getLives() === 0) {
+            setGameLog('YOU LOOSE...');
+            lossIncrement();
+            setTimeout(function () {
                 setMachineAction('https://media1.tenor.com/images/dbfa07ecdabe6c27ef6a6927666d4725/tenor.gif?itemid=9943214');
             }, 1500);
+            setTimeout(function () {
+                player1.resetPlayer();
+                machine.resetPlayer();
+
+            }, 2750);
         }
     }
     function setNewStats() {
@@ -94,33 +122,36 @@ function GameComponent(props) {
             <div className='flex-col user-col'>
                 <div className="user-action_container flex-col-user">
                     <div className=" flex-col">
-                        <p>Charge Ki</p>
+
                         <img
                             src={actions.charge}
-                            onClick={() => setAnAction(CHARGE)}
+                            onClick={() => { setAnAction(CHARGE); charge() }}
                             alt="Charge"
                         ></img>
+                        <p>Charge Ki</p>
                     </div>
                     <div className=" flex-col" >
-                        <p>Avoid attack</p>
+
                         <img
                             src={actions.avoid}
-                            onClick={() => setAnAction(AVOID)}
+                            onClick={() => { setAnAction(AVOID); avoid() }}
                             alt="Avoid"
                         ></img>
+                        <p>Avoid attack</p>
                     </div>
                     <div className=" flex-col">
-                        <p>ATTACK!</p>
+
                         <img
                             src={actions.attack}
-                            onClick={() => setAnAction(ATTACK)}
+                            onClick={() => { setAnAction(ATTACK); attack() }}
                             alt="Attack"
                         ></img >
+                        <p>ATTACK!</p>
                     </div >
 
                 </div >
                 <div className='flex-col-user__data'>
-
+                    <p>YOU:</p>
                     <img src={imgLive} alt='lives'></img>
                     <span>{playerLives}</span>
                     <img src={imgCharge} alt='ki'></img>
@@ -135,7 +166,7 @@ function GameComponent(props) {
                 <img className='machine-img' src={machineAction} alt="machine action"></img>
 
                 <div className='flex-col-user__data'>
-
+                    <p>ENEMY:</p>
                     <img src={imgLive} alt='lives'></img>
                     <span>{machLives}</span>
                     <img src={imgCharge} alt='ki'></img>
