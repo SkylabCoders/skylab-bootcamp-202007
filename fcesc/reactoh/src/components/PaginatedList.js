@@ -4,6 +4,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import HeroStore from './../stores/heroStore';
 import { loadPaginatedHeroes } from './../actions/heroActions';
 import * as ROUTES from './../config/routes';
+import * as PARAMS from './../config/appParameters';
 
 function PaginatedList(){
     let urlQuery = useRouteMatch()
@@ -11,7 +12,7 @@ function PaginatedList(){
     if(urlPage === undefined){urlPage = 0;}
     const [currentHeroes, setHeroes] = useState([]);
     const [page] = useState(urlPage);
-    const [itemsPerPage] = useState(20);
+    const [itemsPerPage] = useState(PARAMS.ITEMS_PER_PAGE);
 
     useEffect(()=>{
         HeroStore.addChangeListener(onChange);
