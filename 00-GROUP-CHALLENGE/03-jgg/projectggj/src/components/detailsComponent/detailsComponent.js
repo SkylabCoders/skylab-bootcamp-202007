@@ -39,27 +39,27 @@ function DetailsComponent(props) {
 								</div>
 								<div className="details-desc-content">
 									<div className="details-desc">
-										RACE: <span>{char.species}</span>
+										RACE: {char && <span>{char.species}</span>}
 									</div>
 									<div className="details-desc">
-										STATUS: <span>{char.status}</span>
+										STATUS: {char && <span>{char.status}</span>}
 									</div>
 									<div className="details-desc">
-										PLANET: <span>{char.originPlanet}</span>
+										PLANET: {char && <span>{char.originPlanet}</span>}
 									</div>
 									<div className="details-desc">
-										GENDER: <span>{char.gender}</span>
+										GENDER: {char && <span>{char.gender}</span>}
 									</div>
 									<div className="details-desc">
-										SERIE: <span>{char.series}</span>
+										SERIE: {char && <span>{char.series}</span>}
 									</div>
 
 								</div>
-								<div >
+								{char && <div >
 									<Link to={`/game/${char.name}`} >
 										<button className='row figthlink btn'> FIGTH!</button>
 									</Link>
-								</div>
+								</div>}
 							</div>
 						</div>
 					</div>
