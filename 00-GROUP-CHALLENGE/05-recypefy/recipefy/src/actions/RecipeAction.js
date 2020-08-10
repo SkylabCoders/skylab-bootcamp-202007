@@ -7,7 +7,12 @@ const APP_API_ID = '46083075';
 const APP_API_KEY = '83cd4df2c64a04f570c8647f833a8a7e';
 const APP_IDENTIFICATION = `&app_id=${APP_API_ID}&app_key=${APP_API_KEY}`;
 
-export function loadRecipe(newSearch, dietPreferences, healthPreferences) {
+export async function loadRecipe(
+	newSearch,
+	dietPreferences,
+	healthPreferences
+) {
+	let recipeObject = null;
 	if (!newSearch && !dietPreferences && !healthPreferences) {
 		newSearch = 'salad';
 		dietPreferences = '';
@@ -63,7 +68,7 @@ export function loadRecipe(newSearch, dietPreferences, healthPreferences) {
 		);
 		return newRecipe;
 	}
-	return new Promise((resolve, reject) => {
+	return (recipeObject = await new Promise((resolve, reject) => {
 		req.open(
 			'GET',
 			URL_API_SEARCH +
@@ -92,5 +97,5 @@ export function loadRecipe(newSearch, dietPreferences, healthPreferences) {
 				type: actionTypes.LOAD_RECIPE,
 				data: recipeList
 			});
-		});
+		}));
 }
