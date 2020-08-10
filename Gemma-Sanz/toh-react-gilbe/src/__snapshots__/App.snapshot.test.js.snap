@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Tour of Heroes
+  </h1>
+  <nav>
+    <a
+      aria-current="page"
+      className="nav__link--active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Dashboard
+    </a>
+     | 
+    <a
+      aria-current={null}
+      href="/heroes"
+      onClick={[Function]}
+    >
+      Heroes
+    </a>
+     | 
+    <a
+      aria-current={null}
+      href="/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
+  </nav>
+  <p>
+    HeroDashboard works!
+  </p>
+</div>
+`;
+
+exports[`Header snapshot should match 1`] = `
+Array [
+  <h1>
+    Tour of Heroes
+  </h1>,
+  <nav>
+    <a
+      aria-current="page"
+      className="nav__link--active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Dashboard
+    </a>
+     | 
+    <a
+      aria-current={null}
+      href="/heroes"
+      onClick={[Function]}
+    >
+      Heroes
+    </a>
+     | 
+    <a
+      aria-current={null}
+      href="/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
+  </nav>,
+]
+`;
+
+exports[`HeroDashboard snapshot should match 1`] = `
+<p>
+  HeroDashboard works!
+</p>
+`;
+
+exports[`HeroList snapshot should match 1`] = `null`;
+
+exports[`HeroListItem snapshot should match 1`] = `
+<p>
+  HeroListItem works!
+</p>
+`;
+
+exports[`HeroPage snapshot should match 1`] = `
+Array [
+  <p>
+    <a
+      href="/hero"
+      onClick={[Function]}
+    >
+      + Add Hero
+    </a>
+  </p>,
+  <ul>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/11"
+        onClick={[Function]}
+      >
+        11
+        : 
+        Dr Nice
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/12"
+        onClick={[Function]}
+      >
+        12
+        : 
+        Narco
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/13"
+        onClick={[Function]}
+      >
+        13
+        : 
+        Bombasto
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/14"
+        onClick={[Function]}
+      >
+        14
+        : 
+        Celeritas
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/15"
+        onClick={[Function]}
+      >
+        15
+        : 
+        Magneta
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/16"
+        onClick={[Function]}
+      >
+        16
+        : 
+        RubberMan
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/17"
+        onClick={[Function]}
+      >
+        17
+        : 
+        Dynama
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/18"
+        onClick={[Function]}
+      >
+        18
+        : 
+        Dr IQ
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/19"
+        onClick={[Function]}
+      >
+        19
+        : 
+        Magma
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li
+      className="hero-list__item"
+    >
+      <a
+        href="/hero/20"
+        onClick={[Function]}
+      >
+        20
+        : 
+        Tornado
+      </a>
+      <div
+        className="hero-list__item--delete"
+      >
+        <button
+          onClick={[Function]}
+        >
+          X
+        </button>
+      </div>
+    </li>
+  </ul>,
+]
+`;
+
+exports[`Login snapshot should match 1`] = `
+<button
+  onClick={[Function]}
+>
+  Login
+</button>
+`;
+
+exports[`PageNotFound snapshot should match 1`] = `
+<section>
+  <h1>
+    Error - 404
+  </h1>
+  <p>
+    Nothing to see here !
+  </p>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Dashboard
+  </a>
+</section>
+`;
+
+exports[`TextInput snapshot should match 1`] = `
+<label>
+  Name: 
+  <input
+    type="text"
+  />
+</label>
+`;

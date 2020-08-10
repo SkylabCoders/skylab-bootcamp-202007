@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
 import HeroesPage from './components/HeroesPage';
 import Login from './components/Login';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App(props) {
 	return (

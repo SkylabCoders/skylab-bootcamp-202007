@@ -16,7 +16,7 @@ describe('App', () => {
     )
   });
   it('async test 3', async () => {
-    myPromise = new Promise(
+    const myPromise = new Promise(
       resolve => setTimeout(resolve, 100)
     );
     return await myPromise;
