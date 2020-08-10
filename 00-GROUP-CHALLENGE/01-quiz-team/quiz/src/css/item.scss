@@ -1,3 +1,4 @@
+@use 'breakpoints';
 
 .item__container{
     position: relative;
@@ -22,8 +23,8 @@ img{
     font-size: 1.2rem;
     top: -3rem;
     text-align: center;
-    color: white;
-    background: #111111aa;
+    color: colors.$item__text;
+    background: colors.$item__textBackground;
     text-decoration: none;
 }
 
@@ -32,22 +33,22 @@ a{
 }
 
 .img__title:hover{
-    text-decoration: underline dotted yellow;
-    color: yellow;
-    background: #11111122;
+    text-decoration: underline dotted colors.$item__text--hover;
+    color: colors.$item__text--hover;
+    background: colors.$item__textBackground--hover;
 }
 
 
 
 
-@media (min-width: 680px) and (max-width: 1024px){
+@media (min-width: breakpoints.$mobile) and (max-width: breakpoints.$desktop){
     .item__container{
         width: 27vw;
     }
     
 }
 
-@media (min-width: 1024px){
+@media (min-width: breakpoints.$desktop){
     .item__container{
         width: 17vw;
     }

@@ -1,3 +1,4 @@
+@use 'colors';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
 
 body {
@@ -5,7 +6,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: black;
+  background: colors.$background;
 }
 
 code {
@@ -17,10 +18,10 @@ button{
   min-width: 200px;
   height: 35px;
   margin: 0 5px;
-  background-color: goldenrod;
+  background-color: colors.$button;
   box-sizing: border-box;
   padding: .2rem;
-  color: black;
+  color: colors.$text--dark;
   font-size: 1rem;
   letter-spacing: 1px;
   border-radius: .25rem;
@@ -30,7 +31,7 @@ button{
 } 
 
 button:hover{
-  background-color: coral;
-  color: black;
-  text-decoration: underline dotted black;
+  background-color: colors.$button--hover;
+  color: colors.$text--dark;
+  text-decoration: underline dotted colors.$text--dark;
 } 
