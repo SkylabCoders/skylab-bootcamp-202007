@@ -16,13 +16,10 @@ function LeaderBoard(){
         setLeaderboardList(leaderboardStore.getLeaderboard());
     }
 
-    console.log('DATA AQUI', leaderboardList);
-
     return (
         <div className="leaderboard">
             <h1>Leaderboard</h1>
             <ul>
-                {console.log(leaderboardList)}
                 {leaderboardList.map((e)=>(
                     <li key={e.name}><strong>{e.name}</strong>, {e.points} points</li>
                 ))}
