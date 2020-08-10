@@ -20,6 +20,7 @@ function Header(props) {
 				</NavLink>
 			</nav>
 		</>
+
 	);
 }
 
