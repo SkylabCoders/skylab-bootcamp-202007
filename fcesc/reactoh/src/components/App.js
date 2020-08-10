@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './../css/app.css';
 import HeroDetail from './HeroDetail';
 import HeroQuery from './HeroQuery';
 import Header from './Header';

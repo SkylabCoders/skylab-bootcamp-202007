@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainMenu.css';
+import './../css/mainMenu.css';
 import { NavLink } from 'react-router-dom';
 import * as ROUTES from './../config/routes';
 

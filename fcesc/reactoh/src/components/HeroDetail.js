@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './HeroDetail.css';
+import './../css/heroDetail.css';
 import DisplayInlineArray from './DisplayInlineArray';
 import ShowImage from './ShowImage';
 import HeroStore from './../stores/heroStore';
