@@ -9,14 +9,22 @@ function myDispatch(actualActionType, actualData) {
     });
 };
 
-export function logout() {
-    return authMethods
-        .signout()
-        .then(() => {
-            dispatcher.dispatch({
-                type: actionTypes.LOGOUT,
-            });
-        })
+export async function logout() {
+
+    try {
+        const logout = await authMethods.signout();
+        const action = await myDispatch(actionTypes.LOGOUT, logout);
+        return action;
+    } catch (error) {
+        window.alert(`${error} in logout process.`)
+    };
+    /*     return authMethods
+            .signout()
+            .then(() => {
+                dispatcher.dispatch({
+                    type: actionTypes.LOGOUT,
+                });
+            }) */
 }
 
 export async function login(email, password) {
