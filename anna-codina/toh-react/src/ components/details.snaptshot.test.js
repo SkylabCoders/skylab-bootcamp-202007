@@ -3,10 +3,17 @@ import React from 'react';
 import Details from './details';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-xdescribe('App snapshot', () => {
+describe('App snapshot', () => {
+	const props = {
+		match: {
+			params: {
+				heroId: 14
+			}
+		}
+	};
 	const tree = renderer.create(
 		<Router>
-			<Details />
+			<Details {...props} />
 		</Router>
 	);
 

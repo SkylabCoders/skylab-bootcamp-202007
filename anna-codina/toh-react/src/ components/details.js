@@ -61,16 +61,6 @@ function Details(props) {
 					<button type="submit">Save Hero</button>
 				</p>
 			</form>
-
-			<Link
-				onClick={(event) => {
-					event.preventDefault();
-					props.history.goBack();
-				}}
-				class="hero-detail__back"
-			>
-				Back
-			</Link>
 		</div>
 	);
 }
