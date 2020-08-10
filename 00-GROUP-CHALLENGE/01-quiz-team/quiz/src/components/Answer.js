@@ -1,9 +1,7 @@
 import React from 'react';
 import './../css/Answer.css'
 
-function Answer(props){
-    console.log(props.answer)
-    
+function Answer(props){    
     
     return(
         <>

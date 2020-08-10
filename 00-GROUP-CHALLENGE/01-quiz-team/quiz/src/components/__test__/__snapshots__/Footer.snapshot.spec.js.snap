@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer snapshot should match 1`] = `
+<div
+  className="footer"
+>
+  <p>
+    Created by Francesc & Victor for 
+    <a
+      href="https://www.skylabcoders.com/es/"
+    >
+      Skylab Coders
+    </a>
+     Bootcamp
+  </p>
+</div>
+`;
