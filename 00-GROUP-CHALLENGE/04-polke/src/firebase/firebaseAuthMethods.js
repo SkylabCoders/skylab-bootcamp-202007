@@ -28,4 +28,6 @@ export const authMethods = {
 		const provider = new firebase.auth.GithubAuthProvider();
 		return firebase.auth().signInWithPopup(provider);
 	}
+
+	
 };

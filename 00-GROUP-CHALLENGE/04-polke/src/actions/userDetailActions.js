@@ -45,3 +45,30 @@ export function loadUserImg(userName) {
 		})
 		.catch((error) => console.error(error.message));
 }
+
+export function createRepo(name, access, desc, readme, accessToken) {
+	const reqBody = {
+		name: name,
+		description: desc || '',
+		private: access,
+		auto_init: readme || false
+	};
+
+	const endPoint = `https://cors-anywhere.herokuapp.com/https://api.github.com/user/repos`;
+	const bearer = 'Bearer ' + accessToken;
+
+	fetch(endPoint, {
+		method: 'POST',
+		headers: {
+			Authorization: bearer,
+			'Content-Type': 'application/json',
+			accept: 'application/vnd.github.v3+json'
+		},
+		body: JSON.stringify(reqBody)
+	})
+		.then((response) => {
+			console.log(response);
+			debugger;
+		})
+		.catch((error) => console.error(error.message));
+}
