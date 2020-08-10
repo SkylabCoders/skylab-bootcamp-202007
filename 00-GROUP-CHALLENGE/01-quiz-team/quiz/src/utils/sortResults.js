@@ -1,6 +1,6 @@
 function sortResults(data){
     data.sort();
-    return console.log(data);
+    return;
 }
 
 export default sortResults;
