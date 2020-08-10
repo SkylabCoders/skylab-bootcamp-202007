@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './../css/Options.css';
+import './../css/options.scss';
 
 
 function Option(props) {
