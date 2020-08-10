@@ -28,40 +28,22 @@ function Finder(title, name) {
 					return (
 						<div
 							to={'/film/' + element.id}
-							key={element.i}
+							key={element.id}
 							className="finder-result"
 						>
-							{element.id.slice(0, 2) === 'tt' ? (
-								<Link to={'/film/' + element.id}>
-									<img
-										className="finder-result__img"
-										src={!element.i ? imageNotAvailable : element.i.imageUrl}
-										alt="Search result"
-									/>
-								</Link>
-							) : (
-								<div>
-									<img
-										className="finder-result__img"
-										src={!element.i ? imageNotAvailable : element.i.imageUrl}
-										alt="Search result"
-									/>
-								</div>
-							)}
-
+							<Link to={'/film/' + element.id}>
+								<img
+									className="finder-result__img"
+									src={!element.id ? imageNotAvailable : element.image}
+									alt="Search result"
+								/>
+							</Link>
 							<div className="finder-result__details">
-								{element.id.slice(0, 2) === 'tt' ? (
-									<Link to={'/film/' + element.id}>
-										<div className="finder-result__name">{element.l}</div>
-									</Link>
-								) : (
-									<div className="finder-result__name">{element.l}</div>
-								)}
+								<Link to={'/film/' + element.id}>
+									<div className="finder-result__name">{element.title}</div>
+								</Link>
 
-								<div className="finder-result__type">{element.s}</div>
-								<div className="finder-result__type">
-									{isNaN(+element.y) ? null : element.y}
-								</div>
+								<div className="finder-result__type">{element.description}</div>
 							</div>
 						</div>
 					);
