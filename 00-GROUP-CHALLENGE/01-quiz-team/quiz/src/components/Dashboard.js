@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
-import './../css/Dashboard.css';
+import './../css/dashboard.scss';
 import gameStore from './../stores/gameStore';
 import {loadThemes, loadTopThemes, loadSessionSet} from './../actions/gameActions';
 

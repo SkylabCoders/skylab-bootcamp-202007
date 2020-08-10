@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import leaderboardStore from './../stores/leaderboardStore';
 import { loadLeaderboard } from './../actions/leaderboardActions';
-import './../css/leaderboard.css';
+import './../css/leaderboard.scss';
 
 function LeaderBoard(){
     const [leaderboardList, setLeaderboardList] = useState(leaderboardStore.getLeaderboard());

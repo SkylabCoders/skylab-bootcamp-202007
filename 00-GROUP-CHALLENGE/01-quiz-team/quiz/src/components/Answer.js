@@ -1,5 +1,5 @@
 import React from 'react';
-import './../css/Answer.css'
+import './../css/answer.sccss'
 
 function Answer(props){    
     

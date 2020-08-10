@@ -1,5 +1,5 @@
 import React from "react";
-import './../css/results.css';
+import './../css/results.scss';
 import { NavLink } from 'react-router-dom';
 import { saveResults } from '../actions/leaderboardActions' 
 import * as ROUTES from './../config/routes';

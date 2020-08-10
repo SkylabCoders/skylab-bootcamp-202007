@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { loadQuestion } from './../actions/questionActions';
 import gameStore from './../stores/gameStore';
-import './../css/Question.css';
+import './../css/question.scss';
 import Option from './Option';
 import Answer from './Answer';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
@@ -104,18 +104,18 @@ function Question(props) {
 
     function shuffleOptionsMulti(){
         let arr = [
-            <Option option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />,
-            <Option option={question.incorrect_answers[0]} answer={function getAnswer() { getValue(false, clicked) }} />,
-            <Option option={question.incorrect_answers[1]} answer={function getAnswer() { getValue(false, clicked) }} />,
-            <Option option={question.incorrect_answers[2]} answer={function getAnswer() { getValue(false, clicked) }} />,
+            <Option key='op1' option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />,
+            <Option key='op2' option={question.incorrect_answers[0]} answer={function getAnswer() { getValue(false, clicked) }} />,
+            <Option key='op3' option={question.incorrect_answers[1]} answer={function getAnswer() { getValue(false, clicked) }} />,
+            <Option key='op4' option={question.incorrect_answers[2]} answer={function getAnswer() { getValue(false, clicked) }} />,
         ];
         return shuffleArray(arr);
     }
 
     function shuffleOptionsBoolean(){
         let arr = [
-            <Option option={question.incorrect_answers} answer={function getAnswer() { getValue(false, clicked) }} />,
-            <Option option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />
+            <Option key='op1' option={question.incorrect_answers} answer={function getAnswer() { getValue(false, clicked) }} />,
+            <Option key='op2' option={question.correct_answer} answer={function getAnswer() { getValue(true, clicked) }} />
         ];
         return shuffleArray(arr); 
     }
