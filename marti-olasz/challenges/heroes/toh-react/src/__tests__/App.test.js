@@ -1,5 +1,5 @@
 //Only run this scope with describe.only or fdescribe (it.only or fit)
-describe.only('App', () => {
+describe.skip('App', () => {
 	//beforeAll(() => console.log('Before All'));
 	//beforeEach(() => console.log('Before Each'));
 
