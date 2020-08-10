@@ -10,7 +10,7 @@ function Results(props){
         
         saveResults({ 
             name: 'USER A',
-            points: 10000,
+            points: props.data_points,
             gameStarted: props.data_started, 
             gameEnded: props.data_ended, 
             gamesPlayed: props.data_played,
