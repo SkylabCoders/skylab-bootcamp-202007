@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import userStore from '../../stores/userStore';
 import authStore from '../../stores/authStore';
 //import { listFavoriteFilms } from '../../actions/userActions';
-import './user.css';
+import './user.scss';
 
 function User() {
 	const data = authStore.getUserProfile();

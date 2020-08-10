@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './login.css';
+import './login.scss';
 import {
 	login,
 	logout,

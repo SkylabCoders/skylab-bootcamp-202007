@@ -17,15 +17,17 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	h2 {
+		margin: 20px 0;
+	}
+
+	p {
+		text-align: justify;
+	}
 }
 
-h2 {
-	margin: 20px 0;
-}
 
-p {
-	text-align: justify;
-}
 
 @media only screen and (min-width: 600px) {
 	.about-container {
@@ -33,5 +35,4 @@ p {
 	}
 }
 
-@media only screen and (min-width: 1024px) {
-}
+@media only screen and (min-width: 1024px) {}
