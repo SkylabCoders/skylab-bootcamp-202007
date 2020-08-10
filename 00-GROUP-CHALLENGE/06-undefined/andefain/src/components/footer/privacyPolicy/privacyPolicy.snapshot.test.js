@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import Login from './login';
+import PrivacyPolicy from './privacyPolicy';
 
-describe('App snapshot', () => {
-	const tree = renderer.create(<Login />);
+describe('Privacy policy snapshot', () => {
+	const tree = renderer.create(<PrivacyPolicy />);
 	it('Should match', () => {
 		expect(tree.toJSON()).toMatchSnapshot();
 	});
