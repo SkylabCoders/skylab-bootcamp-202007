@@ -10,7 +10,7 @@ import PageNotFound from './PageNotFound';
 import { Route, Switch } from 'react-router-dom';
 import PaginatedList from './PaginatedList';
 import FullList from './FullList';
-import * as ROUTES from './config/routes';
+import * as ROUTES from './../config/routes';
 
 function App(){
   return(

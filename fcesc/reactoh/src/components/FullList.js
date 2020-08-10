@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './PaginatedList.css';
+import './../css/paginatedList.css';
 import { Link } from 'react-router-dom';
 import HeroStore from './../stores/heroStore';
 import { loadHeroes } from './../actions/heroActions';

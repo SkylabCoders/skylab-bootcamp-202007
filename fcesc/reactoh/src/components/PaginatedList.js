@@ -7,6 +7,8 @@ import * as ROUTES from './../config/routes';
 import * as PARAMS from './../config/appParameters';
 
 function PaginatedList(){
+    console.log(PARAMS);
+
     let urlQuery = useRouteMatch()
     let urlPage = +urlQuery.params.currentPage;
     if(urlPage === undefined){urlPage = 0;}
