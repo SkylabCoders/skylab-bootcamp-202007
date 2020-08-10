@@ -8,13 +8,11 @@ import '../App.css';
 function Header() {
 	const [actualSearch, setActualSearch] = useState('');
 
-
-
 	const [balanced, setBalanced] = useState(false);
 	const [protein, setProtein] = useState(false);
-	const [low_fat, setLow_fat] = useState(false);
-	const [low_carb, setLow_carb] = useState(false);
-	const [vegan, setVegan] = useState(false);;
+	const [lowFat, setLowFat] = useState(false);
+	const [lowCarb, setLowCarb] = useState(false);
+	const [vegan, setVegan] = useState(false);
 	const [vegetarian, setVegetarian] = useState(false);
 	const [sugar, setSugar] = useState(false);
 	const [peanut, setPeanut] = useState(false);
@@ -25,12 +23,10 @@ function Header() {
 	let healthRequest = '';
 	let dietRequest = '';
 
-
 	useEffect(() => {
 		recipeStore.addChangeListener(changePropertyBoolean);
 		return recipeStore.removeChangeListener(changePropertyBoolean);
-	}, [])
-
+	}, []);
 	function onFieldChange(value, setValue) {
 		setValue(value.trim());
 	}
@@ -44,180 +40,318 @@ function Header() {
 	}
 
 	const addProtein = () => {
-		dietList.push('High-Protein');
+		setDietList([...dietList, 'high-protein']);
 		changePropertyBoolean(protein, setProtein);
-
-	};
-	const addBalanced = () => {
-		dietList.push('Balanced');
-		changePropertyBoolean(balanced, setBalanced);
-
 	};
 	const removeProtein = () => {
-		for (let i in dietList) {
-			if (dietList[i] === 'High-Protein') {
-				let deletedElement = dietList.splice(i, 1);
-			}
-		}
+		setDietList(dietList.filter((value) => value !== 'high-protein'));
 		changePropertyBoolean(protein, setProtein);
-
-	}
-	const removeBalanced = () => {
-		for (let i in dietList) {
-			if (dietList[i] === 'Balanced') {
-				let deletedElement = dietList.splice(i, 1);
-			}
-		}
+	};
+	const addBalanced = () => {
+		setDietList([...dietList, 'balanced']);
 		changePropertyBoolean(balanced, setBalanced);
-
-	}
-	const removeLowfat = () => {
-		for (let i in dietList) {
-			if (dietList[i] === 'Low-Fat') {
-				let deletedElement = dietList.splice(i, 1);
-			}
-		}
-
-	}
+	};
+	const removeBalanced = () => {
+		setDietList(dietList.filter((value) => value !== 'balanced'));
+		changePropertyBoolean(balanced, setBalanced);
+	};
 	const addLowfat = () => {
-		dietList.push('Low-Fat');
-
-
+		setDietList([...dietList, 'low-fat']);
+		changePropertyBoolean(lowFat, setLowFat);
+	};
+	const removeLowfat = () => {
+		setDietList(dietList.filter((value) => value !== 'low-fat'));
+		changePropertyBoolean(lowFat, setLowFat);
+	};
+	const addLowcarb = () => {
+		setDietList([...dietList, 'low-carb']);
+		changePropertyBoolean(lowCarb, setLowCarb);
 	};
 	const removeLowcarb = () => {
-		for (let i in dietList) {
-			if (dietList[i] === 'Low-Carb') {
-				let deletedElement = dietList.splice(i, 1);
-			}
-		}
-
-	}
-	const addLowcarb = () => {
-		dietList.push('Low-Carb');
-
+		setDietList(dietList.filter((value) => value !== 'low-carb'));
+		changePropertyBoolean(lowCarb, setLowCarb);
+	};
+	const addVegan = () => {
+		setHealthList([...healthList, 'vegan']);
+		changePropertyBoolean(vegan, setVegan);
 	};
 	const removeVegan = () => {
-		for (let i in healthList) {
-			if (healthList[i] === 'Vegan') {
-				let deletedElement = healthList.splice(i, 1);
-			}
-		}
-
-	}
-	const addVegan = () => {
-		healthList.push('Vegan');
-
+		setHealthList(healthList.filter((value) => value !== 'vegan'));
+		changePropertyBoolean(vegan, setVegan);
+	};
+	const addVegetarian = () => {
+		setHealthList([...healthList, 'vegetarian']);
+		changePropertyBoolean(vegetarian, setVegetarian);
 	};
 	const removeVegetarian = () => {
-		for (let i in healthList) {
-			if (healthList[i] === 'Vegetarian') {
-				let deletedElement = healthList.splice(i, 1);
-			}
-		}
-
-	}
-	const addVegetarian = () => {
-		healthList.push('Vegetarian');
-
+		setHealthList(healthList.filter((value) => value !== 'vegetarian'));
+		changePropertyBoolean(vegetarian, setVegetarian);
+	};
+	const addPeanut = () => {
+		setHealthList([...healthList, 'peanut-free']);
+		changePropertyBoolean(peanut, setPeanut);
 	};
 	const removePeanut = () => {
-		for (let i in healthList) {
-			if (healthList[i] === 'Peanut-Free') {
-				let deletedElement = healthList.splice(i, 1);
-			}
-		}
-
-	}
-	const addPeanut = () => {
-		healthList.push('Peanut-Free');
-
+		setHealthList(healthList.filter((value) => value !== 'peanut-free'));
+		changePropertyBoolean(peanut, setPeanut);
+	};
+	const addTreenut = () => {
+		setHealthList([...healthList, 'tree-nut-free']);
+		changePropertyBoolean(treenut, setTreenut);
 	};
 	const removeTreenut = () => {
-		for (let i in healthList) {
-			if (healthList[i] === 'Tree-Nut-Free') {
-				let deletedElement = healthList.splice(i, 1);
-			}
-		}
-
-	}
-	const addTreenut = () => {
-		healthList.push('Tree-Nut-Free');
-
-
+		setHealthList(healthList.filter((value) => value !== 'tree-nut-free'));
+		changePropertyBoolean(treenut, setTreenut);
+	};
+	const addAlcohol = () => {
+		setHealthList([...healthList, 'alcohol-free']);
+		changePropertyBoolean(alcohol, setAlcohol);
 	};
 	const removeAlcohol = () => {
-		for (let i in healthList) {
-			if (healthList[i] === 'Alcohol-Free') {
-				let deletedElement = healthList.splice(i, 1);
-			}
-		}
-
-	}
-	const addAlcohol = () => {
-		healthList.push('Alcohol-Free');
-
+		setHealthList(healthList.filter((value) => value !== 'alcohol-free'));
+		changePropertyBoolean(alcohol, setAlcohol);
+	};
+	const addSugar = () => {
+		setHealthList([...healthList, 'sugar-conscious']);
+		changePropertyBoolean(sugar, setSugar);
 	};
 	const removeSugar = () => {
-		for (let i in healthList) {
-			if (healthList[i] === 'Sugar-Conscious') {
-				let deletedElement = healthList.splice(i, 1);
-			}
-		}
-
-	}
-	const addSugar = () => {
-		healthList.push('Sugar-Conscious');
-
+		setHealthList(healthList.filter((value) => value !== 'sugar-concius'));
+		changePropertyBoolean(sugar, setSugar);
 	};
 
-
 	function getHealthRequest() {
-
 		for (let i in healthList) {
 			if (i === 0) {
-				healthRequest = `Health=${healthList[i]}`
+				healthRequest = `health=${healthList[i]}`;
 			} else {
-				healthRequest += `&Health=${healthList[i]}`
+				healthRequest += `&health=${healthList[i]}`;
 			}
 		}
 		return healthRequest;
 	}
 	function getDietRequest() {
-
 		for (let i in dietList) {
 			if (i === 0) {
-
-
-				dietRequest = `Diet=${dietList[i]}`
+				dietRequest = `diet=${dietList[i]}`;
 			} else {
-				dietRequest += `&Diet=${dietList[i]}`
+				dietRequest += `&diet=${dietList[i]}`;
 			}
 		}
 
 		return dietRequest;
 	}
 	function sendSearch() {
-
-
-		loadRecipe(actualSearch, getDietRequest().trim(), getHealthRequest().trim());
+		loadRecipe(actualSearch, getDietRequest(), getHealthRequest());
 		setActualSearch('');
-		dietList = [];
-		healthList = [];
 	}
-
 
 	const Logo = 'https://image.flaticon.com/icons/svg/770/770906.svg';
 	return (
 		<>
 			<nav className="nav__menu">
 				<div className="nav__mobile">
-					<NavLink to="/main" className="link__header">
-						Main
-					</NavLink>
-
 					<Link to="/main">
 						<img className="nav__brand__logo" src={Logo} />
 					</Link>
+					<div className="burguer-button">
+						<img
+							src="https://image.flaticon.com/icons/svg/561/561123.svg"
+							alt="burguer button"
+						/>
+
+						<div className="burguer-preferences">
+							<ul>
+								<li>
+									{' '}
+									{balanced && (
+										<input
+											type="image"
+											src="https://image.flaticon.com/icons/png/512/30/30636.png"
+											className="button balanced"
+											onClick={removeBalanced}
+										></input>
+									)}
+									{!balanced && (
+										<input
+											type="image"
+											src="https://image.flaticon.com/icons/png/512/30/30636.png"
+											className="button balanced gray"
+											onClick={addBalanced}
+										></input>
+									)}
+								</li>
+								<li>
+									{protein && (
+										<input
+											type="image"
+											className="button protein "
+											src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
+											onClick={removeProtein}
+										></input>
+									)}
+									{!protein && (
+										<input
+											type="image"
+											className="button protein gray "
+											src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
+											onClick={addProtein}
+										></input>
+									)}
+								</li>
+								<li>
+									{lowFat && (
+										<input
+											type="image"
+											className="button low_fat"
+											src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
+											onClick={removeLowfat}
+										></input>
+									)}
+
+									{!lowFat && (
+										<input
+											type="image"
+											className="button low_fat gray"
+											src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
+											onClick={addLowfat}
+										></input>
+									)}
+								</li>
+								<li>
+									{lowCarb && (
+										<input
+											type="image"
+											className="button low_carb"
+											src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
+											onClick={removeLowcarb}
+										></input>
+									)}
+									{!lowCarb && (
+										<input
+											type="image"
+											className="button low_carb gray"
+											src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
+											onClick={addLowcarb}
+										></input>
+									)}
+								</li>
+
+								<li>
+									{vegan && (
+										<input
+											type="image"
+											className="button vegan"
+											src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
+											onClick={removeVegan}
+										></input>
+									)}
+									{!vegan && (
+										<input
+											type="image"
+											className="button vegan gray"
+											src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
+											onClick={addVegan}
+										></input>
+									)}
+								</li>
+
+								<li>
+									{vegetarian && (
+										<input
+											type="image"
+											className="button vegetarian"
+											src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
+											onClick={removeVegetarian}
+										></input>
+									)}
+									{!vegetarian && (
+										<input
+											type="image"
+											className="button vegetarian gray"
+											src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
+											onClick={addVegetarian}
+										></input>
+									)}
+								</li>
+
+								<li>
+									{sugar && (
+										<input
+											type="image"
+											className="button sugar"
+											src="https://www.footys.co.za/images/icon-sugar.png"
+											onClick={removeSugar}
+										></input>
+									)}
+									{!sugar && (
+										<input
+											type="image"
+											className="button sugar gray"
+											src="https://www.footys.co.za/images/icon-sugar.png"
+											onClick={addSugar}
+										></input>
+									)}
+								</li>
+								<li>
+									{peanut && (
+										<input
+											type="image"
+											className="button peanut"
+											src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
+											onClick={removePeanut}
+										></input>
+									)}
+									{!peanut && (
+										<input
+											type="image"
+											className="button peanut gray"
+											src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
+											onClick={addPeanut}
+										></input>
+									)}
+								</li>
+
+								<li>
+									{treenut && (
+										<input
+											type="image"
+											className="button treenut"
+											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
+											onClick={removeTreenut}
+										></input>
+									)}
+									{!treenut && (
+										<input
+											type="image"
+											className="button treenut gray"
+											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
+											onClick={addTreenut}
+										></input>
+									)}
+								</li>
+
+								<li>
+									{alcohol && (
+										<input
+											type="image"
+											className="button alcohol"
+											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
+											onClick={removeAlcohol}
+										></input>
+									)}
+									{!alcohol && (
+										<input
+											type="image"
+											className="button alcohol gray"
+											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
+											onClick={addAlcohol}
+										></input>
+									)}
+								</li>
+							</ul>
+						</div>
+					</div>
 					<div className="search-container">
 						<input
 							className="search"
@@ -312,53 +446,193 @@ function Header() {
 							)}
 						</>
 						<div>
-							<>	{balanced && (
-								<input
-									type="image"
-									src="https://image.flaticon.com/icons/png/512/30/30636.png"
-									className="button balanced"
-									onClick={removeBalanced}
-								>
-
-								</input>
-							)}
+							<>
+								{' '}
+								{balanced && (
+									<input
+										type="image"
+										src="https://image.flaticon.com/icons/png/512/30/30636.png"
+										className="button balanced"
+										onClick={removeBalanced}
+									></input>
+								)}
 								{!balanced && (
 									<input
 										type="image"
 										src="https://image.flaticon.com/icons/png/512/30/30636.png"
 										className="button balanced gray"
 										onClick={addBalanced}
-
 									></input>
 								)}
-
 							</>
 							<>
 								{protein && (
-									<input type="image" className="button protein " src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg" onClick={removeProtein}></input>
+									<input
+										type="image"
+										className="button protein "
+										src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
+										onClick={removeProtein}
+									></input>
 								)}
 								{!protein && (
-									<input type="image" className="button protein gray " src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg" onClick={addProtein} ></input>
+									<input
+										type="image"
+										className="button protein gray "
+										src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
+										onClick={addProtein}
+									></input>
+								)}
+							</>
+							<>
+								{lowFat && (
+									<input
+										type="image"
+										className="button low_fat"
+										src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
+										onClick={removeLowfat}
+									></input>
+								)}
+
+								{!lowFat && (
+									<input
+										type="image"
+										className="button low_fat gray"
+										src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
+										onClick={addLowfat}
+									></input>
+								)}
+							</>
+							<>
+								{lowCarb && (
+									<input
+										type="image"
+										className="button low_carb"
+										src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
+										onClick={removeLowcarb}
+									></input>
+								)}
+								{!lowCarb && (
+									<input
+										type="image"
+										className="button low_carb gray"
+										src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
+										onClick={addLowcarb}
+									></input>
 								)}
 							</>
 
-							<input type="image" className="button low_fat" src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png" onClick={removeLowfat}></input>
-							<input type="image" className="button low_fat" src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png" onClick={addLowfat}></input>
-							<input type="image" className="button low_carb" src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png" onClick={removeLowcarb}></input>
-							<input type="image" className="button low_carb" src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png" onClick={addLowcarb}></input>
-							<input type="image" className="button vegan" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png" onClick={removeVegan}></input>
-							<input type="image" className="button vegan" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png" onClick={addVegan}></input>
-							<input type="image" className="button vegetarian" src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png" onClick={removeVegetarian}></input>
-							<input type="image" className="button vegetarian" src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png" onClick={addVegetarian}></input>
-							<input type="image" className="button sugar" src="https://www.footys.co.za/images/icon-sugar.png" onClick={removeSugar}></input>
-							<input type="image" className="button sugar" src="https://www.footys.co.za/images/icon-sugar.png" onClick={addSugar}></input>
-							<input type="image" className="button peanut" src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png" onClick={removePeanut}></input>
-							<input type="image" className="button peanut" src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png" onClick={addPeanut}></input>
-							<input type="image" className="button treenut" src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png" onClick={removeTreenut}></input>
-							<input type="image" className="button treenut" src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png" onClick={addTreenut}></input>
-							<input type="image" className="button alcohol" src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png" onClick={removeAlcohol}></input>
-							<input type="image" className="button alcohol" src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png" onClick={addAlcohol}></input>
+							<>
+								{vegan && (
+									<input
+										type="image"
+										className="button vegan"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
+										onClick={removeVegan}
+									></input>
+								)}
+								{!vegan && (
+									<input
+										type="image"
+										className="button vegan gray"
+										src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
+										onClick={addVegan}
+									></input>
+								)}
+							</>
 
+							<>
+								{vegetarian && (
+									<input
+										type="image"
+										className="button vegetarian"
+										src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
+										onClick={removeVegetarian}
+									></input>
+								)}
+								{!vegetarian && (
+									<input
+										type="image"
+										className="button vegetarian gray"
+										src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
+										onClick={addVegetarian}
+									></input>
+								)}
+							</>
+
+							<>
+								{sugar && (
+									<input
+										type="image"
+										className="button sugar"
+										src="https://www.footys.co.za/images/icon-sugar.png"
+										onClick={removeSugar}
+									></input>
+								)}
+								{!sugar && (
+									<input
+										type="image"
+										className="button sugar gray"
+										src="https://www.footys.co.za/images/icon-sugar.png"
+										onClick={addSugar}
+									></input>
+								)}
+							</>
+							<>
+								{peanut && (
+									<input
+										type="image"
+										className="button peanut"
+										src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
+										onClick={removePeanut}
+									></input>
+								)}
+								{!peanut && (
+									<input
+										type="image"
+										className="button peanut gray"
+										src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
+										onClick={addPeanut}
+									></input>
+								)}
+							</>
+
+							<>
+								{treenut && (
+									<input
+										type="image"
+										className="button treenut"
+										src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
+										onClick={removeTreenut}
+									></input>
+								)}
+								{!treenut && (
+									<input
+										type="image"
+										className="button treenut gray"
+										src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
+										onClick={addTreenut}
+									></input>
+								)}
+							</>
+
+							<>
+								{alcohol && (
+									<input
+										type="image"
+										className="button alcohol"
+										src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
+										onClick={removeAlcohol}
+									></input>
+								)}
+								{!alcohol && (
+									<input
+										type="image"
+										className="button alcohol gray"
+										src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
+										onClick={addAlcohol}
+									></input>
+								)}
+							</>
 						</div>
 					</div>
 				</div>
