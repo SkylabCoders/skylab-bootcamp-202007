@@ -1,6 +1,8 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
+import landingStore from '../stores/landingStore';
 import { EventEmitter } from 'events';
+import { loadRepoList } from '../actions/userDetailActions';
 
 const CHANGE_EVENT = 'change';
 
@@ -39,6 +41,9 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_USER_IMG:
 			_userInfo = action.data;
 			userDetailStore.emitChange(_userInfo);
+			break;
+		case actionTypes.CREATE_REPO:
+			loadRepoList(landingStore.getGitHubUserName());
 			break;
 		default:
 			break;
