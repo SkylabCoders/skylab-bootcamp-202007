@@ -1,5 +1,9 @@
+$margin-card: 10px;
+$imgWidthHeight: 100px;
+$imgAlign: center;
+
 .father-card {
-	margin: 10px;
+	margin: $margin-card;
 }
 
 .hinherit {
@@ -7,11 +11,11 @@
 }
 
 .img-holder {
-	width: 100px;
-	height: 100px;
-	align-content: center;
+	width: $imgWidthHeight;
+	height: $imgWidthHeight;
+	align-content: $imgAlign;
 	padding: 5px;
-	text-align: center;
+	text-align: $imgAlign;
 }
 
 .hinherit img {
