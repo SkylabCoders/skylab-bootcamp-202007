@@ -1,17 +1,22 @@
 describe('App', () => {
-	beforeAll(() => {
-		console.log('Before All !');
-	});
+	//.skip o "x" delante del it... : ignora ese test.  || .only o "f" delanten del it... : hace foco en ese test.
 	it('should sum', () => {
-		console.log('test !');
 		expect(2 + 2).toEqual(4);
 	});
 	it('should duplicate', () => {
-		console.log('test !');
 		expect(2 * 2).toEqual(4);
 	});
 
-	afterAll(() => {
-		console.log('After All !');
+	it('async test 1', (done) => {
+		setTimeout(done, 100);
+	});
+
+	it('async test 2', () => {
+		return new Promise((resolve) => setTimeout(resolve, 100));
+	});
+
+	it('async test 3', async () => {
+		const myPromise = new Promise((resolve) => setTimeout(resolve, 100));
+		return await myPromise;
 	});
 });
