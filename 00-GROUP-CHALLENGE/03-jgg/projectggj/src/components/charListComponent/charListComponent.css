@@ -1,3 +1,7 @@
+
+.card-holder {
+	margin-bottom: 65px;
+}
 .father-card {
 	margin: 10px;
 }
@@ -69,6 +73,7 @@
 	}
 
 	.card-holder {
+		margin-bottom: 60px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;

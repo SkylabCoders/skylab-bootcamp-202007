@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import store from '../../stores/store';
 import { loadCharList } from '../../actions/actions';
 import './detailsComponent.css';
+
+import { Link } from 'react-router-dom';
 function DetailsComponent(props) {
 	const [chars, setChars] = useState(store.getCharacters());
 
@@ -17,10 +19,7 @@ function DetailsComponent(props) {
 	let char = {};
 	const name = props.match.params.name;
 	char = store.getCharByName(name);
-	if (!char)
-		char = {
-			image: ''
-		};
+
 	return (
 		<div className="details-holder">
 			<div className="flex-item">
@@ -29,38 +28,38 @@ function DetailsComponent(props) {
 						<div className="card hovercard">
 							<div className="cardheader"></div>
 							<div className="avatar">
-								<img alt="" src={char.image}></img>
+								{char && <img alt="" src={char.image}></img>}
 							</div>
 
 							<div className="info">
 								<div className="title">
-									<a target="_blank" href="/">
-										{char.name}
-									</a>
+									<Link target="_blank" to="/">
+										{char && char.name}
+									</Link>
 								</div>
 								<div className="details-desc-content">
 									<div className="details-desc">
-										RACE: <span>{char.species}</span>
+										RACE: {char && <span>{char.species}</span>}
 									</div>
 									<div className="details-desc">
-										STATUS: <span>{char.status}</span>
+										STATUS: {char && <span>{char.status}</span>}
 									</div>
 									<div className="details-desc">
-										PLANET: <span>{char.originPlanet}</span>
+										PLANET: {char && <span>{char.originPlanet}</span>}
 									</div>
 									<div className="details-desc">
-										GENDER: <span>{char.gender}</span>
+										GENDER: {char && <span>{char.gender}</span>}
 									</div>
 									<div className="details-desc">
-										SERIE: <span>{char.series}</span>
+										SERIE: {char && <span>{char.series}</span>}
 									</div>
 
 								</div>
-								<div >
-									<a href={`/game/${char.name}`} >
+								{char && <div >
+									<Link to={`/game/${char.name}`} >
 										<button className='row figthlink btn'> FIGTH!</button>
-									</a>
-								</div>
+									</Link>
+								</div>}
 							</div>
 						</div>
 					</div>
