@@ -1,51 +1,71 @@
-import dispatcher from "../Dispatcher";
-import actionTypes from "../actions/actionTypes";
-import {authMethods} from "../firebase/firebaseAuthMethods";
+import dispatcher from '../Dispatcher';
+import actionTypes from '../actions/actionTypes';
+import { authMethods } from '../firebase/firebaseAuthMethods';
 
-export function login(email, password){
-    return authMethods.signin(email, password).then(data => {
-        dispatcher.dispatch({
-            type: actionTypes.LOGIN,
-            data
+function myDispatch (actualActionType, actualData) {
+        return dispatcher.dispatch({
+            type: actualActionType,
+            data: actualData
         })
-    }).catch((event) => window.alert('Error in loggin process'))
+}
 
+function logoutDispatch (actualActionType){
+    return (
+		dispatcher.dispatch({
+			type: actionTypes.LOGOUT
+		}));
+}
+
+
+export async function login(email, password) {
+    
+    try{
+        const emailUser = await authMethods.signin(email, password);
+        const action = await myDispatch(actionTypes.LOGIN, emailUser)
+        return action;
+    } catch (error){
+
+        window.alert('Error in loggin process');
+    }
    
 }
 
-export function logout(){
-    return authMethods.signout().then(() => {
-            dispatcher.dispatch({
-                type: actionTypes.LOGOUT
-            })
-        })
+export async function logout() {
+    const logoutUser = await authMethods.signout();
+    const action = await logoutDispatch(actionTypes.LOGOUT);
+    return action;
+    
 }
 
-export function googleLogin(){
-    return authMethods.signInWithGoogle().then((data)=>{
-        dispatcher.dispatch({
-            type: actionTypes.LOGIN,
-            data
-        })
-    }).catch(e => window.alert('Error in login process'))
+export async function googleLogin() {
+    
+    try{
+        const googleUser = await authMethods.signInWithGoogle();
+        const action = await myDispatch(actionTypes.LOGIN, googleUser)
+        return action;
+
+    }catch(e){
+        
+        window.alert('Error in login process');
+    } 
+   
 }
 
-export function anonymousLogin(){
-  
-    return authMethods.signInAnonnymusly().then((data)=> {
-        dispatcher.dispatch({
-            type: actionTypes.LOGIN,
-            data
-        })
-    });
+export async function anonymousLogin() {
+    const actualUser = await authMethods.signInAnonnymusly()
+    const action = await myDispatch(actionTypes.LOGIN, actualUser)
+    return action
+
 }
 
-export function createUser(email, password){
+export async function createUser(email, password) {
+   try{
+       const createUser = await authMethods.createUser(email, password);
+       const action = await myDispatch(actionTypes.CREATE_USER, createUser);
+       return action;
 
-    return authMethods.createUser(email, password).then((data)=>{
-        dispatcher.dispatch({
-            type: actionTypes.CREATE_USER,
-            data
-        })
-    }).catch(e => alert(e));
+   } catch(e) {
+       alert(e);
+   }
+ 
 }
