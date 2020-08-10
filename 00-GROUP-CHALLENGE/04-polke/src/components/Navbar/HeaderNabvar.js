@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../shared/generalStyles.css';
 import './HeaderNavbar.css';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Form, FormControl, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Switch from './Switch/Switch';
 import { logout } from '../../actions/loginActions';
-import landingStore from '../../stores/landingStore';
-import navbarStore from '../../stores/navbarStore';
+import Switch from './Switch/Switch';
 
 function HeaderNavbar() {
-	const imgLogo = (
+	const [username, setUsername] = useState('');
+	const [project, setProject] = useState('');
+
+	const imgLogoLight = (
 		<img
 			src={require('../../assets/img/logo.png')}
 			alt="logo"
 			className="navbar__logo"
 		/>
 	);
+	const imgLogoDark = (
+		<img
+			src={require('../../assets/img/logo-dark.png')}
+			alt="logo"
+			className="navbar__logo"
+		/>
+	);
+
 	return (
 		<>
 			<Navbar
@@ -27,11 +36,16 @@ function HeaderNavbar() {
 			>
 				<div className="navbar--logoText">
 					<Navbar.Brand>
-						<NavLink to="/userDetail">{imgLogo}</NavLink>
+						<NavLink to="/">{imgLogoLight}</NavLink>
 					</Navbar.Brand>
-					<h1 className="navbar--text">GitData</h1>
+					<h1 className="navbar--text">GitData |</h1>
 				</div>
+				<NavLink to="/userDetail" className="navbar__navlink">
+					User Repos
+				</NavLink>
+
 				<div className="spacer"></div>
+				<Switch />
 				<div className="navBar--flex">
 					<Navbar.Toggle
 						className="toggle"
@@ -42,19 +56,25 @@ function HeaderNavbar() {
 						<Form inline>
 							<FormControl
 								type="text"
-								placeholder="Search"
+								placeholder="Search URL repo"
 								className="mr-sm-2 navBar--input"
-							/>
-							<Button
-								variant="outline-info"
-								className="searchbar--button"
-								onClick={() => {
-									const searchInput = document.getElementsByClassName(
-										'navBar--input'
-									)[0].value;
+								onKeyUp={(event) => {
+									event.preventDefault();
+									const URLSearch =
+										document
+											.getElementsByClassName('navBar--input')[0]
+											.value.split('/') || 'Need a valid URL';
+									setUsername(URLSearch[3]);
+									setProject(URLSearch[4]);
 								}}
-							>
-								Go
+							/>
+							<Button variant="outline-info" className="searchbar--button">
+								<NavLink
+									to={`/repoDetail/${username}/${project}`}
+									className="navbar__button-nav"
+								>
+									Go
+								</NavLink>
 							</Button>
 							<NavLink
 								to="/"

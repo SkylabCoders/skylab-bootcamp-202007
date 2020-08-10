@@ -31,6 +31,9 @@
 	width: 80% !important;
 	height: 60px;
 }
+.Login__form__container-input > a {
+	color: var(--font-color-input);
+}
 .Login__form__container-input {
 	width: 80% !important;
 }
@@ -53,6 +56,11 @@
 	border-radius: 5px;
 	border: none;
 	color: whitesmoke;
+	cursor: pointer;
+}
+
+.form__button a {
+	color: white;
 }
 
 .login__log-anonym {
