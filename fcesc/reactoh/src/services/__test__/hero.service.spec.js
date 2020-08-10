@@ -1,5 +1,7 @@
 import heroService from './../Hero.service';
 import HERO_LIST from './../../mockdata/superHeroData';
+
+console.log('THIS IS A TEST, displaying heroService', heroService);
 'use strict';
 
 describe('Test of hero service', function testHeroService(){
@@ -75,9 +77,7 @@ describe('Test of hero service', function testHeroService(){
     });
 
     test('Sould return a HeroService list', function testGetFullHeroList(){
-        return heroService.getHeroList().then(
-          (result) => {expect(result).toEqual(HERO_LIST);}
-        );
+          (result = heroService.getHeroList()) => {expect(result).toEqual(HERO_LIST);}
     });
 
     test('Sould return a paginated HeroService list', function testGetPaginatedHeroList(){
@@ -191,37 +191,32 @@ describe('Test of hero service', function testHeroService(){
                 }
               }
             ];
-        return heroService.getHeroListPage(page, testemsPerPage).then(
-          (result) => {expect(result).toEqual(paginatedList);}
-        );
+        return 
+          (result = heroService.getHeroListPage(page, testemsPerPage)) => {expect(result).toEqual(paginatedList);}
     });
 
     test('Should get one hero by id', function testGetHeroById(){
         const id = 620;
-        return heroService.getHeroById(id).then(
-          (result) => {expect(result).toEqual(hero);}
-        );
+        return 
+          (result = heroService.getHeroById(id)) => {expect(result).toEqual(hero);}
     });
 
     test('Should get one hero by name', function testGetHeroByName(){
         const name = 'Spider-Man';
-        return heroService.getHeroByName(name).then(
-          (result) => {expect(result).toEqual(hero);}
-        );
+        return 
+          (result = heroService.getHeroByName(name)) => {expect(result).toEqual(hero);}
     });
 
     test('Should get one hero by real name', function testGetHeroByRealName(){
         const realName = 'Peter Parker';
-        return heroService.getHeroByRealName(realName).then(
-          (result) => {expect(result).toEqual(hero);}
-        );
+        return 
+          (result = heroService.getHeroByRealName(realName)) => {expect(result).toEqual(hero);}
     });
 
     test('Should get one hero by slug', function testGetHeroBySlug(){
         const slug = '620-spider-man';
-        return heroService.getHeroBySlug(slug).then(
-          (result) => {expect(result).toEqual(hero);}
-        );
+        return
+          (result = heroService.getHeroBySlug(slug)) => {expect(result).toEqual(hero);}
     });
 
     test('Should get URL of hero images', function testGetHeroImagesUrls(){
@@ -232,32 +227,28 @@ describe('Test of hero service', function testHeroService(){
             md: "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/md/505-oracle.jpg",
             lg: "https://cdn.rawgtest.com/akabab/superhero-api/0.2.0/api/images/lg/505-oracle.jpg"
         }
-        return heroService.getHeroImageURLsById(id).then(
-          (result) => {expect(result).toEqual(imageURLs);}
-        );
+        return
+          (result = heroService.getHeroImageURLsById(id)) => {expect(result).toEqual(imageURLs);}
     });
 
     test('Should get a biography of a given hero id', function testGetHeroBiographyById(){
         const id = 620;
         const biography = hero.biography;
-        return heroService.getHeroBiographyById(id).then(
-          (result) => {expect(result).toEqual(biography);}
-        );
+        return 
+          (result = heroService.getHeroBiographyById(id)) => {expect(result).toEqual(biography);}
     });
 
     test('Should get the appearance of a given hero id', function testGetHeroAppearanceById(){
         const id = 620;
         const appearance = hero.appearance;
-        return heroService.getHeroAppearanceById(id).then(
-          (result) => {expect(result).toEqual(appearance);}
-        );
+        return 
+          (result = heroService.getHeroAppearanceById(id)) => {expect(result).toEqual(appearance);}
     });
 
     test('Should get connections of a given hero id', function testGetHeroConnectionsById(){
         const id = 620;
         const connections = hero.connections;
-        return heroService.getHeroConnectionsById(id).then(
-          (result) => {expect(result).toEqual(connections);}
-        );
+        return 
+          (result = heroService.getHeroConnectionsById(id)) => {expect(result).toEqual(connections);}
     });
 })
