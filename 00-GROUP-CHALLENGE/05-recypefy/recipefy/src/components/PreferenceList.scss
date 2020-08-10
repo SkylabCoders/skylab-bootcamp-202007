@@ -4,8 +4,10 @@
     list-style: none;
 }
 
-.small-display-preferences li {
-    padding: 1%;
+.small-display-preferences {
+    i {
+        padding: 1%;
+    }
 }
 
 @media only screen and (min-width: 1024px) {

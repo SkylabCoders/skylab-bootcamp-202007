@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import RecipePage from './components/RecipePage';
 import SearchResult from './components/SearchResult';
-import './App.css';
+import './App.scss';
 import Login from './components/Login';
 import authStore from './stores/AuthStore';
 

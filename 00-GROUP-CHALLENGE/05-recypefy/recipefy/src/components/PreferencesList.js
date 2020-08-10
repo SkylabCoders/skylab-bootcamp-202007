@@ -1,5 +1,5 @@
 import React from 'react';
-import './PreferenceList.css';
+import './PreferenceList.scss';
 
 function PreferenceList() {
 	return (

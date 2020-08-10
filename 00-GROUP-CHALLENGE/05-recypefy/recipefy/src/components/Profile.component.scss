@@ -26,31 +26,32 @@
 
 	}
 
-	.main__profile-component ul li {
-		align-items: center;
-		padding: 5px;
-	}
+	.main__profile-component {
+		ul {
+			li {
+				align-items: center;
+				padding: 5px;
+			}
 
+			a {
+				align-items: center;
+			}
+
+			.main__profile-component--display-large {
+				display: none;
+			}
+		}
+
+	}
 
 	.main__profile-component--title {
 		margin: 20px 5px 5px 5px;
 	}
 
-
-	.main__profile-component ul a {
-		align-items: center;
-	}
-
-	.main__profile-component--display-large {
-		display: none;
-	}
-
-	.main__profile-component--title {
-		margin: 20px 5px 5px 5px;
-	}
-
-	a ul {
-		margin: auto;
+	a {
+		ul {
+			margin: auto;
+		}
 	}
 
 	.profile-img {
