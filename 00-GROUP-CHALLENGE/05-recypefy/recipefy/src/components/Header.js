@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { loadRecipe } from '../actions/RecipeAction';
 import recipeStore from '../stores/RecipeStore';
-import './Header.css';
+import './Header.scss';
 import '../App.scss';
 
 function Header() {
