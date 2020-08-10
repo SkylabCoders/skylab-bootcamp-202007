@@ -4,8 +4,13 @@ import dispatcher from '../dispatcher';
 
 const CHANGE_EVENT = 'change';
 let _isLogged = false;
-let _userProfile = null;
-
+let _userProfile = {
+	displayName: 'John Doe',
+	email: 'test@gmail.com',
+	photoURL:
+		'https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg',
+	movies: []
+};
 class AuthStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);

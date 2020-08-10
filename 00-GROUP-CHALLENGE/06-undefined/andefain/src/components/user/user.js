@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { users } from '../../mocks/user/userMock';
 import userStore from '../../stores/userStore';
-import { listFavoriteFilms } from '../../actions/userActions';
+import authStore from '../../stores/authStore';
+//import { listFavoriteFilms } from '../../actions/userActions';
 import './user.css';
 
 function User() {
+	const data = authStore.getUserProfile();
+	console.log(data);
 	return (
 		<div className="user-container">
 			<section className="user-info">
 				<div className="user-image">
-					<img src={users[0].photoURL} alt="User profile image" />
+					<img
+						src={!!data.photoURL ? data.photoURL : ''}
+						alt="User profile image"
+					/>
 				</div>
 				<div className="user-detail">
-					<p>{users[0].displayName.toUpperCase()}</p>
-					<p>{users[0].email}</p>
+					<p>{!!data.displayName ? data.displayName.toUpperCase() : 'Name'}</p>
+					<p>{!!data.email ? data.email : 'email@mail.com'}</p>
 				</div>
 			</section>
 			<section className="user-favorite-movie">
