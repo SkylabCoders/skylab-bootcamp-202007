@@ -62,6 +62,8 @@ export function loadPlanets() {
 		});
 	});
 }
+
+
 export function winIncrement() {
 	return new Promise((resolve) => {
 		resolve();
