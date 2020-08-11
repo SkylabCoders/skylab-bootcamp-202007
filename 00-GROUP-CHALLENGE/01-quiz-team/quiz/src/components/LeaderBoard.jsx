@@ -8,7 +8,7 @@ function LeaderBoard(){
 
     useEffect(()=>{
         leaderboardStore.addChangeListener(onChange);
-        if(leaderboardList.length === 0){loadLeaderboard()};
+        if(leaderboardList.length === 0){loadLeaderboard()}
         return ()=>{leaderboardStore.removeChangeListener(onChange);}
     }, [leaderboardList.length]);
     

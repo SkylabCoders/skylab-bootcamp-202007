@@ -1,7 +1,7 @@
 import actionTypes from './actionTypes';
 import dispatcher from './../AppDispatcher';
 import THEMES_LIST from './../mockdata/Themes';
-import getApiData from './../api';
+import getApiData from './../getApiData';
 
 export function loadThemes(){
     let result = THEMES_LIST
