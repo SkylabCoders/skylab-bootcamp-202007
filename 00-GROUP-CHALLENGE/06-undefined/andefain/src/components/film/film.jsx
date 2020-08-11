@@ -6,7 +6,7 @@ import { callFilm } from '../../actions/filmActions';
 import './film.scss';
 
 function Film() {
-	const [film, setFilm] = useState(filmStore.getFilmDetails());
+	const [film, setFilm] = useState(filmStore.getFilmData());
 
 	useEffect(() => {
 		filmStore.addChangeListener(onChange);
@@ -15,7 +15,7 @@ function Film() {
 	}, []);
 
 	function onChange() {
-		setFilm(filmStore.getFilmDetails());
+		setFilm(filmStore.getFilmData());
 	}
 	return (
 		<section className="film-container">
