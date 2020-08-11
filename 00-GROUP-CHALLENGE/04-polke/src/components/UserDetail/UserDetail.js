@@ -86,7 +86,6 @@ function UserDetail() {
 					Go
 				</NavLink>
 			</Button>
-			<RepoCreation />
 		</div>
 	);
 
