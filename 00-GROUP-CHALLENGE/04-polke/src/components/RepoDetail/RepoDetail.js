@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-import './RepoDetail.css';
+import '../../shared/generalStyles.css';
+import './RepoDetail.scss';
 import RepoInfoStore from '../../stores/repoDetailStore';
 import { loadUserRepoInfo } from '../../actions/repoDetailActions';
 import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 import { loadRankingRepoInfo } from '../../actions/repoDetailActions';
 
 function RepoDetail(props) {
+	//Import URL Params
 	const orgNameURL = props.match.params.userName;
 	const repoNameURL = props.match.params.repoName;
-	const [repoInfo, setRepoInfo] = useState([]);
+	//Defining states and setStates
 	const [groupInfo, setGroupInfo] = useState([]);
 	const [rankingInfo, setRankingInfo] = useState([]);
 	const [repoName, setRepoName] = useState(repoNameURL);
@@ -17,20 +19,12 @@ function RepoDetail(props) {
 	const [userName, setUserName] = useState(orgNameURL);
 
 	useEffect(() => {
-		RepoInfoStore.addChangeListener(onChange);
-		if (repoInfo.length === 0) {
-			loadUserRepoInfo(userName, repoName, orgName);
-		}
-		return () => RepoInfoStore.removeChangeListener(onChange);
-	}, [repoInfo.length]);
-
-	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChangeGroup);
 		if (groupInfo.length === 0) {
 			loadGroupRepoInfo(repoName, orgName);
 		}
 		return () => RepoInfoStore.removeChangeListener(onChangeGroup);
-	}, [repoInfo.length]);
+	}, [groupInfo.length]);
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChangeRanking);
@@ -40,80 +34,96 @@ function RepoDetail(props) {
 		return () => RepoInfoStore.removeChangeListener(onChangeRanking);
 	}, [rankingInfo.length]);
 
-	function onChange() {
-		setRepoInfo(RepoInfoStore.getUserRepoInfo(userName));
-	}
 	function onChangeGroup() {
 		setGroupInfo(RepoInfoStore.getGroupRepoInfo(userName));
 	}
 	function onChangeRanking() {
 		setRankingInfo(RepoInfoStore.getRankingRepoInfo(userName));
 	}
-	console.log('esta', rankingInfo);
+
+	console.log('group', groupInfo);
+	console.log('ranking', rankingInfo);
 
 	return (
 		<div className="carrousel-main-container">
-			<Carousel interval={7000} className="user-repositorie generic-carrousel">
-				<Carousel.Item>
-					<h3 className="carrousel-main-container__main-title">User Stats</h3>
-					<img
-						className="d-block w-100"
-						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
-						alt="Third slide"
-					/>
+			{!rankingInfo.userCommits || (
+				<Carousel
+					interval={7000}
+					className="user-repositorie generic-carrousel first-carrousel"
+				>
+					<Carousel.Item>
+						<h3 className="carrousel-main-container__main-title">User Stats</h3>
+						<img
+							className="d-block w-100"
+							src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
+							alt="Third slide"
+						/>
 
-					<Carousel.Caption>
-						<h3 className="user-repositorie__category-title">Author's Name</h3>
-						<h3>&#128537;</h3>
-						<h4 class="user-repositorio__bottom-tittle"> {repoInfo.name}</h4>
-						<h3 className="user-repositorie__category-title">Total Commits:</h3>
-						<h3>&#128202;</h3>
-						<h3> {rankingInfo.userCommits}</h3>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<h3 className="carrousel-main-container__main-title">User Stats</h3>
-					<img
-						className="d-block w-100"
-						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
-						alt="Third slide"
-					/>
-
-					<Carousel.Caption>
-						<h3 className="user-repositorie__category-title">
-							Recent Commits:
-						</h3>
-						<h3>&#8987;</h3>
-						<h4 class="user-repositorio__bottom-tittle">
-							{' '}
-							{repoInfo.authorCommitsLength} in {repoInfo.time}
-						</h4>
-						<h3 className="user-repositorie__category-title">Last Activity:</h3>
-						<h3>&#128202;</h3>
-						<h3> {repoInfo.lastActivity}</h3>
-					</Carousel.Caption>
-				</Carousel.Item>
-				<Carousel.Item>
-					<h3 className="carrousel-main-container__main-title">User Stats</h3>
-					<img
-						className="d-block w-100"
-						src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
-						alt="Third slide"
-					/>
-
-					<Carousel.Caption>
-						<h3 className="user-repositorie__category-title">
-							Last commits messages:
-						</h3>
-						<h3>&#128234;</h3>
-						{/* 	{repoInfo.authourLastComments && repoInfo.authourLastComments[0]} */}
-						{repoInfo.authourLastComments &&
-							repoInfo.authourLastComments.map((elem) => {
-								return <h5>- {elem}</h5>;
-							})}
-					</Carousel.Caption>
-				</Carousel.Item>
-			</Carousel>
+						<Carousel.Caption>
+							<h3 className="user-repositorie__category-title">
+								Author's Name
+							</h3>
+							<h3>&#128537;</h3>
+							<h4 class="user-repositorio__bottom-tittle">
+								{' '}
+								{rankingInfo.userName}
+							</h4>
+							<h3 className="user-repositorie__category-title">Author Img:</h3>
+							{/* <h3>&#128202;</h3> */}
+							<img
+								className="carrousel-main-container__user-img"
+								src={rankingInfo.userImg}
+							></img>
+						</Carousel.Caption>
+					</Carousel.Item>
+					<Carousel.Item>
+						<h3 className="carrousel-main-container__main-title">User Stats</h3>
+						<img
+							className="d-block w-100"
+							src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
+							alt="Third slide"
+						/>
+						<Carousel.Caption>
+							<h3 className="user-repositorie__category-title">
+								Weeks since first Commit:
+							</h3>
+							<h3>&#8987;</h3>
+							<h4 class="user-repositorio__bottom-tittle">
+								{' '}
+								{rankingInfo.userWeeksSinceFirstCommit}
+							</h4>
+							<h3 className="user-repositorie__category-title">
+								Total Commits:
+							</h3>
+							<h3>&#128202;</h3>
+							<h3> {rankingInfo.userCommits}</h3>
+						</Carousel.Caption>
+					</Carousel.Item>
+					<Carousel.Item>
+						<h3 className="carrousel-main-container__main-title">User Stats</h3>
+						<img
+							className="d-block w-100"
+							src="https://www.publicdomainpictures.net/pictures/300000/nahled/background-bleu-43.jpg"
+							alt="Third slide"
+						/>
+						<Carousel.Caption>
+							<h3 className="user-repositorie__category-title">
+								Lines of Code added:
+							</h3>
+							<h3>&#10133;</h3>
+							<h4 class="user-repositorio__bottom-tittle">
+								{' '}
+								{rankingInfo.userLinesAdded} Lines
+							</h4>
+							<h3 className="user-repositorie__category-title">
+								Lines of code deleted:
+							</h3>
+							<h3>&#128686;</h3>
+							<h3>{rankingInfo.userLinesDeleted} Lines</h3>
+						</Carousel.Caption>
+					</Carousel.Item>
+				</Carousel>
+			)}
 			<Carousel
 				interval={14000}
 				className="group-repositorie generic-carrousel"
@@ -123,7 +133,7 @@ function RepoDetail(props) {
 						Repositorie Stats
 					</h3>
 					<img
-						className="d-block w-100"
+						className="d-block w-100 generic-carrousel__background-img"
 						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
 						alt="Third slide"
 					/>
@@ -139,7 +149,7 @@ function RepoDetail(props) {
 							Total Commits:
 						</h3>
 						<h3>&#128202;</h3>
-						<h3> {groupInfo.total}</h3>
+						<h3> {rankingInfo.groupCommits}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -147,7 +157,7 @@ function RepoDetail(props) {
 						Repositorie Stats
 					</h3>
 					<img
-						className="d-block w-100"
+						className="d-block w-100 generic-carrousel__background-img"
 						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
 						alt="Third slide"
 					/>
@@ -155,16 +165,16 @@ function RepoDetail(props) {
 					<Carousel.Caption>
 						<h3 className="user-repositorie__category-title">
 							{' '}
-							Weeks of work last Year
+							Weeks of work (last Year):
 						</h3>
-						<h3>&#128197;</h3>
+						<h3>&#128296;</h3>
 						<h3> {groupInfo.weeksOfWorkLastYear}</h3>
 						<h3 className="user-repositorie__category-title">
 							{' '}
-							Sunday Commits:
+							Weeks since project start:
 						</h3>
-						<h3>&#128200;</h3>
-						<h3> {groupInfo.total - 1400}</h3>
+						<h3>&#128197;</h3>
+						<h3> {rankingInfo.weeksSinceStart}</h3>
 					</Carousel.Caption>
 				</Carousel.Item>
 				<Carousel.Item>
@@ -172,7 +182,7 @@ function RepoDetail(props) {
 						Repositorie Stats
 					</h3>
 					<img
-						className="d-block w-100"
+						className="d-block w-100 generic-carrousel__background-img"
 						src="https://imagenes.universia.net/gc/net/images/imagenes%20especiales/v/ve/ver/verde-croma.jpg"
 						alt="Third slide"
 					/>
@@ -210,7 +220,7 @@ function RepoDetail(props) {
 							Commits Hall of Fame
 						</h3>
 						<h3>&#129351; </h3>
-						<h3>
+						<h3 className="carrousel-main-container__ranking-title user-repositorie__ranking-minor-title">
 							{rankingInfo.commitsRankingNames &&
 								rankingInfo.commitsRankingNames[0]}{' '}
 							<span>-</span>
@@ -222,7 +232,7 @@ function RepoDetail(props) {
 							</span>
 						</h3>
 						<h3>&#129352;</h3>
-						<h3>
+						<h3 className="carrousel-main-container__ranking-title user-repositorie__ranking-minor-title">
 							{rankingInfo.commitsRankingNames &&
 								rankingInfo.commitsRankingNames[1]}{' '}
 							<span>-</span>
@@ -234,7 +244,7 @@ function RepoDetail(props) {
 							</span>
 						</h3>
 						<h3>&#129353;</h3>
-						<h3>
+						<h3 className="carrousel-main-container__ranking-title user-repositorie__ranking-minor-title">
 							{rankingInfo.commitsRankingNames &&
 								rankingInfo.commitsRankingNames[2]}{' '}
 							<span>-</span>
