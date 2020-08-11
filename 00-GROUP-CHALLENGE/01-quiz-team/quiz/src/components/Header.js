@@ -12,7 +12,7 @@ function Header() {
 						<div className="logo__header">
 							<img className="img__header" src="https://storage.needpix.com/rsynced_images/quiz-2074324_1280.png" alt="quiz logo" />
 						</div>
-					<nav>
+					<nav className="nav">
 						<ul className="nav__list">
 							<li>
 								<NavLink className="nav__item" activeClassName="my-active-class link" to={ROUTES.HOME}>

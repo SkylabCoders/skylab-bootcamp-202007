@@ -6,7 +6,7 @@ import Question from './Question';
 import Results from './Results';
 import * as GAME_PARAMS from './../config/gameParameters';
     
-function Game(props){
+function Game_multiplayer(props){
     const URL_QUERY = props.match.params.themeSlug;
     let theme = THEMES_LIST.find(e=>e.slug === URL_QUERY);
     let themeId = theme.id;
@@ -129,4 +129,4 @@ function Game(props){
     }
 }
 
-export default Game;
+export default Game_multiplayer;
