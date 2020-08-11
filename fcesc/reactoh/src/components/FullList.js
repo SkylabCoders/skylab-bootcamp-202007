@@ -3,7 +3,7 @@ import './../css/paginatedList.css';
 import { Link } from 'react-router-dom';
 import HeroStore from './../stores/heroStore';
 import { loadHeroes } from './../actions/heroActions';
-import HERO_LIST from './../superHeroData';
+import HERO_LIST from './../mockdata/superHeroData';
 import * as ROUTES from './../config/routes';
 
 function FullList(){

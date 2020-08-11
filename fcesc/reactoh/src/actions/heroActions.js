@@ -1,4 +1,4 @@
-import HERO_LIST from './../superHeroData';
+import HERO_LIST from './../mockdata/superHeroData';
 import actionTypes from './actionTypes';
 import dispatcher from './../AppDispatcher';
 const LOAD_HERO_LIST = HERO_LIST;
@@ -62,6 +62,7 @@ export function loadPaginatedHeroes(page, itemsPerPage){
     for ( let i=start; i<end; i++ ){
         if(LOAD_HERO_LIST[i] !== undefined){ result.push(LOAD_HERO_LIST[i]) }
     }
+    // console.log('AQUI - LOADPAGINATEDHEROES ACTION ENTERED WITH', result);
     dispatcher.dispatch({
         type: actionTypes.LOAD_PAGINATED_HERO_LIST,
         data: result
@@ -69,9 +70,9 @@ export function loadPaginatedHeroes(page, itemsPerPage){
 }
 
 export function loadHeroById(id){
-    console.log('ENTERING ACION loadHeroById WITH id:', id);
+    //console.log('ENTERING ACION loadHeroById WITH id:', id);
     let result = LOAD_HERO_LIST.find(e=>e.id===id);
-    console.log('Result to be dispatched:', result);
+    //console.log('Result to be dispatched:', result);
     dispatcher.dispatch({
         type: actionTypes.LOAD_HERO_BY_ID,
         data: result

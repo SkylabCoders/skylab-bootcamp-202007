@@ -25,12 +25,12 @@ class heroStore extends EventEmitter{
     }
 
     getPaginatedHeroes(){
+        //console.log('AQUI - ACCESSING METHOD GETPAGINATEDHEROES', _paginated_heroes_list);
         return _paginated_heroes_list;
     }
 
     getHeroById(id){
-        console.log('HeroStore: getHeroByIde called', id, _heroes_list.find(el=>el.id === id));
-        return _heroes_list.find(el=>el.id === id);
+        return ( _current_hero.id === id ) ? _current_hero : undefined ;
     }
 
     getHeroByName(name){
