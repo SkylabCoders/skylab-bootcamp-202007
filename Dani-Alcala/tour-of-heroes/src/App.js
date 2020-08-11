@@ -7,6 +7,7 @@ import HeroList from './components/HeroList';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
 import HeroesPage from './components/HeroesPage';
+import Login from './components/Login';
 
 function App(props) {
 	return (
@@ -18,7 +19,8 @@ function App(props) {
 				<Route path="/hero" component={HeroDetail} />
 				<Route path="/heroes" component={HeroesPage} />
 				<Redirect from="/heroLists" to="/heroes" />
-				<Route component={PageNotFound} />
+				{/* <Route component={PageNotFound} /> */}
+				<Route path="/login" component={Login} />
 				//wildcard, cuando no hay ruta q te muestro!!
 			</Switch>
 		</div>
