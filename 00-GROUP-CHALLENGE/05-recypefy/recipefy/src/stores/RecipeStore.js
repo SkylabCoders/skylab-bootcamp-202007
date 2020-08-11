@@ -22,16 +22,7 @@ class RecipeStore extends EventEmitter {
 		return actualRecipe;
 	}
 	getTopFiveRecipes() {
-		let topFive = _recipes.sort(function (recipe1, recipe2) {
-			let result = 0;
-			if (recipe1.puntuation > recipe2.puntuation) {
-				result = -1;
-			} else if (recipe1.puntuation < recipe2.puntuation) {
-				result = 1;
-			}
-			return result;
-		});
-		topFive = topFive.slice(0, 5);
+		let topFive = _recipes.slice(0, 5);
 		return topFive;
 	}
 }
@@ -43,7 +34,8 @@ dispatcher.register((action) => {
 			recipeStore.emitChange(_recipes);
 			break;
 		default:
-			break;
+			throw `The action ${action.type} is unknown`;
+
 	}
 });
 
