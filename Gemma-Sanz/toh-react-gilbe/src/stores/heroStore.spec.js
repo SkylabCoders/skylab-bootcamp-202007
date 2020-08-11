@@ -99,7 +99,7 @@ describe('HeroStore', () => {
 
     it('should register DELETE_HERO', () => {
         const id = 14;
-        //Pasamos el 20 argumento como objeto porque en el heroActions la data que le pasamos es un objeto.
+        //Pasamos el 2o argumento de action, el {id} como objeto porque en el heroActions la data que le pasamos es un objeto.
         action = reduceAction(actionTypes.DELETE_HERO,
             { id })
         dispatcher.dispatch(action);
