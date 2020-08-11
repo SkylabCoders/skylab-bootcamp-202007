@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopFive should match with new title 1`] = `
+<div
+  className="body__box body__list box__top-five"
+>
+  <h2>
+    TOP FIVE FAVOURITES!
+  </h2>
+  <ul />
+</div>
+`;
+
+exports[`TopFive should match with title 1`] = `
+<div
+  className="body__box body__list box__top-five"
+>
+  <h2>
+    TOP FIVE FAVOURITES!
+  </h2>
+  <ul />
+</div>
+`;

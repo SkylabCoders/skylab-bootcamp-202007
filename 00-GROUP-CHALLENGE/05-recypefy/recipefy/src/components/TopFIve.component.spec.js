@@ -1,23 +1,23 @@
 import React from 'react';
-import ListItemRecipe from './ListItemRecipe';
+import TopFiveComponent from './TopFive.component';
 import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
 
-function renderListItemRecipe(arg) {
+function renderTopFive(arg) {
 	return renderer.create(
 		<BrowserRouter>
-			<ListItemRecipe title={arg} />
+			<TopFiveComponent title={arg} />
 		</BrowserRouter>
 	);
 }
 
-describe('ListItemRecipe', () => {
+describe('TopFive', () => {
 	const title = 'Grilled Tofu Salad With Miso Dressing';
 
 	let listItemRecipeTree;
 
 	beforeEach(async () => {
-		listItemRecipeTree = renderListItemRecipe(title);
+		listItemRecipeTree = renderTopFive(title);
 	});
 
 	it('should match with title', async () => {
@@ -26,7 +26,7 @@ describe('ListItemRecipe', () => {
 
 	it('should match with new title', async () => {
 		const newTItle = 'Abocado';
-		listItemRecipeTree = renderListItemRecipe(newTItle);
+		listItemRecipeTree = renderTopFive(newTItle);
 
 		expect(listItemRecipeTree).toMatchSnapshot();
 	});
