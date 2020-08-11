@@ -12,7 +12,7 @@ function Question(props) {
     const [question, setQuestion] = useState();
     const [resultat, setResultat] = useState('');
     const [success, setSuccess] = useState('');
-    const [key, setKey] = useState(0);
+    const [key] = useState(0);
     const [timerIsOn, setTimerIsOn] = useState(false);
     const [clicked, setClicked] = useState(false);
 

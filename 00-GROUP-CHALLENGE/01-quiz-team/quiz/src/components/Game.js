@@ -34,7 +34,7 @@ function Game(props){
         gameStore.addChangeListener(onChangeSessionSet);
         if(sessionSet.length === 0){
             loadSessionSet(themeId, GAME_PARAMS.DIFFICULTY, GAME_PARAMS.TYPE, GAME_PARAMS.ENCODING, GAME_PARAMS.SESSION_QUESTIONS_NUMBER)
-        };
+        }
         return ()=>{gameStore.removeChangeListener(onChangeSessionSet);}
     }, [sessionSet, themeSlug]);
 
