@@ -1,5 +1,5 @@
-@import url('_breakpoints.scss');
-@import url('_colors.scss');
+@use 'breakpoints';
+@use 'colors';
 
 .item__container{
     position: relative;
