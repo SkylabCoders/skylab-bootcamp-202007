@@ -8,7 +8,7 @@ let _heroes = [];
 
 let nextId = 0;
 const generateNextId = (heroes) =>
-	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;
+	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id), 0) + 1;
 
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
