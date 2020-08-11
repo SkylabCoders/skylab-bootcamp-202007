@@ -19,7 +19,9 @@ exports[`App snapshot should match 1`] = `
           src="https://storage.needpix.com/rsynced_images/quiz-2074324_1280.png"
         />
       </div>
-      <nav>
+      <nav
+        className="nav"
+      >
         <ul
           className="nav__list"
         >

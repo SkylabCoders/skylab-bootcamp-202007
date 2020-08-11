@@ -30,6 +30,7 @@ exports[`LoginScreen snapshot should match 1`] = `
           method="post"
         >
           <input
+            className="input__item"
             name="userName"
             onChange={[Function]}
             placeholder="Username or Email"
@@ -37,19 +38,20 @@ exports[`LoginScreen snapshot should match 1`] = `
             value=""
           />
           <input
+            className="input__item"
             name="password"
             onChange={[Function]}
             placeholder="Password"
             type="password"
           />
           <input
-            className="notDisplayed"
+            className="input__item notDisplayed"
             name="login"
             type="submit"
             value="Login"
           />
           <input
-            className="notDisplayed"
+            className="input__item notDisplayed"
             name="logout"
             type="submit"
             value="Logout"

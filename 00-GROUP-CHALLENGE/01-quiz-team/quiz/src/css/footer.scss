@@ -1,0 +1,24 @@
+.footer {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1.5rem 0;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: underline dotted white;
+}
+
+.footer a:hover {
+  color: coral;
+  text-decoration: underline dotted coral;
+}
+
+/*# sourceMappingURL=footer.scss.map */

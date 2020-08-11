@@ -3,6 +3,7 @@
 exports[`Item snapshot should match 1`] = `
 <a
   aria-current={null}
+  className="anchor__link"
   href="/themes/undefined"
   onClick={[Function]}
 >
