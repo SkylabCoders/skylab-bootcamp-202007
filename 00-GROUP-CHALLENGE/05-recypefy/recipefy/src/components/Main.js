@@ -5,7 +5,7 @@ import TopFiveComponent from './TopFive.component';
 import PreferencesList from './PreferencesList';
 import { loadRecipe } from '../actions/RecipeAction';
 import recipeStore from '../stores/RecipeStore';
-import './Main.css';
+import './Main.scss';
 
 function Main() {
 	const [recipeList, setRecipeList] = useState(recipeStore.getRecipes);

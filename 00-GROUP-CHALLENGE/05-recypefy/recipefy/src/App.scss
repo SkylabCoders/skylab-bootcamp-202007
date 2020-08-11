@@ -62,16 +62,18 @@ p {
 	align-items: stretch;
 }
 
-.body__list h2 {
-	padding: 15px;
-}
+.body__list {
+	h2 {
+		padding: 15px;
+	}
 
-.body__list ul {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	width: auto;
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		width: auto;
+	}
 }
 
 .body__box--recipe-details {
@@ -85,35 +87,40 @@ a {
 	color: black;
 }
 
-.body__box .recipe__text {
-	width: 50%;
-	min-width: 250px;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
+.body__box {
+	.recipe__text {
+		width: 50%;
+		min-width: 250px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	.recipe__text--title {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		max-width: 40 vw;
+		color: rgb(24, 1, 1);
+		margin-left: 20px;
+		font-size: 17px;
+	}
+
+	.recipe__image {
+		border-radius: 8%;
+		width: 100%;
+		height: auto;
+		margin-right: 5px;
+	}
 }
 
-.body__box .recipe__text--title {
-	margin-top: 20px;
-	margin-bottom: 20px;
-	max-width: 40 vw;
-	color: rgb(24, 1, 1);
-	margin-left: 20px;
-	font-size: 17px;
-}
 
-.body__box .recipe__image {
-	border-radius: 8%;
-	width: 100%;
-	height: auto;
-	margin-right: 5px;
-}
-
-.body__box--recipe-details a {
-	width: 100%;
-	margin: 15px;
+.body__box--recipe-details {
+	a {
+		width: 100%;
+		margin: 15px;
+	}
 }
 
 .preferences__icon {
@@ -164,26 +171,32 @@ a {
 }
 
 @media screen and (min-width: 600px) {
-	.body__box .recipe__image {
-		margin-right: 5px;
-		max-height: 30vw;
-		width: auto;
+	.body__box {
+		.recipe__image {
+			margin-right: 5px;
+			max-height: 30vw;
+			width: auto;
+		}
 	}
 
 	.body__box--recipe-details {
 		flex-direction: row;
 	}
 
-	.body__box--recipe-details a {
-		text-align-last: center;
+	.body__box--recipe-details {
+		a {
+			text-align-last: center;
+		}
 	}
 }
 
 @media screen and (min-width: 1024px) {
-	.Main-page .body__box {
-		width: 62%;
-		margin: 2%;
-		margin-top: 5%;
+	.Main-page {
+		.body__box {
+			width: 62%;
+			margin: 2%;
+			margin-top: 5%;
+		}
 	}
 
 	.body-content {

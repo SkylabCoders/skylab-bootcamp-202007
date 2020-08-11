@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import recipeStore from '../stores/RecipeStore';
 import RecipeCard from './RecipeCard.component';
-import './SearchResult.css';
+import './SearchResult.scss';
 
 function SearchResult() {
 	const [searchListResult, setSearchListResult] = useState(

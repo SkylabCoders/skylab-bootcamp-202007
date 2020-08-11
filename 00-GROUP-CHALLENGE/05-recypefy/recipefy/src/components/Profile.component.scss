@@ -3,6 +3,7 @@
 }
 
 @media only screen and (min-width: 1024px) {
+
 	.main__profile-component {
 		background: #65dfc3;
 		display: flex;
@@ -22,24 +23,29 @@
 		flex-wrap: wrap;
 		justify-content: space-evenly;
 		list-style: none;
+
 	}
 
 	.main__profile-component {
-		li {
-			align-items: center;
-			padding: 5px;
+		ul {
+			li {
+				align-items: center;
+				padding: 5px;
+			}
+
+			a {
+				align-items: center;
+			}
+
+			.main__profile-component--display-large {
+				display: none;
+			}
 		}
-		a {
-			align-items: center;
-		}
+
 	}
 
 	.main__profile-component--title {
 		margin: 20px 5px 5px 5px;
-	}
-
-	.main__profile-component--display-large {
-		display: none;
 	}
 
 	a {

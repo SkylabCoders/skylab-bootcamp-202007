@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import recipeStore from '../stores/RecipeStore';
-import './ListItemRecipe.css';
-import Proptypes from "prop-types";
-
+import './ListItemRecipe.scss';
+import Proptypes from 'prop-types';
 
 function ListItemRecipe({ title }) {
 	const [recipesList, setRecipes] = useState(recipeStore.getRecipes());
@@ -41,6 +40,6 @@ function ListItemRecipe({ title }) {
 
 ListItemRecipe.propTypes = {
 	title: Proptypes.string.isRequired
-}
+};
 
 export default ListItemRecipe;

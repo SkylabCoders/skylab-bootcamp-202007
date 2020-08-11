@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { loadRecipe } from '../actions/RecipeAction';
 import recipeStore from '../stores/RecipeStore';
 import './Header.scss';
-import '../App.css';
+import '../App.scss';
 
 function Header() {
 	const [actualSearch, setActualSearch] = useState('');
