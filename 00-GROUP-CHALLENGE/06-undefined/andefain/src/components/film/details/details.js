@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './details.css';
+import './details.scss';
 import PropTypes from 'prop-types';
 
 const blankHeart =
@@ -7,7 +7,7 @@ const blankHeart =
 const fullHeart =
 	'https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/978cb96aee01766475268b966dd68550/estrella.png';
 
-function FilmDetails({ details, plot, genres, names }) {
+function FilmDetails({ details }) {
 	const [likeImage, setLikeImage] = useState(blankHeart);
 
 	function onChange() {
@@ -29,19 +29,19 @@ function FilmDetails({ details, plot, genres, names }) {
 						alt="Start icon"
 					/>
 				</div>
-				<span>{names.d[0].s}</span>
+				<span>{details.stars}</span>
 				<div className="film-details__head">
 					<span>
 						<span>{details.year}</span>
 						<span> | </span>
-						<span>{details.runningTimeInMinutes + ' min'}</span>
+						<span>{details.runtimeStr}</span>
 						<span> | </span>
-						<span>{genres.join(', ')}</span>
+						<span>{details.genres}</span>
 					</span>
 				</div>
 				<div className="film-details__plot">
 					<h3 className="plot-title">Plot</h3>
-					<p className="plot-details">{plot.plots[0].text}</p>
+					<p className="plot-details">{details.plot}</p>
 				</div>
 			</div>
 		</>

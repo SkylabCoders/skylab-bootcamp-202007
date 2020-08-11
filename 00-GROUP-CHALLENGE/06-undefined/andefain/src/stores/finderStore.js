@@ -28,7 +28,7 @@ const finderStore = new FinderStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.SEARCH_FINDER:
-			_finder = action.data.d;
+			_finder = action.data;
 			finderStore.emitChange(_finder);
 			break;
 		default:
