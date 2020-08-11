@@ -11,7 +11,12 @@ function reduceAction(action, data) {
 
 describe('HeroStore', () => {
     let action;
+    let myCallbackMockFunction;
+
     beforeEach(() => {
+        myCallbackMockFunction = jest.fn();
+        heroStore.addChangeListener(myCallbackMockFunction);
+
         action = reduceAction(actionTypes.LOAD_HEROES, [
             { id: 14, name: 'Celeritas' },
             //            { id: 13, name: 'NOT Celeritas' }
@@ -20,7 +25,14 @@ describe('HeroStore', () => {
         dispatcher.dispatch(action);
     });
 
+    afterEach(() => {
+        heroStore.removeChangeListener(myCallbackMockFunction);
+    })
+
     it('should create', () => {
+        expect(myCallbackMockFunction).toHaveBeenCalled();
+        expect(myCallbackMockFunction).toHaveBeenCalledTimes(1);
+
         expect(heroStore).toBeDefined();
     });
 
@@ -36,7 +48,12 @@ describe('HeroStore', () => {
         });
 
         dispatcher.dispatch(action)
+
         const updateHero = heroStore.getHeroById(action.data.id);
+
+        expect(myCallbackMockFunction).toHaveBeenCalled();
+        expect(myCallbackMockFunction).toHaveBeenCalledTimes(2);
+
         expect(updateHero).toEqual(action.data);
     });
 
@@ -82,7 +99,7 @@ describe('HeroStore', () => {
 
     it('should register DELETE_HERO', () => {
         const id = 14;
-        //Pasamos el 20 argumento como objeto porque en el heroActions la data que le pasamos es un objeto
+        //Pasamos el 20 argumento como objeto porque en el heroActions la data que le pasamos es un objeto.
         action = reduceAction(actionTypes.DELETE_HERO,
             { id })
         dispatcher.dispatch(action);
@@ -101,4 +118,16 @@ describe('HeroStore', () => {
             expect(errorMessage).toEqual(message)
         }
     })
+    /* Aquest codi no cal que el fiquem aqui si el fiquem a beforeEach i afterEach i a un dels escenaris, aqui l'hem ficat al create hero i UPDATE_HERO.
+         it('should invoke change listener callback', () => {
+            const myCallbackMockFunction = jest.fn();
+    
+            heroStore.addChangeListener(myCallbackMockFunction);
+    
+            heroStore.emitChange();
+    
+            expect(myCallbackMockFunction).toHaveBeenCalled();
+            expect(myCallbackMockFunction).toHaveBeenCalledTimes(1);
+    
+        }) */
 });
