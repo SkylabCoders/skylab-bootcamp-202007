@@ -57,6 +57,7 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		default:
+			throw `Action type is unknow, action.type:  ${action.type}`;
 			break;
 	}
 });
