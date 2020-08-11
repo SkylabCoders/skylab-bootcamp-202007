@@ -27,20 +27,16 @@ exports[`Header snapshot Should match 1`] = `
     <div
       className="header-login"
     >
-      <div
-        className="header-login__hidden-menu"
+      <a
+        href="/login"
+        onClick={[Function]}
       >
-        <a
-          href="/login"
-          onClick={[Function]}
+        <div
+          className="header-login__button"
         >
-          <div
-            className="header-login__button"
-          >
-            Login
-          </div>
-        </a>
-      </div>
+          Login
+        </div>
+      </a>
     </div>
   </div>
 </header>
