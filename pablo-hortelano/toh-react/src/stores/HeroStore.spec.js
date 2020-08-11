@@ -53,7 +53,6 @@ describe('HeroStore', () => {
 			type: actionTypes.DELETE_HERO,
 			data: { id }
 		});
-		/* const savedhero = heroStore.getHeroes().some((hero) => hero.name === name);  */
 		expect(heroStore.getHeroById(id)).not.toBeDefined();
 	});
 	it('Should have default case for actions', () => {
@@ -64,5 +63,15 @@ describe('HeroStore', () => {
 			const message = `Action type is unknow, action.type:  undefined`;
 			expect(error).toEqual(message);
 		}
+	});
+	it('Should invoke event listener', () => {
+		const myCallBackMockFunction = jest.fn();
+
+		heroStore.addChangeListener(myCallBackMockFunction);
+
+		heroStore.emitChange();
+
+		expect(myCallBackMockFunction).toHaveBeenCalled();
+		expect(myCallBackMockFunction).toHaveBeenCalledTimes(1);
 	});
 });
