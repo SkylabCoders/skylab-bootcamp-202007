@@ -66,6 +66,6 @@ dispatcher.register(action => {
             HeroStore.emitChange(_paginated_heroes_list);
             break;
         default:
-            throw new Error('Action not allowed');
+            throw 'Action not allowed';
     }
 })
