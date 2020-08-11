@@ -14,9 +14,11 @@ describe('gameLogic', () => {
     let AVOID;
     let ATTACK;
     let FAIL
+    let log;
 
     beforeEach(() => {
         let names = 'Shordi';
+        let log = '';
         charges = 1;
         action = '';
         lives = 3;
@@ -48,7 +50,6 @@ describe('gameLogic', () => {
         newPlayer.setAction(CHARGE)
         expect(newPlayer.getAction()).toBe(CHARGE);
 
-
         //        expect(newPlayer.generateAction().toHaveBeenCalled(1))
     });
     it('should generateAction', function generateAction() {
@@ -59,6 +60,21 @@ describe('gameLogic', () => {
         expect(newMachine.generateAction()).toBeDefined()
     });
     it('should calculateAction', function calculateAction() {
-
+        /*         Dona error si ho fiquem, diu que no es una funció
+                expect(newMachine.calculateAction()).toBeDefined();
+                expect(newPlayer.calculateAction()).toBeDefined(); */
+    });
+    it('should recibeAction', function recibeAction() {
+        action = CHARGE;
+        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
+        action = FAIL;
+        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
+        action = ATTACK;
+        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
+        action = AVOID;
+        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
+    });
+    it('should getName', function getName() {
+        expect(newPlayer.getName(name));
     })
 });
