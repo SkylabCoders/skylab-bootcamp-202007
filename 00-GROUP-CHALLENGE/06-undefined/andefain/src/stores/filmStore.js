@@ -3,11 +3,10 @@ import dispatcher from '../dispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
-let _sliderId = [];
-let _popularId = [];
-let _comingsoonId = [];
-let _favList = [];
-let _filmDetails = [];
+let _sliderData = [];
+let _popularData = [];
+let _comingData = [];
+let _filmData = [];
 
 class FilmStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -23,21 +22,18 @@ class FilmStore extends EventEmitter {
 	}
 
 	getSliderId() {
-		return _sliderId;
+		return _sliderData;
 	}
 
-	getFavList() {
-		return _favList;
-	}
 	getComingsoonId() {
-		return _comingsoonId;
+		return _comingData;
 	}
 
 	getPopularId() {
-		return _popularId;
+		return _popularData;
 	}
-	getFilmDetails() {
-		return _filmDetails;
+	getFilmData() {
+		return _filmData;
 	}
 }
 
@@ -45,27 +41,23 @@ const filmStore = new FilmStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.SLIDER_FILM:
-			_sliderId = action.data;
-			filmStore.emitChange(_sliderId);
+			_sliderData = action.data;
+			filmStore.emitChange(_sliderData);
 			break;
 		case actionTypes.POPULAR_FILM:
-			_popularId = action.data;
-			filmStore.emitChange(_popularId);
+			_popularData = action.data;
+			filmStore.emitChange(_popularData);
 			break;
 		case actionTypes.COMING_SOON_FILM:
-			_comingsoonId = action.data;
-			filmStore.emitChange(_comingsoonId);
-			break;
-		case actionTypes.ADD_FAV:
-			_favList = [..._favList, action.data];
-			filmStore.emitChange();
+			_comingData = action.data;
+			filmStore.emitChange(_comingData);
 			break;
 		case actionTypes.FILM_DETAILS:
-			_filmDetails = action.data;
+			_filmData = action.data;
 			filmStore.emitChange();
 			break;
 		default:
-			break;
+			throw `${action.type} is unknown`;
 	}
 });
 
