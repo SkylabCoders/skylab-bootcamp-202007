@@ -38,25 +38,20 @@ function Header(props) {
 					</form>
 
 					<div className="header-login">
-						<div className="header-login__hidden-menu">
-							{login ? (
-								<>
-									<Link className="header-login__button" to="/profile">
-										Profile
-									</Link>
-									<div
-										className="header-login__button"
-										onClick={() => logout()}
-									>
-										Logout
-									</div>
-								</>
-							) : (
-								<Link to="/login">
-									<div className="header-login__button">Login</div>
+						{login ? (
+							<>
+								<Link className="header-login__button" to="/profile">
+									Profile
 								</Link>
-							)}
-						</div>
+								<div className="header-login__button" onClick={() => logout()}>
+									Logout
+								</div>
+							</>
+						) : (
+							<Link to="/login">
+								<div className="header-login__button">Login</div>
+							</Link>
+						)}
 					</div>
 				</div>
 			</header>
