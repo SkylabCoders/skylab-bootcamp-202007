@@ -14,8 +14,8 @@ export const authMethods = {
     signOut: () => firebase.auth().signOut(),
     
     signInWithGoogle: () => {
-        firebase.auth().signInWithPopup(provider_google);
         provider_google.addScope( 'profile' );
         provider_google.addScope( 'email' );
+        return firebase.auth().signInWithPopup(provider_google);
     }
 }
