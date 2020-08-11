@@ -3,7 +3,7 @@ export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
 export const FAIL = 'FAIL';
 
-function player(names = 'Machine', isMachine = false) {
+function Player(names = 'Machine', isMachine = false) {
     let name = names;
     let charges = 1;
     let action = '';
@@ -17,7 +17,7 @@ function player(names = 'Machine', isMachine = false) {
     }
     function setAction(newAction) {
         action = newAction;
-        calculateAction(action)
+        calculateAction();
     }
 
     function generateAction() {
@@ -91,4 +91,4 @@ function player(names = 'Machine', isMachine = false) {
 
     return ret
 }
-export default player;
+export default Player;
