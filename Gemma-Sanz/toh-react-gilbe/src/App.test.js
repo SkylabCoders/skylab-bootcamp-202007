@@ -1,11 +1,11 @@
 describe('App', () => {
   it('should sum', () => {
-    console.log('Test!');
-    expect(2 + 2).toEqual(4);
+/*     console.log('Test!');
+ */    expect(2 + 2).toEqual(4);
   });
   it('should duplicate', () => {
-    console.log('Test!');
-    expect(2 * 2).toEqual(4);
+/*     console.log('Test!');
+ */    expect(2 * 2).toEqual(4);
   });
   it('async test 1', (done) => {
     setTimeout(done, 100);
