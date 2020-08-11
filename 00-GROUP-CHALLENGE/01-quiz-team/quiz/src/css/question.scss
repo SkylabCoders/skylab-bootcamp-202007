@@ -1,5 +1,5 @@
-@use 'colors';
-@use 'breakpoints';
+@import url('_colors.scss');
+@import url('_breakpoints.scss');
 
 .question__container{
     display: flex;
