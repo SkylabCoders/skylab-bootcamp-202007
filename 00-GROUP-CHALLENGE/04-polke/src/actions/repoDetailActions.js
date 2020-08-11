@@ -1,24 +1,6 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 
-export function loadUserRepoInfo(userName, repoName, orgName) {
-	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}/commits`;
-	fetch(endPoint, {
-		headers: {
-			accept: 'application/vnd.github.v3+json'
-		}
-	})
-		.then((response) => response.json())
-		.then((response) => {
-			dispatcher.dispatch({
-				type: actionTypes.LOAD_REPO,
-				data: response,
-				userName: userName
-			});
-		})
-		.catch((error) => console.error(error.message));
-}
-
 export function loadGroupRepoInfo(repoName, orgName) {
 	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}/stats/commit_activity`;
 
@@ -39,7 +21,6 @@ export function loadGroupRepoInfo(repoName, orgName) {
 
 export function loadRankingRepoInfo(repoName, orgName) {
 	const endPoint = `https://api.github.com/repos/${orgName}/${repoName}/stats/contributors`;
-	/* https://api.github.com/repos/SkylabCoders/skylab-bootcamp-202007/stats/contributors */
 
 	fetch(endPoint, {
 		headers: {

@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderNavbar from './components/Navbar/HeaderNabvar';
 import Footer from './components/Footer/Footer';
 import Landing from './components/Landing/Landing';
-import RepoDetail from './components/RepoDetail/RepoDetai';
+import RepoDetail from './components/RepoDetail/RepoDetail';
 import UserDetail from './components/UserDetail/UserDetail';
 import AuthComp from './components/AuthComp/AuthComp';
 import { Route, Switch } from 'react-router-dom';
