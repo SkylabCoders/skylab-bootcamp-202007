@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .header {
   width: 100%;
   background-color: black;
@@ -148,3 +149,319 @@
 }
 
 /*# sourceMappingURL=header.scss.map */
+=======
+<<<<<<<< HEAD:00-GROUP-CHALLENGE/01-quiz-team/quiz/src/css/header.scss
+@use 'colors';
+@use 'breakpoints';
+
+.header {
+	width: 100%;
+	background-color: colors.$background;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.inner__header{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+nav{
+    margin: 0 1rem;
+    width: 100%;
+}
+
+.nav__item{
+    color: colors.$text--white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav__item:hover{
+    text-decoration: underline dotted colors.$a--hover;
+    color: colors.$a--hover;
+}
+
+.nav__list{
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+.nav__list > li {
+    color: colors.$text--white;
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.logo__header{
+    display: none;
+}
+
+.img__header{
+    width: 25%;
+}
+
+.login__button__link{
+    display: none;
+}
+
+.login__button{
+    width: 100px;
+    height: 38px;
+    margin: 0 5px;
+    background-color: colors.$button;
+    box-sizing: border-box;
+    padding: .2rem;
+    color: colors.$text--dark;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: .25rem;
+    border-style: none;
+} 
+
+.login__button:hover{
+    background-color: colors.$button--hover;
+    color: colors.$text--dark;
+    text-decoration: underline dotted colors.$text--dark;
+} 
+
+.login__icon{
+    width: 10vw;
+}
+
+
+
+@media (min-width: breakpoints.$mobile) and (max-width: breakpoints.$desktop) {
+	.logo__header{ 
+        width: 90%;  
+        justify-content: center;
+        display: contents;
+    }
+    
+    .inner__header{
+        width: 80%;
+        justify-content: center;
+        display: contents;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img__header{
+        width: 25%;
+    }
+
+    .login__button__link{
+        display:  contents;
+    }
+
+    .login__icon{
+        display:none;
+    }
+
+}
+
+@media (min-width: breakpoints.$desktop) {
+    .logo__header{ 
+        width: 80%;  
+        justify-content: center;
+        display: contents;
+    }
+    
+    .inner__header{
+        width: 80%;
+        justify-content: center;
+        display: contents;
+    }
+
+    .img__header{
+        width: 20%;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+    }
+    
+    .login__button__link{
+        display: contents;
+    }
+
+    .login__icon{
+        display:none;
+    }
+
+}
+
+========
+.header {
+	width: 100%;
+	background-color: black;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.inner__header{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav{
+    margin: 0 1rem;
+    width: 100%;
+}
+
+.nav__item{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav__item:hover{
+    text-decoration: underline dotted coral;
+    color: coral;
+}
+
+.nav__list{
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+.nav__list > li {
+    color: white;
+    display: inline-block;
+    padding: 0 1rem;
+}
+
+.logo__header{
+    display: none;
+}
+
+.img__header{
+    width: 25%;
+}
+
+.login__button__link{
+    display: none;
+}
+
+.login__button{
+    width: 100px;
+    height: 38px;
+    margin: 0 5px;
+    background-color: goldenrod;
+    box-sizing: border-box;
+    padding: .2rem;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: .25rem;
+    border-style: none;
+} 
+
+.login__button:hover{
+    background-color: coral;
+    color: black;
+    text-decoration: underline dotted black;
+} 
+
+.login__icon{
+    width: 10vw;
+}
+
+
+
+@media (min-width: 680px) and (max-width: 1024px) {
+	.logo__header{ 
+        width: 90%;  
+        justify-content: center;
+        display: contents;
+    }
+    
+    .inner__header{
+        width: 80%;
+        justify-content: center;
+        display: contents;
+    }
+
+    .nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img__header{
+        width: 25%;
+    }
+
+    .login__button__link{
+        display:  contents;
+    }
+
+    .login__icon{
+        display:none;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .logo__header{ 
+        width: 80%;  
+        justify-content: center;
+        display: contents;
+    }
+    
+    .inner__header{
+        width: 80%;
+        justify-content: center;
+        display: contents;
+    }
+
+    .img__header{
+        width: 20%;
+    }
+
+    .nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+    }
+    
+    .login__button__link{
+        display: contents;
+    }
+
+    .login__icon{
+        display:none;
+    }
+
+}
+
+>>>>>>>> e41e8f20275d6a600397a1b46c45efaa1e0a88b9:00-GROUP-CHALLENGE/01-quiz-team/quiz/src/css/Header.css
+>>>>>>> e41e8f20275d6a600397a1b46c45efaa1e0a88b9

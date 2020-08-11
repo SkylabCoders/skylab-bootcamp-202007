@@ -1,24 +1,22 @@
-.footer {
-  width: 100%;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 1.5rem 0;
-  color: white;
-  font-size: 0.8rem;
-}
+@use 'colors';
 
-.footer a {
-  color: white;
-  text-decoration: underline dotted white;
+.footer{
+    width: 100%;
+    background-color: colors.$background;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1.5rem 0;
+    color: colors.$text--white;
+    font-size: .8rem;
 }
-
-.footer a:hover {
-  color: coral;
-  text-decoration: underline dotted coral;
+.footer a{
+    color: colors.$text--white;
+    text-decoration: underline dotted colors.$text--white;
 }
-
-/*# sourceMappingURL=footer.scss.map */
+.footer a:hover{
+    color: colors.$a--hover;
+    text-decoration: underline dotted colors.$a--hover;
+}

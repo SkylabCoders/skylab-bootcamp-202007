@@ -1,36 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap");
+@use 'colors';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+
 body {
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: black;
+  background: colors.$background;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-button {
+button{
   min-width: 200px;
   height: 35px;
   margin: 0 5px;
-  background-color: goldenrod;
+  background-color: colors.$button;
   box-sizing: border-box;
-  padding: 0.2rem;
-  color: black;
+  padding: .2rem;
+  color: colors.$text--dark;
   font-size: 1rem;
   letter-spacing: 1px;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   border-style: none;
-  padding: 5px;
-  margin: 5px;
-}
+} 
 
-button:hover {
-  background-color: coral;
-  color: black;
-  text-decoration: underline dotted black;
-}
-
-/*# sourceMappingURL=index.scss.map */
+button:hover{
+  background-color: colors.$button--hover;
+  color: colors.$text--dark;
+  text-decoration: underline dotted colors.$text--dark;
+} 

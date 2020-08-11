@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
-import './../css/Dashboard.css';
+import './../css/dashboard.scss';
 import gameStore from './../stores/gameStore';
 import {loadThemes, loadTopThemes, loadSessionSet} from './../actions/gameActions';
 
@@ -12,19 +12,19 @@ function Dashboard() {
 
     useEffect(() => {
         gameStore.addChangeListener(onChangeThemes);
-        if (themesList.length === 0) { loadThemes() };
+        if (themesList.length === 0) { loadThemes() }
         return () => { gameStore.removeChangeListener(onChangeThemes); }
     }, []);
 
     useEffect(() => {
         gameStore.addChangeListener(onChangeTopThemes);
-        if (topThemesList.length === 0) { loadTopThemes() };
+        if (topThemesList.length === 0) { loadTopThemes() }
         return () => { gameStore.removeChangeListener(onChangeTopThemes); }
     }, []);
 
     useEffect(()=>{
         gameStore.addChangeListener(onChangeSessionSet);
-        if(sessionSet.length === 0){loadSessionSet()};
+        if(sessionSet.length === 0){loadSessionSet()}
         return ()=>{gameStore.removeChangeListener(onChangeSessionSet);}
     }, [sessionSet]);
     
