@@ -9,14 +9,6 @@ Array [
       className="nav__mobile"
     >
       <a
-        aria-current={null}
-        className="link__header"
-        href="/main"
-        onClick={[Function]}
-      >
-        Main
-      </a>
-      <a
         href="/main"
         onClick={[Function]}
       >
@@ -25,6 +17,101 @@ Array [
           src="https://image.flaticon.com/icons/svg/770/770906.svg"
         />
       </a>
+      <div
+        className="burguer-button"
+      >
+        <img
+          alt="burguer button"
+          src="https://image.flaticon.com/icons/svg/561/561123.svg"
+        />
+        <div
+          className="burguer-preferences"
+        >
+          <ul>
+            <li>
+               
+              <input
+                className="button balanced gray"
+                onClick={[Function]}
+                src="https://image.flaticon.com/icons/png/512/30/30636.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button protein gray "
+                onClick={[Function]}
+                src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button low_fat gray"
+                onClick={[Function]}
+                src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button low_carb gray"
+                onClick={[Function]}
+                src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button vegan gray"
+                onClick={[Function]}
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button vegetarian gray"
+                onClick={[Function]}
+                src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button sugar gray"
+                onClick={[Function]}
+                src="https://www.footys.co.za/images/icon-sugar.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button peanut gray"
+                onClick={[Function]}
+                src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button treenut gray"
+                onClick={[Function]}
+                src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
+                type="image"
+              />
+            </li>
+            <li>
+              <input
+                className="button alcohol gray"
+                onClick={[Function]}
+                src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
+                type="image"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
       <div
         className="search-container"
       >
@@ -141,97 +228,49 @@ Array [
             type="image"
           />
           <input
-            className="button low_fat"
+            className="button low_fat gray"
             onClick={[Function]}
             src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
             type="image"
           />
           <input
-            className="button low_fat"
-            onClick={[Function]}
-            src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
-            type="image"
-          />
-          <input
-            className="button low_carb"
+            className="button low_carb gray"
             onClick={[Function]}
             src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
             type="image"
           />
           <input
-            className="button low_carb"
-            onClick={[Function]}
-            src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
-            type="image"
-          />
-          <input
-            className="button vegan"
+            className="button vegan gray"
             onClick={[Function]}
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
             type="image"
           />
           <input
-            className="button vegan"
-            onClick={[Function]}
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
-            type="image"
-          />
-          <input
-            className="button vegetarian"
+            className="button vegetarian gray"
             onClick={[Function]}
             src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
             type="image"
           />
           <input
-            className="button vegetarian"
-            onClick={[Function]}
-            src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
-            type="image"
-          />
-          <input
-            className="button sugar"
+            className="button sugar gray"
             onClick={[Function]}
             src="https://www.footys.co.za/images/icon-sugar.png"
             type="image"
           />
           <input
-            className="button sugar"
-            onClick={[Function]}
-            src="https://www.footys.co.za/images/icon-sugar.png"
-            type="image"
-          />
-          <input
-            className="button peanut"
+            className="button peanut gray"
             onClick={[Function]}
             src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
             type="image"
           />
           <input
-            className="button peanut"
-            onClick={[Function]}
-            src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
-            type="image"
-          />
-          <input
-            className="button treenut"
+            className="button treenut gray"
             onClick={[Function]}
             src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
             type="image"
           />
           <input
-            className="button treenut"
-            onClick={[Function]}
-            src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
-            type="image"
-          />
-          <input
-            className="button alcohol"
-            onClick={[Function]}
-            src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
-            type="image"
-          />
-          <input
-            className="button alcohol"
+            className="button alcohol gray"
             onClick={[Function]}
             src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
             type="image"
