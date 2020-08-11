@@ -3,8 +3,8 @@ import TRANSFORMATION_MAP from './decoder';
 export default function decodeFast(string){
     let result = string.replace(/&#039;/g, '\'')
         .replace(/&quot;/g, '\"')
-        .replace(/&lsquo;/g, '<<')
-        .replace(/&rsquo;/g, '>>');
+        .replace(/&lsquo;/g, '‘')
+        .replace(/&rsquo;/g, '’');
 
     if ((/&/g).test(result)){
         result = runDecodeMap(result);

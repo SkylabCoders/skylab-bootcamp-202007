@@ -4,7 +4,7 @@ const CATEGORY = [];
 for (let i = 9; i < 33; i++){
     CATEGORY.push(i);
 }
-const ENCODING = ['encode=url3986', 'encode=base64'];
+const ENCODING = ['url3986', 'base64'];
 
 const PARAMETERS = {
     type: new Set(TYPE),
@@ -19,6 +19,6 @@ export default function getEndpoint(category, difficulty, type, encode, amount){
     if (category !== 'all' && PARAMETERS.category.has(category)){ query.push(`category=${category}`)}
     if (difficulty !== 'all' && PARAMETERS.difficulty.has(difficulty)){ query.push(`difficulty=${difficulty}`)}
     if (type !== 'all' && PARAMETERS.type.has(type)){ query.push(`type=${type}`)}
-    if (encode !== 'default' && PARAMETERS.encode.has(encode)){ query.push(`encode=${encode}`)}
+    if (encode !== 'default' && PARAMETERS.encoding.has(encode)){ query.push(`encode=${encode}`)}
     return query.join('&');
 }

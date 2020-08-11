@@ -21,4 +21,8 @@ describe('test - utils - getEndpoints function', () => {
         const result = 'amount=9&category=23&type=multiple';
         expect(getEndpoint( 23, 'all', 'multiple', 'default', 9)).toMatch(result);
     });
+    test('Should get a set of 2 questions returned in \'base64\'', () => {
+        const result = 'amount=2&encode=base64';
+        expect(getEndpoint( 'all', 'all', 'all', 'base64', 2)).toMatch(result);
+    });
 });
