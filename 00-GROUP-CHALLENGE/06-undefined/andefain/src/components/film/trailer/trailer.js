@@ -1,21 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './trailer.css';
+import './trailer.scss';
 import PropTypes from 'prop-types';
 
-function Trailer({ details, trailer }) {
+function FilmTrailer({ trailer }) {
+	debugger;
 	return (
 		<div className="trailer-container">
 			<Link to="/film">
 				<img
-					src={details.image.url}
+					src={trailer.image}
 					className="poster-img"
 					//style={{ backgroundImage: `url(${details.image.url})` }}
 				/>
 			</Link>
 			<Link to="/film">
 				<img
-					src={trailer.resource.videos[0].image.url}
+					src={trailer.trailer ? trailer.trailer.thumbnailUrl : ''}
 					className="trailer-img"
 					//style={{backgroundImage: `url(${trailer.resource.videos[0].image.url})`}}
 				/>
@@ -24,9 +25,9 @@ function Trailer({ details, trailer }) {
 	);
 }
 
-Trailer.propTypes = {
+FilmTrailer.propTypes = {
 	details: PropTypes.object,
 	trailer: PropTypes.object
 };
 
-export default Trailer;
+export default FilmTrailer;

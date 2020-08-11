@@ -1,5 +1,5 @@
 import React from 'react';
-import './names.css';
+import './names.scss';
 import film from '../film.mock';
 
 const darkKnight = [...film][0];

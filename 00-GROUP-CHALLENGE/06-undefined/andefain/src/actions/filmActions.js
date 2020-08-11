@@ -256,140 +256,26 @@ export async function comingSoonData() {
 	});
 }
 
-export async function callFilm() {
-	let result = [
-		{
-			'@type': 'imdb.api.title.title',
-			id: '/title/tt11946300/',
-			image: {
-				height: 1200,
-				id: '/title/tt11946300/images/rm3967657985',
-				url:
-					'https://m.media-amazon.com/images/M/MV5BNTI1YmU4NmItZTc4NC00NzA2LWJiMjYtMmE0Njg5M2U2N2VhXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_.jpg',
-				width: 900
-			},
-			runningTimeInMinutes: 99,
-			title: 'Deep Blue Sea 3',
-			titleType: 'movie',
-			year: 2020
-		},
-		{
-			id: '/title/tt11946300/',
-			base: {
-				'@type': 'imdb.api.title.base',
-				id: '/title/tt11946300/',
-				image: {
-					height: 1200,
-					id: '/title/tt11946300/images/rm3967657985',
-					url:
-						'https://m.media-amazon.com/images/M/MV5BNTI1YmU4NmItZTc4NC00NzA2LWJiMjYtMmE0Njg5M2U2N2VhXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_.jpg',
-					width: 900
-				},
-				title: 'Deep Blue Sea 3',
-				titleType: 'movie',
-				year: 2020
-			},
-			plots: [
-				{
-					author: 'Nick Riganas',
-					id: '/title/tt11946300/plot/po5243983',
-					text:
-						'Studying the effects of climate change off the coast of Mozambique, a marine biologist and her team confront three genetically enhanced bull sharks. Now, a new bloodbath is waiting to happen in the name of science. Will humans never learn?'
-				},
-				{
-					id: '/title/tt11946300/plot/ps5024381',
-					text:
-						'Dr. Emma Collins and her team are spending their third summer on the island of Little Happy studying the effect of climate change on the great white sharks who come to the nearby nursery every year to give birth. Along with the last two inhabitants of this former fishing village, their peaceful life is disrupted when a "scientific" team led by her ex-boyfriend and marine biologist Richard show up looking for three bull sharks who we soon learn aren\'t just any bull sharks.'
-				},
-				{
-					author: 'Nick Riganas',
-					id: '/title/tt11946300/plot/ps5243984',
-					text:
-						'Off the coast of Mozambique, somewhere in the middle of the vast Indian Ocean, the rapidly sinking artificial islet known as "Little Happy", and its last two residents are facing the effects of global warming. There, the passionate marine biologist, Dr Emma Collins, and her team are studying the impact of climate change on Great White sharks, who come to mate in the peaceful marine conservatory, when, unexpectedly, Emma\'s old flame, Richard Lowell, arrives on a research vessel. Now, in high hopes of capturing three rogue, genetically enhanced bull sharks, Richard drags Dr Collins in a fierce battle of survival, as the trio of fast underwater killers have already picked up the fragrant scent of human blood in the water. In the wake of the Akhelios Complex massacre in Deep Blue Sea 2 (2018), a new bloodbath is waiting to happen, of course, in the name of science. Will humans never learn?'
-				}
-			]
-		},
-		['Action', 'Horror', 'Sci-Fi'],
-		{
-			'@meta': {
-				operation: 'TitleVideosV2',
-				requestId: '5139479e-5865-4c9d-ba75-997b57b7182a',
-				serviceTimeMs: 7.502832
-			},
-			resource: {
-				'@type': 'imdb.api.title.v2.videos',
-				id: '/title/tt11946300/',
-				image: {
-					height: 1200,
-					id: '/title/tt11946300/images/rm3967657985',
-					url:
-						'https://m.media-amazon.com/images/M/MV5BNTI1YmU4NmItZTc4NC00NzA2LWJiMjYtMmE0Njg5M2U2N2VhXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_.jpg',
-					width: 900
-				},
-				title: 'Deep Blue Sea 3',
-				titleType: 'movie',
-				year: 2020,
-				size: 1,
-				videoCounts: [
-					{
-						contentType: 'Trailer',
-						count: 1
-					}
-				],
-				videos: [
-					{
-						audioLanguage: 'en',
-						contentType: 'Trailer',
-						description:
-							'Dr. Emma Collins and her team are spending their third summer on the island of Little Happy studying the effect of climate change on the great white sharks who come to the nearby nursery every year to give birth. Along with the last two inhabitants of this former fishing village, their peaceful life is disrupted when a "scientific" team led by her ex-boyfriend and marine biologist Richard show up looking for three bull sharks who we soon learn aren\'t just any bull sharks.',
-						durationInSeconds: 114,
-						id: '/videoV2/vi889306649',
-						image: {
-							height: 1080,
-							url:
-								'https://m.media-amazon.com/images/M/MV5BMzRhMTM2MTgtYTU4MS00ZWQ4LWE1NDctOTg2OTliOWJjYzM0XkEyXkFqcGdeQXN3aWZ0dw@@._V1_.jpg',
-							width: 1920
-						},
-						primaryTitle: {
-							id: '/title/tt11946300/',
-							image: {
-								height: 1200,
-								id: '/title/tt11946300/images/rm3967657985',
-								url:
-									'https://m.media-amazon.com/images/M/MV5BNTI1YmU4NmItZTc4NC00NzA2LWJiMjYtMmE0Njg5M2U2N2VhXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_.jpg',
-								width: 900
-							},
-							title: 'Deep Blue Sea 3',
-							titleType: 'movie',
-							year: 2020
-						},
-						title: 'Official Trailer'
-					}
-				]
-			}
-		},
-		{
-			d: [
-				{
-					i: {
-						height: 1200,
-						imageUrl:
-							'https://m.media-amazon.com/images/M/MV5BNTI1YmU4NmItZTc4NC00NzA2LWJiMjYtMmE0Njg5M2U2N2VhXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_.jpg',
-						width: 900
-					},
-					id: 'tt11946300',
-					l: 'Deep Blue Sea 3',
-					q: 'feature',
-					s: 'Tania Raymonde, Nathaniel Buzolic',
-					y: 2020
-				}
-			],
-			q: 'tt11946300',
-			v: 1
-		}
-	];
-	dispatcher.dispatch({
-		type: actionTypes.FILM_DETAILS,
-		data: result
-	});
+export function callFilm() {
+	let id = window.location.pathname.split('/')[2];
+	let apiKey = 'k_9KT4p8i9'; //Marti
+	let requestOptions = {
+		method: 'GET',
+		redirect: 'follow'
+	};
+	fetch(
+		'https://imdb-api.com/en/API/Title/' + apiKey + '/' + id + '/Trailer,',
+		requestOptions
+	)
+		.then((response) => response.json())
+		.then((response) => {
+			debugger;
+			dispatcher.dispatch({
+				type: actionTypes.FILM_DETAILS,
+				data: response
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 }
