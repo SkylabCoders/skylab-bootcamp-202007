@@ -20,10 +20,4 @@ class NavbarStore extends EventEmitter {
 
 const navbarStore = new NavbarStore();
 
-dispatcher.dispatch((action) => {
-	switch (action.type) {
-		case actionTypes.LOAD_REPOS: // This one is an example
-	}
-});
-
 export default navbarStore;

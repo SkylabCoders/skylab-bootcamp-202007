@@ -3,8 +3,7 @@ import { FormControl, FormGroup, Button } from 'react-bootstrap';
 import {
 	login,
 	loginGoogle,
-	loginGitHub,
-	loginAnonyomously,
+	loginAnonymously,
 	createNewUser
 } from '../../../actions/loginActions';
 import landingStore from '../../../stores/landingStore';
@@ -31,6 +30,13 @@ export default withRouter(function ({ history }) {
 	function onAuthChange() {
 		setIsLogged(landingStore.isLogged());
 		setUser(landingStore.getUserProfile());
+	}
+
+	function handleLoginClick(event) {
+		event.preventDefault();
+		const email = document.getElementsByClassName('input-email')[0].value;
+		const password = document.getElementsByClassName('input-password')[0].value;
+		login(email, password);
 	}
 
 	return (
@@ -83,13 +89,7 @@ export default withRouter(function ({ history }) {
 					<button
 						className="Login__form__last-button form__button"
 						onClick={(event) => {
-							event.preventDefault();
-							const email = document.getElementsByClassName('input-email')[0]
-								.value;
-							const password = document.getElementsByClassName(
-								'input-password'
-							)[0].value;
-							login(email, password);
+							handleLoginClick(event);
 						}}
 					>
 						Enter
@@ -109,7 +109,7 @@ export default withRouter(function ({ history }) {
 						className="login__log-anonym anchor Login-anchor"
 						onClick={(event) => {
 							event.preventDefault();
-							loginAnonyomously();
+							loginAnonymously();
 						}}
 					>
 						Log In Anonymously

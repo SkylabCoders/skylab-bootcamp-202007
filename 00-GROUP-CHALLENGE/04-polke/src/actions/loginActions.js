@@ -27,18 +27,6 @@ export function loginGoogle() {
 		.catch((error) => console.error(error.message));
 }
 
-export function loginGitHub() {
-	return authMethods
-		.signInWithGitHub()
-		.then((data) => {
-			dispatcher.dispatch({
-				type: actionTypes.LOGIN_GITHUB,
-				data
-			});
-		})
-		.catch((error) => console.error(error.message));
-}
-
 export function loginAnonyomously() {
 	return authMethods
 		.signInAnonymously()
