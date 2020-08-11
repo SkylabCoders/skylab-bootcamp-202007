@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import heroStore from '../../stores/heroStore';
+import { loadHeroes, deleteHero } from '../../actions/heroActions';
 import './list.css';
-import { NavLink } from 'react-router-dom';
 
-function List({ heroes }) {
-	const heroList = heroes.map((hero) => (
-		<NavLink to={`/hero/${hero.id}`} key={hero.id} className="list">
-			<span className="hero__id"> {hero.id} </span>
-			<span className="hero__name">{hero.name}</span>
-		</NavLink>
-	));
+function List() {
+	const [heroes, setHeroes] = useState([]);
+
+	useEffect(() => {
+		heroStore.addChangeListener(onChange);
+		if (heroes.length === 0) loadHeroes();
+		return () => heroStore.removeChangeListener(onChange);
+	}, [heroes.length]);
+
+	function onChange() {
+		setHeroes(heroStore.getHeroes);
+	}
+	function onDelete(event, heroId) {
+		event.preventDefault();
+		deleteHero(heroId);
+	}
 	return (
-		<>
-			<h2> My Heroes</h2>
-			<ul> {heroList} </ul>
-		</>
+		<ul>
+			{heroes.map((hero) => (
+				<li className="list" key={hero.id}>
+					<Link className="hero__name" to={`/hero/${hero.id}`}>
+						{hero.id}: {hero.name}
+					</Link>
+					<div className="hero-list__item--delete">
+						<button onClick={(event) => onDelete(event, hero.id)}>X</button>
+					</div>
+				</li>
+			))}
+		</ul>
 	);
 }
 

@@ -1,22 +1,24 @@
-.hero__id {
-    background-color: #607D8B;
-    color: white;
-    padding: 5px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-}
-
 .hero__name {
-    background-color: #EEEEEE;
-    color: #B2B2B2;
-    padding: 5px;
-    padding-left: 10px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+	background-color: #eeeeee;
+	color: #b2b2b2;
+	padding: 5px;
+	padding-left: 10px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 
 .list {
-    text-decoration: none;
-    display: flex;
-    margin-bottom: 12px;
+	text-decoration: none;
+	display: flex;
+	margin-bottom: 12px;
+	height: 24px
+}
+
+.hero-list__item--delete {
+	display: none;
+	margin-left: 12px;
+}
+
+.list:hover .hero-list__item--delete {
+	display: inline-block;
 }

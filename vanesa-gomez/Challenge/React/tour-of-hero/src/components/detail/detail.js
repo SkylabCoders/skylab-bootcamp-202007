@@ -1,29 +1,29 @@
 import React from 'react';
 import './detail.css';
 import heroList from '../../heroMock';
+import { Prompt } from 'react-router';
 
 class Detail extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			heroName: 'Bombasto',
-			heroId: 14
+			heroName: '',
+			heroId: null,
+			formIsDirty: false
 		};
 		this.onFieldChange = this.onFieldChange.bind(this);
 	}
 
 	onFieldChange(event) {
 		this.setState({
-			heroName: event.target.value,
-			heroId: event.target.value
+			[event.target.name]: event.target.value,
+			formIsDirty: true
 		});
 	}
 
 	getHeroById() {
-		const path = window.location.pathname;
-		const id = path.split('/')[2];
+		const id = this.props.match.params.heroId;
 		const heroSearch = heroList.find((hero) => hero.id === +id);
-		debugger;
 		return heroSearch;
 	}
 
@@ -39,9 +39,9 @@ class Detail extends React.Component {
 	render() {
 		return (
 			<form>
-				<p>{this.state.heroName} details!</p>
-				<p>id: {this.state.heroId}</p>
-				<label htmlFor="heroName">
+				<p className="hero-detail__name">{this.state.heroName} details!</p>
+				<p className="hero-detail__label">id: {this.state.heroId}</p>
+				<label className="hero-detail__label" htmlFor="heroName">
 					name:
 					<input
 						name="heroName"
@@ -50,6 +50,10 @@ class Detail extends React.Component {
 						onChange={this.onFieldChange}
 					/>
 				</label>
+				<Prompt
+					when={this.state.formIsDirty}
+					message="Are you sure you want to navigate away"
+				/>
 			</form>
 		);
 	}

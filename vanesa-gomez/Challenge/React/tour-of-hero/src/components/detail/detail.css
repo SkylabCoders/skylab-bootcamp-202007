@@ -1,12 +1,17 @@
 .container {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    color: #5F7D8C;
-    font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	color: #5f7d8c;
+	font-weight: bold;
 }
 
-label {
-    color: #5F7D8C;
-    font-weight: bold;
+.hero-detail__label {
+	color: #5f7d8c;
+	font-weight: bold;
+}
+
+.hero-detail__name {
+	font-size: 1.5em;
+	font-weight: bold;
 }

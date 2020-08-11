@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <br>
+    <img
+        src="https://media2.giphy.com/media/d4zHnLjdy48Cc/200.webp?cid=ecf05e47v72x8c2wvyakgge68au1xcgjresgnw8yrq2fa8m1&rid=200.webp" />
+    <h1> Let's start!</h1>
+    <br>
+    <h2> First we wrap the form: all inputs inside will be collected later on</h2>
+    <br>
+
+    <h2> There are several kind of inputs: Input, Checkbox, Select </h2>
+    <div>
+
+        <h3>Input</h3>
+        <form>
+            <input class="input">
+            <input type="date">
+        </form>
+
+        <h3>Text area</h3>
+        <form>
+            <textarea class="text-area">hello</textarea>
+        </form>
+
+
+        <h3>Select</h3>
+        <p>The HTML label element represents a caption for an item in a user interface.</p>
+        <label for="pet-select">Choose a pet:</label>
+        <select name="pets">
+            <option value="">--Please choose an option--</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+        </select>
+
+        <h3>Boxes</h3>
+        <div class="preference">
+            <label for="cheese">Do you like cheese?</label>
+            <input type="checkbox"  id="cheese">
+        </div>
+
+        <div class="preference">
+            <label for="peas">Do you like peas?</label>
+            <input type="checkbox"  id="peas">
+        </div>
+    </div>
+
+    <h2>Now we can mix it up with atributes!</h2>
+
+    <h3>Input + Placeholder + Label+ required + type</h3>
+    <p>type: password, email, number, text</p>
+
+    <form>
+        <label>kindly place your password: <input type="email" required placeholder="email" class="input"></label>
+    </form>
+
+
+    <h3>Text area + placeholder + minlength + maxlength </h3>
+    <form>
+        <textarea minlength="4" maxlength="50" class="text-area">Hello</textarea>
+    </form>
+
+
+    <h3>Select</h3>
+    
+    <label for="pet-select">Choose a pet:</label>
+    <select name="pets" id="pet__select">
+        <option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster">Hamster</option>
+        <option value="parrot">Parrot</option>
+        <option value="spider">Spider</option>
+        <option value="goldfish">Goldfish</option>
+    </select>
+
+    <h3>boxes + type + color + checked </h3>
+    <p>Type: range, radio, checkbox</p>
+    <br>
+    <p>Select a maintenance drone:</p>
+    <form>
+        <div>
+            <input type="radio" id="huey" name="drone" value="huey" checked>
+            <label for="huey">Huey</label>
+        </div>
+
+        <div>
+            <input checked type="password" id="louie" name="drone" value="louie">
+            <label for="louie">Dawson</label>
+        </div>
+
+        <div>
+            <input  type="" id="louie" name="drone" value="louie">
+            <label for="louie">Louie</label>
+        </div>
+    </form>
+    <br>
+    <form>
+        <div class="preference">
+            <label for="peas">Do you like peas?</label>
+            <input type="checkbox" name="peas" id="peas">
+        </div>
+
+        <div>
+            <label for="steak">Do you like staek?</label>
+            <input type="checkbox" name="staek" id="staek">
+        </div>
+    </form>
+
+    <br>
+    <form>
+        <div>
+            <input type="color" value="red" type="radio" id="dewey" name="drone" value="dewey">
+            <label for="dewey">Dewey</label>
+        </div>
+    </form>
+
+</body>
+</html>
