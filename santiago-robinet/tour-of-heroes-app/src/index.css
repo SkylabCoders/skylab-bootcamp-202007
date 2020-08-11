@@ -137,3 +137,8 @@ input{
   margin-top: 10px;
 }
 
+.nav__button--active{
+  color: #039be5;
+  font-weight: 700;
+}
+
