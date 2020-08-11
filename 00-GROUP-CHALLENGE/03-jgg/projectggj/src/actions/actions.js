@@ -82,6 +82,9 @@ export function lossIncrement() {
 }
 
 
+
+
+
 /* export function loadCharListAPI() {
     return new Promise((resolve, reject) => {
         let req = new XMLHttpRequest();
