@@ -46,8 +46,6 @@ dispatcher.register((action) => {
             _isLogged = !!action.data;
             _userName = action.data.user.displayName;
             _photoUser = action.data.user.photoURL;
-            _victories = 0;
-            _defeats = 0;
             authStore.emitChange();
             break;
         case actionTypes.LOGOUT:
