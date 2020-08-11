@@ -67,8 +67,10 @@ export function createRepo(name, access, desc, readme, accessToken) {
 		body: JSON.stringify(reqBody)
 	})
 		.then((response) => {
-			console.log(response);
-			debugger;
+			dispatcher.dispatch({
+				type: actionTypes.CREATE_REPO,
+				data: response
+			});
 		})
 		.catch((error) => console.error(error.message));
 }
