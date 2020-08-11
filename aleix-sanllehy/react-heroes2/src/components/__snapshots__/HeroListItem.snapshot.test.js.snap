@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header snapshot should match 1`] = `
-<p>
-  HeroListItem works!
-</p>
-`;
-
 exports[`HeroListItem snapshot should match 1`] = `
 <p>
   HeroListItem works!

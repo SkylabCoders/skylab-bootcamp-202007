@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header snapshot should match 1`] = `
-<p>
-  HeroDashboard works!
-</p>
-`;
-
 exports[`HeroesPage snapshot should match 1`] = `
 Array [
   <p>
