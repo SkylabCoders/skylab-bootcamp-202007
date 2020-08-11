@@ -6,7 +6,7 @@ import TextInput from './TextInput';
 
 function HeroDetail(props) {
 	const [heroes, setHeroes] = useState(heroStore.getHeroes());
-	const [heroId, setHeroId] = useState(null);
+	const [heroId, setHeroId] = useState(+props.match?.params?.heroId);
 	const [heroName, setHeroName] = useState('');
 	const [isFormDirty, setIsFormDirty] = useState(false);
 
