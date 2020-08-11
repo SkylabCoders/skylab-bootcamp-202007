@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import heroStore from '../stores/heroStore';
-import { loadHeroes, deleteHero } from '../actions/heroActions';
+import { loadHeroes, deleteHero } from '../actions/hero-actions';
 import './HeroList.css';
 
 function HeroList() {

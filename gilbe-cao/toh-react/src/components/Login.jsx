@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import authStore from '../stores/authStore';
-import { login, logout } from '../actions/authActions';
+import { login, logout } from '../actions/auth-actions';
 
 function Login() {
 	const [isLogged, setIsLogged] = useState(authStore.getIsLogged());

@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Prompt } from 'react-router-dom';
 import heroStore from '../stores/heroStore';
-import { loadHeroes, saveHero } from '../actions/heroActions';
+import { loadHeroes, saveHero } from '../actions/hero-actions';
 import TextInput from './TextInput';
 
 function HeroDetail(props) {
 	const [heroes, setHeroes] = useState(heroStore.getHeroes());
-	const [heroId, setHeroId] = useState(null);
+	const [heroId, setHeroId] = useState(+props.match?.params?.heroId);
 	const [heroName, setHeroName] = useState('');
 	const [isFormDirty, setIsFormDirty] = useState(false);
 
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);
-		const heroId = +props.match.params.heroId;
 		if (heroes.length === 0) {
 			loadHeroes();
 		} else if (heroId) {

@@ -1,10 +1,8 @@
-import dispatcher from '../appDispatcher';
-import actionTypes from './actionTypes';
+import dispatcher from '../dispatcher';
+import actionTypes from './action-types';
 import { authMethods } from '../firebase/firebaseAuth';
 
 export function login() {
-	const email = 'gilbe.cao@gmail.com';
-	const password = '1234567';
 	return authMethods
 		.signIn(email, password)
 		.then((loginResponse) => {
