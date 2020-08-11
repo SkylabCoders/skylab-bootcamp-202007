@@ -83,24 +83,6 @@ export function lossIncrement() {
 
 
 
-export function winIncrement() {
-	return new Promise((resolve) => {
-		resolve();
-	}).then(() => {
-		dispatcher.dispatch({
-			type: actionTypes.WIN_INC
-		})
-	})
-}
-export function lossIncrement() {
-	return new Promise((resolve) => {
-		resolve();
-	}).then(() => {
-		dispatcher.dispatch({
-			type: actionTypes.LOSS_INC
-		})
-	})
-}
 
 
 /* export function loadCharListAPI() {
