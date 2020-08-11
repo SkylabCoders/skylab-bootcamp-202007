@@ -39,7 +39,6 @@ dispatcher.register((action) => {
 		case actionTypes.LOGIN:
 			_userProfile = action.data;
 			_isLogged = !!action.data;
-			console.log(_userProfile);
 			authStore.emitChange();
 			break;
 		case actionTypes.LOGOUT:
@@ -48,7 +47,7 @@ dispatcher.register((action) => {
 			authStore.emitChange();
 			break;
 		default:
-			break;
+			throw `The action type is unknown. action.type: ${action.type}`;
 	}
 });
 export default authStore;

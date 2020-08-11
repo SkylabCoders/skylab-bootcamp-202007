@@ -7,8 +7,8 @@ describe('UserStore', () => {
 
 	beforeEach(() => {
 		myCallbackMockFunction = jest.fn();
-
 		userStore.addChangeListener(myCallbackMockFunction);
+		userStore.emitChange();
 	});
 
 	afterEach(() => {
@@ -21,7 +21,7 @@ describe('UserStore', () => {
 		expect(userStore).toBeDefined();
 	});
 
-	fit('Should register LIST_FAVORITE_FILMS', () => {
+	it('Should register LIST_FAVORITE_FILMS', () => {
 		const data = 'films';
 		dispatcher.dispatch({
 			type: actionTypes.LIST_FAVORITE_FILMS,
