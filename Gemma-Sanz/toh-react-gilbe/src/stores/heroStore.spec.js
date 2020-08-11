@@ -82,6 +82,7 @@ describe('HeroStore', () => {
 
     it('should register DELETE_HERO', () => {
         const id = 14;
+        //Pasamos el 20 argumento como objeto porque en el heroActions la data que le pasamos es un objeto
         action = reduceAction(actionTypes.DELETE_HERO,
             { id })
         dispatcher.dispatch(action);
@@ -91,7 +92,13 @@ describe('HeroStore', () => {
         //        console.log(heroStore.getHeroes())
         expect(deletedHero).not.toBeDefined();
     })
-    it('should be default', () => {
-        action = reduceAction()
+    it('should handle default case for action types', () => {
+        try {
+            dispatcher.dispatch({});
+            expect(heroStore).toBeFalsy();
+        } catch (errorMessage) {
+            const message = `The action type is unknown. action.type: undefined`;
+            expect(errorMessage).toEqual(message)
+        }
     })
 });
