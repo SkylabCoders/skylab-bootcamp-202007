@@ -1,5 +1,5 @@
-import heroList from '../hero.mock';
-import dispatcher from '../appDispatcher';
+import heroList from '../hero-list';
+import dispatcher from '../dispatcher';
 import actionTypes from './action-types';
 
 export function loadHeroes() {

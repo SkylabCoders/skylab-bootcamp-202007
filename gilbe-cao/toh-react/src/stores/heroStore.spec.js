@@ -1,6 +1,6 @@
 import heroStore from './heroStore';
 import actionTypes from '../actions/action-types';
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 
 function reduceAction(action, state) {
 	return {

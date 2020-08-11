@@ -12,7 +12,6 @@ function HeroDetail(props) {
 
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);
-		const heroId = +props.match.params.heroId;
 		if (heroes.length === 0) {
 			loadHeroes();
 		} else if (heroId) {
