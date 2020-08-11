@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 describe ('Login snapshot', () => {
     const loginTree = renderer.create(<Router><Login/></Router>)
 
-    it('shoul match', () => {
+    it('should match', () => {
         expect(loginTree.toJSON()).toMatchSnapshot();
     })
 });
