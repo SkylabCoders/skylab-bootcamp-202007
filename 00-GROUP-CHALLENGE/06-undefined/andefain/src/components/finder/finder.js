@@ -23,7 +23,7 @@ function Finder(title, name) {
 
 	return (
 		<section className="finder-container">
-			{finder ? (
+			{finder[0] === null ? (
 				finder.map((element) => {
 					return (
 						<div
