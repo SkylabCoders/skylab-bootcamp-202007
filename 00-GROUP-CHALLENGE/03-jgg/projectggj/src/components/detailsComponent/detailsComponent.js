@@ -4,7 +4,7 @@ import { loadCharList } from '../../actions/actions';
 import './detailsComponent.css';
 
 
-import { Link, BrowserRouter, Router } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 function DetailsComponent(props) {
 	const [chars, setChars] = useState(store.getCharacters());
 
