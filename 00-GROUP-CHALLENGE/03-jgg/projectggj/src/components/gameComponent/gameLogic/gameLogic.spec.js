@@ -6,19 +6,16 @@ describe('gameLogic', () => {
     const AVOID = 'Avoid';
     const ATTACK = 'Attack';
     const FAIL = 'FAIL';
-    let name;
+    let name = 'Shordi';
     let charges;
-    let action;
     let lives;
     let newPlayer;
     let newMachine;
     beforeEach(() => {
-        let names = 'Shordi';
 
         charges = 1;
         lives = 3;
-        newPlayer = new Player(names, false);
-
+        newPlayer = new Player(name, false);
         newMachine = new Player();
 
 
