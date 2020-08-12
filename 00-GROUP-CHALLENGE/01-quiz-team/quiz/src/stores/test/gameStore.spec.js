@@ -7,9 +7,9 @@ describe('gameStore',()=>{
     let action;
     let myCallbackMockFunction;
 
-    function reduceAction (action, data){
+    function reduceAction (actionType, data){
         return {
-            type: action,
+            type: actionType,
             data
         }
     }
@@ -19,7 +19,6 @@ describe('gameStore',()=>{
         gameStore.addChangeListener(myCallbackMockFunction);
 
         action = reduceAction(actionTypes.GET_THEMES, {
-            
             data: THEMES_LIST
         });
 

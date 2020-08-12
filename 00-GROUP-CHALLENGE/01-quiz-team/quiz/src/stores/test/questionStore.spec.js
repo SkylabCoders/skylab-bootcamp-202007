@@ -1,4 +1,3 @@
-import questionActions from '../../actions/questionActions'
 import actionTypes from './../../actions/actionTypes'
 import dispatcher from './../../dispatcher';
 import questionStore from '../questionStore';
@@ -8,9 +7,9 @@ describe('questionStore',()=>{
     let action;
     let myCallbackMockFunction;
 
-    function reduceAction (action, data){
+    function reduceAction (actionType, data){
         return {
-            type: action,
+            type: actionType,
             data
         }
     }

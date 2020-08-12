@@ -2,15 +2,14 @@ import actionTypes from '../../actions/actionTypes'
 import dispatcher from './../../dispatcher';
 import leaderboardStore from '../leaderboardStore';
 import LEADERBOARD from './../../mockdata/Leaderboard'
-import leaderboardActions from './../../actions/leaderboardActions'
 
 describe('leaderboardStore',()=>{
     let action;
     let myCallbackMockFunction;
 
-    function reduceAction (action, data){
+    function reduceAction (actionType, data){
         return {
-            type: action,
+            type: actionType,
             data
         }
     }
