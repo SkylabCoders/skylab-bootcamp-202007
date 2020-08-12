@@ -53,11 +53,6 @@ describe('gameLogic', () => {
 
         expect(newMachine.generateAction()).toBeDefined()
     });
-    it('should calculateAction', function calculateAction() {
-        /*         Dona error si ho fiquem, diu que no es una funció
-                expect(newMachine.calculateAction()).toBeDefined();
-                expect(newPlayer.calculateAction()).toBeDefined(); */
-    });
     it('should recibeAction', function recibeAction() {
 
         newPlayer.setAction(ATTACK);

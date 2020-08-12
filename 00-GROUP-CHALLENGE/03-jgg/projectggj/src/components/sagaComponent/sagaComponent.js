@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import store from '../../stores/store';
 import { loadSagaList } from '../../actions/actions';
 import './sagaComponent.scss';
