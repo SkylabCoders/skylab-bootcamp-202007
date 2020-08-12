@@ -21,13 +21,10 @@ describe('SagaComponent', () => {
     let sagaComponentTree = null;
     let instance;
     let component;
-    let text;
 
     beforeEach(() => {
         sagaComponentTree = renderSagaComponent();
         instance = sagaComponentTree.root;
-        component = instance.findByProps(className = "card-holder flex-item flex-col centred")
-        text = component.children[0];
         sagaComponentTree.update();
     });
 
@@ -38,7 +35,6 @@ describe('SagaComponent', () => {
         sagaComponentTree = renderSagaComponent();
 
         instance = sagaComponentTree.root;
-        component = instance.findByProps(className = "card-holder flex-item flex-col centred")
     })
 
 });

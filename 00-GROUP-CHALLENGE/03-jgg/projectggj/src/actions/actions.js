@@ -1,8 +1,8 @@
 import charList from '../mock.chars';
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
-import planetsArr from '../mock.Planets';
-import sagaList from '../mock.sagas';
+import mockPlanets from '../mockPlanets';
+import mockSagasList from '../mockSagasList';
 
 export function globalSearch(text, filter, name) {
 	dispatcher.dispatch({
@@ -32,11 +32,11 @@ export function loadCharList(filter, name) {
 
 export function loadSagaList() {
 	return new Promise((resolve) => {
-		resolve(sagaList);
+		resolve(mockSagasList);
 	}).then(() => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_SAGA_LIST,
-			data: sagaList
+			data: mockSagasList
 		});
 	});
 }
@@ -54,11 +54,11 @@ export function saveUser(user) {
 
 export function loadPlanets() {
 	return new Promise((resolve) => {
-		resolve(planetsArr);
+		resolve(mockPlanets);
 	}).then(() => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_PLANETS,
-			data: planetsArr
+			data: mockPlanets
 		});
 	});
 }
@@ -125,10 +125,10 @@ export function lossIncrement() {
         };
         req.send(null);
 
-    }).then((planetsArr) => {
+    }).then((mockPlanets) => {
         dispatcher.dispatch({
             type: actionTypes.LOAD_PLANETS,
-            data: planetsArr
+            data: mockPlanets
         });
     });
 } */
