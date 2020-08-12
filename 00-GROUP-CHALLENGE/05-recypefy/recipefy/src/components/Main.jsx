@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProfileComponent from './Profile.component';
 import Recommendation from './Recommendation';
 import TopFiveComponent from './TopFive.component';
-import PreferencesList from './PreferencesList';
+import PreferencesList from './PreferenceList';
 import { loadRecipe } from '../actions/RecipeAction';
 import recipeStore from '../stores/RecipeStore';
 import './Main.scss';
