@@ -1,35 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './RecipePage.scss';
 import recipe from '../stores/RecipeStore';
+import recipeStore from '../stores/RecipeStore';
 function RecipePage() {
-	let balanced = false;
-	let protein = false;
-	let low_fat = false;
-	let low_carb = false;
-	let vegan = false;
-	let vegetarian = false;
-	let sugar = false;
-	let peanut = false;
-	let treenut = false;
-	let alcohol = false;
+	const [balanced, setBalanced] = useState(false);
+	const [protein, setProtein] = useState(false);
+	const [lowFat, setLowFat] = useState(false);
+	const [lowCarb, setLowCarb] = useState(false);
+	const [vegan, setVegan] = useState(false);
+	const [vegetarian, setVegetarian] = useState(false);
+	const [sugar, setSugar] = useState(false);
+	const [peanut, setPeanut] = useState(false);
+	const [treenut, setTreenut] = useState(false);
+	const [alcohol, setAlcohol] = useState(false);
+	const [recipeElement, setRecipeElement] = useState(
+		recipe.getRecipeByTitle(getUrl())
+	);
+	const [titleString, setTitleString] = useState(getUrl());
+	const [time, setTime] = useState('');
+	const [calories, setCalories] = useState('');
+	const [yeld, setYeld] = useState('');
+	const [ingredients, setIngredients] = useState([]);
+	const [photo, setPhoto] = useState('');
+	const [url, setUrl] = useState('');
+	const [source, setSource] = useState(``);
 
-	let [recipeElement] = useState(recipe.getRecipeByTitle(getUrl()));
-	const [titleString] = useState(recipeElement.title);
-	let [time] = useState(`${recipeElement.time} min`);
-	if (time === '0 min') {
-		time = '65 min';
+	useEffect(() => {
+		recipeStore.addChangeListener(onChange);
+		if (!recipeElement) {
+			setRecipeElement(recipe.getRecipeByTitle(getUrl()));
+		} else {
+			console.log(recipeElement);
+			{
+				if (!recipeElement.time) {
+					setTime('--');
+				} else {
+					setTime(`${recipeElement.time} min`);
+				}
+				setCalories(recipeElement.calories.toFixed(2));
+				if (yeld === null || yeld === undefined || yeld === '') {
+					setYeld('--');
+				} else {
+					setYeld(recipeElement.yeld);
+				}
+				setIngredients(recipeElement.ingredients);
+				setPhoto(recipeElement.photo);
+				setUrl(recipeElement.url);
+				setSource('source: ${recipeElement.source}');
+				if (recipeElement.preferences.length !== 0) {
+					for (let i = 0; i < recipeElement.preferences.length; i++) {
+						if (recipeElement.preferences[i] === 'Balanced') {
+							setBalanced(true);
+						} else if (recipeElement.preferences[i] === 'High-Protein') {
+							setProtein(true);
+						} else if (recipeElement.preferences[i] === 'Low-Fat') {
+							setLowFat(true);
+						} else if (recipeElement.preferences[i] === 'Low-Carb') {
+							setLowCarb(true);
+						} else if (recipeElement.preferences[i] === 'Vegan') {
+							setVegan(true);
+						} else if (recipeElement.preferences[i] === 'Vegetarian') {
+							setVegetarian(true);
+						} else if (recipeElement.preferences[i] === 'Sugar-Conscious') {
+							setSugar(true);
+						} else if (recipeElement.preferences[i] === 'Peanut-Free') {
+							setPeanut(true);
+						} else if (recipeElement.preferences[i] === 'Tree-Nut-Free') {
+							setTreenut(true);
+						} else if (recipeElement.preferences[i] === 'Alcohol-Free') {
+							setAlcohol(true);
+						}
+					}
+				}
+			}
+		}
+		return () => recipeStore.removeChangeListener();
+	}, [recipeElement]);
+
+	function onChange() {
+		setRecipeElement(recipe.getRecipeByTitle(getUrl()));
 	}
-	const [calories] = useState(recipeElement.calories.toFixed(2));
-	let [yeld] = useState(recipeElement.yeld);
-	if (yeld === null || yeld === undefined || yeld === '') {
-		yeld = 4;
-	}
-
-	let [ingredients] = useState(recipeElement.ingredients);
-
-	const [photo] = useState(recipeElement.photo);
-	const [url] = useState(recipeElement.url);
-	const [source] = useState(`source: ${recipeElement.source}`);
 
 	function getUrl() {
 		var actual = window.location + '';
@@ -37,32 +87,6 @@ function RecipePage() {
 		var title = split[split.length - 1];
 
 		return decodeURI(title);
-	}
-
-	if (recipeElement.preferences) {
-		for (let i = 0; i < recipeElement.preferences.length; i++) {
-			if (recipeElement.preferences[i] === 'Balanced') {
-				balanced = true;
-			} else if (recipeElement.preferences[i] === 'High-Protein') {
-				protein = true;
-			} else if (recipeElement.preferences[i] === 'Low-Fat') {
-				low_fat = true;
-			} else if (recipeElement.preferences[i] === 'Low-Carb') {
-				low_carb = true;
-			} else if (recipeElement.preferences[i] === 'Vegan') {
-				vegan = true;
-			} else if (recipeElement.preferences[i] === 'Vegetarian') {
-				vegetarian = true;
-			} else if (recipeElement.preferences[i] === 'Sugar-Conscious') {
-				sugar = true;
-			} else if (recipeElement.preferences[i] === 'Peanut-Free') {
-				peanut = true;
-			} else if (recipeElement.preferences[i] === 'Tree-Nut-Free') {
-				treenut = true;
-			} else if (recipeElement.preferences[i] === 'Alcohol-Free') {
-				alcohol = true;
-			}
-		}
 	}
 
 	return (
@@ -89,7 +113,12 @@ function RecipePage() {
 						</div>
 						<div className="title__img__container flex__column">
 							<h2>{titleString}</h2>
-							<img className="image-recipe" id="image-recipe" src={photo} />
+							<img
+								alt=""
+								className="image-recipe"
+								id="image-recipe"
+								src={photo}
+							/>
 							<p className="ingredients__source">{source}</p>
 						</div>
 					</div>
@@ -108,6 +137,7 @@ function RecipePage() {
 								<div className="recipe__text--preferences">
 									{balanced && (
 										<img
+											alt=""
 											className="preferences__icon preference__balanced"
 											id="balanced"
 											src="https://image.flaticon.com/icons/png/512/30/30636.png"
@@ -115,20 +145,23 @@ function RecipePage() {
 									)}
 									{protein && (
 										<img
+											alt=""
 											className="preferences__icon"
 											id="protein"
 											src="https://icon-library.com/images/protein-icon/protein-icon-0.jpg"
 										></img>
 									)}
-									{low_fat && (
+									{lowFat && (
 										<img
+											alt=""
 											className="preferences__icon"
 											id="low_fat"
 											src="https://www.pinclipart.com/picdir/big/150-1505070_low-fat-or-low-carb-icon-clipart.png"
 										></img>
 									)}
-									{low_carb && (
+									{lowCarb && (
 										<img
+											alt=""
 											className="preferences__icon"
 											id="low_carb"
 											src="https://cdn2.iconfinder.com/data/icons/organic-food-1/24/Low_Carb-512.png"
@@ -136,6 +169,7 @@ function RecipePage() {
 									)}
 									{vegan && (
 										<img
+											alt=""
 											className="preferences__icon"
 											id="vegan"
 											src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Vegan_friendly_icon.svg/900px-Vegan_friendly_icon.svg.png"
@@ -144,6 +178,7 @@ function RecipePage() {
 
 									{vegetarian && (
 										<img
+											alt=""
 											className="preferences__icon"
 											id="vegetarian"
 											src="https://img.icons8.com/plasticine/100/000000/vegetarian-food.png"
@@ -151,6 +186,7 @@ function RecipePage() {
 									)}
 									{sugar && (
 										<img
+											alt=""
 											className="preferences__icon"
 											id="sugar"
 											src="https://www.footys.co.za/images/icon-sugar.png"
@@ -158,6 +194,7 @@ function RecipePage() {
 									)}
 									{peanut && (
 										<img
+											alt=""
 											className="preferences__icon preference__peanut-free"
 											id="peanut"
 											src="https://cdn0.iconfinder.com/data/icons/food-product-labels/128/peanut-free-512.png"
@@ -165,6 +202,7 @@ function RecipePage() {
 									)}
 									{treenut && (
 										<img
+											alt=""
 											className="preferences__icon preference__tree-nut-free"
 											id="treenut"
 											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-tree-nut-free-512.png"
@@ -172,13 +210,14 @@ function RecipePage() {
 									)}
 									{alcohol && (
 										<img
+											alt=""
 											className="preferences__icon preference__alcohol-free"
 											id="alcohol"
 											src="https://cdn3.iconfinder.com/data/icons/food-allergens-3/77/allergens-alcohol-free-512.png"
 										></img>
 									)}
 								</div>
-								{!recipeElement.preferences && (
+								{recipeElement & (recipeElement.preferences.length === 0) && (
 									<p className="error_text">No preferences</p>
 								)}
 							</div>
