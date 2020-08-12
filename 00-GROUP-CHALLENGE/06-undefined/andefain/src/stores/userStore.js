@@ -29,6 +29,8 @@ dispatcher.register((action) => {
 		case actionTypes.LIST_FAVORITE_FILMS:
 			_favoriteFilms = action.data;
 			userStore.emitChange(_favoriteFilms);
+		default:
+		//throw
 	}
 });
 

@@ -39,7 +39,7 @@ function Header() {
 				<div className="header-login">
 					{login ? (
 						<>
-							<Link className="header-login__button" to="/profile">
+							<Link className="header-login__profile-button" to="/profile">
 								Profile
 							</Link>
 							<div className="header-login__button" onClick={() => logout()}>
