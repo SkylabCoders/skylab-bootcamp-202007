@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import '../../shared/generalStyles.css';
 import './RepoDetail.scss';
-import RepoInfoStore from '../../stores/repoDetailStore';
-import { loadUserRepoInfo } from '../../actions/repoDetailActions';
+import RepoInfoStore from '../../stores/repoInfoStore';
 import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 import { loadRankingRepoInfo } from '../../actions/repoDetailActions';
 
@@ -14,9 +13,9 @@ function RepoDetail(props) {
 	//Defining states and setStates
 	const [groupInfo, setGroupInfo] = useState([]);
 	const [rankingInfo, setRankingInfo] = useState([]);
-	const [repoName, setRepoName] = useState(repoNameURL);
-	const [orgName, setOrgName] = useState(orgNameURL);
-	const [userName, setUserName] = useState(orgNameURL);
+	const [repoName] = useState(repoNameURL);
+	const [orgName] = useState(orgNameURL);
+	const [userName] = useState(orgNameURL);
 
 	useEffect(() => {
 		RepoInfoStore.addChangeListener(onChangeGroup);

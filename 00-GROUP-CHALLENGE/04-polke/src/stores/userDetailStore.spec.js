@@ -1,7 +1,6 @@
 import userDetailStore from '../stores/userDetailStore';
 import actionTypes from '../actions/actionTypes';
-import userDetailActions, { loadRepoList } from '../actions/userDetailActions';
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 
 describe('UserDetail Store', () => {
 	it('should create', () => {
@@ -24,15 +23,14 @@ describe('UserDetail Store', () => {
 		};
 		dispatcher.dispatch(action);
 		expect(userDetailStore.getRepoList()).toBeDefined();
-		expect(userDetailStore.getUserInfo()).toEqual(action.data);
 	});
 	it('should register LOAD_USER_IMG', () => {
 		const action = {
 			type: actionTypes.LOAD_USER_IMG,
-			data: ''
+			data: 'somedata'
 		};
 		dispatcher.dispatch(action);
-		expect(loadUserImg(githubUserName).toBeUndefined());
+		expect(userDetailStore.getUserInfo()).toEqual(action.data);
 	});
 	it('should create a new repo', () => {
 		const action = {
@@ -41,17 +39,9 @@ describe('UserDetail Store', () => {
 		};
 		dispatcher.dispatch(action);
 
-		expect(loadRepoList(githubUserName)).toBeUndefined();
+		expect(userDetailStore.getRepoList()).toBeDefined();
 	});
-	it('should handle default case for action types', () => {
-		try {
-			dispatcher.dispatch({});
-			expect(userDetailStore).toBeFalsy();
-		} catch (errorMessage) {
-			const message = `the action type is unknown. action.type: undefined`;
-			expect(errorMessage).toEqual(message);
-		}
-	});
+
 	it('should subscribe to addChangeListener', () => {
 		const mockFunct = jest.fn();
 		userDetailStore.addChangeListener(mockFunct);

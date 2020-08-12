@@ -2,7 +2,6 @@ import React from 'react';
 import '../../shared/generalStyles.css';
 import './Landing.css';
 import Login from './Login/Login';
-import PopUpBox from './PopUpBox/PopUpBox';
 
 function Landing() {
 	return (
