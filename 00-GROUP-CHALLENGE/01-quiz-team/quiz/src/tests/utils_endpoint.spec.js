@@ -1,4 +1,4 @@
-import getEndpoint from './../utils/endpoint';
+import getEndpoint from './../utils/getEndPoint';
 
 describe('test - utils - getEndpoints function', () => {
     test('Should get a set of 10 questions from different themes', () => {

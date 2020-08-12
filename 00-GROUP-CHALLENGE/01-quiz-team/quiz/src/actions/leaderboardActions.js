@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
 import dispatcher from './../dispatcher';
-import LEADERBOARD from '../mockdata/LEADERBOARD';
+import LEADERBOARD from './../mockdata/Leaderboard';
 
 export function loadLeaderboard(){
     let result = LEADERBOARD;
