@@ -34,10 +34,10 @@ function DetailsComponent(props) {
 
 							<div className="info">
 								<div className="title">
-									<Router>
-										<Link target="_blank" to="/">
-											{char && char.name}
-										</Link></Router>
+
+									<Link target="_blank" to="/">
+										{char && char.name}
+									</Link>
 								</div>
 								<div className="details-desc-content">
 									<div className="details-desc">
@@ -58,11 +58,9 @@ function DetailsComponent(props) {
 
 								</div>
 								{char && <div >
-									<Router>
-										<Link to={`/game/${char.name}`} >
-											<button className='row figthlink btn'> FIGTH!</button>
-										</Link>
-									</Router>
+									<Link to={`/game/${char.name}`} >
+										<button className='row figthlink btn'> FIGTH!</button>
+									</Link>
 								</div>}
 							</div>
 						</div>

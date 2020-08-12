@@ -4,7 +4,7 @@ export const ATTACK = 'Attack';
 export const FAIL = 'FAIL';
 
 
-function Player(names = 'Machine', isMachine = true) {
+function Player(names, isMachine = true) {
 
     let name = names;
     let charges = 1;
