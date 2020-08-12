@@ -18,11 +18,11 @@ export function globalSearch(text, filter, name) {
 export function loadCharList(filter, name) {
 	return new Promise((resolve) => {
 		resolve(charList);
-	}).then((charList) => {
+	}).then((list) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_CHAR_LIST,
 			data: {
-				charList,
+				charList: list,
 				filter,
 				name
 			}
