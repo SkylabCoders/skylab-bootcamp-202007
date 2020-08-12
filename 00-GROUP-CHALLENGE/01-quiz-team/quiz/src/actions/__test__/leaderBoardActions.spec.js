@@ -8,7 +8,7 @@ describe('Test set for leaderboard actions', ()=>{
         loadLeaderboard();
         const leaderboard = leaderboardStore.getLeaderboard();
         const result = LEADERBOARD;
-        expect(leaderboard).toBe(result);
+        expect(leaderboard).toEqual(result);
     })
     test('testing leaderboard saveResults action', ()=>{
         loadLeaderboard();
@@ -17,6 +17,6 @@ describe('Test set for leaderboard actions', ()=>{
         const result = sortResults([...leaderboard, newPlayerInLeaderboard]);
         saveResults(newPlayerInLeaderboard);
         const newLeaderboard = sortResults(leaderboardStore.getLeaderboard());
-        expect(newLeaderboard).toBe(result)
+        expect(newLeaderboard).toEqual(result)
     })
 })
