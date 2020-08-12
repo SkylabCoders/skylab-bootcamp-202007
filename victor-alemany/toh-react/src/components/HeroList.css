@@ -1,0 +1,15 @@
+.id-span{
+    margin: 10px;
+    background-color: cadetblue;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: ;
+}
+
+a{
+    text-decoration: none;
+}
+
+.hero-item{
+    margin: 20px 0;
+}

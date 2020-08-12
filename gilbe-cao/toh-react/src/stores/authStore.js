@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
-import dispatcher from '../appDispatcher';
-import actionTypes from '../actions/actionTypes';
+import dispatcher from '../dispatcher';
+import actionTypes from '../actions/action-types';
 
 const CHANGE_EVENT = 'change';
 let _isLogged = false;
