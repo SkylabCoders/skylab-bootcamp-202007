@@ -11,13 +11,19 @@ function User() {
 			<section className="user-info">
 				<div className="user-image">
 					<img
-						src={!!data.photoURL ? data.photoURL : ''}
+						src={
+							!!data.photoURL
+								? data.photoURL
+								: 'https://est.zetaestaticos.com/extremadura/img/noticias/0/773/773205_1.jpg'
+						}
 						alt="User profile image"
 					/>
 				</div>
 				<div className="user-detail">
-					<p>{!!data.displayName ? data.displayName.toUpperCase() : 'Name'}</p>
-					<p>{!!data.email ? data.email : 'email@mail.com'}</p>
+					<p>
+						{!!data.displayName ? data.displayName.toUpperCase() : 'Juanca'}
+					</p>
+					<p>{!!data.email ? data.email : 'rei@espana.com'}</p>
 				</div>
 			</section>
 			<section className="user-favorite-movie">

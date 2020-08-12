@@ -4,7 +4,7 @@ import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 
-let _finder = {};
+let _finder = [];
 
 class FinderStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -28,6 +28,7 @@ const finderStore = new FinderStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.SEARCH_FINDER:
+			debugger;
 			_finder = action.data;
 			finderStore.emitChange(_finder);
 			break;
