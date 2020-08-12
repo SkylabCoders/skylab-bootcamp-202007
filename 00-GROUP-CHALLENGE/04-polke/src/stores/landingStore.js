@@ -38,6 +38,10 @@ class LandingStore extends EventEmitter {
 		return _isGitHubUser;
 	}
 
+	getGitHubBio() {
+		return _gitHubBio;
+	}
+
 	getGitHubUserName() {
 		return _gitHubUserName;
 	}
@@ -52,13 +56,6 @@ const landingStore = new LandingStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOGIN:
-			_userProfile = action.data;
-			_isLogged = !!action.data;
-			landingStore.emitChange();
-			break;
-		case actionTypes.LOGIN_GITHUB:
-			_isGitHubUser = true;
-			_gitHubUserName = action.data.additionalUserInfo.username;
 			_userProfile = action.data;
 			_isLogged = !!action.data;
 			landingStore.emitChange();
@@ -85,7 +82,7 @@ dispatcher.register((action) => {
 			break;
 
 		default:
-			break;
+			throw `The action type ${action.type} is not defined.`;
 	}
 });
 
