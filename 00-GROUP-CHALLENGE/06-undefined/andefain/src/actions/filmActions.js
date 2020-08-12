@@ -39,7 +39,6 @@ export function callFilm() {
 	)
 		.then((response) => response.json())
 		.then((response) => {
-			debugger;
 			dispatcher.dispatch({
 				type: actionTypes.FILM_DETAILS,
 				data: response
