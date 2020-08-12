@@ -1,20 +1,24 @@
 import React from 'react';
 import './MainMenu.css';
+import { NavLink } from 'react-router-dom';
 
 class MainMenu extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            random: Math.floor(Math.random()*563)
+        }
     }
 
-    /* onClick={props.clickDashboard} */
     getMenu(){
         let result = (
             <nav className="nav__menu">
                 <ul className="menu__list--horizontal">
-                    <li className="menu__item--horizontal"><a href="/dashboard">Dashboard</a></li> 
-                    <li className="menu__item--horizontal"><a href="/top-heroes">Top heroes</a></li>
-                    <li className="menu__item--horizontal"><a href="/hero-search">Hero search</a></li>
-                    <li className="menu__item--horizontal"><a href="/random-hero">Random hero</a></li>
+                    <li className="menu__item--horizontal"><NavLink to="/">Hero list</NavLink></li> 
+                    <li className="menu__item--horizontal"><NavLink to="/top-heroes">Top 5 heroes</NavLink></li>
+                    <li className="menu__item--horizontal"><NavLink to="/full-flux">Full list</NavLink></li>
+                    <li className="menu__item--horizontal"><NavLink to="/hero-search">Hero search</NavLink></li>
+                    <li className="menu__item--horizontal"><NavLink to={'/hero/?heroId=' + this.state.random}>Random hero</NavLink></li>
                 </ul>
             </nav>
         );

@@ -1,0 +1,26 @@
+.heroes-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.hero-card {
+    height: 100px;
+    width: 100px;
+    margin-left: 10px;
+    background-color: #5F7D8C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.hero-card:hover {
+    background-color: #EEEEEC;
+    color: #5F7D8C;
+}
