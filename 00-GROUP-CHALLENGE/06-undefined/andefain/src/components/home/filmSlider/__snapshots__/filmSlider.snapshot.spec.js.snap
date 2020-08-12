@@ -19,11 +19,11 @@ exports[`Film slider snapshot Should match 1`] = `
       />
     </a>
     <div
-      class="arrow"
+      className="arrow"
     >
       <img
         alt="Left arrow"
-        class="arrow__left"
+        className="arrow__left"
         onClick={[Function]}
         src="https://image.flaticon.com/icons/svg/566/566011.svg"
       />
@@ -40,11 +40,11 @@ exports[`Film slider snapshot Should match 1`] = `
       />
     </a>
     <div
-      class="arrow"
+      className="arrow"
     >
       <img
         alt="Right arrow"
-        class="arrow__right"
+        className="arrow__right"
         onClick={[Function]}
         src="https://image.flaticon.com/icons/svg/566/566011.svg"
       />

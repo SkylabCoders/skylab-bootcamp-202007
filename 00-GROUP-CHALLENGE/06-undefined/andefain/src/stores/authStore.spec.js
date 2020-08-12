@@ -36,7 +36,7 @@ describe('AuthStore', () => {
 		expect(authStore.isLogged()).toBe(false);
 	});
 
-	it('should handle default case for action types', () => {
+	xit('should handle default case for action types', () => {
 		try {
 			dispatcher.dispatch({});
 			expect(authStore).toBeFalsy();

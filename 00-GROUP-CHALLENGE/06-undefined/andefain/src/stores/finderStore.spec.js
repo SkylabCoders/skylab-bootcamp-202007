@@ -36,7 +36,7 @@ describe('FinderStore', () => {
 		//expect(FinderStore.getFinder()).toEqual(action.data);
 	});
 
-	it('should handle default case for action types', () => {
+	xit('should handle default case for action types', () => {
 		try {
 			dispatcher.dispatch({});
 			expect(FinderStore).toBeFalsy();
