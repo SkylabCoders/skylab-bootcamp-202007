@@ -20,6 +20,7 @@ describe('Header test', () => {
 	let instance = null;
 	let component = null;
 	let text = null;
+
 	it('Should match', () => {
 		headerTree = renderHeader();
 		expect(headerTree).toMatchSnapshot();
