@@ -1,6 +1,5 @@
 import repoDetailStore from '../stores/repoDetailStore';
 import actionTypes from '../actions/actionTypes';
-/* import userDetailActions, { loadRepoList } from '../actions/userDetailActions'; */
 import repoDetailActions, {
 	loadGroupRepoInfo,
 	loadRankingRepoInfo
@@ -54,25 +53,6 @@ describe('RepoDetail Store', () => {
 		dispatcher.dispatch(action);
 		expect(loadGroupRepoInfo().toBeUndefined());
 	});
-	/*
-	it('should register LOAD_USER_IMG', () => {
-		const action = {
-			type: actionTypes.LOAD_USER_IMG,
-			data: ''
-		};
-		dispatcher.dispatch(action);
-		expect(loadUserImg(githubUserName).toBeUndefined());
-	});
-	it('should create a new repo', () => {
-		const action = {
-			type: actionTypes.CREATE_REPO,
-			data: ''
-		};
-		dispatcher.dispatch(action);
-
-		expect(loadRepoList(githubUserName)).toBeUndefined();
-    });
-    */
 	it('should handle default case for action types', () => {
 		try {
 			dispatcher.dispatch({});
