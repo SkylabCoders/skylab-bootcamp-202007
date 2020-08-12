@@ -1,9 +1,10 @@
 import { authMethods } from './../firebaseAuthMethods';
+import * as MOCKUSER from './../../mockdata/User';
 
 describe('Test set for firebase authentication methods', ()=>{
     test('Test that the signIn function does not return undefined', ()=>{
-        const email = 'me@test.mail';
-        const password = 'abc123';
+        const email = MOCKUSER.email;
+        const password = MOCKUSER.password;
         const result = authMethods.signIn(email, password);
         expect(result).toBeDefined();
     })

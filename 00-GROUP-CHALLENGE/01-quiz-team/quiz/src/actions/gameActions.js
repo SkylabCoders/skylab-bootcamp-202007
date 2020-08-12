@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
-import dispatcher from './../AppDispatcher';
-import THEMES_LIST from './../mockdata/Themes';
+import dispatcher from './../dispatcher';
+import THEMES_LIST from '../mockdata/THEMES_LIST';
 import getApiData from './../getApiData';
 
 export function loadThemes(){

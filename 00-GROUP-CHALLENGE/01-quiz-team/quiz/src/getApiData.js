@@ -1,6 +1,6 @@
-import CONFIG_DATA from './config/apiConfig';
-import getEndpoint from './utils/endpoint';
-import decodeFast from './utils/simpleDecoder';
+import CONFIG_DATA from './config/CONFIG_DATA';
+import getEndpoint from './utils/getEndPoint';
+import simpleDecoder from './utils/simpleDecoder';
 
 export default async function getApiData(category = 'all', difficulty = 'all', type = 'all', encode='default', amount = 10) {
     const URL = `https://${CONFIG_DATA.HOST}?${getEndpoint(category, difficulty, type, encode, amount)}`;
@@ -10,10 +10,10 @@ export default async function getApiData(category = 'all', difficulty = 'all', t
   
       const result = apiData.results;
       for(let el of result){
-        el.question = decodeFast(el.question);
-        el.correct_answer = decodeFast(el.correct_answer);
+        el.question = simpleDecoder(el.question);
+        el.correct_answer = simpleDecoder(el.correct_answer);
         for (let i = 0; i < el.incorrect_answers.length; i++){
-          el.incorrect_answers[i] = decodeFast(el.incorrect_answers[i]);
+          el.incorrect_answers[i] = simpleDecoder(el.incorrect_answers[i]);
         }
       }
 

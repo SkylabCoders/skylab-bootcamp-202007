@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events';
-import dispatcher from './../AppDispatcher';
+import dispatcher from '../dispatcher';
 import actionTypes from './../actions/actionTypes';
 import sortResults from './../utils/sortResults'
 

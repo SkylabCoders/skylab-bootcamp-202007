@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import dispatcher from './../AppDispatcher';
+import dispatcher from './../dispatcher';
 
 export function loadQuestion(i){
     let result = i;
