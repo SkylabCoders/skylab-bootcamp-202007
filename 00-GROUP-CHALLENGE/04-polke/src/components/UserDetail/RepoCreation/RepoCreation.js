@@ -5,12 +5,7 @@ import '../../../shared/generalStyles.css';
 import { createRepo } from '../../../actions/userDetailActions';
 
 function RepoCreation() {
-	const [gitHubUserName, setGitHubUserName] = useState(
-		landingStore.getGitHubUserName()
-	);
-	const [gitHubAccessToken, setGitHubAccessToken] = useState(
-		landingStore.getGitHubAccessToken()
-	);
+	const [gitHubAccessToken] = useState(landingStore.getGitHubAccessToken());
 
 	return (
 		<div className="repocreation__container">

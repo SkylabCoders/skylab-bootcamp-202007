@@ -14,7 +14,9 @@ export default withRouter(function ({ history }) {
 		gitHubCode ? history.push('./userDetail') : history.push('');
 	});
 
-	function onChange() {}
+	function onChange() {
+		setGitHubCode(landingStore.getGitHubAccessToken);
+	}
 
 	return (
 		<div className="auth__container">

@@ -1,4 +1,4 @@
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 import actionTypes from './actionTypes';
 
 export function loadRepoList(userName) {

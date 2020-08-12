@@ -7,7 +7,6 @@ import { loadUserImg } from '../../../actions/userDetailActions';
 
 function UserInfo({ githubUserName }) {
 	const [userImg, setuserImg] = useState([]);
-	const [userName, setUserName] = useState(githubUserName);
 
 	useEffect(() => {
 		userDetailStore.addChangeListener(onChange);

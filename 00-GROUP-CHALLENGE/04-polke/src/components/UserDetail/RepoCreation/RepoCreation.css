@@ -53,6 +53,7 @@
 
 .form__repo-access {
 	border-radius: 5px;
+	margin-left: 100px;
 }
 
 .form__text-input {
@@ -60,10 +61,6 @@
 	margin-right: 5px;
 	border-radius: 5px;
 	border: 0.3px solid gray;
-}
-
-.form__repo-access {
-	margin-left: 100px;
 }
 
 .form__readme {

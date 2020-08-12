@@ -1,10 +1,7 @@
 import repoDetailStore from '../stores/repoDetailStore';
 import actionTypes from '../actions/actionTypes';
-import repoDetailActions, {
-	loadGroupRepoInfo,
-	loadRankingRepoInfo
-} from '../actions/repoDetailActions';
-import dispatcher from '../appDispatcher';
+import { loadGroupRepoInfo } from '../actions/repoDetailActions';
+import dispatcher from '../dispatcher';
 
 describe('RepoDetail Store', () => {
 	it('should create', () => {
@@ -52,15 +49,6 @@ describe('RepoDetail Store', () => {
 		};
 		dispatcher.dispatch(action);
 		expect(loadGroupRepoInfo().toBeUndefined());
-	});
-	it('should handle default case for action types', () => {
-		try {
-			dispatcher.dispatch({});
-			expect(repoDetailStore).toBeFalsy();
-		} catch (errorMessage) {
-			const message = 'Action type is unknow';
-			/* expect(errorMessage).toEqual(message); */
-		}
 	});
 
 	it('should subscribe to addChangeListener', () => {

@@ -1,4 +1,4 @@
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 import actionTypes from './actionTypes';
 import { authMethods } from '../firebase/firebaseAuthMethods';
 import githubApiConst from '../shared/githubApiConst';

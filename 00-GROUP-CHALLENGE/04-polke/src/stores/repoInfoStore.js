@@ -1,4 +1,4 @@
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 import actionTypes from '../actions/actionTypes';
 import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
@@ -108,7 +108,7 @@ class RepoInfoStore extends EventEmitter {
 	setUserImg(user, data) {
 		let userUrl = data
 			.filter((elem) => elem.author.login === user)
-			.map((user) => user.author.avatar_url);
+			.map((mapUser) => mapUser.author.avatar_url);
 		return userUrl;
 	}
 	retrieveUserLinesOfCodeAdded(user, data) {
@@ -155,7 +155,6 @@ class RepoInfoStore extends EventEmitter {
 			groupCommits: null,
 			weeksSinceStart: null,
 			userLinesAdded: null,
-			userLinesDeleted: null,
 			userLinesDeleted: null,
 			userCommits: null,
 			userName: userName,

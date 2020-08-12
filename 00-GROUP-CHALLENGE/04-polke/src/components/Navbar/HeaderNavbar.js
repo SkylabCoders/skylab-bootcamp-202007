@@ -18,13 +18,6 @@ function HeaderNavbar() {
 			className="navbar__logo"
 		/>
 	);
-	const imgLogoDark = (
-		<img
-			src={require('../../assets/img/logo-dark.png')}
-			alt="logo"
-			className="navbar__logo"
-		/>
-	);
 
 	return (
 		<>

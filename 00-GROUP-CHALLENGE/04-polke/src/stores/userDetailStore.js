@@ -1,4 +1,4 @@
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 import actionTypes from '../actions/actionTypes';
 import landingStore from '../stores/landingStore';
 import { EventEmitter } from 'events';

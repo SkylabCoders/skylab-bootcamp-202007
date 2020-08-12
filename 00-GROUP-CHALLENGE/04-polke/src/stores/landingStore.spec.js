@@ -1,4 +1,4 @@
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 import landingStore from './landingStore';
 
 import actionTypes from '../actions/actionTypes';
