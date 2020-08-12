@@ -30,19 +30,12 @@ describe('RecipePage', () => {
 	const yeld = 4;
 
 	let recipePageTree;
-	let instance;
-	let component;
-	let text;
 
 	beforeEach(async () => {
 		recipePageTree = renderRecipePage();
-		instance = recipePageTree.root;
-		component = instance.findByType('h2');
-		text = component.children[0];
 		recipePageTree.update();
 	});
 
-	/* REFACTOR RECIPE PAGE BECAUSE IF RECIPE IS UNDEFINED CRASHES EVERYWERE */
 	fit('should create recipe page without a recipe', async () => {
 		const props = {
 			match: {
