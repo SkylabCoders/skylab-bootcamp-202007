@@ -3,6 +3,7 @@ import store from '../../stores/store';
 import { loadSagaList } from '../../actions/actions';
 import './sagaComponent.scss';
 import { Link } from 'react-router-dom';
+
 const useBeforeFirstRender = (f) => {
 	const [hasRendered, setHasRendered] = useState(false)
 	useEffect(() => setHasRendered(true), [hasRendered])
@@ -10,18 +11,19 @@ const useBeforeFirstRender = (f) => {
 		f()
 	}
 }
-function SagaComponent(props) {
 
-
+function SagaComponent() {
 	let [sagas, setSagas] = useState(store.getSagas());
+
 	useBeforeFirstRender(() => {
 		loadSagaList();
 	})
+
 	useEffect(() => {
 		store.addChangeListener(onChange);
 		if (store.getSearchValue().text === '') setSagas(store.getSagas())
 		return () => store.removeChangeListener(onChange);
-	}, [sagas.length]);
+	}, [sagas]);
 
 
 	function onChange() {
