@@ -32,11 +32,13 @@ function FilmDetails({ details }) {
 				<span>{details.stars}</span>
 				<div className="film-details__head">
 					<span>
-						<span>{details.year}</span>
+						<span>{!!details.year ? details.year : 'Year: pending'}</span>
 						<span> | </span>
-						<span>{details.runtimeStr}</span>
+						<span>
+							{!!details.runtimeStr ? details.runtimeStr : 'Duration: pending'}
+						</span>
 						<span> | </span>
-						<span>{details.genres}</span>
+						<span>{!!details.genres ? details.genres : 'Genres: pending'}</span>
 					</span>
 				</div>
 				<div className="film-details__plot">
