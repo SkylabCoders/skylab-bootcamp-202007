@@ -22,9 +22,9 @@ export function loginGoogle(){
     return authMethods.signInWithGoogle()
         .then((data) => 
             {
-                console.log('-> .then of login function in authActions with data:', data);
-                console.log('-> .specifically, the access token is:', data.credential.accessToken);
-                console.log('-> .specifically, the user is:', data.user);
+                // console.log('-> .then of login function in authActions with data:', data);
+                // console.log('-> .specifically, the access token is:', data.credential.accessToken);
+                // console.log('-> .specifically, the user is:', data.user);
                 dispatcher.dispatch({
                     type: actionTypes.LOGIN,
                     data
@@ -33,11 +33,11 @@ export function loginGoogle(){
         )
         .catch((error)=>
             {
-                console.log('-> .catch of login function in authAction with error:', error);
-                console.log('-> .specifically, the error code is:', error.code);
-                console.log('-> .specifically, the error message is:', error.message);
-                console.log('-> .specifically, the error email is:', error.email);
-                console.log('-> .specifically, the error originated with credential is:', error.credential);
+                // console.log('-> .catch of login function in authAction with error:', error);
+                // console.log('-> .specifically, the error code is:', error.code);
+                // console.log('-> .specifically, the error message is:', error.message);
+                // console.log('-> .specifically, the error email is:', error.email);
+                // console.log('-> .specifically, the error originated with credential is:', error.credential);
             }
         );
 }

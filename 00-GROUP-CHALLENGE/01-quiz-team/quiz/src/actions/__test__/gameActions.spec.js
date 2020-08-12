@@ -13,13 +13,13 @@ describe('Test set for game actions', () => {
         loadTopThemes();
         const topThemes = gameStore.getTopThemes();
         const result = THEMES_LIST.slice(0,5);
-        expect(topThemes).toBe(result);
+        expect(topThemes).toEqual(result);
     })
-    test('Test that all set questions are loaded', ()=>{
-        loadSessionSet('all', 'all', 'all', 'default', 10);
-        const sessionSet = gameStore.getSessionSet();
-        console.log('AQUI!!!', sessionSet);
-        expect(sessionSet).toBeDefined();
-        expect(sessionSet.length).toBe(10);
+    test('Test that all set questions are loaded', async ()=>{
+        await loadSessionSet('all', 'all', 'all', 'default', 10);
+        const mockSessionSet = gameStore.getSessionSet();
+        console.log('AQUI!!!', mockSessionSet);
+        expect(mockSessionSet).toBeDefined();
+        expect(mockSessionSet).toHaveLength(10);
     })
 })
