@@ -74,7 +74,7 @@ function RecipePage() {
 				}
 			}
 		}
-		return () => recipeStore.removeChangeListener();
+		return () => recipeStore.removeChangeListener(onChange);
 	}, [recipeElement]);
 
 	function onChange() {
