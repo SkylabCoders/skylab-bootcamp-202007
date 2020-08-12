@@ -57,7 +57,7 @@ dispatcher.register((action) => {
 			filmStore.emitChange();
 			break;
 		default:
-			throw `${action.type} is unknown`;
+		//throw `${action.type} is unknown`;
 	}
 });
 
