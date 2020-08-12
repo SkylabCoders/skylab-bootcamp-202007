@@ -1,10 +1,10 @@
 import renderer from 'react-test-renderer'
-import HeroDashboard from './../HeroDashboard'
+import PageNotFound from '../PageNotFound'
 import React from 'react'
 
 
 describe('App snapshot', ()=>{
-    const tree = renderer.create(<HeroDashboard />);
+    const tree = renderer.create(<PageNotFound />);
 
     it('should match', ()=>{
         expect(tree.toJSON()).toMatchSnapshot();
