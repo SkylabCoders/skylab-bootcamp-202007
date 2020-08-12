@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import CharListComponent from './CharListComponent'
+import CharListComponent from './charListComponent'
 const tree = renderer.create(
     <CharListComponent />
 )
