@@ -4,7 +4,7 @@ import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 
-let _finder = [];
+let _finder = {};
 
 class FinderStore extends EventEmitter {
 	addChangeListener(callback) {
