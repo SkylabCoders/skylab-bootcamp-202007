@@ -43,7 +43,7 @@ describe('RecipePage', () => {
 	});
 
 	/* REFACTOR RECIPE PAGE BECAUSE IF RECIPE IS UNDEFINED CRASHES EVERYWERE */
-	fit('should match with title', async () => {
+	fit('should create recipe page without a recipe', async () => {
 		const props = {
 			match: {
 				params: {

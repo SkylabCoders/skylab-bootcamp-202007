@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RecipePage should match with title 1`] = `
+exports[`RecipePage should create recipe page without a recipe 1`] = `
 <div
   className="desktop__display body-content"
 >
@@ -63,6 +63,7 @@ exports[`RecipePage should match with title 1`] = `
             
           </h2>
           <img
+            alt=""
             className="image-recipe"
             id="image-recipe"
             src=""
