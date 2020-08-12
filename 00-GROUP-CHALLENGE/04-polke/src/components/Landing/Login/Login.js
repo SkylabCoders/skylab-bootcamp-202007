@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FormControl, FormGroup, Button } from 'react-bootstrap';
+import { FormControl, FormGroup } from 'react-bootstrap';
 import {
 	login,
 	loginGoogle,
-	loginAnonymously,
-	createNewUser
+	loginAnonymously
 } from '../../../actions/loginActions';
 import landingStore from '../../../stores/landingStore';
 import '../../../shared/generalStyles.css';

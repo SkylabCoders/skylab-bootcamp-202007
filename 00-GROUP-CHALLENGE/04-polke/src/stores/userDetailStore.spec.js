@@ -1,7 +1,6 @@
 import userDetailStore from '../stores/userDetailStore';
 import actionTypes from '../actions/actionTypes';
-import userDetailActions, { loadRepoList } from '../actions/userDetailActions';
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 
 describe('UserDetail Store', () => {
 	it('should create', () => {

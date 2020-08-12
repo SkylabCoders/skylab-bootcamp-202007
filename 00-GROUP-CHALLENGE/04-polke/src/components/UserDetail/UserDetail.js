@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './UserDetail.css';
 import '../../shared/generalStyles.css';
-import useruserDetailStore from '../../stores/userDetailStore';
 import userDetailStore from '../../stores/userDetailStore';
 import { loadRepoList } from '../../actions/userDetailActions';
 import RepoCard from '../RepoCard/RepoCard';
