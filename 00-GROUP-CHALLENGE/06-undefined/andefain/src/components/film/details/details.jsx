@@ -49,10 +49,7 @@ function FilmDetails({ details }) {
 }
 
 FilmDetails.propTypes = {
-	details: PropTypes.object,
-	plot: PropTypes.object,
-	genres: PropTypes.array,
-	names: PropTypes.string
+	details: PropTypes.object
 };
 
 export default FilmDetails;
