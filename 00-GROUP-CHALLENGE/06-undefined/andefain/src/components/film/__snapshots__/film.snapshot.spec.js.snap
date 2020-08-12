@@ -12,6 +12,7 @@ exports[`Film snapshot Should match 1`] = `
       onClick={[Function]}
     >
       <img
+        alt="Poster"
         className="poster-img"
       />
     </a>
@@ -20,6 +21,7 @@ exports[`Film snapshot Should match 1`] = `
       onClick={[Function]}
     >
       <img
+        alt="Trailer"
         className="trailer-img"
         src=""
       />

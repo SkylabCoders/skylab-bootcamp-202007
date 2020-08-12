@@ -7,7 +7,7 @@ import {
 
 import authStore from '../stores/authStore';
 
-describe('Auth actions test', () => {
+xdescribe('Auth actions test', () => {
 	const mail = 'test@gmail.com';
 	const pass = '1234567';
 	it('should login', () => {
