@@ -3,7 +3,11 @@ import landingStore from './landingStore';
 
 import actionTypes from '../actions/actionTypes';
 
+<<<<<<< Updated upstream
 describe('Login Store', () => {
+=======
+describe('Landing Store', () => {
+>>>>>>> Stashed changes
 	let action = null;
 
 	it('should create', () => {

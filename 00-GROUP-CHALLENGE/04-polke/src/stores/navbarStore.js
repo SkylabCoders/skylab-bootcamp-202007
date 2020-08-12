@@ -19,5 +19,8 @@ class NavbarStore extends EventEmitter {
 }
 
 const navbarStore = new NavbarStore();
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 export default navbarStore;

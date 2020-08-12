@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer';
-import Footer from './Footer';
+import AuthComp from './AuthComp';
 import React from 'react';
 
-xdescribe('Footer snapshot', () => {
-	const tree = renderer.create(<Footer />);
+describe.skip('AuthComp snapshot', () => {
+	const tree = renderer.create(<AuthComp />);
 	it('should match', () => {
 		expect(tree.toJSON()).toMatchSnapshot();
 	});

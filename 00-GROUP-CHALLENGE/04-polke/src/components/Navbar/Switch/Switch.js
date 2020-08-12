@@ -83,7 +83,7 @@ function Switch() {
 			<img
 				src={require('../../../assets/img/sun.png')}
 				alt="sun"
-				className="sun"
+				className="sun switch-img"
 			/>
 			<div className="custom-control custom-switch">
 				<input
@@ -101,7 +101,7 @@ function Switch() {
 			<img
 				src={require('../../../assets/img/moon.png')}
 				alt="moon"
-				className="moon"
+				className="moon switch-img"
 			/>
 		</div>
 	);

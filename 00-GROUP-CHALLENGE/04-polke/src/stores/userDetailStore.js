@@ -45,9 +45,13 @@ dispatcher.register((action) => {
 			//loadRepoList(landingStore.getGitHubUserName());
 			break;
 		default:
+<<<<<<< Updated upstream
 			throw `The action ${action.type} is not defined`;
 
 			break;
+=======
+			throw `The action type ${action.type} from UserDetail is not defined`;
+>>>>>>> Stashed changes
 	}
 });
 

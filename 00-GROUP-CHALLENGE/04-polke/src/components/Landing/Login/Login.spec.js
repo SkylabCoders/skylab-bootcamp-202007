@@ -1,6 +1,11 @@
+<<<<<<< Updated upstream
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
+=======
+import renderer from 'react-test-renderer';
+import BrowserRouter from 'react-router-dom';
+>>>>>>> Stashed changes
 import Login from './Login';
 
 function renderLogin() {
@@ -13,6 +18,7 @@ function renderLogin() {
 }
 
 describe('Login', () => {
+<<<<<<< Updated upstream
 	let loginTree;
 	let instance;
 	let element;
@@ -29,5 +35,13 @@ describe('Login', () => {
 
 	it('Should match', () => {
 		expect(loginTree).toMatchSnapshot();
+=======
+	let instance;
+	let element;
+	let text;
+	beforeEach(() => {
+		const loginTree = renderLogin();
+		i;
+>>>>>>> Stashed changes
 	});
 });
