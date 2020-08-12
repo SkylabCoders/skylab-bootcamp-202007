@@ -3,7 +3,8 @@ import store from '../../stores/store';
 import { loadCharList } from '../../actions/actions';
 import './detailsComponent.css';
 
-import { Link } from 'react-router-dom';
+
+import { Link, BrowserRouter, Router } from 'react-router-dom';
 function DetailsComponent(props) {
 	const [chars, setChars] = useState(store.getCharacters());
 
@@ -33,9 +34,10 @@ function DetailsComponent(props) {
 
 							<div className="info">
 								<div className="title">
-									<Link target="_blank" to="/">
-										{char && char.name}
-									</Link>
+									<Router>
+										<Link target="_blank" to="/">
+											{char && char.name}
+										</Link></Router>
 								</div>
 								<div className="details-desc-content">
 									<div className="details-desc">
@@ -56,9 +58,11 @@ function DetailsComponent(props) {
 
 								</div>
 								{char && <div >
-									<Link to={`/game/${char.name}`} >
-										<button className='row figthlink btn'> FIGTH!</button>
-									</Link>
+									<Router>
+										<Link to={`/game/${char.name}`} >
+											<button className='row figthlink btn'> FIGTH!</button>
+										</Link>
+									</Router>
 								</div>}
 							</div>
 						</div>
