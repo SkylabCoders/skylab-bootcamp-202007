@@ -16,7 +16,7 @@ function renderSagaComponent(arg) {
             <SagaComponent {...props} />
         </BrowserRouter>
     );
-};
+}
 describe('SagaComponent', () => {
     let sagaComponentTree = null;
     let instance;

@@ -17,7 +17,7 @@ export async function logout() {
         return action;
     } catch (error) {
         window.alert(`${error} in logout process.`)
-    };
+    }
     /*     return authMethods
             .signout()
             .then(() => {
