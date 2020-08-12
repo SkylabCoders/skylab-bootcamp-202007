@@ -27,7 +27,7 @@ export function loginGoogle() {
 		.catch((error) => console.error(error.message));
 }
 
-export function loginAnonyomously() {
+export function loginAnonymously() {
 	return authMethods
 		.signInAnonymously()
 		.then((data) => {
