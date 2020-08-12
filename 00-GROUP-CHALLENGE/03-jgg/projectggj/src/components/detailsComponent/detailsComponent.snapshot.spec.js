@@ -2,21 +2,27 @@ import renderer from 'react-test-renderer';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import DetailsComponent from './detailsComponent';
-const props = {
-    match: {
-        params: {
-            name
+
+function renderDetails(arg) {
+    const props = {
+        match: {
+            params: {
+                name
+            }
         }
     }
-}
-
-describe('DetailsComponent snapShot', () => {
-    const DetailsComponentTree = renderer.create(
+    return renderer.create(
         <Router>
             <DetailsComponent {...props} />
         </Router>
     );
+}
+
+describe('DetailsComponent snapShot', () => {
+
     it('should macth', () => {
+        let DetailsComponentTree = renderDetails();
+
         expect(DetailsComponentTree).toMatchSnapshot();
     })
 });
