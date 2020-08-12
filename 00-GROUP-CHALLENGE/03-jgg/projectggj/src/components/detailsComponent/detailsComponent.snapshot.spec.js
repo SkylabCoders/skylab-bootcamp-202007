@@ -48,4 +48,14 @@ describe('DetailsComponent snapShot', () => {
 
         expect(text).toEqual('Vegeta');
     });
+    it('should display name of chracter', async () => {
+        DetailTree = renderDetails();
+
+        instance = DetailTree.root;
+        component = instance.findAllByProps({ className: 'details-desc' })[0];
+        text = component.children[0];
+        let prov = text.children
+
+        expect(prov).toEqual('RACE: Sayan');
+    });
 });
