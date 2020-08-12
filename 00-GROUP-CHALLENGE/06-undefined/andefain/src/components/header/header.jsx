@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import authStore from '../../stores/authStore';
 import { logout } from '../../actions/authActions';
 
-function Header(props) {
+function Header() {
 	const [search, setSearch] = useState('');
 	const [login, setLogin] = useState(authStore.isLogged());
 
@@ -23,39 +23,37 @@ function Header(props) {
 	};
 
 	return (
-		<>
-			<header className="header-container">
-				<div className="header">
-					<Link className="header-logo" to="/"></Link>
-					<form className="header-form" onSubmit={handleSubmit}>
-						<input
-							type="text"
-							value={search}
-							className="header-form__search"
-							placeholder="Search any title or name..."
-							onChange={(event) => setSearch(event.target.value)}
-						></input>
-					</form>
+		<header className="header-container">
+			<div className="header">
+				<Link className="header-logo" to="/"></Link>
+				<form className="header-form" onSubmit={handleSubmit}>
+					<input
+						type="text"
+						value={search}
+						className="header-form__search"
+						placeholder="Search any title or name..."
+						onChange={(event) => setSearch(event.target.value)}
+					></input>
+				</form>
 
-					<div className="header-login">
-						{login ? (
-							<>
-								<Link className="header-login__button" to="/profile">
-									Profile
-								</Link>
-								<div className="header-login__button" onClick={() => logout()}>
-									Logout
-								</div>
-							</>
-						) : (
-							<Link to="/login">
-								<div className="header-login__button">Login</div>
+				<div className="header-login">
+					{login ? (
+						<>
+							<Link className="header-login__button" to="/profile">
+								Profile
 							</Link>
-						)}
-					</div>
+							<div className="header-login__button" onClick={() => logout()}>
+								Logout
+							</div>
+						</>
+					) : (
+						<Link to="/login">
+							<div className="header-login__button">Login</div>
+						</Link>
+					)}
 				</div>
-			</header>
-		</>
+			</div>
+		</header>
 	);
 }
 

@@ -47,7 +47,7 @@ dispatcher.register((action) => {
 			authStore.emitChange();
 			break;
 		default:
-			throw `The action type is unknown. action.type: ${action.type}`;
+		//throw `The action type is unknown. action.type: ${action.type}`;
 	}
 });
 export default authStore;

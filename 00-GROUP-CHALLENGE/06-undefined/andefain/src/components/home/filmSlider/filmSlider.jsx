@@ -31,10 +31,10 @@ function FilmSlider({ data }) {
 						}
 					></img>
 				</Link>
-				<div class="arrow">
+				<div className="arrow">
 					<img
 						src="https://image.flaticon.com/icons/svg/566/566011.svg"
-						class="arrow__left"
+						className="arrow__left"
 						alt="Left arrow"
 						onClick={() => {
 							sliderIndex === 0
@@ -57,10 +57,10 @@ function FilmSlider({ data }) {
 						}
 					></img>
 				</Link>
-				<div class="arrow">
+				<div className="arrow">
 					<img
 						src="https://image.flaticon.com/icons/svg/566/566011.svg"
-						class="arrow__right"
+						className="arrow__right"
 						alt="Right arrow"
 						onClick={() => {
 							sliderIndex === data.length - 1

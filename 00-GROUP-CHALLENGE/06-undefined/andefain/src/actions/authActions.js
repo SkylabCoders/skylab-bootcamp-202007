@@ -6,6 +6,7 @@ export function login(email, password) {
 	return authMethods
 		.signin(email, password)
 		.then(({ user }) => {
+			console.log(user);
 			dispatcher.dispatch({
 				type: actionTypes.LOGIN,
 				data: user
