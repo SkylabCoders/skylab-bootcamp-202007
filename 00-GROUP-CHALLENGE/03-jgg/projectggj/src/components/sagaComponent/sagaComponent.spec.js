@@ -24,7 +24,6 @@ describe('SagaComponent', () => {
     let text;
 
     beforeEach(() => {
-
         sagaComponentTree = renderSagaComponent();
         instance = sagaComponentTree.root;
         component = instance.findByProps(className = "card-holder flex-item flex-col centred")
@@ -35,7 +34,7 @@ describe('SagaComponent', () => {
     it('should match snapshot', () => {
         expect(sagaComponentTree).toMatchSnapshot();
     });
-    it('should .... without ...', () => {
+    it('should get useEffect when loading', () => {
         sagaComponentTree = renderSagaComponent();
 
         instance = sagaComponentTree.root;
