@@ -1,0 +1,27 @@
+.bannerContainer {
+	height: 25vw;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.bannerImage {
+	position: absolute;
+	height: 25vw;
+	width: 100vw;
+	object-fit: cover;
+	z-index: -1;
+}
+
+p {
+	text-align: center;
+	vertical-align: middle;
+}
+
+h1 {
+	background-color: hsl(0, 0%, 100%, 0.8);
+	border-radius: 5px;
+	padding: 1px 20px;
+}

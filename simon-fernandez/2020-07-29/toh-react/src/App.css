@@ -1,0 +1,41 @@
+.row > a {
+	margin-left: 2vw;
+}
+h1 {
+	color: grey;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 250%;
+}
+h2,
+h3 {
+	color: #444;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+}
+.text-center {
+	text-align: center;
+}
+.space-around {
+	justify-content: space-around;
+}
+.dashboard-nav {
+	width: 100%;
+	background-color: #607d8b;
+	color: white;
+}
+.dashboard-nav > p {
+	padding: 5vh;
+}
+.nav > a {
+	color: blue;
+}
+.list-id > div {
+	padding: 1vh;
+}
+.list-id-id {
+	background-color: #607d8b;
+}
+.list-id-name:hover {
+	background-color: #cfd8dc;
+	color: white;
+}
