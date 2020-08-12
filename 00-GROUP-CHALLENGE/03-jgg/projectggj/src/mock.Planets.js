@@ -22,7 +22,7 @@ const planetsArr = [
         "residents": ["Beerus"],
         "_id": "5c7c8a9c12b25cfd00177aa154",
         "created": "2019-03-04T02:17:00.471Z",
-        'name': 'Planet temple',
+        'name': 'Planet_temple',
         "url": "/api/planet/beerus_temple",
         'image': 'https://vignette.wikia.nocookie.net/dragonuniverse/images/e/ee/Beerus%27_Planet_Movie_19.png/revision/latest?cb=20170313230324', "__v": 0
     },

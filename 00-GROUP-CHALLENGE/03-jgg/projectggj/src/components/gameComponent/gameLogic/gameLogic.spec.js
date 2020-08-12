@@ -1,5 +1,4 @@
 import Player from './gameLogic';
-import gameComponent from '../gameComponent';
 
 describe('gameLogic', () => {
 
@@ -13,17 +12,14 @@ describe('gameLogic', () => {
     let lives;
     let newPlayer;
     let newMachine;
-
-    const T800 = new Player();
     beforeEach(() => {
         let names = 'Shordi';
 
         charges = 1;
-        action = '';
         lives = 3;
         newPlayer = new Player(names, false);
 
-        newMachine = new Player('R2D2', true);
+        newMachine = new Player();
 
 
     });

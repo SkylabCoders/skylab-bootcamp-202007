@@ -33,7 +33,7 @@ export function loadCharList(filter, name) {
 export function loadSagaList() {
 	return new Promise((resolve) => {
 		resolve(sagaList);
-	}).then((sagaList) => {
+	}).then(() => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_SAGA_LIST,
 			data: sagaList
@@ -55,7 +55,7 @@ export function saveUser(user) {
 export function loadPlanets() {
 	return new Promise((resolve) => {
 		resolve(planetsArr);
-	}).then((planetsArr) => {
+	}).then(() => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_PLANETS,
 			data: planetsArr

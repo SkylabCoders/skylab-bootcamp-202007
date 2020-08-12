@@ -2,6 +2,7 @@ export const CHARGE = 'Charge';
 export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
 export const FAIL = 'FAIL';
+const { random } = Math;
 const INITIAL_LIVES = 3;
 const INITIAL_CHARGES = 1;
 const INITIAL_ACTION = '';
@@ -27,9 +28,9 @@ function Player(names, isMachine = true) {
     function generateAction() {
         let naction
         if (charges > 0)
-            naction = Math.floor(Math.random() * 3)
+            naction = Math.floor(random() * 3)
         else
-            naction = Math.floor(Math.random() * 2)
+            naction = Math.floor(random() * 2)
 
         translateAction(naction.toString());
         return calculateAction();
