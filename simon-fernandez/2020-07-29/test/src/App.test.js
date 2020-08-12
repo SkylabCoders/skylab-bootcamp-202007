@@ -1,23 +1,21 @@
 describe('App', () => {
-	beforeAll(() => {
-		console.log('Before All');
-	});
-	beforeEach(() => {
-		console.log('Before Each');
-	});
 	it('should create', () => {
-		console.log('Test!');
 		expect(2 + 2).toEqual(4);
 	});
+
 	it('should duplicate', () => {
-		console.log('Test!');
 		expect(2 * 2).toEqual(4);
 	});
 
-	afterEach(() => {
-		console.log('After Each');
+	it('should create async1', (done) => {
+		setTimeout(done, 1000);
 	});
-	afterAll(() => {
-		console.log('After All');
+
+	it('should create async2', () => {
+		return new Promise((resolve) => setTimeout(resolve, 2000));
+	});
+
+	it('should create async3', async () => {
+		return await new Promise((resolve) => setTimeout(resolve, 3000));
 	});
 });
