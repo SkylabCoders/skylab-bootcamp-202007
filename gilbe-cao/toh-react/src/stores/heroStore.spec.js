@@ -106,9 +106,9 @@ describe('HeroStore', () => {
 		try {
 			dispatcher.dispatch({});
 			expect(heroStore).toBeFalsy();
-		} catch (errorMessage) {
+		} catch (error) {
 			const message = `The action type is unknown. action.type: undefined`;
-			expect(errorMessage).toEqual(message);
+			expect(error.message).toEqual(message);
 		}
 	});
 });
