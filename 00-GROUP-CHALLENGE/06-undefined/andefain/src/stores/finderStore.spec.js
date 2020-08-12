@@ -11,7 +11,6 @@ function reduceAction(action, data) {
 }
 
 describe('FinderStore', () => {
-	let action;
 	let myCallbackMockFunction;
 
 	beforeEach(() => {
