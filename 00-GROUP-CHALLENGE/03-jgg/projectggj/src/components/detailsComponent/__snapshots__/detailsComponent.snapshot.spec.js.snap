@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsComponent snapShot should macth 1`] = `
+<div
+  className="details-holder"
+>
+  <div
+    className="flex-item"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="detail-container flex-item"
+      >
+        <div
+          className="card hovercard"
+        >
+          <div
+            className="cardheader"
+          />
+          <div
+            className="avatar"
+          />
+          <div
+            className="info"
+          >
+            <div
+              className="title"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+                target="_blank"
+              />
+            </div>
+            <div
+              className="details-desc-content"
+            >
+              <div
+                className="details-desc"
+              >
+                RACE: 
+              </div>
+              <div
+                className="details-desc"
+              >
+                STATUS: 
+              </div>
+              <div
+                className="details-desc"
+              >
+                PLANET: 
+              </div>
+              <div
+                className="details-desc"
+              >
+                GENDER: 
+              </div>
+              <div
+                className="details-desc"
+              >
+                SERIE: 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
