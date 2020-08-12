@@ -69,20 +69,19 @@ export async function loginWithGoogle() {
 
 //Function to call createAccount via flux
 export async function sendAccountRegister(email, password) {
-
     try {
-        const sendAccountRegister = await authMethods.sendAccountRegister(email, password);
+        const sendAccountRegister = await authMethods.createAccount(email, password);
         const action = await myDispatch(actionTypes.CREATE_PROFILE, sendAccountRegister);
         return action
     } catch (error) {
         alert(error);
     }
-    /*     return authMethods
+    /* Without async await
+         return authMethods
             .createAccount(email, password)
             .then(() =>
                 dispatcher.dispatch({
                     type: actionTypes.CREATE_PROFILE
-    
                 })
             ) */
 }

@@ -17,7 +17,6 @@ describe('gameLogic', () => {
     const T800 = new Player();
     beforeEach(() => {
         let names = 'Shordi';
-        let log = '';
 
         charges = 1;
         action = '';

@@ -1,6 +1,5 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import loadCharList from '../../actions/actions'
 import { BrowserRouter as Router } from 'react-router-dom';
 import DetailsComponent from './detailsComponent';
 
@@ -12,8 +11,6 @@ function renderDetails(arg) {
             }
         }
     };
-
-
 
     return renderer.create(
         <Router>
@@ -53,9 +50,8 @@ describe('DetailsComponent snapShot', () => {
 
         instance = DetailTree.root;
         component = instance.findAllByProps({ className: 'details-desc' })[0];
-        text = component.children[0];
-        let prov = text.children
+        text = component.findByType('span').children;
 
-        expect(prov).toEqual('RACE: Sayan');
+        expect(...text).toEqual('Saiyan');
     });
 });

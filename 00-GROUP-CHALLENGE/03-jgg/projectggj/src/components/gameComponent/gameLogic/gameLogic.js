@@ -2,20 +2,22 @@ export const CHARGE = 'Charge';
 export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
 export const FAIL = 'FAIL';
-
+const INITIAL_LIVES = 3;
+const INITIAL_CHARGES = 1;
+const INITIAL_ACTION = '';
 
 function Player(names, isMachine = true) {
 
     let name = names;
-    let charges = 1;
-    let action = '';
-    let lives = 3;
+    let charges = INITIAL_CHARGES;
+    let action = INITIAL_ACTION;
+    let lives = INITIAL_LIVES;
     let ret;
 
     function resetPlayer() {
-        lives = 3;
-        charges = 1;
-        action = "";
+        lives = INITIAL_LIVES;
+        charges = INITIAL_CHARGES;
+        action = INITIAL_ACTION;
     }
     function setAction(newAction) {
         action = newAction;
@@ -91,6 +93,6 @@ function Player(names, isMachine = true) {
     else
         ret = { setAction, recibeAction, getAction, getLives, getCharges, getName, resetPlayer }
 
-    return ret
+    return ret;
 }
 export default Player;
