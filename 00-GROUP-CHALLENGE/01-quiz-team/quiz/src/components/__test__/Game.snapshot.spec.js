@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer'
-import Game from '../../components/Game'
+import Game from './../Game'
 import React from 'react'
 
 

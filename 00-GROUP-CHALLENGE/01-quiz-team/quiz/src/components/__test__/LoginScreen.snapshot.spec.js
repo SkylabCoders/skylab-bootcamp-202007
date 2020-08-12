@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer'
-import LoginScreen from '../LoginScreen'
+import LoginScreen from './../LoginScreen'
 import React from 'react'
 import {BrowserRouter} from 'react-router-dom'
 
