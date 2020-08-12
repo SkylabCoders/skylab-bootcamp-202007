@@ -26,7 +26,6 @@ function FilmTrailer({ trailer }) {
 }
 
 FilmTrailer.propTypes = {
-	details: PropTypes.object,
 	trailer: PropTypes.object
 };
 

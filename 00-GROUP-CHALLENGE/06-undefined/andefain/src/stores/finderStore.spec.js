@@ -2,6 +2,7 @@ import FinderStore from './finderStore';
 import actionTypes from '../actions/actionTypes';
 import dispatcher from '../dispatcher';
 
+// Different approach with a reducer function
 function reduceAction(action, data) {
 	return {
 		type: action,
@@ -28,9 +29,11 @@ describe('FinderStore', () => {
 	it('should find results through SEARCH_FINDER', () => {
 		const search = 'matrix';
 		FinderStore.addChangeListener(myCallbackMockFunction);
-		action = reduceAction(actionTypes.SEARCH_FINDER, [{ search }]);
-		dispatcher.dispatch(action);
-		expect(FinderStore.getFinder()).toEqual(action.data);
+		dispatcher.dispatch({ type: actionTypes.SEARCH_FINDER, data: search });
+		expect(FinderStore.getFinder()).toEqual(search);
+		//action = reduceAction(actionTypes.SEARCH_FINDER, [{ search }]);
+		//dispatcher.dispatch(action);
+		//expect(FinderStore.getFinder()).toEqual(action.data);
 	});
 
 	it('should handle default case for action types', () => {
