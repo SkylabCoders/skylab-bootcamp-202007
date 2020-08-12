@@ -82,7 +82,7 @@ dispatcher.register((action) => {
 			break;
 
 		default:
-			throw `The action type ${action.type} is not defined.`;
+			break;
 	}
 });
 

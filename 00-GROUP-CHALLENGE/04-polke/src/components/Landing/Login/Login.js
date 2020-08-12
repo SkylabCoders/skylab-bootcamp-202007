@@ -16,14 +16,12 @@ import githubApiConst from '../../../shared/githubApiConst';
 export default withRouter(function ({ history }) {
 	const [isLogged, setIsLogged] = useState(false);
 	const [user, setUser] = useState(null);
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
 
 	const USERDETAIL_PATH = './userDetail';
 
 	useEffect(() => {
 		landingStore.addChangeListener(onAuthChange);
-		user ? history.push('./userDetail') : history.push('');
+		user ? history.push(USERDETAIL_PATH) : history.push('');
 		return () => landingStore.removeChangeListener(onAuthChange);
 	}, [isLogged, user]);
 
