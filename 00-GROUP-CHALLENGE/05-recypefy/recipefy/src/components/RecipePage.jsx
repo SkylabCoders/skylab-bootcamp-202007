@@ -23,14 +23,14 @@ function RecipePage() {
 	const [ingredients, setIngredients] = useState([]);
 	const [photo, setPhoto] = useState('');
 	const [url, setUrl] = useState('');
-	const [source, setSource] = useState(``);
+	const [sourceItem, setSourceItem] = useState(``);
+	let [preferencesList, setPreferencesList] = useState();
 
 	useEffect(() => {
 		recipeStore.addChangeListener(onChange);
 		if (!recipeElement) {
 			setRecipeElement(recipe.getRecipeByTitle(getUrl()));
 		} else {
-			console.log(recipeElement);
 			{
 				if (!recipeElement.time) {
 					setTime('--');
@@ -46,37 +46,41 @@ function RecipePage() {
 				setIngredients(recipeElement.ingredients);
 				setPhoto(recipeElement.photo);
 				setUrl(recipeElement.url);
-				setSource('source: ${recipeElement.source}');
-				if (recipeElement.preferences.length !== 0) {
-					for (let i = 0; i < recipeElement.preferences.length; i++) {
-						if (recipeElement.preferences[i] === 'Balanced') {
-							setBalanced(true);
-						} else if (recipeElement.preferences[i] === 'High-Protein') {
-							setProtein(true);
-						} else if (recipeElement.preferences[i] === 'Low-Fat') {
-							setLowFat(true);
-						} else if (recipeElement.preferences[i] === 'Low-Carb') {
-							setLowCarb(true);
-						} else if (recipeElement.preferences[i] === 'Vegan') {
-							setVegan(true);
-						} else if (recipeElement.preferences[i] === 'Vegetarian') {
-							setVegetarian(true);
-						} else if (recipeElement.preferences[i] === 'Sugar-Conscious') {
-							setSugar(true);
-						} else if (recipeElement.preferences[i] === 'Peanut-Free') {
-							setPeanut(true);
-						} else if (recipeElement.preferences[i] === 'Tree-Nut-Free') {
-							setTreenut(true);
-						} else if (recipeElement.preferences[i] === 'Alcohol-Free') {
-							setAlcohol(true);
-						}
-					}
+				setSourceItem(`source: ${recipeElement.source}`);
+				setPreferencesList(recipeElement.preferences);
+				if (preferencesList) {
+					changePreferences(preferencesList);
 				}
 			}
 		}
 		return () => recipeStore.removeChangeListener(onChange);
-	}, [recipeElement]);
+	}, [recipeElement, preferencesList]);
 
+	function changePreferences(listOfPreferences) {
+		for (let i = 0; i < listOfPreferences.length; i++) {
+			if (listOfPreferences[i] === 'Balanced') {
+				setBalanced(true);
+			} else if (listOfPreferences[i] === 'High-Protein') {
+				setProtein(true);
+			} else if (listOfPreferences[i] === 'Low-Fat') {
+				setLowFat(true);
+			} else if (listOfPreferences[i] === 'Low-Carb') {
+				setLowCarb(true);
+			} else if (listOfPreferences[i] === 'Vegan') {
+				setVegan(true);
+			} else if (listOfPreferences[i] === 'Vegetarian') {
+				setVegetarian(true);
+			} else if (listOfPreferences[i] === 'Sugar-Conscious') {
+				setSugar(true);
+			} else if (listOfPreferences[i] === 'Peanut-Free') {
+				setPeanut(true);
+			} else if (listOfPreferences[i] === 'Tree-Nut-Free') {
+				setTreenut(true);
+			} else if (listOfPreferences[i] === 'Alcohol-Free') {
+				setAlcohol(true);
+			}
+		}
+	}
 	function onChange() {
 		setRecipeElement(recipe.getRecipeByTitle(getUrl()));
 	}
@@ -119,7 +123,7 @@ function RecipePage() {
 								id="image-recipe"
 								src={photo}
 							/>
-							<p className="ingredients__source">{source}</p>
+							<p className="ingredients__source">{sourceItem}</p>
 						</div>
 					</div>
 				</section>
@@ -217,7 +221,7 @@ function RecipePage() {
 										></img>
 									)}
 								</div>
-								{recipeElement & (recipeElement.preferences.length === 0) && (
+								{!preferencesList && (
 									<p className="error_text">No preferences</p>
 								)}
 							</div>
