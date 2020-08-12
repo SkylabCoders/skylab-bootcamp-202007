@@ -3,13 +3,6 @@ import Dashboard from '../../components/Dashboard'
 import React from 'react'
 
 describe('Dashboard snapshot', ()=>{
-    const  props = {
-        match: {
-            params: {
-                heroId: 14
-            }
-        }
-    };
     const treeDashboard = renderer.create(
         <Dashboard />
     );

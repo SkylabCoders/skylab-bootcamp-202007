@@ -4,15 +4,13 @@ import './../css/loginScreen.scss';
 import { login, logout, loginGoogle } from './../actions/authActions';
 import authStore from './../stores/authStore';
 import * as ROUTES from './../config/routes';
+import * as MOCKUSER from '../mockdata/USER';
 
 function LoginScreen() {
     const [userName,setUserName] = useState('');
     const [userPassword,setUserPassword] = useState(undefined);
     const [isLogged, setIsLogged] = useState(authStore.isLogged());
     const [user, setUser] = useState(authStore.getUserProfile());
-
-    const email = 'me@test.mail';
-    const password = 'abc123';
 
     useEffect(()=>{
         authStore.addChangeListener(onAuthChange);
@@ -45,7 +43,7 @@ function LoginScreen() {
                                     <div className="login__set">
                                     {!isLogged && (<button onClick={(event) => {
                                         event.preventDefault();
-                                        login(email, password)}}>Login</button>)}
+                                        login(MOCKUSER.email, MOCKUSER.password)}}>Login</button>)}
                                     {!isLogged && (<button onClick={(event) => {
                                         event.preventDefault();
                                         loginGoogle()}}>Sign in with google</button>)}

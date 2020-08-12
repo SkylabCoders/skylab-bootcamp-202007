@@ -30,13 +30,9 @@ const questionStore = new QuestionStore();
 export default questionStore;
 
 dispatcher.register((action) => {
-    switch (action.type){
-        case actionTypes.GET_QUESTION:
-            _question = action.data;
-            questionStore.emitChange(_question);
-            break;
-        default:
-            break;
+    if(action.type === actionTypes.GET_QUESTION){
+        _question = action.data;
+        questionStore.emitChange(_question);
     }    
 })
 

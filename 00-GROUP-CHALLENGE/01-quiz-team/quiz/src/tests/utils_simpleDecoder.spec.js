@@ -1,7 +1,8 @@
 import decodeFast from './../utils/simpleDecoder';
-import TRANSFORMATION_MAP from './../utils/decoder';
+import TRANSFORMATION_MAP from '../utils/TRANSFORMATION_MAP';
 
 describe('test set for decoder utility', ()=>{
+    const { random } = Math;
     test('test most common string decode: &#039;', ()=>{
         const result = 'What\'s up?';
         const input = 'What&#039;s up?';
@@ -29,7 +30,8 @@ describe('test set for decoder utility', ()=>{
     test('test random crazy symbols to decaode: ', ()=>{
         const mockArray = Array.from(TRANSFORMATION_MAP.keys());
         const mockResults = Array.from(TRANSFORMATION_MAP.values());
-        let randomPosition = Math.floor(Math.random() * mockArray.length);
+        //let randomPosition = getRandomIntInclusive(0, mockArray.length);
+        let randomPosition = Math.floor(random()*mockArray.length);
         const input = mockArray[randomPosition];
         const result = mockResults[randomPosition];
         let decoded = decodeFast(input);

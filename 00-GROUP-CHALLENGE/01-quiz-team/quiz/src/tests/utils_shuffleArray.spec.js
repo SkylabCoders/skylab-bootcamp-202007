@@ -1,4 +1,5 @@
 import shuffleArray from './../utils/shuffleArray';
+const {random}=Math
 
 describe('test - utils - shuffleArray', () => {
     test('works with array length of 5', () => {
