@@ -1,4 +1,4 @@
-const sagasList = [
+const mockSagasList = [
     {
         "series": "Z",
         "characters": ["Frieza", "Chi-Chi", "Android18", "Gabriel", "Kid_Buu", "Raditz", "Android17", "Goten", "Vegeta", "Gohan", "Android16", "Fat_Majin_Buu", "Cell"],
@@ -20,4 +20,4 @@ const sagasList = [
         "image": "https://pngimage.net/wp-content/uploads/2018/05/dragon-ball-gt-logo-png-6.png",
     }
 ]
-export default sagasList;
+export default mockSagasList;

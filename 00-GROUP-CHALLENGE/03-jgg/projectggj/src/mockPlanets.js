@@ -1,4 +1,4 @@
-const planetsArr = [
+const mockPlanets = [
     {
         "residents": ["Fat_Majin_Buu", "Kid_Buu"],
         "_id": "5c7c8a8b12b25c00177aa153",
@@ -37,4 +37,4 @@ const planetsArr = [
 
 ];
 
-export default planetsArr;
+export default mockPlanets;
