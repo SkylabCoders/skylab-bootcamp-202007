@@ -18,17 +18,7 @@ function renderRecipePage(arg) {
 }
 
 describe('RecipePage', () => {
-	const ingredient = '14 ounces extra firm tofu';
-	const photo =
-		'https://www.edamam.com/web-img/272/2724347f1843a7c437faacf837326676.jpg';
-	const preference = 'Sugar-Conscious';
-	const source = 'Steamy Kitchen';
-	const time = 0;
 	const title = 'Grilled Tofu Salad With Miso Dressing';
-	const url =
-		'http://steamykitchen.com/20074-grilled-tofu-with-miso-dressing-recip.html';
-	const yeld = 4;
-
 	let recipePageTree;
 
 	beforeEach(async () => {

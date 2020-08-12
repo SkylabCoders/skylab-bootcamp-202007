@@ -30,13 +30,9 @@ class RecipeStore extends EventEmitter {
 const recipeStore = new RecipeStore();
 
 dispatcher.register((action) => {
-	switch (action.type) {
-		case actionTypes.LOAD_RECIPE:
-			_recipes = action.data;
-			recipeStore.emitChange(_recipes);
-			break;
-		default:
-			break;
+	if (action.type === actionTypes.LOAD_RECIPE) {
+		_recipes = action.data;
+		recipeStore.emitChange(_recipes);
 	}
 });
 

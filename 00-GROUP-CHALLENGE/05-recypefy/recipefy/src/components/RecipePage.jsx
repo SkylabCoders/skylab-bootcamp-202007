@@ -16,7 +16,7 @@ function RecipePage() {
 	const [recipeElement, setRecipeElement] = useState(
 		recipe.getRecipeByTitle(getUrl())
 	);
-	const [titleString, setTitleString] = useState(getUrl());
+	const [titleString] = useState(getUrl());
 	const [time, setTime] = useState('');
 	const [calories, setCalories] = useState('');
 	const [yeld, setYeld] = useState('');

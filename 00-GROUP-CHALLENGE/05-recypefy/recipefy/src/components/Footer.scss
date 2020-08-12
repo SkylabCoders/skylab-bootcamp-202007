@@ -19,23 +19,25 @@ footer {
 .developer__card {
 	max-width: auto;
 	max-height: 120px;
-	margin: 15px;
 	display: flex;
 	flex-direction: row;
 	margin: auto;
 	margin-right: 2%;
 	margin-left: 2%;
 	align-items: center;
+
 	img {
 		width: 70px;
 		height: 70px;
 		border-radius: 50px;
 		padding: 4%;
 	}
+
 	h4 {
 		font-size: 14px;
 		width: 84px;
 	}
+
 	p {
 		margin-top: 5px;
 		align-items: baseline;

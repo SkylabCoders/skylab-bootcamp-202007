@@ -142,42 +142,6 @@
 	filter: grayscale(100%) opacity(30%);
 }
 
-.protein {
-	background: url('https://icon-library.com/images/protein-icon/protein-icon-0.jpg') 3px 5px no-repeat;
-}
-
-.low_fat {
-	background: url() 3px 5px no-repeat;
-}
-
-.low_carb {
-	background: url() 3px 5px no-repeat;
-}
-
-.vegan {
-	background: url() 3px 5px no-repeat;
-}
-
-.vegetarian {
-	background: url() 3px 5px no-repeat;
-}
-
-.sugar {
-	background: url() 3px 5px no-repeat;
-}
-
-.peanut {
-	background: url() 3px 5px no-repeat;
-}
-
-.treenut {
-	background: url() 3px 5px no-repeat;
-}
-
-.alcohol {
-	background: url() 3px 5px no-repeat;
-}
-
 @media only screen and (min-width: 600px) {
 	h1 {
 		color: #10725b;
@@ -263,7 +227,6 @@
 
 	.main__boxes {
 		display: flex;
-		margin-top: 80px;
 		justify-content: space-between;
 		align-items: center;
 		width: 96%;
