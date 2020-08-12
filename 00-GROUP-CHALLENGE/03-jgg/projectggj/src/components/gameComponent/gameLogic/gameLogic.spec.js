@@ -1,33 +1,24 @@
 import Player from './gameLogic';
-import gameComponent from '../gameComponent';
 
 describe('gameLogic', () => {
-    let name;
+
+    const CHARGE = 'Charge';
+    const AVOID = 'Avoid';
+    const ATTACK = 'Attack';
+    const FAIL = 'FAIL';
+    let name = 'Shordi';
     let charges;
-    let action;
     let lives;
-    let ret;
     let newPlayer;
     let newMachine;
-    let naction;
-    let CHARGE;
-    let AVOID;
-    let ATTACK;
-    let FAIL
-    let log;
-
     beforeEach(() => {
-        let names = 'Shordi';
-        let log = '';
+
         charges = 1;
-        action = '';
         lives = 3;
-        newPlayer = new Player(names, false);
-        newMachine = new Player('R2D2', true);
-        const CHARGE = 'Charge';
-        const AVOID = 'Avoid';
-        const ATTACK = 'Attack';
-        const FAIL = 'FAIL';
+        newPlayer = new Player(name, false);
+        newMachine = new Player();
+
+
     });
 
     it('should create reset a new Player', function resetPlayer() {
@@ -59,20 +50,21 @@ describe('gameLogic', () => {
 
         expect(newMachine.generateAction()).toBeDefined()
     });
-    it('should calculateAction', function calculateAction() {
-        /*         Dona error si ho fiquem, diu que no es una funció
-                expect(newMachine.calculateAction()).toBeDefined();
-                expect(newPlayer.calculateAction()).toBeDefined(); */
-    });
     it('should recibeAction', function recibeAction() {
-        action = CHARGE;
-        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
-        action = FAIL;
-        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
-        action = ATTACK;
-        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
-        action = AVOID;
-        expect(newPlayer.recibeAction(ATTACK && action)).toBeDefined();
+
+        newPlayer.setAction(ATTACK);
+        expect(newPlayer.recibeAction(ATTACK)).toBe('Both attacks, no one gets hurt');
+        newPlayer.setAction(ATTACK);
+        expect(newPlayer.recibeAction(ATTACK)).toBe(newPlayer.getName() + ' run out of KI! and recives an attack! ');
+        newPlayer.setAction(ATTACK);
+        expect(newPlayer.recibeAction(CHARGE)).toBe('Can not attack! No Ki remain! ');
+        newPlayer.setAction(CHARGE);
+        expect(newPlayer.recibeAction(ATTACK)).toBe(newPlayer.getName() + ' recived an attack! ');
+        newPlayer.setAction(AVOID);
+        expect(newPlayer.recibeAction(ATTACK)).toBe(newPlayer.getName() + ' avoid the attack!');
+        newPlayer.setAction(CHARGE);
+        expect(newPlayer.recibeAction(AVOID)).toBe("Enemy does't attack!");
+
     });
     it('should getName', function getName() {
         expect(newPlayer.getName(name));

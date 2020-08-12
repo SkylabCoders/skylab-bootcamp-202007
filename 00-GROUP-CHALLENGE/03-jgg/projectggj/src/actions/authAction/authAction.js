@@ -7,13 +7,13 @@ function myDispatch(actualActionType, actualData) {
         type: actualActionType,
         data: actualData
     });
-};
+}
 
 export async function logout() {
 
     try {
-        const logout = await authMethods.signout();
-        const action = await myDispatch(actionTypes.LOGOUT, logout);
+        const logouts = await authMethods.signout();
+        const action = await myDispatch(actionTypes.LOGOUT, logouts);
         return action;
     } catch (error) {
         window.alert(`${error} in logout process.`)
@@ -65,24 +65,23 @@ export async function loginWithGoogle() {
                 data: user
             });
         }); */
-};
+}
 
 //Function to call createAccount via flux
 export async function sendAccountRegister(email, password) {
-
     try {
-        const sendAccountRegister = await authMethods.sendAccountRegister(email, password);
-        const action = await myDispatch(actionTypes.CREATE_PROFILE, sendAccountRegister);
+        const sendAccountRegistered = await authMethods.createAccount(email, password);
+        const action = await myDispatch(actionTypes.CREATE_PROFILE, sendAccountRegistered);
         return action
     } catch (error) {
         alert(error);
     }
-    /*     return authMethods
+    /* Without async await
+         return authMethods
             .createAccount(email, password)
             .then(() =>
                 dispatcher.dispatch({
                     type: actionTypes.CREATE_PROFILE
-    
                 })
             ) */
 }
