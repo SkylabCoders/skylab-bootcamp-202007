@@ -3,11 +3,9 @@ import actionTypes from './actionTypes';
 import { authMethods } from '../firebase/firebaseAuthMethods';
 
 export function login(email, password) {
-	debugger;
 	return authMethods
 		.signin(email, password)
 		.then(({ user }) => {
-			debugger;
 			console.log(user);
 			dispatcher.dispatch({
 				type: actionTypes.LOGIN,
