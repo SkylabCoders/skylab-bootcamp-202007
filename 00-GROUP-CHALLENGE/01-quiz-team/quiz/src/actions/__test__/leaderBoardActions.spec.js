@@ -1,4 +1,4 @@
-import LEADERBOARD from './../../mockdata/Leaderboard';
+import LEADERBOARD from './../../mockdata/LEADERBOARD';
 import leaderboardStore from './../../stores/leaderboardStore';
 import { loadLeaderboard, saveResults } from './../leaderboardActions';
 import sortResults from './../../utils/sortResults';

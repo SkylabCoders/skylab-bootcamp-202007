@@ -1,6 +1,6 @@
 import { loadThemes, loadTopThemes, loadSessionSet } from './../gameActions';
 import gameStore from './../../stores/gameStore';
-import THEMES_LIST from './../../mockdata/Themes';
+import THEMES_LIST from './../../mockdata/THEMES_LIST';
 
 describe('Test set for game actions', () => {
     test('Test that all themes are loaded', ()=>{
