@@ -25,11 +25,10 @@ class UserStore extends EventEmitter {
 
 const userStore = new UserStore();
 dispatcher.register((action) => {
-	switch (action.type) {
-		case actionTypes.LIST_FAVORITE_FILMS:
-			_favoriteFilms = action.data;
-			userStore.emitChange(_favoriteFilms);
-		default:
+	if (action.type === actionTypes.LIST_FAVORITE_FILMS) {
+		_favoriteFilms = action.data;
+		userStore.emitChange(_favoriteFilms);
+	} else {
 		//throw
 	}
 });

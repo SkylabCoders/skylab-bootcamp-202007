@@ -1,9 +1,4 @@
-import {
-	sliderData,
-	mostPopularData,
-	comingSoonData,
-	callFilm
-} from './filmActions';
+import { sliderData, mostPopularData, comingSoonData } from './filmActions';
 
 import { sliderMock, popularMock, comingMock } from '../mocks/homeMock';
 import filmStore from '../stores/filmStore';

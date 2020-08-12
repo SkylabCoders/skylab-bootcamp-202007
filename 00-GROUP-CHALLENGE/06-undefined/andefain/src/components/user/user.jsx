@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import userStore from '../../stores/userStore';
 import authStore from '../../stores/authStore';
 //import { listFavoriteFilms } from '../../actions/userActions';

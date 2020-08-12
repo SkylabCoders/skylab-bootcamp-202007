@@ -7,7 +7,7 @@ import Home from './components/home/home';
 import Finder from './components/finder/finder';
 import Login from './components/login/login';
 import Film from './components/film/film';
-import AboutUs from './components/footer/about/about';
+import AboutUs from './components/footer/about/AboutUs';
 import PrivacyPolicy from './components/footer/privacyPolicy/privacyPolicy';
 import User from './components/user/user';
 

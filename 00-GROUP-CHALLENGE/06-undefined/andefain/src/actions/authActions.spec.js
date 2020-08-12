@@ -1,9 +1,4 @@
-import {
-	login,
-	logout,
-	signInWithGoogle,
-	signInAnonymously
-} from './authActions';
+import { login, logout } from './authActions';
 
 import authStore from '../stores/authStore';
 
