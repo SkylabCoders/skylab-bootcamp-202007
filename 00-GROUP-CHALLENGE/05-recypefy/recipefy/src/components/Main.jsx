@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProfileComponent from './Profile.component';
+import ProfileComponent from './ProfileComponent';
 import Recommendation from './Recommendation';
 import TopFiveComponent from './TopFive.component';
 import PreferencesList from './PreferenceList';
