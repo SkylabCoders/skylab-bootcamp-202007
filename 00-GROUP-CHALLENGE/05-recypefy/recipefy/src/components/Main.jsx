@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ProfileComponent from './Profile.component';
-import Recommendation from './Recommendation';
-import TopFiveComponent from './TopFive.component';
-import PreferencesList from './PreferencesList';
+import ProfileComponent from './ProfileComponent';
+import Recomendation from './Recomendation';
+import TopFiveComponent from './TopFiveComponent';
+import PreferencesList from './PreferenceList';
 import { loadRecipe } from '../actions/RecipeAction';
 import recipeStore from '../stores/RecipeStore';
 import './Main.scss';
@@ -17,7 +17,7 @@ function Main() {
 			loadRecipe();
 			chargeList();
 		} else {
-			resetTime(false);
+			resetTime();
 		}
 		return () => recipeStore.removeChangeListener;
 	}, [recipeList.length, chargeTime]);
@@ -40,7 +40,7 @@ function Main() {
 				<>
 					<ProfileComponent />
 					<main className="Main-page">
-						<Recommendation />
+						<Recomendation />
 						<TopFiveComponent />
 						<PreferencesList />
 					</main>

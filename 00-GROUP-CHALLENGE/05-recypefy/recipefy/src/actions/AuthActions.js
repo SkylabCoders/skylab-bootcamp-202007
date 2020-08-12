@@ -11,14 +11,14 @@ function myDispatch(actualActionType, actualData) {
 
 function logoutDispatch(actualActionType) {
 	return dispatcher.dispatch({
-		type: actionTypes.LOGOUT
+		type: actualActionType
 	});
 }
 
 export async function login(email, password) {
 	try {
 		const emailUser = await authMethods.signin(email, password);
-		const action = await myDispatch(actionTypes.LOGIN, emailUser);
+		const action = myDispatch(actionTypes.LOGIN, emailUser);
 		return action;
 	} catch (error) {
 		throw 'Error in loggin process';
@@ -26,15 +26,15 @@ export async function login(email, password) {
 }
 
 export async function logout() {
-	const logoutUser = await authMethods.signout();
-	const action = await logoutDispatch(actionTypes.LOGOUT);
+	await authMethods.signout();
+	const action = logoutDispatch(actionTypes.LOGOUT);
 	return action;
 }
 
 export async function googleLogin() {
 	try {
 		const googleUser = await authMethods.signInWithGoogle();
-		const action = await myDispatch(actionTypes.LOGIN, googleUser);
+		const action = myDispatch(actionTypes.LOGIN, googleUser);
 		return action;
 	} catch (e) {
 		window.alert('Error in login process');
@@ -43,15 +43,15 @@ export async function googleLogin() {
 
 export async function anonymousLogin() {
 	const actualUser = await authMethods.signInAnonnymusly();
-	const action = await myDispatch(actionTypes.LOGIN, actualUser);
+	const action = myDispatch(actionTypes.LOGIN, actualUser);
 	return action;
 }
 
 export async function createUser(email, password) {
 	try {
-		const createUser = await authMethods.createUser(email, password);
-		console.log(createUser);
-		const action = await myDispatch(actionTypes.CREATE_USER, createUser);
+		const newUser = await authMethods.newUser(email, password);
+		console.log(newUser);
+		const action = myDispatch(actionTypes.CREATE_USER, newUser);
 		return action;
 	} catch (e) {
 		alert(e);

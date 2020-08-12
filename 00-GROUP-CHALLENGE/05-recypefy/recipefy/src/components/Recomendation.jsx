@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Recommendation.scss';
+import './Recomendation.scss';
 import recipeStore from '../stores/RecipeStore';
 import { Link } from 'react-router-dom';
 

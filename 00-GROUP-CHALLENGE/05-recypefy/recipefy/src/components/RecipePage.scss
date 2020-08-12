@@ -55,10 +55,10 @@ p {
 }
 
 .buttons__container {
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-    display: flex;
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	display: flex;
 	flex-direction: column;
 	margin-top: 20px;
 }
@@ -88,10 +88,7 @@ p {
 .title__img__container {
 	justify-content: center;
 	align-items: center;
-}
 
-.title__img__container{
-	
 	img {
 		margin-top: 15px;
 		width: 40vw;
@@ -173,7 +170,7 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	
+
 }
 
 .underphoto__button--source {
@@ -224,30 +221,25 @@ a {
 		align-items: center;
 	}
 
-	.info__container {
-		flex-direction: column;
-		margin-top: 110px;
-		width: 100%;
-		justify-content: space-around;
-	}
-
 	.data__container {
 		flex-direction: column;
 		margin-bottom: 10px;
 		margin-top: 20px;
 	}
 
-	.info__container{
-		h2 {
-		display: none;
-		}
-	}
-
 	.info__container {
-		
+		flex-direction: column;
+		margin-top: 110px;
+		width: 100%;
+		justify-content: space-around;
+
+		h2 {
+			display: none;
+		}
+
 		img {
-		max-width: 350px;
-		}	
+			max-width: 350px;
+		}
 	}
 
 	.ingredients__container {
@@ -274,4 +266,3 @@ a {
 		max-width: 500px;
 	}
 }
-

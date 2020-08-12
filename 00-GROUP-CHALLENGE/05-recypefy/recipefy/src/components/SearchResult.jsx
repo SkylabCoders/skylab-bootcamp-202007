@@ -13,7 +13,7 @@ function SearchResult() {
 		recipeStore.addChangeListener(onChange);
 		chargeList();
 		if (searchListResult.length != 0) {
-			resetTime(false);
+			resetTime();
 		}
 		return () => recipeStore.removeChangeListener;
 	}, [searchListResult.length, chargeTime]);
