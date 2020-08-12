@@ -1,9 +1,9 @@
 import userDetailStore from '../stores/userDetailStore';
 import actionTypes from '../actions/actionTypes';
-import userDetailActions, { loadRepoList } from '../actions/userDetailActions';
+import { loadRepoList } from '../actions/userDetailActions';
 import dispatcher from '../appDispatcher';
 
-describe('UserDetail Store', () => {
+fdescribe('UserDetail Store', () => {
 	it('should create', () => {
 		expect(userDetailStore).toBeDefined();
 	});
@@ -47,9 +47,9 @@ describe('UserDetail Store', () => {
 		try {
 			dispatcher.dispatch({});
 			expect(userDetailStore).toBeFalsy();
-		} catch (errorMessage) {
-			const message = `the action type is unknown. action.type: undefined`;
-			expect(errorMessage).toEqual(message);
+		} catch (error) {
+			const message = 'The action type undefined is not defined.';
+			expect(error).toEqual(message);
 		}
 	});
 	it('should subscribe to addChangeListener', () => {

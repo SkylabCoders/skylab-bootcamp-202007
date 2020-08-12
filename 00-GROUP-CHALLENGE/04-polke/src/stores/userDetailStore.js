@@ -46,7 +46,7 @@ dispatcher.register((action) => {
 			loadRepoList(landingStore.getGitHubUserName());
 			break;
 		default:
-			break;
+			throw new Error(`the action type ${action.type} is not defined.`);
 	}
 });
 
