@@ -25,7 +25,7 @@ function RepoCreation() {
 						/>
 						<div className="form_access-container">
 							<p> Repo Access: </p>
-							<select clasName="form__repo-access" name="repo-access">
+							<select className="form__repo-access" name="repo-access">
 								<option value="false" selected>
 									Public
 								</option>
