@@ -9,7 +9,7 @@ let _heroes = [];
 let nextId = 0;
 
 const generateNextId = (heroes) =>
-	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;
+	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id), 0) + 1;
 
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -61,7 +61,8 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		default:
-			break;
+			// En vez de poner nada pongamos un throw para que no pete el test. Y ya no necesitamos un break porque el throw ya interrumpe la ejecución (es como poner un return)
+			throw `The action type is unknown. action.type: ${action.type}`;
 	}
 });
 

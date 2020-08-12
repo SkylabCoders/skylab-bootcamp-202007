@@ -7,7 +7,7 @@ import authStore from '../stores/authStore.js';
 
 function Login() {
     const email = 'esther.morillo@gmail.com';
-    const password = 123456;
+    const password = '123456';
 
     const [isLogged, setIsLogged] = useState(authStore.isLogged());
     const [user, setUser] = useState(authStore.getUserProfile());
