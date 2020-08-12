@@ -1,0 +1,122 @@
+.user-action_container {
+	display: flex;
+	margin-top: 10px;
+}
+.user-action_container img {
+	z-index: 1;
+	width: 32vw;
+	filter: grayscale(100%);
+	object-fit: cover;
+	height: 24vw;
+	border-width: 4px;
+	border-radius: 5px;
+	border-style: solid;
+}
+.user-action_container p {
+	margin-top: 1vw;
+}
+.user-action_container img:hover {
+	border-color: rgb(53, 207, 74);
+	filter: unset;
+}
+
+.game-holder {
+	align-items: center;
+	justify-content: space-around;
+}
+.machine-action_container {
+	display: flex;
+	flex-direction: column;
+}
+
+.machine-action_container .machine-img {
+	z-index: 1;
+	width: 41vw;
+	margin-top: 7vw;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: brown;
+}
+
+.game-log {
+	text-align: center;
+	font-size: 4vw;
+	font-weight: 300;
+	border-style: inset;
+	border-radius: 4px;
+	min-height: 8vw;
+
+	top: 30vw;
+	width: 41vw;
+	background: aliceblue;
+}
+.flex-col-user {
+	flex-direction: column;
+}
+.flex-item-row {
+	display: flex;
+	flex-direction: row;
+}
+.flex-col-user__data img {
+	margin-left: 10px;
+	width: 22px;
+	height: 22px;
+}
+.machine-img {
+	margin-bottom: 15px;
+}
+@media only screen and (min-width: 550px) {
+	.machine-action_container .machine-img {
+		width: 20vw;
+		height: 11vw;
+		margin-top: 10vw;
+		margin-right: 0vw;
+		border-radius: 5px;
+	}
+	.machine-action_container {
+		align-items: center;
+		justify-content: space-evenly;
+	}
+	.user-action_container img {
+		width: 22vw;
+		height: 12vw;
+		margin-right: 0vw;
+		border-radius: 5px;
+	}
+	.user-action_container p {
+		font-size: 2vw;
+		margin-top: 0vw;
+	}
+	.flex-col-user {
+		display: flex;
+		flex-direction: row;
+
+		justify-content: space-evenly;
+	}
+	.flex-col-user__data {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		font-size: 22px;
+	}
+	.flex-col-user__data img,
+	span {
+		margin: 5px 2px;
+		width: 35px;
+		height: 35px;
+	}
+	.flex-item-row {
+		display: flex;
+		flex-direction: column;
+	}
+	.user-col {
+		width: 100%;
+	}
+	.game-log {
+		top: unset;
+		margin-top: -15vw;
+		width: 70%;
+		position: absolute;
+		margin-bottom: 20px;
+	}
+}
