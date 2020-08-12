@@ -42,7 +42,8 @@ describe('RecipePage', () => {
 		recipePageTree.update();
 	});
 
-	xit('should match with title', async () => {
+	/* REFACTOR RECIPE PAGE BECAUSE IF RECIPE IS UNDEFINED CRASHES EVERYWERE */
+	fit('should match with title', async () => {
 		const props = {
 			match: {
 				params: {

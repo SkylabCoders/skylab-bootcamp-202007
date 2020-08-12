@@ -27,6 +27,8 @@ class RecipeStore extends EventEmitter {
 	}
 }
 
+const recipeStore = new RecipeStore();
+
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_RECIPE:
@@ -34,10 +36,8 @@ dispatcher.register((action) => {
 			recipeStore.emitChange(_recipes);
 			break;
 		default:
-			throw `The action ${action.type} is unknown`;
-
+			break;
 	}
 });
 
-const recipeStore = new RecipeStore();
 export default recipeStore;
