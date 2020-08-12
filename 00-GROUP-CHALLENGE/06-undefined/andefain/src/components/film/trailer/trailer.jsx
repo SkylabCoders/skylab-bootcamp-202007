@@ -8,17 +8,13 @@ function FilmTrailer({ trailer }) {
 	return (
 		<div className="trailer-container">
 			<Link to="/film">
-				<img
-					src={trailer.image}
-					className="poster-img"
-					//style={{ backgroundImage: `url(${details.image.url})` }}
-				/>
+				<img alt="Poster" src={trailer.image} className="poster-img" />
 			</Link>
 			<Link to="/film">
 				<img
+					alt="Trailer"
 					src={trailer.trailer ? trailer.trailer.thumbnailUrl : ''}
 					className="trailer-img"
-					//style={{backgroundImage: `url(${trailer.resource.videos[0].image.url})`}}
 				/>
 			</Link>
 		</div>

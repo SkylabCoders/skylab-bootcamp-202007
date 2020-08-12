@@ -2,7 +2,7 @@ import dispatcher from '../dispatcher';
 import actionTypes from './actionTypes';
 import { sliderMock, popularMock, comingMock } from '../mocks/homeMock';
 
-export async function sliderData() {
+export function sliderData() {
 	const data = sliderMock;
 	dispatcher.dispatch({
 		type: actionTypes.SLIDER_FILM,
@@ -10,7 +10,7 @@ export async function sliderData() {
 	});
 }
 
-export async function mostPopularData() {
+export function mostPopularData() {
 	const data = popularMock;
 	dispatcher.dispatch({
 		type: actionTypes.POPULAR_FILM,
@@ -18,7 +18,7 @@ export async function mostPopularData() {
 	});
 }
 
-export async function comingSoonData() {
+export function comingSoonData() {
 	const data = comingMock;
 	dispatcher.dispatch({
 		type: actionTypes.COMING_SOON_FILM,

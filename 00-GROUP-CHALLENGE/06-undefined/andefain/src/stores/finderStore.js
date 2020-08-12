@@ -32,7 +32,7 @@ dispatcher.register((action) => {
 			finderStore.emitChange(_finder);
 			break;
 		default:
-			throw `Unknown action type. action.type: ${action.type}`;
+		//throw `Unknown action type. action.type: ${action.type}`;
 	}
 });
 
