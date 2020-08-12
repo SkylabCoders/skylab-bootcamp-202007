@@ -3,7 +3,9 @@ export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
 export const FAIL = 'FAIL';
 
+
 function Player(names = 'Machine', isMachine = true) {
+
     let name = names;
     let charges = 1;
     let action = '';

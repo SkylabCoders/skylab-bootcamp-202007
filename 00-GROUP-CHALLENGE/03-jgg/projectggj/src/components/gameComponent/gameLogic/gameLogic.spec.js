@@ -2,6 +2,7 @@ import Player from './gameLogic';
 import gameComponent from '../gameComponent';
 
 describe('gameLogic', () => {
+
     const CHARGE = 'Charge';
     const AVOID = 'Avoid';
     const ATTACK = 'Attack';
@@ -13,15 +14,18 @@ describe('gameLogic', () => {
     let newPlayer;
     let newMachine;
 
-
+    const T800 = new Player();
     beforeEach(() => {
         let names = 'Shordi';
+        let log = '';
+
         charges = 1;
         action = '';
         lives = 3;
         newPlayer = new Player(names, false);
-        const T800 = new Player();
+
         newMachine = new Player('R2D2', true);
+
 
     });
 
@@ -60,6 +64,7 @@ describe('gameLogic', () => {
                 expect(newPlayer.calculateAction()).toBeDefined(); */
     });
     it('should recibeAction', function recibeAction() {
+
         newPlayer.setAction(ATTACK);
         expect(newPlayer.recibeAction(ATTACK)).toBe('Both attacks, no one gets hurt');
         newPlayer.setAction(ATTACK);
@@ -72,6 +77,7 @@ describe('gameLogic', () => {
         expect(newPlayer.recibeAction(ATTACK)).toBe(newPlayer.getName() + ' avoid the attack!');
         newPlayer.setAction(CHARGE);
         expect(newPlayer.recibeAction(AVOID)).toBe("Enemy does't attack!");
+
     });
     it('should getName', function getName() {
         expect(newPlayer.getName(name));
