@@ -1,7 +1,7 @@
 import repoDetailStore from '../stores/repoDetailStore';
 import actionTypes from '../actions/actionTypes';
 import { loadGroupRepoInfo } from '../actions/repoDetailActions';
-import dispatcher from '../appDispatcher';
+import dispatcher from '../dispatcher';
 
 describe('RepoDetail Store', () => {
 	it('should create', () => {

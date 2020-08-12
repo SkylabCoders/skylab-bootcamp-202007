@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import '../../shared/generalStyles.css';
 import './RepoDetail.scss';
-import RepoInfoStore from '../../stores/repoDetailStore';
+import RepoInfoStore from '../../stores/repoInfoStore';
 import { loadGroupRepoInfo } from '../../actions/repoDetailActions';
 import { loadRankingRepoInfo } from '../../actions/repoDetailActions';
 
