@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import './navComponent.css';
-import authStore from '../../stores/authStore'
+import authStore from '../../stores/authStore';
+import store from '../../stores/store'
 import { globalSearch } from '../../actions/actions';
+import { Link } from 'react-router-dom';
+import useSound from "use-sound";
+import { loadCharList } from '../../actions/actions'
+import introSound from "../../sounds/intro.mp3";
+
 
 function NavComponent(props) {
 
-	const [isLogged, setIsLogged] = useState(authStore.isLogged());
+	const [introSong] = useSound(introSound);
 
+	const [isLogged, setIsLogged] = useState(authStore.isLogged());
+	const [search, setSearch] = useState('');
+	let [, , , , filter, name] = window.location.href.split('/');
 	useEffect(() => {
 		authStore.addChangeListener(onAuthChange);
+		if (store.getSearchValue().text !== '') loadCharList(filter, name);
 		return () => authStore.removeChangeListener(onAuthChange)
-	}, [isLogged])
+	}, [isLogged, filter, name])
 
 	function onAuthChange() {
 		setIsLogged(authStore.isLogged())
 	}
-
-	const [search, setSearch] = useState('');
-	const [, , , , filter, name] = window.location.href.split('/');
 
 	function handleChange(event, setValueCallback) {
 		event.preventDefault();
@@ -27,14 +34,14 @@ function NavComponent(props) {
 
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-			<a className="navbar-brand" href="/">
+			<Link className="navbar-brand" to="/">
 				<img
 					src="https://i.pinimg.com/originals/a5/f9/a2/a5f9a2eb5c0bfb1f66988696e1f31334.png"
 					width="30"
 					alt="Dragon Ball One Start"
 					loading="lazy"
 				/>
-			</a>
+			</Link>
 			<button
 				className="navbar-toggler"
 				type="button"
@@ -51,37 +58,51 @@ function NavComponent(props) {
 				<ul className="navbar-nav mr-auto">
 					{!isLogged && (
 						<li className="nav-item">
-							<a className="nav-link" href="/login">
+							<Link className="nav-link" to="/login">
 								Login
-						</a>
+						</Link>
 						</li>
 					)}
 					{isLogged && (
 						<li className="nav-item">
-							<a className="nav-link" href="/login">
+							<Link className="nav-link" to="/login">
 								Logout
-						</a>
+							</Link>
+						</li>
+					)}
+					{isLogged && (
+						<li className="nav-item">
+							<Link className="nav-link" to="/profile">
+								Profile <span className="sr-only"></span>
+							</Link>
 						</li>
 					)}
 					<li className="nav-item active">
-						<a className="nav-link" href="/">
+						<Link className="nav-link" to="/">
 							Home <span className="sr-only">(current)</span>
-						</a>
+						</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="/planet">
+						<Link className="nav-link" to="/planet">
 							Planets
-						</a>
+						</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="/saga">
+						<Link className="nav-link" to="/saga">
 							Sagas
-						</a>
+						</Link>
+					</li>
+
+					<li onClick={() => introSong()} className="nav-item">
+						<Link className="nav-link nav__button--game" to="/game/Machine">
+							Game
+						</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link nav__button--game" href="/game/Machine">
-							Game
-						</a>
+						<Link className="nav-link" to="/about">
+							About us
+						</Link>
+
 					</li>
 				</ul>
 				<form className="form-inline my-2 my-md-0">

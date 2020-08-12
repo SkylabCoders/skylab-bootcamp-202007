@@ -1,19 +1,25 @@
 export const CHARGE = 'Charge';
 export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
-const FAIL = 'FAIL';
+export const FAIL = 'FAIL';
 
-function player(names = 'Machine', isMachine = false) {
+
+function Player(names, isMachine = true) {
+
     let name = names;
     let charges = 1;
     let action = '';
     let lives = 3;
     let ret;
 
-
+    function resetPlayer() {
+        lives = 3;
+        charges = 1;
+        action = "";
+    }
     function setAction(newAction) {
         action = newAction;
-        calculateAction(action)
+        calculateAction();
     }
 
     function generateAction() {
@@ -39,27 +45,25 @@ function player(names = 'Machine', isMachine = false) {
     }
     function recibeAction(comingAction) {
         let log = '';
-        if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
+        if (comingAction === ATTACK && action === CHARGE) {
             --lives;
             log = name + ' recived an attack! ';
+        } else if (comingAction === ATTACK && action === FAIL) {
+            --lives;
+            log = name + ' run out of KI! and recives an attack! ';
+
         } else if (comingAction === ATTACK && action === AVOID) {
             log = name + ' avoid the attack!';
         } else if (comingAction === ATTACK && action === ATTACK) {
-            log = ('Both attacks, noone gets hurt')
+            log = ('Both attacks, no one gets hurt')
+        } else if (action === FAIL) {
+            log = ("Can not attack! No Ki remain! ")
         } else {
-            log = ("Enemy doesn't attack ")
+            log = ("Enemy does't attack!")
         }
 
         return log;
     }
-    // function recibeActionRobot(comingAction) {
-    //     let log = "";
-    //     if (comingAction === ATTACK && (action === CHARGE || action === FAIL)) {
-    //         --lives;
-    //         log = name + ' recived an attack! ' + lives + ' remain';
-    //     }
-    //     return log;
-    // }
 
     function translateAction(naction) {
         if (naction === '0')
@@ -83,10 +87,10 @@ function player(names = 'Machine', isMachine = false) {
         return name;
     }
     if (isMachine)
-        ret = { generateAction, recibeAction, getAction, getLives, getName, getCharges }
+        ret = { generateAction, recibeAction, getAction, getLives, getName, getCharges, resetPlayer }
     else
-        ret = { setAction, recibeAction, getAction, getLives, getCharges, getName }
+        ret = { setAction, recibeAction, getAction, getLives, getCharges, getName, resetPlayer }
 
     return ret
 }
-export default player;
+export default Player;
