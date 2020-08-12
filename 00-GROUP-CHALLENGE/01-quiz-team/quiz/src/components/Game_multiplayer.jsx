@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import gameStore from './../stores/gameStore';
 import { loadSessionSet } from './../actions/gameActions';
-import THEMES_LIST from './../mockdata/Themes';
+import THEMES_LIST from './../mockdata/THEMES_LIST';
 import Question from './Question';
 import Results from './Results';
 import * as GAME_PARAMS from './../config/gameParameters';
