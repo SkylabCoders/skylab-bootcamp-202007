@@ -40,7 +40,7 @@ export default withRouter(function ({ history }) {
 	}
 
 	return (
-		<>
+		<div>
 			<form className="Login__form">
 				<h2 className="Login__form__login-title--colored">Log In</h2>
 				<FormGroup
@@ -117,6 +117,6 @@ export default withRouter(function ({ history }) {
 				</FormGroup>
 			</form>
 			<PopUpBox />
-		</>
+		</div>
 	);
 });

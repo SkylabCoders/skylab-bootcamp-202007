@@ -1,6 +1,5 @@
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
-import landingStore from '../stores/landingStore';
 import { EventEmitter } from 'events';
 import { loadRepoList } from '../actions/userDetailActions';
 
@@ -34,7 +33,7 @@ const userDetailStore = new LoginStore();
 
 dispatcher.register((action) => {
 	switch (action.type) {
-		case actionTypes.LOAD_REPO_LIST: // This one is an example
+		case actionTypes.LOAD_REPO_LIST:
 			_repoList = action.data;
 			userDetailStore.emitChange(_repoList);
 			break;
@@ -43,9 +42,11 @@ dispatcher.register((action) => {
 			userDetailStore.emitChange(_userInfo);
 			break;
 		case actionTypes.CREATE_REPO:
-			loadRepoList(landingStore.getGitHubUserName());
+			//loadRepoList(landingStore.getGitHubUserName());
 			break;
 		default:
+			throw `The action ${action.type} is not defined`;
+
 			break;
 	}
 });

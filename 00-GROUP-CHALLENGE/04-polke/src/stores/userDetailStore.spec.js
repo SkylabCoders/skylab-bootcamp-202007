@@ -1,15 +1,16 @@
 import userDetailStore from '../stores/userDetailStore';
 import actionTypes from '../actions/actionTypes';
-import userDetailActions, { loadRepoList } from '../actions/userDetailActions';
+import { loadRepoList } from '../actions/userDetailActions';
 import dispatcher from '../appDispatcher';
 
 describe('UserDetail Store', () => {
 	it('should create', () => {
 		expect(userDetailStore).toBeDefined();
 	});
-	it('should register LOAD_REPO_LIST', () => {
+	fit('should register LOAD_REPO_LIST', () => {
+		console.log('I ENTER LOAD REPOS');
 		const action = {
-			type: actionTypes.LOAD_REPO_LIST,
+			type: 'LOAD_REPO_LIST',
 			data: [
 				{
 					private: true,
