@@ -16,12 +16,10 @@ $display-flex: flex;
 	padding: 10px;
 }
 
-.banner {
-	img {
-		object-fit: contain;
-		width: 100%;
-		height: 200px;
-	}
+.banner img {
+	object-fit: contain;
+	width: 100%;
+	height: 200px;
 }
 
 .saga-holder {

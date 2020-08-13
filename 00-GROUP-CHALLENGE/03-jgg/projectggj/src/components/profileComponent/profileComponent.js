@@ -10,9 +10,9 @@ import store from '../../stores/store'
 
 function ProfileComponent() {
 
-    const [isLogged, setIsLogged] = useState(authStore.isLogged());
+    const [isLogged] = useState(authStore.isLogged());
     //     const [user, setUser] = useState(authStore.getUserProfile());
-    const [email, setEmail] = useState('');
+    const [email] = useState('');
     //  const [password, setPassword] = useState('');
     const [userName, setUserName] = useState(authStore.getUserName());
     const [userPhoto, setUserPhoto] = useState(authStore.getUserPhoto());

@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gameComponent should macth 1`] = `
+<div
+  className="game-holder flex-item-row"
+>
+  <div
+    className="flex-col user-col"
+  >
+    <div
+      className="user-action_container flex-col-user"
+    >
+      <div
+        className=" flex-col"
+      >
+        <img
+          alt="Charge"
+          onClick={[Function]}
+          src="https://64.media.tumblr.com/tumblr_m6autdMQ8q1r72ht7o1_500.gif"
+        />
+        <p>
+          Charge Ki
+        </p>
+      </div>
+      <div
+        className=" flex-col"
+      >
+        <img
+          alt="Avoid"
+          onClick={[Function]}
+          src="https://i.imgur.com/49nNGha.gif"
+        />
+        <p>
+          Avoid attack
+        </p>
+      </div>
+      <div
+        className=" flex-col"
+      >
+        <img
+          alt="Attack"
+          onClick={[Function]}
+          src="https://steamuserimages-a.akamaihd.net/ugc/844842824162102286/E0C77C22F2E6904ED76E6769FD9072D308C6BB86/"
+        />
+        <p>
+          ATTACK!
+        </p>
+      </div>
+    </div>
+    <div
+      className="flex-col-user__data"
+    >
+      <p>
+        YOU:
+      </p>
+      <img
+        alt="lives"
+        src="https://images-na.ssl-images-amazon.com/images/I/31t66UdClqL.png"
+      />
+      <span>
+        3
+      </span>
+      <img
+        alt="ki"
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3eb70ccc-e7ad-4e1a-87fa-f97df9ef1c52/d9rqdji-5ec98122-7e1c-4da7-a7c7-4b0f6ab86b7a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2ViNzBjY2MtZTdhZC00ZTFhLTg3ZmEtZjk3ZGY5ZWYxYzUyXC9kOXJxZGppLTVlYzk4MTIyLTdlMWMtNGRhNy1hN2M3LTRiMGY2YWI4NmI3YS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.lF5QwNjLFrIa5o9dCpU_kaTqPdq1Vk1zzk3YbRjRVOo"
+      />
+      <span>
+        1
+      </span>
+    </div>
+  </div>
+  <div
+    className="machine-action_container"
+  >
+    <div
+      className="game-log"
+    >
+      <span>
+         challenges You!
+      </span>
+    </div>
+    <img
+      alt="machine action"
+      className="machine-img"
+      src="https://thumbs.gfycat.com/PleasedLividGreyhounddog-size_restricted.gif"
+    />
+    <div
+      className="flex-col-user__data"
+    >
+      <p>
+        ENEMY:
+      </p>
+      <img
+        alt="lives"
+        src="https://images-na.ssl-images-amazon.com/images/I/31t66UdClqL.png"
+      />
+      <span>
+        3
+      </span>
+      <img
+        alt="ki"
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3eb70ccc-e7ad-4e1a-87fa-f97df9ef1c52/d9rqdji-5ec98122-7e1c-4da7-a7c7-4b0f6ab86b7a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvM2ViNzBjY2MtZTdhZC00ZTFhLTg3ZmEtZjk3ZGY5ZWYxYzUyXC9kOXJxZGppLTVlYzk4MTIyLTdlMWMtNGRhNy1hN2M3LTRiMGY2YWI4NmI3YS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.lF5QwNjLFrIa5o9dCpU_kaTqPdq1Vk1zzk3YbRjRVOo"
+      />
+      <span>
+        1
+      </span>
+    </div>
+  </div>
+</div>
+`;

@@ -1,5 +1,4 @@
 import Player from './gameLogic';
-import gameComponent from '../gameComponent';
 
 describe('gameLogic', () => {
 
@@ -7,24 +6,17 @@ describe('gameLogic', () => {
     const AVOID = 'Avoid';
     const ATTACK = 'Attack';
     const FAIL = 'FAIL';
-    let name;
+    let name = 'Shordi';
     let charges;
-    let action;
     let lives;
     let newPlayer;
     let newMachine;
-
-    const T800 = new Player();
     beforeEach(() => {
-        let names = 'Shordi';
-        let log = '';
 
         charges = 1;
-        action = '';
         lives = 3;
-        newPlayer = new Player(names, false);
-
-        newMachine = new Player('R2D2', true);
+        newPlayer = new Player(name, false);
+        newMachine = new Player();
 
 
     });
@@ -57,11 +49,6 @@ describe('gameLogic', () => {
         newMachine.generateAction()
 
         expect(newMachine.generateAction()).toBeDefined()
-    });
-    it('should calculateAction', function calculateAction() {
-        /*         Dona error si ho fiquem, diu que no es una funció
-                expect(newMachine.calculateAction()).toBeDefined();
-                expect(newPlayer.calculateAction()).toBeDefined(); */
     });
     it('should recibeAction', function recibeAction() {
 

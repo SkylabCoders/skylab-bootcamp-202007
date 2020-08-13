@@ -24,8 +24,9 @@ function GameComponent(props) {
 
         player1 = new Player('You', false);
     }
-    machine = new Player(Mname);
-
+    if (typeof machine === 'undefined') {
+        machine = new Player(Mname);
+    }
     //enemy image presentation
     const machineImg = 'https://thumbs.gfycat.com/PleasedLividGreyhounddog-size_restricted.gif';
     //actions images
