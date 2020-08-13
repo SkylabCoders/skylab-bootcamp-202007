@@ -6,7 +6,7 @@ import { callFilm } from '../../actions/filmActions';
 import './film.scss';
 
 function Film() {
-	const [film, setFilm] = useState(filmStore.getFilmData());
+	const [film, setFilm] = useState('');
 
 	useEffect(() => {
 		filmStore.addChangeListener(onChange);
