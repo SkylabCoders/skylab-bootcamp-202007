@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Detail snapshot should match 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h2>
+    Register a new hero:
+  </h2>
+  <input
+    name="heroName"
+    onChange={[Function]}
+    placeholder="Hero name"
+    value=""
+  />
+  <p>
+    <button
+      type="submit"
+    >
+      Save Hero
+    </button>
+  </p>
+</form>
+`;

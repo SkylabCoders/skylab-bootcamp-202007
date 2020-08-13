@@ -1,14 +1,14 @@
 import { EventEmitter } from 'events';
-import dispatcher from '../appDispatcher';
-import actionTypes from '../actions/actionTypes';
+import dispatcher from '../dispatcher';
+import actionTypes from '../actions/action-types';
 
 const CHANGE_EVENT = 'change';
 
 let _heroes = [];
 
 let nextId = 0;
-const generateNextId = (heroes) =>
-	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;
+const takeGreaterValue = (newId, hero) => (newId > hero.id ? newId : hero.id);
+const generateNextId = (heroes) => heroes.reduce(takeGreaterValue, 0) + 1;
 
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -28,6 +28,7 @@ class HeroStore extends EventEmitter {
 	}
 
 	getHeroById(id) {
+		console.log(_heroes);
 		return _heroes.find((hero) => hero.id === id);
 	}
 }
@@ -57,7 +58,9 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		default:
-			break;
+			throw new Error(
+				`The action type is unknown. action.type: ${action.type}`
+			);
 	}
 });
 
