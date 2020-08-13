@@ -17,13 +17,13 @@ if (seconds < 1) {
 
 let counter = 0;
 const interval = setInterval(() => {
-    console.log('Hello World!');
-    if (counter === 4) {
-        console.log('Done!')
-        clearInterval(interval)
-    };
-    counter++
-}, 1000)
+	console.log('Hello World!');
+	if (counter === 4) {
+		console.log('Done!');
+		clearInterval(interval);
+	}
+	counter++;
+}, 1000);
 
 /* Print 4s i 8s
 const callback = (secs) => {
