@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Prompt } from 'react-router-dom';
 import heroStore from '../stores/heroStore';
-import { loadHeroes, saveHero } from '../actions/heroActions';
+import { loadHeroes, saveHero } from './../actions/heroActions';
+import TextInput from './TextInput';
 
 function HeroDetail(props) {
 	const [heroes, setHeroes] = useState(heroStore.getHeroes());
-	const [heroId, setHeroId] = useState(null);
+	const [heroId, setHeroId] = useState(+props.match?.params?.heroId);
 	const [heroName, setHeroName] = useState('');
 	const [isFormDirty, setIsFormDirty] = useState(false);
 
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);
-		const heroId = +props.match.params.heroId;
 		if (heroes.length === 0) {
 			loadHeroes();
 		} else if (heroId) {
@@ -35,9 +35,13 @@ function HeroDetail(props) {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		saveHero({ name: heroName, id: heroId }).then(() =>
-			props.history.push('/heroes')
-		);
+
+		// Delete leading and trailing white spaces from name input before saving
+		const name = heroName.trim();
+
+		if (name) {
+			saveHero({ name, id: heroId }).then(() => props.history.push('/heroes'));
+		}
 	}
 
 	return (
@@ -49,7 +53,7 @@ function HeroDetail(props) {
 					<p>Id: {heroId}</p>
 				</>
 			)}
-			<input
+			<TextInput
 				name="heroName"
 				value={heroName}
 				placeholder="Hero name"
@@ -65,5 +69,4 @@ function HeroDetail(props) {
 		</form>
 	);
 }
-
 export default HeroDetail;

@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer'
-import Header from './../Header'
+import Header from '../Header'
 import React from 'react'
 import {BrowserRouter as Router } from 'react-router-dom'
 

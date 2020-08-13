@@ -1,10 +1,10 @@
 import renderer from 'react-test-renderer'
-import PageNotFound from './../PageNotFound'
+import HeroList from '../HeroList'
 import React from 'react'
 
 
 describe('App snapshot', ()=>{
-    const tree = renderer.create(<PageNotFound />);
+    const tree = renderer.create(<HeroList />);
 
     it('should match', ()=>{
         expect(tree.toJSON()).toMatchSnapshot();
