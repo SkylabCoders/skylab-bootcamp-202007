@@ -24,7 +24,7 @@ describe('HeroDetail', () => {
 	let component;
 	let text;
 
-	beforeEach(async () => {
+	beforeEach(() => {
 		heroDetailTree = renderHeroDetail();
 
 		instance = heroDetailTree.root;
@@ -33,21 +33,15 @@ describe('HeroDetail', () => {
 		heroDetailTree.update();
 	});
 
-	it('should match without hero ID', async () => {
+	it('should not regress without hero ID', () => {
 		expect(heroDetailTree).toMatchSnapshot();
 	});
 
-	it('should display a title without id', async () => {
-		heroDetailTree = renderHeroDetail();
-
-		instance = heroDetailTree.root;
-		component = instance.findByType('h2');
-		text = component.children[0];
-
+	it('should display a title without id', () => {
 		expect(text).toEqual('Register a new hero:');
 	});
 
-	it('should match with hero ID', async () => {
+	it('should not regress with hero ID', () => {
 		const props = {
 			match: {
 				params: {
@@ -60,7 +54,7 @@ describe('HeroDetail', () => {
 		expect(heroDetailTree).toMatchSnapshot();
 	});
 
-	it('should match with a missing hero ID', async () => {
+	it('should match with a missing hero ID', () => {
 		const props = {
 			match: {
 				params: {

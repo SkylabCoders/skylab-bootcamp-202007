@@ -22,7 +22,7 @@ function HeroDetail(props) {
 			}
 		}
 		return () => heroStore.removeChangeListener(onChange);
-	}, [heroes.length, props.match.params.heroId]);
+	}, [heroes.length, props.match.params.heroId, heroId]);
 
 	function onChange() {
 		setHeroes(heroStore.getHeroes());

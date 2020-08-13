@@ -2,7 +2,7 @@ import dispatcher from '../dispatcher';
 import actionTypes from './action-types';
 import { authMethods } from '../firebase/firebaseAuth';
 
-export function login() {
+export function login(email, password) {
 	return authMethods
 		.signIn(email, password)
 		.then((loginResponse) => {
