@@ -1,5 +1,5 @@
 import React from 'react';
-import './DisplayInlineArray.css';
+import './../css/displayInlineArray.css';
 
 function HeroAlias(props){
     let list = [];

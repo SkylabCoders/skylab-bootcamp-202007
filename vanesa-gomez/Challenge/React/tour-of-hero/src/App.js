@@ -8,6 +8,8 @@ import Dashboard from './components/dashboard/dashboard';
 import heroList from './heroMock';
 import { Route, Switch } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
+import HeroesPage from './components/HeroesPage';
+import Login from './components/login';
 
 function App(props) {
 	return (
@@ -25,6 +27,8 @@ function App(props) {
 					path="/dashboard"
 					component={() => <Dashboard heroes={heroList} />}
 				/>
+				<Route path="/heroes" component={HeroesPage} />
+				<Route path="/login" component={Login} />
 				<Route component={PageNotFound} />
 			</Switch>
 		</div>
