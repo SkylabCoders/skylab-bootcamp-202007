@@ -1,4 +1,4 @@
-const { sign } = require("crypto");
+
 
 function customFib(signature, indexes, n) {
     let add = 0;
@@ -14,8 +14,6 @@ function customFib(signature, indexes, n) {
         }
         signature.push(add);
     }
-
-
 
     return signature[n];
 }
