@@ -8,7 +8,9 @@
     "express": "^4.17.1",
     "jest": "^26.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "scripts": {
     "start": "nodemon express_server.js",
     "test": "jest --watchAll --coverage"
