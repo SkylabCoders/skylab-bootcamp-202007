@@ -1,0 +1,17 @@
+{
+	"name": "pablo-hortelano-first-package",
+	"version": "1.0.0",
+	"description": "My description",
+	"main": "index.js",
+	"dependencies": {
+		"lodash": "^4.17.20",
+		"pablo-hortelano-first-package-exportit": "^1.0.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
