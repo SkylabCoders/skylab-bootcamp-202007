@@ -1,0 +1,19 @@
+.nav__button--game {
+    border: rgb(182, 48, 48) solid 2px;
+}
+
+.navbar-brand img {
+    width: 40px;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+
+.nav-link {
+    padding: 4px;
+}
+
+.nav-item {
+    margin-right: 8px;
+}
