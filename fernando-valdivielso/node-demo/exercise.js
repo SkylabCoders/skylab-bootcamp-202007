@@ -131,10 +131,10 @@ function removeSmallest(n, array) {
                 }
                 countArr.push(count);
                 count = 0;
-
-
-
             }
+
+
+
 
             console.log(countArr)
     }
