@@ -1,0 +1,21 @@
+{
+	"name": "scripts",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon server.js",
+		"test": "jest"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1",
+		"jest": "^26.4.0"
+	},
+	"devDependencies": {
+		"eslint": "^7.6.0",
+		"nodemon": "^2.0.4"
+	}
+}
