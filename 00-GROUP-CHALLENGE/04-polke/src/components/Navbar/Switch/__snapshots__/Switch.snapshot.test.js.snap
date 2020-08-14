@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch snapshot should match 1`] = `
+<div
+  className="switch"
+>
+  <img
+    alt="sun"
+    className="sun"
+    src="sun.png"
+  />
+  <div
+    className="custom-control custom-switch"
+  >
+    <input
+      className="custom-control-input"
+      id="customSwitches"
+      onChange={[Function]}
+      readOnly={true}
+      type="checkbox"
+    />
+    <label
+      className="custom-control-label	"
+      htmlFor="customSwitches"
+    />
+  </div>
+  <img
+    alt="moon"
+    className="moon"
+    src="moon.png"
+  />
+</div>
+`;
