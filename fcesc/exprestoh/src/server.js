@@ -1,10 +1,11 @@
-const https = require('https');
 const express = require('express');
 const path = require('path');
-const ROUTES = require('./../config/ROUTES');
+const { ROUTES } = require('./../config/ROUTES');
 
 const server = express();
 const PORT = 3010;
+
+console.log('routes', ROUTES);
 
 server.set('views', path.join(__dirname, '/components/'));
 server.set('view engine', 'ejs');
