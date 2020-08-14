@@ -1,43 +1,43 @@
-// const { constants } = require('fs');
+const { constants } = require('fs');
 
-// console.log(Math.pow(1, 1));
-// setTimeout(function () {
-// 	console.log(2);
-// }, 0);
-// console.log(3);
-// var interval = setInterval(function () {
-// 	console.log(4);
-// 	setTimeout(function () {
-// 		console.log(5);
-// 	}, 500);
-// }, 1000);
-// setTimeout(function () {
-// 	clearInterval(interval);
-// 	console.log(6);
-// }, 1100);
-// console.log(7);
+console.log(Math.pow(1, 1));
+setTimeout(function () {
+	console.log(2);
+}, 0);
+console.log(3);
+var interval = setInterval(function () {
+	console.log(4);
+	setTimeout(function () {
+		console.log(5);
+	}, 500);
+}, 1000);
+setTimeout(function () {
+	clearInterval(interval);
+	console.log(6);
+}, 1100);
+console.log(7);
 
-// //---------------------
+//---------------------
 
-// /*
-// "abcde"
-// "aabbcde"
-// "aAbBcde"
-// "invisibility"
-// */
+/*
+ "abcde"
+ "aabbcde"
+ "aAbBcde"
+ "invisibility"
+ */
 
-// const characters = 'ABBA'.toLowerCase().split('');
+const characters = 'ABBA'.toLowerCase().split('');
 
-// const charReducer = (accumulator, currentLetter) => {
-// 	const value = accumulator[currentLetter] ? ++accumulator[currentLetter] : 1;
-// 	return {
-// 		...accumulator,
-// 		[currentLetter]: value
-// 	};
-// };
+const charReducer = (accumulator, currentLetter) => {
+	const value = accumulator[currentLetter] ? ++accumulator[currentLetter] : 1;
+	return {
+		...accumulator,
+		[currentLetter]: value
+	};
+};
 
-// const response = characters.reduce(charReducer, {});
-// console.log(response);
+const response = characters.reduce(charReducer, {});
+console.log(response);
 
 //-----------------
 
@@ -50,7 +50,7 @@
   Hello World. 2
   Hello World. 3
   ...
-  Constraints: You can only use const (no let or var) 
+  Constraints: You can only use const (no let or var) */
 
 const greeting = (delay) => {
 	setTimeout(() => {
@@ -59,7 +59,7 @@ const greeting = (delay) => {
 	}, delay * 1000);
 };
 
-greeting(1);*/
+greeting(1);
 
 //-----------------
 
