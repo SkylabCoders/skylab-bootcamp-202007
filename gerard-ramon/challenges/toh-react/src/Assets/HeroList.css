@@ -1,0 +1,72 @@
+body {
+	margin: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-left: 50px;
+}
+
+.button {
+	background-color: #eee;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	cursor: hand;
+	margin-right: 5px;
+}
+.button:hover {
+	background-color: #cfd8dc;
+}
+
+.heroDashboard {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.heroDashboardLink {
+	background-color: #5f7d8c;
+	color: whitesmoke;
+	font-weight: bold;
+	list-style: none;
+	margin: 12px;
+	padding: 40px;
+}
+.heroDashboardLink:hover {
+	background-color: #cfd8dc;
+	cursor: pointer;
+}
+
+.containerList {
+	display: flex;
+	flex-direction: column;
+}
+
+.heroContainer {
+	display: flex;
+	align-items: center;
+}
+
+.heroListLink {
+	color: rgb(103, 103, 139);
+	background-color: #eeeeee;
+	margin: 4px;
+	padding: 10px 0px;
+	border-radius: 5px;
+	font-size: 14px;
+	width: 15%;
+	min-width: 120px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.heroId {
+	background-color: #5f7d8c;
+	color: whitesmoke;
+	padding: 10px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.listButton {
+	margin: 5px;
+}
