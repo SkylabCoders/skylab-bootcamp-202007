@@ -335,3 +335,4 @@ build/
 # Firebase
 
 .firebase/
+00-GROUP-CHALLENGE/03-jgg/sonar-project.properties
