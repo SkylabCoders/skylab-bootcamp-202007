@@ -1,5 +1,5 @@
 const heroList = require('./hero.mock');
-const dispathcer = require('./dispatcher');
+const dispatcher = require('./dispatcher');
 const actionTypes = require('./actionTypes');
 
 module.exports = {

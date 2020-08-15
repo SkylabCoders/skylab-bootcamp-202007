@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hero Dashboard</title>
-    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="public/css/dashboard.css">
 </head>
 
 <body>
@@ -15,10 +15,13 @@
 
     <h1>Dashboard!</h1>
     <section class="dashboard">
-        <div class="dashboard__item"><a href="/hero?id=bombasto">Bombasto</a></div>
-        <div class="dashboard__item"><a href="/hero?id=celeritas">Celeritas</a></div>
-        <div class="dashboard__item"><a href="/hero?id=narco">Narco</a></div>
-        <div class="dashboard__item"><a href="/hero?id=mrnice">Mr. Nice</a></div>
+        <% dashboardList.forEach(element => { %>
+        <div class="dashboard__item">
+            <a href=<%='/hero?id='+element.id %>>
+                <%=element.name%>
+            </a>
+        </div>
+        <% }) %>
     </section>
 </body>
 

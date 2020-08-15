@@ -1,4 +1,4 @@
-modules.exports = {
+module.exports = {
 	LOAD_HEROES: 'LOAD_HEROES',
 	CREATE_HERO: 'CREATE_HERO',
 	UPDATE_HERO: 'UPDATE_HERO',

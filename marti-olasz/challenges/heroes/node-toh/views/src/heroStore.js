@@ -1,6 +1,6 @@
-import { EventEmitter } from 'events';
-import dispatcher from '../appDispatcher';
-import actionTypes from '../actions/actionTypes';
+const { EventEmitter } = require('events');
+const dispatcher = require('../src/dispatcher');
+const actionTypes = require('../src/actionTypes');
 
 const CHANGE_EVENT = 'change';
 
@@ -61,4 +61,4 @@ dispatcher.register((action) => {
 	}
 });
 
-export default heroStore;
+module.exports = { heroStore };
