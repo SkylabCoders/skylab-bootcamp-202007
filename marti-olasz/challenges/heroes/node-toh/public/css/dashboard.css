@@ -1,0 +1,9 @@
+.title {
+  text-align: center; }
+
+.dashboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly; }
+  .dashboard .dashboard__item {
+    width: 20%; }
