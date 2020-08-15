@@ -28,6 +28,7 @@ class HeroStore extends EventEmitter {
 	}
 
 	getHeroById(id) {
+		console.log(_heroes);
 		return _heroes.find((hero) => hero.id === id);
 	}
 }
@@ -57,7 +58,9 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		default:
-			throw `The action type is unknown. action.type: ${action.type}`;
+			throw new Error(
+				`The action type is unknown. action.type: ${action.type}`
+			);
 	}
 });
 
