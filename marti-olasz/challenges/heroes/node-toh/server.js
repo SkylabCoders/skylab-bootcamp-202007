@@ -2,8 +2,7 @@ const express = require('express');
 const server = express();
 
 server.set('view engine', 'ejs');
-server.use(express.static('public'));
-server.use(express.static('src'));
+server.use(express.static(__dirname + '/views'));
 
 server.get('/', (request, response) => {
 	response.render('dashboard.ejs');
