@@ -1,10 +1,11 @@
 const express = require('express');
 const { request, response } = require('express');
-const heroList = require('./hero.mock');
-const hero = require('./hero');
-const heroDashboard = require('./views/src/hero-dashboard.component');
-const heroDetail = require('./views/src/hero-detail.component');
-const heroLists = require('./views/src/hero-list.component');
+
+const heroActions = require('./views/src/actions/heroActions');
+const heroStore = require('./views/src/stores/heroStore');
+
+const heroList = heroActions.loadHeroes();
+const dashboardList = heroList;
 
 const server = express();
 
@@ -16,7 +17,7 @@ server.get('/', (request, response) => {
 });
 
 server.get('/heroDashboard', (request, response) => {
-	response.render('hero-dashboard', { heroList, hero, heroDashboard });
+	response.render('hero-dashboard', { dashboardList });
 });
 
 server.get('/heroList', (request, response) => {
