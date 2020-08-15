@@ -26,7 +26,19 @@
 					onkeyup="listComponent.searchInput()"
 				/>
 
-				<div id="mainContainer--list"></div>
+				<div id="mainContainer--list">
+					<li key="{hero.id}">
+						<a key="{hero.id}" href="/hero">
+							<div className="button__list">
+								<span className="element__list__id">{hero.id}</span>
+								<span className="element__list__name">{hero.name}</span>
+							</div>
+						</a>
+						<div className="hero-list__item--delete">
+							<button>X</button>
+						</div>
+					</li>
+				</div>
 
 				<script src="../hero.js"></script>
 				<script src="../service/hero.service.js"></script>
