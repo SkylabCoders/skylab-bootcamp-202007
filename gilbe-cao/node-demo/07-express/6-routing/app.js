@@ -34,10 +34,7 @@ const bookRouter = require('./src/routes/bookRoutes')(nav);
 app.use('/books', bookRouter);
 app.get('/', (req, res) => {
 	res.render('index', {
-		nav: [
-			{ link: '/books', title: 'Books' },
-			{ link: '/authors', title: 'Authors' }
-		],
+		nav,
 		title: 'Library'
 	});
 });

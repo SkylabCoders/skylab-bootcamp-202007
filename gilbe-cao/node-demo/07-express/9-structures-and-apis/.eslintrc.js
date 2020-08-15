@@ -1,6 +1,3 @@
 module.exports = {
-	extends: ['airbnb-base', 'prettier'],
-	rules: {
-		'comma-dangle': 0
-	}
+	extends: ['airbnb-base', 'prettier']
 };
