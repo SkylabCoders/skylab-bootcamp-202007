@@ -4,8 +4,29 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Tour of Heroes</title>
+		<link
+			rel="hero-dashboard-stylesheet.css"
+			href="./hero-dashboard.component.css"
+		/>
 	</head>
 	<body>
-		<h1>Hero works!</h1>
+		<section>
+			<h1>Tour of Heroes</h1>
+			<button>
+				<a href="/">Dashboard</a>
+			</button>
+			<button>
+				<a href="/heroes">Heroes</a>
+			</button>
+			<h2>Top Heroes</h2>
+			<div id="hero-dashboard__container">
+				<div id="mainContainer__dashboard"></div>
+			</div>
+
+			<script src="../hero.js"></script>
+			<script src="../hero.mock.js"></script>
+			<script src="../service/hero.service.js"></script>
+			<script src="hero-dashboard.component.js"></script>
+		</section>
 	</body>
 </html>
