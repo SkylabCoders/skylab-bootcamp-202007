@@ -60,6 +60,9 @@ function RepoCreation() {
 								.value;
 							const readme = false;
 							createRepo(name, access, desc, readme, gitHubAccessToken);
+							document.getElementsByClassName(
+								'repocreation__form'
+							)[0].style.display = 'none';
 						}}
 					>
 						Create

@@ -3,13 +3,15 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	background-color: var(--form-color-background);
+	background-color: var(--bg-color-repoCard);
 	border-radius: 7px;
 	padding: 16px;
 	position: absolute;
 	z-index: 10;
 	margin-bottom: 64px;
-	box-shadow: 2px 2px #888888;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	left: 80%;
+	display: none;
 }
 
 .repocreation__form:before {
@@ -21,7 +23,7 @@
 	top: 50%;
 	left: -7%;
 	border-width: 15px;
-	border-color: transparent var(--form-color-background) transparent transparent;
+	border-color: transparent var(--bg-color-repoCard) transparent transparent;
 	border-style: solid;
 }
 
@@ -53,7 +55,6 @@
 
 .form__repo-access {
 	border-radius: 5px;
-	margin-left: 100px;
 }
 
 .form__text-input {
