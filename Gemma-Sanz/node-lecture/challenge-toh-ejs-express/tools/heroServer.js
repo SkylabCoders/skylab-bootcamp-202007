@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const server = express();
 
 //const heroMock = require('./hero.mock');
 
@@ -18,30 +19,37 @@ const heroMock = [
 
 const port = 4204;
 
-const server = express();
-
 server.set('view engine', 'ejs');
 
-//for css
-server.set('views', path.resolve(__dirname, 'views'));
+// Add styles with css
+server.use(express.static(__dirname + '../public'));
 
+//for css?
+server.set('/views', path.resolve(__dirname, 'views'));
+
+//Routes
 server.get('/', (request, response) => {
-	response.render('heroDashboard', { heroMock });
+	response.render(path.join(__dirname, '../views', 'heroDashboard'), {
+		heroMock
+	});
 });
 
 server.get('/hero', (request, response) => {
-	response.render('heroDetail');
+	response.render(path.join(__dirname, '../views', 'heroDetail'), {
+		heroMock
+	});
 });
 
 server.get('/hero/:heroId', (request, response) => {
-	response.render('heroDetail');
+	response.render(path.join(__dirname, '../views', 'heroDetail'), {
+		heroMock
+	});
 });
 
 server.get('/heroes', (request, response) => {
-	response.render('heroList');
+	response.render(path.join(__dirname, '../views', 'heroList'), {
+		heroMock
+	});
 });
-
-// Add styles with css
-server.use(express.static(__dirname + 'public'));
 
 server.listen(port, () => console.log(`Server running in port ${port}`));

@@ -20,9 +20,8 @@
 			</button>
 			<h2>Top Heroes</h2>
 
-			<%- topFour = heroMock.slice(0, 4) %> <% topFour.map(function(hero) {
-			return '<a href="/">' + hero.name + '</a>'; }) -%>
-
+			<%= topFour = heroMock.slice(0, 4) %> <% topFour.map(function(hero) {
+			return '<a href="/">' + hero.id + '</a>'; }) %>
 			<div>
 				<ul class="row">
 					<a href="/heroes"><li class="element__dashboard">Dr Nice</li></a>
