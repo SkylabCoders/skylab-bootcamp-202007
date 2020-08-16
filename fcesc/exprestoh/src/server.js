@@ -1,19 +1,21 @@
 const express = require('express');
 const path = require('path');
 const { ROUTES } = require('./../config/ROUTES');
+const { COMPONENTS } = require('./../config/COMPONENTS');
 
 const server = express();
 const PORT = 3010;
 
-console.log('routes', ROUTES);
-
+server.use(express.static(path.join(__dirname, '/css/')));
 server.set('views', path.join(__dirname, '/components/'));
 server.set('view engine', 'ejs');
 
-function serverGetters(routeElement){
-  server.get(routeElement.path, (request, response) => {
-    console.dir( request, { depth: 1} );
-    response.render(routeElement.page);
+function serverGetters( { path, params, page } ){
+  server.get(path, (request, response) => {
+    const ROUTE_PARAMETERS = { query: request.params[params], parameter: params, fromPage: path };
+    console.log('THESE ARE THE PARAMETERS', ROUTE_PARAMETERS, request.parameters, request.query);
+    response.locals = { body: page, header: COMPONENTS.header, nav: COMPONENTS.nav, footer: COMPONENTS.footer, parameters: ROUTE_PARAMETERS, ROUTES: ROUTES };
+    response.render('index.ejs');
   })
 }
 

@@ -1,0 +1,24 @@
+ul.menu__list--horizontal{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+}
+li.menu__item--horizontal{
+    list-style-type: none;
+    display: inline block;
+    margin: 0 .5rem;
+}
+.menu__item--horizontal > a, 
+.menu__item--horizontal > a:visited{
+    text-decoration: dotted;
+    color: black;
+}
+.menu__item--horizontal > a:hover{
+    color: teal;
+    text-decoration: underline;
+    font-weight: bold;
+}

@@ -1,0 +1,10 @@
+<div className="paginatedList__container">
+  <ul>
+      <% const heroStore = require('./../stores/heroStore'); %>
+      <% if ( heroStore.getHeroesList_top() === undefined ){ loadHeroesList_top() } %> 
+      <% const heroes_list_top = heroStore.getHeroesList_top() %> 
+      <% heroes_list_top.map((hero)=>( %>
+        <%- include('list-item', { hero }); %>
+      <% ))} %>
+  </ul>
+</div>
