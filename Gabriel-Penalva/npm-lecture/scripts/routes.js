@@ -6,6 +6,10 @@ const routes = [
     {
         file: 'about',
         path: '/about'
+    },
+    {
+        file: 'DashBoard',
+        path: '/DashBoard'
     }
 ];
 exports.routes = routes;
