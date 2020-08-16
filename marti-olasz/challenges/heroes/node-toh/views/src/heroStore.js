@@ -61,4 +61,4 @@ dispatcher.register((action) => {
 	}
 });
 
-module.exports = { heroStore };
+module.exports = heroStore;

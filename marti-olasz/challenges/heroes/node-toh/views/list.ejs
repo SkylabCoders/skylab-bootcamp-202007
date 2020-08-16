@@ -13,10 +13,20 @@
     <button>Heroes</button>
     <h2>My Heroes</h2>
     <section class="list"></section>
+    <% heroList.forEach(element => { %>
     <section class="my-hero">
-        <h2><span class="my-hero__name"></span> is my hero</h2>
+        <div class="dashboard__item">
+            <a href=<%='/hero?id='+element.id %>>
+                <%=element.name%>
+            </a>
+        </div>
         <button><a class="button">View details</a></button>
+        <div class="my-hero__edit">
+            <button class="button" <%= onclick=saveHero(element.id) %>>edit hero</button>
+            <button class="button" <%= onclick=deleteHero(element.id)%>>X</button>
+        </div>
     </section>
+    <% }) %>
 
     <script src="../heroActions.js"></script>
     <script src="../heroStore.js"></script>
