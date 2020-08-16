@@ -11,6 +11,7 @@ module.exports = {
 	},
 
 	saveHero: (hero) => {
+		console.log(`${hero}: deleted`);
 		dispatcher.dispatch({
 			type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
 			data: hero
@@ -18,6 +19,7 @@ module.exports = {
 	},
 
 	deleteHero: (id) => {
+		console.log(`${id}: deleted`);
 		dispatcher.dispatch({
 			type: actionTypes.DELETE_HERO,
 			data: { id }
