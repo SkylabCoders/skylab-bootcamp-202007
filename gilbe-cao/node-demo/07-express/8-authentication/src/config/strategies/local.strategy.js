@@ -32,7 +32,7 @@ module.exports = function localStrategy() {
 							done(null, false);
 						}
 					} catch (err) {
-						console.log(err.stack);
+						debug(err.stack);
 					}
 					// Close connection
 					client.close();

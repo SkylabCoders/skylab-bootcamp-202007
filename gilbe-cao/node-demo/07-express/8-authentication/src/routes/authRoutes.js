@@ -41,7 +41,7 @@ function router(nav) {
 		})
 		.post(
 			passport.authenticate('local', {
-				successRedirect: '/auth/profile',
+				successRedirect: '/books', // '/auth/profile' to see the user data
 				failureRedirect: '/'
 			})
 		);
