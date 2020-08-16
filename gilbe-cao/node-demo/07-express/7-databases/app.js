@@ -3,9 +3,23 @@ const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
+// const sql = require('mssql');
 
 const app = express();
 const port = process.env.PORT || 3000;
+/*
+const config = {
+	user: 'adminL1b',
+	password: 'skL1brary',
+	server: 'sklibrary.database.windows.net',
+	database: 'library',
+	options: {
+		encrypt: true // Use this if you're on Windows Azure
+	}
+};
+
+sql.connect(config).catch(debug);
+*/
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public/')));
@@ -34,16 +48,7 @@ const adminRouter = require('./src/routes/adminRoutes')(nav);
 
 app.use('/books', bookRouter);
 app.use('/admin', adminRouter);
-
-app.get('/', (req, res) => {
-	res.render('index', {
-		nav: [
-			{ link: '/books', title: 'Books' },
-			{ link: '/authors', title: 'Authors' }
-		],
-		title: 'Library'
-	});
-});
+app.use('/', bookRouter);
 
 app.listen(port, () => {
 	debug(`listening on port ${chalk.green(port)}`);
