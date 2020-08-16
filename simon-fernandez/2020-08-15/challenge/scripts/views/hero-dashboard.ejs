@@ -15,12 +15,12 @@
 		<h2 class="title">Top Heroes</h2>
 		<br /><a href=""></a>
 		<section class="heroes">
+			<% dashboardList.forEach(element => { %>
 			<div class="heroes__item">
-				<a class="item"><%=dashboardList[0].name</a>
+				<a class="item" href=<%=`/heroDetail?heroId=${element.id}` %>>
+				 <%= element.name%> </a>
 			</div>
-			<div class="heroes__item"><a class="item"></a></div>
-			<div class="heroes__item"><a class="item"></a></div>
-			<div class="heroes__item"><a class="item"></a></div>
+			<%});%>
 		</section>
 	</body>
 </html>

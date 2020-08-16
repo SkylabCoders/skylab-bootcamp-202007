@@ -1,19 +1,15 @@
 .list {
   width: 150px;
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .list__item {
   margin: 10px;
   padding: 10px;
-  background-color: lightgray;
-}
+  background-color: lightgray; }
 
 .list__item:hover {
-  background-color: lightskyblue;
-}
+  background-color: lightskyblue; }
 
 .my-hero {
-  display: none;
-}
+  display: none; }

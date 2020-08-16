@@ -4,33 +4,21 @@ const actionTypes = require('./actionTypes');
 
 module.exports = {
 	loadHeroes: () => {
-		return new Promise((resolve) => {
-			resolve(heroList);
-		}).then((heroes) => {
-			dispatcher.dispatch({
-				type: actionTypes.LOAD_HEROES,
-				data: heroes
-			});
+		dispatcher.dispatch({
+			type: actionTypes.LOAD_HEROES,
+			data: heroList
 		});
 	},
 	saveHero: () => {
-		return new Promise((resolve) => {
-			resolve(heroList);
-		}).then((heroes) => {
-			dispatcher.dispatch({
-				type: actionTypes.LOAD_HEROES,
-				data: heroes
-			});
+		dispatcher.dispatch({
+			type: actionTypes.UPDATE_HERO,
+			data: heroList
 		});
 	},
 	deleteHero: () => {
-		return new Promise((resolve) => {
-			resolve(heroList);
-		}).then((heroes) => {
-			dispatcher.dispatch({
-				type: actionTypes.LOAD_HEROES,
-				data: heroes
-			});
+		dispatcher.dispatch({
+			type: actionTypes.DELETE_HERO,
+			data: heroList
 		});
 	}
 };

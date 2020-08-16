@@ -61,5 +61,4 @@ dispatcher.register((action) => {
 			throw `The action ${action.type} is unknown `;
 	}
 });
-
-module.exports = { heroStore };
+module.exports = heroStore;

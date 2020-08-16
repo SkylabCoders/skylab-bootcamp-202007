@@ -1,19 +1,32 @@
 const express = require('express');
 const { request, response } = require('express');
 
-const heroActions = require('./views/src/actions/heroActions');
+const {
+	loadHeroes,
+	saveHero,
+	deleteHero
+} = require('./views/src/actions/heroActions');
 const heroStore = require('./views/src/stores/heroStore');
 
-const heroList = heroActions.loadHeroes();
-const dashboardList = heroList;
+loadHeroes();
+
+const heroList = heroStore.getHeroes();
+console.log(heroStore.getHeroes());
+deleteHero(11);
+//no borra el hero
+console.log(heroStore.getHeroes());
+
+const dashboardList = heroList.slice(0, 4);
 
 const server = express();
 
 server.use(express.static(__dirname + '/views'));
+server.use(express.static(__dirname + '/public'));
+
 server.set('view engine', 'ejs');
 
 server.get('/', (request, response) => {
-	response.render('hero-dashboard');
+	response.render('hero-dashboard', { dashboardList });
 });
 
 server.get('/heroDashboard', (request, response) => {
@@ -21,11 +34,12 @@ server.get('/heroDashboard', (request, response) => {
 });
 
 server.get('/heroList', (request, response) => {
-	response.render('hero-list', { heroList, hero, heroLists });
+	response.render('hero-list', { heroList, deleteHero });
 });
 
 server.get('/heroDetail', (request, response) => {
-	response.render('hero-detail', { heroList, hero, heroDetail });
+	let hero = heroStore.getHeroById(+request.query.heroId);
+	response.render('hero-detail', { hero });
 });
 
 server.listen(2020, () => {
