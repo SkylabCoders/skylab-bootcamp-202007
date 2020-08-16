@@ -6,6 +6,7 @@ const heroStore = require('./views/src/heroStore');
 
 server.set('view engine', 'ejs');
 server.use(express.static(__dirname + '/views'));
+server.use(express.static(__dirname + '/public'));
 
 loadHeroes();
 const heroList = heroStore.getHeroes();

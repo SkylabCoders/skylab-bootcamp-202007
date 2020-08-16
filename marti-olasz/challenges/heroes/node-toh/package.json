@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "nodemon server.js",
 		"test": "jest --watchAll --coverage",
-		"scss": "node-sass --watch public/scss -o public/css"
+		"scss": "node-sass --watch views/public/scss -o views/public/css"
 	},
 	"jest": {
 		"coverageThrehold": {
