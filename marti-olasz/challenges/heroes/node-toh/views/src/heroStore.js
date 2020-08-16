@@ -37,7 +37,7 @@ dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
-			heroStore.emitChange(_heroes);
+			heroStore.emitChange();
 			nextId = generateNextId(_heroes);
 			break;
 		case actionTypes.UPDATE_HERO:
@@ -57,7 +57,7 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		default:
-			throw `The action ${action.type} is unknown `;
+			throw `The action ${action.type} is unknown`;
 	}
 });
 

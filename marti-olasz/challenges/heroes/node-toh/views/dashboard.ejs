@@ -17,7 +17,7 @@
     <section class="dashboard">
         <% dashboardList.forEach(element => { %>
         <div class="dashboard__item">
-            <a href=<%='/hero?id='+element.id %>>
+            <a href=<%=`/hero?id=${element.id}` %>>
                 <%=element.name%>
             </a>
         </div>

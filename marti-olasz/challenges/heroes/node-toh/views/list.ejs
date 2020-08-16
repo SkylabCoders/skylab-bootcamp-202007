@@ -20,16 +20,17 @@
                 <%=element.name%>
             </a>
         </div>
-        <button><a class="button">View details</a></button>
+        id: <%= element.id %>
         <div class="my-hero__edit">
-            <button class="button" <%= onclick=saveHero(element.id) %>>edit hero</button>
-            <button class="button" <%= onclick=deleteHero(element.id)%>>X</button>
+            <button class="button" id="save"'>
+                edit hero
+            </button>
+            <button class="button" id=' remove'>
+                X
+            </button>
         </div>
     </section>
     <% }) %>
-
-    <script src="../heroActions.js"></script>
-    <script src="../heroStore.js"></script>
 </body>
 
 </html>

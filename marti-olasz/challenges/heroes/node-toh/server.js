@@ -16,9 +16,7 @@ server.get('/', (request, response) => {
 });
 
 server.get('/list', (request, response) => {
-	console.log('hola');
 	response.render('list.ejs', { heroList, deleteHero, saveHero });
-	console.log('adeu');
 });
 
 server.get('/hero', (request, response) => {
