@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<div
+  className="results"
+>
+  <section
+    className="section__results"
+  >
+    <h2>
+      Your scores:
+    </h2>
+    <p>
+      ·
+    </p>
+    <p
+      className="results__message"
+    >
+       points, 
+    </p>
+    <p>
+      ·
+    </p>
+    <p>
+      Game started at 
+       and ended at 
+    </p>
+    <p>
+      Total playtime: 
+      .
+    </p>
+    <p>
+      Number of questions asked: 
+    </p>
+    <p>
+      Right:      
+       - 
+      NaN
+      %
+    </p>
+    <p>
+      Wrong:      
+       - 
+      NaN
+      %
+    </p>
+    <p>
+      Unanswered: 
+       - 
+      NaN
+      %
+    </p>
+    <div
+      className="playAgain"
+    >
+      <div
+        className="playAgain__sameTheme"
+      >
+        <button>
+          Play again, same theme
+        </button>
+      </div>
+      <div
+        className="playAgain__anotherTheme"
+      >
+        <a
+          aria-current="page"
+          className="active"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            Play a new theme
+          </button>
+        </a>
+      </div>
+      <div>
+        <button
+          onClick={[Function]}
+        >
+          Save results
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
