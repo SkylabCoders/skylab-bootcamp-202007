@@ -4,7 +4,6 @@ const chalk = require('chalk');
 const debug = require('debug')('server');
 const morgan = require('morgan');
 const { ROUTES } = require('./config/ROUTES');
-console.log('AQUI', ROUTES);
 
 const server = express();
 const PORT = process.env.PORT || 3010;
@@ -21,7 +20,7 @@ function sendToServer(path, bodyComponent, enableParams){
       ROUTE_PARAMETERS = { query: request.params[params], parameter: params, fromPage: path };
     }
     response.locals = { body: bodyComponent, header: ROUTES.get('HEADER'), footer: ROUTES.get('FOOTER') }; // pass here any data to children
-    response.render('index.html');
+    response.render('index.ejs');
   })
 }
 
