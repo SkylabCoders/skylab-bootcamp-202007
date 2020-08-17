@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Answer snapshot should match 1`] = `
+<div
+  className="answer_container"
+>
+  <p />
+</div>
+`;

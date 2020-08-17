@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header test Should match 1`] = `
+<header
+  className="header-container"
+>
+  <div
+    className="header"
+  >
+    <a
+      className="header-logo"
+      href="/"
+      onClick={[Function]}
+    />
+    <form
+      className="header-form"
+      onSubmit={[Function]}
+    >
+      <input
+        className="header-form__search"
+        onChange={[Function]}
+        placeholder="Search any title or name..."
+        type="text"
+        value=""
+      />
+    </form>
+    <div
+      className="header-login"
+    >
+      <a
+        href="/login"
+        onClick={[Function]}
+      >
+        <div
+          className="header-login__button"
+        >
+          Login
+        </div>
+      </a>
+    </div>
+  </div>
+</header>
+`;
