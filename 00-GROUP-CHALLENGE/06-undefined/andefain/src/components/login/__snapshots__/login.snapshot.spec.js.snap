@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot Should match 1`] = `
+<section
+  className="login-container"
+>
+  <div
+    className="login-box"
+  >
+    <button
+      className="login-button"
+      onClick={[Function]}
+    >
+      <img
+        alt="Google img"
+        className="login-img"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/235px-Google_%22G%22_Logo.svg.png"
+      />
+      Login with Google
+    </button>
+    <button
+      className="login-button"
+      onClick={[Function]}
+    >
+      <img
+        alt="Anonymously img"
+        className="login-img"
+        src="https://trello-attachments.s3.amazonaws.com/5f2589eca6761a4c8f4d10e1/5f294480df57d910f5d84ab9/3d91789127ba7164795f5acc1559d6ca/usuario.png"
+      />
+      Anonymous login
+    </button>
+  </div>
+  <div
+    className="login-box"
+  >
+    <input
+      className="email"
+      placeholder="user e-mail"
+      type="text"
+    />
+    <input
+      className="password"
+      placeholder="password"
+      type="password"
+    />
+    <button
+      className="login-button"
+      onClick={[Function]}
+    >
+      Login
+    </button>
+  </div>
+</section>
+`;

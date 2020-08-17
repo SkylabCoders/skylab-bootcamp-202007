@@ -1,0 +1,56 @@
+@use 'breakpoints';
+@use 'colors';
+
+.item__container{
+    position: relative;
+    width: 80vw;
+    height: 200px;
+    box-sizing: border-box;
+    margin: 0.5rem;
+}
+
+.img__item{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+    border-style: none;
+    z-index: 0;
+    border-radius: .6rem;
+}
+
+.img__title{
+    position: relative;
+    font-size: 1.2rem;
+    top: -3rem;
+    text-align: center;
+    color: colors.$item__text;
+    background: colors.$item__textBackground;
+    text-decoration: none;
+}
+
+.anchor__link{
+    text-decoration: none;
+}
+
+.img__title:hover{
+    text-decoration: underline dotted colors.$item__text--hover;
+    color: colors.$item__text--hover;
+    background: colors.$item__textBackground--hover;
+}
+
+
+
+
+@media (min-width: breakpoints.$mobile) and (max-width: breakpoints.$desktop){
+    .item__container{
+        width: 27vw;
+    }
+    
+}
+
+@media (min-width: breakpoints.$desktop){
+    .item__container{
+        width: 17vw;
+    }
+}

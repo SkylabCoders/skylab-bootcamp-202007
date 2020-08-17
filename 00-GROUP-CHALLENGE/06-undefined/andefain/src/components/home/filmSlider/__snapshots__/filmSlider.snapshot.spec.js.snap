@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film slider snapshot Should match 1`] = `
+<div
+  className="slider-container"
+>
+  <div
+    className="slider"
+  >
+    <a
+      className="slider__link lateral"
+      href="/film/tt10508838"
+      onClick={[Function]}
+    >
+      <img
+        alt="Double World"
+        className="slider-lateral"
+        src="https://m.media-amazon.com/images/M/MV5BZmUxMWVhMDEtNTI5ZS00NjNjLWIzY2ItYTFiYThhYWNmYWY3XkEyXkFqcGdeQXVyOTE4ODkzMzA@._V1_.jpg"
+      />
+    </a>
+    <div
+      className="arrow"
+    >
+      <img
+        alt="Left arrow"
+        className="arrow__left"
+        onClick={[Function]}
+        src="https://image.flaticon.com/icons/svg/566/566011.svg"
+      />
+    </div>
+    <a
+      className="slider__link center"
+      href="/film/tt7556122"
+      onClick={[Function]}
+    >
+      <img
+        alt="The Old Guard"
+        className="slider-center"
+        src="https://m.media-amazon.com/images/M/MV5BNDJiZDliZDAtMjc5Yy00MzVhLThkY2MtNDYwNTQ2ZTM5MDcxXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg"
+      />
+    </a>
+    <div
+      className="arrow"
+    >
+      <img
+        alt="Right arrow"
+        className="arrow__right"
+        onClick={[Function]}
+        src="https://image.flaticon.com/icons/svg/566/566011.svg"
+      />
+    </div>
+    <a
+      className="slider__link lateral"
+      href="/film/tt6048922"
+      onClick={[Function]}
+    >
+      <img
+        alt="Greyhound"
+        className="slider-lateral"
+        src="https://m.media-amazon.com/images/M/MV5BZTFkZjYxNWItZmE2MC00MGE4LWIxYTgtZmIzOWM1YmI2YWEzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
+      />
+    </a>
+  </div>
+  <div
+    className="dots"
+  >
+    <span
+      className="selected-dot"
+    />
+    <span
+      className="dot"
+      onClick={[Function]}
+    />
+    <span
+      className="dot"
+      onClick={[Function]}
+    />
+    <span
+      className="dot"
+      onClick={[Function]}
+    />
+    <span
+      className="dot"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;
