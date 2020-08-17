@@ -1,6 +1,6 @@
 const { EventEmitter } = require('events');
-const dispatcher = require('./../dispatcher');
-const actionTypes = require('./../actions/actionTypes');
+const { dispatcher } = require('./../dispatcher');
+const { actionTypes } = require('./../actions/actionTypes');
 
 let CHANGE_EVENT = 'change';
 let _heroes_list_full = [];

@@ -1,4 +1,5 @@
 <li>
-  <% const { ROUTES_BUILDER } = require('./../../config/ROUTES'); %> 
-  <a href=<% ROUTES.BUILDER.hero_root %> + hero.id}><%= hero.i %>:<%= hero.name%></a>
+  <% const { ROUTES_BUILDER } = require('./../../config/ROUTES') %> 
+  <% console.log('AQUI', ROUTES_BUILDER ) %>
+  <a href=<% ROUTES.BUILDER.hero_root %> + hero.id}><%= hero.id %>:<%= hero.name%></a>
 </li>

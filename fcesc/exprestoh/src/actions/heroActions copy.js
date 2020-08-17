@@ -21,19 +21,24 @@ exports.loadHeroesList_full = function loadHeroesList_full(){
 }
 
 exports.loadHeroesList_top = function loadHeroesList_top(){
-    if(MOCK_HERO_LIST){
-        let newHeroList = [ ...MOCK_HERO_LIST ];
-        let max = 0;
-        ( newHeroList.length >= 5 ) ? max = 5 : max = newHeroList.length;
-        let heroes_list_top;
-        ( newHeroList.length === 0 ) ? heroes_list_top = undefined : heroes_list_top = newHeroList.slice(0, max);
-        dispatcher.dispatch({
-            type: actionTypes.LOAD_HERO_LIST_TOP,
-            data: heroes_list_top
-        })
-    } else {
-        throw new Error('Unable to return promise in loadHeroes')
-    }
+    return new Promise ((resolve, reject) => {
+        if(MOCK_HERO_LIST){
+            resolve(MOCK_HERO_LIST)
+                .then(data => {
+                    let max = 0;
+                    ( data.length >= 5 ) ? max = 5 : max = data.length;
+                    let heroes_list_top;
+                    ( data.length === 0 ) ? heroes_list_top = undefined : heroes_list_top = data.slice(0, max);
+                    dispatcher.dispatch({
+                        type: actionTypes.LOAD_HERO_LIST_TOP,
+                        data: heroes_list_top
+                    })
+                })
+                .catch((err)=>{console.log(err);})
+        } else {
+            reject(()=>{throw new Error('Unable to return promise in loadHeroes')})
+        }
+    })
 }
 
 exports.loadHeroesList_paginated = function loadHeroesList_paginated (page, itemsPerPage){
