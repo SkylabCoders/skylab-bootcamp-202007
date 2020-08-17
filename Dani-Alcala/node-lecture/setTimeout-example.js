@@ -6,7 +6,7 @@
 // 	);
 // };
 
-// setTimeout(callback, customNumber * 1000, customNumber); //el segundo customNumber es el argumento del callback (y el primero es el delay)
+// setTimeout(callback, customNumber * 1000, customNumber); 
 
 // const seconds = 4;
 
@@ -15,19 +15,19 @@
 // };
 
 // for (let counter = 1; counter < 3; counter++) {
-// 	setTimeout(callback, seconds * 1000 * counter, seconds * counter);
+// 	setTimeout(callback, seconds * 1000 * counter, seconds * counter);//el segundo customNumber es el argumento del callback (y el primero es el delay)
 // }
 
-// let counter = 0;
-// const callback = () => {
-// 	console.log('Hello World');
-// 	if (counter === 5) {
-// 		console.log('done');
-// 		clearInterval(interval);
-// 	}
-// 	counter++;
-// };
-// const interval = setInterval(callback, 1000);
+let counter = 0;
+const callback = () => {
+	console.log('Hello World');
+	if (counter === 5) {
+		console.log('done');
+		clearInterval(interval);
+	}
+	counter++;
+};
+const interval = setInterval(callback, 1000);
 
 //recursividad:
 // Print "Hello World" forever. Starting with a delay of 1 second
@@ -71,19 +71,20 @@
 //    - Only use setInterval (not setTimeout)
 //    - Use only ONE if statement
 
-let counter = 5;
-let interval;
-const greeting = (delay) => {
-	if (counter === 5) {
-		clearInterval(interval);
-		interval = setInterval(() => {
-			console.log('Hello World. ' + delay);
-			greeting(delay + 100);
-		}, delay);
-		counter = 0;
-	}
+// let counter = 5;
+// let interval;
+// const greeting = (delay) => {
+// 	if (counter === 5) {
+// 		clearInterval(interval);
+// 		interval = setInterval(() => {
+// 			console.log('Hello World. ' + delay);
+// 			greeting(delay + 100);
+// 		}, delay);
+// 		counter = 0;
+// 	}
 
-	counter += 1;
-};
+// 	counter += 1;
+// };
 
-greeting(100);
+// greeting(100);
+
