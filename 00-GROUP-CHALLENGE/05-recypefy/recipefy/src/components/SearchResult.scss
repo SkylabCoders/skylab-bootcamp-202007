@@ -1,0 +1,44 @@
+.result-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 10%;
+
+	h2 {
+		font-size: 30px;
+	}
+
+	.recipe__text,
+	.recipe-card {
+		width: 100%;
+	}
+
+	.recipe__text h2 {
+		margin-bottom: 10%;
+	}
+
+	.body__box {
+		display: flex;
+		flex-direction: column;
+
+		a {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.result-section {
+
+		.body__box {
+			max-width: 800px;
+
+			a {
+				flex-direction: row;
+			}
+		}
+
+	}
+}

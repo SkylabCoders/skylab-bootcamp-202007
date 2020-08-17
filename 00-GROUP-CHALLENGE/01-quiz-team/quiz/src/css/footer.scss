@@ -1,0 +1,22 @@
+@use 'colors';
+
+.footer{
+    width: 100%;
+    background-color: colors.$background;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1.5rem 0;
+    color: colors.$text--white;
+    font-size: .8rem;
+}
+.footer a{
+    color: colors.$text--white;
+    text-decoration: underline dotted colors.$text--white;
+}
+.footer a:hover{
+    color: colors.$a--hover;
+    text-decoration: underline dotted colors.$a--hover;
+}
