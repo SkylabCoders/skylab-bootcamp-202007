@@ -6,8 +6,10 @@
   <title>Books</title>
 </head>
 <body>
-  <%- include(header.page) -%>
-  <%- include(body.page) -%>
-  <%- include(footer.page) -%>
+  <%- include(header) -%>
+  <%= console.log('AQUI', NAVITEMS) %>
+  <%- include(nav, NAVITEMS) -%>
+  <%- include(body, { ROUTES }) -%>
+  <%- include(footer) -%>
 </body>
 </html>

@@ -1,8 +1,8 @@
 const routes = [
-  { path: '/', name: 'HOME', page: 'index.ejs', enableParams: false, type: 'page' },
-  { path: '/', name: 'HEADER', page: 'header.ejs', enableParams: false, type: 'component' },
-  { path: '/', name: 'FOOTER', page: 'footer.ejs', enableParams: false, type: 'component' },
-  { path: '/books', name: 'BOOKS', page: 'books.ejs', enableParams: false, type: 'component' }
+  { path: '/', name: 'HOME', page: 'home.ejs', enableParams: false, nav: true },
+  { path: '/books', name: 'BOOKS', page: 'books.ejs', enableParams: false, nav: true },
+  { path: '/about', name: 'ABOUT', page: 'about.ejs', enableParams: false, nav: true },
+
 ];
 
 const ROUTES = new Map();

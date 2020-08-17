@@ -1,0 +1,8 @@
+<ul>
+  <%= console.log('PER FI A NAV', NAVITEMS) %>
+  <% NAVITEMS.forEach((route) => { %>
+  <li>
+    <a href="<%=route.path%>"><%=route.name%></a>
+  </li>
+  <% }); %>
+</ul>
