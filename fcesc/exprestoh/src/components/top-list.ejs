@@ -1,10 +1,9 @@
 <div className="paginatedList__container">
   <ul>
-    <% if( heroStore.getHeroesList_top() === undefined ) { loadHeroesList_top(); } %> 
-    <% const heroes_list_top = heroStore.getHeroesList_top(); %> 
-    <% console.log('AQUI', heroes_list_top); %>
+    <script src='./top-list'></script>
     <% heroes_list_top.forEach((hero)=>( %>
-      <li><%= hero.id %></li>
+      <li>...<%= hero.id %></li>
     <% )) %>
   </ul>
+  <h2>DUMMY DATA</h2>
 </div>
