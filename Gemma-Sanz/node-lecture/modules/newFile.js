@@ -44,13 +44,8 @@ const { readFile, writeFile } = require('fs').promises;
 //const readFile = util.promisify(fs.readFile);
 
 async function main() {
-	try {
-		const data = await readFile(__filename);
-		await writeFile('newFile.js', data);
-	} catch (error) {
-		//handle exceptions
-		throw error;
-	}
+	const data = await readFile(__filename);
+	await writeFile('newFile.js', data);
 }
 
 main();
