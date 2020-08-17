@@ -11,9 +11,15 @@ function HeroListComponent() {
             generateA.classList.add('anchor');
             let generateP = document.createElement('p');
             generateP.classList.add('para');
+            let generateButton = document.createElement('button');
+            generateButton.innerHTML = 'X';
+            generateButton.addEventListener('click', function () {
+                generateDiv.style.display = 'none';
+            });
 
             generateDiv.appendChild(generateA);
             generateDiv.appendChild(generateP);
+            generateDiv.appendChild(generateButton);
             container.appendChild(generateDiv);
 
             printHeroes(i);
@@ -41,4 +47,4 @@ for (let click of eachHero) {
     click.onclick = function () {
         myHeroList.linkHeroes();
     }
-};
+}
