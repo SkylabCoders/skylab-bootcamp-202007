@@ -12,5 +12,7 @@
 
 // console.log(list);
 
-const templateGenerator = require('./index');
-console.log(templateGenerator('mister', 'Fernando'));
+// const templateGenerator = require('./index');
+// console.log(templateGenerator('mister', 'Fernando'));
+
+setInterval(() => console.log('Hola Event Loop?'), 3000);

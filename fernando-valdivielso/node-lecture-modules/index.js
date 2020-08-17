@@ -22,8 +22,10 @@
 // module.exports.list = [1, 2, 3, 4]
 
 
-function fn(title, promo) {
-    return `hola ${title}, hola ${promo}`;
-}
+// function fn(title, promo) {
+//     return `hola ${title}, hola ${promo}`;
+// }
 
-module.exports = fn
+// module.exports = fn
+
+console.log('Que es el Event Loop?');  //event loop se usa mucho en prog asincrona
