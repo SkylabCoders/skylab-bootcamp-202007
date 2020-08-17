@@ -22,30 +22,18 @@ class RecipeStore extends EventEmitter {
 		return actualRecipe;
 	}
 	getTopFiveRecipes() {
-		let topFive = _recipes.sort(function (recipe1, recipe2) {
-			let result = 0;
-			if (recipe1.puntuation > recipe2.puntuation) {
-				result = -1;
-			} else if (recipe1.puntuation < recipe2.puntuation) {
-				result = 1;
-			}
-			return result;
-		});
-		topFive = topFive.slice(0, 5);
+		let topFive = _recipes.slice(0, 5);
 		return topFive;
 	}
 }
 
+const recipeStore = new RecipeStore();
+
 dispatcher.register((action) => {
-	switch (action.type) {
-		case actionTypes.LOAD_RECIPE:
-			_recipes = action.data;
-			recipeStore.emitChange(_recipes);
-			break;
-		default:
-			break;
+	if (action.type === actionTypes.LOAD_RECIPE) {
+		_recipes = action.data;
+		recipeStore.emitChange(_recipes);
 	}
 });
 
-const recipeStore = new RecipeStore();
 export default recipeStore;

@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="header border border-info"
+  >
+    <div
+      className="inner__header"
+    >
+      <div
+        className="logo__header"
+      >
+        <img
+          alt="quiz logo"
+          className="img__header"
+          src="https://storage.needpix.com/rsynced_images/quiz-2074324_1280.png"
+        />
+      </div>
+      <nav
+        className="nav"
+      >
+        <ul
+          className="nav__list"
+        >
+          <li>
+            <a
+              aria-current="page"
+              className="nav__item my-active-class link"
+              href="/"
+              onClick={[Function]}
+              style={Object {}}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+             
+             | 
+             
+          </li>
+          <li>
+            <a
+              aria-current={null}
+              className="nav__item"
+              href="/leaderboard"
+              onClick={[Function]}
+            >
+              Leaderboard
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <a
+        aria-current={null}
+        href="/login"
+        onClick={[Function]}
+      >
+        <div
+          className="login__icon"
+        >
+          <img
+            src="user_icon.png"
+          />
+           
+        </div>
+      </a>
+      <a
+        aria-current={null}
+        className="login__button__link"
+        href="/login"
+        onClick={[Function]}
+      >
+        <button
+          className="login__button"
+          type="button"
+        >
+          Login
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    className="dashboard__container"
+  >
+    <div
+      className="dashboard__themes"
+    >
+      <h2
+        className="section__title"
+      >
+        THEMES
+      </h2>
+      <ul
+        className="themes__grid"
+      />
+    </div>
+    <div
+      className="dashboard__topThemes"
+    >
+      <h2
+        className="section__title"
+      >
+        TOP THEMES
+      </h2>
+      <ul
+        className="topThemes__grid"
+      />
+    </div>
+  </div>
+  <div
+    className="footer"
+  >
+    <p>
+      Created by Francesc & Victor for 
+      <a
+        href="https://www.skylabcoders.com/es/"
+      >
+        Skylab Coders
+      </a>
+       Bootcamp
+    </p>
+  </div>
+</div>
+`;

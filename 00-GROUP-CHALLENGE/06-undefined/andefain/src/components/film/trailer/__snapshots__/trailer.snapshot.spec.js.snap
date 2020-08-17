@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film trailer snapshot Should match 1`] = `
+<div
+  className="trailer-container"
+>
+  <a
+    href="/film"
+    onClick={[Function]}
+  >
+    <img
+      alt="Poster"
+      className="poster-img"
+      src="https://imdb-api.com/images/original/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.6791_AL_.jpg"
+    />
+  </a>
+  <a
+    href="/film"
+    onClick={[Function]}
+  >
+    <img
+      alt="Trailer"
+      className="trailer-img"
+      src="https://m.media-amazon.com/images/M/MV5BNTdlZGFmMDQtM2RiYi00NzUxLThhZWQtN2M4ZmYwMzllZGYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    />
+  </a>
+</div>
+`;
