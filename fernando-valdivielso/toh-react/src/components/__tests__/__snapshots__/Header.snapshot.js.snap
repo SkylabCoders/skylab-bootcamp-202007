@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header snapshot should match 1`] = `
+Array [
+  <h1>
+    Tour of Heroes
+  </h1>,
+  <nav
+    className="buttons"
+  >
+    <a
+      aria-current="page"
+      className="my-active-class"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      <button>
+        Dashboard
+      </button>
+    </a>
+     
+     | 
+    <a
+      aria-current={null}
+      href="/hero"
+      onClick={[Function]}
+    >
+      <button>
+        Heroes
+      </button>
+    </a>
+     | 
+  </nav>,
+]
+`;
