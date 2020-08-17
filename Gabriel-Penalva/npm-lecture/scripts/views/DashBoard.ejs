@@ -11,9 +11,11 @@
     <div class='center '>
         <h3>Top Heros:</h3>
         <div class='modules'>
-            <%= heroBoard.forEach (function (hero) {%>
-            <div class='module'><a class='dashlist hero-list_item' href=<%=`/id/${hero.id}`%>> <%>hero.name%></a></div>
-
+            <% include('./hero.mock.js') %>
+            <% let heroBoard = heroList.slice(0, 4)%>
+            <% heroBoard.forEach (function (hero) {%>
+            <div class='module'><a class='dashlist hero-list_item' href='<%=`/id/${hero.id}`%>'> <%=hero.name%></a>
+            </div>
             <%})%>
         </div>
     </div>
