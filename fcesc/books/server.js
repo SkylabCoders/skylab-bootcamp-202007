@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3010;
 server.use(morgan('tiny'));
 server.use(express.static(path.join(__dirname, 'src/css')));
 server.set('views', path.join(__dirname, '/src/views'));
-server.set('view-engine', 'ejs');
+server.set('view engine', 'ejs');
 
 function sendToServer(path, bodyComponent, enableParams){
   server.get(path, function(request, response){
@@ -21,7 +21,7 @@ function sendToServer(path, bodyComponent, enableParams){
       ROUTE_PARAMETERS = { query: request.params[params], parameter: params, fromPage: path };
     }
     response.locals = { body: bodyComponent, header: ROUTES.get('HEADER'), footer: ROUTES.get('FOOTER') }; // pass here any data to children
-    response.send('index.html');
+    response.render('index.html');
   })
 }
 
