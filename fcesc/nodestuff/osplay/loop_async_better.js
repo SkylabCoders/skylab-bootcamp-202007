@@ -13,7 +13,7 @@ FILES.forEach( (file, index) => {
       const data = await readFile(filePath, DEFAULT_ENCODING);
       console.log(`file ${index} >>> ${data}`);
       const resultFilePath = path.join(__dirname, 'nuevoFichero.txt');
-      let partialData = '\n' + data + '\n';
+      let partialData = data + '\n';
       writeFile(resultFilePath, partialData, DEFAULT_ENCODING);
     }
     getData();
