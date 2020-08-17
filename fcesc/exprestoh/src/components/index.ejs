@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tour of heroes</title>
+  <link rel="stylesheet" type="text/css" href="app.css" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <link rel="stylesheet" type="text/css" href="mainMenu.css" />
+  <link rel="stylesheet" type="text/css" href="pageNotFound.css" />
+  <link rel="stylesheet" type="text/css" href="paginatedList.css" />
+  <link rel="stylesheet" type="text/css" href="heroDetail.css" />
+  <link rel="stylesheet" type="text/css" href="displayInlineArray.css" />
+</head>
+<body>
+  <%- include(header) -%>
+  <%- include(nav, { ROUTES: ROUTES }) -%>
+  <%- include(body) -%>
+  <%- include(footer) -%>
+</body>
+</html>

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bannerComponent should macth 1`] = `
+<div
+  className="bannerContainer"
+>
+  <img
+    alt="wallpaper kamehouse"
+    className="bannerImage"
+    src="https://wallpapercave.com/wp/wp4855908.png"
+  />
+  <h1>
+    WELCOME
+  </h1>
+</div>
+`;
