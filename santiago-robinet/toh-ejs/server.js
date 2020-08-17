@@ -1,20 +1,29 @@
 const express = require('express');
-const { heroList } = require('./hero.mock.js');
+const path = require('path');
+const debug = require('debug')('server');
+const morgan = require('morgan')
+
 
 const server = express();
 
+const VIEW_FOLDER = 'views';
+const port = process.env.PORT || 4200;
+
+server.use(morgan('dev'));
+
 server.set('view engine', 'ejs');// esto va siempre que usemos EJS
+server.use(express.static(__dirname + "/views"));
 
 server.get('/', (request, response) => {
-  response.render('HeroList');
+  response.sendFile(path.join(__dirname,VIEW_FOLDER,'HeroList.html'));
 });
 
 server.get('/herodetail', (request, response) => {
-  response.render('HeroDetail');
+  response.sendFile(path.join(__dirname,VIEW_FOLDER,'HeroDetail.html'));
 });
 
 server.get('/herodashboard', (request, response) => {
-  response.render('HeroDashboard');
+  response.sendFile(path.join(__dirname,VIEW_FOLDER,'HeroDashboard.html'));
 });
 
-server.listen(4200, () => console.log('Server running in port 4200...'));
+server.listen(port, () => debug(`Server running in port ${port}...`));
