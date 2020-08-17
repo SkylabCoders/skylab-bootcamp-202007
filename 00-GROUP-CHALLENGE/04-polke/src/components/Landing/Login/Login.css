@@ -1,0 +1,105 @@
+/*
+** FORM INSIDE CONTAINER
+*/
+
+.Login__form {
+	background-color: var(--form-color-background);
+	width: 80%;
+	opacity: 0.8;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	box-shadow: 2px 2px #888888;
+	text-align: center;
+}
+
+/*
+** FORM ELEMENTS
+*/
+
+.Login__form__login-title--colored {
+	color: var(--form-color-headers);
+	padding-bottom: 5px;
+}
+
+.Login__login-with-button {
+	width: 100% !important;
+}
+.Login__login-with-button button {
+	width: 80% !important;
+	height: 60px;
+}
+.Login__form__container-input > a {
+	color: var(--font-color-input);
+}
+.Login__form__container-input {
+	width: 80% !important;
+}
+
+.Login__form__anchor--colored {
+	color: var(--form-color-headers);
+	font-size: bold;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.Login__form__last-button {
+	width: 100% !important;
+	height: 40px;
+	margin-top: 12px;
+}
+
+.form__button {
+	background-color: var(--bg-color-button);
+	border-radius: 5px;
+	border: none;
+	color: whitesmoke;
+	cursor: pointer;
+}
+
+.form__button a {
+	color: white;
+}
+
+.login__log-anonym {
+	cursor: pointer;
+}
+
+.anchor:hover {
+	color: #2d8ff9 !important;
+}
+
+/*
+** MEDIA QUERIES
+*/
+
+@media only screen and (min-width: 600px) {
+	.Login__login-with-button button {
+		width: 70% !important;
+		height: 60px;
+	}
+	.Login__form__container-input {
+		width: 70% !important;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.Login__form {
+		min-width: 375px !important;
+		max-width: 450px !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.Login__form button {
+		width: 300px !important;
+	}
+	.Login__form__container-input {
+		width: 300px !important;
+	}
+}

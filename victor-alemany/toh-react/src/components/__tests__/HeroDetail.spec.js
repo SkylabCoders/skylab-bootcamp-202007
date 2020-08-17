@@ -1,24 +1,77 @@
-import renderer from 'react-test-renderer'
-import HeroDetail from './../HeroDetail'
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import renderer from 'react-test-renderer';
+import HeroDetail from '../HeroDetail';
+import { BrowserRouter } from 'react-router-dom';
 
+function renderHeroDetail(arg) {
+	const defaultProps = {
+		match: {
+			params: {}
+		}
+	};
 
-describe('Hero Detail snapshot', ()=>{
-    const  props = {
-        match: {
-            params: {
-                heroId: 14
-            }
-        }
-    };
-    const treeDetail = renderer.create(
-     <BrowserRouter>
-        <HeroDetail {...props} />
-     </BrowserRouter>
-    );
+	const props = { ...defaultProps, ...arg };
+	return renderer.create(
+		<BrowserRouter>
+			<HeroDetail {...props} />
+		</BrowserRouter>
+	);
+}
 
-    it('should match', ()=>{
-        expect(treeDetail).toMatchSnapshot();
-    })
-})
+describe('HeroDetail', () => {
+	let heroDetailTree;
+	let instance;
+	let component;
+	let text;
+
+	beforeEach(async () => {
+		heroDetailTree = renderHeroDetail();
+
+		instance = heroDetailTree.root;
+		component = instance.findByType('h2');
+		text = component.children[0];
+		heroDetailTree.update();
+	});
+
+	it('should match without hero ID', () => {
+		expect(heroDetailTree).toMatchSnapshot();
+	});
+
+	it('should display a title without id', () => {
+		heroDetailTree = renderHeroDetail();
+
+		instance = heroDetailTree.root;
+		component = instance.findByType('h2');
+		text = component.children[0];
+
+		expect(text).toEqual('Register a new hero:');
+	});
+
+	it('should match with hero ID', () => {
+		const props = {
+			match: {
+				params: {
+					heroId: 14
+				}
+			}
+		};
+		heroDetailTree = renderHeroDetail(props);
+
+		expect(heroDetailTree).toMatchSnapshot();
+	});
+
+	it('should match with a missing hero ID', async () => {
+		const props = {
+			match: {
+				params: {
+					heroId: 26
+				}
+			}
+		};
+
+		heroDetailTree = renderHeroDetail(props);
+		heroDetailTree.update();
+
+		expect(heroDetailTree).toMatchSnapshot();
+	});
+});

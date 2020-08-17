@@ -3,6 +3,7 @@ import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 
 export function loadHeros() {
+
 	return new Promise((resolve) => {
 		resolve(heroList);
 	}).then((heroes) => {

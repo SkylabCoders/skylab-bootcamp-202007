@@ -3,6 +3,7 @@ import store from '../../stores/store';
 import { loadCharList } from '../../actions/actions';
 import './detailsComponent.css';
 
+
 import { Link } from 'react-router-dom';
 function DetailsComponent(props) {
 	const [chars, setChars] = useState(store.getCharacters());
@@ -33,6 +34,7 @@ function DetailsComponent(props) {
 
 							<div className="info">
 								<div className="title">
+
 									<Link target="_blank" to="/">
 										{char && char.name}
 									</Link>
