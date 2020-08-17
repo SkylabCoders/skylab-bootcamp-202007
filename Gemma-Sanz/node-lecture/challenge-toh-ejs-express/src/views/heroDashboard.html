@@ -7,15 +7,15 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 	</head>
 	<body>
-		<section id="mainContainer__dashboard">
-			<h1>Tour of Heroes</h1>
-			<button>
+		<section class="container">
+			<h1 class="jumbotron">Tour of Heroes</h1>
+			<button type="button" class="btn btn-outline-secondary">
 				<a href="/">Dashboard</a>
 			</button>
-			<button>
+			<button type="button" class="btn btn-outline-secondary">
 				<a href="/heroes">Heroes</a>
 			</button>
-			<button>
+			<button type="button" class="btn btn-outline-secondary">
 				<a href="/hero">Details</a>
 			</button>
 			<h2>Top Heroes</h2>
@@ -23,11 +23,21 @@
 			<%= topFour = heroMock.slice(0, 4) %> <% topFour.map(function(hero) {
 			return '<a href="/">' + hero.id + '</a>'; }) %>
 			<div>
-				<ul class="row">
-					<a href="/heroes"><li class="element__dashboard">Dr Nice</li></a>
-					<a href="/heroes"><li class="element__dashboard">Narco</li></a>
-					<a href="/heroes"><li class="element__dashboard">Bombasto</li></a>
-					<a href="/heroes"><li class="element__dashboard">Celeritas</li></a>
+				<ul class="list-group list-group-flush">
+					<a href="/heroes"
+						><li class="list-group-item list-group-item-action">Dr Nice</li></a
+					>
+					<a href="/heroes"
+						><li class="list-group-item list-group-item-action">Narco</li></a
+					>
+					<a href="/heroes"
+						><li class="list-group-item list-group-item-action">Bombasto</li></a
+					>
+					<a href="/heroes"
+						><li class="list-group-item list-group-item-action">
+							Celeritas
+						</li></a
+					>
 				</ul>
 			</div>
 
