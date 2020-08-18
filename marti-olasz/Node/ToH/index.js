@@ -3,13 +3,26 @@ const path = require('path');
 const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
+const sql = require('mssql');
 
 const app = express();
 const port = process.env.PORT || 2427;
 
+const config = {
+	user: 'molasz',
+	password: 'Petritxol2!',
+	server: 'olasz-skylab.database.windows.net',
+	database: 'SkylabDataBase-olasz',
+	option: {
+		encrypt: true
+	}
+};
+
+sql.connect(config).catch(debug);
+
 const { heroList, nav } = require('./heroMock');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
@@ -20,7 +33,7 @@ app.get('/', (req, res) => {
 	res.render('dashboard', { nav, dashboardList });
 });
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroList);
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
