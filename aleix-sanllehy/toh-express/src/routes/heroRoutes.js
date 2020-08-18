@@ -1,16 +1,24 @@
 const express = require('express');
 const debug = require('debug')('app: heroRoutes');
+const sql = require('mssql');
 
 const heroRoutes = express.Router();
 
-function router(nav, heroes) {
+function router(nav) {
 	heroRoutes.route('/').get((req, res) => {
-		const heroes = [];
-		res.render('list', {
-			nav,
-			title: 'My Heroes',
-			heroes
-		});
+		(async function query() {
+			try {
+				const request = new sql.Request();
+				const { recordset } = await request.query('SELECT * FROM heroes');
+				res.render('list', {
+					nav,
+					title: 'My Heroes',
+					heroes: recordset
+				});
+			} catch (error) {
+				debug(error.stack);
+			}
+		})();
 	});
 
 	heroRoutes.route('/:heroId').get((req, res) => {
