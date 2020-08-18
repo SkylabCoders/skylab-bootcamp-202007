@@ -15,15 +15,15 @@ server.set('views', path.join(__dirname, './src/views'));
 server.set('view engine', 'ejs');
 
 server.get('/', (req, res) => {
-  res.render('dashboard.component.ejs', { hero_search: 'hero-search.component.ejs' });
+  res.render('index.ejs', { body: 'dashboard.component.ejs'});
 });
 
 server.get('/heroes', (req, res) => {
-  res.render('heroes.ejs');
+  res.render('index.ejs', { body: 'heroes.component.ejs' });
 });
 
 server.get('/heroes/:heroId', (req, res) => {
-  res.send('Details works');
+  res.render('index.ejs', { body: 'hero.detail.component.ejs' });
 });
 
 
