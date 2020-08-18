@@ -9,14 +9,17 @@
 	</head>
 
 	<body>
+		<%-include('header')-%>
 		<h1><%-title-%></h1>
 		<h3>Top Heroes</h3>
 		<div class="grid grid-pad">
-			<a class="col-1-4">
+			<% for(let i=0; i< heroes.length ; i++) { %>
+			<a class="col-1-4" href="heroes/<%=heroes[i].id%>">
 				<div class="module hero">
-					<h4>SON GOKU</h4>
+					<div class="badge"><%-heroes[i].name-%></div>
 				</div>
 			</a>
+			<% } %>
 		</div>
 
 		<app-hero-search></app-hero-search>

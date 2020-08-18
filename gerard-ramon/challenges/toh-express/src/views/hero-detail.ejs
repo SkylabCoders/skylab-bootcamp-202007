@@ -1,14 +1,25 @@
-<link rel="stylesheet" href="/css/hero-detail.css" type="text/css">
-<link rel="stylesheet" href="/css/index.css" type="text/css">
-
-<div *ngIf="hero">
-  <h2>HERO Details</h2>
-  <div><span>id: </span>14</div>
-  <div>
-    <label>name:
-      <input class="hero.name" placeholder="name" />
-    </label>
-  </div>
-  <button onclick="goBack()">go back</button>
-  <button onclick="save()">save</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ToH</title>
+		<link rel="stylesheet" href="/css/hero-detail.css" type="text/css" />
+		<link rel="stylesheet" href="/css/index.css" type="text/css" />
+	</head>
+	<body>
+		<div>
+			<%-include('header')-%>
+			<h2><%=hero.name%> Details</h2>
+			<div><span>id: </span><%=hero.id%></div>
+			<div>
+				<label
+					>name:
+					<input class="hero.name" placeholder=" <%=hero.name%>" />
+				</label>
+			</div>
+			<button onclick="goBack()">go back</button>
+			<button onclick="save()">save</button>
+		</div>
+	</body>
+</html>
