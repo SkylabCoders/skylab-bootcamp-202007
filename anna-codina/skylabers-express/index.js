@@ -6,7 +6,12 @@ const morgan = require('morgan');
 const sql = require('mssql');
 
 const app = express();
-const PORT = process.env.PORT || 2427;
+const PORT = process.env.PORT || 3000;
+
+const nav = [
+	{ link: '/', title: 'Dasboard' },
+	{ link: '/skylabers', title: 'Skylabers' }
+];
 
 const config = {
 	user: '',
@@ -24,6 +29,10 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('tiny'));
+
+app.get('/', (req, res) => {
+	res.render('dashboard', { nav });
+});
 
 app.listen(PORT, () =>
 	debug(chalk.red(`Server is running at port `) + chalk.green(PORT))
