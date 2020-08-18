@@ -12,12 +12,12 @@
 <body>
     <%- include('header'); -%>
     <div>
-        <h2><%=hero.name %> Details</h2>
-        <div><span>id: </span><%=hero.id %>
+        <h2><%= hero && hero.name %> Details</h2>
+        <div><span>id: </span><%= hero && hero.id %>
         </div>
         <div>
             <label>name:
-                <input placeholder="name" value="<%hero.name %> " />
+                <input placeholder="name" value="<%=hero && hero.name %> " />
             </label>
         </div>
         <button>go back</button>
