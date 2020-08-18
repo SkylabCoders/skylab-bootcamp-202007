@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of Skylabers</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/sky-detail.css">
+</head>
+
+<body>
+    <%- include('header') -%>
+    <div>
+        <h2><%=skylaber && skylaber.name %> Details</h2>
+        <div><span>id: </span><%=skylaber && skylaber.id %>
+        </div>
+        <div>
+            <label>name:
+                <input placeholder="name" value="<%skylaber && skylaber.name %>" />
+            </label>
+        </div>
+        <button>go back</button>
+        <button>save</button>
+    </div>
+
+</body>
+
+</html>
