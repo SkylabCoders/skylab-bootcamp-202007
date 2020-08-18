@@ -1,0 +1,6 @@
+projectKey=alex
+serverUrl=http://localhost:9000
+serverVersion=8.4.0.35506
+dashboardUrl=http://localhost:9000/dashboard?id=alex
+ceTaskId=AXOQ-ABe46ocNzv62zXN
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXOQ-ABe46ocNzv62zXN
