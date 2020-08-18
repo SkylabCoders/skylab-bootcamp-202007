@@ -4,6 +4,8 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 
+const router = express.Router();
+
 const app = express();
 const port = process.env.PORT || 2427;
 
@@ -28,7 +30,7 @@ const heroList = [
 
 app.get('/', (req, res) => {
 	const dashboardList = heroList.slice(0, 4);
-	res.render('dashboard', { dashboardList });
+	res.render('dashboard', { title: 'Top heroes', dashboardList });
 });
 
 app.get('/list', (req, res) => {
