@@ -5,16 +5,16 @@ const morgan = require('morgan');
 const path = require('path');
 const sql = require('mssql');
 
-const skylabers = require('./skylabers.mock');
+// const skylabers = require('./skylabers.mock');
 
 const app = express();
 const port = 3000;
 
 const config = {
-	user: 'Skylab2007',
-	password: 'Gilbert_Cao',
-	server: 'skylab2007-server.database.windows.net',
-	database: 'toh-database',
+	user: 'Esther',
+	password: 'sagu.11*',
+	server: 'skilibrary.database.windows.net',
+	database: 'tourH',
 	option: {
 		encrypt: true // Because we are using Microsoft Azure
 	}
@@ -35,16 +35,10 @@ app.set('views', './src/views');
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-	res.render('dashboard', {
-		nav,
-		title: 'Top Skylabers',
-		skylabers: skylabers.slice(0, 4)
-	});
-});
+
 
 const skylaberRoutes = require('./src/routes/skylaberRoutes')(nav);
 
-app.use('/skylabers', skylaberRoutes);
+app.use('/', skylaberRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
