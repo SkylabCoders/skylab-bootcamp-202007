@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h2>My Heroes</h2>
+    <h2><%= title %></h2>
 
     <div>
         <label>Hero name:
@@ -23,12 +23,16 @@
     </div>
 
     <ul class="heroes">
-        <li>
-            <a routerLink="/detail/{{hero.id}}">
-                <span class="badge">14</span>Bombasto
-            </a>
-            <button class="delete" title="delete hero">x</button>
-        </li>
+        <% for (i=0; i<heroes.length; i++) { %>
+
+            <li>
+                <a>
+                    <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %> 
+                </a>
+                <button class="delete" title="delete hero">x</button>
+            </li>
+        <% } %>
+        
     </ul>
 </body>
 
