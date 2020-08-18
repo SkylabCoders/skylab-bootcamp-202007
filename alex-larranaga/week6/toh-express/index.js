@@ -3,9 +3,14 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const path = require('path');
 const morgan = require('morgan');
+const heroes = require('./heroes');
 
 const app = express();
 const PORT = 3000;
+const nav = [
+	{ link: '/', title: 'Dashboard' },
+	{ link: '/heroes', title: 'Hero List' }
+];
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views');
@@ -14,25 +19,16 @@ app.set('view engine', 'ejs');
 app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
-	res.render('dashboard', { title: 'Top Heroes' });
+	res.render('dashboard', {
+		nav,
+		heroes: heroes.splice(0, 4)
+	});
 });
 
 app.get('/heroes', (req, res) => {
 	res.render('heroes', {
-		title: 'Hero List',
-
-		heroes: [
-			{ id: 11, name: 'Dr Nice' },
-			{ id: 12, name: 'Narco' },
-			{ id: 13, name: 'Bombasto' },
-			{ id: 14, name: 'Celeritas' },
-			{ id: 15, name: 'Magneta' },
-			{ id: 16, name: 'RubberMan' },
-			{ id: 17, name: 'Dynama' },
-			{ id: 18, name: 'Dr IQ' },
-			{ id: 19, name: 'Magma' },
-			{ id: 20, name: 'Tornado' }
-		]
+		nav,
+		heroes: heroes
 	});
 });
 
