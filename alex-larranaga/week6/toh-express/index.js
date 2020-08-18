@@ -14,11 +14,26 @@ app.set('view engine', 'ejs');
 app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
-	res.render('dashboard');
+	res.render('dashboard', { title: 'Top Heroes' });
 });
 
 app.get('/heroes', (req, res) => {
-	res.render('heroes');
+	res.render('heroes', {
+		title: 'Hero List',
+
+		heroes: [
+			{ id: 11, name: 'Dr Nice' },
+			{ id: 12, name: 'Narco' },
+			{ id: 13, name: 'Bombasto' },
+			{ id: 14, name: 'Celeritas' },
+			{ id: 15, name: 'Magneta' },
+			{ id: 16, name: 'RubberMan' },
+			{ id: 17, name: 'Dynama' },
+			{ id: 18, name: 'Dr IQ' },
+			{ id: 19, name: 'Magma' },
+			{ id: 20, name: 'Tornado' }
+		]
+	});
 });
 
 app.get('/hero/:heroId', (req, res) => {

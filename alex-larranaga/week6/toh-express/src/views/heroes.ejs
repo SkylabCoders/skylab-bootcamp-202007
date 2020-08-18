@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/heroes.css" type="text/css">
 <link rel="stylesheet" href="/css/index.css" type="text/css">
 
-<h2>My Heroes</h2>
+<h2><%-(title)-%></h2>
 
 <div>
   <label>Hero name:
@@ -14,10 +14,13 @@
 </div>
 
 <ul class="heroes">
+  <% for(let i=0; i<heroes.length; i++) { %>
+
   <li *ngFor="let hero of heroes">
     <a routerLink="/hero-detail/:heroId">
-      <span class="badge">hero.id</span> hero.name
+      <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
     </a>
     <button class="delete" title="delete hero">x</button>
   </li>
+  <% } %>
 </ul>
