@@ -1,17 +1,42 @@
 const express = require('express');
+const debug = require('debug')('app:heroRoutes');
+const sql = require('mssql');
 
 const heroRoutes = express.Router();
 
-function router(nav, heroList) {
+function router(nav) {
 	heroRoutes.route('/').get((req, res) => {
-		res.render('list', { nav, heroList });
+		(async function queryAll() {
+			const request = new sql.Request();
+			try {
+				const { recordset } = await request.query('SELECT * FROM heroes');
+				res.render('list', { nav, heroList: recordset });
+			} catch (error) {
+				debug(error.stack);
+			}
+		})();
 	});
 
-	heroRoutes.route('/:id').get((req, res) => {
-		const { id } = req.params;
-		const hero = heroList.find((element) => element.id === +id);
-		res.render('detail', { nav, hero });
-	});
+	heroRoutes
+		.route('/:id')
+		.all((req, res, next) => {
+			(async function queryId() {
+				try {
+					const { id } = req.params;
+					const request = new sql.Request();
+					const { recordset } = await request
+						.input('id', sql.Int, id)
+						.query(`SELECT * FROM heroes WHERE id= @id`);
+					[res.hero] = recordset;
+					next();
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
+		})
+		.get((req, res) => {
+			res.render('detail', { nav, hero: res.hero });
+		});
 	return heroRoutes;
 }
 

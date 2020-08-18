@@ -3,11 +3,23 @@ const path = require('path');
 const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
+const sql = require('mssql');
+const { heroList, nav } = require('./heroMock');
 
 const app = express();
 const port = process.env.PORT || 2427;
 
-const { heroList, nav } = require('./heroMock');
+const config = {
+	user: 'acodina',
+	password: '5717purpurin$',
+	server: 'anna-skylab.database.windows.net',
+	database: 'tohdb',
+	opction: {
+		encrypt: true // Because we are using Microsoft Azure
+	}
+};
+
+sql.connect(config).catch(debug);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -20,7 +32,7 @@ app.get('/', (req, res) => {
 	res.render('dashboard', { nav, dashboardList });
 });
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroList);
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
