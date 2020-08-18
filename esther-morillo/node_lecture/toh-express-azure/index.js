@@ -3,10 +3,24 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
+const sql = require('mssql');
+
 const heroes = require('./heroes');
 
 const app = express();
 const port = 3000;
+
+const config = {
+	user: 'Esther', 
+	password: 'sagu.11*',
+	server: 'skilibrary.database.windows.net',
+	database: 'tourH',
+	option: {
+		encrypt: true // Because we are using Microsoft Azure
+	}
+};
+
+sql.connect(config).catch(debug);
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
@@ -29,23 +43,8 @@ app.get('/', (req, res) => {
 	});
 });
 
-app.get('/heroes', (req, res) => {
-	res.render('heroes', {
-		nav,
-		title: 'My Heros',
-		heroes
-	});
-});
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
-app.get('/heroes/:heroId', (req, res) => {
-	res.render('heroDetail', {
-		nav,
-		heroes: heroes[0]
-	});
-});
-
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
-
-app.use('/detail', heroRoutes);
+app.use('/heroes', heroRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
