@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header snapshot should match 1`] = `
+<label>
+  Name: 
+  <input
+    type="text"
+  />
+</label>
+`;
