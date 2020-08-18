@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>Top Heroes</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
 
 <body>
-    <h3><%= title %></h3>
+    <%-include('header')-%>
+    <h3>Top Heroes</h3>
     <div class="grid grid-pad">
         <% dashboardList.forEach(element => { %>
         <a *ngFor="let hero of heroes" class="col-1-4" href="/hero?id=<%=element.id%>">

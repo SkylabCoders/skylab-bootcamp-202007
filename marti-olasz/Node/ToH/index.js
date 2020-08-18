@@ -15,6 +15,11 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 app.use(morgan('tiny'));
 
+const nav = [
+	{ link: '/', title: 'Dasboard' },
+	{ link: '/list', title: 'Dasboard' }
+];
+
 const heroList = [
 	{ id: 11, name: 'Dr Nice' },
 	{ id: 12, name: 'Narco' },
@@ -30,17 +35,17 @@ const heroList = [
 
 app.get('/', (req, res) => {
 	const dashboardList = heroList.slice(0, 4);
-	res.render('dashboard', { title: 'Top heroes', dashboardList });
+	res.render('dashboard', { nav, dashboardList });
 });
 
 app.get('/list', (req, res) => {
-	res.render('list', { heroList });
+	res.render('list', { nav, heroList });
 });
 
 app.get('/hero', (req, res) => {
 	const id = +req.query.id;
 	const hero = heroList.find((element) => element.id === id);
-	res.render('detail', { hero });
+	res.render('detail', { nav, hero });
 });
 
 app.listen(port, () =>
