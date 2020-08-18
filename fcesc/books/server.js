@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const chalk = require('chalk');
 // const debug = require('debug')('server');
-//const morgan = require('morgan');
+// const morgan = require('morgan');
 const { ROUTES } = require('./config/ROUTES');
 const { COMPONENTS } = require('./config/COMPONENTS');
 
@@ -10,7 +10,7 @@ const server = express();
 const PORT = process.env.PORT || 3010;
 const NAVITEMS = Array.from(ROUTES.values()).filter(route=>route.nav);
 
-//server.use(morgan('tiny'));
+// server.use(morgan('tiny'));
 server.use(express.static(path.resolve(__dirname, './src/css')));
 server.set('views', path.resolve(__dirname, './src/views'));
 server.set('view engine', 'ejs');

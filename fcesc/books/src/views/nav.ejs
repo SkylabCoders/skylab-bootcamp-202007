@@ -1,7 +1,6 @@
-<ul>
-  <%= console.log('PER FI A NAV', NAVITEMS) %>
+<ul class="navlist__container">
   <% NAVITEMS.forEach((route) => { %>
-  <li>
+  <li class="navlist__item">
     <a href="<%=route.path%>"><%=route.name%></a>
   </li>
   <% }); %>
