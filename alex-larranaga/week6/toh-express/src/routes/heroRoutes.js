@@ -2,7 +2,7 @@ const express = require('express');
 
 const heroRoutes = express.Router();
 
-function router() {
+function router(nav, heroes) {
 	//rutas
 	heroRoutes.route('/').get((req, res) => {
 		res.render('heroes', {

@@ -4,7 +4,6 @@ const chalk = require('chalk');
 const path = require('path');
 const morgan = require('morgan');
 const heroes = require('./heroes');
-const heroRoutes = require('./src/routes/heroRoutes');
 
 const app = express();
 const PORT = 3000;
@@ -23,6 +22,7 @@ const nav = [
 app.get('/', (req, res) => {
 	res.render('dashboard', {
 		nav,
+		title: 'My heroes',
 		heroes: heroes.splice(0, 4)
 	});
 });
@@ -30,16 +30,5 @@ app.get('/', (req, res) => {
 const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
 
 app.use('/heroes', heroRoutes);
-
-app.get('/heroes', (req, res) => {
-	res.render('heroes', {
-		nav,
-		heroes: heroes
-	});
-});
-
-app.get('/hero/:heroId', (req, res) => {
-	res.render('hero-detail');
-});
 
 app.listen(PORT, () => debug('server is running...'));
