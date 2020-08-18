@@ -22,18 +22,26 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.render('dashboard', { title: 'Top Heroes' });
+	res.render('dashboard', {
+		nav,
+		title: 'Top Heroes',
+		heroes: heroes.slice(0, 4)
+	});
 });
 
 app.get('/heroes', (req, res) => {
 	res.render('heroes', {
 		nav,
-		heroes: heroes[0]
+		title: 'My Heros',
+		heroes
 	});
 });
 
 app.get('/heroes/:heroId', (req, res) => {
-	res.render('heroDetail');
+	res.render('heroDetail', {
+		nav,
+		heroes: heroes[0]
+	});
 });
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
