@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 
 const app = express();
+const port = process.env.PORT || 2427;
 
 const VIEW_FOLDER = 'src/views';
 
@@ -32,7 +33,6 @@ app.get('/books', (req, res) => {
 	res.sendFile(path.join(__dirname, VIEW_FOLDER, 'books.html'));
 });
 
-const PORT = 2427;
-app.listen(PORT, () =>
-	debug(chalk.red(`Server is running at port `) + chalk.green(PORT))
+app.listen(port, () =>
+	debug(chalk.red(`Server is running at port `) + chalk.green(port))
 );
