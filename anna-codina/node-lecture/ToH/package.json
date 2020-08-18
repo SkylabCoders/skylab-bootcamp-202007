@@ -1,12 +1,12 @@
 {
-	"name": "library-app",
+	"name": "ToH",
 	"version": "1.0.0",
 	"description": "",
-	"main": "app.js",
+	"main": "index.js",
 	"scripts": {
-		"start": "DEBUG=app nodemon app.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"lint": "eslint app.js --fix"
+		"start": "DEBUG=app nodemon index.js",
+		"eslint": "eslint index.js --fix"
 	},
 	"keywords": [],
 	"author": "",
@@ -14,6 +14,7 @@
 	"dependencies": {
 		"chalk": "^4.1.0",
 		"debug": "^4.1.1",
+		"ejs": "^3.1.5",
 		"express": "^4.17.1",
 		"morgan": "^1.10.0",
 		"nodemon": "^2.0.4"
@@ -25,11 +26,10 @@
 		"eslint-plugin-import": "^2.22.0",
 		"prettier": "^2.0.5"
 	},
-	"nodemon": {
+	"nodemonConfig": {
 		"restartable": "rs",
 		"ignore": [
-			"node_modules/**/node_modules"
-		],
-		"delay": "2500"
+			"node_modules/**/node-modules"
+		]
 	}
 }
