@@ -30,17 +30,8 @@ app.get('/', (req, res) => {
         heroes: heroes.slice(0, 4)
     });
 })
+const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
 
-app.get('/heroes', (req, res) => {
-    res.render('heroes', {
-        nav,
-        title: 'My Heroes',
-        heroes
-    })
-})
-
-app.get('/heroes/:heroId', (req, res) => {
-    res.render('hero-detail', { nav, hero: heroes[0] })
-})
+app.use('/heroes', heroRoutes)
 
 app.listen(port, () => debug(`listening on port ${chalk.magenta(port)}`))
