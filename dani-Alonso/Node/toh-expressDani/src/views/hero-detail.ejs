@@ -9,13 +9,17 @@
 	</head>
 	<body>
 		<div>
-			<%-include('header')-%>
-			<h2><%=hero.name%> Details</h2>
-			<div><span>id: </span><%=hero.id%></div>
+			<%-include('header');-%>
+			<h2><%=hero && hero.name%> Details</h2>
+			<div><span>id: </span><%= hero && hero.id%></div>
 			<div>
 				<label
 					>name:
-					<input class="hero.name" placeholder=" <%=hero.name%>" />
+					<input
+						class="hero.name"
+						placeholder="name"
+						value=" <%=hero && hero.name%>"
+					/>
 				</label>
 			</div>
 			<button onclick="goBack()">go back</button>
