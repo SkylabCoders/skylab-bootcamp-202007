@@ -26,9 +26,7 @@ server.get('/heroes', (req, res) => {
 
 server.get('/hero/:heroId', (req, res) => {
   const id = req.params.heroId;
-  console.log('ID', id, heroList);
   const hero = heroList.find(hero => hero.id === Number(id));
-  console.log('===>' + hero)
   res.render('index.ejs', { header: 'header.ejs', apptitle: 'My Heroes', body: 'hero-detail.component.ejs', hero: hero });
 });
 
