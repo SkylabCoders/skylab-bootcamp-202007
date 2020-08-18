@@ -14,10 +14,10 @@ const nav = [
 ];
 
 const config = {
-	user: '',
-	password: '',
-	server: '',
-	database: '',
+	user: 'alishpls',
+	password: 'Aleix-toh',
+	server: 'aleix-skylab.database.windows.net',
+	database: 'aleix-anna-skylabers-db',
 	opction: {
 		encrypt: true // Because we are using Microsoft Azure
 	}
@@ -30,9 +30,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('tiny'));
 
-app.get('/', (req, res) => {
-	res.render('dashboard', { nav });
-});
+const skylabersRoutes = require('./src/routes/skylabersRoutes')(nav);
+
+app.use('/', skylabersRoutes);
 
 app.listen(PORT, () =>
 	debug(chalk.red(`Server is running at port `) + chalk.green(PORT))
