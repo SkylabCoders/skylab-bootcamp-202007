@@ -3,10 +3,24 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
+const sql = require('mssql');
+
 const heroes = require('./heroes');
 
 const app = express();
 const port = 3000;
+
+const config = {
+	user: 'admindb',
+	password: 'T0urofheroes',
+	server: 'gcao.database.windows.net',
+	database: 'tohdb',
+	option: {
+		encrypt: true // Because we are using Microsoft Azure
+	}
+};
+
+sql.connect(config).catch(debug);
 
 app.use(morgan('tiny'));
 
@@ -27,7 +41,7 @@ app.get('/', (req, res) => {
 	});
 });
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 

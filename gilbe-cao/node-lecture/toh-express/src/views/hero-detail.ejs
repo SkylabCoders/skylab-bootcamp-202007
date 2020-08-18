@@ -10,8 +10,8 @@
 	<body>
 		<%- include('header'); -%>
 		<div>
-			<h2><%= hero.name %> Details</h2>
-			<div><span>id: </span><%= hero.id %></div>
+			<h2><%= hero && hero.name %> Details</h2>
+			<div><span>id: </span><%= hero && hero.id %></div>
 			<div>
 				<label
 					>name:
