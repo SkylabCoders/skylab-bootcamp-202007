@@ -3,9 +3,17 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Tour of heroes</title>
+		<title>Tour of Heroes</title>
+		<link rel="stylesheet" href="css/index.css" />
 	</head>
 	<body>
-		<h1>Dashboard works</h1>
+		<h3>Top Heroes</h3>
+		<div class="grid grid-pad">
+			<a class="col-1-4" routerLink="/detail/{{ hero.id }}">
+				<div class="module hero">
+					<h4>Bombasto</h4>
+				</div>
+			</a>
+		</div>
 	</body>
 </html>

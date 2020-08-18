@@ -9,19 +9,21 @@ const port = 3000;
 
 app.use(morgan('tiny'));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.send('dashboard');
+	res.render('dashboard');
 });
 
 app.get('/heroes', (req, res) => {
-	res.send('Hero List  Works');
+	res.render('heroes');
 });
 
 app.get('/heroes/:heroId', (req, res) => {
-	res.send('Detail works');
+	res.render('details');
 });
 
 app.listen(port, () => {
