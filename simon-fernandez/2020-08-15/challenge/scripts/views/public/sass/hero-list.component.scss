@@ -1,0 +1,20 @@
+.list {
+	width: 150px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.list__item {
+	margin: 10px;
+	padding: 10px;
+	background-color: lightgray;
+}
+
+.list__item:hover {
+	background-color: lightskyblue;
+}
+
+.my-hero {
+	display: none;
+}
