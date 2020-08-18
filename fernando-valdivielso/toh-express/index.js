@@ -9,16 +9,19 @@ const port = 3000
 
 app.use(morgan('tiny'))
 
+app.set('views', './src/views')
+app.set('view engine', 'ejs')
+
 app.get('/', (req, res) => {
-    res.send('dashboard works')
+    res.render('dashboard')
 })
 
 app.get('/heroes', (req, res) => {
-    res.send('hero list works')
+    res.render('hero list works')
 })
 
 app.get('/heroes/:heroId', (req, res) => {
-    res.send('hero detail works')
+    res.render('hero detail works')
 })
 
-app.listen(port, () => debug(`listening on port ${chalk.green(port)}`))
+app.listen(port, () => debug(`listening on port ${chalk.magenta(port)}`))
