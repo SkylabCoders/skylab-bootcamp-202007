@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
         heroes: heroes.slice(0, 4)
     });
 })
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
+const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes); // esta const apunta al resultado de la funcion router en heroRoutes.js pasandole los parametros nav y heroes
 
 app.use('/heroes', heroRoutes)
 
