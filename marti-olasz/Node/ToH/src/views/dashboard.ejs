@@ -15,7 +15,7 @@
     <h3>Top Heroes</h3>
     <div class="grid grid-pad">
         <% dashboardList.forEach(element => { %>
-        <a *ngFor="let hero of heroes" class="col-1-4" href="/hero?id=<%=element.id%>">
+        <a *ngFor="let hero of heroes" class="col-1-4" href="/heroes/<%=element.id%>">
             <div class="module hero">
                 <h4><%= element.name %></h4>
             </div>
