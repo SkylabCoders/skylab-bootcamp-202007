@@ -10,12 +10,30 @@
 	<body>
 		<%- include('header')%>
 		<div>
-			<h2><%=hero && hero.name%> details!</h2>
-			<div><span>id: </span><%= hero.id %></div>
+			<h2><%=skylaber && skylaber.name%> details!</h2>
+			<div><span>id: </span><%= skylaber.id %></div>
 			<div>
 				<label
 					>name:
-					<input placeholder="name" value="<%= hero.name%>" />
+					<input placeholder="name" value="<%= skylaber.name%>" />
+				</label>
+			</div>
+			<div>
+				<label
+					>Age:
+					<span><%= skylaber.age%></span>
+				</label>
+			</div>
+			<div>
+				<label
+					>City:
+					<span><%= skylaber.city%></span>
+				</label>
+			</div>
+			<div>
+				<label
+					>gender:
+					<span><%= skylaber.gender%></span>
 				</label>
 			</div>
 			<button>go back</button>

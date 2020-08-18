@@ -22,10 +22,10 @@
 		</div>
 
 		<ul class="heroes">
-			<% for(let i = 0; i<heroes.length; i++){%>
+			<% for(let i = 0; i<skylabers.length; i++){%>
 			<li>
-				<a href="/heroes/<%=heroes[i].id%>">
-					<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
+				<a href="/skylabers/<%=skylabers[i].id%>">
+					<span class="badge"><%= skylabers[i].id %></span><%= skylabers[i].name %> <span><%= skylabers[i].age %> años</span>
 				</a>
 				<button class="delete" title="delete hero">
 					x
