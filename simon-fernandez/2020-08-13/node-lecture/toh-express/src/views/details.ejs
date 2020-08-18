@@ -8,12 +8,13 @@
 		<link rel="stylesheet" href="css/hero-detail.component.css" />
 	</head>
 	<body>
+		<%-include(header) %>
 		<div>
 			<h2>Bombasto Details</h2>
 			<div><span>id: </span>13</div>
 			<div>
 				<label
-					>name:
+					>name:<%=hero.id %>
 					<input placeholder="name" />
 				</label>
 			</div>

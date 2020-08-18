@@ -16,6 +16,7 @@ app.get('/', function (request, response) {
 });
 
 app.get('/books', function (request, response) {
+	let hero = +request.query.heroId;
 	response.sendFile(path.join(__dirname, VIEW_FOLDER, 'book.html'));
 });
 app.listen(port, () => {
