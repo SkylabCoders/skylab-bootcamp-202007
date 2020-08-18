@@ -21,7 +21,6 @@ sql.connect(config).catch(debug);
 //  const { routes } = require('./routes');
 
 const heroes = require('./heroes');
-const { request } = require('express');
 
 const dashboardList = heroes.slice(0, 4)
 const nav = [

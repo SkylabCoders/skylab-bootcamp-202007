@@ -1,5 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
+
 const heroRoutes = express.Router();
 const sql = require('mssql');
 
