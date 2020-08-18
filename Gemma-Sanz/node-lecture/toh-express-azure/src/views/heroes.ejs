@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="css/heroes.css" />
 	</head>
 	<body>
-		<h2>My Heroes</h2>
+		<h2><%= title$></h2>
 
 		<div>
 			<label
@@ -23,7 +23,7 @@
 
 		<ul class="heroes">
 			<li>
-				<a> <span class="badge">14</span> Bombasto </a>
+				<a> <span class="badge"><%= hero.id%></span> <%= hero.name%> </a>
 				<button class="delete" title="delete hero">
 					x
 				</button>
