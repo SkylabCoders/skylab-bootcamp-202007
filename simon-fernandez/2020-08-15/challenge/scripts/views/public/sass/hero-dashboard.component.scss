@@ -1,0 +1,22 @@
+.title {
+	margin: 0 auto;
+	text-align: center;
+}
+.heroes {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.heroes__item {
+	width: 100px;
+	height: 100px;
+	background-color: darkgray;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.heroes__item:hover {
+	background-color: lightgray;
+}

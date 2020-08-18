@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film details snapshot Should match 1`] = `
+<div
+  className="details-container"
+>
+  <div
+    className="details-header"
+  >
+    <h1
+      className="film-details__title"
+    >
+      Inception
+    </h1>
+    <img
+      alt="Start icon"
+      className="icon-like-desktop"
+      height="30px"
+      onClick={[Function]}
+      src="https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png"
+      width="30px"
+    />
+  </div>
+  <span>
+    Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Ken Watanabe
+  </span>
+  <div
+    className="film-details__head"
+  >
+    <span>
+      <span>
+        2010
+      </span>
+      <span>
+         | 
+      </span>
+      <span>
+        2h 28mins
+      </span>
+      <span>
+         | 
+      </span>
+      <span>
+        Action, Adventure, Sci-Fi, Thriller
+      </span>
+    </span>
+  </div>
+  <div
+    className="film-details__plot"
+  >
+    <h3
+      className="plot-title"
+    >
+      Plot
+    </h3>
+    <p
+      className="plot-details"
+    >
+      Dom Cobb is a skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state, when the mind is at its most vulnerable. Cobb's rare ability has made him a coveted player in this treacherous new world of corporate espionage, but it has also made him an international fugitive and cost him everything he has ever loved. Now Cobb is being offered a chance at redemption. One last job could give him his life back but only if he can accomplish the impossible, inception. Instead of the perfect heist, Cobb and his team of specialists have to pull off the reverse: their task is not to steal an idea, but to plant one. If they succeed, it could be the perfect crime. But no amount of careful planning or expertise can prepare the team for the dangerous enemy that seems to predict their every move. An enemy that only Cobb could have seen coming.
+    </p>
+  </div>
+</div>
+`;
