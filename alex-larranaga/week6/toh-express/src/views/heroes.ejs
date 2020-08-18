@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/css/heroes.css" type="text/css">
+<link rel="stylesheet" href="/css/index.css" type="text/css">
+
+<h2>My Heroes</h2>
+
+<div>
+  <label>Hero name:
+    <input />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button>
+    add
+  </button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/hero-detail/:heroId">
+      <span class="badge">hero.id</span> hero.name
+    </a>
+    <button class="delete" title="delete hero">x</button>
+  </li>
+</ul>
