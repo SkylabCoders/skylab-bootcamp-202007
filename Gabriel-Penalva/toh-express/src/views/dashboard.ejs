@@ -9,15 +9,18 @@
 </head>
 
 <body>
-    <h3>Top Heroes</h3>
+    <%- include('header'); -%>
+    <h3><%= title %></h3>
     <div class="grid grid-pad">
-        <a class="col-1-4"">
-            <div class=" module hero">
-            <h4>hero.name</h4>
-    </div>
-    </a>
-    </div>
 
+    </div>
+    <% for(let i = 0; i < dashboardList.length; i++) {%>
+    <a class="col-1-4" href=" /heroes/<%= dashboardList[i].id %>">
+        <div class=" module hero">
+            <h4><%= dashboardList[i].name%></h4>
+        </div>
+    </a>
+    <% } %>
 </body>
 
 </html>
