@@ -3,10 +3,21 @@ const path = require('path');
 const debug = require('debug')('index');
 const chalk = require('chalk');
 const morgan = require('morgan');
+const sql = require('mssql');
 const heroes = require('./heroes');
 
 const index = express();
 const port = process.env.PORT || 3000;
+
+const config = {
+	user: 'mons',
+	password: 'Marina2016',
+	server: 'skylabmons.database.windows.net',
+	database: 'toh-database',
+	option: { encrypt: true /* because we are using Microsoft Aseure */ }
+};
+
+sql.connect(config).catch(debug);
 
 index.use(morgan('tiny'));
 index.use(express.static(path.join(__dirname, 'public')));
@@ -26,23 +37,9 @@ index.get('/', (req, res) => {
 	});
 });
 
-index.get('/heroes', (req, res) => {
-	res.render('heroes', {
-		nav,
-		title: 'My Heros',
-		heroes
-	});
-});
-index.get('/detail/:hero', (req, res) => {
-	res.render('detail', {
-		nav,
-		heroes: heroes[0]
-	});
-});
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
-
-index.use('/detail', heroRoutes);
+index.use('/heroes', heroRoutes);
 
 index.listen(port, () =>
 	debug(`Server is running in port ${chalk.yellow(port)}`)
