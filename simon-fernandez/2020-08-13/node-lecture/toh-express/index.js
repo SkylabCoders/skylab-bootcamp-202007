@@ -29,23 +29,8 @@ app.get('/', (req, res) => {
 	});
 });
 
-app.get('/heroes', (req, res) => {
-	res.render('heroes', {
-		nav,
-		title: 'My Heros',
-		heroes
-	});
-});
-
-app.get('/heroes/:heroId', (req, res) => {
-	res.render('heroDetail', {
-		nav,
-		heroes: heroes[0]
-	});
-});
-
 const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
 
-app.use('/detail', heroRoutes);
+app.use('/heroes', heroRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));

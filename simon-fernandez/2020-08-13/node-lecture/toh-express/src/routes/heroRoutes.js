@@ -1,9 +1,10 @@
 const express = require('express');
+const debug = require('debug')('app:heroRoutes');
 
 const heroRoutes = express.Router();
 
 function router(nav, heroes) {
-	heroRoutes.route('/', (req, res) => {
+	heroRoutes.route('/').get((req, res) => {
 		res.render('heroes', {
 			nav,
 			title: 'My Heros',
@@ -11,7 +12,13 @@ function router(nav, heroes) {
 		});
 	});
 	heroRoutes.route('/:heroId').get((req, res) => {
-		res.render('detail', { nav, hero: heroes[0] });
+		const id = +req.params.heroId;
+		debug(id);
+
+		res.render('heroDetail', {
+			nav,
+			hero: heroes.find((hero) => hero.id === id)
+		});
 	});
 
 	return heroRoutes;
