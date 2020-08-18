@@ -1,25 +1,55 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
+const sql = require('mssql');
 
 const heroRoutes = express.Router();
 
-function router(nav, heroes) {
+function router(nav) {
 	heroRoutes.route('/').get((req, res) => {
-		res.render('heroes', {
-			nav,
-			title: 'My Heros',
-			heroes
-		});
-	});
-	heroRoutes.route('/:heroId').get((req, res) => {
-		const id = +req.params.heroId;
-		debug(id);
+		(async function query() {
+			const request = new sql.Request();
+			try {
+				const { recordset } = await request.query('SELECT * FROM heroes');
+				debug(recordset);
 
-		res.render('heroDetail', {
-			nav,
-			hero: heroes.find((hero) => hero.id === id)
-		});
+				res.render('heroes', {
+					nav,
+					title: 'My Heros',
+					heroes: recordset
+				});
+			} catch (error) {
+				debug(error.stack);
+			}
+		})();
 	});
+	heroRoutes
+		.route('/:heroId')
+		.all((req, res, next) => {
+			const heroes = [];
+			const id = +req.params.heroId;
+
+			(async function query() {
+				try {
+					const request = new sql.Request();
+					const { recordset } = await request
+						.input('id', sql.Int, id)
+						.query(`SELECT * FROM heroes WHERE id=@id`);
+					debug(recordset);
+					[res.hero] = recordset;
+					next();
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
+
+			debug(id);
+		})
+		.get((req, res) => {
+			res.render('heroDetail', {
+				nav,
+				hero: res.hero
+			});
+		});
 
 	return heroRoutes;
 }

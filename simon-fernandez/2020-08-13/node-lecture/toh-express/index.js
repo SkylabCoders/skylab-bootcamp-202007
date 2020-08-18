@@ -3,10 +3,23 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
+const sql = require('mssql');
 const heroes = require('./heroes');
 
 const app = express();
 const port = 3000;
+
+const config = {
+	user: 'simonbesteiro',
+	password: 'Simon.78951236',
+	server: 'skylibrary.database.windows.net',
+	database: 'tohdb',
+	option: {
+		encrypt: true //Because Azure force us
+	}
+};
+
+sql.connect(config).catch(debug);
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
@@ -29,7 +42,7 @@ app.get('/', (req, res) => {
 	});
 });
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
