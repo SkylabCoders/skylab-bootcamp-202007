@@ -1,11 +1,8 @@
 const express = require('express');
-const debug = require('debug')('app');
 const path = require('path');
+const debug = require('debug')('app');
 const morgan = require('morgan');
 const sql = require('mssql');
-
-const app = express();
-const PORT = 3000;
 
 const config = {
 	user: 'Dani',
@@ -17,18 +14,17 @@ const config = {
 	}
 };
 
-const laberRoutes = require('./src/routes/laberRoutes')(nav);
 sql.connect(config).catch(debug);
+const laberRoutes = require('./src/laberRoutes')();
 
+const app = express();
+const PORT = 3030;
+
+app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-app.use('/labers', laberRoutes);
 
-app.use(morgan('tiny'));
-
-constlaberRoutes = require('./src/routes/laberRoutes')(nav);
-
-app.use('/labers', laberRoutes);
-
-app.listen(PORT, () => debug('server is running...'));
+app.use('/', laberRoutes);
+sql.connect(config).catch(debug);
+app.listen(PORT, () => debug(`Server is running in port...`));
