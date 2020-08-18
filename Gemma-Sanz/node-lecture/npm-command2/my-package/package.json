@@ -1,0 +1,19 @@
+{
+	"name": "gemma-sanz-hello-world",
+	"version": "1.0.0",
+	"description": "My first npm package",
+	"main": "my-package.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"skylab",
+		"javascript",
+		"npm"
+	],
+	"author": "Gemma Sanz",
+	"license": "ISC",
+	"dependencies": {
+		"gabri-laber": "^1.0.1"
+	}
+}
