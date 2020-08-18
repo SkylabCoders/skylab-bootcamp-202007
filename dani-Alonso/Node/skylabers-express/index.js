@@ -26,5 +26,11 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/', laberRoutes);
+// app.get('/list', (req, res) => {
+// 	res.render('dashboard', {
+// 		title: 'Top Heroes',
+// 		skylabers: skylabers.slice(0, 4)
+// 	});
+// });
 sql.connect(config).catch(debug);
 app.listen(PORT, () => debug(`Server is running in port...`));
