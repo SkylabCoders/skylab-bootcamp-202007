@@ -21,15 +21,32 @@ function router(nav) {
 		})();
 	});
 
-	heroRoutes.route('/:heroId').get((req, res) => {
-		const heroes = [];
-		const id = +req.params.heroId;
-		res.render('hero', {
-			nav,
-			title: 'My Heroes',
-			hero: heroes.find((hero) => hero.id === id)
+	heroRoutes
+		.route('/:heroId')
+		.all((req, res, next) => {
+			const id = +req.params.heroId;
+			(async function query() {
+				try {
+					const request = new sql.Request();
+					const { recordset } = await request.input('id', sql.Int, id).query(
+						`SELECT * FROM heroes where id = @id`
+						/* 					const { recordset } = await request.query(
+						`SELECT * FROM heroes where id = ${id}` */ // input for typing with @
+					);
+					[res.hero] = recordset;
+					next();
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
+		})
+
+		.get((req, res) => {
+			res.render('hero', {
+				nav,
+				hero: res.hero
+			});
 		});
-	});
 
 	return heroRoutes;
 }
@@ -47,3 +64,7 @@ module.exports = router;
 app.get('/heroes/:heroId', (req, res) => {
 	res.render('hero', { nav, heroes: heroes[0] });
 }); */
+
+/* .delete()
+.post() // update
+.put() // create */
