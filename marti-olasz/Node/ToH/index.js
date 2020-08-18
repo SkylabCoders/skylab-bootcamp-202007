@@ -37,7 +37,7 @@ app.get('/list', (req, res) => {
 
 app.get('/hero', (req, res) => {
 	const id = +req.query.id;
-	const hero = heroList.find((hero) => hero.id === id);
+	const hero = heroList.find((element) => element.id === id);
 	res.render('detail', { hero });
 });
 
