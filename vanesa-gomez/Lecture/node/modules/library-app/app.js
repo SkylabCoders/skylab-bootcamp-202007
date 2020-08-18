@@ -5,6 +5,8 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 const VIEW_FOLDER = 'src/views';
 
 app.use(morgan('tiny'));
@@ -23,7 +25,7 @@ app.use(
 	express.static(path.join(__dirname, 'node_modules/jquery/dist'))
 );
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, VIEW_FOLDER, 'index.html')); // send es un alias de write + end
 
 	/*
@@ -32,9 +34,8 @@ app.get('/', function (req, res) {
     */
 });
 
-app.get('/books', function (request, response) {
+app.get('/books', (request, response) => {
 	response.sendFile(path.join(__dirname, VIEW_FOLDER, 'books.html'));
 });
 
-const PORT = 3000;
-app.listen(PORT, () => debug('Server is running in port ' + chalk.blue(PORT)));
+app.listen(port, () => debug(`Server is running in port ${chalk.blue(port)}`));
