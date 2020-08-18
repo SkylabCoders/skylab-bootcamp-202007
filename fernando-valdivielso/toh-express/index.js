@@ -23,7 +23,7 @@ app.get('/heroes', (req, res) => {
 })
 
 app.get('/heroes/:heroId', (req, res) => {
-    res.render('details')
+    res.render('hero-detail')
 })
 
 app.listen(port, () => debug(`listening on port ${chalk.magenta(port)}`))
