@@ -9,6 +9,8 @@ const port = 3000
 
 app.use(morgan('tiny'))
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.set('views', './src/views')
 app.set('view engine', 'ejs')
 
@@ -17,11 +19,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/heroes', (req, res) => {
-    res.render('hero list works')
+    res.render('heroes')
 })
 
 app.get('/heroes/:heroId', (req, res) => {
-    res.render('hero detail works')
+    res.render('details')
 })
 
 app.listen(port, () => debug(`listening on port ${chalk.magenta(port)}`))
