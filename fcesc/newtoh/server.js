@@ -3,6 +3,7 @@ const debug = require('debug');
 const morgan = require('morgan');
 const chalk = require('chalk');
 const path = require('path');
+const heroList = require('./src/mockdata/HEROES')
 
 const server = express();
 
@@ -15,15 +16,15 @@ server.set('views', path.join(__dirname, './src/views'));
 server.set('view engine', 'ejs');
 
 server.get('/', (req, res) => {
-  res.render('index.ejs', { body: 'dashboard.component.ejs'});
+  res.render('index.ejs', { apptitle: 'My Heroes', body: 'dashboard.component.ejs'});
 });
 
 server.get('/heroes', (req, res) => {
-  res.render('index.ejs', { body: 'heroes.component.ejs' });
+  res.render('index.ejs', { apptitle: 'My Heroes', body: 'heroes.component.ejs', heroList: heroList });
 });
 
-server.get('/heroes/:heroId', (req, res) => {
-  res.render('index.ejs', { body: 'hero.detail.component.ejs' });
+server.get('/hero/:heroId', (req, res) => {
+  res.render('index.ejs', { apptitle: 'My Heroes', body: 'hero.detail.component.ejs' });
 });
 
 

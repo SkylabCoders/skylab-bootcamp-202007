@@ -15,12 +15,12 @@
 </head>
 <body>
   <header>
-    <h1>TITULO ejs</h1>
+    <h1><%=apptitle%></h1>
     <nav>
       <a href="/">Dashboard</a>
       <a href="/heroes">Heroes</a>
     </nav>
-    <%- include('messages.component.ejs') -%>
+    <%- include('messages.component.ejs', { apptitle }) -%>
   </header>
   <%- include(body) -%>
 </body>
