@@ -10,4 +10,5 @@ const HEROES = [
 	{ id: 19, name: 'Magma' },
 	{ id: 20, name: 'Tornado' }
 ];
+
 module.exports = HEROES;

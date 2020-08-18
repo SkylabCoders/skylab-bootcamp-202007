@@ -1,24 +1,20 @@
 const express = require('express');
 
-const heroRouter = express.Router();
+const heroRoutes = express.Router();
 
-function router(HEROES, request, dashboardList) {
-	heroRouter.route('/').get((req, res) => {
-		res.render('dashboard', { title: 'Top Heroes', dashboardList });
-	});
-
-	heroRouter.route('/heroes').get((req, res) => {
+function router(nav, heroes) {
+	heroRoutes.route('/', (req, res) => {
 		res.render('heroes', {
-			title: 'My heroes',
-			HEROES
+			nav,
+			title: 'My Heros',
+			heroes
 		});
 	});
-
-	heroRouter.route('/heroes/:heroId').get((req, res) => {
-		const hero = +request.query.heroId;
-		res.render('details', { hero });
+	heroRoutes.route('/:heroId').get((req, res) => {
+		res.render('detail', { nav, hero: heroes[0] });
 	});
-	return heroRouter;
+
+	return heroRoutes;
 }
 
 module.exports = router;

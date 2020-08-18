@@ -3,17 +3,18 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Tour of heroes</title>
-		<link rel="stylesheet" href="css/styles.css" />
-		<link rel="stylesheet" href="css/heroes.component.css" />
+		<title>Tour of Heroes</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/heroes.css" />
 	</head>
 	<body>
-		<h2>My Heroes</h2>
+		<%- include('header')%>
+		<h2><%= title%></h2>
 
 		<div>
 			<label
 				>Hero name:
-				<input />
+				<input #heroName />
 			</label>
 			<button>
 				add
@@ -21,17 +22,16 @@
 		</div>
 
 		<ul class="heroes">
-			<% heroes.forEach(element => {%>
+			<% for(let i = 0; i<heroes.length; i++){%>
 			<li>
-				<a>
-					<span class="badge"><%= element.id %></span> <%= element.name %>
+				<a href="/heroes/<%=heroes[i].id%>">
+					<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
 				</a>
 				<button class="delete" title="delete hero">
 					x
 				</button>
 			</li>
-
-			<% }); %>
+		<% } %>
 		</ul>
 	</body>
 </html>
