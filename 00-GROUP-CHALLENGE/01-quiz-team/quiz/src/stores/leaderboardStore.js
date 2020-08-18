@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events';
-import dispatcher from './../AppDispatcher';
+import dispatcher from '../dispatcher';
 import actionTypes from './../actions/actionTypes';
+import sortResults from './../utils/sortResults'
 
 const CHANGE_EVENT = 'change';
 let _leaderboard = [];
@@ -35,8 +36,13 @@ dispatcher.register((action) => {
             _leaderboard = action.data;
             leaderboardStore.emitChange(_leaderboard);
             break;
+        case actionTypes.ADD_RESULTS:
+            _leaderboard = [..._leaderboard,{...action.data}];
+            leaderboardStore.emitChange(sortResults(_leaderboard));
+            break;
         default:
             break;
     }    
 })
+
 

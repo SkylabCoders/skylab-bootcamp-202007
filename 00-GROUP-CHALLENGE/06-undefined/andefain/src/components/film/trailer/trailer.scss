@@ -1,0 +1,35 @@
+.trailer-container {
+	background-color: #212121;
+	margin: 50px auto;
+	flex: 1;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.poster-img {
+	display: none;
+}
+
+.trailer-img {
+	margin: auto;
+	width: 100%;
+	display: flex;
+}
+
+@media only screen and (min-width: 600px) {
+	.trailer-container {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.poster-img {
+		width: 50%;
+		display: flex;
+	}
+	.trailer-img {
+		width: 100%;
+	}
+}

@@ -1,0 +1,4 @@
+export default {
+	CREATE_USER: 'CREATE_USER',
+	SEARCH_FILM: 'SEARCH_FILM'
+};

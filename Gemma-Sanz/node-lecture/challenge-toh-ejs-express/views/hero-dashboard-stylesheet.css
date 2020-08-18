@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    margin: 40px 15vw;
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(240, 235, 235);
+    margin: 5px;
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(231, 229, 229);
+}
+
+#mainContainer__dashboard {
+    margin: 35px 5px;
+}
+
+#mainContainer__dashboard>a {
+    border-radius: 3px;
+    background-color: rgb(90, 96, 138);
+    color: white;
+    margin: 50px 5px;
+    padding: 20px 5px;
+}
+
+#mainContainer__dashboard>a:hover {
+    background-color: rgb(164, 164, 170);
+}
+
+.id {
+    background-color: rgb(76, 76, 124);
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 3px 0 0 3px;
+}
+
+.name {
+    color: grey;
+    padding-left: 5px;
+}
+
+a {
+    text-decoration: none;
+}
