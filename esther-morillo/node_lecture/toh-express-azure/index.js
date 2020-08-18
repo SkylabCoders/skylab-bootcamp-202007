@@ -11,10 +11,10 @@ const app = express();
 const port = 3000;
 
 const config = {
-	user: 'Esther', 
-	password: 'sagu.11*',
-	server: 'skilibrary.database.windows.net',
-	database: 'tourH',
+	user: 'Skylab2007',
+	password: 'Gilbert_Cao',
+	server: 'skylab2007-server.database.windows.net',
+	database: 'toh-database',
 	option: {
 		encrypt: true // Because we are using Microsoft Azure
 	}
