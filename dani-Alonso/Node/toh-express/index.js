@@ -27,7 +27,7 @@ const heroList = [
 ];
 app.get('/', (req, res) => {
 	const dashboardList = heroList.slice(0, 4);
-	res.render('dashboard', { dashboardList });
+	res.render('dashboard', { title: 'my Hero' }, { dashboardList });
 });
 app.get('/list', (req, res) => {
 	res.render('list', { heroList });
