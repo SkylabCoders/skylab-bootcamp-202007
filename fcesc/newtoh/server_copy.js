@@ -1,16 +1,15 @@
 const express = require('express');
-const debug = require('debug');
-const morgan = require('morgan');
-const chalk = require('chalk');
+// const debug = require('debug');
+// const morgan = require('morgan');
+// const chalk = require('chalk');
 const path = require('path');
 const heroList = require('./src/mockdata/HEROES');
-const request = require('request');
 
 const server = express();
 
 const PORT = 3010;
 
-server.use(morgan('tiny'));
+// server.use(morgan('tiny'));
 server.use(express.static(path.join(__dirname, 'public/css')));
 
 server.set('views', path.join(__dirname, './src/views'));
@@ -31,10 +30,6 @@ server.get('/hero/:heroId', (req, res) => {
   console.log('===>' + hero)
   res.render('index.ejs', { header: 'header.ejs', apptitle: 'My Heroes', body: 'hero-detail.component.ejs', hero: hero });
 });
-
-
-
-
 
 server.listen(PORT, () => console.log(`Server listenening on port: ${PORT}`));
 

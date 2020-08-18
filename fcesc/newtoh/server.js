@@ -7,7 +7,6 @@ const heroList = require('./src/mockdata/HEROES');
 const request = require('request');
 
 const server = express();
-
 const PORT = 3010;
 
 server.use(morgan('tiny'));
