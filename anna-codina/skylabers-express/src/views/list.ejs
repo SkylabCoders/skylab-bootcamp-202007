@@ -4,11 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Skylabers:</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/list.css">
 </head>
 
 <body>
     <%-include('header')-%>
+    <h1>Skylabers:</h1>
+    <form method="POST">
+        <label for="skylaberName">Skylaber name:
+            <input type="text" id="skylaberName" placeholder="New name" vaule="" />
+        </label>
+        <button type="submit" name="skylaberName">
+            add
+        </button>
+    </form>
+    <ul class="skylabers">
+        <% skylabers.forEach(skylaber => { %>
+        <li>
+            <a href="/skylabers/<%= skylaber.id %>"> <span class="badge"><%= skylaber.id %></span>
+                <%= skylaber.name %>
+            </a>
+
+            <form method="POST">
+                <button class="delete" value="<%=skylaber.id%>" name="id">x</button>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+
+
 </body>
 
 </html>

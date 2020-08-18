@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/detail.css">
+</head>
+
+<body>
+    <%-include('header')-%>
+
+    <h1><%= skylaber.name %> details</h1>
+
+    <div><span>id: </span><%= skylaber.id %></div>
+
+    <div>
+        <label>name:
+            <input placeholder="name" value="<%= skylaber.name %>" />
+        </label>
+    </div>
+    <div>
+        <label>last name:
+            <input placeholder="last name" value="<%= skylaber.lastName %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>role:
+            <input placeholder="role" value="<%= skylaber.role %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>age:
+            <input placeholder="age" value="<%= skylaber.age %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>birth date:
+            <input type="date" value="<%= skylaber.birthDate %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>city:
+            <input placeholder="last name" value="<%= skylaber.city %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>country:
+            <input placeholder="country" value="<%= skylaber.country %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>bank: <input placeholder="bank" value="<%= skylaber.bank %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>gender: <input placeholder="gender" value="<%= skylaber.gender %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>likes pets? <input placeholder="likes pets" value="<%= skylaber.likesPets %>" />
+        </label>
+    </div>
+
+    <div>
+        <label>challenges done: <input placeholder="challenges" value="<%= skylaber.challenges %>" />
+        </label>
+    </div>
+    <button>Back</button>
+    <button>Save</button>
+</body>
+
+</html>
