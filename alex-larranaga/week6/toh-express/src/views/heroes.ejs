@@ -5,7 +5,7 @@
 
 <div>
   <form method="POST">
-    <label>SKYLABER'S NAME:
+    <label>SHIELD HEROES ESTOY AQUI
       <input placeholder="fuckling rubbish" />
     </label>
     <button type=" submit">
@@ -20,7 +20,7 @@
 
 <ul class="heroes">
   <% for(let i=0; i<heroes.length; i++) { %> <li *ngFor="let hero of heroes">
-    <a routerLink="/hero-detail/:heroId">
+    <a href='/heroes/<%= heroes[i].id %>'>
       <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
     </a>
     <button class="delete" title="delete hero">x</button>

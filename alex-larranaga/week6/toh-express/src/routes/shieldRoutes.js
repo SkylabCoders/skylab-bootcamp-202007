@@ -1,52 +1,34 @@
 const express = require('express');
-const debug = require('debug')('app:heroRoutes');
+const debug = require('debug')('app:shieldRoutes');
 const { MongoClient } = require('mongodb');
-const heroRoutes = express.Router();
+const superHeroes = require('../../public/superHeroes');
+
+const shieldRoutes = express.Router();
+
 function router(nav) {
-	heroRoutes.route('/').get((req, res) => {
+	shieldRoutes.route('/').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
-		const dbName = 'heroes';
-		let client = null;
-		(async function query() {
+		const dbname = 'heroes';
+
+		(async function mongo() {
+			let client;
+			let db;
 			try {
 				client = await MongoClient.connect(url);
-				debug('Connection established...');
-				const db = await client.db(dbName);
-				const collection = await db.collection('heroes');
-				const heroes = await collection.find().toArray();
-				res.render('heroes', {
-					nav,
-					title: 'My Heroes',
-					heroes: heroes
-				});
+				db = client.db(dbname);
+				const response = await db.collection('heroes').insertMany(superHeroes);
+				debug(response);
+				res.json(response);
 			} catch (error) {
 				debug(error.stack);
 			}
+
+			client.close();
 		})();
+		res.send('Shield es una mierda comparado con la peña de Dragoi Bola');
 	});
-	heroRoutes
-		.route('/:heroId')
-		.all((req, res, next) => {
-			const id = +req.params.heroId;
-			const url = 'mongodb://localhost:27017';
-			const dbName = 'heroes';
-			let client = null;
-			(async function query() {
-				try {
-					client = await MongoClient.connect(url);
-					const db = await client.db(dbName);
-					const collection = await db.collection('heroes');
-					const hero = await collection.find({ id }).toArray();
-					[res.hero] = hero;
-					next();
-				} catch (error) {
-					debug(error.stack);
-				}
-			})();
-		})
-		.get((req, res) => {
-			res.render('hero-detail', { nav, hero: res.hero });
-		});
-	return heroRoutes;
+
+	return shieldRoutes;
 }
+
 module.exports = router;
