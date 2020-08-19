@@ -80,7 +80,7 @@ function router(nav) {
 						if (error) {
 							throw error;
 						}
-						debug(response);git s
+						debug(response);
 						res.redirect('/heroes');
 					});
 				} catch (error) {
