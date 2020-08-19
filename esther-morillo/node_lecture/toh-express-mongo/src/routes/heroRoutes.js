@@ -15,7 +15,6 @@ function router(nav) {
 			const {
 				heroId,
 				deleteAll,
-				add,
 				newHero
 			} = req.body;
 
@@ -53,10 +52,7 @@ function router(nav) {
 						});
 
 						res.redirect('/heroes');
-
 					}
-
-
 
 				} catch (error) {
 					debug(error.stack);
