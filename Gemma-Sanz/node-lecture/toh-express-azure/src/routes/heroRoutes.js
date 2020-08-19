@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient, ObjectId, ObjectID } = require('mongodb');
 
 const heroRoutes = express.Router();
 
@@ -20,7 +20,7 @@ function router(nav) {
 				const db = client.db(dbName);
 				// Esperamos a obtener la colección heroes
 
-				const collection = await db.collection();
+				const collection = await db.collection('heroes');
 
 				// Tenemos que esperar, así obtenemos tota la data y la convertimos en array
 				const heroes = await collection.find().toArray();
@@ -56,7 +56,7 @@ function router(nav) {
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
 					// Dentro del findOne buscamos el _id con el nuevo object id
-					res.hero = await collection.findOne({ _id: new ObjectID(idMongo) });
+					res.hero = await collection.findOne({ _id: new ObjectId(idMongo) });
 					debug(idMongo);
 
 					/* EN SQL:
@@ -80,7 +80,40 @@ function router(nav) {
 				client.close();
 			})();
 		})
-		.post()
+		// el post actualiza un héroe. Tenemos que asegurarnos que le llega un json en req.body. (los nuevos valores llegan en req.body)
+		.post((req, res) => {
+			// En el post queremos: conectarme a mongoDB, actualizar el hero con id : _d, responder con la pagina actualizada o responder redireccionando a la lista
+
+			// capturar el error mateniendo la misma página
+			// en mondodb actualizabamos con updateOne, pero antes necesitavamos la conexión, el selector para obtener la colección
+			const updateQuery = { $set: req.body };
+			const filter = { _id: new ObjectID(req.params.heroId) };
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			let client;
+
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+
+					const db = client.db(dbName);
+
+					const collection = await db.collection(collectionName);
+
+					await collection.updateOne(filter, updateQuery, (error, response) => {
+						if (error) {
+							throw error;
+						}
+						debug(response);
+						res.redirect('/heroes');
+					});
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		})
 		.get((req, res) => {
 			res.render('heroDetail', {
 				nav,

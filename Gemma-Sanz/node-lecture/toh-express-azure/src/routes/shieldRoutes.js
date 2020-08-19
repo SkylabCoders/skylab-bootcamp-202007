@@ -11,8 +11,8 @@ function router() {
 		const url = 'mongodb://localhost:27017';
 		const dbname = 'shieldHeroes';
 
+		let client;
 		(async function mongo() {
-			let client;
 			try {
 				// Llamamos a mongo. Con await consumimos una promesa
 				client = await MongoClient.connect(url);
