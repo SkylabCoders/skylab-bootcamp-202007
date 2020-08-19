@@ -1,0 +1,12 @@
+1 creo un dispatcher, instancia del dispatcher de flux
+
+2 le he dicho que acciones quiero
+
+3 he definido funciones que van a crear esas acciones
+
+4   para que el dispatch llegue a algun lugar, tiene que existir un register
+    que registre la accion
+
+
+
+toda la manipulacion de datos es en el store    

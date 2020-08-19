@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero List Snapshot should match 1`] = `
+<div>
+  <ul
+    className="heroes"
+  >
+    <h3>
+      List of Heros
+    </h3>
+  </ul>
+</div>
+`;

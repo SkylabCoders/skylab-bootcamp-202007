@@ -1,0 +1,154 @@
+* {
+	color: #ffffff;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.header-container {
+	background-color: #000000;
+	border-bottom: 1px solid grey;
+	width: 100%;
+	position: sticky;
+	z-index: 9999;
+	top: 0;
+}
+
+.header {
+	height: 70px;
+	margin: 0 auto;
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-logo {
+	background-image: url('https://trello-attachments.s3.amazonaws.com/5f2589eca6761a4c8f4d10e1/5f282a8dc47fa449625898e8/8a233ee1622204f7ed4c3ea6ca347722/au1FrsRI9Hnr.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 60px;
+	width: 60px;
+	display: flex;
+}
+
+.header-menu {
+	border-radius: 50%;
+	color: white;
+	height: 40px;
+	width: 40px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-menu__text {
+	display: none;
+}
+
+.header-form {
+	display: flex;
+	width: 60%;
+}
+
+.header-form__search {
+	background-color: #212121;
+	border: none;
+	border-radius: 2px;
+	padding: 20px;
+	width: 100%;
+}
+
+.header-form__search:focus {
+	transition: 0.1s;
+	background-color: #fff;
+	color: #000000;
+}
+
+.header-login {
+	color: white;
+	height: 30px;
+	margin-left: 10px;
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.header-login__button {
+	border-radius: 2px;
+	color: white;
+	height: 30px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.header-menu:hover,
+.header-login__button:hover,
+.login-list__button:hover {
+	background-color: #212121;
+	color: #da1f26;
+}
+
+.hidden-list {
+	display: none;
+	background-color: black;
+	color: white;
+	margin-top: 10px;
+}
+.header-login__hidden-menu:hover > .hidden-list {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: 0px;
+	top: 45px;
+	color: white;
+	width: 180px;
+}
+
+.hidden-list:hover {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.login-list__button {
+	display: flex;
+	margin-left: 30px;
+	padding: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+@media only screen and (min-width: 600px) {
+	.header {
+		width: 70%;
+		justify-content: flex-end;
+	}
+
+	.header-menu {
+		height: 35px;
+		width: 80px;
+		border-radius: 2px;
+	}
+	.header-menu__text {
+		display: flex;
+	}
+
+	.header-form {
+		margin: 10%;
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.header-logo {
+		min-width: 171px;
+	}
+}
