@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailsComponent snapShot should macth 1`] = `
+<div
+  className="details-holder"
+>
+  <div
+    className="flex-item"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="detail-container flex-item"
+      >
+        <div
+          className="card hovercard"
+        >
+          <div
+            className="cardheader"
+          />
+          <div
+            className="avatar"
+          >
+            <img
+              alt=""
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSSrgcSH0bbTsOigHcPRNUbC1OGldwFLDx3kg&usqp=CAU"
+            />
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="title"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+                target="_blank"
+              >
+                Vegeta
+              </a>
+            </div>
+            <div
+              className="details-desc-content"
+            >
+              <div
+                className="details-desc"
+              >
+                RACE: 
+                <span>
+                  Saiyan
+                </span>
+              </div>
+              <div
+                className="details-desc"
+              >
+                STATUS: 
+                <span>
+                  Alive
+                </span>
+              </div>
+              <div
+                className="details-desc"
+              >
+                PLANET: 
+                <span>
+                  Vegeta
+                </span>
+              </div>
+              <div
+                className="details-desc"
+              >
+                GENDER: 
+                <span>
+                  Male
+                </span>
+              </div>
+              <div
+                className="details-desc"
+              >
+                SERIE: 
+                <span>
+                  Z
+                </span>
+              </div>
+            </div>
+            <div>
+              <a
+                href="/game/Vegeta"
+                onClick={[Function]}
+              >
+                <button
+                  className="row figthlink btn"
+                >
+                   FIGTH!
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,9 @@
+.heroList--paginated{
+    margin: 1rem 0;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: yellowgreen;
+}

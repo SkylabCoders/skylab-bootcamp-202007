@@ -47,6 +47,8 @@ dispatcher.register((action) => {
 			_userProfile = action.data;
 			authStore.emitChange();
 			break;
+		default:
+			break;
 	}
 });
 
