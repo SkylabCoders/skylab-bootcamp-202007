@@ -3,26 +3,17 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
-const sql = require('mssql');
-const { MongoClient } = require('mongodb');
+const bodyParser = require('body-parser')
 
-const heroes = require('./heroes');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 const port = 3000;
 
-const config = {
-	user: 'jordi',
-	password: 'Skylab202007',
-	server: 'tohdb-jordi.database.windows.net',
-	database: 'tohdb',
-	option: {
-		encrypt: true // because I using Microsoft Azure
-	}
-};
-sql.connect(config).catch(debug);
-
 app.use(morgan('tiny'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views');
@@ -46,9 +37,9 @@ app.get('/', (req, res) => {
 
 			const db = client.db(dbName);
 
-			const colection = await db.collection('heroes');
+			const collection = await db.collection('heroes');
 
-			const heroesList = await colection.find().toArray();
+			const heroesList = await collection.find().toArray();
 
 			res.render('dashboard', {
 				nav,
