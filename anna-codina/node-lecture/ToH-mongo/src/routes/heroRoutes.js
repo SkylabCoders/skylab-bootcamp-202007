@@ -5,28 +5,85 @@ const { MongoClient, ObjectId } = require('mongodb');
 const heroRoutes = express.Router();
 
 function router(nav) {
-	heroRoutes.route('/').get((req, res) => {
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'shieldHeroes';
-		let client;
-		(async function queryAll() {
-			try {
-				client = await MongoClient.connect(url);
-				debug('conection stablished...');
+	heroRoutes
+		.route('/')
+		.post((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			let client;
+			const newParams = req.body;
+			if (newParams.newName) {
+				(async function mongo() {
+					try {
+						client = await MongoClient.connect(url);
+						const db = client.db(dbName);
+						const collection = await db.collection(collectionName);
+						const lastHero = await collection
+							.find()
+							.sort({ id: -1 })
+							.limit(1)
+							.toArray(); // for MAX
+						const { newName } = newParams;
+						const newId = lastHero[0].id + 1;
 
-				const db = client.db(dbName);
+						const newHero = { name: newName, id: newId };
+						collection.insertOne(newHero, (error, response) => {
+							if (error) {
+								throw error;
+							}
+							// debug(response);
+							res.redirect('/heroes');
+						});
+					} catch (error) {
+						debug(error.stack);
+					}
+					client.close();
+				})();
+			} else {
+				(async function query() {
+					try {
+						const myQuery = { _id: new ObjectId(newParams.deleteId) };
+						client = await MongoClient.connect(url);
+						const db = client.db(dbName);
+						const collection = await db.collection(collectionName);
+						collection.deleteOne(myQuery, (error, response) => {
+							if (error) {
+								throw error;
+							}
+							debug(response);
+							res.redirect('/heroes');
+						});
+					} catch (error) {
+						debug(error.stack);
+					}
 
-				const collection = await db.collection('heroes');
-
-				const heroList = await collection.find().toArray();
-				debug(heroList);
-				res.render('list', { nav, heroList });
-			} catch (error) {
-				debug(error.stack);
+					client.close();
+				})();
 			}
-			client.close();
-		})();
-	});
+		})
+		.get((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			let client;
+			(async function queryAll() {
+				try {
+					client = await MongoClient.connect(url);
+					debug('conection stablished...');
+
+					const db = client.db(dbName);
+
+					const collection = await db.collection('heroes');
+
+					const heroList = await collection.find().toArray();
+					// debug(heroList);
+					res.render('list', { nav, heroList });
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		});
 
 	heroRoutes
 		.route('/:heroId')
@@ -44,7 +101,7 @@ function router(nav) {
 					// res.hero = await collection.findOne({ id });
 					res.hero = await collection.findOne({ _id: new ObjectId(id) });
 
-					debug(res.hero);
+					// debug(res.hero);
 					next();
 				} catch (error) {
 					debug(error.stack);
