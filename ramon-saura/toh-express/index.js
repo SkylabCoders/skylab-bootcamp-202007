@@ -4,7 +4,7 @@ const debug = require('debug')('index');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const sql = require('mssql');
-const heroes = require('./heroes');
+const { MongoClient } = require('mongodb');
 
 const index = express();
 const port = process.env.PORT || 3000;
@@ -30,16 +30,39 @@ const nav = [
 index.set('views', './src/views');
 
 index.get('/', (req, res) => {
-	res.render('dashboard', {
-		nav,
-		title: 'Top Heroes',
-		heroes: heroes.slice(0, 4)
-	});
+	const url = 'mongodb://localhost:27017';
+	const dbName = 'shieldHeroes';
+	let client;
+	(async function query() {
+		try {
+			client = await MongoClient.connect(url);
+			debug('Connection stablished...');
+
+			const db = client.db(dbName);
+
+			const colection = await db.collection('heroes');
+
+			const heroesList = await colection.find().toArray();
+
+			res.render('dashboard', {
+				nav,
+				title: 'My Heros',
+				heroes: heroesList.slice(0, 4)
+			});
+		} catch (error) {
+			debug(error.stack);
+		}
+		client.close();
+	})();
 });
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 index.use('/heroes', heroRoutes);
+
+const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
+
+index.use('/shield', shieldRoutes);
 
 index.listen(port, () =>
 	debug(`Server is running in port ${chalk.yellow(port)}`)

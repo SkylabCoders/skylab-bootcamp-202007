@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "set DEBUG=app, app:* & nodemon index.js",
-		"lint": "eslint index.js"
+		"start": "set DEBUG=index,index:* & nodemon index.js",
+		"lint": "eslint . --fix"
 	},
 	"keywords": [],
 	"author": "",
@@ -16,6 +16,7 @@
 		"debug": "^4.1.1",
 		"ejs": "^3.1.5",
 		"express": "^4.17.1",
+		"mongodb": "^3.6.0",
 		"morgan": "^1.10.0",
 		"mssql": "^6.2.1",
 		"nodemon": "^2.0.4"
