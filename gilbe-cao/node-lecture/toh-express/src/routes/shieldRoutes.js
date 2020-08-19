@@ -5,7 +5,7 @@ const superHeroes = require('../../public/mocks/superHeroData.json');
 
 const shieldRoutes = express.Router();
 
-function router(nav) {
+function router() {
 	shieldRoutes.route('/').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbname = 'shieldHeroes';
