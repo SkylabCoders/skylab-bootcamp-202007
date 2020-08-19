@@ -15,7 +15,7 @@ function router() {
 
 			try {
 				client = await MongoClient.connect(url);
-				debug('connection stablished...');
+				debug('connection stablished creating heroes...');
 
 				const db = client.db(dbname);
 

@@ -33,14 +33,14 @@ function router(nav) {
 								throw error;
 							}
 							// debug(response);
-							res.redirect('/heroes');
+							response.redirect('/heroes');
 						});
 					} catch (error) {
 						debug(error.stack);
 					}
 					client.close();
 				})();
-			} else {
+			} else if (newParams.deleteId) {
 				(async function query() {
 					try {
 						const myQuery = { _id: new ObjectId(newParams.deleteId) };
@@ -58,6 +58,18 @@ function router(nav) {
 						debug(error.stack);
 					}
 
+					client.close();
+				})();
+			} else {
+				(async function query() {
+					try {
+						client = await MongoClient.connect(url);
+						const db = client.db(dbName);
+						const collection = await db.collection(collectionName);
+						collection.deleteMany({});
+					} catch (error) {
+						debug(error.stack);
+					}
 					client.close();
 				})();
 			}
