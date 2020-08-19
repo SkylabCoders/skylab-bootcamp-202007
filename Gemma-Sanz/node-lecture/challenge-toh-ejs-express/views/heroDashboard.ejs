@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tour of Heroes</title>
+		<link rel="stylesheet" href="../public/stylesheet.css" type="text/css" />
+	</head>
+	<body>
+		<section id="mainContainer__dashboard">
+			<h1>Tour of Heroes</h1>
+			<button>
+				<a href="/">Dashboard</a>
+			</button>
+			<button>
+				<a href="/heroes">Heroes</a>
+			</button>
+			<button>
+				<a href="/hero">Details</a>
+			</button>
+			<h2>Top Heroes</h2>
+
+			<%= topFour = heroMock.slice(0, 4) %> <% topFour.map(function(hero) {
+			return '<a href="/">' + hero.id + '</a>'; }) %>
+			<div>
+				<ul class="row">
+					<a href="/heroes"><li class="element__dashboard">Dr Nice</li></a>
+					<a href="/heroes"><li class="element__dashboard">Narco</li></a>
+					<a href="/heroes"><li class="element__dashboard">Bombasto</li></a>
+					<a href="/heroes"><li class="element__dashboard">Celeritas</li></a>
+				</ul>
+			</div>
+
+			<script src="../hero.mock.js"></script>
+			<script src="../heroServer.js"></script>
+		</section>
+	</body>
+</html>

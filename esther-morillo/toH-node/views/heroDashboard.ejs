@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Dashboard</title>
+    <%-include('./partials/hero-dashboard')%>
+</head>
+<body>
+    <section class="lightbox">
+        <%-include('./partials/header')%>
+    <h2>Dashboard</h2>
+    </section>
+
+<%-include('../hero.mock.ejs')%>
+<%-import('./heroDashboardLogic.ejs')%>
+</body>
+</html>

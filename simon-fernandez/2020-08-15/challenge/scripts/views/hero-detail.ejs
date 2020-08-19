@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hero Details</title>
+		<link rel="stylesheet" href="/public/css/hero-detail.component.css" />
+	</head>
+
+	<body>
+		<h1>Tour of Heroes</h1>
+		<button>
+			<a href="/heroDashboard">Dashboard</a>
+		</button>
+		<button><a href="/heroList">Heroes</a></button>
+		<h2><span id="hero-detail__name"></span> details</h2>
+		<p>id: <span id="hero-detail__id"><%= hero.id%></span></p>
+		<label for="heroName">
+			name:
+			<span id="hero-detail__id"><%= hero.name%></span>
+		</label>
+	</body>
+</html>
