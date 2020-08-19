@@ -14,7 +14,9 @@ function router(nav) {
 		.post((req, res) => {
 			const {
 				heroId,
-				deleteAll
+				deleteAll,
+				add,
+				newHero
 			} = req.body;
 
 			const filter = {
@@ -31,13 +33,31 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
-					await collection.deleteOne(filter, heroId, (error, response) => {
-						if (error) {
-							throw error;
-						}
-						debug(response);
+
+					if (heroId) {
+						await collection.deleteOne(filter, heroId, (error, response) => {
+							if (error) {
+								throw error;
+							}
+							// debug(response);
+							res.redirect('/heroes');
+						});
+					} else if (deleteAll) {
+						await collection.deleteMany({});
 						res.redirect('/heroes');
-					})
+					} else if (newHero) {
+						const [{id}] = await collection.find().sort({id: -1}).limit(1).toArray();
+						await collection.insertOne({
+							name: newHero,
+							id: id + 1
+						});
+
+						res.redirect('/heroes');
+
+					}
+
+
+
 				} catch (error) {
 					debug(error.stack);
 				}
@@ -171,3 +191,28 @@ function router(nav) {
 }
 
 module.exports = router;
+
+
+/* switch (
+						req.body
+					) {
+						case heroId:
+							await collection.deleteOne(filter, heroId, (error, response) => {
+								if (error) {
+									throw error;
+								}
+								// debug(response);
+								res.redirect('/heroes');
+							})
+							break;
+						case deleteAll:
+							await collection.deleteMany({});
+							res.redirect('/heroes');
+							break;
+						case add:
+							await collection.deleteMany({});
+							break;
+						default:
+							break;
+
+					} */
