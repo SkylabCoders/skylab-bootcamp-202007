@@ -8,10 +8,7 @@ function router(nav) {
 	heroRoutes
 		.route('/')
 		.post((req, res) => {
-			const { heroId } = req.body;
-			const filter = {
-				_id: new ObjectID(heroId)
-			};
+			const { createHero, deleteHeroes } = req.body;
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'shieldHeroes';
 			const collectionName = 'heroes';
@@ -21,13 +18,30 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
-					await collection.deleteOne(filter, (error, response) => {
-						if (error) {
-							throw error;
-						}
-						debug(response);
+					if (createHero) {
+						const [{ id }] = await collection
+							.find()
+							.sort({ id: -1 })
+							.limit(1)
+							.toArray(); // for MAX
+						await collection.insertOne({ name: createHero, id: id + 1 });
+						// res.redirect('/heroes'); -> it crashes for some reason
+					}
+					if (deleteHeroes === 'all') {
+						await collection.deleteMany({});
 						res.redirect('/heroes');
-					});
+					} else {
+						const filter = {
+							_id: new ObjectID(deleteHeroes)
+						};
+						await collection.deleteOne(filter, (error, response) => {
+							if (error) {
+								throw error;
+							}
+							debug(response);
+							res.redirect('/heroes');
+						});
+					}
 				} catch (error) {
 					debug(error.stack);
 				}
