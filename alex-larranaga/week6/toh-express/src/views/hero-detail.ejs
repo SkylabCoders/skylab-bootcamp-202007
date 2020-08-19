@@ -2,11 +2,10 @@
 <link rel="stylesheet" href="/css/index.css" type="text/css" />
 <h1><%-include("header") -%></h1>
 <div *ngIf="hero">
-	<h2>HERO Details</h2>
-	<div><span>id: </span>14</div>
+	<h2><%= hero.name %> Details</h2>
+	<div><span>id: </span><%= hero.id %></div>
 	<div>
-		<label
-			>name:
+		<label>name:
 			<input class="hero.name" placeholder="name" />
 		</label>
 	</div>
