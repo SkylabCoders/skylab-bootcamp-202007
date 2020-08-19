@@ -4,6 +4,7 @@ const debug = require('debug')('app:laberRoutes');
 const laberRoutes = express.Router();
 const sql = require('mssql');
 
+
 function router(nav) {
 
     laberRoutes.route('/').get((req, res) => {

@@ -7,11 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/hero-detail.css">
 
+    <link rel="stylesheet" href="../../public/css/hero-detail.css">
+
 </head>
 
 <body>
     <%- include('laberNav'); -%>
-    <div>
+    <div class='labers'>
         <h2><%= laber.name%> Details</h2>
         <div><span>id: </span><%=laber.id%></div>
         <div><span>surname: </span><%=laber.surname%></div>
@@ -19,7 +21,7 @@
         <div><span>City: </span><%=laber.city%></div>
         <div><span>Coutry: </span><%=laber.country%></div>
         <div><span>Banck: </span><%=laber.bank%></div>
-        <div><span>Sender: </span><%=laber.gender%></div>
+        <div><span>Gender: </span><%=laber.gender%></div>
         <div><span>Like Pets: </span><%=laber.likePets%></div>
         <br>
         <button>go back</button>

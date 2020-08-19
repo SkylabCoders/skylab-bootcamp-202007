@@ -1,9 +1,6 @@
-label {
-	display: inline-block;
-	width: 3em;
-	margin: 0.5em 0;
-	color: #607d8b;
-	font-weight: bold;
+.labers span {
+	font-size: large;
+	color: rgb(96, 156, 182);
 }
 input {
 	height: 2em;
