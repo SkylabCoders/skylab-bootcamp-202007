@@ -6,35 +6,37 @@ const heroRoutes = express.Router();
 
 function router(nav) {
 	heroRoutes.route('/')
-	// .post((req, res) => {
-	// 	const url = 'mongodb://localhost:27017';
-	// 	const dbName = 'shieldHeroes';
-	// 	let client;
+	.post((req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'shieldHeroes';
+		let client;
+		const deleter = { _id: new ObjectID(req.params.heroId) };
 
-	// 	(async function mongo() {
-	// 		try {
-	// 			client = await MongoClient.connect(url);
-	// 			debug('connection ok');
 
-	// 			const db = client.db(dbName);
+		(async function deleteOne() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('connection ok');
 
-	// 			const collection = await db.collection('heroes');
+				const db = client.db(dbName);
 
-	// 			const heroes = await collection.find().toArray();
+				const collection = await db.collection('heroes')
+				
+				await collection.deleteOne(deleter);
 
-	// 			res.render('heroes', {
-	// 				nav,
-	// 				title: 'My Heroes',
-	// 				heroes
-	// 			});
-	// 		} catch (error) {
-	// 			debug(error.stack);
-	// 		}
-	// 		client.close();
-	// 	})();
-	// });
 
-	// })
+				debug(deleter)
+				res.render('heroes', {
+					nav,
+					heroes
+				});
+				next();
+			} catch (error) {
+				debug(error.stack);
+			}
+			client.close();
+		})();
+	})
 	.get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'shieldHeroes';

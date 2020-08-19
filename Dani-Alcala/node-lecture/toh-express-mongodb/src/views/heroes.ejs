@@ -30,7 +30,10 @@
             <a href="/heroes/<%= heroes[i]._id %>">
                 <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
             </a>
-            <button class="delete" title="delete hero">x</button>
+            <form action="/heroes/<%= heroes[i] && heroes[i]._id %>" method="POST" name="heroesForm">
+
+                <button type="submit" name="name" value="<%= heroes[i] && heroes[i].name %>" class="delete" title="delete hero">x</button>
+            </form>
         </li>
         <% } %>
 

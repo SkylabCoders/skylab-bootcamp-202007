@@ -3,8 +3,6 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
-const sql = require('mssql');
-const heroes = require('./heroes');
 const { MongoClient } = require('mongodb')
 const bodyParser = require('body-parser')
 
