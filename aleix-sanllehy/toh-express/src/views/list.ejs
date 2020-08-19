@@ -15,20 +15,27 @@
 				>Hero name:
 				<input />
 			</label>
-			<button>
-				add
-			</button>
+			<button>add</button>
+			<button title="delete everything">delete all</button>
 		</div>
 
 		<ul class="heroes">
 			<% for (let i = 0; i < heroes.length; i++) { %>
 			<li>
-				<a href="/heroes/<%= heroes[i].id %>">
+				<a href="/heroes/<%= heroes[i]._id %>">
 					<span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %></a
 				>
-				<button class="delete" title="delete hero">
-					x
-				</button>
+				<form action="" method="POST">
+					<button
+						name="heroId"
+						type="submit"
+						class="delete"
+						title="delete hero"
+						value="<%= heroes[i]._id %>"
+					>
+						x
+					</button>
+				</form>
 			</li>
 			<% } %>
 		</ul>
