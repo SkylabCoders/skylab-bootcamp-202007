@@ -7,8 +7,20 @@ const shieldRoutes = express.Router();
 
 function router(nav){
   shieldRoutes.route('/').get((req, res)=>{
-    res.send('Shield mola más que cualquier otra empresa de super heroes...');
+    const url = 'mongodb://localhost:27017';
+    const dbName = 'shieldHeroes';
+
+    (async function mongo(){
+      try{
+        client = await MongoClient.connect(url);
+        debut('Connection established...');
+        const db = client.db(dbName);
+      } catch {
+        debug(error.stack);
+      }
+    })();
   })
+
   return shieldRoutes;
 }
 
