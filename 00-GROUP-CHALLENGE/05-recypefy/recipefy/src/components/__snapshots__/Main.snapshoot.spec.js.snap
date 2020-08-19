@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main snapshot should match 1`] = `
+<div
+  className="body-content"
+>
+  <div
+    className="result-section body-content"
+  >
+    <div
+      className="loading-container"
+    >
+      <img
+        alt="loading"
+        className="loading"
+        src="https://media1.tenor.com/images/8a1df0caea44830aa0ecf99ac223c747/tenor.gif?itemid=15085886"
+      />
+      <p>
+        loading...
+      </p>
+    </div>
+  </div>
+</div>
+`;

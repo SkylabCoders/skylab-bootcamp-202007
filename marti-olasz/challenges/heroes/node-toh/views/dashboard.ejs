@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Dashboard</title>
+    <link rel="stylesheet" href="/public/css/dashboard.css">
+</head>
+
+<body>
+    <section class="header">
+        <h1 class="header__title">Tour of Heroes</h1>
+        <button class="header__button"><a href="/"> Dasbord </a></button>
+        <button class="header__button"><a href="/list">Heroes</a></button>
+    </section>
+
+    <h2 class="title">Dashboard!</h2>
+    <section class="dashboard">
+        <% dashboardList.forEach(element => { %>
+        <div class="dashboard__item">
+            <a href=<%=`/hero?id=${element.id}` %>>
+                <%=element.name%>
+            </a>
+        </div>
+        <% }) %>
+    </section>
+</body>
+
+</html>

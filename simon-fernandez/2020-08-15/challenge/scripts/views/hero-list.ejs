@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hero List</title>
+		<link rel="stylesheet" href="../views/public/css/hero-list.component.css" />
+	</head>
+
+	<body>
+		<h1>Tour of Heroes</h1>
+		<button>
+			<a href="/heroDashboard">Dashboard</a>
+		</button>
+		<button><a href="./heroList">Heroes</a></button>
+		<h2>My Heroes</h2>
+		<section class="list">
+			<% heroList.forEach(element => { %>
+			<section class="my-hero">
+				<h2><%= element.name %></h2>
+				<button><a class="button" href=<%=`/heroDetail?heroId=${element.id}` %>>EDIT HERO</a></button>
+			<button onclick=<% deleteHero(element.id) %>>Delete</button>
+
+			</section>
+			<%});%>
+		</section>
+
+		<!-- <section class="my-hero">
+			<h2>bombasto</h2>
+			<button><a class="button">View details</a></button>
+		</section> -->
+	</body>
+</html>

@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopUpBox snapshot should match 1`] = `
+<div
+  className="modal-dialog pop-up-modal"
+>
+  <div
+    className="modal-content"
+  >
+    <div
+      className="modal-header"
+      onClick={[Function]}
+    >
+      <div
+        className="modal-title h4"
+      >
+        Register New User
+      </div>
+      <button
+        className="close"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+        <span
+          className="sr-only"
+        >
+          Close
+        </span>
+      </button>
+    </div>
+    <div
+      className="modal-body"
+    >
+      <form
+        className="pop-up-modal__pop-up-form"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="form-label"
+            htmlFor="formBasicEmail"
+          >
+            Email address
+          </label>
+          <input
+            className="input-email-modal form-control"
+            id="formBasicEmail"
+            placeholder="Enter email"
+            type="email"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            className="form-label"
+            htmlFor="formBasicPassword"
+          >
+            Password
+          </label>
+          <input
+            className="input-password-modal form-control"
+            id="formBasicPassword"
+            placeholder="Password"
+            type="password"
+          />
+        </div>
+        <p
+          className="passWarning"
+        >
+          Password must have at least 6 characters
+        </p>
+        <button
+          className="btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

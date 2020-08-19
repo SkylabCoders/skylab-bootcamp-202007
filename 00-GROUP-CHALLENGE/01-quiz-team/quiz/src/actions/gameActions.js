@@ -1,6 +1,7 @@
 import actionTypes from './actionTypes';
-import dispatcher from './../AppDispatcher';
-import THEMES_LIST from './../mockdata/Themes';
+import dispatcher from './../dispatcher';
+import THEMES_LIST from '../mockdata/THEMES_LIST';
+import getApiData from './../getApiData';
 
 export function loadThemes(){
     let result = THEMES_LIST
@@ -17,5 +18,14 @@ export function loadTopThemes(){
     dispatcher.dispatch({
         type: actionTypes.GET_TOP_THEMES,
         data: result
+    })
+}
+
+export async function loadSessionSet(category, difficulty, type, encode, amount){
+    let result =  await getApiData(category, difficulty, type, encode, amount);
+    
+    dispatcher.dispatch({
+        type: actionTypes.GET_SESSION_SET,
+        data: await result
     })
 }

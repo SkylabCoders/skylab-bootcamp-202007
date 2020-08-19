@@ -1,0 +1,15 @@
+@use 'colors';
+
+.leaderboard h1, 
+.leaderboard h2, 
+.leaderboard h3, 
+.leaderboard p, 
+.leaderboard li, 
+.leaderboard ul, 
+.leaderboard a{
+    color: colors.$text--white;
+    text-align: center;
+}
+.leaderboard li{
+    list-style-type: none;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hero List</title>
+		<link rel="stylesheet" href="/public/css/hero-dashboard.component.css" />
+	</head>
+
+	<body>
+		<h1>Tour of Heroes</h1>
+		<button><a href="/heroDashboard">Dashboard</a></button>
+		<button><a href="/heroList">Heroes</a></button>
+
+		<h2 class="title">Top Heroes</h2>
+		<br /><a href=""></a>
+		<section class="heroes">
+			<% dashboardList.forEach(element => { %>
+			<div class="heroes__item">
+				<a class="item" href=<%=`/heroDetail?heroId=${element.id}` %>>
+				 <%= element.name%> </a>
+			</div>
+			<%});%>
+		</section>
+	</body>
+</html>
