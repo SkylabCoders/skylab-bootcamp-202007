@@ -1,0 +1,16 @@
+nav{
+  text-align: center;
+}
+.nav__container{
+  list-style-type: none;
+}
+.nav__item{
+  display: inline-block;
+  margin: 0 1rem;
+}
+header > h1,
+header > h2,
+header > p,
+footer > p{
+  text-align: center;
+}
