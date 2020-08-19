@@ -1,0 +1,32 @@
+.header {
+  width: 100%; }
+  .header .header__title {
+    color: #b2b2b2; }
+  .header .header__button {
+    width: 80px;
+    height: 30px; }
+    .header .header__button a {
+      text-decoration: none;
+      color: #b2b2b2; }
+    .header .header__button a:hover {
+      color: #40b0e7; }
+
+.title {
+  text-align: center; }
+
+.dashboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly; }
+  .dashboard .dashboard__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 20%;
+    background-color: #607d8b; }
+    .dashboard .dashboard__item a {
+      color: white;
+      text-decoration: none; }
+  .dashboard .dashboard__item:hover {
+    background-color: #405058; }
