@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
 
@@ -17,8 +17,7 @@ function router(nav) {
 					debug('Connection stablished...');
 
 					const db = client.db(DATABASE_CONFIG.dbName);
-
-					const colection = db.collection('heroes');
+					const colection = db.collection(DATABASE_CONFIG.collection);
 					const heroes = await colection.find().toArray();
 
 					res.render('index', {
@@ -39,13 +38,12 @@ function router(nav) {
 		.route('/:heroSlug')
 		.all((req, res, next) => {
 			const {heroSlug} = req.params;
-			const collectionName = 'heroes';
 			(async function query() {
 				let client;
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(collectionName);
+					const collection = db.collection(DATABASE_CONFIG.collection);
 					res.hero = await collection.findOne({slug: heroSlug});
 					debug(res.hero);
 					next();
@@ -56,8 +54,28 @@ function router(nav) {
 			})();
 		})
 		.post((req, res)=>{
-			debug(req.body);
-			res.json(req.body);
+			const value = req.body;
+			const updateQuery = { $set: { value } };
+			const filter = { slug: (req.params.heroSlug) };
+			let client;
+			(async function mongo(){
+				try{
+					client = await MongoClient.connect(DATABASE_CONFIG.url);
+					const db = client.db(DATABASE_CONFIG.dbName);
+					const collection = db.collection(DATABASE_CONFIG.collection);
+					collection.updateOne(filter, updateQuery, (error, response)=>{
+						if (error){
+							throw error;
+						}
+						debug(response);
+						res.redirect(ROUTES.heroes.path);
+					});
+				debug(req.body);
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
 		})
 		.get((req, res) => {
 			res.render('index', { 
