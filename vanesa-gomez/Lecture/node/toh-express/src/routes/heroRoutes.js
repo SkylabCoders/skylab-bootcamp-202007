@@ -6,30 +6,58 @@ const { MongoClient, ObjectID } = require('mongodb');
 const heroRoutes = express.Router();
 
 function router(nav) {
-	heroRoutes.route('/').get((req, res) => {
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'shieldHeroes';
-		let client;
-		(async function query() {
-			try {
-				client = await MongoClient.connect(url);
-				debug('connection stablished');
+	heroRoutes
+		.route('/')
+		.post((req, res) => {
+			const { heroId } = req.body;
+			const filter = { _id: ObjectID(heroId) };
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			let client;
 
-				const db = client.db(dbName);
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					await collection.deleteOne(filter, heroId, (error, response) => {
+						if (error) {
+							throw error;
+						}
+						debug(response);
+						res.redirect('/heroes');
+					});
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		})
+		.get((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			let client;
+			(async function query() {
+				try {
+					client = await MongoClient.connect(url);
+					debug('connection stablished');
 
-				const collection = await db.collection('heroes');
-				const heroes = await collection.find().toArray();
-				res.render('heroes', {
-					nav,
-					title: 'My Heroes',
-					heroes
-				});
-			} catch (error) {
-				debug(error.stack);
-			}
-			client.close();
-		})();
-	});
+					const db = client.db(dbName);
+
+					const collection = await db.collection('heroes');
+					const heroes = await collection.find().toArray();
+					res.render('heroes', {
+						nav,
+						title: 'My Heroes',
+						heroes
+					});
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		});
 
 	heroRoutes
 		.route('/:heroId')
