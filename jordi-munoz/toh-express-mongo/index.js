@@ -44,4 +44,8 @@ const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
+const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
+
+app.use('/shield', shieldRoutes);
+
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
