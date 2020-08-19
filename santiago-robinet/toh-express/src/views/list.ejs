@@ -24,7 +24,7 @@
     <% heroList.forEach(hero => { %>
         <ul class=" heroes">
             <li *ngFor="let hero of heroes">
-                <a href="/heroes/<%= hero.id %>">
+                <a href="/heroes/<%= hero._id %>">
                     <span class="badge"><%= hero.id %></span> <%= hero.name %>
                 </a>
                 <button class="delete" title="delete hero" ">x</button;>
