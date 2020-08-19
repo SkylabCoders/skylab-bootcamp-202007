@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <h3>Top Heroes</h3>
     <div class="grid grid-pad">
         <a class="col-1-4">
@@ -17,6 +18,18 @@
                 <h4>Bombasto</h4>
             </div>
         </a>
+=======
+    <%- include('header') %>
+    <h3><%= title %></h3>
+    <div class='grid grid-pad'>
+        <% for ( let i = 0; i < heroes.length; i ++) { %>
+        <a href="/heroes/<%= heroes[i].id %>" class='col-1-4'>
+            <div class='module hero'>
+                <h4><%= heroes[i].name %></h4>
+            </div>
+        </a>
+        <% } %>
+>>>>>>> f7ee19b91ed651183f6bb0ec89b7dd87ca898812
     </div>
 
     <app-hero-search></app-hero-search>

@@ -5,7 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
 		"start": "DEBUG=app nodemon index.js"
+=======
+		"start": "DEBUG=app,app:* nodemon index.js"
+>>>>>>> f7ee19b91ed651183f6bb0ec89b7dd87ca898812
 	},
 	"keywords": [],
 	"author": "",
@@ -16,6 +20,10 @@
 		"ejs": "^3.1.5",
 		"express": "^4.17.1",
 		"morgan": "^1.10.0",
+<<<<<<< HEAD
+=======
+		"mssql": "^6.2.1",
+>>>>>>> f7ee19b91ed651183f6bb0ec89b7dd87ca898812
 		"nodemon": "^2.0.4"
 	},
 	"devDependencies": {

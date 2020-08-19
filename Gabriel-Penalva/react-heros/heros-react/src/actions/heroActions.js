@@ -2,7 +2,8 @@ import heroList from '../hero.mock';
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 
-export function loadHeroes() {
+export function loadHeros() {
+
 	return new Promise((resolve) => {
 		resolve(heroList);
 	}).then((heroes) => {
