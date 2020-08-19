@@ -10,7 +10,7 @@ const port = process.env.PORT || 2427;
 
 const config = {
 	user: 'molasz',
-	password: 'Petritxol2!',
+	password: '',
 	server: 'olasz-skylab.database.windows.net',
 	database: 'SkylabDataBase-olasz',
 	option: {
