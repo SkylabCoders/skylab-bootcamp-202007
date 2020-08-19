@@ -1,0 +1,124 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  background-color: #212121;
+  margin: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-box {
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #dcdada;
+  border-radius: 3px;
+  width: 90%;
+  margin: 3%;
+}
+
+.login-button {
+  background-color: black;
+  border-radius: 2px;
+  color: #ffffffd6;
+  font-size: 16px;
+  height: 40px;
+  margin: 10px;
+  padding: 20px;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-button:hover {
+  background-color: #212121;
+  color: #da1f26;
+}
+
+.login-img {
+  height: 30px;
+  margin: 10px;
+}
+
+input {
+  background-color: #212121;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 15px;
+  margin: 10px;
+  padding: 20px;
+  height: 40px;
+  width: 80%;
+}
+
+input:focus,
+.login-button:focus,
+input.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none !important;
+  outline-width: 0 !important;
+}
+
+.welcome-login {
+  color: black;
+}
+
+@media only screen and (min-width: 600px) {
+  .login-container {
+    width: 70%;
+  }
+  .login-box {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .login-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .login-box {
+    width: 40%;
+  }
+}
+/*# sourceMappingURL=login.css.map */

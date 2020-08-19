@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACL,KAAK,EAAE,KAAK;EAEZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CACtB;;AAED,AAAA,WAAW,CAAC;EACX,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,gBAAgB,EAAE,SAAS;CAC3B;;AAED,AAAA,WAAW,AAAA,MAAM,CAAC;EACjB,gBAAgB,EAAE,YAAY;CAC9B;;AAED,AAAA,QAAQ,CAAC;EACR,OAAO,EAAE,IAAI;CACb",
+    "sources": [
+        "hero-list.component.scss"
+    ],
+    "names": [],
+    "file": "hero-list.component.css"
+}

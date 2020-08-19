@@ -1,0 +1,25 @@
+.list {
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.list__item {
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.list__item:hover {
+  background-color: lightskyblue;
+}
+
+.my-hero {
+  display: none;
+}
+/*# sourceMappingURL=hero-list.component.css.map */

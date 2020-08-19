@@ -1,0 +1,111 @@
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #65dfc3;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 2%;
+  width: 96%;
+  position: relative;
+}
+
+.developers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 70%;
+}
+
+.developer__card {
+  max-width: auto;
+  max-height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+  margin-right: 2%;
+  margin-left: 2%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.developer__card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  padding: 4%;
+}
+
+.developer__card h4 {
+  font-size: 14px;
+  width: 84px;
+}
+
+.developer__card p {
+  margin-top: 5px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  font-size: 14px;
+  width: 84px;
+}
+
+.cards__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.info__link__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+.info__link__container a:visited,
+.info__link__container:active,
+.info__link__container :-webkit-any-link() {
+  color: #f6f6fa;
+}
+
+@media only screen and (max-width: 600px) {
+  .developers {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .developers img {
+    display: none;
+  }
+}
+/*# sourceMappingURL=Footer.css.map */

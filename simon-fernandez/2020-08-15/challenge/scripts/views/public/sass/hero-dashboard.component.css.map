@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACN,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,MAAM;CAClB;;AACD,AAAA,OAAO,CAAC;EACP,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;CAC7B;;AAED,AAAA,aAAa,CAAC;EACb,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,QAAQ;EAE1B,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;CACnB;;AAED,AAAA,aAAa,AAAA,MAAM,CAAC;EACnB,gBAAgB,EAAE,SAAS;CAC3B",
+    "sources": [
+        "hero-dashboard.component.scss"
+    ],
+    "names": [],
+    "file": "hero-dashboard.component.css"
+}

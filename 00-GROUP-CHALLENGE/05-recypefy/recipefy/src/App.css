@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+#root {
+  width: 100%;
+}
+
+body {
+  background-color: #ffff;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #01010e;
+}
+
+h4 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #010113;
+}
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #010111;
+}
+
+.body__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.body__list h2 {
+  padding: 15px;
+}
+
+.body__list ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: auto;
+}
+
+.body__box {
+  height: 35vh;
+  height: auto;
+  width: 90%;
+  background-color: #f8f8f0;
+  margin: 5% 2% 5% 2%;
+  padding: 3%;
+  border-radius: 25px;
+  -webkit-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+  box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+}
+
+.body__box .recipe__text {
+  width: 50%;
+  min-width: 250px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.body__box .recipe__text--title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 40 vw;
+  color: #180101;
+  margin-left: 20px;
+  font-size: 17px;
+}
+
+.body__box .recipe__image {
+  border-radius: 8%;
+  width: 100%;
+  height: auto;
+  margin-right: 5px;
+}
+
+.body__box--recipe-details {
+  background-color: #f8f8f0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.body__box--recipe-details a {
+  width: 100%;
+  margin: 15px;
+}
+
+.preferences__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.preference__peanut-free {
+  -webkit-filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg) brightness(99%) contrast(94%);
+          filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg) brightness(99%) contrast(94%);
+}
+
+.preference__tree-nut-free {
+  -webkit-filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg) brightness(95%) contrast(66%);
+          filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg) brightness(95%) contrast(66%);
+}
+
+.preference__alcohol-free {
+  -webkit-filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg) brightness(81%) contrast(92%);
+          filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg) brightness(81%) contrast(92%);
+}
+
+.box__title {
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #010113;
+}
+
+.recipe__text--preferences {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (min-width: 600px) {
+  .body__box .recipe__image {
+    margin-right: 5px;
+    max-height: 30vw;
+    width: auto;
+  }
+  .body__box--recipe-details {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .body__box--recipe-details a {
+    text-align-last: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .Main-page .body__box {
+    width: 62%;
+    margin: 2%;
+    margin-top: 5%;
+  }
+  .body-content {
+    position: relative;
+    width: 80%;
+    margin: auto;
+  }
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,153 @@
+.slider-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-top: 15px;
+  padding-bottom: 35px;
+}
+
+.slider__link {
+  width: 100%;
+}
+
+.slider {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.slider-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 3px;
+  margin: 0 auto;
+  text-align: center;
+  height: 70%;
+  width: 70%;
+  border: 2px solid transparent;
+}
+
+.slider-lateral {
+  border-radius: 3px;
+  margin: 0 auto;
+  text-align: center;
+  height: 33%;
+  width: 100%;
+  border: 2px solid transparent;
+}
+
+.slider-center:hover,
+.slider-lateral:hover {
+  border: 2px solid #c01f25;
+}
+
+.center {
+  width: 100%;
+}
+
+.lateral {
+  width: 20%;
+  display: none;
+}
+
+.dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dot {
+  margin: 5px;
+  height: 15px;
+  width: 15px;
+  background-color: #c01f25;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+
+.selected-dot {
+  margin: 5px;
+  height: 16px;
+  width: 16px;
+  background-color: #c01f25;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+}
+
+.arrow__left,
+.arrow__right {
+  width: 100%;
+  height: 100%;
+}
+
+.arrow__right {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+@-webkit-keyframes slider {
+  0% {
+    opacity: 5%;
+  }
+  30% {
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 5%;
+  }
+}
+
+@keyframes slider {
+  0% {
+    opacity: 5%;
+  }
+  30% {
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 5%;
+  }
+}
+
+.animation {
+  -webkit-animation: slider 5s 1;
+          animation: slider 5s 1;
+}
+
+@media only screen and (min-width: 1024px) {
+  .lateral {
+    display: block;
+  }
+  .center {
+    width: 60%;
+  }
+}
+/*# sourceMappingURL=filmSlider.css.map */

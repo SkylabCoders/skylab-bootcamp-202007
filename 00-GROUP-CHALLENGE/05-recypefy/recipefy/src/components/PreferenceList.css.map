@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,0BAA0B,CAAC;EACvB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,UAAU,EAAE,IAAI;CAKnB;;AARD,AAKI,0BALsB,CAKtB,CAAC,CAAC;EACE,OAAO,EAAE,EAAE;CACd;;AAGL,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,MAAM;EACrC,AAAA,qBAAqB,CAAC;IAClB,OAAO,EAAE,IAAI;GAChB",
+    "sources": [
+        "PreferenceList.scss"
+    ],
+    "names": [],
+    "file": "PreferenceList.css"
+}

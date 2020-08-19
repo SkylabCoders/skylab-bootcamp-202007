@@ -1,0 +1,83 @@
+.father-card {
+  margin: 10px;
+}
+
+.hinherit {
+  height: inherit;
+}
+
+.img-holder {
+  width: 100px;
+  height: 100px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 5px;
+  text-align: center;
+}
+
+.hinherit img {
+  border-style: 1px solid;
+  height: -webkit-fill-available;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card-body {
+  text-align: -webkit-center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.card {
+  border: 1px solid;
+  border-color: darkslateblue;
+  border-radius: 0.3rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .hinherit img {
+    border-style: 1px solid;
+    height: -webkit-fill-available;
+    border-radius: unset;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .img-holder {
+    width: 100%;
+    min-height: 300px;
+    max-height: 500px;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    padding: 5px;
+    text-align: center;
+  }
+  .card {
+    width: 300px;
+    margin: 10px;
+  }
+  .card-body {
+    position: relative;
+  }
+  .card-holder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*# sourceMappingURL=planetComponent.css.map */
