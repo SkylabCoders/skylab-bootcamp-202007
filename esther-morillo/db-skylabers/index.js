@@ -12,7 +12,7 @@ const port = 3000;
 
 const config = {
 	user: 'Esther',
-	password: 'sagu.11*',
+	password: '123_123',
 	server: 'skilibrary.database.windows.net',
 	database: 'tourH',
 	option: {

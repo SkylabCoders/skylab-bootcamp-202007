@@ -34,7 +34,7 @@ function router(nav) {
 					const collection = await db.collection(collectionName);
 
 					if (heroId) {
-						await collection.deleteOne(filter, heroId, (error, response) => {
+						await collection.deleteOne(filter, heroId, (error) => {
 							if (error) {
 								throw error;
 							}
