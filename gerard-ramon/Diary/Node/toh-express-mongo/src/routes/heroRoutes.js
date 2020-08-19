@@ -14,6 +14,7 @@ function router(nav) {
 			let client = null;
 			(async function query() {
 				try {
+					const deleteHero = { $set: req.body };
 					client = await MongoClient.connect(url);
 					debug('Connection established...');
 
@@ -21,7 +22,7 @@ function router(nav) {
 
 					const collection = await db.collection(collectionName);
 
-					await collection.deleteOne({ name: 'Adam Monroe' });
+					await collection.deleteOne(deleteHero);
 					const heroes = await collection.find().toArray();
 
 					client.close();
@@ -82,6 +83,31 @@ function router(nav) {
 					res.hero = hero;
 					client.close();
 					next();
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
+		})
+		.post((req, res) => {
+			const updateQuery = { $set: req.body };
+			const filter = { _id: new ObjectID(req.params.heroId) };
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			const url = 'mongodb://localhost:27017';
+			(async function mongo() {
+				try {
+					const client = await MongoClient.connect(url);
+					const db = await client.db(dbName);
+					const collection = db.collection(collectionName);
+
+					await collection.updateOne(filter, updateQuery, (error, response) => {
+						if (error) {
+							throw error;
+						}
+						res.redirect('/heroes');
+					});
+
+					client.close();
 				} catch (error) {
 					debug(error.stack);
 				}
