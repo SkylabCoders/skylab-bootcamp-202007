@@ -3,33 +3,70 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
-const heroes = require('./heroes');
+const sql = require('mssql');
+const { MongoClient } = require('mongodb');
+
+// const heroes = require('./heroes');
 
 const app = express();
 const port = 3000;
 
-app.use(morgan('tiny'));
+const config = {
+	user: 'admindb',
+	password: 'tango182010!',
+	server: 'skylab11.database.windows.net',
+	database: 'skylab-db',
+	option: {
+		encrypt: true
+	}
+};
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.set('views', './src/views');
-app.set('view engine', 'ejs');
+sql.connect(config).catch(debug);
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
 	{ link: '/heroes', title: 'Heroes' }
 ];
 
-app.get('/', (req, res) => {
-	res.render('dashboard', {
-		nav,
-		title: 'Top Heroes',
-		heroes: heroes.slice(0, 4)
-	});
-});
+app.use(morgan('tiny'));
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('views', './src/views');
+
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+	const url = 'mongodb://localhost:27017';
+	const dbName = 'shieldHeroes';
+	const collectionName = 'heroes';
+	let client;
+
+	(async function mongo() {
+		client = await MongoClient.connect(url);
+		debug('Connection dashboard');
+
+		const db = client.db(dbName);
+
+		const collection = await db.collection(collectionName);
+		const heroes = await collection.find().toArray();
+		try {
+			res.render('dashboard', {
+				nav,
+				title: 'Top Heroes',
+				heroes: heroes.slice(0, 4)
+			});
+		} catch (error) {
+			debug(error.stack);
+		}
+		client.close();
+	})();
+});
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
-app.listen(port, () => debug(`listening on port ${chalk.magenta(port)}`));
+const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
+
+app.use('/shield', shieldRoutes);
+app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
