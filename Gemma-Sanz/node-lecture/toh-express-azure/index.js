@@ -8,7 +8,7 @@ const sql = require('mssql');
 const heroes = require('./heroes');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 const config = {
 	user: 'admin1234',
@@ -46,5 +46,10 @@ app.get('/', (req, res) => {
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
+
+// shieldRoutes la requerimos y como es una función hay que invocarla, lleve argumentos (como es el caso), o no lleva argumentos!
+const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
+
+app.use('/shield', shieldRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
