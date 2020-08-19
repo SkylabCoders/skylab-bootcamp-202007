@@ -5,6 +5,20 @@ const debug = require('debug')('app');
 const morgan = require('morgan');
 const sql = require('mssql');
 
+const nav = [{
+    link: '/',
+    title: 'Dashboard'
+},
+{
+    link: '/list',
+    title: 'List'
+},
+{
+    link: '/staff',
+    title: 'Staff'
+}
+];
+
 const config = {
     user: 'gaeremtro',
     password: 'Penalva91',
@@ -15,7 +29,7 @@ const config = {
     }
 
 }
-
+sql.connect(config).catch(debug);
 
 
 const laberRoutes = require('./src/laberRoutes')(nav);
