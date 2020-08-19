@@ -10,38 +10,74 @@ const {
 const heroRoutes = express.Router();
 
 function router(nav) {
-	heroRoutes.route('/').get((req, res) => {
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'shieldHeroes';
-		let client;
+	heroRoutes.route('/')
+		.post((req, res) => {
+			const {
+				heroId,
+				deleteAll
+			} = req.body;
 
-		(async function query() {
-			try {
-				client = await MongoClient.connect(url);
-				debug('Connection stablished...');
+			const filter = {
+				_id: ObjectID(heroId)
+			};
 
-				// La conexión me devuelve una promesa, así que metemos el await
-				const db = client.db(dbName);
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			let client;
 
-				// petición de la colección a la base de datos
-				const collection = await db.collection('heroes');
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					await collection.deleteOne(filter, heroId, (error, response) => {
+						if (error) {
+							throw error;
+						}
+						debug(response);
+						res.redirect('/heroes');
+					})
+				} catch (error) {
+					debug(error.stack);
+				}
 
-				// toArray porque queremos trabajar con un array
-				const heroes = await collection.find().toArray();
+				client.close();
+			}())
+		})
 
-				res.render('heroes', {
-					nav,
-					title: 'My Heros',
-					heroes
-				});
-			} catch (error) {
-				/* debug(error.stack); */
-				debug(error.stack);
-			}
+		.get((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			let client;
 
-			client.close();
-		})();
-	});
+			(async function query() {
+				try {
+					client = await MongoClient.connect(url);
+					debug('Connection stablished...');
+
+					// La conexión me devuelve una promesa, así que metemos el await
+					const db = client.db(dbName);
+
+					// petición de la colección a la base de datos
+					const collection = await db.collection('heroes');
+
+					// toArray porque queremos trabajar con un array
+					const heroes = await collection.find().toArray();
+
+					res.render('heroes', {
+						nav,
+						title: 'My Heros',
+						heroes
+					});
+				} catch (error) {
+					/* debug(error.stack); */
+					debug(error.stack);
+				}
+
+				client.close();
+			})();
+		});
 
 	heroRoutes
 		.route('/:heroId')
