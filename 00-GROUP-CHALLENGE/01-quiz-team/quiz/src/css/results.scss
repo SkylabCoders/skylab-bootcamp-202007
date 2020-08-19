@@ -1,0 +1,25 @@
+@use 'colors';
+
+.results section p,
+.results section h1,
+.results section h2,
+.results section h3{
+    color: colors.$text--white;
+    text-align: center;
+}
+
+.playAgain__sameTheme,
+.playAgain__anotherTheme{
+    margin: auto;
+}
+
+.playAgain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.results__message{
+    font-weight: bold;
+}

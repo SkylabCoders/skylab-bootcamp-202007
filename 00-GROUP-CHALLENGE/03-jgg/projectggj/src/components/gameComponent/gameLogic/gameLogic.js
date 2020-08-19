@@ -2,30 +2,35 @@ export const CHARGE = 'Charge';
 export const AVOID = 'Avoid';
 export const ATTACK = 'Attack';
 export const FAIL = 'FAIL';
+const { random } = Math;
+const INITIAL_LIVES = 3;
+const INITIAL_CHARGES = 1;
+const INITIAL_ACTION = '';
 
-function player(names = 'Machine', isMachine = false) {
+function Player(names, isMachine = true) {
+
     let name = names;
-    let charges = 1;
-    let action = '';
-    let lives = 3;
+    let charges = INITIAL_CHARGES;
+    let action = INITIAL_ACTION;
+    let lives = INITIAL_LIVES;
     let ret;
 
     function resetPlayer() {
-        lives = 3;
-        charges = 1;
-        action = "";
+        lives = INITIAL_LIVES;
+        charges = INITIAL_CHARGES;
+        action = INITIAL_ACTION;
     }
     function setAction(newAction) {
         action = newAction;
-        calculateAction(action)
+        calculateAction();
     }
 
     function generateAction() {
         let naction
         if (charges > 0)
-            naction = Math.floor(Math.random() * 3)
+            naction = Math.floor(random() * 3)
         else
-            naction = Math.floor(Math.random() * 2)
+            naction = Math.floor(random() * 2)
 
         translateAction(naction.toString());
         return calculateAction();
@@ -89,6 +94,6 @@ function player(names = 'Machine', isMachine = false) {
     else
         ret = { setAction, recibeAction, getAction, getLives, getCharges, getName, resetPlayer }
 
-    return ret
+    return ret;
 }
-export default player;
+export default Player;
