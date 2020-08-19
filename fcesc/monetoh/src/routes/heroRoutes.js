@@ -37,15 +37,13 @@ function router(nav) {
 		.route('/:heroSlug')
 		.all((req, res, next) => {
 			const {heroSlug} = req.params;
-			const url = 'mongodb://localhost:27017';
-			const dbName = 'shieldHeroes';
 			const collectionName = 'heroes';
 			(async function query() {
 				let client;
 				try {
-					client = await MongoClient.connect(url);
-					const db = client.db(dbName);
-					const collection = await db.collection(collectionName);
+					client = await MongoClient.connect(DATABASE_CONFIG.url);
+					const db = client.db(DATABASE_CONFIG.dbName);
+					const collection = db.collection(collectionName);
 					res.hero = await collection.findOne({slug: heroSlug});
 					debug(res.hero);
 					next();
@@ -54,6 +52,10 @@ function router(nav) {
 				}
 				client.close();
 			})();
+		})
+		.post((req, res)=>{
+			debug(req.body);
+			res.json(req.body);
 		})
 		.get((req, res) => {
 			res.render('hero-detail', { 
