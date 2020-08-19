@@ -5,10 +5,10 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 const sql = require('mssql');
 const { MongoClient } = require('mongodb');
-const { heroList, nav } = require('./heroMock');
+const { nav } = require('./heroMock');
 
 const app = express();
-const port = process.env.PORT || 2427;
+const port = process.env.PORT || 3001;
 
 const config = {
 	user: 'acodina',
@@ -56,7 +56,7 @@ const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
-const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
+const shieldRoutes = require('./src/routes/shieldRoutes');
 
 app.use('/shield', shieldRoutes);
 
