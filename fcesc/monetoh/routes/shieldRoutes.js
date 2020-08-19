@@ -1,6 +1,7 @@
 const express = require('express');
 const debut = require('debut')('app:shieldRoutes');
 const { MongoClient } = require('mongodb');
+const superHeroData = require('./../mockdata/superHeroData.json');
 
 const shieldRoutes = express.Router();
 

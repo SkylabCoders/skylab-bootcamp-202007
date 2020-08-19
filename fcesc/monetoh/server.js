@@ -1,14 +1,12 @@
 const express = require('express');
-const debut = require('debut')('app:shieldRoutes');
-const { MongoClient } = require('mongodb');
+const debug = require('debut')('app');
+const chalk = require('chalk');
 
-const shieldRoutes = express.Router();
+const app = express();
+const PORT = 3010;
 
-function router(nav){
-  shieldRoutes.route('/').get((req, res)=>{
-    res.send('Shield mola más que cualquier otra empresa de super heroes...');
-  })
-  return shieldRoutes;
-}
 
-module.exports = router;
+
+app.listen(PORT, ()=>{console.log(`Server listening on port ${chalk.blueBright(PORT)}`)});
+
+
