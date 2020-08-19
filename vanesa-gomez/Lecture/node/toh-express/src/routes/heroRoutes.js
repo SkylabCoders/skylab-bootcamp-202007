@@ -9,7 +9,7 @@ function router(nav) {
 	heroRoutes
 		.route('/')
 		.post((req, res) => {
-			const { heroId } = req.body;
+			const { heroId, deleteAll } = req.body;
 			const filter = { _id: ObjectID(heroId) };
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'shieldHeroes';
@@ -21,13 +21,18 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
-					await collection.deleteOne(filter, heroId, (error, response) => {
-						if (error) {
-							throw error;
-						}
-						debug(response);
+					if (heroId) {
+						await collection.deleteOne(filter, heroId, (error, response) => {
+							if (error) {
+								throw error;
+							}
+							debug(response);
+							res.redirect('/heroes');
+						});
+					} else {
+						await collection.deleteMany({});
 						res.redirect('/heroes');
-					});
+					}
 				} catch (error) {
 					debug(error.stack);
 				}
