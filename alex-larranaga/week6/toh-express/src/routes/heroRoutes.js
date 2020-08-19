@@ -28,52 +28,62 @@ function router(nav) {
 	heroRoutes
 		.route('/:heroId')
 		.all((req, res, next) => {
+			// requestHandler que recibe 3 argumentos
 			const id = req.params.heroId;
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'heroes';
-			let client = null;
+			const collectionName = 'heroes';
+			let client;
 			(async function query() {
 				try {
 					client = await MongoClient.connect(url);
-					const db = await client.db(dbName);
-					const collection = await db.collection('heroes');
-					const hero = await collection
-						.find({ _id: new ObjectID(id) })
-						.toArray();
-					[res.hero] = hero;
+					debug('Connection stablished...');
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					res.hero = await collection.findOne({ _id: new ObjectID(id) });
 					next();
 				} catch (error) {
 					debug(error.stack);
 				}
+				client.close();
 			})();
 		})
-		.get((req, res) => {
-			res.render('hero-detail', { nav, hero: res.hero });
-		});
-	heroRoutes
-		.route('/dashboard')
-		.all((req, res, next) => {
-			const id = req.params.heroId;
-			const url = 'mongodb://localhost:27017';
+		.post((req, res) => {
+			// conectar a mongodb,
+			// actualizar el hero con id: id
+			// responder con la pagina actualizada
+			// o responder redireccionando a la lista
+
+			// capturar el error manteniendo la misma pagina
+			const updateQuery = { $set: req.body };
+			const filter = { _id: new ObjectID(req.params.heroId) };
+			const url = 'mongodb://localhost://27017';
 			const dbName = 'heroes';
-			let client = null;
-			(async function query() {
+			const collectionName = 'heroes';
+			let client; // cliente de sql
+
+			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
-					const db = await client.db(dbName);
-					const collection = await db.collection('heroes');
-					const hero = await collection
-						.find({ _id: new ObjectID(id) })
-						.toArray();
-					[res.hero] = hero;
-					next();
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					await collection.updateOne(filter, updateQuery, (error, response) => {
+						if (error) {
+							throw error;
+						}
+						res.redirect('/heroes');
+					});
 				} catch (error) {
 					debug(error.stack);
 				}
+				client.close();
 			})();
 		})
 		.get((req, res) => {
-			res.render('dashboard', { nav, hero: res.hero });
+			res.render('hero-detail', {
+				nav,
+				hero: res.hero
+			});
 		});
 	return heroRoutes;
 }

@@ -1,5 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app');
+const bodyParser = require('body-parser');
 
 const path = require('path');
 const morgan = require('morgan');
@@ -18,6 +19,9 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use(morgan('tiny'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
