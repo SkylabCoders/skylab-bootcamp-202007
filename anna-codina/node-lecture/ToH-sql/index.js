@@ -11,7 +11,7 @@ const port = process.env.PORT || 2427;
 
 const config = {
 	user: 'acodina',
-	password: '5717purpurin$',
+	password: '5hola',
 	server: 'anna-skylab.database.windows.net',
 	database: 'tohdb',
 	opction: {
