@@ -14,7 +14,7 @@
 	<h2><%= title%></h2>
 
 	<div>
-		<form method="POST" action="/">
+		<form method="POST" action="/heroes">
 			<label>Hero name:
 				<input #heroName type="test" name="FIELD1" />
 			</label>
@@ -28,7 +28,7 @@
 	<ul class="heroes">
 		<% for(let i = 0; i<heroes.length; i++){%>
 		<li>
-			<a href="/heroes/<%=heroes[i].id%>">
+			<a href="/<%=heroes[i].id%>">
 				<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
 			</a>
 			<button class="delete" title="delete hero" (click)="delete(hero)">

@@ -31,7 +31,7 @@ function router(nav) {
             "INSERT INTO skylabers VALUES(99, 'BOMBASTO', 'Robinet', 30, 1, 'La Plata', 'Argentina', '1990-04-28', 'Luxemburgo', 'male');";
           await request.query(insertQuery);
 
-          //console.log(req);
+          // eslint-disable-next-line no-console
           console.log(resp.body);
         } catch (error) {
           debug(error.stack);
@@ -56,6 +56,30 @@ function router(nav) {
     })
     .get((req, res) => {
       res.render("detail", {
+        nav,
+        hero: res.hero,
+      });
+    })
+    .delete()
+    .put(); /* create */
+  heroRoutes
+    .route("/dashboard")
+    .all((req, res, next) => {
+      const id = +req.params.heroId;
+      (async function query() {
+        try {
+          const { recordset } = await request
+            .input("id", sql.Int, id)
+            .query(`select * from skylabers where id= @id`);
+          [res.hero] = recordset;
+          next();
+        } catch (error) {
+          debug(error.stack);
+        }
+      })();
+    })
+    .get((req, res) => {
+      res.render("dashboard", {
         nav,
         hero: res.hero,
       });

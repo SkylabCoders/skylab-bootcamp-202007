@@ -4,7 +4,6 @@ const debug = require("debug")("index");
 const chalk = require("chalk");
 const morgan = require("morgan");
 const sql = require("mssql");
-const heroes = require("./heroes");
 
 const index = express();
 const port = process.env.PORT || 3000;
