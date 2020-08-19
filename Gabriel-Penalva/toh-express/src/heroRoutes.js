@@ -2,18 +2,32 @@ const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 
 const heroRoutes = express.Router();
-const sql = require('mssql');
+
+const { MongoClient, ObjectID } = require('mongodb');
 
 function router(nav) {
 
     heroRoutes.route('/').get((req, res) => {
+        const url = 'mongodb://localhost:27017';
+        const dbname = 'shieldHeroes';
+        let client;
         (async function query() {
-            const request = new sql.Request();
             try {
-                const { recordset } = await request.query('SELECT * FROM Heros');
-                res.render('heroes', { nav, title: 'my Heroes', heroes: recordset });
+                client = await MongoClient.connect(url);
+                debug('connection stablished')
+                const db = client.db(dbname);
+                const collection = await db.collection('heroes');
+                const heroes = await collection.find().toArray();
+                res.render('heroes', {
+                    nav, title: 'my Heroes',
+                    heroes
+                })
+
             } catch (error) {
-                debug(error);
+                debug(error.stack);
+            }
+            finally {
+                client.close();
             }
         }())
 
@@ -22,17 +36,24 @@ function router(nav) {
     heroRoutes
         .route('/:heroid')
         .all((req, res, next) => {
-            const ID = +req.params.heroid;
+            const ID = req.params.heroid;
+            const url = 'mongodb://localhost:27017';
+            const dbname = 'shieldHeroes';
+            let client;
             (async function query() {
                 try {
-                    const request = new sql.Request();
-                    const { recordset } = await request
-                        .input('id', sql.Int, ID)
-                        .query(`SELECT * FROM Heros WHERE id = @id`);
-                    [res.hero] = recordset
+                    client = await MongoClient.connect(url);
+                    debug('connection stablished')
+                    const db = client.db(dbname);
+                    const collection = await db.collection('heroes');
+                    const hero = await collection.findOne({ _id: new ObjectID(ID) });
+                    res.hero = hero;
                     next();
                 } catch (error) {
-                    debug(error);
+                    debug(error.stack);
+                }
+                finally {
+                    client.close();
                 }
             }())
         })
