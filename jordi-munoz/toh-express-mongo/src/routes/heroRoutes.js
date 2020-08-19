@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
-const { MOngoClient, MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 
 const heroRoutes = express.Router();
 
@@ -28,26 +28,35 @@ function router(nav) {
 			} catch (error) {
 				debug(error.stack);
 			}
+			client.close();
 		})();
 	});
 
 
 	heroRoutes.route('/:heroId')
 		.all((req, res, next) => {
-			const id = +req.params.heroId;
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			let client;
+			const id = req.params.heroId;
 			(async function query() {
 				try {
-					const request = new sql.Request();
-					const { recordset } = await request
-						.input('id', sql.Int, id)
-						.query(
-							`SELECT * FROM heroes WHERE id= @id`);
-					[res.hero] = recordset;
+					client = await MongoClient.connect(url);
+					debug('Connection stablished...');
+
+					const db = client.db(dbName);
+
+					const collection = await db.collection(collectionName);
+
+					const hero = await collection.find({ _id: new ObjectID(id) }).toArray();
+
+					[res.hero] = hero;
 					next();
 				} catch (error) {
 					debug(error.stack);
 				}
-
+				client.close();
 			})();
 		})
 		.get((req, res) => {

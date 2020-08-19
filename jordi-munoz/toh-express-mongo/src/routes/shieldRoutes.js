@@ -21,7 +21,7 @@ function router(nav) {
         const db = client.db(dbname);
         // line only for use once, for call the db:
 
-        // const response = await db.collection('heroes').insertMany(superHeroes);
+        const response = await db.collection('heroes').insertMany(superHeroes);
         // debug(response);
         res.json(response)
       } catch (error) {
