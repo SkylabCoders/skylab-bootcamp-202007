@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero list</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+
+<body>
+    <%-include('header')-%>
+    <h2>My Heroes</h2>
+    <div>
+        <label>Hero name:
+            <input #heroName />
+        </label>
+        <button; heroName.value=''">
+            add
+        </button>
+    </div>
+    
+    <% heroList.forEach(hero => { %>
+        <ul class=" heroes">
+            <li *ngFor="let hero of heroes">
+                <a href="/heroes/<%= hero.id %>">
+                    <span class="badge"><%= hero.id %></span> <%= hero.name %>
+                </a>
+                <button class="delete" title="delete hero" ">x</button;>
+                </li>
+            </ul>
+    <% }) %>
+</body>
+
+</html>
