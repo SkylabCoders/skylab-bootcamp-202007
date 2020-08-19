@@ -7,11 +7,11 @@ const sql = require('mssql');
 const { heroList, nav } = require('./heroMock');
 
 const app = express();
-const port = process.env.PORT || 2427;
+const port = process.env.PORT || 3000;
 
 const config = {
 	user: 'acodina',
-	password: '5hola',
+	password: '5717purpurin$',
 	server: 'anna-skylab.database.windows.net',
 	database: 'tohdb',
 	opction: {
@@ -35,6 +35,10 @@ app.get('/', (req, res) => {
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
+
+const shieldRoutes = require('./src/routes/heroRoutes')(nav);
+
+app.use('/shield', shieldRoutes);
 
 app.listen(port, () =>
 	debug(chalk.red(`Server is running at port `) + chalk.green(port))
