@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 const { MongoClient } = require('mongodb');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
+const ROUTES = require('./ROUTES');
 
 const dashboardRoutes = express.Router();
 
@@ -22,9 +23,10 @@ function router(nav) {
 
 					res.render('index', {
 						nav,
-						body: 'dashboard',
-						title: 'My Heroes',
-						heroes
+						body: ROUTES.dashboard.page,
+						title: ROUTES.dashboard.title,
+						heroes,
+						ROUTES
 					});
 				} catch (error) {
 					debug(error.stack);

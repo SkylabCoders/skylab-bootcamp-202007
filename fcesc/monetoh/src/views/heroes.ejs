@@ -1,4 +1,4 @@
-<h2><%= title %></h2>
+<h2><%= title.toUpperCase() %></h2>
 
 <div>
 	<label
@@ -13,7 +13,7 @@
 <ul class="heroes">
 	<% for(let i= 0; i< heroes.length; i++) { %>
 	<li>
-		<a href="/heroes/<%=heroes[i].slug%>">
+		<a href="<%=ROUTES.hero.path%><%=heroes[i].slug%>">
 			<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
 		</a>
 		<button class="delete" title="delete hero">
