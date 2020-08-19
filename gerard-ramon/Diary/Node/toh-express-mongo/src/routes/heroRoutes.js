@@ -14,7 +14,8 @@ function router(nav) {
 			let client = null;
 			(async function query() {
 				try {
-					const deleteHero = { $set: req.body };
+					const { hero } = req.body;
+					debug(hero);
 					client = await MongoClient.connect(url);
 					debug('Connection established...');
 
@@ -22,7 +23,7 @@ function router(nav) {
 
 					const collection = await db.collection(collectionName);
 
-					await collection.deleteOne(deleteHero);
+					await collection.deleteOne({ _id: new ObjectID(hero) });
 					const heroes = await collection.find().toArray();
 
 					client.close();
