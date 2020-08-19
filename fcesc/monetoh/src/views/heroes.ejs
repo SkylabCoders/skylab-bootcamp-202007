@@ -1,0 +1,24 @@
+<h2><%= title %></h2>
+
+<div>
+	<label
+		>Hero name:
+		<input />
+	</label>
+	<button>
+		add
+	</button>
+</div>
+
+<ul class="heroes">
+	<% for(let i= 0; i< heroes.length; i++) { %>
+	<li>
+		<a href="/heroes/<%=heroes[i].slug%>">
+			<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
+		</a>
+		<button class="delete" title="delete hero">
+			x
+		</button>
+	</li>
+	<% } %>
+</ul>
