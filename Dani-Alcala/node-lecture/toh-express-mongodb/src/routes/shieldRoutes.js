@@ -5,6 +5,8 @@ const superHeroes = require('../../public/mocks/superHeroData.json');
 
 const shieldRoutes = express.Router();
 
+
+//utiliza esto para cargar el mock de heroes a la bbdd
 function router(nav) {
 	shieldRoutes.route('/').get((req, res) => {
 		const url = 'mongodb://localhost:27017';

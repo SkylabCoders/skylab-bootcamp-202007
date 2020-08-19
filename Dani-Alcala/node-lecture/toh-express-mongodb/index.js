@@ -6,6 +6,7 @@ const path = require('path');
 const sql = require('mssql');
 const heroes = require('./heroes');
 const { MongoClient } = require('mongodb')
+const bodyParser = require('body-parser')
 
 const app = express();
 const port = 3000;
@@ -13,7 +14,8 @@ const port = 3000;
 
 app.use(morgan('tiny'));
 
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(express.static(path.join(__dirname, 'public')));
 
