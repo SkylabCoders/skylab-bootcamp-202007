@@ -1,0 +1,27 @@
+.header {
+	width: 100%;
+	.header__title {
+		color: #b2b2b2;
+	}
+
+	.header__button {
+		width: 80px;
+		height: 30px;
+		a {
+			text-decoration: none;
+			color: #b2b2b2;
+		}
+		a:hover {
+			color: #40b0e7;
+		}
+	}
+}
+
+.hero-detail {
+	.hero-detail__id {
+		color: #627f8b;
+	}
+	.hero-detail__name {
+		color: #627f8b;
+	}
+}

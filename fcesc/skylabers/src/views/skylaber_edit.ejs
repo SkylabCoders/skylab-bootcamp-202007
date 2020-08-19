@@ -1,0 +1,8 @@
+<form>
+  <h2>Edit skylaber</h2>
+  <p><label for='editskylaber__name'>Name</label><input id='editskylaber__name' type='text' value='<%=skylaber.name%>'></input> <label for='editskylaber__lastName'>Last name</label><input id='editskylaber__lastName' type='text' value='<%=skylaber.lastName%>'></input></p>
+  <p><label for='editskylaber__birthDate'>Birth date</label><input id='editskylaber__birthDate' type='date' value='<%=skylaber.birthDate%>'></input>,<label for='editskylaber__age'>Age</label><input id='editskylaber__age' type='number' value='<%=skylaber.age%>'></input> y/o, <label for='editskylaber__gender'>Gender</label><input id='editskylaber__gender' type='text' value='<%=skylaber.gender%>'></input></p>
+  <p><label for='editskylaber__city'>City</label><input id='editskylaber__city' type='text' value='<%=skylaber.city%>'></input>, <label for='editskylaber__country'>Country</label><input id='editskylaber__country' type='text' value='<%=skylaber.country%>'></input></p>
+  <p><label for='editskylaber__likesPets'>Likes pets?</label><input type='boolean' value='<%=skylaber.likesPets%>'></input></p>
+  <button id='deleteButton__skylaber'>Delete</button><button id='saveButton__skylaber'>Save</button><button id='createButton__skylaber'><a class='button__link' href='/skylaber/create'>Create</a></button>
+</form>
