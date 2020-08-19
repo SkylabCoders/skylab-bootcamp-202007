@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 
 const heroRoutes = express.Router();
 
@@ -10,6 +10,7 @@ function router(nav) {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'shieldHeroes';
 		let client;
+
 		(async function query() {
 			try {
 				// la conexión de te revuelve una promesa, tenemos que hacer un await para esperar la respuesta
@@ -19,7 +20,7 @@ function router(nav) {
 				const db = client.db(dbName);
 				// Esperamos a obtener la colección heroes
 
-				const collection = await db.collection('heroes');
+				const collection = await db.collection();
 
 				// Tenemos que esperar, así obtenemos tota la data y la convertimos en array
 				const heroes = await collection.find().toArray();
@@ -32,13 +33,14 @@ function router(nav) {
 			} catch (error) {
 				debug(error.stack);
 			}
+			client.close();
 		})();
 	});
 
 	heroRoutes
 		.route('/:heroId')
 		.all((req, res, next) => {
-			const id = +req.params.heroId;
+			const idMongo = req.params.heroId;
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'shieldHeroes';
 			const collectionName = 'heroes';
@@ -50,11 +52,14 @@ function router(nav) {
 												const request = new sql.Request(); */
 					client = await MongoClient.connect(url);
 					debug('Connection stablished...');
-					// En sql:	const { recordset } = await request
+					// En SQL:	const { recordset } = await request
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
+					// Dentro del findOne buscamos el _id con el nuevo object id
+					res.hero = await collection.findOne({ _id: new ObjectID(idMongo) });
+					debug(idMongo);
 
-					const hero = await collection.find({ id }).toArray();
+					/* EN SQL:
 					// el input desglosa las variables dentro del query, 'id' es un valor de sql entero, que corresponde a id. el primer 'id' lo añadimos al quero con @__
 					// ejemplo sql: .input('id', sql.Int, id)
 					// Si quisieramos añadir otro input pondriamos lo siguiente
@@ -64,7 +69,8 @@ function router(nav) {
 
 					// ejemplo sql: .query(`SELECT * FROM heroes WHERE id= @id`);
 					// emeplo sql:					el res.hero es un array destructuring que apunta al primer valor de recordset
-					[res.hero] = hero;
+					*/
+					debug(res.hero);
 					// Tenemos que poner el next() porque sino la pagina se queda cargando y no termina, tenemos que emitir el evento para que el siguiente, el get lo capture y pase al siguiente
 					next();
 				} catch (error) {
