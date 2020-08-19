@@ -8,7 +8,7 @@
     <label>SKYLABER'S NAME:
       <input placeholder="fuckling rubbish" />
     </label>
-    <button type=" submit" onclick=<%- event.target.value>
+    <button type=" submit">
 
 
       cambia
@@ -20,10 +20,10 @@
 
 <ul class="heroes">
   <% for(let i=0; i<heroes.length; i++) { %> <li *ngFor="let hero of heroes">
-      <a routerLink="/hero-detail/:heroId">
-        <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
-      </a>
-      <button class="delete" title="delete hero">x</button>
-      </li>
-      <% } %>
-      </ul>
+    <a routerLink="/hero-detail/:heroId">
+      <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
+    </a>
+    <button class="delete" title="delete hero">x</button>
+  </li>
+  <% } %>
+</ul>

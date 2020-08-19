@@ -9,11 +9,9 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.bodyParser());
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-app.use(express.bodyParser());
 
 app.use(morgan('tiny'));
 
@@ -33,5 +31,9 @@ app.get('/', (req, res) => {
 const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
 
 app.use('/heroes', heroRoutes);
+
+const shieldRoutes = require('./src/routes/shieldRoutes');
+
+app.use('/shield', shieldRoutes);
 
 app.listen(PORT, () => debug('server is running...'));

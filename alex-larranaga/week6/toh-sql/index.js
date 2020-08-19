@@ -1,11 +1,11 @@
 const express = require("express");
 const path = require("path");
-const debug = require("debug")("index");
+const debug = require("debug")("app");
 const chalk = require("chalk");
 const morgan = require("morgan");
 const sql = require("mssql");
 
-const index = express();
+const app = express();
 const port = process.env.PORT || 3000;
 
 const config = {
@@ -18,17 +18,17 @@ const config = {
 
 sql.connect(config).catch(debug);
 
-index.use(morgan("tiny"));
-index.use(express.static(path.join(__dirname, "public")));
+app.use(morgan("tiny"));
+app.use(express.static(path.join(__dirname, "public")));
 
-index.set("view engine", "ejs");
+app.set("view engine", "ejs");
 const nav = [
   { link: "/", title: "Dashboard" },
   { link: "/heroes", title: "Heroes" },
 ];
-index.set("views", "./src/views");
+app.set("views", "./src/views");
 
-/* index.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
   res.render("dashboard", {
     nav,
     title: "Top Heroes",
@@ -38,8 +38,11 @@ index.set("views", "./src/views");
 
 const heroRoutes = require("./src/routes/heroRoutes")(nav);
 
-index.use("/", heroRoutes);
+app.use("/", heroRoutes);
+const shieldRoutes = require("./src/routes/shieldRoutes");
 
-index.listen(port, () =>
+app.use("/shield", shieldRoutes);
+
+app.listen(port, () =>
   debug(`Server is running in port ${chalk.yellow(port)}`)
 );
