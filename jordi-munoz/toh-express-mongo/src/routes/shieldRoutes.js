@@ -20,6 +20,7 @@ function router() {
 
         const db = client.db(dbname);
         // line only for use once, for call the db:
+        await db.collection('heroes').deleteMany({});
 
         const response = await db.collection('heroes').insertMany(superHeroes);
         // debug(response);
