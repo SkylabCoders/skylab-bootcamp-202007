@@ -3,16 +3,20 @@ const path = require('path');
 const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 2427;
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(morgan('tiny'));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(express.static(path.join(__dirname, '/public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-app.use(morgan('tiny'));
 
 const nav = [
 	{ link: '/', title: 'Dasboard' },
