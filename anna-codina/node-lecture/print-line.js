@@ -16,6 +16,7 @@ const interval = setInterval(callBack, customNumber * 1000, customNumber);
 // Number of duplicates
 
 function count(text) {
+	debugger;
 	text = text.toLowerCase();
 	let actualTextArray = text.split('');
 	let actualResponse = undefined;
