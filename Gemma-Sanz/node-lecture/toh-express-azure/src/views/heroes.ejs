@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<%- include('header')%>
+		<form action="" method="POST" name="heroForm">
 		<h2><%= title%></h2>
 
 		<div>
@@ -16,25 +17,24 @@
 				>Hero name:
 				<input #heroName />
 			</label>
-			<button>
+			<button class="deleteAll" title="delete all hero" type="submit" name="deleteAllHeroes" value="<%= heroes%>">
 				add
 			</button>
 		</div>
 		
 		<ul class="heroes">
-			<form action="" method="POST" name="heroForm">
 			<% for(let i = 0; i<heroes.length; i++){%>
 				<li>
 				<a href="/heroes">
 					<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
 				</a>
-<!-- 				el nom te que ser igual aqui i en routes
+<!-- 				el nom te que ser igual aqui i en routes de heroRoutes, lin
  -->				<button class="delete" title="delete hero" type="submit" name="deletedHeroId" value="<%= heroes[i]._id%>">
 					x
 				</button>
 			</li>
 			<% } %>
-		</form>
 		</ul>
+	</form>
 	</body>
 </html>

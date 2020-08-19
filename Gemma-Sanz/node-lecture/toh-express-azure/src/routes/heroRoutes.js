@@ -55,7 +55,6 @@ function router(nav) {
 				const collection = await db.collection(collectionName);
 
 				await collection.deleteOne(filter, (error, response) => {
-					if (error) throw error;
 					if (error) {
 						throw error;
 					}
