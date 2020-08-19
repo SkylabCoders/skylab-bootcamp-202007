@@ -21,10 +21,10 @@ const nav = [
 ];
 
 const config = {
-	user: 'admin1234',
-	password: 'skylabers1234*',
-	server: 'skylabers.database.windows.net',
-	database: 'skylabers',
+	user: '',
+	password: '',
+	server: '',
+	database: '',
 	option: {
 		encrypt: true
 	}
