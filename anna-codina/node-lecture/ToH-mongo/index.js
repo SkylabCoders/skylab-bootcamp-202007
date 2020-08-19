@@ -3,30 +3,21 @@ const path = require('path');
 const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
-const sql = require('mssql');
+const bodyParser = require('body-parser');
+
 const { MongoClient } = require('mongodb');
 const { nav } = require('./heroMock');
 
 const app = express();
 const port = process.env.PORT || 3001;
 
-const config = {
-	user: 'acodina',
-	password: '5717purpurin$',
-	server: 'anna-skylab.database.windows.net',
-	database: 'tohdb',
-	opction: {
-		encrypt: true // Because we are using Microsoft Azure
-	}
-};
-
-sql.connect(config).catch(debug);
+app.use(morgan('tiny'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
 	const url = 'mongodb://localhost:27017';
