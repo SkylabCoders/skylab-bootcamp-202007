@@ -6,6 +6,7 @@ const path = require('path');
 // const sql = require('mssql');
 
 const { MongoClient } = require('mongodb');
+const bodyParser = require('body-parser');
 
 
 const app = express();
@@ -13,7 +14,16 @@ const port = 3000;
 
 app.use(morgan('tiny'));
 
-// const config = {                        // database config
+app.use(bodyParser.json());                             // middleware. 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// app.use((req, res, next) => {       // requestHandler. Intercepta todas las peticiones
+//     debug("Skylab es el mejor bootcamp")
+// })
+
+
+// =====================
+// const config = {                        // SQL database config
 //     user: 'hydroFlask',
 //     password: 'Skylab123',              // el password no se envia al cliente, porque no está en render
 //     server: 'dfkylab.database.windows.net',

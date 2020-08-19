@@ -1,6 +1,7 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
+const { error } = require('console');
 
 
 const heroRoutes = express.Router();
@@ -32,7 +33,7 @@ function router(nav) {
 
     heroRoutes
         .route('/:heroId')
-        .all((req, res, next) => {
+        .all((req, res, next) => {    // requestHandler que recibe 3 argumentos
             const id = req.params.heroId;
             const url = 'mongodb://localhost:27017';
             const dbName = 'shieldHeroes';
@@ -51,6 +52,39 @@ function router(nav) {
                 }
                 client.close();
             })();
+        })
+        .post((req, res) => {
+            // conectar a mongodb, 
+            // actualizar el hero con id: id
+            // responder con la pagina actualizada
+            // o responder redireccionando a la lista
+
+            // capturar el error manteniendo la misma pagina
+            const updateQuery = ({ $set: req.body });
+            const filter = { _id: new ObjectID(req.params.heroId) };
+            const url = 'mongodb://localhost://27017';
+            const dbName = 'shieldHeroes';
+            const collectionName = 'heroes';
+            let client;  // cliente de sql
+
+            (async function mongo() {
+                try {
+                    client = await MongoClient.connect(url);
+                    const db = client.db(dbName);
+                    const collection = await db.collection(collectionName);
+                    await collection.updateOne(filter, updateQuery, (error, response) => {
+                        if (error) {
+                            throw error
+                        }
+                        res.redirect('/heroes')
+                    });
+                } catch (error) {
+                    debug(error.stack);
+                }
+                client.close();
+            }())
+
+
         })
         .get((req, res) => {
             res.render('hero-detail', {
