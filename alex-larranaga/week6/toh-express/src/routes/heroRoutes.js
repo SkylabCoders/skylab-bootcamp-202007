@@ -52,10 +52,37 @@ function router(nav) {
 				}
 			})();
 		});
+	heroRoutes.route('/createHero').post((req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'heroes';
+		const { newHero } = req.body;
+
+		let client = null;
+
+		(async function query() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('Connection established...');
+				const db = await client.db(dbName);
+				const collection = await db.collection('heroes');
+				const [{ id }] = await collection
+					.find()
+					.sort({ id: -1 })
+					.limit(1)
+					.toArray();
+
+				await collection.insertOne({ id: id + 1, name: newHero });
+				res.redirect('/heroes');
+			} catch (error) {
+				debug(error.stack);
+			}
+		})();
+	});
 	heroRoutes
 		.route('/:heroId')
 		.all((req, res, next) => {
 			// requestHandler que recibe 3 argumentos
+
 			const id = req.params.heroId;
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'heroes';

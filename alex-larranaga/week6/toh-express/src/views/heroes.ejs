@@ -4,21 +4,23 @@
 <h1><%-include("header") -%></h1>
 
 <div>
-  <form method="POST">
-    <label>SHIELD HEROES ESTOY AQUI
-      <input placeholder="fuckling rubbish" />
+  <form method="POST" action="/heroes/createHero">
+    <label>name:
+      <input placeholder="name" name="newHero" />
     </label>
-    <button type=" submit">
+
+    <button type="submit">
 
 
-      cambia
+      add
     </button>
-    <!-- (click) passes input value to add() and then clears the input -->
+  </form>
+  <!-- (click) passes input value to add() and then clears the input -->
   </form>
 </div>
 </div>
 
-<ul class="heroes">
+<ul class=" heroes">
   <% for(let i=0; i<heroes.length; i++) { %> <li *ngFor="let hero of heroes">
     <a href='/heroes/<%= heroes[i]._id %>'>
       <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
