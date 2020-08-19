@@ -15,8 +15,8 @@ function router() {
             try {
                 client = await MongoClient.connect(url);
                 const db = client.db(dbname);
-                const response = await db.collection('heroes').insertMany(superHeroes);
-                debug(response)
+                await db.collection('heroes').insertMany(superHeroes);
+
             } catch (error) {
                 debug(error.stack)
             } finally {

@@ -57,6 +57,34 @@ function router(nav) {
                 }
             }())
         })
+        .post((req, res) => {
+
+
+            const newValues = { $set: req.body };
+            const filter = { _id: new ObjectID(req.params.heroid) };
+            const url = 'mongodb://localhost:27017';
+            const dbName = 'shieldHeroes';
+            const collectionName = 'heroes';
+            let client;
+            (async function mongo() {
+                try {
+                    client = await MongoClient.connect(url);
+                    const db = client.db(dbName);
+                    const collection = await db.collection(collectionName);
+                    await collection.updateOne(filter, newValues, (error) => {
+                        if (error) {
+                            throw error;
+                        }
+                        res.redirect('/heroes');
+                    })
+                } catch (error) {
+                    debug(error)
+                } finally {
+                    client.close();
+                }
+            }())
+            debug(req.body);
+        })
         .get((req, res) => {
 
             res.render('hero-detail', { nav, hero: res.hero });

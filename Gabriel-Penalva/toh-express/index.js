@@ -5,6 +5,7 @@ const debug = require('debug')('app');
 const morgan = require('morgan');
 
 const { MongoClient } = require('mongodb');
+const bodyParser = require('body-parser');
 
 
 
@@ -23,7 +24,8 @@ const PORT = process.env.PORT || 4040;
 
 
 app.use(morgan('tiny'));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: 'false' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', './src/views')
@@ -56,6 +58,7 @@ app.get('/', (request, res) => {
 app.use('/heroes', heroRoutes);
 
 app.use('/shield', shieldRoutes)
+
 
 
 app.listen(PORT, () => debug(`Server is running in port : ${chalk.greenBright(PORT)}`));
