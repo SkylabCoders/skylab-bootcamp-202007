@@ -4,6 +4,7 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const sql = require('mssql');
+const { MongoClient } = require('mongodb');
 const { heroList, nav } = require('./heroMock');
 
 const app = express();
@@ -28,8 +29,27 @@ app.set('view engine', 'ejs');
 app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
-	const dashboardList = heroList.slice(0, 4);
-	res.render('dashboard', { nav, dashboardList });
+	const url = 'mongodb://localhost:27017';
+	const dbName = 'shieldHeroes';
+	const collectionName = 'heroes';
+	let client;
+	(async function query() {
+		try {
+			client = await MongoClient.connect(url);
+			debug('conection stablished...');
+
+			const db = client.db(dbName);
+
+			const collection = await db.collection(collectionName);
+
+			const mongoList = await collection.find().toArray();
+			const dashboardList = mongoList.slice(0, 4);
+			res.render('dashboard', { nav, dashboardList });
+		} catch (error) {
+			debug(error.stack);
+		}
+		client.close();
+	})();
 });
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
