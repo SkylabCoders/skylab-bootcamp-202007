@@ -29,17 +29,17 @@ const nav = [
 ];
 index.set("views", "./src/views");
 
-index.get("/", (req, res) => {
+/* index.get("/", (req, res) => {
   res.render("dashboard", {
     nav,
     title: "Top Heroes",
     heroes: heroes.slice(0, 4),
   });
-});
+}); */
 
 const heroRoutes = require("./src/routes/heroRoutes")(nav);
 
-index.use("/heroes", heroRoutes);
+index.use("/", heroRoutes);
 
 index.listen(port, () =>
   debug(`Server is running in port ${chalk.yellow(port)}`)

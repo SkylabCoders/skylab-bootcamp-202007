@@ -9,8 +9,11 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.bodyParser());
+
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
+app.use(express.bodyParser());
 
 app.use(morgan('tiny'));
 
