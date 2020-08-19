@@ -20,10 +20,11 @@
 
 <ul class="heroes">
   <% for(let i=0; i<heroes.length; i++) { %> <li *ngFor="let hero of heroes">
-    <a href='/heroes/<%= heroes[i].id %>'>
-      <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
-    </a>
-    <button class="delete" title="delete hero">x</button>
+    <form method="POST" action="/">
+      <a href='/heroes/<%= heroes[i]._id %>'>
+        <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
+      </a>
+      <button class="delete" title="delete hero">x</button></form>
   </li>
   <% } %>
 </ul>

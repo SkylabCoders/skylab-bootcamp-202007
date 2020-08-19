@@ -1,12 +1,16 @@
 const express = require('express');
 const debug = require('debug')('app');
-const chalk = require('chalk');
+
 const path = require('path');
 const morgan = require('morgan');
-const heroes = require('./heroes');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 const PORT = 3000;
+
+const url = 'mongodb://localhost:27017';
+const dbName = 'heroes';
+let client = null;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -21,14 +25,28 @@ const nav = [
 ];
 
 app.get('/', (req, res) => {
-	res.render('dashboard', {
-		nav,
-		title: 'My heroes',
-		heroes: heroes.splice(0, 4)
-	});
+	(async function query() {
+		try {
+			client = await MongoClient.connect(url);
+			debug('Connection established...');
+			const db = await client.db(dbName);
+			const collection = await db.collection('heroes');
+			const heroes = await collection
+				.find({ 'powerstats.strength': { $gt: 99 } })
+				.toArray();
+			debug(heroes);
+			res.render('dashboard', {
+				nav,
+				title: 'My Heroes',
+				heroes
+			});
+		} catch (error) {
+			debug(error.stack);
+		}
+	})();
 });
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav, heroes);
+const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
