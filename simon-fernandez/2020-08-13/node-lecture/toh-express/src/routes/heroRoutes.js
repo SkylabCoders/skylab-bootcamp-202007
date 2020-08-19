@@ -1,21 +1,29 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
-const sql = require('mssql');
+const { MongoClient, ObjectID } = require('mongodb');
 
 const heroRoutes = express.Router();
 
 function router(nav) {
 	heroRoutes.route('/').get((req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'shieldHeroes';
+		let client;
 		(async function query() {
-			const request = new sql.Request();
 			try {
-				const { recordset } = await request.query('SELECT * FROM heroes');
-				debug(recordset);
+				client = await MongoClient.connect(url);
+				debug('Connection established...');
+
+				const db = client.db(dbName);
+
+				const collection = await db.collection('heroes');
+
+				const heroes = await collection.find().toArray();
 
 				res.render('heroes', {
 					nav,
 					title: 'My Heros',
-					heroes: recordset
+					heroes
 				});
 			} catch (error) {
 				debug(error.stack);
@@ -25,29 +33,35 @@ function router(nav) {
 	heroRoutes
 		.route('/:heroId')
 		.all((req, res, next) => {
-			const heroes = [];
-			const id = +req.params.heroId;
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collecionName = 'heroes';
+
+			const ID = req.params.heroId;
+			let client;
 
 			(async function query() {
 				try {
-					const request = new sql.Request();
-					const { recordset } = await request
-						.input('id', sql.Int, id)
-						.query(`SELECT * FROM heroes WHERE id=@id`);
-					debug(recordset);
-					[res.hero] = recordset;
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+
+					const collection = await db.collection(collecionName);
+
+					const heroes = await collection.findOne({ _id: new ObjectID(ID) });
+					res.heroes = heroes;
 					next();
 				} catch (error) {
 					debug(error.stack);
 				}
+				client.close();
 			})();
 
-			debug(id);
+			debug(ID);
 		})
 		.get((req, res) => {
 			res.render('heroDetail', {
 				nav,
-				hero: res.hero
+				hero: res.heroes
 			});
 		});
 
