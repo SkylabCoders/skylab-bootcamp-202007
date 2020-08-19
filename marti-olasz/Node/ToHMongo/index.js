@@ -49,7 +49,7 @@ const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
-const shieldRoutes = require('./src/routes/shieldRoutes.js');
+const shieldRoutes = require('./src/routes/shieldRoutes.js')();
 
 app.use('/shield', shieldRoutes);
 

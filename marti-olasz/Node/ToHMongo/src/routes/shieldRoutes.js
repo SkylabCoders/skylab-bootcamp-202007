@@ -15,8 +15,8 @@ function router() {
 
 			try {
 				client = await MongoClient.connect(url);
-
 				const db = client.db(dbname);
+				await db.collection('heroes').deleteMany({});
 				const response = await db.collection('heroes').insertMany(heroes);
 
 				res.json(response);
