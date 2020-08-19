@@ -18,6 +18,7 @@ function router() {
 				debug('Connection stablished...');
 
 				const db = client.db(dbname);
+				await db.collection('heroes').deleteMany({});
 				await db.collection('heroes').insertMany(superHeroes);
 				res.send('Shield mola. Heroes insertados');
 			} catch (error) {

@@ -11,15 +11,15 @@
 		<%- include('header'); -%>
 		<h2><%= title %></h2>
 
-		<div>
+		<form action="/heroes/addHero" method="POST">
 			<label
 				>Hero name:
-				<input />
+				<input name="addHero" value="" />
 			</label>
-			<button>
+			<button name="addHero" type="submit">
 				add
 			</button>
-		</div>
+		</form>
 
 		<ul class="heroes">
 			<% for(let i= 0; i< heroes.length; i++) { %>
