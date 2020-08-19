@@ -1,0 +1,59 @@
+.title {
+	margin-left: 30px;
+}
+.butStart {
+	width: 80px;
+	height: 50px;
+	margin-left: 40px;
+	background-color: rgb(172, 241, 235);
+}
+.details {
+	font-size: 30px;
+	width: 300px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	margin-top: 40px;
+	margin-left: 20px;
+}
+.id {
+	font-size: 20px;
+	width: 100px;
+	height: 100px;
+	text-align: start;
+	line-height: 100px;
+	margin-top: 40px;
+	margin-left: 20px;
+}
+.edit {
+	display: flex;
+	width: 300px;
+	height: 100px;
+	align-items: center;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.edit__title {
+	font-size: 25px;
+	width: 100px;
+	height: 100px;
+	text-align: start;
+	line-height: 100px;
+}
+.edit__box {
+	font-size: 25px;
+	border: solid 2px black;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	line-height: 100px;
+}
+.edit-button {
+	font-size: 20px;
+	width: 60px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	margin-left: 180px;
+	margin-top: 40px;
+}
