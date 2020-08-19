@@ -3,32 +3,32 @@ const path = require('path');
 const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
-const sql = require('mssql');
 const { MongoClient } = require('mongodb');
+const bodyParser = require('body-parser');
+
 
 
 const app = express();
 const port = process.env.PORT || 2427;
 
-const config = {
-	user:'santiadmin',
-	password:'santi123!',
-	server:'santidatabase.database.windows.net',
-	database:'santiDB',
-	option: {
-		encrypt: true 
-	}
-};
-
-sql.connect(config).catch(debug);
-
 const { nav } = require('./heroMock');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(morgan('tiny'));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded( {extended: false} ));
+
+
+app.use((req, res, next) => {
+
+	debug('Skylab es el mejor bootcamp do mundo...');
+	next();
+})
+
+
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
 	const url = 'mongodb://localhost:27017';
@@ -39,7 +39,6 @@ app.get('/', (req, res) => {
 	(async function mongo(){
 		try{
 			client = await MongoClient.connect(url);
-			debug('asoidhjasoidjsaoidjas');
 
 			const db = client.db(dbName);
 

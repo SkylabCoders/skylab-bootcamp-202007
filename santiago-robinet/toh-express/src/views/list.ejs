@@ -13,24 +13,35 @@
     <%-include('header')-%>
     <h2>My Heroes</h2>
     <div>
-        <label>Hero name:
-            <input #heroName />
-        </label>
-        <button; heroName.value=''">
-            add
-        </button>
+        <form method="POST">
+            <label>Hero name:
+                <input  name="newHero" value=""/>
+            </label>
+            <button type="submit" name="addHero"  >
+                add
+                </button>
+
+                <button type="submit" name="deleteAll" >
+                    Delete All
+                    </button>
+
+        </form>
     </div>
-    
-    <% heroList.forEach(hero => { %>
-        <ul class=" heroes">
-            <li *ngFor="let hero of heroes">
-                <a href="/heroes/<%= hero._id %>">
-                    <span class="badge"><%= hero.id %></span> <%= hero.name %>
-                </a>
-                <button class="delete" title="delete hero" ">x</button;>
-                </li>
-            </ul>
-    <% }) %>
+
+    <ul class=" heroes">
+        <% heroList.forEach(hero => { %>
+        <li>
+            <a href="/heroes/<%= hero._id %>">
+                <span class="badge"><%= hero.id %></span> <%= hero.name %>
+            </a>
+
+            <form method="POST">
+                <button class="delete" title="delete hero" type="submit" name="heroId" value="<%= hero._id %>">x
+                    </button;>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
 </body>
 
 </html>

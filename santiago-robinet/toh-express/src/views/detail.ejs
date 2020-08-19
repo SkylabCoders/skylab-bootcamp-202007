@@ -12,17 +12,23 @@
 
 <body>
     <%- include('header')-%>
-    <div *ngIf="hero">
+    <form action="/heroes/<%= hero && hero._id%>" method="POST" name="heroForm">
         <h2><%= hero.name %> Details</h2>
         <div><span>id: </span><%= hero.id %></div>
         <div>
             <label>name:
-                <input value="<%= hero.name %>" placeholder="name" />
+                <input value="<%= hero.name %>" name="name" placeholder="name" />
             </label>
         </div>
-        <button>go back</button>
-        <button>save</button>
-    </div>
+        <div>
+            <label>slug:
+                <input value="<%= hero.slug %>" name="slug" placeholder="slug" />
+            </label>
+
+        </div>
+        <button type="button">go back</button>
+        <button type="submit">save</button>
+    </form>
 </body>
 
 </html>
