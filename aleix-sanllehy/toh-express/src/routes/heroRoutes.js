@@ -21,7 +21,7 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
-					await collection.deleteOne(filter, heroId, (error, response) => {
+					await collection.deleteOne(filter, (error, response) => {
 						if (error) {
 							throw error;
 						}
