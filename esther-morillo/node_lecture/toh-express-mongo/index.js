@@ -3,7 +3,8 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
-const sql = require('mssql');
+const bodyParser = require('body-parser');
+
 const {
 	MongoClient
 } = require('mongodb');
@@ -12,18 +13,6 @@ const {
 
 const app = express();
 const port = 3000;
-
-const config = {
-	user: 'Skylab2007',
-	password: 'Gilbert_Cao',
-	server: 'skylab2007-server.database.windows.net',
-	database: 'toh-database',
-	option: {
-		encrypt: true // Because we are using Microsoft Azure
-	}
-};
-
-sql.connect(config).catch(debug);
 
 const nav = [{
 		link: '/',
@@ -35,7 +24,26 @@ const nav = [{
 	}
 ];
 
+// para que me devuelva las peticiones de manera más reducida y clara (en la terminal)
 app.use(morgan('tiny'));
+
+// el bodyParser - parsea el body de las peticiones entrantes en un use, antes de que los handles puedan leer la petición - la limpia para poder leerla mejor
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
+
+// requestHandle, que recibe 3 argumentos (req, res y next) - Hay que invocar el next para ir al siguiente punto de ejecuación
+// con cada petición de la página se ejecuta esto de abajo
+app.use((req, res, next) => {
+	debug('*********************************************');
+	// todo lo que hagamos aquí va a oocurrir en este evento/proceso y va a afectar a todo lo que haya después de este use
+	debug('Skylab es el mejor bootcamp de toda Barcelona y de todo el mundo!');
+	// el use no deja seguir hacia abajo, no deja seguir el evento del servidor
+	debug('*********************************************');
+	// hay que permitir que el evento siga su camino
+	next();
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 

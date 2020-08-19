@@ -77,6 +77,53 @@ function router(nav) {
 			})();
 
 		})
+		.post((req, res) => {
+			// el post es una manera de comunicar información a través de http y luego lo enviaremos a la base de datos
+			// configurado el bodyparse - cuando hago un post (un clic, por ej.), creo un json, sale por terminal y que lo devuelva
+
+			// queremos conectarnos a mongodb
+			// actualizar el hero con id: _id
+			// responder redireccionando a la lista
+
+			// capturar el error manteniendo la misma página
+
+			// no podemos pasar directamente el nuevo valor, hay que hacerlo por objeto y como se hace en mongo, con $set en objeto
+			const updateQuery = {
+				$set: req.body
+			};
+			const filter = {
+				_id: new ObjectID(req.params.heroId)
+			};
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			let client;
+
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					// a la base de datos:
+					const db = client.db(dbName);
+					// obtengo la colección
+					const collection = await db.collection(collectionName);
+					// ahora hay que actualizar a ese héroe
+					await collection.updateOne(filter, updateQuery, (error, response) => {
+						if (error) {
+							throw error;
+						}
+
+						debug(response);
+						// cuando resuelva redirecciono a la lista
+						res.redirect('/heroes');
+					})
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
+			}())
+
+		})
 		.get((req, res) => {
 			res.render('heroDetail', {
 				nav,
