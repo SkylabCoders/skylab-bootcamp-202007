@@ -20,18 +20,21 @@
 				add
 			</button>
 		</div>
-
+		
 		<ul class="heroes">
+			<form action="" method="POST" name="heroForm">
 			<% for(let i = 0; i<heroes.length; i++){%>
-			<li>
-				<a href="/heroes/<%=heroes[i]._id%>">
+				<li>
+				<a href="/heroes">
 					<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
 				</a>
-				<button class="delete" title="delete hero">
+<!-- 				el nom te que ser igual aqui i en routes
+ -->				<button class="delete" title="delete hero" type="submit" name="deletedHeroId" value="<%= heroes[i]._id%>">
 					x
 				</button>
 			</li>
-		<% } %>
+			<% } %>
+		</form>
 		</ul>
 	</body>
 </html>

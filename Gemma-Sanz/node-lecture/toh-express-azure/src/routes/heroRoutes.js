@@ -5,37 +5,71 @@ const { MongoClient, ObjectId, ObjectID } = require('mongodb');
 const heroRoutes = express.Router();
 
 function router(nav) {
-	heroRoutes.route('/').get((req, res) => {
-		// mongodb
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'shieldHeroes';
-		let client;
+	heroRoutes
+		.route('/')
+		.get((req, res) => {
+			// mongodb
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			let client;
 
-		(async function query() {
-			try {
-				// la conexión de te revuelve una promesa, tenemos que hacer un await para esperar la respuesta
+			(async function query() {
+				try {
+					// la conexión de te revuelve una promesa, tenemos que hacer un await para esperar la respuesta
+					client = await MongoClient.connect(url);
+					debug('Connection stablished...');
+
+					const db = client.db(dbName);
+					// Esperamos a obtener la colección heroes
+
+					const collection = await db.collection('heroes');
+
+					// Tenemos que esperar, así obtenemos tota la data y la convertimos en array
+					const heroes = await collection.find().toArray();
+
+					res.render('heroes', {
+						nav,
+						title: 'My Heros',
+						heroes
+					});
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		})
+		.post((req, res) => {
+			// Aquest deletedHeroId te que ser el mateix que el name del button del form
+			const { deletedHeroId } = req.body;
+			const filter = { _id: new ObjectID(deletedHeroId) };
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'shieldHeroes';
+			const collectionName = 'heroes';
+			let client;
+
+			(async function mongo() {
 				client = await MongoClient.connect(url);
-				debug('Connection stablished...');
 
 				const db = client.db(dbName);
-				// Esperamos a obtener la colección heroes
 
-				const collection = await db.collection('heroes');
+				const collection = await db.collection(collectionName);
 
-				// Tenemos que esperar, así obtenemos tota la data y la convertimos en array
+				await collection.deleteOne(filter, (error, response) => {
+					if (error) throw error;
+					if (error) {
+						throw error;
+					}
+					debug(`${response} deleted!`);
+					res.redirect('/heroes');
+				});
 				const heroes = await collection.find().toArray();
-
 				res.render('heroes', {
 					nav,
 					title: 'My Heros',
 					heroes
 				});
-			} catch (error) {
-				debug(error.stack);
-			}
-			client.close();
-		})();
-	});
+			})();
+		});
 
 	heroRoutes
 		.route('/:heroId')
