@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 
 const app = express();
-const port = 3001;
+const port = 3036;
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },

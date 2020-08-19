@@ -40,34 +40,51 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			// Aquest deletedHeroId te que ser el mateix que el name del button del form
-			const { deletedHeroId } = req.body;
-			const filter = { _id: new ObjectID(deletedHeroId) };
+			const { deletedHero } = req.body;
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'shieldHeroes';
 			const collectionName = 'heroes';
 			let client;
+			if (deletedHero === 'all') {
+				(async function mongo() {
+					client = await MongoClient.connect(url);
 
-			(async function mongo() {
-				client = await MongoClient.connect(url);
+					const db = client.db(dbName);
 
-				const db = client.db(dbName);
+					const collection = db.collection(collectionName);
 
-				const collection = await db.collection(collectionName);
+					await collection.deleteMany({});
+					const heroes = await collection.find().toArray();
+					res.render('heroes', {
+						nav,
+						title: 'My Heros',
+						heroes
+					});
+				})();
+			} else {
+				(async function mongo() {
+					const filter = { _id: new ObjectID(deletedHero) };
+					client = await MongoClient.connect(url);
 
-				await collection.deleteOne(filter, (error, response) => {
-					if (error) {
-						throw error;
-					}
-					debug(`${response} deleted!`);
-					res.redirect('/heroes');
-				});
-				const heroes = await collection.find().toArray();
-				res.render('heroes', {
-					nav,
-					title: 'My Heros',
-					heroes
-				});
-			})();
+					const db = client.db(dbName);
+
+					const collection = await db.collection(collectionName);
+
+					await collection.deleteOne(filter, (error, response) => {
+						if (error) {
+							throw error;
+						}
+						debug(`${response} deleted!`);
+						res.redirect('/heroes');
+					});
+					const heroes = await collection.find().toArray();
+					res.render('heroes', {
+						nav,
+						title: 'My Heros',
+						heroes
+					});
+				})();
+			}
 		});
 
 	heroRoutes
