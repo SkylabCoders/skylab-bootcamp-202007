@@ -1,24 +1,14 @@
 const express = require('express');
 const sql = require('mssql');
-const db = require('./../../config/DATABASE_CONFIG');
-const debug = require('debug');
+const db2 = require('./../../config/DATABASE_CONFIG');
 
-sql.connect(db).catch(debug);
-const request = new sql.Request();
-
-async function query(){
+sql.connect(db2).then(async ()=>{
   try{
-    console.log('ENTERING DB CONNECTION CALL');
+    const request = new sql.Request();
     const recordset = await request.query('SELECT * FROM dbo.skylabers');
-    console.log('AQUI',recordset);
-    res.recordset = recordset;
     console.log('RECORDSET', recordset);
-    return  recordset;
   } catch (error) {
-    console.log('ESTOY EN EL CATCH', error.stack);
+    console.log('ESTOY EN EL CATCH', error);
   }
-};
-
-query();
-
+});
 

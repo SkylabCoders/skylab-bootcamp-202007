@@ -2,8 +2,8 @@ const SKYLABROUTES = [
   { path: '/', page: 'home.ejs', params: null, name: 'HOME', nav: true },
   { path: '/skylabers', page: 'skylabers.ejs', params: false, name: 'SKYLABERS', nav: true },
   { path: '/skylaber/:skylaberId', page: 'skylaber.ejs', params: 'skylaberId', name: 'SKYLABER', nav: false },
-  { path: '/skylaber/edit/:skylaberId', page: 'skylaber_edit.ejs', params: 'skylaberId', name: 'EDIT_SKYLABER', nav: false },
   { path: '/skylaber/create', page: 'skylaber_create.ejs', params: false, name: 'CREATE_SKYLABER', nav: false },
+  { path: '/skylaber/edit/:skylaberId', page: 'skylaber_edit.ejs', params: 'skylaberId', name: 'EDIT_SKYLABER', nav: false },
   { path: '/skylabers/top', page: 'skylabers.ejs', params: false, name: 'TOP', nav: true }
 ];
 
