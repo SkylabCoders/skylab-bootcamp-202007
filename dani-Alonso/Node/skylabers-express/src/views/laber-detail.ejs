@@ -11,6 +11,7 @@
 		<div>
 			<h2><%=labers && labers.name%> Details</h2>
 			<div><span>id: </span><%= labers && labers.id%></div>
+
 			<div>
 				<label
 					>name:
@@ -21,6 +22,8 @@
 					/>
 				</label>
 			</div>
+			<div><span>city: </span><%= labers && labers.city%></div>
+			<div><span>country: </span><%= labers && labers.country%></div>
 			<button onclick="goBack()">go back</button>
 			<button onclick="save()">save</button>
 		</div>

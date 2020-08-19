@@ -5,8 +5,8 @@ const morgan = require('morgan');
 const sql = require('mssql');
 
 const config = {
-	user: 'Dani',
-	password: 'Patataninja8',
+	user: '',
+	password: '',
 	server: 'skylab-dani.database.windows.net',
 	database: 'tohdb',
 	option: {
