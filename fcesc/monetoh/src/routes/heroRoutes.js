@@ -1,9 +1,9 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
+const path = require('path');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
-const path = require('path');
 
 const heroRoutes = express.Router();
 
@@ -17,7 +17,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					const { heroSlug } = req.body;
 					const filter = { slug: heroSlug };
 					await collection.deleteOne( filter );
@@ -34,7 +34,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const colection = db.collection(DATABASE_CONFIG.collection);
+					const colection = db.collection(DATABASE_CONFIG.heroCollection);
 					const heroes = await colection.find().sort({ name: 1 }).toArray();
 
 					res.render('index', {
@@ -61,7 +61,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					const objectWithGreatestId = await collection.find().sort({id:-1}).limit(1).toArray();
 					const newId = objectWithGreatestId[0].id + 1;
 					const { createHeroWithName } = req.body;
@@ -99,7 +99,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					res.hero = await collection.findOne({slug: heroSlug});
 					debug(res.hero);
 					next();
@@ -120,7 +120,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					collection.updateOne(filter, updateQuery, (error, response)=>{
 						if (error) { throw error }
 						debug(response);

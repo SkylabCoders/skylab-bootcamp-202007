@@ -17,7 +17,7 @@ function router() {
 				debug('Connection stablished...');
 
 				const db = client.db(DATABASE_CONFIG.dbname);
-				const response = await db.collection('heroes').insertMany(superHeroes);
+				const response = await db.collection(DATABASE_CONFIG.heroCollection).insertMany(superHeroes);
 				res.json(response);
 			} catch (error) {
 				debug(error.stack);
