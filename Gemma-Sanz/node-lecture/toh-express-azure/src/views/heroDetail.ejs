@@ -9,13 +9,13 @@
 	</head>
 	<body>
 		<%- include('header')%>
-		<div *ngIf="hero">
-			<h2><%=heroes.name%> details!</h2>
-			<div><span>id: </span><%= heroes.id %></div>
+		<div>
+			<h2><%=hero && hero.name%> details!</h2>
+			<div><span>id: </span><%= hero && hero.id %></div>
 			<div>
 				<label
 					>name:
-					<input placeholder="name" value="<%= heroes.name%>" />
+					<input placeholder="name" value="<%= hero.name%>" />
 				</label>
 			</div>
 			<button>go back</button>

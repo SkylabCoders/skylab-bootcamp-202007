@@ -1,0 +1,27 @@
+.header {
+  width: 100%; }
+  .header .header__title {
+    color: #b2b2b2; }
+  .header .header__button {
+    width: 80px;
+    height: 30px; }
+    .header .header__button a {
+      text-decoration: none;
+      color: #b2b2b2; }
+    .header .header__button a:hover {
+      color: #40b0e7; }
+
+.hero-list .hero-list__list .list__item {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #eeeeee;
+  margin: 20px 0;
+  padding: 0 10px; }
+  .hero-list .hero-list__list .list__item .item__id {
+    padding: 10 10px; }
+  .hero-list .hero-list__list .list__item .item__link {
+    padding: 0 10px; }
+  .hero-list .hero-list__list .list__item .button {
+    padding: 0 20px; }

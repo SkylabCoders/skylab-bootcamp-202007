@@ -8,25 +8,46 @@
 		<link rel="stylesheet" href="css/list.css" />
 	</head>
 	<body>
-		<h1>List</h1>
-		<h2>My Heroes</h2>
+		<%- include('header'); -%>
+		<h2><%=title%></h2>
 		<div>
-			<label
-				>Hero name:
-				<input />
-			</label>
-			<button>
-				add
-			</button>
-		</div>
-
-		<ul class="heroes">
-			<li>
-				<a> <span class="badge">14</span>Bombasto </a>
-				<button class="delete" title="delete hero">
-					x
+			<form action="" method="POST">
+				<label>
+					Hero name:
+					<input name="createHero" placeholder="insert new hero" />
+				</label>
+				<button name="createHero" type="submit">
+					add
 				</button>
+				<button
+					name="deleteHeroes"
+					title="delete everything"
+					type="submit"
+					value="all"
+				>
+					delete all
+				</button>
+			</form>
+		</div>
+		<ul class="heroes">
+			<% for (let i = 0; i < heroes.length; i++) { %>
+			<li>
+				<a href="/heroes/<%= heroes[i]._id %>">
+					<span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %></a
+				>
+				<form action="" method="POST">
+					<button
+						name="deleteHeroes"
+						class="delete"
+						title="delete hero"
+						type="submit"
+						value="<%= heroes[i]._id %>"
+					>
+						x
+					</button>
+				</form>
 			</li>
+			<% } %>
 		</ul>
 	</body>
 </html>
