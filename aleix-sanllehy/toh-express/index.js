@@ -33,8 +33,8 @@ app.set('view engine', 'ejs'); // app.set('view engine', 'pug');
 const nav = [
 	{ link: '/', title: 'Dashboard' },
 	{ link: '/heroes', title: 'Heroes' },
-	{ link: '/auth/signin', title: 'Sign in' }
-	// { link: '/auth/signup', title: 'Sign up' },
+	{ link: '/auth/signin', title: 'Sign in' },
+	{ link: '/auth/profile', title: 'My profile' }
 	// { link: '/auth/signout', title: 'Sign out' }
 ];
 
