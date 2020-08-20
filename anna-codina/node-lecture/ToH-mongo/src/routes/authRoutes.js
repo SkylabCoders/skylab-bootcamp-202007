@@ -1,6 +1,7 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
 const { MongoClient } = require('mongodb');
+const passport = require('passport');
 
 const authRoutes = express.Router();
 const dbName = 'shieldHeroes';
@@ -10,39 +11,64 @@ let client = null;
 function router(nav) {
 	authRoutes
 		.route('/signin')
-		.post((req, res) => {
-			res.json(req.body);
-		})
 		.get((req, res) => {
 			res.render('auth/signin', { title: 'Signin', nav });
-		});
+		})
+		.post(
+			passport.authenticate('local', {
+				successRedirect: '/auth/profile',
+				failureRedirect: '/auth/signin'
+			})
+		);
 	authRoutes
 		.route('/signup')
-		.post((req, res) => {
-			const newUser = { ...req.body, user: req.body.user.toLowerCase() };
-			(async () => {
-				client = await MongoClient.connect(DBurl);
-				const db = client.db(dbName);
-				const collection = await db.collection(collectionName);
-				const exist = await collection.findOne({ user: newUser.user });
-				if (!exist) await collection.insertOne(newUser);
-				res.redirect('/auth/signin');
-				client.close();
-			})();
-		})
 		.get((req, res) => {
 			res.render('auth/signup', { title: 'Signup', nav });
+		})
+		.post((req, res) => {
+			const newUser = {
+				...req.body,
+				user: req.body.user.toLowerCase()
+			};
+			(async () => {
+				try {
+					client = await MongoClient.connect(DBurl);
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+
+					const user = await collection.findOne({ user: newUser.user });
+
+					if (user) {
+						res.redirect('/auth/signin');
+					} else {
+						const result = await collection.insertOne(newUser);
+						req.login(result.ops[0], () => {
+							res.redirect('/auth/profile');
+						});
+					}
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
 		});
 	authRoutes.route('/signout').post((req, res) => {
 		res.send('POST works!');
 	});
 	authRoutes
 		.route('/profile')
-		.post((req, res) => {
-			res.send('POST works!');
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
 		})
 		.get((req, res) => {
-			res.render('auth/profile', { nav });
+			res.render('auth/profile', { nav, user: req.user });
+		})
+		.post((req, res) => {
+			res.send('POST works!');
 		});
 	return authRoutes;
 }

@@ -7,13 +7,13 @@ function localStrategy() {
 	passport.use(
 		new Strategy(
 			{
-				usernameField: 'user',
+				usernameField: 'user', // valor para usuario que definamos nostros en la db
 				passwordField: 'password'
 			},
-			(userName, password, done) => {
+			(username, password, done) => {
 				let client;
 				const mongoUrl = 'mongodb://localhost:27017';
-				const dbName = 'sheildHeroes';
+				const dbName = 'shieldHeroes';
 				const collectionName = 'users';
 
 				(async function mongo() {
@@ -21,9 +21,9 @@ function localStrategy() {
 						client = await MongoClient.connect(mongoUrl);
 						const db = client.db(dbName);
 						const collection = db.collection(collectionName);
-						const user = await collection.findOne({ user: userName });
+						const user = await collection.findOne({ user: username });
 
-						if (user.password === password) {
+						if (user && user.password === password) {
 							done(null, user);
 						} else {
 							done(null, false);

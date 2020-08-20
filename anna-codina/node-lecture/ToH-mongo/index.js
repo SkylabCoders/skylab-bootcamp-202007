@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* config dependeces of auth */
 app.use(cookieParser());
 app.use(expressSession({ secret: 'heroes' }));
-require('./src/config/passport');
+require('./src/config/passport')(app);
 
 /* config public and views folders */
 app.use(express.static(path.join(__dirname, 'public')));

@@ -11,9 +11,18 @@
 </head>
 
 <body>
-    <%- include('header')-%>
-    <h1>Profile</h1>
+    <%- include('../header')-%>
+    <h1><%= user.user %> Profile</h1>
+    <form action="/auth/profile" method="POST">
+        <div>
+            <label for="password">
+                Password
+                <input type="password" name="password" value="" />
+            </label>
+        </div>
+        <button type="submit">Save</button>
 
+    </form>
 </body>
 
 </html>
