@@ -83,7 +83,6 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
-					// res.hero = await collection.findOne({ id });
 					res.skylaber = await collection.findOne({ _id: new ObjectId(id) });
 
 					debug(res.skylaber);
