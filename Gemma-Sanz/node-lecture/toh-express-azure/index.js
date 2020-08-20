@@ -7,12 +7,16 @@ const bodyParser = require('body-parser');
 
 const { MongoClient } = require('mongodb');
 
+// app es el servidor
 const app = express();
 const port = 3036;
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
-	{ link: '/heroes', title: 'Heroes' }
+	{ link: '/heroes', title: 'Heroes' },
+	//	{ link: '/signup', title: 'SignUp' },
+	{ link: '/auth/signin', title: 'SignIn' }
+	//	{ link: '/signout', title: 'SignOut' }
 ];
 
 app.use(morgan('dev'));
@@ -31,6 +35,7 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Aquí le decimos que busque las vistas todo dentro de src/views, en auth tendremos que poner auth/___
 app.set('views', './src/views');
 
 app.set('view engine', 'ejs');
@@ -66,12 +71,16 @@ app.get('/', (req, res) => {
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
-// Para heroes decimos que use la configuración de heroRoutes
+// Para heroes decimos que use la configuración de heroRoutes, el primer fragmento, cualquier ruta que definamos dentro de heroRoutes tendrá un fragmento inicial que será /heroes
 app.use('/heroes', heroRoutes);
 
 // shieldRoutes la requerimos y como es una función hay que invocarla, lleve argumentos (como es el caso), o no lleva argumentos!
-const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
+const shieldRoutes = require('./src/routes/shieldRoutes');
 
 app.use('/shield', shieldRoutes);
+
+const authRoutes = require('./src/routes/authRoutes')(nav);
+
+app.use('/auth', authRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
