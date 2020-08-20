@@ -28,7 +28,7 @@ function router() {
 			client.close();
 		})();
 
-		res.send('Shield mola más....');
+		res.send('Shield mola más.... Creando superHeroes...');
 	});
 	return shieldRoutes;
 }

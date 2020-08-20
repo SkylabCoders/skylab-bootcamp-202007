@@ -45,30 +45,16 @@ function router(nav) {
 			const dbName = 'shieldHeroes';
 			const collectionName = 'heroes';
 			let client;
-			if (deletedHero === 'all') {
-				(async function mongo() {
-					client = await MongoClient.connect(url);
+			(async function mongo() {
+				client = await MongoClient.connect(url);
 
-					const db = client.db(dbName);
+				const db = client.db(dbName);
 
-					const collection = db.collection(collectionName);
-
+				const collection = db.collection(collectionName);
+				if (deletedHero === 'all') {
 					await collection.deleteMany({});
-					const heroes = await collection.find().toArray();
-					res.render('heroes', {
-						nav,
-						title: 'My Heros',
-						heroes
-					});
-				})();
-			} else {
-				(async function mongo() {
+				} else {
 					const filter = { _id: new ObjectID(deletedHero) };
-					client = await MongoClient.connect(url);
-
-					const db = client.db(dbName);
-
-					const collection = await db.collection(collectionName);
 
 					await collection.deleteOne(filter, (error, response) => {
 						if (error) {
@@ -77,14 +63,14 @@ function router(nav) {
 						debug(`${response} deleted!`);
 						res.redirect('/heroes');
 					});
-					const heroes = await collection.find().toArray();
-					res.render('heroes', {
-						nav,
-						title: 'My Heros',
-						heroes
-					});
-				})();
-			}
+				}
+				const heroes = await collection.find().toArray();
+				res.render('heroes', {
+					nav,
+					title: 'My Heros',
+					heroes
+				});
+			})();
 		});
 
 	heroRoutes
