@@ -5,9 +5,8 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const ROUTES = require('./src/routes/ROUTES');
-const passport = require('passport');
 const cookieParser = require('cookie-parser');
-const session = require('express-session');
+const expressSession = require('express-session');
 
 const app = express();
 const port = 3010;
@@ -18,11 +17,14 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use(cookieParser());
-app.use(session({secret: ''}));
+app.use(expressSession({
+	secret: 'heroes',
+	resave: true,
+	saveUninitialized: true
+}));
+
+require('./src/config/passport')(app);
 
 /* otros */
 app.use(express.static(path.join(__dirname, 'public')));

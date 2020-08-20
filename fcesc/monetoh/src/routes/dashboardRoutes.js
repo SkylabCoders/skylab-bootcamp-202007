@@ -9,6 +9,13 @@ const dashboardRoutes = express.Router();
 function router(nav) {
 	dashboardRoutes
 		.route('/')
+		.all((req, res, next)=>{
+      if(req.user) {
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
 		.get((req, res) => {
 			let client;
 			(async function query() {

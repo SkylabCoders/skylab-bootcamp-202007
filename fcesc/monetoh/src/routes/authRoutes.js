@@ -1,74 +1,24 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
+const passport = require('passport');
 const { MongoClient } = require('mongodb');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
-const { NText } = require('mssql');
+const validatePasswordFormat = require('./../utils/password_validator');
 
 const authRoutes = express.Router();
 
-/*
-  GET signin 
-    (display a form requesting user and params)
-  POST signin 
-    (check user exists in db) 
-    redirect to profile if successful
-    send error message to UI if unsuccessful
-    (this is authentication)
-
-  GET singup 
-    (display a form requesting user data)
-  POST signup 
-    (validate form and create user in db)
-    redirect to profile if successful
-    send error message to UI if unsuccessful
-
-  GET profile 
-    (dipslay user info)
-  POST profile 
-    (to update user profile)
-    insert data into database if successful
-    send error message to UI if unsuccessful
-
-  GET signout 
-    remove user session info
-    redirect to home
-  */
-
 function router(nav){
-  const LOGGED_USER = { isLogged: false };
 
   authRoutes
     .route('/signin')
-    .post((req, res)=>{
-      (async function getSigninData(){
-        let client;
-        try{
-          client = await MongoClient.connect(DATABASE_CONFIG.url);
-          debug('Connection to db stablished...');
-          const db = client.db(DATABASE_CONFIG.dbName);
-          const collection = db.collection(DATABASE_CONFIG.userCollection);
-          const data = req.body;
-          const result = await collection.find({ username: data.signin__name, password: data.signin__password }).toArray();
-          if(result){
-            LOGGED_USER.name = await result.name;
-            LOGGED_USER.isLogged = true;
-            console.log('login successful for user', LOGGED_USER);
-          } else {
-            throw 'User not found in database.';
-          }
-        } catch (error) {
-          debug(error.stack);
-        }
-        debug('Connection to db closed.');
-        client.close();
-        res.redirect(ROUTES.profile.path);
-      })();
-    })
+    .post(passport.authenticate('local', {
+      successRedirect: '/auth/profile',
+      failureRedirect: '/auth/signin'
+    }))
     .get((req, res)=>{
       (async function displaySigninPage(){
         try{
-          console.log('HERE IN THE GET', LOGGED_USER);
           let pageData = {
               nav,
               body: ROUTES.signin.page,
@@ -85,37 +35,43 @@ function router(nav){
   authRoutes
     .route('/signup')
     .post((req, res)=>{
+      console.log('ENTERING POST FUNCTION');
       (async function getSignupData(){
         let client;
         try{
           client = await MongoClient.connect(DATABASE_CONFIG.url);
-          debug('Connection to db stablished...');
           const db = client.db(DATABASE_CONFIG.dbName);
           const collection = db.collection(DATABASE_CONFIG.userCollection);
           const data = req.body;
-          if (data.signup__password === data.signup___passwordConfirm){
-            const result = await collection.insertOne({ 
-              username: data.signup__name, 
-              password: data.signup__password,
-              name: data.signup__name,
-              email: data.signup__email
-            });
+          const newUser = { 
+            username: data.signup__username, 
+            password: data.signup__password,
+            name: data.signup__name,
+            email: data.signup__email
+          };
+          const user = await collection.findOne({ name: data.signup__name });
+          if ( !user && data.signup__password === data.signup__passwordConfirm && validatePasswordFormat(data.signup__password) ) { 
+            await collection.insertOne(newUser); 
+            res.login( {...newUser} );
             debug('user created successfully');
           } else {
-            debug('Passwords must be equal');
+            let errMessage = 'Error: user creation failed. Reason:';
+            if ( user ) { debug(`${errMessage} username already exists`) }
+            if ( data.signup__password !== data.signup__passwordConfirm ) { debug(`${errMessage} passwords must be equal`) }
+            if ( !validatePasswordFormat(data.signup__pasword) ) { debug(`${errMessage} invalid password format`) }
           }
         } catch (error) {
           debug(error.stack);
         }
         debug('Connection to db closed.');
         client.close();
-        res.redirect(ROUTES.signin.path);
       })();
+
+      res.redirect(ROUTES.home.path);
     })
     .get((req, res)=>{
       (async function displaySignupPage(){
         try{
-          console.log('HERE IN THE GET', LOGGED_USER);
           let pageData = {
               nav,
               body: ROUTES.signup.page,
@@ -131,15 +87,51 @@ function router(nav){
 
   authRoutes
     .route('/profile')
+    .all((req, res, next)=>{
+      if(req.user) {
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
     .get((req, res)=>{
-      (async function displaySigninPage(){
+      (function displayProfilePage(){
         try{
           res.render('index', {
             nav,
             body: ROUTES.profile.page,
             title: ROUTES.profile.title,
             ROUTES,
-            LOGGED_USER
+            user: req.user // viene de la autorización
+          })
+        } catch (error) {
+          debug(error.stack);
+        }
+      })();
+    })
+    .post((req, res)=>{
+      res.send('POST works');
+    })
+
+    authRoutes
+    .route('/signout')
+    .all((req, res, next)=>{
+      if(req.user) {
+        req.logout();
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
+    .get((req, res)=>{
+      (function displaySigninPage(){
+        try{
+          res.render('index', {
+            nav,
+            body: ROUTES.signin.page,
+            title: ROUTES.signin.title,
+            ROUTES,
+            user: req.user // viene de la autorización
           })
         } catch (error) {
           debug(error.stack);
@@ -149,7 +141,5 @@ function router(nav){
 
   return authRoutes;
 }
-
-
 
 module.exports = router;

@@ -10,6 +10,13 @@ const heroRoutes = express.Router();
 function router(nav) {
 	heroRoutes
 		.route('/')
+		.all((req, res, next)=>{
+      if(req.user) {
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
 		.post((req, res) => {
 			(async function deleteHeroFromList(){
 				let client;
@@ -54,6 +61,13 @@ function router(nav) {
 
 		heroRoutes
 		.route('/create')
+		.all((req, res, next)=>{
+      if(req.user) {
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
 		.post((req, res)=>{
 			let client;
 			(async function createHero(){
@@ -91,25 +105,30 @@ function router(nav) {
 
 	heroRoutes
 		.route('/:heroSlug')
-		.all((req, res, next) => {
-			const {heroSlug} = req.params;
-			(async function getHero() {
-				let client;
-				try {
-					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection to db established...');
-					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.heroCollection);
-					res.hero = await collection.findOne({slug: heroSlug});
-					debug(res.hero);
-					next();
-				} catch (error) {
-					debug(error.stack);
-				}
-				debug('Connection to db closed.');
-				client.close();
-			})();
-		})
+		.all((req, res, next)=>{
+      if(req.user) {
+				const {heroSlug} = req.params;
+				(async function getHero() {
+					let client;
+					try {
+						client = await MongoClient.connect(DATABASE_CONFIG.url);
+						debug('Connection to db established...');
+						const db = client.db(DATABASE_CONFIG.dbName);
+						const collection = db.collection(DATABASE_CONFIG.heroCollection);
+						res.hero = await collection.findOne({slug: heroSlug});
+						debug(res.hero);
+						next();
+					} catch (error) {
+						debug(error.stack);
+					}
+					debug('Connection to db closed.');
+					client.close();
+				})();
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
 		.post((req, res)=>{
 			const updateQuery = { $set: req.body };
 			const { heroSlug } = req.params;

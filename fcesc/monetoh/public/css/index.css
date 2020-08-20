@@ -238,3 +238,17 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
+
+form {
+  margin: 1rem 0;
+}
+fieldset {
+  display: block;
+  width: 80vw;
+  margin: .5rem auto;
+}
+label {
+  min-width: 8rem;
+  text-align: left;
+  display: inline-block;
+}
