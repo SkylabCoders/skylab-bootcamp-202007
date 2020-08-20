@@ -11,9 +11,4 @@ const heroList = [
 	{ id: 20, name: 'Tornado' }
 ];
 
-const nav = [
-	{ link: '/', title: 'Dasboard' },
-	{ link: '/heroes', title: 'Heroes' }
-];
-
-module.exports = { heroList, nav };
+module.exports = { heroList };
