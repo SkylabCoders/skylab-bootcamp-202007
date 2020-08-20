@@ -19,7 +19,10 @@ app.set('view engine', 'ejs');
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
-	{ link: '/heroes', title: 'Heroes' }
+	{ link: '/heroes', title: 'Heroes' },
+	{ link: '/signup', title: 'Sign up' },
+	{ link: '/signin', title: 'Sign in' },
+	{ link: '/signout', title: 'Sign out' }
 ];
 
 const dashboardRoutes = require('./src/routes/dashboardRoutes')(nav);
