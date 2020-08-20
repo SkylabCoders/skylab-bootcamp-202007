@@ -29,4 +29,4 @@ function router() {
 	return shieldRoutes;
 }
 
-module.exports = router;
+module.exports = router();
