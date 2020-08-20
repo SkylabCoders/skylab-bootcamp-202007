@@ -13,10 +13,9 @@ const bodyParser = require('body-parser');
 
 const nav = [
     { link: '/', title: 'Dasboard' },
-    { link: '/heroes', title: 'myheroes' }
+    { link: '/heroes', title: 'myheroes' },
+    { link: '/auth', title: 'Singin' }
 ];
-const heroRoutes = require('./src/heroRoutes')(nav);
-const shieldRoutes = require('./src/shieldRoutes')(nav);
 
 const app = express();
 const PORT = process.env.PORT || 4040;
@@ -55,9 +54,18 @@ app.get('/', (request, res) => {
         }
     }())
 });
+
+const heroRoutes = require('./src/heroRoutes')(nav);
+
 app.use('/heroes', heroRoutes);
 
-app.use('/shield', shieldRoutes)
+const shieldRoutes = require('./src/shieldRoutes')(nav);
+
+app.use('/shield', shieldRoutes);
+
+const authRoutes = require('./src/authRoutes')(nav);
+
+app.use('/auth', authRoutes);
 
 
 
