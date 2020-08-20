@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/heroDetail.css" />
+	</head>
+	<body>
+		<%- include('../header')%>
+		<h1>
+			Sign up or
+			<a href="/auth/signin" style="text-decoration: none; opacity: 25%;"
+				>Sign in</a
+			>
+		</h1>
+		<form action="/auth/signup" method="POST">
+			<div>
+				<label for="user">
+					User:
+					<input type="text" name="user" />
+				</label>
+			</div>
+
+			<div>
+				<label for="user">
+					Password:
+					<input type="password" name="password" />
+				</label>
+			</div>
+			<div>
+				<label for="user">
+					Repeat Password:
+					<input type="password" />
+				</label>
+			</div>
+
+			<button type="submit">Enviar</button>
+		</form>
+	</body>
+</html>
