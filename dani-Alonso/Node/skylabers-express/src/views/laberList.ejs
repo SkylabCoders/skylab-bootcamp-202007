@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="/css/laberList.css" type="text/css" />
+		<link rel="stylesheet" href="/css/index.css" type="text/css" />
+	</head>
+	<body>
+		<h2><%-title-%></h2>
+
+		<div>
+			<label
+				>Laber name:
+				<input />
+			</label>
+			<!--  <%- -%> -->
+			<button>
+				add
+			</button>
+		</div>
+
+		<ul class="heroes">
+			<% for(let i=0; i< labers.length ; i++) { %>
+			<li>
+				<a href="/labers/<%=labers[i].id%>">
+					<span class="badge"><%-labers[i].id-%></span><%-labers[i].name-%>
+				</a>
+				<button class="delete" title="delete hero">x</button>
+			</li>
+			<% } %>
+		</ul>
+	</body>
+</html>
