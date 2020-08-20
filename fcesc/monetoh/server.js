@@ -31,4 +31,10 @@ app.use('/heroes', heroRoutes);
 const shieldRoutes = require('./src/routes/shieldRoutes')();
 app.use('/shield', shieldRoutes);
 
+// const authRoutes = require('./src/routes/authRoutes')();
+// app.use('/auth', authRoutes);
+
+// const removeDuplicatesRoutes = require('./src/routes/removeDuplicatesRoutes')();
+// app.use('/removeDuplicates', removeDuplicatesRoutes);
+
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));

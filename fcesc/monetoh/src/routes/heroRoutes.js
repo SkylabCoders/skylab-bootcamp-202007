@@ -35,7 +35,7 @@ function router(nav) {
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const colection = db.collection(DATABASE_CONFIG.collection);
-					const heroes = await colection.find().toArray();
+					const heroes = await colection.find().sort({ name: 1 }).toArray();
 
 					res.render('index', {
 						nav,
