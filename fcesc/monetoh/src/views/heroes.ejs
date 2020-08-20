@@ -1,0 +1,20 @@
+<h2><%= title.toUpperCase() %></h2>
+
+<form action="/heroes/create" method="POST" name="addHeroFromListForm">
+	<label for="createHeroWithName">Hero name:</label>
+	<input type="text" value="" name="createHeroWithName" placeholder="Your Hero"></input>
+	<button type="submit" title="add hero" name="heroName" value="">add</button>
+</form>
+
+<ul class="heroes">
+	<% for(let i= 0; i< heroes.length; i++) { %>
+	<li>
+		<a href="<%=ROUTES.hero.path%><%=heroes[i].slug%>">
+			<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
+		</a>
+		<form action="" method="POST" name="deleteHeroFromList">
+			<button type="submit" class="delete" title="delete hero" name="heroSlug" value="<%=heroes[i].slug%>">x</button>
+		</form>
+	</li>
+	<% } %>
+</ul>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ToH</title>
+		<link rel="stylesheet" href="/css/laber-detail.css" type="text/css" />
+		<link rel="stylesheet" href="/css/index.css" type="text/css" />
+	</head>
+	<body>
+		<div>
+			<h2><%=labers && labers.name%> Details</h2>
+			<div><span>id: </span><%= labers && labers.id%></div>
+
+			<div>
+				<label
+					>name:
+					<input
+						class="hero.name"
+						placeholder="name"
+						value=" <%=labers && labers.name%>"
+					/>
+				</label>
+			</div>
+			<div><span>city: </span><%= labers && labers.city%></div>
+			<div><span>country: </span><%= labers && labers.country%></div>
+			<button onclick="goBack()">go back</button>
+			<button onclick="save()">save</button>
+		</div>
+	</body>
+</html>
