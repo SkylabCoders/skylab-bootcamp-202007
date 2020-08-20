@@ -1,7 +1,7 @@
 const express = require('express');
 const debug = require('debug')('app:shieldRoutes');
 const { MongoClient } = require('mongodb');
-const superHeroes = require('../../public/superHeroes');
+const superHeroes = require('../../public/superHeroData.json');
 
 const shieldRoutes = express.Router();
 
@@ -16,6 +16,7 @@ function router() {
 			try {
 				client = await MongoClient.connect(url);
 				db = client.db(dbname);
+				await db.collection('heroes').deleteMany();
 				const response = await db.collection('heroes').insertMany(superHeroes);
 				debug(response);
 				res.json(response);
