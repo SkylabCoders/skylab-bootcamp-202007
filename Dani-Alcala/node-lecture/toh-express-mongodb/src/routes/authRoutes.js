@@ -55,8 +55,9 @@ function router(nav) {
 				client.close();
 			})();
 		});
-	authRoutes.route('/signout').post((req, res) => {
-		res.send('Hi, signin');
+	authRoutes.route('/signout').get((req, res) => {
+		req.logout();
+		res.redirect('../');
 	});
 	authRoutes
 		.route('/profile')
