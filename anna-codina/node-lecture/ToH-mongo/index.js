@@ -20,7 +20,8 @@ const expressSession = require('express-session');
 const nav = [
 	{ link: '/', title: 'Dasboard' },
 	{ link: '/heroes', title: 'Heroes' },
-	{ link: '/auth/signin', title: 'SignIn' }
+	{ link: '/auth/signin', title: 'SignIn' },
+	{ link: '/auth/profile', title: 'Profile' }
 ];
 
 /* config app ass a server */
@@ -46,27 +47,31 @@ app.set('view engine', 'ejs');
 
 /* Main page */
 app.get('/', (req, res) => {
-	const url = 'mongodb://localhost:27017';
-	const dbName = 'shieldHeroes';
-	const collectionName = 'heroes';
-	let client;
-	(async function query() {
-		try {
-			client = await MongoClient.connect(url);
-			debug('conection stablished...');
+	if (req.user) {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'shieldHeroes';
+		const collectionName = 'heroes';
+		let client;
+		(async function query() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('conection stablished...');
 
-			const db = client.db(dbName);
+				const db = client.db(dbName);
 
-			const collection = await db.collection(collectionName);
+				const collection = await db.collection(collectionName);
 
-			const mongoList = await collection.find().toArray();
-			const dashboardList = mongoList.slice(0, 4);
-			res.render('dashboard', { nav, dashboardList });
-		} catch (error) {
-			debug(error.stack);
-		}
-		client.close();
-	})();
+				const mongoList = await collection.find().toArray();
+				const dashboardList = mongoList.slice(0, 4);
+				res.render('dashboard', { nav, dashboardList });
+			} catch (error) {
+				debug(error.stack);
+			}
+			client.close();
+		})();
+	} else {
+		res.redirect('/auth/signin');
+	}
 });
 
 /* create alternative routes */
@@ -85,5 +90,5 @@ app.use('/auth', authRoutes);
 
 /* display app in port */
 app.listen(port, () =>
-	debug(chalk.red(`Server is running at port `) + chalk.green(port))
+	debug(chalk.blue(`Server is running at port `) + chalk.green(port))
 );
