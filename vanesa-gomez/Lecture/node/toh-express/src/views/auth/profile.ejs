@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour of Heroes</title>
     <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/heroDetail.css">
 </head>
 
 <body>
     <%- include('../header')%>
-
-    <h1>Profile Works!</h1>
+    <h2><%= user.name.toUpperCase()%> Profile! </h2>
+    <form action="/auth/profile" method="POST">
+        <div>
+            <label for="password">
+                Create new password:
+                <input type="text" name="password" value="<%= user.password%>">
+            </label>
+        </div>
+        <button type="submit">Save</button>
+    </form>
 </body>
 
 </html>

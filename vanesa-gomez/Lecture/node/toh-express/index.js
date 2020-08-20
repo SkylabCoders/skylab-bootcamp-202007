@@ -5,6 +5,9 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
 // app es nuestro servidor, lo declaramos aquí
 const app = express();
 const port = 3000;
@@ -31,15 +34,15 @@ app.use(
 		extended: false
 	})
 );
+
+app.use(cookieParser());
+app.use(session({ secret: 'heroes' }));
+
+require('./src/config/passport')(app);
+
 // requestHandle, que recibe 3 argumentos (req, res y next) - Hay que invocar el next para ir al siguiente punto de ejecuación
 // con cada petición de la página se ejecuta esto de abajo
 app.use((req, res, next) => {
-	debug('*********************************************');
-	// todo lo que hagamos aquí va a oocurrir en este evento/proceso y va a afectar a todo lo que haya después de este use
-	debug('Skylab es el mejor bootcamp de toda Barcelona y de todo el mundo!');
-	// el use no deja seguir hacia abajo, no deja seguir el evento del servidor
-	debug('*********************************************');
-	// hay que permitir que el evento siga su camino
 	next();
 });
 app.use(express.static(path.join(__dirname, 'public')));
