@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 
 const dbUrl = 'mongodb://localhost:27017';
 const passport = require('passport');
@@ -12,8 +12,20 @@ let client;
 
 function router(nav) {
 
-  authRoutes
-    .route('/signin')
+  authRoutes.route('/logout')
+    .post((req, res) => {
+      req.logout();
+      res.redirect('/auth/signin');
+    })
+
+  authRoutes.route('/signin')
+    .all((req, res, next) => {
+      if (!req.user) {
+        next();
+      } else {
+        res.redirect('/auth/profile');
+      }
+    })
     .get((req, res) => {
       res.render('auth/signin', {
         nav
@@ -77,8 +89,26 @@ function router(nav) {
       res.render('auth/profile', { nav, user: req.user });
     })
     .post((req, res) => {
-      res.send()
-    })
+      const { password } = req.body;
+      const { _id } = req.user;
+
+
+      (async function mongo() {
+        try {
+          client = await MongoClient.connect(dbUrl);
+          const db = client.db(dbName);
+          const collection = await db.collection(collectionName);
+
+          const response = await collection.updateOne({ _id: new ObjectID(_id) }, { $set: { password } });
+
+
+        } catch (error) {
+          debug(error.stack);
+        }
+
+        client.close();
+      }());
+    });
 
 
   return authRoutes;

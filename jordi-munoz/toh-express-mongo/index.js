@@ -40,20 +40,25 @@ app.get('/', (req, res) => {
 	let client;
 	(async function query() {
 		try {
-			client = await MongoClient.connect(url);
-			debug('Connection stablished...');
+			if (req.user) {
+				client = await MongoClient.connect(url);
+				debug('Connection stablished...');
 
-			const db = client.db(dbName);
+				const db = client.db(dbName);
 
-			const collection = await db.collection('heroes');
+				const collection = await db.collection('heroes');
 
-			const heroesList = await collection.find().toArray();
+				const heroesList = await collection.find().toArray();
 
-			res.render('dashboard', {
-				nav,
-				title: 'Dashboard',
-				heroes: heroesList.slice(0, 4)
-			});
+				res.render('dashboard', {
+					nav,
+					title: 'Dashboard',
+					heroes: heroesList.slice(0, 4)
+				});
+			} else {
+				res.redirect('/auth/signin');
+			}
+
 		} catch (error) {
 			debug(error.stack);
 		}
