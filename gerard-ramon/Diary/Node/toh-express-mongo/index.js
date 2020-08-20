@@ -39,6 +39,10 @@ app.get('/', (req, res) => {
 	const dbName = 'shieldHeroes';
 	let client = null;
 
+	if (!req.user) {
+		res.redirect('/auth/signin');
+	}
+
 	(async function query() {
 		try {
 			client = await MongoClient.connect(url);

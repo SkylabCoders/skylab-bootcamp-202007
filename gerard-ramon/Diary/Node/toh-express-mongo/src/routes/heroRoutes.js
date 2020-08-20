@@ -9,9 +9,15 @@ const heroRoutes = express.Router();
 function router(nav) {
 	heroRoutes
 		.route('/')
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
+		})
 		.post((req, res) => {
 			let client = null;
-
 			const { hero } = req.body;
 			(async function query() {
 				try {

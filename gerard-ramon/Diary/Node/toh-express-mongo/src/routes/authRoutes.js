@@ -7,8 +7,19 @@ const MONGODB = require('../../public/Persitance/mongoConst');
 const authRoutes = express.Router();
 
 function router(nav) {
+	authRoutes.route('/logout').post((req, res) => {
+		req.logout();
+		res.redirect('/auth/signin');
+	});
+
 	authRoutes
-		.route('/signin')
+		.route('/signin').all((req, res, next){
+            if(req.user){
+                res.redirect('/auth/profile')
+            }
+            
+            next()
+        })
 		.post(
 			passport.authenticate('local', {
 				successRedirect: '/auth/profile',
@@ -75,15 +86,19 @@ function router(nav) {
 			const { userName } = req.user;
 
 			(async function mongo() {
-				const client = await MongoClient.connect(MONGODB.url);
-				const db = client.db(MONGODB.dbName);
-				const collection = db.collection(MONGODB.usersCollection);
-				debug(`Now update... ${userName}`);
+				try {
+					const client = await MongoClient.connect(MONGODB.url);
+					const db = client.db(MONGODB.dbName);
+					const collection = db.collection(MONGODB.usersCollection);
+					debug(`Now update... ${userName}`);
 
-				const response = await collection.updateOne(
-					{ userName },
-					{ $set: { password: userPassword } }
-				);
+					const response = await collection.updateOne(
+						{ userName },
+						{ $set: { password: userPassword } }
+					);
+				} catch (error) {
+					debug(error.stack);
+				}
 
 				debug(response);
 			})();
