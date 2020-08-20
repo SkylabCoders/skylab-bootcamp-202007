@@ -25,7 +25,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
-	{ link: '/heroes', title: 'Heroes' }
+	{ link: '/heroes', title: 'Heroes' },
+	{ link: '/auth/signof', title: 'SignOff' },
+	{ link: '/auth/signin', title: 'SignIn' }
 ];
 
 app.get('/', (req, res) => {
@@ -54,8 +56,12 @@ const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
-const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
+const shieldRoutes = require('./src/routes/shieldRoutes')();
 
 app.use('/shield', shieldRoutes);
+
+const authRoutes = require('./src/routes/authRoutes')(nav);
+
+app.use('/auth', authRoutes);
 
 app.listen(PORT, () => debug('server is running...'));
