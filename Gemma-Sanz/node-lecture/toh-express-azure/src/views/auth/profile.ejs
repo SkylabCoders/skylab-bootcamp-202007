@@ -7,6 +7,16 @@
 		<link rel="stylesheet" href="../css/index.css" />
 	</head>
 	<body>
-		<h1>Profile works!</h1>
+		<%- include('../header')%>
+		<h2><%= user.user%> Profile!</h2>
+		<form action="/auth/profile" method="POST">
+			<div>
+				<label for="password">
+					Password:
+					<input type="password" name="password" value="<%= user.password%>" />
+				</label>
+			</div>
+			<button type="submit">Save</button>
+		</form>
 	</body>
 </html>

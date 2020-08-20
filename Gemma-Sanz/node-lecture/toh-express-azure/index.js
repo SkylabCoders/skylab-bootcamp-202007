@@ -4,6 +4,8 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
 
 const { MongoClient } = require('mongodb');
 
@@ -14,7 +16,6 @@ const port = 3036;
 const nav = [
 	{ link: '/', title: 'Dashboard' },
 	{ link: '/heroes', title: 'Heroes' },
-	//	{ link: '/signup', title: 'SignUp' },
 	{ link: '/auth/signin', title: 'SignIn' }
 	//	{ link: '/signout', title: 'SignOut' }
 ];
@@ -24,6 +25,12 @@ app.use(morgan('dev'));
 // Con esto evitamos que el use se quede interceptando un evento y transformandolo y creando un efecto secundario
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// cookieParser te devuelve una fn, por lo tanto la tendremos que llamar luego
+app.use(cookieParser());
+app.use(expressSession({ secret: 'heroes' }));
+
+require('./src/config/passport')(app);
 
 app.use((req, res, next) => {
 	debug('*********************');

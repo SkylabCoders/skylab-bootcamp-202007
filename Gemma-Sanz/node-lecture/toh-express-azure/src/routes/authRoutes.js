@@ -1,6 +1,7 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient } = require('mongodb');
+const passport = require('passport');
 
 const authRouter = express.Router();
 const dbUrl = 'mongodb://localhost:27017';
@@ -13,14 +14,18 @@ function router(nav) {
 	authRouter
 		.route('/signin')
 		.get((req, res) => {
+			// Aquí el get se complementa con el passport
 			res.render('auth/signin', {
 				// Le pasas como propiedades, ya que render recibe como 2o argumento un objeto con las propiedades que le quieres pasar
 				nav
 			});
 		})
-		.post((req, res) => {
-			res.json(req.body);
-		});
+		.post(
+			passport.authenticate('local', {
+				successRedirect: '/auth/profile',
+				failureRedirect: '/auth/signin'
+			})
+		);
 	authRouter
 		.route('/signup')
 		.get((req, res) => {
@@ -29,24 +34,33 @@ function router(nav) {
 			});
 		})
 		.post((req, res) => {
-			const newUser = req.body;
+			// con esto nos aseguramos conevertir a lowercase el nombre
+			const newUser = { ...req.body, user: req.body.user.toLowerCase() };
 
 			// Creamos coleccion y base de datos y inserimos este elemento
 			(async function mongo() {
-				client = await MongoClient.connect(dbUrl);
-				const db = client.db(dbName);
-				const collection = await db.collection(collectionName);
-				// Buscar si el usuario existe,
-				const user = await collection.findOne({
-					user: newUser.user
-				});
-				if (!user) {
-					// Si NO existe, redirecciono a signin
-					await collection.insertOne(newUser);
-				} else {
-					// Si exist,
-					res.redirect('/auth/signin');
+				try {
+					client = await MongoClient.connect(dbUrl);
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					// Buscar si el usuario existe,
+					const user = await collection.findOne({
+						user: newUser.user
+					});
+					if (user) {
+						// Tanto si existe como si no redirecciono a signin
+						res.redirect('/auth/signin');
+					} else {
+						// Si NO existe inserto y redirecciono a profile
+						const result = await collection.insertOne(newUser);
+						req.login(result.ops[0], () => {
+							res.redirect('/auth/profile');
+						});
+					}
+				} catch (error) {
+					debug(error.stack);
 				}
+				client.close();
 			})();
 		});
 	authRouter.route('/signout').post((req, res) => {
@@ -56,9 +70,18 @@ function router(nav) {
 	});
 	authRouter
 		.route('/profile')
+		.all((req, res, next) => {
+			// aqui llega la información de local.strategy, dónde passport pone la info dentro de req.user
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
+		})
 		.get((req, res) => {
 			res.render('auth/profile', {
-				nav
+				nav,
+				user: req.user
 			});
 		})
 		.post((req, res) => {
