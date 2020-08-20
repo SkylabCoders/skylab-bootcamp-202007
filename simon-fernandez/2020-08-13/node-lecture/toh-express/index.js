@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
 app.use(session({ secret: 'bombasto' }));
-require('./src/config/paspport');
+require('./src/config/paspport')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
