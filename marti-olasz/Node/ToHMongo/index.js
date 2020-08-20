@@ -53,6 +53,10 @@ const shieldRoutes = require('./src/routes/shieldRoutes.js')();
 
 app.use('/shield', shieldRoutes);
 
+const authRoutes = require('./src/routes/authRoutes.js')(nav);
+
+app.use('/auth', authRoutes);
+
 app.listen(port, () =>
 	debug(chalk.red(`Server is running at port `) + chalk.green(port))
 );
