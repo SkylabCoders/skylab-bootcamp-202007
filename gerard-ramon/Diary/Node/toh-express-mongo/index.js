@@ -71,4 +71,8 @@ const shieldRoutes = require('./src/routes/shieldRoutes')();
 
 app.use('/shield', shieldRoutes);
 
+const authRoutes = require('./src/routes/authRoutes')(nav);
+
+app.use('/auth', authRoutes);
+
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));

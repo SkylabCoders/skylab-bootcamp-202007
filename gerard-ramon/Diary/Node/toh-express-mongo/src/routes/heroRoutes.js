@@ -2,26 +2,25 @@ const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 
+const MONGODB = require('../../public/Persitance/mongoConst');
+
 const heroRoutes = express.Router();
 
 function router(nav) {
 	heroRoutes
 		.route('/')
 		.post((req, res) => {
-			const url = 'mongodb://localhost:27017';
-			const dbName = 'shieldHeroes';
-			const collectionName = 'heroes';
 			let client = null;
 
+			const { hero } = req.body;
 			(async function query() {
 				try {
-					client = await MongoClient.connect(url);
+					client = await MongoClient.connect(MONGODB.url);
 					debug('Connection established...');
 
-					const { hero } = req.body;
-					const db = client.db(dbName);
+					const db = client.db(MONGODB.dbName);
 
-					const collection = db.collection(collectionName);
+					const collection = db.collection(MONGODB.heroesCollection);
 
 					await collection.deleteOne({ _id: new ObjectID(hero) });
 					const heroes = await collection.find().toArray();
@@ -38,18 +37,15 @@ function router(nav) {
 			})();
 		})
 		.get((req, res) => {
-			const url = 'mongodb://localhost:27017';
-			const dbName = 'shieldHeroes';
-			const collectionName = 'heroes';
 			let client = null;
 			(async function query() {
 				try {
-					client = await MongoClient.connect(url);
+					client = await MongoClient.connect(MONGODB.url);
 					debug('Connection established...');
 
-					const db = client.db(dbName);
+					const db = client.db(MONGODB.dbName);
 
-					const collection = db.collection(collectionName);
+					const collection = db.collection(MONGODB.heroesCollection);
 
 					const heroes = await collection.find().toArray();
 
@@ -66,17 +62,13 @@ function router(nav) {
 		});
 
 	heroRoutes.route('/addHero').post((req, res) => {
-		const dbName = 'shieldHeroes';
-		const collectionName = 'heroes';
-		const url = 'mongodb://localhost:27017';
-
 		(async function mongo() {
 			try {
 				let { addHero } = req.body;
 				[addHero] = addHero;
-				const client = await MongoClient.connect(url);
-				const db = client.db(dbName);
-				const collection = db.collection(collectionName);
+				const client = await MongoClient.connect(MONGODB.url);
+				const db = client.db(MONGODB.dbName);
+				const collection = db.collection(MONGODB.heroesCollection);
 
 				const lastHero = await collection
 					.find()
@@ -86,15 +78,12 @@ function router(nav) {
 
 				const { id } = lastHero[0];
 
-				await collection.insertOne(
-					{ id: id + 1, name: addHero },
-					(error, response) => {
-						if (error) {
-							throw error;
-						}
-						res.redirect('/heroes');
+				await collection.insertOne({ id: id + 1, name: addHero }, (error) => {
+					if (error) {
+						throw error;
 					}
-				);
+					res.redirect('/heroes');
+				});
 
 				client.close();
 			} catch (error) {
@@ -107,16 +96,14 @@ function router(nav) {
 		.route('/:heroId')
 		.all((req, res, next) => {
 			const id = req.params.heroId;
-			const url = 'mongodb://localhost:27017';
-			const dbName = 'shieldHeroes';
-			const collectionName = 'heroes';
+
 			let client = null;
 			(async function query() {
 				try {
-					client = await MongoClient.connect(url);
-					const db = await client.db(dbName);
+					client = await MongoClient.connect(MONGODB.url);
+					const db = await client.db(MONGODB.dbName);
 
-					const collection = await db.collection(collectionName);
+					const collection = await db.collection(MONGODB.heroesCollection);
 
 					const hero = await collection.findOne({ _id: new ObjectID(id) });
 					res.hero = hero;
@@ -130,16 +117,14 @@ function router(nav) {
 		.post((req, res) => {
 			const updateQuery = { $set: req.body };
 			const filter = { _id: new ObjectID(req.params.heroId) };
-			const dbName = 'shieldHeroes';
-			const collectionName = 'heroes';
-			const url = 'mongodb://localhost:27017';
+
 			(async function mongo() {
 				try {
-					const client = await MongoClient.connect(url);
-					const db = await client.db(dbName);
-					const collection = db.collection(collectionName);
+					const client = await MongoClient.connect(MONGODB.url);
+					const db = await client.db(MONGODB.dbName);
+					const collection = db.collection(MONGODB.heroesCollection);
 
-					await collection.updateOne(filter, updateQuery, (error, response) => {
+					await collection.updateOne(filter, updateQuery, (error) => {
 						if (error) {
 							throw error;
 						}
