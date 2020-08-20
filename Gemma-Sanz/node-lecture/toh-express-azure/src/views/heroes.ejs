@@ -10,7 +10,7 @@
 	<body>
 		<%- include('header')%>
 		<h2><%= title%></h2>
-		<form action="" method="POST" name="heroFormUnic">
+		<form action="" method="POST">
 				<label
 					>Hero name:
 					<input #heroName />
@@ -23,7 +23,7 @@
 				</button>
 		</form>
 
-		<form action="" method="POST" name="heroForm">
+		<form action="" method="POST">
 			<ul class="heroes">
 				<% for(let i = 0; i<heroes.length; i++){%>
 					<li>
