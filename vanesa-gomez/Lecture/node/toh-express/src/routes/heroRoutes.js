@@ -9,7 +9,7 @@ function router(nav) {
 	heroRoutes
 		.route('/')
 		.post((req, res) => {
-			const { heroId, deleteAll } = req.body;
+			const { heroId, deleteAll, newHero } = req.body;
 			const filter = { _id: ObjectID(heroId) };
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'shieldHeroes';
@@ -29,8 +29,19 @@ function router(nav) {
 							debug(response);
 							res.redirect('/heroes');
 						});
-					} else {
+					} else if (deleteAll) {
 						await collection.deleteMany({});
+						res.redirect('/heroes');
+					} else if (newHero) {
+						const [{ id }] = await collection
+							.find()
+							.sort({ id: -1 })
+							.limit(1)
+							.toArray();
+						await collection.insertOne({
+							name: newHero,
+							id: id + 1
+						});
 						res.redirect('/heroes');
 					}
 				} catch (error) {
