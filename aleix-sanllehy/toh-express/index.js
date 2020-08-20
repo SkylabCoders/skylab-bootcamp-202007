@@ -39,28 +39,32 @@ const nav = [
 ];
 
 app.get('/', (req, res) => {
-	const url = 'mongodb://localhost:27017';
-	const dbName = 'shieldHeroes';
-	const collectionName = 'heroes';
-	let client;
+	if (req.user) {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'shieldHeroes';
+		const collectionName = 'heroes';
+		let client;
 
-	(async function mongo() {
-		try {
-			client = await MongoClient.connect(url);
-			debug('Connection stablished...');
-			const db = client.db(dbName);
-			const collection = await db.collection(collectionName);
-			const heroes = await collection.find().toArray();
-			res.render('dashboard', {
-				nav,
-				title: 'Top Heroes',
-				heroes: heroes.slice(0, 4)
-			});
-		} catch (error) {
-			debug(error.stack);
-		}
-		client.close();
-	})();
+		(async function mongo() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('Connection stablished...');
+				const db = client.db(dbName);
+				const collection = await db.collection(collectionName);
+				const heroes = await collection.find().toArray();
+				res.render('dashboard', {
+					nav,
+					title: 'Top Heroes',
+					heroes: heroes.slice(0, 4)
+				});
+			} catch (error) {
+				debug(error.stack);
+			}
+			client.close();
+		})();
+	} else {
+		res.redirect('/auth/signin');
+	}
 });
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
