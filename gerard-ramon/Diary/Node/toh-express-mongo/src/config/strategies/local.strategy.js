@@ -19,7 +19,6 @@ function localStrategy() {
 						const client = await MongoClient.connect(MONGODB.url);
 						const db = client.db(MONGODB.dbName);
 						const collection = db.collection(MONGODB.usersCollection);
-						debug(collection);
 						const user = await collection.findOne({ userName: username });
 
 						if (user.password === password) {

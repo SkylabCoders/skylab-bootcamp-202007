@@ -1,8 +1,8 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
 const { MongoClient } = require('mongodb');
-const MONGODB = require('../../public/Persitance/mongoConst');
 const passport = require('passport');
+const MONGODB = require('../../public/Persitance/mongoConst');
 
 const authRoutes = express.Router();
 
@@ -69,6 +69,24 @@ function router(nav) {
 			} else {
 				res.redirect('/auth/signin');
 			}
+		})
+		.post((req, res) => {
+			const { userPassword } = req.body;
+			const { userName } = req.user;
+
+			(async function mongo() {
+				const client = await MongoClient.connect(MONGODB.url);
+				const db = client.db(MONGODB.dbName);
+				const collection = db.collection(MONGODB.usersCollection);
+				debug(`Now update... ${userName}`);
+
+				const response = await collection.updateOne(
+					{ userName },
+					{ $set: { password: userPassword } }
+				);
+
+				debug(response);
+			})();
 		})
 		.get((req, res) => {
 			debug(req.user);
