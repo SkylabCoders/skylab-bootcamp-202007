@@ -3,9 +3,10 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
-const bodyParser = require('body-parser');
-
 const { MongoClient } = require('mongodb');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const app = express();
 const port = 3000;
@@ -17,6 +18,10 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(cookieParser());
+app.use(session({ secret: 'heroes' }));
+require('./src/config/passport')(app);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', './src/views');
@@ -24,7 +29,9 @@ app.set('view engine', 'ejs');
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
-	{ link: '/heroes', title: 'Heroes' }
+	{ link: '/heroes', title: 'Heroes' },
+	{ link: '/auth/signin', title: 'Sign In' },
+	{ link: '/auth/signup', title: 'Sign Up' }
 ];
 
 app.get('/', (req, res) => {
