@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const passport = require('passport');
 
 const authRouter = express.Router();
@@ -11,6 +11,12 @@ const collectionName = 'users';
 let client;
 
 function router(nav) {
+	/*	authRouter.logout('/logout').post((req, res) => {
+ 		if (req.user) {
+			res.logout();
+			res.redirect('auth/signin');
+		}
+	}); */
 	authRouter
 		// La ruta que pponemos tiene que tener en cuenta la relativa, en este caso en index le decimos que es /auth
 		.route('/signin')
@@ -87,7 +93,30 @@ function router(nav) {
 			});
 		})
 		.post((req, res) => {
-			res.send('POST signin works!');
+			//			debug('REQ.USER ======>', req.user); tiene la info de password
+
+			//			debug('REQ.BODY ======>', req.body); tiene user, _id and passwor
+			(async function mongo() {
+				try {
+					// Destructuramos todo y sólo nos quedamos con _id
+					const { _id } = req.user;
+					const { password } = req.body;
+					client = await MongoClient.connect(dbUrl);
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					await collection.updateOne(
+						{
+							_id: ObjectId(_id)
+						},
+						{ $set: { password } }
+					);
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+			res.send('POST login works!');
+			debug(req.user);
 		});
 	return authRouter;
 }
