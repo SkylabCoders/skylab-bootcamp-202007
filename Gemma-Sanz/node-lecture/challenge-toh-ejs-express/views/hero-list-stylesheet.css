@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    margin: 30px 15vw;
+}
+
+#mainContainer--list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+button>a {
+    color: rgb(84, 84, 156);
+}
+
+button {
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(240, 235, 235);
+    margin: 5px;
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(231, 229, 229);
+}
+
+
+.id {
+    background-color: rgb(76, 76, 124);
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 3px 0 0 3px;
+}
+
+.name {
+    color: grey;
+    padding-left: 5px;
+}
+
+#mainContainer--list>button {
+    width: 150px;
+    text-align: start;
+    padding-left: 0px;
+}
+
+
+a {
+    text-decoration: none;
+}

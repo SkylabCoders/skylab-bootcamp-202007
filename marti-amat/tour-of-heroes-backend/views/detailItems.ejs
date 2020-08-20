@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Challenge-Hero</title>
+		<link rel="stylesheet" href="../public/css/detail-styles.css" />
+	</head>
+	<body>
+		<h1 class="title">Tour of Heroes</h1>
+		<div class="buttons">
+			<a href="/" class="butStart">Dashboard</a>
+			<a href="/listItems" class="butStart">Heroes</a>
+		</div>
+		<h3 class="details" id="details"></h3>
+		<p class="id" id="id"></p>
+		<div class="edit">
+			<div class="edit__title">name:</div>
+			<input type="text" id="edit_box" class="edit__box" />
+		</div>
+		<button class="edit-button" id="button" onclick="take_input_text()">
+			OK
+		</button>
+		<script src="../public/js/Hero.js"></script>
+		<script src="../public/js/hero.mock.js"></script>
+		<script src="../public/js/hero-detail.component.js"></script>
+	</body>
+</html>

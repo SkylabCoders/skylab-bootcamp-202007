@@ -6,16 +6,13 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>TITULO ejs</h1>
-    <nav>
-      <a href="/">Dashboard</a>
-      <a href="/heroes">Heroes</a>
-    </nav>
-    <%- include('messages.component.ejs') -%>
+    <%- include(header, { apptitle }) -%>
+    <%- include('messages.component.ejs', { apptitle }) -%>
   </header>
-  <%- include(body) -%>
+  <%- include(body, { hero: hero }) -%>
 </body>
 </html>

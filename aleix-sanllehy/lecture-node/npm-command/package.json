@@ -1,0 +1,17 @@
+{
+	"name": "aray-npm-hello-world",
+	"version": "1.0.0",
+	"description": "My first npm package",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"skylab"
+	],
+	"author": "Aleix Sanllehy",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1"
+	}
+}
