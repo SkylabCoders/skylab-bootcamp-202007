@@ -5,6 +5,8 @@ const morgan = require('morgan');
 const path = require('path');
 const { MongoClient } = require('mongodb')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const expressSession = require('express-session')
 
 const app = express();
 const port = 3000;
@@ -15,6 +17,11 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
+
+app.use(cookieParser())
+app.use(expressSession({secret: 'heroes'}))
+require('./src/config/passport')(app)
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', './src/views');
@@ -23,6 +30,8 @@ app.set('view engine', 'ejs');
 const nav = [
 	{ link: '/', title: 'Dashboard' },
 	{ link: '/heroes', title: 'Heroes' },
+	{ link: '/auth/signin', title: 'Signin' },
+	{ link: '/auth/signup', title: 'Signup' },
 ];
 
 app.get('/', (req, res) => {
@@ -65,7 +74,7 @@ const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
 
 app.use('/shield', shieldRoutes);
 
-const authRoutes = require('.src/routes/authRoutes')(nav)
+const authRoutes = require('./src/routes/authRoutes')(nav)
 
 app.use('/auth', authRoutes)
 
