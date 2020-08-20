@@ -3,19 +3,25 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
-// const sql = require('mssql');
-
+const cookieParser = require('cookie-parser')
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
+const expressSession = require('express-session')
+// const sql = require('mssql');
 
 
-const app = express();
+
+const app = express(); // app es el servidor (nuestra aplicacion de servidor)
 const port = 3000;
 
 app.use(morgan('tiny'));
 
 app.use(bodyParser.json());                             // middleware. 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+app.use(expressSession({ secret: 'heroes' }));
+require('./src/config/passport')(app)
 
 // app.use((req, res, next) => {       // requestHandler. Intercepta todas las peticiones
 //     debug("Skylab es el mejor bootcamp")
@@ -36,12 +42,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // sql.connect(config).catch(debug)
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.set('views', './src/views')
+app.set('views', './src/views') // los render van a buscar las vistas a la carpeta view
 app.set('view engine', 'ejs')
 
 const nav = [
     { link: '/', title: 'Dashboard' },
-    { link: '/heroes', title: 'Heroes' }
+    { link: '/heroes', title: 'Heroes' },
+    { link: '/auth/signup', title: 'Sign Up' },
+    { link: '/auth/signin', title: 'Sign In' },
+    { link: '/auth/signout', title: 'Sign Out' }
 ]
 
 
@@ -79,7 +88,11 @@ app.use('/heroes', heroRoutes)
 
 const shieldRoutes = require('./src/routes/shieldRoutes')(nav); // llama a la funcion router, con parametro 'nav' en shieldRoutes.js
 
-app.use('/shield', shieldRoutes);  // utiliza
+app.use('/shield', shieldRoutes);  // utiliza... ?? 
+
+const authRoutes = require('./src/routes/authRoutes')(nav);
+
+app.use('/auth', authRoutes)        // gestion de autorizacion y autenticacion
 
 app.listen(port, () => debug(`listening on port ${chalk.magenta(port)}`))
 
