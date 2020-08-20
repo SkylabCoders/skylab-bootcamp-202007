@@ -11,12 +11,12 @@ const collectionName = 'users';
 let client;
 
 function router(nav) {
-	/*	authRouter.logout('/logout').post((req, res) => {
- 		if (req.user) {
-			res.logout();
-			res.redirect('auth/signin');
+	authRouter.route('/logout').post((req, res) => {
+		if (req.user) {
+			req.logout();
+			res.redirect('/auth/signin');
 		}
-	}); */
+	});
 	authRouter
 		// La ruta que pponemos tiene que tener en cuenta la relativa, en este caso en index le decimos que es /auth
 		.route('/signin')

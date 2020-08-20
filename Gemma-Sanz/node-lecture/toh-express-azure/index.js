@@ -47,34 +47,41 @@ app.set('views', './src/views');
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-	const url = 'mongodb://localhost:27017';
-	const dbName = 'shieldHeroes';
-	const collectionName = 'heroes';
-	let client;
+app
+	.all('/', (req, res, next) => {
+		if (req.user) {
+			next();
+		} else {
+			res.redirect('/auth/signin');
+		}
+	})
+	.get('/', (req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'shieldHeroes';
+		const collectionName = 'heroes';
+		let client;
+		try {
+			(async function mongo() {
+				client = await MongoClient.connect(url);
+				debug('Connection stablished...');
 
-	try {
-		(async function mongo() {
-			client = await MongoClient.connect(url);
-			debug('Connection stablished...');
+				const db = client.db(dbName);
 
-			const db = client.db(dbName);
+				const collection = db.collection(collectionName);
 
-			const collection = db.collection(collectionName);
+				const heroes = await collection.find().toArray();
 
-			const heroes = await collection.find().toArray();
-
-			res.render('dashboard', {
-				nav,
-				title: 'Top Heroes',
-				heroes: heroes.slice(0, 4)
-			});
-			client.close();
-		})();
-	} catch (error) {
-		debug(error.stack);
-	}
-});
+				res.render('dashboard', {
+					nav,
+					title: 'Top Heroes',
+					heroes: heroes.slice(0, 4)
+				});
+				client.close();
+			})();
+		} catch (error) {
+			debug(error.stack);
+		}
+	});
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
 

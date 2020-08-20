@@ -7,6 +7,14 @@ const heroRoutes = express.Router();
 function router(nav) {
 	heroRoutes
 		.route('/')
+		.all((req, res, next) => {
+			if (req.user) {
+				res.redirect('/');
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
+		})
 		.get((req, res) => {
 			// mongodb
 			const url = 'mongodb://localhost:27017';
