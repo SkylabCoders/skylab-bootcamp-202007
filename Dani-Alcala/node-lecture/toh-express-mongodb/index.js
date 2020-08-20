@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 
 const nav = [
 	{ link: '/', title: 'Dashboard' },
-	{ link: '/heroes', title: 'Heroes' }
+	{ link: '/heroes', title: 'Heroes' },
 ];
 
 app.get('/', (req, res) => {
@@ -64,5 +64,9 @@ app.use('/heroes', heroRoutes);
 const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
 
 app.use('/shield', shieldRoutes);
+
+const authRoutes = require('.src/routes/authRoutes')(nav)
+
+app.use('/auth', authRoutes)
 
 app.listen(port, () => debug(`listening on port ${chalk.magenta(port)}`));
