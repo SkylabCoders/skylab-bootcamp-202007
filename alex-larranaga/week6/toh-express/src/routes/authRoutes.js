@@ -4,6 +4,9 @@ const { MongoClient } = require('mongodb');
 
 // NOS INSTALAMOS PAQUETES PASSPORT, COOKIE-PARSER, Y EXPRESS-SESSION
 const authRoutes = express.Router();
+const userNotExist = 'User does not exist';
+
+function onSigninSuccess(req, res, user, url) {}
 
 function router(nav) {
 	authRoutes
@@ -25,7 +28,7 @@ function router(nav) {
 					if (userExist) {
 						res.redirect('/heroes');
 					} else {
-						res.send('user does not exist');
+						res.render('/auth/signin', { userNotExist });
 					}
 				} catch (error) {
 					debug(error.stack);
@@ -46,6 +49,7 @@ function router(nav) {
 			res.render('./auth/signup', { nav });
 		})
 		.post((req, res) => {
+			const newUser = { ...req.body, user: req.body.user.toLowerCase() };
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'heroes';
 			let client = null;
@@ -55,12 +59,12 @@ function router(nav) {
 					debug('Connection established...');
 					const db = await client.db(dbName);
 					const collection = await db.collection('users');
-					const userExist = await collection.findOne(req.body); //CHECK FOR BOTH USER & PASSWORD
+					const userExist = await collection.findOne(newUser); //CHECK FOR BOTH USER & PASSWORD
 					if (!userExist) {
-						await collection.insertOne(req.body);
+						await collection.insertOne(newUser);
 						res.redirect('/heroes');
 					} else {
-						res.json({ error: 'USER_EXIST', message: 'User already exist.' });
+						res.render('/auth/signin', { userNotExist });
 					}
 				} catch (error) {
 					debug(error.stack);
