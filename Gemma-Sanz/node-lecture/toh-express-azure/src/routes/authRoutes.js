@@ -12,9 +12,11 @@ let client;
 
 function router(nav) {
 	authRouter
+		// La ruta que pponemos tiene que tener en cuenta la relativa, en este caso en index le decimos que es /auth
 		.route('/signin')
 		.get((req, res) => {
 			// Aquí el get se complementa con el passport
+			// La ruta del render se coge a partir de lo que continua el puerto del localhost
 			res.render('auth/signin', {
 				// Le pasas como propiedades, ya que render recibe como 2o argumento un objeto con las propiedades que le quieres pasar
 				nav
@@ -34,7 +36,7 @@ function router(nav) {
 			});
 		})
 		.post((req, res) => {
-			// con esto nos aseguramos conevertir a lowercase el nombre
+			// con esto nos aseguramos conevertir a lowercase el nombre i hacemos un destructuring que newUser almacene user
 			const newUser = { ...req.body, user: req.body.user.toLowerCase() };
 
 			// Creamos coleccion y base de datos y inserimos este elemento

@@ -8,6 +8,7 @@ function localStrategy() {
 		// Aqui tenemos que tener claro el campo de la vista lo que queremos traerle
 		new Strategy(
 			{
+				// el string del usernameFiels tiene que ser igual al nombre del control del input en la vista
 				usernameField: 'user',
 				passwordField: 'password'
 			},
