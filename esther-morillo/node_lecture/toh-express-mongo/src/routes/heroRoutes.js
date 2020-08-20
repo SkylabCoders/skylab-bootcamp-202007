@@ -31,7 +31,7 @@ function router(nav) {
 				try {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
-					const collection = await db.collection(collectionName);
+					const collection = db.collection(collectionName);
 
 					if (heroId) {
 						await collection.deleteOne(filter, heroId, (error) => {
@@ -77,7 +77,7 @@ function router(nav) {
 					const db = client.db(dbName);
 
 					// petición de la colección a la base de datos
-					const collection = await db.collection('heroes');
+					const collection = db.collection('heroes');
 
 					// toArray porque queremos trabajar con un array
 					const heroes = await collection.find().toArray();
@@ -113,7 +113,7 @@ function router(nav) {
 					// obtenemos bd 
 					const db = client.db(dbName);
 					// dentro de la bd la colección
-					const collection = await db.collection(collectionName);
+					const collection = db.collection(collectionName);
 					// dentro de esa colec pedimos un héroe cuyo nombre se Superman, perp en vez de poner uno concreto hay que poner el id ({ _id }), pero cogiendo el id que crea mongo y lo tenemos que consumir así
 					res.hero = await collection.findOne({
 						_id: new ObjectID(id)
@@ -158,9 +158,9 @@ function router(nav) {
 					// a la base de datos:
 					const db = client.db(dbName);
 					// obtengo la colección
-					const collection = await db.collection(collectionName);
+					const collection = db.collection(collectionName);
 					// ahora hay que actualizar a ese héroe
-					await collection.updateOne(filter, updateQuery, (error, response) => {
+					collection.updateOne(filter, updateQuery, (error, response) => {
 						if (error) {
 							throw error;
 						}
@@ -188,28 +188,3 @@ function router(nav) {
 }
 
 module.exports = router;
-
-
-/* switch (
-						req.body
-					) {
-						case heroId:
-							await collection.deleteOne(filter, heroId, (error, response) => {
-								if (error) {
-									throw error;
-								}
-								// debug(response);
-								res.redirect('/heroes');
-							})
-							break;
-						case deleteAll:
-							await collection.deleteMany({});
-							res.redirect('/heroes');
-							break;
-						case add:
-							await collection.deleteMany({});
-							break;
-						default:
-							break;
-
-					} */

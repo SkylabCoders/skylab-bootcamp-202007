@@ -3,11 +3,17 @@ const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
+// con bodyParser inserta dentro del obj request una propiedad body para cogerla en post
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
+
 
 const {
 	MongoClient
 } = require('mongodb');
+const { session } = require('passport');
+const cookieParser = require('cookie-parser');
 
 // app es nuestro servidor, lo declaramos aquí
 const app = express();
@@ -28,7 +34,7 @@ const nav = [{
 
 ];
 
-// para que me devuelva las peticiones de manera más reducida y clara (en la terminal)
+// para que me devuelva las peticiones de manera más reducida y clara, que sea legible
 app.use(morgan('tiny'));
 
 // el bodyParser - parsea el body de las peticiones entrantes en un use, antes de que los handles puedan leer la petición - la limpia para poder leerla mejor - los body del html que es donde el usuario crea el post al clicar o en un input... Hace la magia de que los datos que traemos los mete en un objeto al que apunta la propiedad body donde tendremos todo en un formulario para poder coger los datos.
@@ -36,6 +42,15 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
+
+// con passport cualquier req que hagamos al servidor passport nos ayudará a gestionar esa autentificación (con usuario y contraseña, con google...)
+// session nos permite crear una sesión de usuario con el usuario y contraseña que hemos enviado
+// con cookie-parser setearemos una cookie en esa llamada, que viajará del browser al servidor para saber si existe o no. Desloguearse será eliminar esa cookie
+app.use(cookieParser());
+// contiene un obj con una propiedad secret que ponemos lo que queramos
+app.use(session.length({ secret: 'heroes' }));
+
+require('./src/config/passport')(app);
 
 // requestHandle, que recibe 3 argumentos (req, res y next) - Hay que invocar el next para ir al siguiente punto de ejecuación
 // con cada petición de la página se ejecuta esto de abajo

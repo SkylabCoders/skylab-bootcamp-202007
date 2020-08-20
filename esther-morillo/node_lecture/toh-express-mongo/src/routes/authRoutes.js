@@ -33,13 +33,14 @@ function router(nav) {
             res.render('auth/signup', { nav }) 
         })
         .post((req, res) => {
-            const newUser = req.body; // lo metemos en una const con nombre sin destructurar { user, email, password } - de esta manera nos da mucha más información porque no le decimos que queremos el user, etc.
+            const newUser = { ...req.body, email: req.body.email.toLowerCase() }; // lo metemos en una const con nombre sin destructurar { user, email, password } - de esta manera nos da mucha más información porque no le decimos que queremos el user, etc.
             // res.json(req.body); // queremos obtener el objeto que nos devuelve - Hay una propiedad ops
+            // metemos destructuring assignment para añadir esa propiedad y que no distinga entre un email escrito en mayúsculas o minúsculas ----> email: req.body.email.toLowerCase()
             
             (async function mongo(){
                 client = await MongoClient.connect(dbUrl)
                 const db = client.db(dbName);
-                const collection = await db.collection(collectionName);
+                const collection = db.collection(collectionName);
 
                 // buscar si el usuario existe en la db
                 // para el findOne necesitamos un filtro y un callback para ese filtro
