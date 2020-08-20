@@ -11,12 +11,14 @@
     <%- include('../header'); -%>
     <h1>Profile </h1>
     <h2><%= user.user%> Profile!</h2>
-    <form action="auth/profile" method="post">
+    <form action="/auth/profile" method="post">
         <div>
             <label for="password">
                 password:
                 <input type="text" name='password' value="<%= user.passwrd%>">
             </label>
+            <button type="submit">Change password</button>
+            <a href="/auth/logout"><button type="button">logout</button></a>
         </div>
     </form>
 </body>

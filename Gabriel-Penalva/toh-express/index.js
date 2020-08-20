@@ -15,7 +15,8 @@ const expressSession = require('express-session');
 const nav = [
     { link: '/', title: 'Dasboard' },
     { link: '/heroes', title: 'myheroes' },
-    { link: '/auth', title: 'Singin' }
+    { link: '/auth', title: 'Singin' },
+    { link: '/auth/profile', title: 'Profile' }
 ];
 
 const app = express();

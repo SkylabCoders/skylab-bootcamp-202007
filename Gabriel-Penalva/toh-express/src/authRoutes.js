@@ -6,10 +6,22 @@ const authRoutes = express.Router();
 
 const dbUrl = 'mongodb://localhost:27017'
 
+const PasswordValidator = require('password-validator');
+
 const { MongoClient } = require('mongodb');
 
 const passport = require('passport');
+const { send } = require('process');
 
+const schema = new PasswordValidator();
+schema
+    .is().min(8)                                    // Minimum length 8
+    .is().max(12)                                  // Maximum length 100
+    .has().uppercase()                              // Must have uppercase letters
+    .has().lowercase()                              // Must have lowercase letters
+    .has().digits(1)                                // Must have at least 2 digits
+    .has().not().spaces()
+    .has().symbols();
 const dbName = 'shieldHeroes';
 const collectionName = 'users';
 let client;
@@ -39,15 +51,18 @@ function router(nav) {
                     const collection = db.collection(collectionName);
                     const user = await collection.findOne({ user: newUser.user });
                     debug(user)
+                    debug(newUser.password)
                     if (user) {
                         res.render('auth/auth-login', { nav })
                     }
-                    else {
+                    else if (schema.validate(newUser.password)) {
 
                         const result = await collection.insertOne(newUser);
                         req.login(result.ops[0], () => {
                             res.redirect('profile');
                         });
+                    } else {
+                        res.send('password Error!')
                     }
                 } catch (error) {
                     debug(error.stack)
@@ -60,10 +75,10 @@ function router(nav) {
             res.render('auth/register', { nav, title: 'Register' })
         });
     authRoutes
-        .route('/singout')
-        .post((req, res) => {
-            res.send('post Sing out')
-            debug(req.body)
+        .route('/logout')
+        .get((req, res) => {
+            req.logout();
+            res.redirect('/');
         });
     authRoutes
         .route('/profile')
@@ -78,6 +93,8 @@ function router(nav) {
             res.render('auth/profile', { nav, user: req.user })
         })
         .post((req, res) => {
+            debug(req.user);
+
             res.render('auth/profile', { nav, user: req.user })
         })
 
