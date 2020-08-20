@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
 
 const authRouter = express.Router();
@@ -17,10 +17,10 @@ function router(nav) {
 			res.render('auth/signin', { nav });
 		})
 		.post(
-            passport.authenticate('local', {
-                successRedirect: '/auth/profile',
-                failureRedirect: '/auth/signin'
-            })
+			passport.authenticate('local', {
+				successRedirect: '/auth/profile',
+				failureRedirect: '/auth/signin'
+			})
 		);
 
 	authRouter
@@ -59,13 +59,18 @@ function router(nav) {
 		});
 
 	authRouter.route('/signout').post((req, res) => {
-		res.render('auth/signout', { nav });
+        if(req.user){
+            req.logout();
+            res.redirect("/auth/signin");
+        }
 	});
 
 	authRouter
 		.route('/profile')
 		.all((req, res, next) => {
 			if (req.user) {
+				debug(req.user);
+
 				next();
 			} else {
 				res.redirect('/auth/signin');
@@ -75,6 +80,26 @@ function router(nav) {
 			res.render('auth/profile', { nav, user: req.user });
 		})
 		.post((req, res) => {
+			
+            const { _id } = req.user;
+            const { newPassword } = req.body;
+         
+            (async function mongo(){
+
+                try{
+
+                    client = await MongoClient.connect(url);
+                    const db = client.db(dbName);
+                    const collection = db.collection(collectionName);
+
+                    await collection.updateOne({ _id: new ObjectID(_id) }, {$set:{password: newPassword}});
+
+                } catch(error){
+                    debug(error.stack)
+                }
+                client.close();
+            }())
+
 			res.send('posttttt wooooooorrrrrkkkkssssssssss');
 		});
 

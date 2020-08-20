@@ -6,6 +6,13 @@ const heroRoutes = express.Router();
 
 function router(nav) {
 	heroRoutes.route('/')
+	.all((req, res, next) => {
+		if (req.user) {
+			next();
+		} else {
+			res.redirect('/auth/signin');
+		}
+	})
 	.post((req, res) => {
 
 		const { heroId, deleteAll, newHero } = req.body;

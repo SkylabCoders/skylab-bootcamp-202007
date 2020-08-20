@@ -51,25 +51,29 @@ app.get('/', (req, res) => {
 	const dbName = 'shieldHeroes';
 	const  collectionName = 'heroes';
 	let client;
-
-	(async function mongo(){
-		try{
-			client = await MongoClient.connect(url);
-
-			const db = client.db(dbName);
-
-			const collection = db.collection(collectionName);
-
-			const heroes = await collection.find().limit(4).toArray();
-
-			res.render('dashboard', {
-				nav, title: 'Top Heroes', dashboardList:heroes
-			})
-			client.close()
-		} catch (error){
-			debug(error.stack)
-		}
-	}())
+	if(req.user){
+		(async function mongo(){
+			try{
+				client = await MongoClient.connect(url);
+	
+				const db = client.db(dbName);
+	
+				const collection = db.collection(collectionName);
+	
+				const heroes = await collection.find().limit(4).toArray();
+	
+				res.render('dashboard', {
+					nav, title: 'Top Heroes', dashboardList:heroes
+				})
+				client.close()
+			} catch (error){
+				debug(error.stack)
+			}
+		}())
+	} else {
+		res.redirect('/auth/signin');
+	}
+	
 });
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav);

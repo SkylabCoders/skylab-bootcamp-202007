@@ -19,10 +19,13 @@
         <div>
             <label for="password">
                 Password:
-                <input type="text" name="password" value="<%= user.password%>"/>
+                <input type="text" name="newPassword" value="<%= user.password%>"/>
             </label>
         </div>
         <button type="submit">Save</button>
+    </form>
+    <form action="/auth/signout" method="POST">
+        <button type="submit" name="signout">Log Out</button>
     </form>
     
 </body>
