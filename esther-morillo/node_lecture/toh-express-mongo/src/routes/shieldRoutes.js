@@ -30,12 +30,12 @@ function router() {
                 debug(response);
                 // sale el json en el navegador
                 res.json(response);
+                client.close();
             } catch (error) {
                 debug(error.stack);
             }
 
             // cerramos conexión
-            client.close();
         })();
 
         // Cuando yo haga npm start saldrá este mensaje en el navegador

@@ -45,7 +45,8 @@ function router(nav) {
 						await collection.deleteMany({});
 						res.redirect('/heroes');
 					} else if (newHero) {
-						const [{id}] = await collection.find().sort({id: -1}).limit(1).toArray();
+						// busca en todos los héroes -find()-, luego ordena de mayor a menor - sort con -1, y cogemos el primero -limit(1)-, luego lo convertimos a un array para que se pueda leer. En la parte izq, el cosnt, desestructuramos el array para coger solo el id, todo lo demás que viene en el objeto no nos interesa.
+						const [ {id} ] = await collection.find().sort( {id: -1} ).limit(1).toArray();
 						await collection.insertOne({
 							name: newHero,
 							id: id + 1
@@ -179,7 +180,7 @@ function router(nav) {
 		.get((req, res) => {
 			res.render('heroDetail', {
 				nav,
-				hero: res.hero
+				hero: res.hero // pasamos las propiedades que hay que pintar en el navegador
 			});
 		});
 
