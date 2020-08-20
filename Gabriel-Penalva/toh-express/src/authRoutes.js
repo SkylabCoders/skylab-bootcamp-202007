@@ -1,10 +1,14 @@
 const express = require('express');
+
 const debug = require('debug')('app:authRoutes');
 
 const authRoutes = express.Router();
+
 const dbUrl = 'mongodb://localhost:27017'
 
 const { MongoClient } = require('mongodb');
+
+const passport = require('passport');
 
 const dbName = 'shieldHeroes';
 const collectionName = 'users';
@@ -13,14 +17,13 @@ let client;
 function router(nav) {
     authRoutes
         .route('/')
-        .post((req, res) => {
-            res.json(req.body)
-            debug(req.body)
-
-        })
+        .post(passport.authenticate('local', {
+            successRedirect: '/auth/profile',
+            failureRedirect: '/auth/register'
+        }))
         .get((req, res) => {
             res.render('auth/auth-login', { nav, title: 'Log-in' })
-        });
+        })
 
     authRoutes
         .route('/register')
@@ -30,18 +33,26 @@ function router(nav) {
                 user: req.body.user.toLowerCase()
             };
             (async function mongo() {
+                try {
+                    client = await MongoClient.connect(dbUrl)
+                    const db = client.db(dbName);
+                    const collection = db.collection(collectionName);
+                    const user = await collection.findOne({ user: newUser.user });
+                    debug(user)
+                    if (user) {
+                        res.render('auth/auth-login', { nav })
+                    }
+                    else {
 
-                client = await MongoClient.connect(dbUrl)
-                const db = client.db(dbName);
-                const collection = await db.collection(collectionName);
-                const user = await collection.findOne({ user: newUser.user });
-                debug(user)
-                if (user) {
-                    res.render('auth/auth-login', { nav })
-                }
-                else {
-                    await collection.insertOne(newUser);
-                    res.render('auth/profile', { nav });
+                        const result = await collection.insertOne(newUser);
+                        req.login(result.ops[0], () => {
+                            res.redirect('profile');
+                        });
+                    }
+                } catch (error) {
+                    debug(error.stack)
+                } finally {
+                    client.close()
                 }
             })();
         })
@@ -53,6 +64,21 @@ function router(nav) {
         .post((req, res) => {
             res.send('post Sing out')
             debug(req.body)
+        });
+    authRoutes
+        .route('/profile')
+        .all((req, res, next) => {
+            if (req.user) {
+                next();
+            } else {
+                res.redirect('/auth')
+            }
+        })
+        .get((req, res) => {
+            res.render('auth/profile', { nav, user: req.user })
+        })
+        .post((req, res) => {
+            res.render('auth/profile', { nav, user: req.user })
         })
 
 

@@ -3,9 +3,10 @@ const path = require('path');
 const chalk = require('chalk');
 const debug = require('debug')('app');
 const morgan = require('morgan');
-
+const cookieParser = require('cookie-parser');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
+const expressSession = require('express-session');
 
 
 
@@ -20,7 +21,9 @@ const nav = [
 const app = express();
 const PORT = process.env.PORT || 4040;
 
-
+app.use(cookieParser());
+app.use(expressSession({ secret: 'heroes' }));
+require('./src/config/passport')(app);
 
 app.use(morgan('tiny'));
 app.use(bodyParser.json());

@@ -8,7 +8,17 @@
 </head>
 
 <body>
-    <h1>Profile works!</h1>
+    <%- include('../header'); -%>
+    <h1>Profile </h1>
+    <h2><%= user.user%> Profile!</h2>
+    <form action="auth/profile" method="post">
+        <div>
+            <label for="password">
+                password:
+                <input type="text" name='password' value="<%= user.passwrd%>">
+            </label>
+        </div>
+    </form>
 </body>
 
 </html>
