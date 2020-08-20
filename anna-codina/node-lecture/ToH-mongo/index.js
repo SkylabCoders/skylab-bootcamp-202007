@@ -1,24 +1,50 @@
 const express = require('express');
 const path = require('path');
+
+/* debug dependeces */
 const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
+
+/* clean body info */
 const bodyParser = require('body-parser');
 
+/* mongo data base */
 const { MongoClient } = require('mongodb');
-const { nav } = require('./heroMock');
 
+/* For auth info */
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
+
+/* Creating navBar dinamic info */
+const nav = [
+	{ link: '/', title: 'Dasboard' },
+	{ link: '/heroes', title: 'Heroes' },
+	{ link: '/auth/signin', title: 'SignIn' }
+];
+
+/* config app ass a server */
 const app = express();
 const port = process.env.PORT || 3001;
 
+/* cofig morgan for more friendly debug */
 app.use(morgan('tiny'));
+
+/* clean body request info cofig wit body parser */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+/* config dependeces of auth */
+app.use(cookieParser());
+app.use(expressSession({ secret: 'heroes' }));
+require('./src/config/passport');
+
+/* config public and views folders */
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
+/* Main page */
 app.get('/', (req, res) => {
 	const url = 'mongodb://localhost:27017';
 	const dbName = 'shieldHeroes';
@@ -43,14 +69,21 @@ app.get('/', (req, res) => {
 	})();
 });
 
+/* create alternative routes */
+
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/heroes', heroRoutes);
 
-const shieldRoutes = require('./src/routes/shieldRoutes');
+const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
 
 app.use('/shield', shieldRoutes);
 
+const authRoutes = require('./src/routes/authRoutes')(nav);
+
+app.use('/auth', authRoutes);
+
+/* display app in port */
 app.listen(port, () =>
 	debug(chalk.red(`Server is running at port `) + chalk.green(port))
 );

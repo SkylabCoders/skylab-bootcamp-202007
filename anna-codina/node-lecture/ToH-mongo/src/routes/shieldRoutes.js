@@ -9,7 +9,7 @@ function router() {
 	shieldRoutes.route('/').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbname = 'shieldHeroes';
-
+		const collectionName = 'heroes';
 		(async function mongo() {
 			let client;
 
@@ -19,7 +19,9 @@ function router() {
 
 				const db = client.db(dbname);
 
-				const response = await db.collection('heroes').insertMany(superHeroes);
+				const response = await db
+					.collection(collectionName)
+					.insertMany(superHeroes);
 				debug(response);
 				res.json(response);
 			} catch (error) {

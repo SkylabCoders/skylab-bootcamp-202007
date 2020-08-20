@@ -28,14 +28,17 @@
                 <span class="badge"><%= hero.id %></span> <%= hero.name %>
             </a>
             <form method="POST" name="deleteForm" action="/heroes">
-                <button type="submit" class="delete" value="<%= hero._id %>" name="deleteId" title="delete hero" ">x</button;>
+                <button type="submit" class="delete" value="<%= hero._id %>" name="deleteId"
+                    title="delete hero">x</button>
             </form>
-                </li>
-                <% }) %>
-            </ul>
-            <form method=" POST" name="deleteForm" action="/heroes">
-                    <button type="submit" class="delete" value="destroy" name="delete" title="delete hero" ">DESTROY THE WORLD</button;>
-            </form>
+        </li>
+        <% }) %>
+    </ul>
+    <form method="POST" name="deleteAllForm" action="/heroes">
+        <button type="submit" class="delete" value="destroy" name="deleteAll" title="delete all heroes">
+            DESTROY THE WORLD
+        </button>
+    </form>
 </body>
 
 </html>

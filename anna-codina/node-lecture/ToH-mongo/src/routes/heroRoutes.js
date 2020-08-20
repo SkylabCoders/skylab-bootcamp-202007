@@ -12,41 +12,29 @@ function router(nav) {
 			const dbName = 'shieldHeroes';
 			const collectionName = 'heroes';
 			let client;
-			const newParams = req.body;
-			if (newParams.newName) {
-				(async function mongo() {
-					try {
-						client = await MongoClient.connect(url);
-						const db = client.db(dbName);
-						const collection = await db.collection(collectionName);
+			const { newName, deleteId, deleteAll } = req.body;
+			(async function mongo() {
+				client = await MongoClient.connect(url);
+				const db = client.db(dbName);
+				const collection = await db.collection(collectionName);
+				try {
+					if (newName) {
 						const lastHero = await collection
 							.find()
 							.sort({ id: -1 })
 							.limit(1)
 							.toArray(); // for MAX
-						const { newName } = newParams;
 						const newId = lastHero[0].id + 1;
-
 						const newHero = { name: newName, id: newId };
 						collection.insertOne(newHero, (error, response) => {
 							if (error) {
 								throw error;
 							}
-							// debug(response);
-							response.redirect('/heroes');
+							debug(response);
+							res.redirect('/heroes');
 						});
-					} catch (error) {
-						debug(error.stack);
-					}
-					client.close();
-				})();
-			} else if (newParams.deleteId) {
-				(async function query() {
-					try {
-						const myQuery = { _id: new ObjectId(newParams.deleteId) };
-						client = await MongoClient.connect(url);
-						const db = client.db(dbName);
-						const collection = await db.collection(collectionName);
+					} else if (deleteId) {
+						const myQuery = { _id: new ObjectId(deleteId) };
 						collection.deleteOne(myQuery, (error, response) => {
 							if (error) {
 								throw error;
@@ -54,25 +42,15 @@ function router(nav) {
 							debug(response);
 							res.redirect('/heroes');
 						});
-					} catch (error) {
-						debug(error.stack);
+					} else if (deleteAll) {
+						await collection.deleteMany({});
+						res.redirect('/heroes');
 					}
-
-					client.close();
-				})();
-			} else {
-				(async function query() {
-					try {
-						client = await MongoClient.connect(url);
-						const db = client.db(dbName);
-						const collection = await db.collection(collectionName);
-						collection.deleteMany({});
-					} catch (error) {
-						debug(error.stack);
-					}
-					client.close();
-				})();
-			}
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
 		})
 		.get((req, res) => {
 			const url = 'mongodb://localhost:27017';
