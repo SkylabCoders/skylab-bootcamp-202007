@@ -1,7 +1,8 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
+const { render } = require('ejs');
 
 const authRoutes = express.Router();
 const dbUrl = 'mongodb://localhost:27017';
@@ -44,7 +45,7 @@ function router(nav) {
 				try {
 					client = await MongoClient.connect(dbUrl);
 					const db = client.db(dbName);
-					const collection = await db.collection(collectionName);
+					const collection = db.collection(collectionName);
 
 					const user = await collection.findOne({ user: newUser.user });
 
@@ -65,13 +66,16 @@ function router(nav) {
 		});
 
 	authRoutes.route('/signout').post((req, res) => {
-		res.send('POST Sign out works');
+		// res.send('POST Sign out works');
+		req.logout();
+		res.redirect('/');
 	});
 
 	authRoutes
 		.route('/profile')
 		.all((req, res, next) => {
 			if (req.user) {
+				debug('hola');
 				next();
 			} else {
 				res.redirect('/auth/signin');
@@ -81,7 +85,25 @@ function router(nav) {
 			res.render('auth/profile', { nav, user: req.user });
 		})
 		.post((req, res) => {
-			res.send('POST profile works');
+			const { _id } = req.user;
+			const { password } = req.body;
+
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(dbUrl);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+
+					await collection.updateOne(
+						{ _id: ObjectID(_id) },
+						{ $set: { password } }
+					);
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+			res.redirect('../');
 		});
 
 	// SIGN IN
