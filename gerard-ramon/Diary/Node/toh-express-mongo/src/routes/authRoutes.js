@@ -13,13 +13,13 @@ function router(nav) {
 	});
 
 	authRoutes
-		.route('/signin').all((req, res, next){
-            if(req.user){
-                res.redirect('/auth/profile')
-            }
-            
-            next()
-        })
+		.route('/signin')
+		.all((req, res, next) => {
+			if (req.user) {
+				res.redirect('/auth/profile');
+			}
+			next();
+		})
 		.post(
 			passport.authenticate('local', {
 				successRedirect: '/auth/profile',
@@ -32,6 +32,12 @@ function router(nav) {
 
 	authRoutes
 		.route('/signup')
+		.all((req, res, next) => {
+			if (req.user) {
+				res.redirect('/auth/profile');
+			}
+			next();
+		})
 		.get((req, res) => {
 			res.render('auth/signUp', {
 				title: 'Sign Up',
