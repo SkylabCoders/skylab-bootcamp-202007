@@ -61,11 +61,22 @@ function router(nav) {
 			})();
 		});
 
-	authRoutes.route('/profile').get((req, res) => {
-		res.render('auth/profile', {
-			nav
+	authRoutes
+		.route('/profile')
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
+		})
+		.get((req, res) => {
+			debug(req.user);
+			res.render('auth/profile', {
+				nav,
+				user: req.user
+			});
 		});
-	});
 
 	authRoutes
 		.route('/logout')

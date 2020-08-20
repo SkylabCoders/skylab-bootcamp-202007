@@ -4,8 +4,20 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Profile</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/hero-detail.css" />
 	</head>
 	<body>
-		<h1>Profile works</h1>
+		<%- include('../header'); -%>
+		<h2><%= user.userName.toUpperCase()%> Profile!</h2>
+		<form action="/auth/profile" method="POST">
+			<div>
+				<label for="password"
+					>Password:
+					<input type="password" name="password" value="<%= user.password %>" />
+				</label>
+			</div>
+			<button type="submit">Save</button>
+		</form>
 	</body>
 </html>
