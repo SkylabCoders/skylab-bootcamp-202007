@@ -14,6 +14,7 @@
     <form action="/auth/profile" method="post">
         <div>
             <label for="password">
+                <input type="hidden" name="user" value="<%=user.user%>">
                 password:
                 <input type="text" name='password' value="<%= user.passwrd%>">
             </label>

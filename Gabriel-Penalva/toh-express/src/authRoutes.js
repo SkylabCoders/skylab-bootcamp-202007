@@ -11,7 +11,6 @@ const PasswordValidator = require('password-validator');
 const { MongoClient } = require('mongodb');
 
 const passport = require('passport');
-const { send } = require('process');
 
 const schema = new PasswordValidator();
 schema
@@ -62,7 +61,8 @@ function router(nav) {
                             res.redirect('profile');
                         });
                     } else {
-                        res.send('password Error!')
+
+                        res.redirect('register')
                     }
                 } catch (error) {
                     debug(error.stack)
@@ -93,42 +93,64 @@ function router(nav) {
             res.render('auth/profile', { nav, user: req.user })
         })
         .post((req, res) => {
-            debug(req.user);
+            const newPass = req.body;
+            debug(newPass);
+            (async function mongo() {
+                try {
+                    client = await MongoClient.connect(dbUrl)
+                    const db = client.db(dbName);
+                    const collection = db.collection(collectionName);
 
-            res.render('auth/profile', { nav, user: req.user })
+                    debug(newPass.password);
+                    if (schema.validate(newPass.password)) {
+                        await collection.updateOne({ user: newPass.user }, { $set: { password: newPass.password } }, function (err, res) {
+                            if (err) throw err;
+                        }
+                        )
+                        res.redirect('profile');
+                    } else {
+
+                        res.send('cannot update pass, doesnt acomplish with password requeriments')
+                    }
+                } catch (error) {
+                    debug(error.stack)
+                } finally {
+                    client.close()
+                }
+            })();
         })
 
 
     /**
-	 * GET signin
-	 * Mostrar un formulario con dos controles (user/password)
-	 *
-	 * POST signin
-	 * Comprobar que el uuario y el password existen en la DDBB juntos
-	 * SI existe, redirecciono a profile
-	 * NO existe, respondo con información que mejore la UX
-	 *
-	 *
-	 * GET signup
-	 * Mostrar un formulario con dos controles (user/password)
-	 *
-	 * POST signup
-	 * Insertar los datos en la base de datos
-	 * SI inserta, redirecciono a profile
-	 * NO inserta, respondo con información que mejore la UX
-	 *
+     * GET signin
+     * Mostrar un formulario con dos controles (user/password)
+     *
+     * POST signin
+     * Comprobar que el uuario y el password existen en la DDBB juntos
+     * SI existe, redirecciono a profile
+     * NO existe, respondo con información que mejore la UX
+     *
+     *
+     * GET signup
+     * Mostrar un formulario con dos controles (user/password)
+     *
+     * POST signup
+     * Insertar los datos en la base de datos
+     * SI inserta, redirecciono a profile
+     * NO inserta, respondo con información que mejore la UX
+     *
      * POST signout
      * Limpio toda la información de autenticación de usuario
      * y redireciono a la raiz ('/')
-	 *
-	 * GET profile
-	 * Mostrar la información del perfile de usuario
-	 *
-	 * POST profile
-	 * Insertar los datos en la base de datos
-	 * SI inserta, redirecciono a profile
-	 * NO inserta, respondo con información que mejore la UX
-	 */
+     *
+     * GET profile
+     * Mostrar la información del perfile de usuario
+     *
+     * POST profile
+     * Insertar los datos en la base de datos
+     * SI inserta, redirecciono a profile
+     * NO inserta, respondo con información que mejore la UX
+     */
 
     return authRoutes
 }
