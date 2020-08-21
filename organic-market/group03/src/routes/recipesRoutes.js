@@ -12,29 +12,29 @@ function router(nav) {
 			// mongodb
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organicMarket';
+			const collectionName = 'recipes';
 			let client;
 
 			(async function query() {
 				try {
 					client = await MongoClient.connect(url);
-					debug('Connection stablished...');
 
 					const db = client.db(dbName);
 
-					const collection = await db.collection('recipes');
+					const collection = await db.collection(collectionName);
 
-					req.recipes = await collection.find().toArray();
+					const recipe = await collection.find().toArray();
+
+					res.render('list', {
+						nav,
+						title: 'recipes',
+						recipes: recipe
+					});
 				} catch (error) {
 					debug(error.stack);
 				}
 				client.close();
 			})();
-			console.log(req.recipes);
-			res.render('list', {
-				nav,
-				title: 'recipes',
-				recipes: req.recipes
-			});
 		})
 		.post((req, res) => {
 			const { deletedRecipe } = req.body;
