@@ -15,7 +15,7 @@ const nav = [
 	{ link: '/', title: 'Home' },
 	{ link: '/list', title: 'Recipies' },
 	{ link: '/detail', title: 'Details' },
-	{ link: '/signin', title: 'SignIn' }
+	{ link: '/auth/signin', title: 'SignIn' }
 ];
 
 app.use(morgan('tiny'));
