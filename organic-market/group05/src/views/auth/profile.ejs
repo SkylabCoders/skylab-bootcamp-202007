@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Profile</title>
+		<link rel="stylesheet" href="../css/index.css" />
+	</head>
+	<body>
+		<h2><%=user.user.toUpperCase()%> profile</h2>
+
+		<form action="/auth/profile" method="POST">
+			<div>
+				<label for="user">
+					User:
+					<input type="text" name="user" />
+				</label>
+			</div>
+			<div>
+				<label for="password">
+					Password:
+					<input type="text" name="password" />
+				</label>
+			</div>
+			<button type="submit">SignIn</button>
+		</form>
+		<form action="/auth/logOut" method="GET">
+			<button type="submit">LogOut</button>
+		</form>
+	</body>
+</html>
