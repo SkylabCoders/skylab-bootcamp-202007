@@ -15,7 +15,7 @@ const nav = [
 	{ link: '/', title: 'Home' },
 	{ link: '/list', title: 'Recipies' },
 	{ link: '/detail', title: 'Details' },
-	{ link: '/signin', title: 'SignIn' }
+	{ link: '/auth/signin', title: 'SignIn' }
 ];
 
 app.use(morgan('tiny'));
@@ -30,9 +30,6 @@ require('./src/config/passport')(app);
 app.use(express.static(path.join(__dirname, '/public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-
-const recipesRoutes = require('./src/routes/recipesRoutes')(nav);
-app.use('/list', recipesRoutes);
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
