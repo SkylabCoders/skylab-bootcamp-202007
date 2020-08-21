@@ -2,21 +2,19 @@
 
 <form action="/products/create" method="POST" name="addProductFromListForm">
 	<label for="createHeroWithName">Hero name:</label>
-	<input type="text" value="" name="createProductWithName"
-		placeholder="Your Hero"></input>
-	<button type="submit" title="add product" name="productName"
-		value="">add</button>
+	<input type="text" value="" name="createProductWithName" placeholder="Your Hero"></input>
+	<button type="submit" title="add product" name="productName" value="">add</button>
 </form>
 
 <ul class="heroes">
 	<% for(let i= 0; i< products.length; i++) { %>
 	<li>
 		<a href="<%=ROUTES.product.path%><%=products[i].slug%>">
-			<span class="badge"><%= products[i].id %></span> <%= products[i].name %>
+			<span class="badge"><%= products[i].price %></span> <%= products[i].title %>
 		</a>
 		<form action="" method="POST" name="deleteProductFromList">
-			<button type="submit" class="delete" title="delete product"
-				name="productSlug" value="<%=products[i].slug%>">x</button>
+			<button type="submit" class="delete" title="delete product" name="productSlug"
+				value="<%=products[i].slug%>">x</button>
 		</form>
 	</li>
 	<% } %>

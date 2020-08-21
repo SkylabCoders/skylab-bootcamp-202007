@@ -41,7 +41,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const colection = db.collection(DATABASE_CONFIG.heroCollection);
+					const colection = db.collection(DATABASE_CONFIG.productCollection);
 					const heroes = await colection.find().sort({ name: 1 }).toArray();
 
 					res.render('index', {
@@ -75,7 +75,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.heroCollection);
+					const collection = db.collection(DATABASE_CONFIG.productCollection);
 					const objectWithGreatestId = await collection.find().sort({ id: -1 }).limit(1).toArray();
 					const newId = objectWithGreatestId[0].id + 1;
 					const { createHeroWithName } = req.body;
@@ -104,18 +104,18 @@ function router(nav) {
 		});
 
 	productRoutes
-		.route('/:heroSlug')
+		.route('/:productId')
 		.all((req, res, next) => {
 			if (req.user) {
-				const { heroSlug } = req.params;
-				(async function getHero() {
+				const { productId } = req.params;
+				(async function getProduct() {
 					let client;
 					try {
 						client = await MongoClient.connect(DATABASE_CONFIG.url);
 						debug('Connection to db established...');
 						const db = client.db(DATABASE_CONFIG.dbName);
-						const collection = db.collection(DATABASE_CONFIG.heroCollection);
-						res.hero = await collection.findOne({ slug: heroSlug });
+						const collection = db.collection(DATABASE_CONFIG.productCollection);
+						res.hero = await collection.findOne({ _id: productId });
 						debug(res.hero);
 						next();
 					} catch (error) {
@@ -131,15 +131,15 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const updateQuery = { $set: req.body };
-			const { heroSlug } = req.params;
-			const filter = { slug: heroSlug };
+			const { productId } = req.params;
+			const filter = { _id: productId };
 			let client;
 			(async function editHero() {
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.heroCollection);
+					const collection = db.collection(DATABASE_CONFIG.productCollection);
 					collection.updateOne(filter, updateQuery, (error, response) => {
 						if (error) { throw error }
 						debug(response);
