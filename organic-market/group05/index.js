@@ -40,12 +40,15 @@ app.get('/', (req, res) => {
 		try {
 			client = await MongoClient.connect(url);
 			debug('Connection for home works');
+			const db = client.db(dbName);
+			const collection = db.collection(collectionName);
+			const query = { rating: 5 };
+			const products = await collection.find({ rating: 5 }).toArray();
+			res.render('home', { nav, title: 'Home', products });
 		} catch (error) {
 			debug(error.stack);
 		}
 	})();
-
-	res.render('home', { nav });
 });
 
 const mongoRoutes = require('./src/routes/mongoRoutes');

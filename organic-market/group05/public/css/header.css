@@ -8,3 +8,20 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.home-container {
+	margin: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.featured {
+	border: 1px solid red;
+	height: 50px;
+	width: 400px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
