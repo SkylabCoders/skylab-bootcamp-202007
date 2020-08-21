@@ -30,7 +30,6 @@ function router(nav) {
 				password: req.body.password,
 				user: req.body.user.toLowerCase()
 			};
-
 			(async () => {
 				try {
 					client = await MongoClient.connect(DBurl);
@@ -41,6 +40,7 @@ function router(nav) {
 					if (user) res.redirect('/auth/signin');
 					else {
 						const result = await collection.insertOne(newUser);
+						/* Aquest login no funciona */
 						req.login(result.ops[0], () => res.redirect('/auth/profile'));
 					}
 				} catch (err) {
@@ -60,7 +60,7 @@ function router(nav) {
 	authRoutes
 		.route('/profile')
 		.all((req, res, next) => {
-			debug(req.user);
+			debug(`Aixo sempre es: ${req.user}`);
 			if (req.user) next();
 			else res.redirect('/auth/signin');
 		})

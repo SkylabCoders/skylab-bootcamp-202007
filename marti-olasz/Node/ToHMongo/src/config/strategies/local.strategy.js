@@ -3,7 +3,7 @@ const { Strategy } = require('passport-local');
 const { MongoClient } = require('mongodb');
 const debug = require('debug')('app:local.strategy');
 
-module.exports = () => {
+function localStrategy() {
 	passport.use(
 		new Strategy(
 			{
@@ -22,8 +22,13 @@ module.exports = () => {
 						const db = client.db(dbName);
 						const collection = db.collection(collectionName);
 						const user = await collection.findOne({ user: username });
-						if (user && user.password === password) done(null, user);
-						else done(null, false);
+						debug("Aqui perdo el fil de l'user", user);
+						/* Aqui perdo el fil de l'user */
+						if (user && user.password === password) {
+							done(null, user);
+						} else {
+							done(null, false);
+						}
 					} catch (err) {
 						debug(err.stack);
 					}
@@ -33,4 +38,6 @@ module.exports = () => {
 			}
 		)
 	);
-};
+}
+
+module.exports = localStrategy;
