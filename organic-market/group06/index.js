@@ -36,7 +36,7 @@ const dbRoutes = require('./src/routes/dbRoutes')(nav);
 app.use('/db', dbRoutes);
 
 const appRoute = require('./src/routes/appRoute')(nav);
-app.use('/', appRoute);
+app.use('/user', appRoute);
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 app.use('/auth', authRoutes);

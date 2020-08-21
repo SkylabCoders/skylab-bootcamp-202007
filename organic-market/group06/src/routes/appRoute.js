@@ -1,36 +1,35 @@
 const express = require('express');
-const debug = require('debug')('app:appRoutes');
+const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
+const MONGO = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
 
 function router(nav) {
-	appRoute.route('/').get((res, req) => {
-		res.send('IT WORKS');
-	});
-
-	appRoute.route('/cart').get((res, req) => {
-		const { _id } = req.user;
-		(async function mongo() {
-			const client = MongoClient.connect(MONGO.url);
-			const db = client.db(MONGO.dbName);
-			const collection = db.collection(MONGO.usersCollection);
-
-			//const user = collection.find({ _id: new ObjectID(_id) });
-
-			const cart = [
-				{ _id: '5f3fc61e9a183552ccc8772d', quantity: 3 },
-				'5f3fc61e9a183552ccc87729',
-				'5f3fc61e9a183552ccc87727'
-			];
-
-			res.render('cart', {
-				cart,
-				nav,
-				title: ''
-			});
-		})();
-	});
+	appRoute
+		.route('/:productId')
+		.all((req, res, next) => {
+			let client;
+			const id = req.params.productId;
+			(async function query() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					debug('Connection stablished...');
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.itemsCollection);
+					const item = await collection.find({ _id: new ObjectID(id) }).toArray;
+					[res.item] = item;
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+			next();
+		})
+		.get((req, res) => {
+			res.send('hi im details');
+			// res.render('detail', { nav, item: res.item });
+		});
 
 	return appRoute;
 }
