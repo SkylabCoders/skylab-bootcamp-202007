@@ -34,6 +34,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
+
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 
 					const products = await colection.find().sort({ name: 1 }).toArray();
@@ -100,28 +101,25 @@ function router(nav) {
 	productRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
-			if (req.user) {
-				const { productId } = req.params;
-				(async function getProduct() {
-					let client;
-					try {
-						client = await MongoClient.connect(DATABASE_CONFIG.url);
-						debug('Connection to db established...');
-						const db = client.db(DATABASE_CONFIG.dbName);
-						const collection = db.collection(DATABASE_CONFIG.productCollection);
-						res.hero = await collection.findOne({ _id: productId });
-						debug(res.hero);
-						next();
-					} catch (error) {
-						debug(error.stack);
-					}
-					debug('Connection to db closed.');
-					client.close();
-				})();
-				next();
-			} else {
-				res.redirect(ROUTES.signin.path);
-			}
+			const { productId } = req.params;
+			console.log(req.params);
+			(async function getProduct() {
+				let client;
+				try {
+					client = await MongoClient.connect(DATABASE_CONFIG.url);
+					debug('Connection to db established...');
+					const db = client.db(DATABASE_CONFIG.dbName);
+					const collection = db.collection(DATABASE_CONFIG.productCollection);
+					res.product = await collection.findOne({ _id: new ObjectID(req.params.productId) });
+					console.log('aqui res.product', await res.product)
+					debug(res.product);
+					next();
+				} catch (error) {
+					debug(error.stack);
+				}
+				debug('Connection to db closed.');
+				client.close();
+			})();
 		})
 		.post((req, res) => {
 			const updateQuery = { $set: req.body };
@@ -137,7 +135,7 @@ function router(nav) {
 					collection.updateOne(filter, updateQuery, (error, response) => {
 						if (error) { throw error }
 						debug(response);
-						res.redirect(ROUTES.heroes.path);
+						res.redirect(ROUTES.products.path);
 					});
 					debug(req.body);
 				} catch (error) {
@@ -150,9 +148,9 @@ function router(nav) {
 		.get((req, res) => {
 			res.render('index', {
 				nav,
-				body: ROUTES.hero.page,
-				title: ROUTES.hero.title,
-				hero: res.hero,
+				body: ROUTES.product.page,
+				title: ROUTES.product.title,
+				product: res.product,
 				ROUTES
 			});
 		});
