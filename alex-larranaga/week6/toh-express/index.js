@@ -1,6 +1,9 @@
 const express = require('express');
 const debug = require('debug')('app');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+const session = require('express-session');
 
 const path = require('path');
 const morgan = require('morgan');
@@ -23,10 +26,15 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(cookieParser());
+app.use(session({ secret: 'heroes' })); //WE NEED TO DEFINE A SECRET AND PASS IT HERE.CAN BE WHATEVER WE WANT
+require('./src/config/passport')(app);
+
 const nav = [
 	{ link: '/', title: 'Dashboard' },
 	{ link: '/heroes', title: 'Heroes' },
 	{ link: '/auth/signof', title: 'SignOff' },
+	{ link: '/auth/signup', title: 'SignUp' },
 	{ link: '/auth/signin', title: 'SignIn' }
 ];
 
@@ -46,6 +54,7 @@ app.get('/', (req, res) => {
 				title: 'My Heroes',
 				heroes
 			});
+			client.close();
 		} catch (error) {
 			debug(error.stack);
 		}

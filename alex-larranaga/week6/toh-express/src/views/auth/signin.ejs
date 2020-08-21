@@ -21,12 +21,12 @@
         <br />
         <label for="password">
             Password:
-            <input type="password" name="password" />
+            <input type="password" name="password" required pattern="^.{8,12}$" />
         </label>
         <br />
         <br />
         <button type="submit">SignIn</button>
-        <p> <%= userNotExist && userNotExist %></p>
+        <p></p>
     </form>
 </body>
 

@@ -1,19 +1,24 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
 const { MongoClient } = require('mongodb');
+const passport = require('passport');
 
 // NOS INSTALAMOS PAQUETES PASSPORT, COOKIE-PARSER, Y EXPRESS-SESSION
 const authRoutes = express.Router();
 const userNotExist = 'User does not exist';
 
-function onSigninSuccess(req, res, user, url) {}
-
 function router(nav) {
 	authRoutes
 		.route('/signin')
 		.get((req, res) => {
-			res.render('./auth/signin', { nav });
+			res.render('/auth/signin', { nav });
 		})
+		.post(
+			passport.authenticate('local', {
+				successRedirect: '/profile',
+				failureRedirect: '/signin'
+			})
+		)
 		.post((req, res) => {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'heroes';
@@ -59,21 +64,32 @@ function router(nav) {
 					debug('Connection established...');
 					const db = await client.db(dbName);
 					const collection = await db.collection('users');
-					const userExist = await collection.findOne(newUser); //CHECK FOR BOTH USER & PASSWORD
-					if (!userExist) {
-						await collection.insertOne(newUser);
-						res.redirect('/heroes');
+					const userExist = await collection.findOne(newUser);
+					if (userExist) {
+						res.redirect('/auth/signin');
 					} else {
-						res.render('/auth/signin', { userNotExist });
+						const result = await collection.insertOne(newUser);
+						req.login(result.ops[0], () => {
+							res.redirect('/auth/profile');
+						});
 					}
 				} catch (error) {
 					debug(error.stack);
 				}
 			})();
 		});
-	authRoutes.route('/profile').get((req, res) => {
-		res.send('PROFILE WORKS!');
-	});
+	authRoutes
+		.route('/profile')
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
+		})
+		.get((req, res) => {
+			res.render('/auth/profile', { nav, user: req.user });
+		});
 	return authRoutes;
 }
 
