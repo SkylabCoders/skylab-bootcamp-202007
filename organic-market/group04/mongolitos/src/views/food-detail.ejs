@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/food-detail.css" />
+	</head>
+
+	<body>
+		<%- include('header')%>
+		<div class="container">
+			<div class="item__container">
+				<h2><%=product && product.title%> details!</h2>
+				<div><span class="item__title">type: </span><%= product.type %></div>
+				<div><span class="item__title">description: </span><%= product.description %></div>
+				<div><span class="item__title">price: </span><%= product.price %></div>
+				<div><span class="item__title">rating: </span><%= product.rating %></div>
+			</div>
+		</div>
+	</body>
+</html>

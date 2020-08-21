@@ -88,13 +88,13 @@ app
 });
 
 
-/*const heroRoutes = require('./src/routes/heroRoutes')(nav);
+const foodRoutes = require('./src/routes/foodRoutes')(nav);
 
-app.use('/products', productsRoutes);
+app.use('/products', foodRoutes);
 
 const insertRoutes = require('./src/routes/insertRoutes')();
 
-app.use('/insertProducts', insertRoutes); */
+app.use('/insertProducts', insertRoutes);
 
 
 

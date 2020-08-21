@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container{
+    border: solid 1px blue;
+    margin: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+}
+
+.item__container{
+    width: 100%;
+}
+
+.item__title{
+    font-weight: bold;
+}
+
+h2{
+    margin-bottom: 10px;
+}
+
+@media (min-width: 666px){
+    .item__container{
+        width: 40%;
+    }
+}
+
+@media (min-width: 1024px){
+    .item__container{
+        width: 20%;
+    }
+}
