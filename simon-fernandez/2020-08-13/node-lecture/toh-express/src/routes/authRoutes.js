@@ -10,6 +10,13 @@ const dbName = 'shieldHeroes';
 function router(nav) {
 	authRouter
 		.route('/signin')
+		.all((req, res, next) => {
+			if (!req.user) {
+				next();
+			} else {
+				res.redirect('/auth/profile');
+			}
+		})
 		.get((req, res) => {
 			res.render('auth/signin', { nav });
 		})
@@ -25,6 +32,13 @@ function router(nav) {
 	});
 	authRouter
 		.route('/signup')
+		.all((req, res, next) => {
+			if (!req.user) {
+				next();
+			} else {
+				res.redirect('/auth/profile');
+			}
+		})
 		.get((req, res) => {
 			res.render('auth/signup', { nav });
 		})
@@ -69,7 +83,23 @@ function router(nav) {
 			res.render('auth/profile', { nav, user: req.user });
 		})
 		.post((req, res) => {
-			res.red('profile post works');
+			const { password } = req.body;
+
+			let client;
+			(async function query() {
+				try {
+					client = await MongoClient.connect(url);
+					debug('Connection established...');
+
+					const db = client.db(dbName);
+
+					const collection = await db.collection('user');
+					//no modifica la base de datos correctamente
+					collection.updateOne({ name: req.user.user }, { $set: { password } });
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
 		});
 
 	return authRouter;
