@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 });
 
 const recipesRoutes = require('./src/routes/recipesRoutes');
-app.use('/recipes', recipesRoutes);
+app.use('/list', recipesRoutes);
 
 const dbRoutes = require('./src/routes/dbRoutes.js')();
 app.use('/db', dbRoutes);
