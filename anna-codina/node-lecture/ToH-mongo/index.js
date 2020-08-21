@@ -21,7 +21,8 @@ const nav = [
 	{ link: '/', title: 'Dasboard' },
 	{ link: '/heroes', title: 'Heroes' },
 	{ link: '/auth/signin', title: 'SignIn' },
-	{ link: '/auth/profile', title: 'Profile' }
+	{ link: '/auth/profile', title: 'Profile' },
+	{ link: '/auth/signout', title: 'SignOut' }
 ];
 
 /* config app ass a server */

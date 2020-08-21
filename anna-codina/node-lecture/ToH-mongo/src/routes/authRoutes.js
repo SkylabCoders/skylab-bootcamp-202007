@@ -8,6 +8,7 @@ const dbName = 'shieldHeroes';
 const collectionName = 'users';
 const DBurl = 'mongodb://localhost:27017';
 let client = null;
+let errorMessage = '';
 function router(nav) {
 	authRoutes
 		.route('/signin')
@@ -23,37 +24,46 @@ function router(nav) {
 	authRoutes
 		.route('/signup')
 		.get((req, res) => {
-			res.render('auth/signup', { title: 'Signup', nav });
+			res.render('auth/signup', { title: 'Signup', nav, errorMessage });
 		})
 		.post((req, res) => {
 			const newUser = {
-				...req.body,
-				user: req.body.user.toLowerCase()
+				// ...req.body,
+				user: req.body.user.toLowerCase(),
+				password: req.body.password
 			};
-			(async () => {
-				try {
-					client = await MongoClient.connect(DBurl);
-					const db = client.db(dbName);
-					const collection = await db.collection(collectionName);
 
-					const user = await collection.findOne({ user: newUser.user });
+			if (newUser.password === req.body.confirmPassword) {
+				(async () => {
+					try {
+						client = await MongoClient.connect(DBurl);
+						const db = client.db(dbName);
+						const collection = await db.collection(collectionName);
 
-					if (user) {
-						res.redirect('/auth/signin');
-					} else {
-						const result = await collection.insertOne(newUser);
-						req.login(result.ops[0], () => {
-							res.redirect('/auth/profile');
-						});
+						const user = await collection.findOne({ user: newUser.user });
+
+						if (user) {
+							res.redirect('/auth/signin');
+						} else {
+							const result = await collection.insertOne(newUser);
+							req.login(result.ops[0], () => {
+								res.redirect('/auth/profile');
+							});
+						}
+					} catch (error) {
+						debug(error.stack);
 					}
-				} catch (error) {
-					debug(error.stack);
-				}
-				client.close();
-			})();
+					client.close();
+				})();
+			} else {
+				errorMessage = `Your paswords don't match`;
+				res.render('auth/signup', { title: 'Signup', nav, errorMessage });
+				errorMessage = '';
+			}
 		});
-	authRoutes.route('/signout').post((req, res) => {
-		res.send('POST works!');
+	authRoutes.route('/signout').get((req, res) => {
+		req.logout();
+		res.redirect('/auth/signin');
 	});
 	authRoutes
 		.route('/profile')
@@ -65,10 +75,30 @@ function router(nav) {
 			}
 		})
 		.get((req, res) => {
-			res.render('auth/profile', { nav, user: req.user });
+			res.render('auth/profile', { nav, user: req.user, errorMessage });
 		})
 		.post((req, res) => {
-			res.send('POST works!');
+			const { password, confirmPassword } = req.body;
+			if (password === confirmPassword) {
+				(async function query() {
+					try {
+						client = await MongoClient.connect(DBurl);
+						const db = client.db(dbName);
+						const collection = await db.collection('user');
+						collection.updateOne(
+							{ user: req.user.user },
+							{ $set: { password } }
+						);
+					} catch (error) {
+						debug(error.stack);
+					}
+					client.close();
+				})();
+			} else {
+				errorMessage = `Your passwords don't match`;
+				res.render('auth/profile', { nav, user: req.user, errorMessage });
+				errorMessage = '';
+			}
 		});
 	return authRoutes;
 }
