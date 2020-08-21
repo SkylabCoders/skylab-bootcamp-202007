@@ -5,18 +5,11 @@ const path = require('path');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
 
-const productRoutes = express.Router();
+const chartRoutes = express.Router();
 
 function router(nav) {
-	productRoutes
+	chartRoutes
 		.route('/')
-		.all((req, res, next) => {
-			if (req.user) {
-				next();
-			} else {
-				res.redirect(ROUTES.signin.path);
-			}
-		})
 		.post((req, res) => {
 			(async function deleteProductFromList() {
 				let client;
@@ -59,7 +52,7 @@ function router(nav) {
 			})();
 		});
 
-	productRoutes
+	chartRoutes
 		.route('/create')
 		.all((req, res, next) => {
 			if (req.user) {
@@ -103,7 +96,7 @@ function router(nav) {
 			});
 		});
 
-	productRoutes
+	chartRoutes
 		.route('/:heroSlug')
 		.all((req, res, next) => {
 			if (req.user) {
@@ -163,7 +156,7 @@ function router(nav) {
 			});
 		});
 
-	return productRoutes;
+	return chartRoutes;
 }
 
 module.exports = router;
