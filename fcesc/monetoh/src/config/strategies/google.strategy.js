@@ -1,11 +1,11 @@
-var passport = require('passport');
+const passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+//const { MongoClient } = require('mongodb');
+//const DATABASE_CONFIG = require('../../database/DATABASE_CONFIG');
+const debug = require('debug')('app:google.strategy');
 
-// Use the GoogleStrategy within Passport.
-//   Strategies in Passport require a `verify` function, which accept
-//   credentials (in this case, an accessToken, refreshToken, and Google
-//   profile), and invoke a callback with a user object.
-passport.use(new GoogleStrategy({
+function googleStrategy(){ 
+  passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
     callbackURL: "http://www.example.com/auth/google/callback"
@@ -14,5 +14,7 @@ passport.use(new GoogleStrategy({
        User.findOrCreate({ googleId: profile.id }, function (err, user) {
          return done(err, user);
        });
-  }
-));
+  }));
+}
+
+module.exports = googleStrategy;
