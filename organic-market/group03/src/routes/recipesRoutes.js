@@ -72,7 +72,6 @@ function router(nav) {
 					debug(error.stack);
 				}
 			})();
-			x;
 		});
 	recipesRouter.route('/detail/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
