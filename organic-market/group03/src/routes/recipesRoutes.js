@@ -73,12 +73,11 @@ function router(nav) {
 				}
 			})();
 		});
-	recipesRouter.route('/detail/:title').get((req, res) => {
+	recipesRouter.route('/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
 		let client;
-		/* const { title } = req.params; */
-		const title = 'Brown eggs';
+		const { title } = req.params;
 		const fileName = '0.jpg';
 		(async function query() {
 			try {
