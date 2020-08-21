@@ -3,3 +3,5 @@ const MONGO = {
 	dbName: 'skylab-market',
 	usersCollection: 'users'
 };
+
+module.exports = MONGO;
