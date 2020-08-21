@@ -14,6 +14,10 @@
 			<button type="submit" class="delete" title="delete product"
 				name="deleteProduct" value="<%=products[i]._id%>">x</button>
 		</form>
+		<form action="" method="POST" name="addToCart">
+			<button type="submit" class="delete" title="add product"
+				name="addToCart" value="<%=products[i]._id%>">Add to Cart</button>
+		</form>
 	</li>
 	<% } %>
 
