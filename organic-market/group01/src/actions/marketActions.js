@@ -10,12 +10,12 @@ console.log(DBCONF);
 
 module.exports = function getAllProducts(){
     (async function mongo() {
-        const allProducts;
+        const allProducts
         try {
             const client = await MongoClient.connect(DBCONF.url);
             const db = client.db(DBCONF.dbName);
-            const collection = await db.collection(DBCONF.marketCall);
-             allProducts = await collection.find({});
+            const collection = await db.collection(DBCONF.marketColl);
+            allProducts = await collection.find({});
             
         } catch (error) {
             debug(error.stack)
