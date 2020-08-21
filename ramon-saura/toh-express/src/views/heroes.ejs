@@ -30,7 +30,7 @@
 							<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
 						</a>
 						<form action="/heroes" method="POST">
-							<button type="submit"  values="<%= heroes[i]._id %>" name="heroId" class="delete" title="delete hero">
+							<button type="submit"  value="<%= heroes[i]._id %>" name="heroId" class="delete" title="delete hero">
 								x
 							</button>
 						</form>	

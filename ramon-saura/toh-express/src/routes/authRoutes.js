@@ -34,6 +34,15 @@ function router(nav) {
 		);
 	authRoutes
 		.route('/signup')
+		.all((req, res, next) => {
+			const { password } = req.body;
+			const { valPassword } = req.body;
+			if (password === valPassword) {
+				next();
+			} else {
+				res.redirect('/auth');
+			}
+		})
 		.get((req, res) => {
 			res.render('signup', { nav });
 		})

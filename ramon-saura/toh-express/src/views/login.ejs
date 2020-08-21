@@ -14,7 +14,7 @@
 			<div>
 				<label for="user">
 					User name:
-					<input name="user" placeholder="Insert user name" />
+					<input name="user" placeholder="Insert user name" required />
 				</label>
 			</div>
 			<div>
@@ -23,7 +23,10 @@
 					<input
 						type="password"
 						name="password"
-						placeholder="Insert password"
+						required
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$"
+						placeholder="Insert
+					password"
 					/>
 				</label>
 			</div>

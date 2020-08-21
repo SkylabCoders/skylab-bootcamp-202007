@@ -31,11 +31,11 @@ function router(nav) {
 							if (error) {
 								throw error;
 							}
-							res.redirect('/');
+							res.redirect('/heroes');
 						});
 					} else if (deleteAll) {
 						await collection.deleteMany({});
-						res.redirect('/');
+						res.redirect('/heroes');
 					} else if (newHero) {
 						const [{ id }] = await collection
 							.find()
@@ -43,6 +43,7 @@ function router(nav) {
 							.limit(1)
 							.toArray();
 						await collection.insertOne({ id: id + 1, name: newHero });
+						res.redirect('/heroes');
 					} else {
 						debug('something Hapend');
 					}
@@ -70,7 +71,7 @@ function router(nav) {
 					res.render('heroes', {
 						nav,
 						title: 'My Heros',
-						heroes: heroes.slice(0, 10)
+						heroes
 					});
 				} catch (error) {
 					debug(error.stack);
