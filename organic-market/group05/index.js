@@ -16,6 +16,13 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const nav = [
+	{ link: '/', title: 'Home' },
+	{ link: '/products', title: 'Products' },
+	{ link: '/auth/profile', title: 'My profile' },
+	{ link: '/auth/login', title: 'Login' }
+];
+
 app.use((req, res, next) => {
 	debug('Organic Market works');
 	next();
@@ -25,7 +32,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.send('Organic dashboard');
+	res.render('Organic dashboard');
 });
 
 const productsRoutes = require('./src/routes/productsRoutes');
