@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/styles.css" />
+		<link rel="stylesheet" href="../css/details.css" />
+		<title>Skylab Directory</title>
+	</head>
+	<body>
+		<%- include('header') -%>
+		<div>
+			<h2>
+				<%=skylaber && skylaber.name %> <%= skylaber && skylaber.lastName %>
+				Details
+			</h2>
+			<div><span class="data">id: </span><%=skylaber && skylaber.id%></div>
+			<div>
+				<label
+					>Name:
+					<input placeholder="name" value="<%=skylaber.name%>" />
+				</label>
+			</div>
+			<div><span class="data">Age: </span><%=skylaber && skylaber.age%></div>
+			<div>
+				<span class="data">Likes Pets?: </span><%=skylaber &&
+				skylaber.likesPets%>
+			</div>
+			<div><span class="data">City: </span><%=skylaber && skylaber.city%></div>
+			<div>
+				<span class="data">Country: </span><%=skylaber && skylaber.country%>
+			</div>
+			<div>
+				<span class="data">Birth: </span><%=skylaber && skylaber.birthDate%>
+			</div>
+			<div><span class="data">Bank: </span><%=skylaber && skylaber.bank%></div>
+			<div>
+				<span class="data">Gender: </span><%=skylaber && skylaber.gender%>
+			</div>
+
+			<button>go back</button>
+			<button>save</button>
+		</div>
+	</body>
+</html>
