@@ -4,16 +4,11 @@ const chalk = require('chalk');
 const morgan = require('morgan');
 const path = require('path');
 // con bodyParser inserta dentro del obj request una propiedad body para cogerla en post
+const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const expressSession = require('express-session');
+const expressSession = require('express-session')
 
-
-const {
-	MongoClient
-} = require('mongodb');
-const { session } = require('passport');
-const cookieParser = require('cookie-parser');
 
 // app es nuestro servidor, lo declaramos aquí
 const app = express();
@@ -48,13 +43,17 @@ app.use(bodyParser.urlencoded({
 // con cookie-parser setearemos una cookie en esa llamada, que viajará del browser al servidor para saber si existe o no. Desloguearse será eliminar esa cookie
 app.use(cookieParser());
 // contiene un obj con una propiedad secret que ponemos lo que queramos
-app.use(session.length({ secret: 'heroes' }));
+app.use(expressSession({ 
+	secret: 'heroes',
+	resave: true,
+	saveUninitialized: true
+ }));
 
 require('./src/config/passport')(app);
 
 // requestHandle, que recibe 3 argumentos (req, res y next) - Hay que invocar el next para ir al siguiente punto de ejecuación
 // con cada petición de la página se ejecuta esto de abajo
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
 	debug('*********************************************');
 	// todo lo que hagamos aquí va a oocurrir en este evento/proceso y va a afectar a todo lo que haya después de este use
 	debug('Skylab es el mejor bootcamp de toda Barcelona y de todo el mundo!');
@@ -62,7 +61,7 @@ app.use((req, res, next) => {
 	debug('*********************************************');
 	// hay que permitir que el evento siga su camino
 	next();
-});
+}); */
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -71,7 +70,15 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 
-app.get('/', (req, res) => {
+app
+.all('/', (req, res, next) => {
+	if(req.user) {
+		next();
+	} else {
+		res.redirect('/auth/signin');
+	}
+})
+.get('/', (req, res) => {
 	const url = 'mongodb://localhost:27017';
 	const dbName = 'shieldHeroes';
 	const collectionName = 'heroes';

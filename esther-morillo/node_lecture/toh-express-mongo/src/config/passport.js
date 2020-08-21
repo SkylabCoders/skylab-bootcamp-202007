@@ -1,11 +1,11 @@
 const passport = require('passport');
-const { Passport } = require('passport');
+
 
 // estrategias de autenfificación (+480) - usaremos passport-local
 require('./strategies/local.strategy')
 
-//exportamos una función (igual que con las rutas) que configure passport en nuestra aplicación. Si exportamos una aplicación, en index le pasamos (app) ---> require('./src/config/passport')(app);
-function. passportConfig(app) {
+// exportamos una función (igual que con las rutas) que configure passport en nuestra aplicación. Si exportamos una aplicación, en index le pasamos (app) ---> require('./src/config/passport')(app);
+function passportConfig(app) {
     app.use(passport.initialize());
     // iniciar la sesión virtual (es diferente al expressSesion de index)
     app.use(passport.session());
@@ -22,5 +22,5 @@ function. passportConfig(app) {
     })
 }
 
-//exportamos aquí y está invocada en index
+// exportamos aquí y está invocada en index
 module.exports = passportConfig;

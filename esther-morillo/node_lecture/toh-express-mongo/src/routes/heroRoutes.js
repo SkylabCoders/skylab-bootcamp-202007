@@ -11,6 +11,14 @@ const heroRoutes = express.Router();
 
 function router(nav) {
 	heroRoutes.route('/')
+		// todo lo que viene antes del get 
+		.all((req, res, next) => {
+			if(req.user) {
+				next();
+			} else {
+				res.redirect('auth/signin');
+			}
+		})
 		.post((req, res) => {
 			const {
 				heroId,

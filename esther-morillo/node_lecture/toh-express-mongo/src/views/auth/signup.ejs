@@ -27,7 +27,7 @@
         <div>
             <label for="password">
                 Password:
-                <input type="password" name="password">
+                <input type="password" name="password" required minlength="8" maxlength="12" pattern="[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#!/=*]).{8, 12}$" />
             </label>
         </div>
         <button type="submit">SignUp now</button>
