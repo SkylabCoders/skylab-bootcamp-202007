@@ -36,12 +36,15 @@ app.get('/', (req, res) => {
 });
 
 const recipesRoutes = require('./src/routes/recipesRoutes')(nav);
+
 app.use('/list', recipesRoutes);
 
 const dbRoutes = require('./src/routes/dbRoutes.js')();
+
 app.use('/db', dbRoutes);
 
 const authRoutes = require('./src/routes/authRoutes.js')(nav);
+
 app.use('/auth', authRoutes);
 
 app.listen(PORT, () => debug(`Listening in port ${chalk.green(PORT)}...`));
