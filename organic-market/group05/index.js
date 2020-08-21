@@ -28,4 +28,8 @@ app.get('/', (req, res) => {
 	res.send('Organic dashboard');
 });
 
+const productsRoutes = require('./src/routes/productsRoutes');
+
+app.use('/getproducts', productsRoutes);
+
 app.listen(port, () => debug(`Server is running on port`, chalk.cyan(port)));
