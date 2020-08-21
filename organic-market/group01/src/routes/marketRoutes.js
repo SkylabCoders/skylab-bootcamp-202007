@@ -1,11 +1,11 @@
 const express = require('express');
-const debug = require('debug')('app:heroRoutes');
+const debug = require('debug')('app:marketRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 
-const heroRoutes = express.Router();
+const marketRoutes = express.Router();
 
 function router(nav) {
-	heroRoutes
+	marketRoutes
 		.route('/')
 		.all((req, res, next) => {
 			if (req.user) {
@@ -29,9 +29,9 @@ function router(nav) {
 
 					const heroes = await collection.find().toArray();
 
-					res.render('INSERT TEMPLATE', {
+					res.render(' INSERTTEMPLATE', {
 						nav,
-						title: '',
+						title: 'market list',
 						heroes
 					});
 				} catch (error) {
@@ -81,14 +81,21 @@ function router(nav) {
 				}
 			})();
 		});
-	heroRoutes
-		.route('/:heroId')
+	marketRoutes.route('/list').get((req, res) => {
+		res.send('list works');
+	});
+	marketRoutes.route('/cart').get((req, res) => {
+		const cartUser = 'pepito';
+		res.render('cart', { cartUser });
+	});
+	marketRoutes
+		.route('/:productId')
 		.all((req, res, next) => {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'market';
 			const collecionName = 'market';
 
-			const ID = req.params.heroId;
+			const ID = req.params.productId;
 			let client;
 
 			(async function query() {
@@ -111,7 +118,7 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const updateQuery = { $set: req.body };
-			const filter = { _id: new ObjectID(req.params.heroId) };
+			const filter = { _id: new ObjectID(req.params.productId) };
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'market';
 			const collectName = 'market';
@@ -145,7 +152,7 @@ function router(nav) {
 			});
 		});
 
-	return heroRoutes;
+	return marketRoutes;
 }
 
 module.exports = router;

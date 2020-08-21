@@ -4,6 +4,7 @@ const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
 
 const authRouter = express.Router();
+
 const url = 'mongodb://localhost:27017';
 const dbName = 'market';
 
@@ -45,10 +46,14 @@ function router(nav) {
 		.post((req, res) => {
 			(async function mongo() {
 				try {
-					const newUser = { ...req.body, user: req.body.user.toLowerCase() };
+					const newUser = {
+						...req.body,
+						user: req.body.user.toLowerCase(),
+						cart: []
+					};
 					const client = await MongoClient.connect(url);
 					const db = client.db(dbName);
-					const collection = await db.collection('user');
+					const collection = await db.collection('users');
 
 					const checkUserExists = await collection.findOne({
 						user: newUser.user
@@ -94,9 +99,8 @@ function router(nav) {
 
 					const db = client.db(dbName);
 
-					const collection = await db.collection('user');
+					const collection = await db.collection('users');
 
-					//no modifica la base de datos correctamente
 					collection.updateOne(
 						{ _id: new ObjectID(_id) },
 						{ $set: { password } }
