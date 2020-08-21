@@ -1,15 +1,16 @@
 {
-	"name": "monetoh",
+	"name": "organic-market-2",
 	"version": "1.0.0",
 	"description": "",
 	"main": "server.js",
 	"scripts": {
 		"start": "set DEBUG=server,server:* & nodemon server.js",
+		"start2": "DEBUG=server,server:* nodemon server.js",
 		"test": "jest --watchAll --coverage",
 		"lint": "eslint . --fix"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Fernando, Jordi, Francesc",
 	"license": "ISC",
 	"dependencies": {
 		"body-parser": "^1.19.0",
