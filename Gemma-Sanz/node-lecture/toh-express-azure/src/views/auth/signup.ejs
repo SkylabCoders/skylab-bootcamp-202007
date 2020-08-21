@@ -14,13 +14,18 @@
 			<div>
 				<label for="user">
 					User:
-					<input type="text" name="user" />
+					<input type="text" name="user" required />
 				</label>
 			</div>
 			<div>
 				<label for="/auth/signup">
 					Password:
-					<input type="password" name="password" />
+					<input
+						type="text"
+						name="password"
+						pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!\(\)@\$%\^&\*-]).{8,12}$"
+						required
+					/>
 				</label>
 			</div>
 			<button type="submit">SignUp now</button>
