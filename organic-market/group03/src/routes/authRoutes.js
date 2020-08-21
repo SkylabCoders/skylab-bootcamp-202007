@@ -11,6 +11,12 @@ const DBurl = 'mongodb://localhost:27017';
 let client = null;
 
 function router(nav) {
+	authRoutes.route('/logout').post((req, res) => {
+		if (req.user) {
+			req.logout();
+			res.redirect('/auth/signin');
+		}
+	});
 	authRoutes
 		.route('/signin')
 		.get((req, res) => {
