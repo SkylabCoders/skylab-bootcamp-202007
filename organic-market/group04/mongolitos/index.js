@@ -6,7 +6,7 @@ const path = require('path');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const expressSession = require('express-session')
+const expressSession = require('express-session');
 
 const app = express();
 const port = 3000;
@@ -19,8 +19,8 @@ const nav = [
 	{
 		link: '/auth/signin', // 'auth/signin' si lo ponemos sin / delante de auth no coge la ruta inicial de la raíz
 		title: 'Signin'
-    },
-    {
+	},
+	{
 		link: '/cart',
 		title: 'Cart'
 	}
@@ -28,18 +28,22 @@ const nav = [
 
 app.use(morgan('tiny'));
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-	extended: false
-}));
+app.use(bodyParser.json());
+app.use(
+	bodyParser.urlencoded({
+		extended: false
+	})
+);
 
 app.use(cookieParser());
 // contiene un obj con una propiedad secret que ponemos lo que queramos
-app.use(expressSession({ 
-	secret: 'food',
-	resave: true,
-	saveUninitialized: true
- }));
+app.use(
+	expressSession({
+		secret: 'food',
+		resave: true,
+		saveUninitialized: true
+	})
+);
 
 require('./src/config/passport')(app);
 
@@ -49,58 +53,54 @@ app.set('views', './src/views');
 
 app.set('view engine', 'ejs');
 
+// app
+// .all('/', (req, res, next) => {
+// 	if(req.user) {
+// 		next();
+// 	} else {
+// 		res.redirect('/auth/signin');
+// 	}
+// })
+// .get('/', (req, res) => {
+// 	const url = 'mongodb://localhost:27017';
+// 	const dbName = 'mongoProducts';
+// 	const collectionName = 'products';
+// 	let client;
 
-app
-.all('/', (req, res, next) => {
-	if(req.user) {
-		next();
-	} else {
-		res.redirect('/auth/signin');
-	}
-})
-.get('/', (req, res) => {
-	const url = 'mongodb://localhost:27017';
-	const dbName = 'mongoProducts';
-	const collectionName = 'products';
-	let client;
+// 	(async function mongo() {
+// 		try {
+// 			client = await MongoClient.connect(url);
+// 			debug('Connection dashboard');
+// 			const db = client.db(dbName);
+// 			const collection = db.collection(collectionName);
+// 			const heroes = await collection.find().toArray();
 
-	(async function mongo() {
-		try {
-			client = await MongoClient.connect(url);
-			debug('Connection dashboard');
-			const db = client.db(dbName);
-			const collection = db.collection(collectionName);
-			const heroes = await collection.find().toArray();
+// 			res.render('dashboard', {
+// 				nav,
+//                 title: 'Top Products',
+//                 // Hay que hacer búsqueda de rating 5
+// 				heroes: heroes.slice(0, 4)
+// 			});
 
-			res.render('dashboard', {
-				nav,
-                title: 'Top Products',
-                // Hay que hacer búsqueda de rating 5
-				heroes: heroes.slice(0, 4)
-			});
+// 		} catch (error) {
+// 			debug(error.stack);
+// 		}
 
-		} catch (error) {
-			debug(error.stack);
-		}
+// 		client.close();
+// 	})();
+// });
 
-		client.close();
-	})();
-});
+// const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
+// app.use('/products', productsRoutes);
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav);
+// const insertRoutes = require('./src/routes/insertRoutes')();
 
-app.use('/products', productsRoutes);
+// app.use('/insertProducts', insertRoutes);
 
-const insertRoutes = require('./src/routes/insertRoutes')();
-
-app.use('/insertProducts', insertRoutes);
-
-
-// creamos rutas de autentificación (verificar quién eres) y autorización(qué puede hacer el usuario dentro de mi aplicación) ==> estas dos cosas significan auth
-const authRoutes = require('./src/routes/authRoutes')(nav);
-// empieza así la ruta
-app.use('/auth', authRoutes);
-
+// // creamos rutas de autentificación (verificar quién eres) y autorización(qué puede hacer el usuario dentro de mi aplicación) ==> estas dos cosas significan auth
+// const authRoutes = require('./src/routes/authRoutes')(nav);
+// // empieza así la ruta
+// app.use('/auth', authRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
