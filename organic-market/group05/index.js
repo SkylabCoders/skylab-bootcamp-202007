@@ -61,7 +61,6 @@ const authRoutes = require('./src/routes/authRoutes')(nav);
 
 app.use('/auth', authRoutes);
 
-
 const productsRoutes = require('./src/routes/productsRoutes')(nav);
 
 app.use('/products', productsRoutes);
