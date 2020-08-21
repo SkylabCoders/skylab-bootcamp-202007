@@ -11,24 +11,41 @@
 		<%- include('header'); -%>
 		<h2><%=title%></h2>
 		<div>
-			<label
-				>Hero name:
-				<input />
-			</label>
-			<button>
-				add
-			</button>
+			<form action="" method="POST">
+				<label>
+					Hero name:
+					<input name="createHero" placeholder="insert new hero" />
+				</label>
+				<button name="createHero" type="submit">
+					add
+				</button>
+				<button
+					name="deleteHeroes"
+					title="delete everything"
+					type="submit"
+					value="all"
+				>
+					delete all
+				</button>
+			</form>
 		</div>
-
 		<ul class="heroes">
 			<% for (let i = 0; i < heroes.length; i++) { %>
 			<li>
-				<a href="/heroes/<%= heroes[i].id %>">
+				<a href="/heroes/<%= heroes[i]._id %>">
 					<span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %></a
 				>
-				<button class="delete" title="delete hero">
-					x
-				</button>
+				<form action="" method="POST">
+					<button
+						name="deleteHeroes"
+						class="delete"
+						title="delete hero"
+						type="submit"
+						value="<%= heroes[i]._id %>"
+					>
+						x
+					</button>
+				</form>
 			</li>
 			<% } %>
 		</ul>
