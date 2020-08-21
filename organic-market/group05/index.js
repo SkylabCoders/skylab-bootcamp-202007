@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const { MongoClient, Db, DBRef } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 2222;
