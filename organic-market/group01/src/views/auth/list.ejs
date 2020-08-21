@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Market - Group 01</title>
+</head>
+
+<body>
+    <%- include('header'); -%>
+    <h2><%= title %></h2>
+
+    <ul class="products">
+        <% for (i=0; i<products.length; i++) { %>
+
+        <li>
+            <a href="/products/<%= products[i]._id %>">
+                <span class="badge"><%= products[i].id %></span><%= products[i].name %>
+            </a>
+            <form action="/products/<%= products[i] && products[i]._id %>" method="POST" name="productsForm">
+
+                <button type="submit" name="name" value="<%= products[i] && products[i].name %>" class="delete" title="delete product">x</button>
+            </form>
+        </li>
+        <% } %>
+
+    </ul>
+</body>
+
+</html>
