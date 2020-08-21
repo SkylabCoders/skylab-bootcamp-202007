@@ -23,18 +23,20 @@
 		</button>
 	</div>
 
-	<ul class="heroes">
-		<% for(let i = 0; i<recipes.length; i++){%>
-		<li>
-			<a href="/list/<%=recipes[i].title%>">
-				<span class="badge"><%= recipes[i].title %></span>
-			</a> <%= recipes[i].price %>$
-			<button class="add" title="add recipie">
-				+
-			</button>
-		</li>
-		<% } %>
-	</ul>
+	<form action="/" method="POST">
+		<ul class="heroes">
+			<% for(let i = 0; i<recipes.length; i++){%>
+			<li>
+				<a href="/list/<%=recipes[i].title%>">
+					<span class="badge"><%= recipes[i].title %></span>
+				</a> <%= recipes[i].price %>$
+				<button class="add" title="add recipe" type="submit" name="buy" value="<%=recipes[i].title%>">
+					+
+				</button>
+			</li>
+			<% } %>
+		</ul>
+	</form>
 </body>
 
 </html>
