@@ -13,6 +13,7 @@ let client;
 function router(nav) {
 	authRouter.route('/logout').post((req, res) => {
 		if (req.user) {
+			// req.logout() es una fn de passport que te limpia la sessión
 			req.logout();
 			res.redirect('/auth/signin');
 		}
