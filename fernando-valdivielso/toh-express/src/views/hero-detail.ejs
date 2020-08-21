@@ -11,18 +11,18 @@
 
 <body>
     <%- include('header') -%>
-    <div>
+    <form action='/heroes/<%= hero && hero._id %>' method='POST' name='heroForm'>
         <h2><%=hero && hero.name %> Details</h2>
         <div><span>id: </span><%=hero && hero.id %>
         </div>
         <div>
             <label>name:
-                <input placeholder="name" value="<%hero && hero.name %>" />
+                <input placeholder="name" name='name' value="<%hero && hero.name %>" />
             </label>
         </div>
-        <button>go back</button>
-        <button>save</button>
-    </div>
+        <button type='button'>go back</button>
+        <button type='submit'>save</button>
+    </form>
 
 </body>
 

@@ -3,10 +3,10 @@
 		<h2><%= hero.name %> Details</h2>
 		<div><span>id: </span><%= hero.id %></div>
 		<div>
-			<label for="heroField__name">name:</label>
-			<input id="heroField__name" name="name" placeholder="name" value="<%= hero.name %>" />
+			<label class="herodetail" for="heroField__name">name:</label>
+			<input class="herodetail" id="heroField__name" name="name" placeholder="name" value="<%= hero.name %>" />
 		</div>
-		<button type="button"><a href='<%=ROUTES.home.path%>'>navigate back home</a></button>
-		<button type="submit">save</button>
+		<button class="herodetail" type="button"><a href='<%=ROUTES.home.path%>'>navigate back home</a></button>
+		<button class="herodetail" type="submit">save</button>
 	</form>
 </div>

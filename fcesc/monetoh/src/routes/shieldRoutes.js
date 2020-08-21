@@ -7,7 +7,16 @@ const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const shieldRoutes = express.Router();
 
 function router() {
-	shieldRoutes.route('/').get((req, res) => {
+	shieldRoutes
+		.route('/')
+		.all((req, res, next)=>{
+      if(req.user) {
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
+		.get((req, res) => {
 
 		(async function mongo() {
 			let client = null;
@@ -17,7 +26,7 @@ function router() {
 				debug('Connection stablished...');
 
 				const db = client.db(DATABASE_CONFIG.dbname);
-				const response = await db.collection('heroes').insertMany(superHeroes);
+				const response = await db.collection(DATABASE_CONFIG.heroCollection).insertMany(superHeroes);
 				res.json(response);
 			} catch (error) {
 				debug(error.stack);
