@@ -70,7 +70,7 @@ app
 				const market = await collection.find().limit(4).toArray();
 				res.render('dashboard', {
 					nav,
-					title: 'INSER APPROPIATE TITLE HERE',
+					title: 'Market Home',
 					market
 				});
 			} catch (error) {
@@ -79,9 +79,9 @@ app
 		})();
 	});
 
-const heroRoutes = require('./src/routes/marketRoutes')(nav);
+const marketRoutes = require('./src/routes/marketRoutes')(nav);
 
-app.use('/market', heroRoutes);
+app.use('/market', marketRoutes);
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 
