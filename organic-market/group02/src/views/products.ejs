@@ -1,6 +1,7 @@
 <h2><%= title.toUpperCase() %></h2>
 
 <form action="/products/create" method="POST" name="addProductFromListForm">
+
 	<label for="createHeroWithName">Product name:</label>
 	<input type="text" value="" name="createProductWithName"
 		placeholder="Your Product"></input>
@@ -11,6 +12,7 @@
 <ul class="heroes">
 	<% for(let i= 0; i< products.length; i++) { %>
 	<li>
+
 		<a href="<%=ROUTES.product.path%><%=products[i]._id%>">
 			<span class="badge"><%= products[i].type %></span>
 			<%= products[i].title %>

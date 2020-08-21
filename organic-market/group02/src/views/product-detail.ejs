@@ -1,12 +1,18 @@
 <div>
-	<form action="/heroes/<%=hero.slug%>" method="POST" name="heroForm">
-		<h2><%= hero.name %> Details</h2>
-		<div><span>id: </span><%= hero.id %></div>
+	<form action="/products/<%=product._id%>" method="POST" name="heroForm">
+		<h2><%= product.title %> Details</h2>
+		<div><span>Type: </span><%= product.type %></div>
 		<div>
-			<label class="herodetail" for="heroField__name">name:</label>
-			<input class="herodetail" id="heroField__name" name="name" placeholder="name" value="<%= hero.name %>" />
+			<label class="herodetail" for="productField__titile">Product:</label>
+			<input class="herodetail" id="productField__titile" name="product" placeholder="title"
+				value="<%= product.title %>" />
 		</div>
+		<p><%=product.description</p>
+		<br />
+		<p><%=product.price</p>
+		<br />
+		<p><%=product.rating</p>
 		<button class="herodetail" type="button"><a href='<%=ROUTES.home.path%>'>navigate back home</a></button>
-		<button class="herodetail" type="submit">save</button>
+			<button class="herodetail" type="submit">save</button>
 	</form>
 </div>
