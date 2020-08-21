@@ -1,7 +1,10 @@
+const password = 'organicmarketSKYLAB';
+const database = 'organicmarket';
+
 const DATABASE_CONFIG = {
-  url: 'mongodb://localhost:27017',
-  dbName: 'shieldHeroes',
-  heroCollection: 'heroes',
+  url: `mongodb+srv://organicmarketADMIN:${password}@cluster0.blipm.mongodb.net/${database}?retryWrites=true&w=majority`,
+  dbName: `${database}`,
+  productCollection: 'products',
   userCollection: 'users'
 }
 
