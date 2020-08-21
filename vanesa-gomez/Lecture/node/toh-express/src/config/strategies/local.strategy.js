@@ -25,8 +25,10 @@ function localStrategy() {
 						const user = await collection.findOne({ email });
 
 						if (user.password === password) {
+							// si esta logueado
 							done(null, user);
 						} else {
+							// si no esta logueado
 							done(null, false);
 						}
 					} catch (error) {
@@ -34,12 +36,6 @@ function localStrategy() {
 					}
 					client.close();
 				})();
-				// buscar en la DDBB si existe el usuario
-				// si esta logueado
-				// done(null,user)
-				// si no esta logueado
-				// done(null, false)
-				// req.user
 			}
 		)
 	);

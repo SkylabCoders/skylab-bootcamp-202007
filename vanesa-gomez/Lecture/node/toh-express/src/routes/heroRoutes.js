@@ -8,6 +8,13 @@ const heroRoutes = express.Router();
 function router(nav) {
 	heroRoutes
 		.route('/')
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('auth/signin');
+			}
+		})
 		.post((req, res) => {
 			const { heroId, deleteAll, newHero } = req.body;
 			const filter = { _id: ObjectID(heroId) };
@@ -101,12 +108,12 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			//conectarme a mongodb
-			//actualizar el hero con id: _id
-			//responder con la página actualizada
-			//o responder redireccionando a la lista
+			// conectarme a mongodb
+			// actualizar el hero con id: _id
+			// responder con la página actualizada
+			// o responder redireccionando a la lista
 
-			//capturar el error manteniendo la misma página
+			// capturar el error manteniendo la misma página
 
 			const updateQuery = { $set: req.body };
 			const filter = { _id: new ObjectID(req.params.heroId) };

@@ -43,17 +43,17 @@ function router(nav) {
 					const userEmail = await collection.findOne({
 						email: newUser.email
 					});
+					// Buscar si el usuario existe
 					if (userEmail) {
 						// si existe lo redirecciono a login o signin
 						res.redirect('/auth/signin');
 					} else {
+						// NO existe, inserto
 						const result = await collection.insertOne(newUser);
 						req.login(result.ops[0], () => {
 							res.redirect('/auth/profile');
 						});
 					}
-					// TODO buscar si el usuario existe
-					// NO existe, inserto
 				} catch (error) {
 					debug(error.stack);
 				}
@@ -78,8 +78,38 @@ function router(nav) {
 			res.render('auth/profile', { nav, user: req.user });
 		})
 		.post((req, res) => {
-			res.send('POST profile Works!');
+			//destructuring de todo lo que manda el usuario en el perfil y cogemos el password nuevo, del input.
+			const { password } = req.body;
+			//destructuring del
+			const { email } = req.user;
+
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+
+					if (email) {
+						const newPassword = await collection.updateOne(
+							{ email },
+							{ $set: { password } }
+						);
+						debug(newPassword);
+						res.redirect('../');
+					}
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
 		});
+
+	authRoutes.route('/logout').post((req, res) => {
+		if (req.user) {
+			req.logout();
+			res.redirect('/auth/signin');
+		}
+	});
 
 	return authRoutes;
 }

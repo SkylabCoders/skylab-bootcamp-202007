@@ -42,35 +42,42 @@ require('./src/config/passport')(app);
 
 // requestHandle, que recibe 3 argumentos (req, res y next) - Hay que invocar el next para ir al siguiente punto de ejecuación
 // con cada petición de la página se ejecuta esto de abajo
-app.use((req, res, next) => {
-	next();
-});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
-app.get('/', (req, res) => {
-	const url = 'mongodb://localhost:27017';
-	const dbName = 'shieldHeroes';
-	const collectionName = 'heroes';
-	let client;
-	(async function mongo() {
-		try {
-			client = await MongoClient.connect(url);
-			debug('Connection dashboard');
-			const db = client.db(dbName);
-			const collection = db.collection(collectionName);
-			const heroes = await collection.find().toArray();
-			res.render('dashboard', {
-				nav,
-				title: 'Top Heroes',
-				heroes: heroes.slice(0, 4)
-			});
-		} catch (error) {
-			debug(error.stack);
+app
+	.all('/', (req, res, next) => {
+		if (req.user) {
+			next();
+		} else {
+			res.redirect('auth/signin');
 		}
-		client.close();
-	})();
-});
+	})
+
+	.get('/', (req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'shieldHeroes';
+		const collectionName = 'heroes';
+		let client;
+		(async function mongo() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('Connection dashboard');
+				const db = client.db(dbName);
+				const collection = db.collection(collectionName);
+				const heroes = await collection.find().toArray();
+				res.render('dashboard', {
+					nav,
+					title: 'Top Heroes',
+					heroes: heroes.slice(0, 4)
+				});
+			} catch (error) {
+				debug(error.stack);
+			}
+			client.close();
+		})();
+	});
 
 const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
