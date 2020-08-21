@@ -77,35 +77,38 @@ function router(nav) {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
 		let client;
-		const { title } = req.params;
-
+		/* const { title } = req.params; */
+		const title = 'Brown eggs';
+		const fileName = '0.jpg';
 		(async function query() {
 			try {
 				client = await MongoClient.connect(url);
 
 				const db = client.db(dbName);
 
-				const collection = await db.collection('heroes');
-				const filterRecipe = await collection.findOne({ title: title });
+				const collection = await db.collection('recipes');
+				const filterRecipe = await collection.findOne({ title });
+				debug(filterRecipe);
+
+				res.render('detail', {
+					nav,
+					title: 'Detail',
+					/* recipe: {
+						title: 'Brown eggs',
+						type: 'dairy',
+						description: 'Raw organic brown eggs in a basket',
+						filename: '0.jpg',
+						height: 600,
+						width: 400,
+						price: 28.1,
+						rating: 4
+					} */
+					recipe: filterRecipe
+				});
 			} catch (error) {
 				debug(error);
 			}
 		})();
-		res.render('detail', {
-			nav,
-			title: 'Detail',
-			recipe: {
-				title: 'Brown eggs',
-				type: 'dairy',
-				description: 'Raw organic brown eggs in a basket',
-				filename: '0.jpg',
-				height: 600,
-				width: 400,
-				price: 28.1,
-				rating: 4
-			}
-			/* recipe: filterRecipe */
-		});
 	});
 	return recipesRouter;
 }
