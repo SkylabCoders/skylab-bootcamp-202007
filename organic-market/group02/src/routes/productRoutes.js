@@ -10,13 +10,6 @@ const productRoutes = express.Router();
 function router(nav) {
 	productRoutes
 		.route('/')
-		.all((req, res, next) => {
-			if (req.user) {
-				next();
-			} else {
-				res.redirect(ROUTES.signin.path);
-			}
-		})
 		.post((req, res) => {
 			(async function deleteProductFromList() {
 				let client;
@@ -35,20 +28,28 @@ function router(nav) {
 			})();
 		})
 		.get((req, res) => {
-			(async function getAllHeroes() {
+			(async function getAllProducts() {
 				let client;
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
+<<<<<<< HEAD
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 					const heroes = await colection.find().sort({ name: 1 }).toArray();
+||||||| cdceebcd
+					const colection = db.collection(DATABASE_CONFIG.heroCollection);
+					const heroes = await colection.find().sort({ name: 1 }).toArray();
+=======
+					const colection = db.collection(DATABASE_CONFIG.productCollection);
+					const products = await colection.find().sort({ name: 1 }).toArray();
+>>>>>>> ee83037b844d7cd7dd9a08fa3549d19afbde368e
 
 					res.render('index', {
 						nav,
-						body: ROUTES.heroes.page,
-						title: ROUTES.heroes.title,
-						heroes,
+						body: ROUTES.products.page,
+						title: ROUTES.products.title,
+						products,
 						ROUTES
 					});
 				} catch (error) {
