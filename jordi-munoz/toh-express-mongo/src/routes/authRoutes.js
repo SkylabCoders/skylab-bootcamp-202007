@@ -48,8 +48,8 @@ function router(nav) {
     })
     .post((req, res) => {
       const newUser = {
-        ...req.body,
-        user: req.body.user.toLowerCase()
+        user: req.body.user.toLowerCase(),
+        password: req.body.password[0]
       };
 
       (async function mongo() {
@@ -62,7 +62,7 @@ function router(nav) {
           if (user) {
             res.redirect('/auth/signin');
           } else {
-            const result = await collection.insertOne(newUser);
+            const result = await collection.insertOne({ ...newUser });
             req.login(result.ops[0], () => {
               res.redirect('/auth/profile');
             });
@@ -88,7 +88,7 @@ function router(nav) {
     .get((req, res) => {
       res.render('auth/profile', { nav, user: req.user });
     })
-    .post((req, res) => {
+    .post((req) => {
       const { password } = req.body;
       const { _id } = req.user;
 
@@ -99,7 +99,7 @@ function router(nav) {
           const db = client.db(dbName);
           const collection = await db.collection(collectionName);
 
-          const response = await collection.updateOne({ _id: new ObjectID(_id) }, { $set: { password } });
+          await collection.updateOne({ _id: new ObjectID(_id) }, { $set: { password } });
 
 
         } catch (error) {
