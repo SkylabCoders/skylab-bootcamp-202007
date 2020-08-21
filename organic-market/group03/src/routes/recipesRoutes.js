@@ -40,40 +40,52 @@ function router(nav) {
 			const collectionName = 'recipes';
 			let client;
 			(async function mongo() {
-				client = await MongoClient.connect(url);
+				try {
+					client = await MongoClient.connect(url);
 
-				const db = client.db(dbName);
+					const db = client.db(dbName);
 
-				const collection = db.collection(collectionName);
-				if (deletedRecipe === 'all') {
-					await collection.deleteMany({});
-				} else {
-					const filter = { _id: new ObjectID(deletedRecipe) };
+					const collection = db.collection(collectionName);
+					if (deletedRecipe === 'all') {
+						await collection.deleteMany({});
+					} else {
+						const filter = { _id: new ObjectID(deletedRecipe) };
 
-					await collection.deleteOne(filter, (error, response) => {
-						if (error) {
-							throw error;
-						}
-						debug(`${response} deleted!`);
-						res.redirect('/list');
+						await collection.deleteOne(filter, (error, response) => {
+							if (error) {
+								throw error;
+							}
+							debug(`${response} deleted!`);
+							res.redirect('/list');
+						});
+					}
+					const recipe = await collection.find().toArray();
+					res.render('list', {
+						nav,
+						title: 'My Heros',
+						recipe
 					});
+				} catch (error) {
+					debug(error.stack);
 				}
-				const recipe = await collection.find().toArray();
-				res.render('list', {
-					nav,
-					title: 'My Heros',
-					recipe
-				});
 			})();
 		});
-	recipesRouter.route('/detail/:id').get((req, res) => {
-		const { id } = req.params;
-		/*  res.render("bookView", {
-          nav,
-          title: "Library",
-          book: books[id],
-        }); */
-		res.send('Detail working');
+	recipesRouter.route('/detail/:title').get((req, res) => {
+		const { title } = req.params;
+		res.render('detail', {
+			nav,
+			title: 'Detail',
+			recipe: {
+				title: 'Brown eggs',
+				type: 'dairy',
+				description: 'Raw organic brown eggs in a basket',
+				filename: '0.jpg',
+				height: 600,
+				width: 400,
+				price: 28.1,
+				rating: 4
+			}
+		});
 	});
 	return recipesRouter;
 }
