@@ -42,7 +42,7 @@ function router(nav) {
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
-			(async function mongo() {
+			/* (async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
 
@@ -68,6 +68,21 @@ function router(nav) {
 						title: 'My Heros',
 						recipe
 					});
+				} catch (error) {
+					debug(error.stack);
+				}
+			})(); */
+			(async function deleteHeroFromList() {
+				let client;
+				try {
+					client = await MongoClient.connect(url);
+					debug('Connection to db established...');
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const { title } = req.body;
+					const filter = { title: title };
+					await collection.deleteOne(filter);
+					res.redirect('/list');
 				} catch (error) {
 					debug(error.stack);
 				}
