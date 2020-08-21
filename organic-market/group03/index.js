@@ -14,7 +14,8 @@ const PORT = 3002;
 const nav = [
 	{ link: '/', title: 'Home' },
 	{ link: '/list', title: 'Recipies' },
-	{ link: '/auth/signin', title: 'SignIn' }
+	{ link: '/auth/signin', title: 'SignIn' },
+	{ link: '/auth/profile', title: 'Profile' }
 ];
 
 app.use(morgan('tiny'));
