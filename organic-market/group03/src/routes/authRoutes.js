@@ -53,7 +53,7 @@ function router(nav) {
 			})();
 		})
 		.get((req, res) => {
-			res.render('auth/signin', { nav });
+			res.render('auth/signup', { nav });
 		});
 
 	authRoutes.route('/signout').post((req, res) => {

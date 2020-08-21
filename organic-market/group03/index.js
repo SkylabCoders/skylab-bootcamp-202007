@@ -31,7 +31,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.send('Hello World!');
+	res.redirect('/list');
 });
 
 const recipesRoutes = require('./src/routes/recipesRoutes')(nav);
