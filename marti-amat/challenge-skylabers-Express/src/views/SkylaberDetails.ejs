@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ToH</title>
+		<link rel="stylesheet" href="/css/skylabber-detail.css" type="text/css" />
+		<link rel="stylesheet" href="/css/index.css" type="text/css" />
+	</head>
+	<body>
+		<div>
+			<%-include('header')-%>
+			<h2><%=skylabber.name%> Details</h2>
+			<div><span>id: </span><%=skylabber.id%></div>
+			<div>
+				<label
+					>name:
+					<input class="skylabber.name" placeholder=" <%=skylabber.name%>" />
+				</label>
+			</div>
+			<button onclick="goBack()">go back</button>
+			<button onclick="save()">save</button>
+		</div>
+	</body>
+</html>
