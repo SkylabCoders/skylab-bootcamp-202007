@@ -14,6 +14,9 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const recipesRoutes = require('./src/routes/recipeRoutes');
+app.use('/recipes', bookRouter);
+
 app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
