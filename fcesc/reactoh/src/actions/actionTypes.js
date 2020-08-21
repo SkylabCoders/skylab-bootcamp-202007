@@ -1,0 +1,9 @@
+const actionTypes = {
+    UPDATE_HERO: 'UPDATE_HERO',
+    CREATE_HERO: 'CREATE_HERO',
+    LOAD_HERO_BY_ID: 'LOAD_HERO_BY_ID',
+    LOAD_HERO_LIST: 'LOAD_HERO_LIST',
+    LOAD_PAGINATED_HERO_LIST: 'LOAD_PAGINATED_HERO_LIST'
+}
+
+export default actionTypes;

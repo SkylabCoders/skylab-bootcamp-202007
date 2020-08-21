@@ -1,0 +1,294 @@
+.burguer-button {
+	display: flex;
+	height: 100%;
+	padding: 7px;
+	position: relative;
+
+	img {
+		width: 30px;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		list-style: none;
+		-webkit-box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+		-moz-box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+		box-shadow: 10px 10px 5px -1px rgba(0, 0, 0, 0.39);
+		border-radius: 10px;
+	}
+}
+
+.burguer-preferences {
+	display: none;
+	position: absolute;
+	top: 52px;
+
+	ul {
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+.burguer-button:hover .burguer-preferences {
+	display: flex;
+	flex-direction: row;
+	background-color: #65dfc3;
+	flex-wrap: wrap;
+	width: 200px;
+}
+
+.nav__menu,
+.nav__mobile,
+.nav__medium__big {
+	z-index: 90;
+}
+
+.nav__mobile,
+.nav__medium__big {
+	padding: 5px 5% 5px 5%;
+}
+
+.nav__mobile>a {
+	color: white;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav__menu .search-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.link__header {
+	text-decoration: none;
+}
+
+.login__logo {
+	width: 30px;
+	height: 30px;
+}
+
+.nav__brand__logo {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+}
+
+.nav__mobile {
+	top: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: #65dfc3;
+	height: 40px;
+	position: fixed;
+	width: 90%;
+
+	.search-button {
+		background-color: #f8f8f0;
+		padding: 5px;
+		border-radius: 25px;
+	}
+
+	.search-button-inative {
+		background-color: #65dfc3;
+	}
+}
+
+.search-button {
+	vertical-align: sub;
+}
+
+.nav__medium__big {
+	display: none;
+}
+
+.search {
+	height: 25px;
+	width: 105px;
+	margin: 0 10px 0 10px;
+}
+
+.main__logo {
+	display: none;
+}
+
+.main__boxes {
+	display: none;
+}
+
+.icon__burguer,
+.login__logo {
+	filter: invert(95%) sepia(17%) saturate(1084%) hue-rotate(340deg) brightness(113%) contrast(87%);
+}
+
+.container__icon {
+	max-width: 30px;
+	max-height: 30px;
+}
+
+.button {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	margin: 5px;
+}
+
+.gray {
+	filter: grayscale(100%) opacity(30%);
+}
+
+@media only screen and (min-width: 600px) {
+	h1 {
+		color: #10725b;
+		font-size: 30px;
+		display: inline-block;
+		margin-left: 10px;
+	}
+
+	.search-button {
+		padding: 5px;
+		border-radius: 50px;
+		background-color: #65dfc3;
+		margin: auto;
+	}
+
+	.search-button-inative {
+		background-color: #f8f8f0;
+	}
+
+	.search-button:active,
+	.search-button:link,
+	.search-button:visited,
+	.search-button:hover {
+		color: #5a3c0f;
+	}
+
+	.nav__mobile {
+		display: none;
+	}
+
+	.nav__medium__big {
+		top: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #65dfc3;
+		height: 40px;
+		position: fixed;
+		width: 90%;
+	}
+
+	.link__header {
+		margin-left: 10px;
+		color: #f8f8f0;
+	}
+
+	.buttons__left {
+		display: flex;
+		margin-left: 10px;
+	}
+
+	.buttons__right {
+		margin-right: 15px;
+
+		display: flex;
+		align-items: center;
+	}
+
+	.buttons__right--text {
+		margin-right: 5px;
+		color: #f8f8f0;
+	}
+
+	.section__logo {
+		display: flex;
+		flex-direction: row;
+		background-color: #f8f8f0;
+		justify-content: center;
+		align-items: center;
+		width: 40vw;
+		height: 22vh;
+		padding: 15px;
+		border-radius: 10px;
+	}
+
+	.main__logo {
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		border-radius: 100%;
+	}
+
+	.main__boxes {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 96%;
+		margin: 80px 2% 0 2%;
+	}
+
+
+
+	.section__preferences {
+		display: flex;
+		flex-flow: wrap row;
+		justify-content: center;
+	}
+
+	.main__search {
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		height: 100%;
+		width: 100%;
+		margin-bottom: 0;
+		border-radius: 15px;
+	}
+
+	.main__search-input {
+		margin: auto;
+		border-radius: 100px;
+		height: 25px;
+		max-width: 174px;
+		width: 100%;
+		padding: 10px;
+		text-align: center;
+		outline: none;
+	}
+
+	.section__search {
+		background-color: #f8f8f0;
+		justify-content: center;
+		text-align: center;
+		width: 40vw;
+		height: 22vh;
+		padding: 15px;
+		border-radius: 10px;
+
+		p {
+			margin: 2px;
+		}
+	}
+
+	.search__icons--box {
+		margin-top: 47px;
+	}
+
+	.icon__search {
+		width: 70px;
+		height: 70px;
+	}
+
+	.section__search,
+	.section__logo {
+		-webkit-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+		-moz-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+		box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+	}
+}

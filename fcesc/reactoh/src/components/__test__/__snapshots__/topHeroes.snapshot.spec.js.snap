@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopHeroes snapshot should match 1`] = `
+<div
+  className="paginatedList__container"
+>
+  <ul />
+</div>
+`;

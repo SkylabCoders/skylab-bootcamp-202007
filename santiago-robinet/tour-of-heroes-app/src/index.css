@@ -1,0 +1,144 @@
+.hero__list__container{
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 50px;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 0;
+  color: #369;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.hero__button{
+  margin: 10px;
+  display: flex;
+  width: 150px;
+  height: 40px;
+  border-radius: 4px;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: auto;
+  align-items: center;
+  justify-content: center;
+  color: rgb(189, 183, 183);
+}
+
+.hero__button:hover{
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.hero__id{
+  background-color: rgb(76, 110, 138);
+  padding: 10px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 15%;
+  height: 50%;
+}
+
+.hero__name{
+  width: 80%;
+  display: flex;
+  align-items: center; 
+  background-color: #eee;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  height: 100%;
+  padding-left: 5px;
+}
+
+.dashboard__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard__title{
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(180, 176, 176);
+}
+
+.dashboard__buttons__container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+
+}
+
+.hero__container__button{
+  background-color: rgb(76, 110, 138);
+  text-decoration: none;
+  display: flex;
+  color: rgb(248, 244, 244);
+  width: 200px;
+  height: 120px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;  cursor: pointer;
+  cursor: hand;
+  color: #eee;
+  background-color: #3f525c;
+}
+
+.hero__container__button:hover{
+  background-color: #eee;
+  color: #3f525c;
+  margin-top: 10px;
+}
+
+.header__buttons {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.header__buttons:visited, .header__buttons:link{
+  color: #334953;
+}
+
+.header__buttons:hover{
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+
+p, label {
+  color: #369;
+  font-weight: 700;
+  word-spacing: 5px;
+  font-size: 18px;
+}
+
+input{
+  font-size: 20px;
+}
+
+.details__title{
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.nav__button--active{
+  color: #039be5;
+  font-weight: 700;
+}
+

@@ -1,0 +1,27 @@
+.HeroList {
+	position: absolute;
+	top: 100px;
+	width: 300px;
+	margin-left: 700px;
+}
+.containerList {
+	display: flex;
+	width: 300px;
+	height: 50px;
+	text-align: start;
+}
+.id_box {
+	background-color: rgb(166, 178, 201);
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border: solid 2px rgb(3, 3, 99);
+}
+.name_box {
+	width: 250px;
+	height: 50px;
+	padding-left: 30px;
+	line-height: 50px;
+	border: solid 2px rgb(3, 3, 99);
+}

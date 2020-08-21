@@ -1,0 +1,20 @@
+.footer__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	bottom: 0;
+	width: 100%;
+	background-color: var(--bg-color-navbar);
+	color: var(--font-color-footer);
+}
+
+.footer__item {
+	margin: 5px;
+	font-size: 12px;
+}
+
+.footer__item a {
+	margin: 5px;
+	font-size: 12px;
+}
