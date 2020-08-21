@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
-app.set(expressSession({ secret: 'heroes' }));
+app.use(expressSession({ secret: 'heroes' }));
 require('./src/config/passport')(app);
 
 app.use(express.static(path.join(__dirname, '/public')));

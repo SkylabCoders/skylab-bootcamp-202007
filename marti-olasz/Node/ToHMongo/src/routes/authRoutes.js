@@ -13,15 +13,15 @@ let client = null;
 function router(nav) {
 	authRoutes
 		.route('/signin')
+		.get((req, res) => {
+			res.render('auth/signin', { title: 'Signin', nav });
+		})
 		.post(
 			passport.authenticate('local', {
 				successRedirect: '/auth/profile',
 				failureRedirect: '/auth/signin'
 			})
-		)
-		.get((req, res) => {
-			res.render('auth/signin', { title: 'Signin', nav });
-		});
+		);
 
 	authRoutes
 		.route('/signup')
@@ -37,9 +37,12 @@ function router(nav) {
 					const collection = await db.collection(collectionName);
 
 					const user = await collection.findOne({ user: newUser.user });
-					if (user) res.redirect('/auth/signin');
-					else {
+
+					if (user) {
+						res.redirect('/auth/signin');
+					} else {
 						const result = await collection.insertOne(newUser);
+
 						/* Aquest login no funciona */
 						req.login(result.ops[0], () => res.redirect('/auth/profile'));
 					}
@@ -60,9 +63,11 @@ function router(nav) {
 	authRoutes
 		.route('/profile')
 		.all((req, res, next) => {
-			debug(`Aixo sempre es: ${req.user}`);
-			if (req.user) next();
-			else res.redirect('/auth/signin');
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
 		})
 		.post((req, res) => {
 			res.send('aqui tamo');
