@@ -35,7 +35,6 @@ function router(nav){
   authRoutes
     .route('/signup')
     .post((req, res)=>{
-      console.log('ENTERING POST FUNCTION');
       (async function getSignupData(){
         let client;
         try{
@@ -44,7 +43,7 @@ function router(nav){
           const collection = db.collection(DATABASE_CONFIG.userCollection);
           const data = req.body;
           const newUser = { 
-            username: data.signup__username, 
+            username: data.signup__userName, 
             password: data.signup__password,
             name: data.signup__name,
             email: data.signup__email

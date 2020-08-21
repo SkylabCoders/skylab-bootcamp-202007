@@ -6,10 +6,10 @@ schema
 .is().min(8)
 .is().max(12)
 .has().not().spaces()
-.has().oneOf(['[', ']', '!', '#', '/', '(', ')', '=', '*']);
+.has(/.*([=\[\]\(\)\*\/#!=])+.*/g);
  
 function validatePasswordFormat(string){
-  return schema.validate(string, { list: true }); // 2 possible outputs: true or the array of failed conditions
+  return schema.validate(string); // 2 possible outputs: true or the array of failed conditions if enabling , { list: true }
 }
 
 module.exports = validatePasswordFormat;
