@@ -1,4 +1,5 @@
 const express = require('express');
+
 const debug = require('debug')('app:mongoRoutes');
 const { MongoClient } = require('mongodb');
 const productsdb = require('../../public/mocks/products.json');
@@ -15,6 +16,7 @@ function router() {
 			try {
 				client = await MongoClient.connect(url);
 				debug('Connection with mongoRoutes works');
+
 				const db = client.db(dbName);
 				const response = await db.collection('products').insertMany(productsdb);
 				debug(response);

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero list</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+
+<body>
+    <h2>Products</h2>
+
+    <ul class=" heroes">
+        <% products.forEach(product => { %>
+        <li>
+            <a href="/products/<%= product._id %>">
+                <span class="badge"><%= product.rating %></span> <%= product.title %>
+            </a>
+
+            <form method="POST">
+                <button class="delete" title="add to cart" type="submit" name="addtocart" value="<%= product._id %>">x
+                    </button;>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>
