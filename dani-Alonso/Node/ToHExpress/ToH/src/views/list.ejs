@@ -13,12 +13,20 @@
     <%-include('header')-%>
     <h2>My Heroes</h2>
     <div>
+        
+        <form method="POST">
         <label>Hero name:
-            <input #heroName />
+            <input value="" name="newHero"/>
         </label>
-        <button; heroName.value=''">
+
+        <button type="submit" name="addHero">
             add
         </button>
+
+        <button name="deleteAll" type="submit" value="<%={}%>">
+            delete All
+        </button>
+    </form>
     </div>
     
     <% heroList.forEach(hero => { %>
@@ -27,7 +35,9 @@
                 <a href="/heroes/<%= hero._id %>">
                     <span class="badge"><%= hero.id %></span> <%= hero.name %>
                 </a>
-                <button class="delete" title="delete hero" ">x</button;>
+                <form method="POST" >
+                <button class="delete" title="delete hero" " type="submit" name="heroId" value="<%= hero._id %>">x</button;>
+                </form>
                 </li>
             </ul>
     <% }) %>

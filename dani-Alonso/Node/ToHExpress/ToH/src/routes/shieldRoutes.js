@@ -25,6 +25,7 @@ function router() {
 			} catch (error) {
 				debug(error.stack);
 			}
+			await client.close();
 		})();
 	});
 	return shieldRoutes;
