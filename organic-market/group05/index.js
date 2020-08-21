@@ -8,11 +8,10 @@ const cookieParser = require('cookie-parser');
 const { MongoClient } = require('mongodb');
 const session = require('express-session');
 
-
-
 const app = express();
 const port = process.env.PORT || 2222;
 require('./src/config/passport')(app);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(morgan('tiny'));
@@ -52,17 +51,19 @@ app.get('/', (req, res) => {
 			debug(error.stack);
 		}
 	})();
-
 });
 
 const mongoRoutes = require('./src/routes/mongoRoutes');
+
 app.use('/getproducts', mongoRoutes);
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
+
 app.use('/auth', authRoutes);
 
 
 const productsRoutes = require('./src/routes/productsRoutes')(nav);
+
 app.use('/products', productsRoutes);
 
 app.listen(port, () => debug(`Server is running on port`, chalk.cyan(port)));

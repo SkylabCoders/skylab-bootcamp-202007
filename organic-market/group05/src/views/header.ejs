@@ -7,12 +7,12 @@
 		<link rel="stylesheet" href="css/header.css" />
 	</head>
 	<body>
-		<nav>
-			<div class="nav">
+		<header class="header__container">
+			<div class="header">
 				<%for (let i = 0; i < nav.length ; i++) { %>
 				<a href="<%= nav[i].link %>"><%= nav[i].title %></a>
 				<% } %>
 			</div>
-		</nav>
+		</header>
 	</body>
 </html>

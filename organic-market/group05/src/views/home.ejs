@@ -4,30 +4,43 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<link rel="stylesheet" href="css/home.css" />
 	</head>
 	<body>
-		<header><%- include('header'); -%></header>
-		<main>
-			<div class="home-container">
-				<% for (let i = 0; i< products.length; i++) { %>
-				<div class="featured">
-					<div class="featured__title">
-						<a href="/products/<%= products[i]._id %>">
-							<p><%= products[i].title %></p>
-						</a>
-						<p><%= products[i].type %></p>
+		<%- include('header'); -%>
+		<main class="featured__container">
+			<% for (let i = 0; i< products.length; i++) { %>
+			<div class="featured">
+				<div class="featured__title">
+					<a href="/products/<%= products[i]._id %>">
+						<p><%= products[i].title %></p>
+					</a>
+					<p><%= products[i].type %></p>
+				</div>
+
+				<div class="featured__details">
+					<div class="featured__price">
+						<p><span><%= products[i].rating %></span>/5</p>
+						<p>$<span><%= products[i].price %></span></p>
 					</div>
-					<div class="featured__details">
-						<p>Rating: <span><%= products[i].rating %></span>/5</p>
-						<p>Price: $<span><%= products[i].price %></span></p>
-					</div>
+
 					<div class="featured__cart">
-						<form action="POST"><button>Add to cart</button></form>
+						<form method="POST">
+							<button
+								class="addtocart"
+								name="addtocart"
+								title="Add to cart"
+								type="submit"
+								value="<%= products[i]._id %>"
+							>
+								+
+							</button>
+						</form>
 					</div>
 				</div>
-				<% } %>
 			</div>
+			<% } %>
 		</main>
-		<footer><%- include('footer'); -%></footer>
+		<%- include('footer'); -%>
 	</body>
 </html>
