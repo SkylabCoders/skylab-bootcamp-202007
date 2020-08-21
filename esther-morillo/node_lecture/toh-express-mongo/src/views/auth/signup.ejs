@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/heroDetail.css" />
+</head>
+<body>
+    <%- include('../header'); %>
+    <h2>Sign Up! or <a href="/auth/signin">SignIn</a> </h2>
+
+    <form action="/auth/signup" method="POST">
+        <div>
+            <label for="user">
+                User:
+                <input type="text" name="user">
+            </label>
+        </div>
+        <div>
+            <label for="email">
+                Email:
+                <input type="email" name="email">
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                Password:
+                <input type="password" name="password" required minlength="8" maxlength="12" pattern="[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#!/=*]).{8, 12}$" />
+            </label>
+        </div>
+        <button type="submit">SignUp now</button>
+    </form>
+</body>
+</html>
+
+
+
+<!-- Nos sirve como template para signin y signup -->
