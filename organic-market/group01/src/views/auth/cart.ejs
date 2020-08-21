@@ -15,11 +15,11 @@
 		Remove all
 	</button>
 	</form>
-	<ul class="heroes">
+	<ul class="market">
 		<% for(let i = 0; i<cart.length; i++){%>
 		<li>
-			<a href="/heroes/<%=heroes[i]._id%>">
-				<span class="badge"><%= cart[i].title %></span> <%= cart[i].description %>
+			<a href="/market/<%=cart[i]._id%>">
+				<span class="badge"><%= cart[i].title %></span> <%= cart[i].rating %>
 			</a>
 			<form action="" method="POST">
 				<button type="submit" name="deleteProduct" value="<%= cart[i]._id %>" class="delete"
