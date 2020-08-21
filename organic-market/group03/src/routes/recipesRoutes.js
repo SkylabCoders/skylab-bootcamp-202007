@@ -27,7 +27,7 @@ function router(nav) {
 
 					res.render('list', {
 						nav,
-						title: 'recipes',
+						title: 'Recipes List',
 						recipes: recipe
 					});
 				} catch (error) {
