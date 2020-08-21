@@ -3,42 +3,39 @@ const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
 
-const MONGO = require('../../public/mongoConstants');
-
 const appRoute = express.Router();
 
 function router(nav) {
-<<<<<<< HEAD
-	appRoute.route('/').get((res, req) => {
+	appRoute.route('/').get((req, res) => {
 		res.send('IT WORKS');
 	});
 
-	appRoute.route('/cart').get((res, req) => {
-		// const cart = [
-		// 	{
-		// 		_id: '5f3fc61e9a183552ccc8772d',
-		// 		title: 'Apple',
-		// 		rating: 4,
-		// 		price: 10
-		// 	},
-		// 	{
-		// 		_id: '5f3fc61e9a183552ccc87729',
-		// 		title: 'Phone',
-		// 		rating: 5,
-		// 		price: 250
-		// 	},
-		// 	{
-		// 		_id: '5f3fc61e9a183552ccc87727',
-		// 		title: 'Computer',
-		// 		rating: 4.5,
-		// 		price: 1200
-		// 	}
-		// ];
+	appRoute.route('/cart').get((req, res) => {
+		const cart = [
+			{
+				_id: '5f3fc61e9a183552ccc8772d',
+				title: 'Brown eggs',
+				rating: 4,
+				price: 10
+			},
+			{
+				_id: '5f3fc61e9a183552ccc87729',
+				title: 'Sweet fresh stawberry',
+				rating: 5,
+				price: 250
+			},
+			{
+				_id: '5f3fc61e9a183552ccc87727',
+				title: 'Green smoothie',
+				rating: 4.5,
+				price: 1200
+			}
+		];
 
 		res.render('cart', {
 			cart,
 			nav,
-			title: ''
+			title: 'Shopping cart'
 		});
 
 		// const { _id } = req.user;
@@ -55,7 +52,7 @@ function router(nav) {
 		// 	}
 		// })();
 	});
-=======
+
 	appRoute
 		.route('/:productId')
 		.all((req, res, next) => {
@@ -80,29 +77,8 @@ function router(nav) {
 			res.send('hi im details');
 			// res.render('detail', { nav, item: res.item });
 		});
->>>>>>> d7b2a867d92baee595e712cbfb347388dda6071b
 
 	return appRoute;
-}
-
-module.exports = router;
-
-
-
-const express = require('express');
-const debug = require('debug')('app:dbRoutes');
-const { MongoClient } = require('mongodb');
-const products = require('../../public/products.json');
-const MONGO = require('../../public/mongoConstants');
-
-const dbRoutes = express.Router();
-
-function router(nav) {
-	dbRoutes.route('/').get((req, res) => {
-		
-	}
-
-	return dbRoutes;
 }
 
 module.exports = router;
