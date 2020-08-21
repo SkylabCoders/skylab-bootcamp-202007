@@ -10,6 +10,13 @@ const productRoutes = express.Router();
 function router(nav) {
 	productRoutes
 		.route('/')
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect(ROUTES.signin.path);
+			}
+		})
 		.post((req, res) => {
 			(async function deleteProductFromList() {
 				let client;
@@ -28,45 +35,20 @@ function router(nav) {
 			})();
 		})
 		.get((req, res) => {
-			(async function getAllProducts() {
+			(async function getAllHeroes() {
 				let client;
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-<<<<<<< HEAD
-<<<<<<< HEAD
-					const colection = db.collection(DATABASE_CONFIG.productCollection);
-					const heroes = await colection.find().sort({ name: 1 }).toArray();
-||||||| cdceebcd
 					const colection = db.collection(DATABASE_CONFIG.heroCollection);
 					const heroes = await colection.find().sort({ name: 1 }).toArray();
-=======
-||||||| merged common ancestors
-<<<<<<<<< Temporary merge branch 1
-					const colection = db.collection(DATABASE_CONFIG.productCollection);
-					const heroes = await colection.find().sort({ name: 1 }).toArray();
-||||||||| cdceebcd
-					const colection = db.collection(DATABASE_CONFIG.heroCollection);
-					const heroes = await colection.find().sort({ name: 1 }).toArray();
-=========
-=======
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
-					const colection = db.collection(DATABASE_CONFIG.productCollection);
-
-					const products = await colection.find().sort({ name: 1 }).toArray();
-<<<<<<< HEAD
->>>>>>> ee83037b844d7cd7dd9a08fa3549d19afbde368e
-||||||| merged common ancestors
->>>>>>>>> Temporary merge branch 2
-=======
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
 
 					res.render('index', {
 						nav,
-						body: ROUTES.products.page,
-						title: ROUTES.products.title,
-						products,
+						body: ROUTES.heroes.page,
+						title: ROUTES.heroes.title,
+						heroes,
 						ROUTES
 					});
 				} catch (error) {
@@ -93,7 +75,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.productCollection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					const objectWithGreatestId = await collection.find().sort({ id: -1 }).limit(1).toArray();
 					const newId = objectWithGreatestId[0].id + 1;
 					const { createHeroWithName } = req.body;
@@ -122,18 +104,18 @@ function router(nav) {
 		});
 
 	productRoutes
-		.route('/:productId')
+		.route('/:heroSlug')
 		.all((req, res, next) => {
 			if (req.user) {
-				const { productId } = req.params;
-				(async function getProduct() {
+				const { heroSlug } = req.params;
+				(async function getHero() {
 					let client;
 					try {
 						client = await MongoClient.connect(DATABASE_CONFIG.url);
 						debug('Connection to db established...');
 						const db = client.db(DATABASE_CONFIG.dbName);
-						const collection = db.collection(DATABASE_CONFIG.productCollection);
-						res.hero = await collection.findOne({ _id: productId });
+						const collection = db.collection(DATABASE_CONFIG.heroCollection);
+						res.hero = await collection.findOne({ slug: heroSlug });
 						debug(res.hero);
 						next();
 					} catch (error) {
@@ -149,15 +131,15 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const updateQuery = { $set: req.body };
-			const { productId } = req.params;
-			const filter = { _id: productId };
+			const { heroSlug } = req.params;
+			const filter = { slug: heroSlug };
 			let client;
 			(async function editHero() {
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.productCollection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					collection.updateOne(filter, updateQuery, (error, response) => {
 						if (error) { throw error }
 						debug(response);
