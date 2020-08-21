@@ -15,7 +15,7 @@ function router(nav) {
 			try {
 				client = await MongoClient.connect(MONGO.url);
 				db = client.db(MONGO.dbName);
-				collection = db.collection(MONGO.usersCollection);
+				collection = db.collection(MONGO.itemsCollection);
 				debug(client);
 				const deleteRes = await collection.deleteMany({});
 				const insertRes = await collection.insertMany(products);
