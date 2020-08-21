@@ -1,0 +1,14 @@
+.login__form {
+	display: flex;
+	flex-direction: column;
+}
+
+.login__anchor {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.login__label-user {
+	margin-left: 31px;
+	margin-bottom: 7px;
+}

@@ -5,13 +5,12 @@ const { MongoClient, ObjectID } = require('mongodb');
 const authRoutes = express.Router();
 
 function router(nav) {
-	authRoutes.route('/register').get((res, req) => {
-		console.log(res);
+	authRoutes.route('/register').get((req, res) => {
 		res.render('auth/register', { title: 'Register', nav });
 	});
 
-	authRoutes.route('/login').get((res, req) => {
-		res.render('auth/register', { title: 'Register', nav });
+	authRoutes.route('/login').get((req, res) => {
+		res.render('auth/login', { title: 'Login', nav });
 	});
 
 	return authRoutes;

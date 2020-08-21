@@ -4,12 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Login</title>
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="index.css" />
+		<link rel="stylesheet" href="login.css" />
 	</head>
 	<body>
-		<form action="/auth/login" method="POST">
+		<form class="login__form" action="/auth/login" method="POST">
 			<div>
-				<label for="user"
+				<label class="login__label-user" for="user"
 					>User:
 					<input type="text" value="" name="user" />
 				</label>
@@ -27,7 +28,7 @@
 					required
 				/>
 			</label>
-			<a href="/auth/register">Register</a>
+			<a class="login__anchor" href="/auth/register">Register</a>
 		</form>
 	</body>
 </html>

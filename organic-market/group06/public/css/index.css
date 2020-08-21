@@ -1,5 +1,7 @@
 :root {
 	--login-bg-color: white;
+	--button-color-yellow: #f3e367;
+	--button-color-gray: #929D9E7;
 }
 
 body {
