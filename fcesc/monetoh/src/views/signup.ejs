@@ -1,0 +1,18 @@
+<div class='signup'>
+  <form action="<%=ROUTES.signup.path%>" method="POST" name="signupForm">
+    <fieldset>
+      <legend>Sign up form</legend>
+      <label for="signup__userName">Username:</label>
+      <input type="text" id="signup__userName" name="signup__userName" value="" required/>
+      <label for="signup__password">Password:</label>
+      <input type="password" id="signup__password" name="signup__password" value="" minlength="8" maxlength="12" pattern=".*([=\[\]\(\)\*\/#!=])+.*" required/>
+      <label for="signup__passwordConfirm">Confirm password:</label>
+      <input type="password" id="signup__passworConfirm" name="signup__passwordConfirm" value="" minlength="8" maxlength="12" pattern=".*([=\[\]\(\)\*\/#!=])+.*" required/>
+      <label for="signup__email">Email:</label>
+      <input type="text" id="signup__email" name="signup__email" value="" required/>
+      <label for="signup__name">Name:</label>
+      <input type="text" id="signup__name" name="signup__name" value="" />
+      <button type="submit" name="signupButton">Confirm</button>
+    </fieldset>
+  </form>
+</div>
