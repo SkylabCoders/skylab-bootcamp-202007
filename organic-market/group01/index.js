@@ -13,11 +13,9 @@ const app = express();
 const port = 3000;
 
 const nav = [
-	{ link: '/', title: 'Dashboard' },
-	{ link: '/market', title: 'market' },
-	{ link: '/auth/signin', title: 'Sign in' },
-	{ link: '/auth/signup', title: 'Sign up' },
-	{ link: '/auth/profile', title: 'Profile' }
+	{ link: '/', title: 'Home' },
+	{ link: '/market', title: 'Products' },
+	{ link: '/auth/signin', title: 'Log in' }
 ];
 
 app.use(morgan('tiny'));
@@ -68,7 +66,7 @@ app
 				const collection = await db.collection('market');
 
 				const market = await collection.find().limit(4).toArray();
-				res.render('dashboard', {
+				res.render('cart', {
 					nav,
 					title: 'Market Home',
 					market
