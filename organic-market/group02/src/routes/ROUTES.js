@@ -6,7 +6,8 @@ const ROUTES = {
   signin: { path: '/auth/signin', title: 'sign in', page: 'signin', nav: false },
   signup: { path: '/auth/signup', title: 'sign up', page: 'signup', nav: false },
   signout: { path: '/auth/signout', title: 'sign out', page: 'signout', nav: false },
-  profile: { path: '/auth/profile', title: 'user profile', page: 'profile', nav: false }
+  profile: { path: '/auth/profile', title: 'user profile', page: 'profile', nav: false },
+  chart: { path: '/chart', title: 'chart', page: 'chart', nav: true }
 }
 
 module.exports = ROUTES;
