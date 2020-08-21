@@ -16,10 +16,7 @@ const port = process.env.PORT || 2427;
 const nav = [
 	{ link: '/', title: 'Dasboard' },
 	{ link: '/heroes', title: 'Heroes' },
-	{ link: '/auth/signin', title: 'Signin' },
-	{ link: '/auth/signup', title: 'Signup' },
-	{ link: '/auth/signout', title: 'Signout'},
-	{ link: '/auth/profile', title: 'Profile'}
+	{ link: '/auth/signin', title: 'Signin' }
 ];
 
 

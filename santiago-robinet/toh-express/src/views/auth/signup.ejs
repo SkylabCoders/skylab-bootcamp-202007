@@ -7,6 +7,7 @@
     <title>Top Heroes</title>
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/detail.css">
+    <link rel="stylesheet" href="../../../css/formvalidation.css">
 
 </head>
 
@@ -16,22 +17,26 @@
     <form action="/auth/signup" method="POST">
         <div>
             <label for="user">
-                User:
-                <input type="text" name="user" />
+                User*:
+                <input required autofocus type="text" name="user"  />
             </label>
         </div>
 
         <div>
             <label for="password">
-                Password:
-                <input type="text" name="password" />
+                Password*:
+                <input required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!#/()=*]).{8,12}$" title="Necesitas usar mayusculas, minusculas y al menos un numero" min="1" type="text" name="password" />
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                Confirm Password*:
+                <input required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!#/()=*]).{8,12}$" title="Necesitas usar mayusculas, minusculas y al menos un numero" min="1"  type="text" name="confirm-password" />
             </label>
         </div>
         <button type="submit">SignUp</button>
     </form>
-    <form action="/auth/signout" method="POST">
-        <button type="submit">SignOut</button>
-    </form>
+
 </body>
 
 </html>

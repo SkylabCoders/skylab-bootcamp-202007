@@ -13,19 +13,19 @@
 
 <body>
     <%- include('../header')-%>
-    <h2>Sign Inn!!!!</h2>
+    <h2>Sign Inn or <a href="/auth/signup">SignUp!</a></h2>
     <form action="/auth/signin" method="POST">
         <div>
             <label for="user">
                 User:
-                <input type="text" name="user" />
+                <input required type="text" name="user" />
             </label>
         </div>
 
         <div>
             <label for="password">
                 Password:
-                <input type="text" name="password" />
+                <input required minlength="8" maxlength="12" type="text" name="password" />
             </label>
         </div>
         <button type="submit">SignIn</button>
