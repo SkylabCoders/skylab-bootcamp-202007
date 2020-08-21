@@ -27,8 +27,8 @@ function router(nav) {
 			next();
 		})
 		.get((req, res) => {
-			res.send('hi');
-			res.render('detail', { nav, item: res.item });
+			res.send('hi im details');
+			// res.render('detail', { nav, item: res.item });
 		});
 
 	return appRoute;
