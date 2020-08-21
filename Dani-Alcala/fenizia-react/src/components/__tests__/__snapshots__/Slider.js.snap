@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider should match 1`] = `
+<section
+  className="slider"
+>
+  <div
+    className="slider__text"
+  >
+    <a
+      className="slider__title"
+      href=""
+      onClick={[Function]}
+    >
+      LIBROS - 
+    </a>
+    <a
+      className="slider__view-all"
+      href=""
+      onClick={[Function]}
+    >
+      <p>
+        VER TODO
+      </p>
+    </a>
+  </div>
+  <div
+    className="slider__content"
+  />
+</section>
+`;

@@ -1,0 +1,70 @@
+.login-main-container {
+  background-color: #fff;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-main-container__wrap {
+  margin: auto;
+  width: 40vw;
+  height: 60vh;
+  border: solid 4px #333;
+  border-radius: 2%;
+  text-align: center;
+}
+.login-wrap__form__logo {
+  width: 20%;
+  filter: grayscale(100%);
+}
+.login-wrap__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.login-wrap__form__btn > button {
+  border-style: none;
+  padding: 2vh;
+  color: black;
+  background-color: #ffcc00;
+  border: 2px transparent solid;
+  width: 10vw;
+  min-width: 70px;
+}
+.login-wrap__form__btn > button:hover {
+  border: 2px #333 solid;
+}
+.login-wrap__form__btn > img {
+  width: 40%;
+  margin: 2.2vw;
+  border: 2px solid transparent;
+}
+.login-wrap__form__btn > img:hover {
+  border: 2px solid #ffcc00;
+  border-radius: 9%;
+}
+.logout-btn {
+  background-color: #ffcc00;
+  margin-left: 80vw;
+  margin-top: 2vh;
+  padding: 0.6vw;
+  color: #fff;
+  border: 2px solid transparent;
+}
+.logout-btn:hover {
+  color: #333;
+  border: 2px solid #333;
+}
+.input__search {
+  margin: auto;
+}
+/* QUERIES */
+
+@media screen and (max-width: 599px) {
+  .login-main-container__wrap {
+    width: 100vw;
+    height: 80vh;
+    border: solid 4px transparent;
+  }
+}
