@@ -14,16 +14,21 @@
 
     <ul class=" heroes">
         <% products.forEach(product => { %>
-        <li>
-            <a href="/products/<%= product._id %>">
-                <span class="badge"><%= product.rating %></span> <%= product.title %>
-            </a>
-
-            <form method="POST">
-                <button class="delete" title="add to cart" type="submit" name="addtocart" value="<%= product._id %>">x
-                    </button;>
-            </form>
-        </li>
+            <div class="featured">
+                <div class="featured__title">
+                    <a href="/products/<%= product._id %>">
+                        <p><%= product.title %></p>
+                    </a>
+                    <p><%= product.type %></p>
+                </div>
+                <div class="featured__details">
+                    <p>Rating: <span><%= product.rating %></span>/5</p>
+                    <p>Price: $<span><%= product.price %></span></p>
+                </div>
+                <div class="featured__cart">
+                    <form method="POST"><button class="delete" title="add to cart" type="submit" name="addtocart" value="<%= product._id %>">Add to cart</button></form>
+                </div>
+            </div>
         <% }) %>
     </ul>
 </body>
