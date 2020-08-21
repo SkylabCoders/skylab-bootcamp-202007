@@ -1,15 +1,22 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
+const path = require('path');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
-const path = require('path');
 
 const heroRoutes = express.Router();
 
 function router(nav) {
 	heroRoutes
 		.route('/')
+		.all((req, res, next)=>{
+      if(req.user) {
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
 		.post((req, res) => {
 			(async function deleteHeroFromList(){
 				let client;
@@ -17,7 +24,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					const { heroSlug } = req.body;
 					const filter = { slug: heroSlug };
 					await collection.deleteOne( filter );
@@ -34,8 +41,8 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const colection = db.collection(DATABASE_CONFIG.collection);
-					const heroes = await colection.find().toArray();
+					const colection = db.collection(DATABASE_CONFIG.heroCollection);
+					const heroes = await colection.find().sort({ name: 1 }).toArray();
 
 					res.render('index', {
 						nav,
@@ -54,6 +61,13 @@ function router(nav) {
 
 		heroRoutes
 		.route('/create')
+		.all((req, res, next)=>{
+      if(req.user) {
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
 		.post((req, res)=>{
 			let client;
 			(async function createHero(){
@@ -61,7 +75,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					const objectWithGreatestId = await collection.find().sort({id:-1}).limit(1).toArray();
 					const newId = objectWithGreatestId[0].id + 1;
 					const { createHeroWithName } = req.body;
@@ -91,25 +105,30 @@ function router(nav) {
 
 	heroRoutes
 		.route('/:heroSlug')
-		.all((req, res, next) => {
-			const {heroSlug} = req.params;
-			(async function getHero() {
-				let client;
-				try {
-					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection to db established...');
-					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
-					res.hero = await collection.findOne({slug: heroSlug});
-					debug(res.hero);
-					next();
-				} catch (error) {
-					debug(error.stack);
-				}
-				debug('Connection to db closed.');
-				client.close();
-			})();
-		})
+		.all((req, res, next)=>{
+      if(req.user) {
+				const {heroSlug} = req.params;
+				(async function getHero() {
+					let client;
+					try {
+						client = await MongoClient.connect(DATABASE_CONFIG.url);
+						debug('Connection to db established...');
+						const db = client.db(DATABASE_CONFIG.dbName);
+						const collection = db.collection(DATABASE_CONFIG.heroCollection);
+						res.hero = await collection.findOne({slug: heroSlug});
+						debug(res.hero);
+						next();
+					} catch (error) {
+						debug(error.stack);
+					}
+					debug('Connection to db closed.');
+					client.close();
+				})();
+        next();
+      } else {
+        res.redirect(ROUTES.signin.path);
+      }
+    })
 		.post((req, res)=>{
 			const updateQuery = { $set: req.body };
 			const { heroSlug } = req.params;
@@ -120,7 +139,7 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.collection);
+					const collection = db.collection(DATABASE_CONFIG.heroCollection);
 					collection.updateOne(filter, updateQuery, (error, response)=>{
 						if (error) { throw error }
 						debug(response);
