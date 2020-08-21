@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(expressSession({
 	secret: 'heroes',
 	resave: true,
-	saveUninitialized: true
+	saveUninitialized: false
 }));
 
 require('./src/config/passport')(app);
