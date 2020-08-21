@@ -3,7 +3,7 @@ const express = require('express');
 const recipesRouter = express.Router();
 const debug = require('debug')('app:recipesRoutes');
 
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 
 function router(nav) {
 	recipesRouter
@@ -27,7 +27,7 @@ function router(nav) {
 
 					res.render('list', {
 						nav,
-						title: 'recipes',
+						title: 'Recipes List',
 						recipes: recipe
 					});
 				} catch (error) {
@@ -72,7 +72,6 @@ function router(nav) {
 					debug(error.stack);
 				}
 			})();
-			x;
 		});
 	recipesRouter.route('/detail/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
