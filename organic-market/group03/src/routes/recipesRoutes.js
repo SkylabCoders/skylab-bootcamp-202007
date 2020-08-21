@@ -3,7 +3,7 @@ const express = require('express');
 const recipesRouter = express.Router();
 const debug = require('debug')('app:recipesRoutes');
 
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 
 function router(nav) {
 	recipesRouter
@@ -27,7 +27,7 @@ function router(nav) {
 
 					res.render('list', {
 						nav,
-						title: 'recipes',
+						title: 'Recipes List',
 						recipes: recipe
 					});
 				} catch (error) {
@@ -72,41 +72,43 @@ function router(nav) {
 					debug(error.stack);
 				}
 			})();
-			x;
 		});
 	recipesRouter.route('/detail/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
 		let client;
-		const { title } = req.params;
-
+		/* const { title } = req.params; */
+		const title = 'Brown eggs';
+		const fileName = '0.jpg';
 		(async function query() {
 			try {
 				client = await MongoClient.connect(url);
 
 				const db = client.db(dbName);
 
-				const collection = await db.collection('heroes');
-				const filterRecipe = await collection.findOne({ title: title });
+				const collection = await db.collection('recipes');
+				const filterRecipe = await collection.findOne({ title });
+				debug(filterRecipe);
+
+				res.render('detail', {
+					nav,
+					title: 'Detail',
+					/* recipe: {
+						title: 'Brown eggs',
+						type: 'dairy',
+						description: 'Raw organic brown eggs in a basket',
+						filename: '0.jpg',
+						height: 600,
+						width: 400,
+						price: 28.1,
+						rating: 4
+					} */
+					recipe: filterRecipe
+				});
 			} catch (error) {
 				debug(error);
 			}
 		})();
-		res.render('detail', {
-			nav,
-			title: 'Detail',
-			recipe: {
-				title: 'Brown eggs',
-				type: 'dairy',
-				description: 'Raw organic brown eggs in a basket',
-				filename: '0.jpg',
-				height: 600,
-				width: 400,
-				price: 28.1,
-				rating: 4
-			}
-			/* recipe: filterRecipe */
-		});
 	});
 	return recipesRouter;
 }
