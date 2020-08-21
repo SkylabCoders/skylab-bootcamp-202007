@@ -1,9 +1,50 @@
 :root {
 	--login-bg-color: white;
-	--button-color-yellow: #f3e367;
-	--button-color-gray: #929D9E7;
+	--header-bg-color: #7f8688;
+	--header-button-bg-color: #f3e367;
+	--header-link-font-color: black;
 }
 
-body {
-	background-color: var(--login-bg-color);
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: var(--header-bg-color);
+	padding: 24px;
+}
+
+.navbar {
+	display: flex;
+	flex-direction: row;
+}
+
+.navbar li {
+	list-style-type: none;
+}
+
+.navbar a {
+	text-decoration: none;
+	color: var(--header-link-font-color);
+}
+
+.navbar__list-item {
+	padding: 12px;
+}
+
+.nav__logout {
+	padding: 12px;
+	border-radius: 5px;
+	border: unset;
+	background-color: var(--header-button-bg-color);
+}
+
+.flex-spacer {
+	flex: 1;
 }

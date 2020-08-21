@@ -12,7 +12,10 @@ const { MongoClient } = require('mongodb');
 const app = express();
 const port = 3000;
 
-const nav = [{ link: '', title: '' }];
+const nav = [
+	{ link: '/user/products', title: 'Products' },
+	{ link: '/user/cart', title: 'Shopping Cart' }
+];
 
 app.use(morgan('tiny'));
 

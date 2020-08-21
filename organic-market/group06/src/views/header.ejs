@@ -1,0 +1,18 @@
+<div class="header">
+	<img src="" alt="logo" />
+	<ul class="navbar">
+		<% for(let i= 0; i< nav.length; i++) { %>
+		<li>
+			<a href="<%=nav[i].link%>">
+				<span class="navbar__list-item"><%= nav[i].title %></span>
+			</a>
+		</li>
+		<% } %>
+	</ul>
+	<div class="flex-spacer"></div>
+	<form action="" method="POST" name="logout">
+		<button type="submit" class="nav__logout" name="logout">
+			Log Out
+		</button>
+	</form>
+</div>
