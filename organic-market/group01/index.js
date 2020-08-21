@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const { MongoClient } = require('mongodb');
-let heroes = require('./market');
+
 
 const app = express();
 const port = 3000;
@@ -25,8 +25,8 @@ app.use(morgan('tiny'));
 
 app.use((request, response, next) => {
 	debug('***********************************************');
-	debug('GROUP 01);
-	debug('***********************************************');
+	debug('GROUP 01),
+	debug('***********************************************')
 
 	next();
 });
@@ -78,13 +78,12 @@ app
 		})();
 	});
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav);
+const heroRoutes = require('./src/routes/market')(nav);
 
-app.use('/heroes', heroRoutes);
+app.use('/market', heroRoutes);
 
-const shieldRoutes = require('./src/routes/shieldRoutes')(nav);
 
-app.use('/shield', shieldRoutes);
+
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 
