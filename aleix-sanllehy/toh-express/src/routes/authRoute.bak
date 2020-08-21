@@ -1,0 +1,97 @@
+const express = require('express');
+const debug = require('debug')('app:authRoutes');
+const { MongoClient } = require('mongodb');
+
+const authRoutes = express.Router();
+const dbUrl = 'mongodb://localhost:27017';
+const dbName = 'shieldHeroes';
+const collectionName = 'users';
+let client;
+
+function router(nav) {
+	authRoutes
+		.route('/signin')
+		.get((req, res) => {
+			res.render('auth/signin', { nav });
+		})
+		.post((req, res) => {
+			// res.send('POST Sign in works');
+			res.json(req.body);
+		});
+
+	authRoutes
+		.route('/signup')
+		.get((req, res) => {
+			res.render('auth/signup', { nav });
+		})
+		.post((req, res) => {
+			// res.send('POST Sign up works');
+			// res.json(req.body);
+			// const { user, password } = req.body;
+			// const newUser = req.body;
+			const newUser = { ...req.body, user: req.body.user.toLowerCase() };
+
+			(async function mongo() {
+				client = await MongoClient.connect(dbUrl);
+				const db = client.db(dbName);
+				const collection = await db.collection(collectionName);
+
+				/* const exists = await collection.findOne({ user: newUser.user });
+				debug(exists);
+				if (exists) {
+					res.render('auth/signin', { nav });
+				} else {
+					// NOT EXISTS -> create new user
+					await collection.insertOne(newUser);
+					res.render('auth/profile', { nav });
+                } */
+
+				const user = await collection.findOne({ user: newUser.user });
+				// debug(user);
+				if (!user) {
+					await collection.insertOne(newUser);
+					// res.redirect('/auth/signin');
+				}
+				// res.redirect('/auth/signup');
+				res.redirect('/auth/signin');
+			})();
+		});
+
+	authRoutes.route('/signout').post((req, res) => {
+		res.send('POST Sign out works');
+	});
+
+	authRoutes
+		.route('/profile')
+		.get((req, res) => {
+			res.send('GET profile works');
+		})
+		.post((req, res) => {
+			res.send('POST profile works');
+		});
+
+	// SIGN IN
+	// 1.- GET signin   -> display login form with user and pw controls
+	// 2.- POST signin  -> check if user and password exists on a single document in db
+	//      Exists      -> redirect to profile
+	//      Not exists  -> feedback to the user (enhance UX) when something wrong happens
+	//
+	// SIGN UP
+	// 1.- GET signup   -> display a sign up form with user and pw controls
+	// 2.- POST signup  -> insert data in db
+	//      Insert      -> redirect to profile with the account created
+	//      Not insert  -> feedback to the user (enhance UX) when something wrong happens
+	//
+	// SIGN OUT
+	// 1.- POST signout -> clean all the user auth info, redirect to root (/)
+	//
+	// PROFILE
+	// 1.- GET profile  -> show info in the user profile
+	// 2.- POST profile -> insert data into database
+	//      INSERTS     -> redirect to profile
+	//      NOT INSERTS -> feedback to the user (enhance UX) when something wrong happens
+	//
+	return authRoutes;
+}
+
+module.exports = router;
