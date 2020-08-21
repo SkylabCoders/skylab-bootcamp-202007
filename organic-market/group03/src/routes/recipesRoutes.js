@@ -3,20 +3,73 @@ const recipesRouter = express.Router();
 const debug = require('debug')('app');
 
 function router(nav) {
-	recipesRouter.route('/').get((req, res) => {
-		(async function query() {
-			try {
-				const { recordset } = await request.query('SELECT * FROM heroes');
-				res.render('heroes', {
-					nav,
-					title: 'My Heros',
-					heroes: recordset
-				});
-			} catch (error) {
-				debug(error.stack);
-			}
-		})();
-	});
+	recipesRouter
+		.route('/')
+		.get((req, res) => {
+			// mongodb
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'organicMarket';
+			let client;
+
+			(async function query() {
+				try {
+					client = await MongoClient.connect(url);
+					debug('Connection stablished...');
+
+					const db = client.db(dbName);
+
+					const collection = await db.collection('recipes');
+
+					const recipes = await collection.find().toArray();
+
+					res.render('list', {
+						nav,
+						title,
+						recipes
+					});
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		})
+		.post((req, res) => {
+			const { deletedRecipe } = req.body;
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'organicMarket';
+			const collectionName = 'recipes';
+			let client;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+
+					const db = client.db(dbName);
+
+					const collection = db.collection(collectionName);
+					if (deletedRecipe === 'all') {
+						await collection.deleteMany({});
+					} else {
+						const filter = { _id: new ObjectID(deletedRecipe) };
+
+						await collection.deleteOne(filter, (error, response) => {
+							if (error) {
+								throw error;
+							}
+							debug(`${response} deleted!`);
+							res.redirect('/list');
+						});
+					}
+					const recipe = await collection.find().toArray();
+					res.render('list', {
+						nav,
+						title: 'My Heros',
+						recipe
+					});
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
+		});
 	recipesRouter.route('/detail/:title').get((req, res) => {
 		const { title } = req.params;
 		res.render('detail', {
