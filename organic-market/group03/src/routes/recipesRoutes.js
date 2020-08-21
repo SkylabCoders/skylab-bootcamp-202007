@@ -71,7 +71,15 @@ function router(nav) {
 			})();
 		});
 	recipesRouter.route('/detail/:title').get((req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'organicMarket';
+		let client;
 		const { title } = req.params;
+
+		(async function query() {
+			client = await MongoClient.connect(url);
+			debug('ok');
+		})();
 		res.render('detail', {
 			nav,
 			title: 'Detail',
