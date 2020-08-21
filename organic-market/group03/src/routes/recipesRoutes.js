@@ -1,6 +1,9 @@
 const express = require('express');
+
 const recipesRouter = express.Router();
-const debug = require('debug')('app');
+const debug = require('debug')('app:recipesRoutes');
+
+const { MongoClient } = require('mongodb');
 
 function router(nav) {
 	recipesRouter
@@ -20,18 +23,18 @@ function router(nav) {
 
 					const collection = await db.collection('recipes');
 
-					const recipes = await collection.find().toArray();
-
-					res.render('list', {
-						nav,
-						title,
-						recipes
-					});
+					req.recipes = await collection.find().toArray();
 				} catch (error) {
 					debug(error.stack);
 				}
 				client.close();
 			})();
+			console.log(req.recipes);
+			res.render('list', {
+				nav,
+				title: 'recipes',
+				recipes: req.recipes
+			});
 		})
 		.post((req, res) => {
 			const { deletedRecipe } = req.body;

@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>The Best Organic Market!!</title>
-	</head>
-	<body>
-		<%- include('header')%>
-		<h2><%= title%></h2>
 
-		<div>
-			<label
-				>Recipe title:
-				<input #heroName />
-			</label>
-			<button>
-				add
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>The Best Organic Market!!</title>
+</head>
+
+<body>
+	<%- include('header')%>
+	<h2><%= title%></h2>
+
+	<div>
+		<label>Recipe title:
+			<input #heroName />
+		</label>
+		<button>
+			add
+		</button>
+	</div>
+
+	<ul class="heroes">
+		<% for(let i = 0; i<recipes.length; i++){%>
+		<li>
+			<a href="/list/<%=recipes[i].title%>">
+				<span class="badge"><%= recipes[i].price %></span> <%= recipes[i].name %>
+			</a>
+			<button class="delete" title="delete hero">
+				x
 			</button>
-		</div>
-
-		<ul class="heroes">
-			<% for(let i = 0; i<recipies.length; i++){%>
-			<li>
-				<a href="/list/<%=recipies[i].title%>">
-					<span class="badge"><%= recipies[i].price %></span> <%= recipies[i].name %>
-				</a>
-				<button class="delete" title="delete hero">
-					x
-				</button>
-			</li>
+		</li>
 		<% } %>
-		</ul>
-	</body>
+	</ul>
+</body>
+
 </html>
