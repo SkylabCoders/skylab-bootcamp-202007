@@ -67,7 +67,7 @@ app
 
 				const collection = await db.collection('market');
 
-				market = await collection.find().limit(4).toArray();
+				const market = await collection.find().limit(4).toArray();
 				res.render('dashboard', {
 					nav,
 					title: 'INSER APPROPIATE TITLE HERE',
