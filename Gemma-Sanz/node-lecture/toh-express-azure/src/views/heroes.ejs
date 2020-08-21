@@ -10,28 +10,33 @@
 	<body>
 		<%- include('header')%>
 		<h2><%= title%></h2>
-
-		<div>
-			<label
-				>Hero name:
-				<input #heroName />
-			</label>
-			<button>
-				add
-			</button>
-		</div>
-
-		<ul class="heroes">
-			<% for(let i = 0; i<heroes.length; i++){%>
-			<li>
-				<a href="/heroes/<%=heroes[i].id%>">
-					<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
-				</a>
-				<button class="delete" title="delete hero">
-					x
+		<form action="" method="POST">
+				<label
+					>Hero name:
+					<input #heroName />
+				</label>
+				<button>
+					add
 				</button>
-			</li>
-		<% } %>
-		</ul>
+				<button class="" title="delete all" type="submit" name="deletedHero" value="all">
+					delete all
+				</button>
+		</form>
+
+		<form action="" method="POST">
+			<ul class="heroes">
+				<% for(let i = 0; i<heroes.length; i++){%>
+					<li>
+					<a href="/heroes">
+						<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
+					</a>
+	<!-- 				el nom te que ser igual aqui i en routes de heroRoutes, lin
+	-->				<button class="delete" title="delete hero" type="submit" name="deletedHero" value="<%= heroes[i]._id%>">
+						x
+					</button>
+				</li>
+				<% } %>
+			</ul>
+	</form>
 	</body>
 </html>

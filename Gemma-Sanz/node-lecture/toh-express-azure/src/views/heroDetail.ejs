@@ -8,18 +8,20 @@
 		<link rel="stylesheet" href="../css/heroDetail.css" />
 	</head>
 	<body>
-		<%- include('header')%>
-		<div>
-			<h2><%=hero && hero.name%> details!</h2>
-			<div><span>id: </span><%= hero && hero.id %></div>
+		<%- include('header') -%>
+		<form action="/heroes/<%= hero && hero._id%>" method="POST" name="heroForm">
 			<div>
-				<label
-					>name:
-					<input placeholder="name" value="<%= hero.name%>" />
-				</label>
+				<h2><%=hero && hero.name%> details!</h2>
+				<div><span>id: </span><%= hero && hero.id %></div>
+				<div>
+					<label
+						>name:
+						<input placeholder="name" name="name" value="<%= hero.name%>" />
+					</label>
+				</div>
+				<button type="button">go back</button>
+				<button type="submit">save</button>
 			</div>
-			<button>go back</button>
-			<button>save</button>
-		</div>
+		</form>
 	</body>
 </html>
