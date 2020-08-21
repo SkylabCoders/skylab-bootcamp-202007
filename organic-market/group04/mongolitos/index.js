@@ -45,7 +45,7 @@ app.use(
 	})
 );
 
-require('./src/config/passport')(app);
+// require('./src/config/passport')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -53,54 +53,51 @@ app.set('views', './src/views');
 
 app.set('view engine', 'ejs');
 
-// app
-// .all('/', (req, res, next) => {
-// 	if(req.user) {
-// 		next();
-// 	} else {
-// 		res.redirect('/auth/signin');
-// 	}
-// })
-// .get('/', (req, res) => {
-// 	const url = 'mongodb://localhost:27017';
-// 	const dbName = 'mongoProducts';
-// 	const collectionName = 'products';
-// 	let client;
+app
+	/* .all('/', (req, res, next) => {
+	if(req.user) {
+		next();
+	} else {
+		res.redirect('/auth/signin');
+	}
+}) */
+	.get('/', (req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'mongoProducts';
+		const collectionName = 'products';
+		let client;
 
-// 	(async function mongo() {
-// 		try {
-// 			client = await MongoClient.connect(url);
-// 			debug('Connection dashboard');
-// 			const db = client.db(dbName);
-// 			const collection = db.collection(collectionName);
-// 			const heroes = await collection.find().toArray();
+		(async function mongo() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('Connection dashboard');
+				const db = client.db(dbName);
+				const collection = db.collection(collectionName);
+				const products = await collection.find().toArray();
 
-// 			res.render('dashboard', {
-// 				nav,
-//                 title: 'Top Products',
-//                 // Hay que hacer búsqueda de rating 5
-// 				heroes: heroes.slice(0, 4)
-// 			});
+				res.render('food-dashboard', {
+					nav,
+					title: 'Top Products'
+					// Hay que hacer búsqueda de rating 5
+				});
+			} catch (error) {
+				debug(error.stack);
+			}
 
-// 		} catch (error) {
-// 			debug(error.stack);
-// 		}
+			client.close();
+		})();
+	});
 
-// 		client.close();
-// 	})();
-// });
+const foodRoutes = require('./src/routes/foodRoutes')(nav);
 
-// const heroRoutes = require('./src/routes/heroRoutes')(nav);
+app.use('/products', foodRoutes);
 
-// app.use('/products', productsRoutes);
+const insertRoutes = require('./src/routes/insertRoutes')();
 
-// const insertRoutes = require('./src/routes/insertRoutes')();
+app.use('/insertProducts', insertRoutes);
 
-// app.use('/insertProducts', insertRoutes);
+/* const authRoutes = require('./src/routes/authRoutes')(nav);
 
-// // creamos rutas de autentificación (verificar quién eres) y autorización(qué puede hacer el usuario dentro de mi aplicación) ==> estas dos cosas significan auth
-// const authRoutes = require('./src/routes/authRoutes')(nav);
-// // empieza así la ruta
-// app.use('/auth', authRoutes);
+app.use('/auth', authRoutes); */
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
