@@ -38,8 +38,13 @@ app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
-const authRoutes = require('./src/routes/authRoutes.js')(nav);
+const recipesRoutes = require('./src/routes/recipesRoutes');
+app.use('/list', recipesRoutes);
 
+const dbRoutes = require('./src/routes/dbRoutes.js')();
+app.use('/db', dbRoutes);
+
+const authRoutes = require('./src/routes/authRoutes.js')(nav);
 app.use('/auth', authRoutes);
 
 app.listen(PORT, () => debug(`Listening in port ${chalk.green(PORT)}...`));
