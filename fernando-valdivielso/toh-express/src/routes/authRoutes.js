@@ -68,7 +68,7 @@ function router(nav) {
         });
 
 
-    authRoutes.route('/signout').post((req, res) => {
+    authRoutes.route('/signout').get((req, res) => {
         res.send('Post Sign Out Works')
     })
 
