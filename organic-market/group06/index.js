@@ -30,4 +30,8 @@ app.get('/', (req, res) => {
 	res.send('Hi I works');
 });
 
+const detailRoute = require('./src/routes/detailRoute')(nav);
+
+app.use('detail/', detailRoute);
+
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
