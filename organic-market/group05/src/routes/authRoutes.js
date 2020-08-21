@@ -39,7 +39,7 @@ function router(nav) {
                 try {
                     client = await MongoClient.connect(dbUrl);
                     const db = client.db(dbName);
-                    const collection = await db.collection(collectionName);
+                    const collection = db.collection(collectionName);
                     //hay q buscar si el user ya existe
                     const user = await collection.findOne({ user: newUser.user });
                     if (user) {
@@ -48,7 +48,7 @@ function router(nav) {
                     } else {
                         const result = await collection.insertOne(newUser);
                         console.log("usuario correcto", result.ops[0]);
-                        req.logIn(result.ops[0], () => {
+                        req.login(result.ops[0], () => {
                             res.redirect('/auth/profile');
                         });
                     }
@@ -63,13 +63,13 @@ function router(nav) {
     });
     authRoutes
         .route('/profile')
-        /*.all((req, res, next) => {
+        .all((req, res, next) => {
             if (req.user) {
                 next();
             } else {
                 res.redirect('/auth/logIn');
             }
-        })*/
+        })
         .get((req, res) => {
             res.render('auth/profile', { nav, user: req.user });
         })
