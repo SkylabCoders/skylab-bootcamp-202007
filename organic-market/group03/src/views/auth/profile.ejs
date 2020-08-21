@@ -15,7 +15,8 @@
 		<div>
 			<label for="password">
 				Change your password:
-				<input type="password" name="password" value="<%= user.password %>" />
+				<input type="password" name="password" value="<%= user.password %>"
+					pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$" required />
 			</label>
 		</div>
 
