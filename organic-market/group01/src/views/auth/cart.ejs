@@ -10,27 +10,20 @@
 <body>
 
 
-	<form action="" method="POST">
-		<label>Product name:
-			<input #heroName name="createHero" />
-		</label>
-		<button type="submit">
-			add
-		</button>
-	</form>
-	<form>
-		<button type="submit" name="deleteHero" value="all" class="" title="delete hero">
-			Remove all
-		</button>
+	<form action="" method="POST"></form>
+	<button type="submit" name="removeCart" value="all" class="" title="empty-cart">
+		Remove all
+	</button>
 	</form>
 	<ul class="heroes">
-		<% for(let i = 0; i<heroes.length; i++){%>
+		<% for(let i = 0; i<cart.length; i++){%>
 		<li>
 			<a href="/heroes/<%=heroes[i]._id%>">
 				<span class="badge"><%= cart[i].title %></span> <%= cart[i].description %>
 			</a>
 			<form action="" method="POST">
-				<button type="submit" name="deleteHero" value="<%= heroes[i]._id %>" class="delete" title="delete hero">
+				<button type="submit" name="deleteProduct" value="<%= cart[i]._id %>" class="delete"
+					title="delete-product">
 					x
 				</button>
 			</form>
