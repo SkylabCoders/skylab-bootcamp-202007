@@ -23,7 +23,7 @@
 			<% for(let i = 0; i<recipies.length; i++){%>
 			<li>
 				<a href="/list/<%=recipies[i].title%>">
-					<span class="badge"><%= recipies[i].price %></span> <%= heroes[i].name %>
+					<span class="badge"><%= recipies[i].price %></span> <%= recipies[i].name %>
 				</a>
 				<button class="delete" title="delete hero">
 					x

@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
-const recipesRoutes = require('./src/routes/recipesRoutes');
+const recipesRoutes = require('./src/routes/recipesRoutes')(nav);
 app.use('/list', recipesRoutes);
 
 const dbRoutes = require('./src/routes/dbRoutes.js')();
