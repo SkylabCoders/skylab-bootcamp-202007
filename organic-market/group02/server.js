@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
 app.use(expressSession({
-	secret: 'heroes',
+	secret: 'prodctus',
 	resave: true,
 	saveUninitialized: false
 }));
