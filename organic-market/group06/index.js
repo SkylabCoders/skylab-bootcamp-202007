@@ -12,6 +12,8 @@ const { MongoClient } = require('mongodb');
 const app = express();
 const port = 3000;
 
+const nav = [{ link: '', title: '' }];
+
 app.use(morgan('tiny'));
 
 app.use(bodyParser.json());
@@ -30,4 +32,6 @@ app.get('/', (req, res) => {
 	res.send('Hi I works');
 });
 
+const dbRoutes = require('./src/routes/dbRoutes')(nav);
+app.use('/db', dbRoutes);
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
