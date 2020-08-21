@@ -7,7 +7,27 @@
 	</head>
 	<body>
 		<header><%- include('header'); -%></header>
-		<main></main>
+		<main>
+			<div class="home-container">
+				<% for (let i = 0; i< products.length; i++) { %>
+				<div class="featured">
+					<div class="featured__title">
+						<a href="/products/<%= products[i]._id %>">
+							<p><%= products[i].title %></p>
+						</a>
+						<p><%= products[i].type %></p>
+					</div>
+					<div class="featured__details">
+						<p>Rating: <span><%= products[i].rating %></span>/5</p>
+						<p>Price: $<span><%= products[i].price %></span></p>
+					</div>
+					<div class="featured__cart">
+						<form action="POST"><button>Add to cart</button></form>
+					</div>
+				</div>
+				<% } %>
+			</div>
+		</main>
 		<footer><%- include('footer'); -%></footer>
 	</body>
 </html>
