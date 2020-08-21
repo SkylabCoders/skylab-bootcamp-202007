@@ -7,11 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { MongoClient } = require('mongodb');
 const session = require('express-session');
-const nav = [
 
-	{ link: '/auth/logIn', title: 'LogIn' }
-
-];
 
 
 const app = express();
@@ -22,7 +18,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({ secret: 'heroes' }));
+
+const nav = [
+	{ link: '/', title: 'Home' },
+	{ link: '/products', title: 'Products' },
+	{ link: '/auth/profile', title: 'My profile' },
+	{ link: '/auth/login', title: 'Login' }
+];
+
 app.use((req, res, next) => {
 	debug('Organic Market works');
 	next();
@@ -32,13 +35,30 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.send('Organic dashboard');
+	const url = 'mongodb://localhost:27017';
+	const dbName = 'organics';
+	const collectionName = 'products';
+	let client;
+	(async function mongo() {
+		try {
+			client = await MongoClient.connect(url);
+			debug('Connection for home works');
+			const db = client.db(dbName);
+			const collection = db.collection(collectionName);
+			const query = { rating: 5 };
+			const products = await collection.find({ rating: 5 }).toArray();
+			res.render('home', { nav, title: 'Home', products });
+		} catch (error) {
+			debug(error.stack);
+		}
+	})();
 });
 
-const productsRoutes = require('./src/routes/productsRoutes');
+const mongoRoutes = require('./src/routes/mongoRoutes');
 
-app.use('/getproducts', productsRoutes);
+
 const authRoutes = require('./src/routes/authRoutes')(nav);
 app.use('/auth', authRoutes);
+app.use('/getproducts', mongoRoutes);
 
 app.listen(port, () => debug(`Server is running on port`, chalk.cyan(port)));
