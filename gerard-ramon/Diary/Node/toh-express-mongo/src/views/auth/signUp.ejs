@@ -13,21 +13,35 @@
 		<form method="POST" action="/auth/signup">
 			<label for="userName"
 				>Username:
-				<input type="text" name="userName" />
+				<input type="text" name="userName" required />
 			</label>
 			<br />
 
 			<label for="userPassword"
 				>Password:
 
-				<input type="password" name="userPassword" />
+				<input
+					class="password-input"
+					type="text"
+					name="userPassword"
+					pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					required
+				/>
 			</label>
 			<br />
 
 			<label for="userPassword"
 				>Repeat password:
 
-				<input type="password" name="repeatedPassword" />
+				<input
+					class="password-input"
+					type="password"
+					name="repeatedPassword"
+					minlength="8"
+					maxlength="12"
+					pattern="[a-zA-Z!#\/\(\)=\*&]*"
+					required
+				/>
 			</label>
 			<br />
 

@@ -63,6 +63,13 @@ nav a.active {
 	color: #039be5;
 }
 
+.password-input:valid {
+	border: 1px solid green;
+}
+.password-input:invalid {
+	border: 1px solid red;
+}
+
 /* everywhere else */
 * {
 	font-family: Arial, Helvetica, sans-serif;
