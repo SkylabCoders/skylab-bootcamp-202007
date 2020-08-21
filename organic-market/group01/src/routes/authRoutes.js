@@ -4,7 +4,8 @@ const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
 
 const authRouter = express.Router();
-const url = 'mongodb://localhost:27017';
+const ip = 'localhost';
+const url = `mongodb://${ip}:27017`;
 const dbName = 'shieldHeroes';
 
 function router(nav) {
@@ -96,7 +97,6 @@ function router(nav) {
 
 					const collection = await db.collection('user');
 
-					//no modifica la base de datos correctamente
 					collection.updateOne(
 						{ _id: new ObjectID(_id) },
 						{ $set: { password } }
