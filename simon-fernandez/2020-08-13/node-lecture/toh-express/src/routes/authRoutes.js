@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
 
 const authRouter = express.Router();
@@ -84,6 +84,7 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const { password } = req.body;
+			const { _id } = req.user;
 
 			let client;
 			(async function query() {
@@ -94,8 +95,14 @@ function router(nav) {
 					const db = client.db(dbName);
 
 					const collection = await db.collection('user');
+
 					//no modifica la base de datos correctamente
-					collection.updateOne({ name: req.user.user }, { $set: { password } });
+					collection.updateOne(
+						{ _id: new ObjectID(_id) },
+						{ $set: { password } }
+					);
+					req.user.password = password;
+					res.render('auth/profile', { nav, user: req.user });
 				} catch (error) {
 					debug(error.stack);
 				}

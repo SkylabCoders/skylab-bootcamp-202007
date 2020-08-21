@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/signin.css" />
 	</head>
 	<body>
 		<%- include('../header')%>
@@ -16,7 +17,13 @@
 			<div>
 				<label for="user">
 					New Password:
-					<input type="text" name="password" value="<%=user.password%>" />
+					<input
+						type="text"
+						name="password"
+						value="<%=user.password%>"
+						pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+						required
+					/>
 				</label>
 			</div>
 			<button type="submit">Enviar</button>

@@ -6,6 +6,7 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="../css/index.css" />
 		<link rel="stylesheet" href="../css/heroDetail.css" />
+		<link rel="stylesheet" href="../css/signin.css" />
 	</head>
 	<body>
 		<%- include('../header')%>
@@ -20,14 +21,20 @@
 			<div>
 				<label for="user">
 					User:
-					<input type="text" name="user" />
+					<input type="text" name="user" required />
 				</label>
 			</div>
 
 			<div>
 				<label for="user">
 					Password:
-					<input type="password" name="password" />
+					<input
+						type="password"
+						name="password"
+						required
+						minlength="8"
+						title="Pepito"
+					/>
 				</label>
 			</div>
 
