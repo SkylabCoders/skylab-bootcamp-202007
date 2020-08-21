@@ -31,16 +31,17 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
-const recipesRoutes = require('./src/routes/recipesRoutes');
-
-app.use('/recipes', recipesRoutes);
-
 app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
-const authRoutes = require('./src/routes/authRoutes.js')(nav);
+const recipesRoutes = require('./src/routes/recipesRoutes');
+app.use('/recipes', recipesRoutes);
 
+const dbRoutes = require('./src/routes/dbRoutes.js')();
+app.use('/db', dbRoutes);
+
+const authRoutes = require('./src/routes/authRoutes.js')(nav);
 app.use('/auth', authRoutes);
 
 app.listen(PORT, () => debug(`Listening in port ${chalk.green(PORT)}...`));
