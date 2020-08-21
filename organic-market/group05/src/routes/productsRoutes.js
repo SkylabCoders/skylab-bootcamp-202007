@@ -24,7 +24,12 @@ function router(nav) {
 				debug(error.stack);
 			}
 		})();
-    });
+	})
+	.post((req, res) => {
+
+		debug(req.body)
+		res.send('seeeeeeeeeeeeeeeeeeeee')
+	})
     return productsRoutes;
 }
 
