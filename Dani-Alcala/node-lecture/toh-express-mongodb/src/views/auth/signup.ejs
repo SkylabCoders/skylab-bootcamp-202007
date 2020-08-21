@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/hero-detail.css">
+</head>
+
+<body>
+    <%- include('../header'); -%>
+    <h3>Sign up! or <a href="/auth/signin">Signin</a></h3>
+
+    <form action="/auth/signup" method="POST">
+        <div>
+            <label for=" user">
+                User:
+                <input type="text" name="user" required>
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                Password:
+                <input type="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" name="password">
+                <p>Passwords must have a minimum of eight characters, at least one letter and one number.</p>
+            </label>
+        </div>
+        <button type="submit">SignUp</button>
+    </form>
+
+</body>
+
+</html>
