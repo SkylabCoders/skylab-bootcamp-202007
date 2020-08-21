@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .container{
     border: solid 1px blue;
     margin: .5em;

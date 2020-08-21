@@ -5,16 +5,7 @@ const { MongoClient, ObjectID} = require('mongodb');
 const foodRoutes = express.Router();
 
 function router(nav) {
-	foodRoutes.route('/')
-		// todo lo que viene antes del get 
-		.all((req, res, next) => {
-			if(req.user) {
-				next();
-			} else {
-				res.redirect('auth/signin');
-			}
-		})
-
+	
 	foodRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
