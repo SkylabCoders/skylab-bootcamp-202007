@@ -41,7 +41,7 @@ app.use(expressSession({
 	saveUninitialized: true
  }));
 
-require('./src/config/passport')(app);
+// require('./src/config/passport')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -51,13 +51,13 @@ app.set('view engine', 'ejs');
 
 
 app
-.all('/', (req, res, next) => {
+/* .all('/', (req, res, next) => {
 	if(req.user) {
 		next();
 	} else {
 		res.redirect('/auth/signin');
 	}
-})
+}) */
 .get('/', (req, res) => {
 	const url = 'mongodb://localhost:27017';
 	const dbName = 'mongoProducts';
@@ -70,13 +70,13 @@ app
 			debug('Connection dashboard');
 			const db = client.db(dbName);
 			const collection = db.collection(collectionName);
-			const heroes = await collection.find().toArray();
+			const products = await collection.find().toArray();
 
-			res.render('dashboard', {
+			res.render('food-dashboard', {
 				nav,
                 title: 'Top Products',
                 // Hay que hacer búsqueda de rating 5
-				heroes: heroes.slice(0, 4)
+				
 			});
 
 		} catch (error) {
@@ -88,19 +88,19 @@ app
 });
 
 
-const heroRoutes = require('./src/routes/heroRoutes')(nav);
+/*const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
 app.use('/products', productsRoutes);
 
 const insertRoutes = require('./src/routes/insertRoutes')();
 
-app.use('/insertProducts', insertRoutes);
+app.use('/insertProducts', insertRoutes); */
 
 
-// creamos rutas de autentificación (verificar quién eres) y autorización(qué puede hacer el usuario dentro de mi aplicación) ==> estas dos cosas significan auth
-const authRoutes = require('./src/routes/authRoutes')(nav);
-// empieza así la ruta
-app.use('/auth', authRoutes);
+
+/* const authRoutes = require('./src/routes/authRoutes')(nav);
+
+app.use('/auth', authRoutes); */
 
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
