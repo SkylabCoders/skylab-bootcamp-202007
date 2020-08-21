@@ -252,3 +252,12 @@ label {
   text-align: left;
   display: inline-block;
 }
+
+button > a,
+button > a:hover,
+button > a:focus,
+button > a:active,
+button > a:visited{
+  text-decoration: none;
+  color: black;
+}
