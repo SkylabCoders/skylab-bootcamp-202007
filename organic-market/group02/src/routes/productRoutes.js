@@ -34,33 +34,10 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
-<<<<<<< HEAD
-<<<<<<< HEAD
-					const colection = db.collection(DATABASE_CONFIG.productCollection);
-					const heroes = await colection.find().sort({ name: 1 }).toArray();
-||||||| cdceebcd
-					const colection = db.collection(DATABASE_CONFIG.heroCollection);
-					const heroes = await colection.find().sort({ name: 1 }).toArray();
-=======
-||||||| merged common ancestors
-<<<<<<<<< Temporary merge branch 1
-					const colection = db.collection(DATABASE_CONFIG.productCollection);
-					const heroes = await colection.find().sort({ name: 1 }).toArray();
-||||||||| cdceebcd
-					const colection = db.collection(DATABASE_CONFIG.heroCollection);
-					const heroes = await colection.find().sort({ name: 1 }).toArray();
-=========
-=======
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
+
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 
 					const products = await colection.find().sort({ name: 1 }).toArray();
-<<<<<<< HEAD
->>>>>>> ee83037b844d7cd7dd9a08fa3549d19afbde368e
-||||||| merged common ancestors
->>>>>>>>> Temporary merge branch 2
-=======
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
 
 					res.render('index', {
 						nav,
