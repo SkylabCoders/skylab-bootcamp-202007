@@ -1,0 +1,7 @@
+<form>
+  <h2><%=skylaber.name%> <%=skylaber.lastName%></h2>
+  <p>birth date: <%=skylaber.birthDate%>'>, age: <%=skylaber.age%>' years old, gender: <%=skylaber.gender%>'></p>
+  <p>city: <%=skylaber.city%>', country: <%=skylaber.country%>'</p>
+  <p>Does <%=skylaber.name%> like pets? <%=(skylaber.likesPets === 1) ? 'yes' : 'no';%></p>
+  <button id='deleteButton__skylaber'>Delete</button><button id='editButton__skylaber'><a class='button__link' href='/skylaber/edit/<%=skylaber.id%>'>Edit</a></button><button id='createButton__skylaber'><a class='button__link' href='/skylaber/create'>Create</a></button>
+</form>

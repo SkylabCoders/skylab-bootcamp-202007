@@ -3,25 +3,20 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="/css/dashboard.css" type="text/css" />
-		<link rel="stylesheet" href="/css/index.css" type="text/css" />
-	</head>
 
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/dashboard.component.css" />
+		<title>Tour of heroes</title>
+	</head>
 	<body>
-		<%-include('header')-%>
-		<h1><%-title-%></h1>
 		<h3>Top Heroes</h3>
 		<div class="grid grid-pad">
-			<% for(let i=0; i< heroes.length ; i++) { %>
-			<a class="col-1-4" href="heroes/<%=heroes[i].id%>">
+			<a>
 				<div class="module hero">
-					<div class="badge"><%-heroes[i].name-%></div>
+					<h4>Bombasto</h4>
 				</div>
 			</a>
-			<% } %>
 		</div>
 
-		<app-hero-search></app-hero-search>
 	</body>
 </html>

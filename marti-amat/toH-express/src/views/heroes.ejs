@@ -3,14 +3,14 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="/css/heroes.css" type="text/css" />
-		<link rel="stylesheet" href="/css/index.css" type="text/css" />
+
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/heroes.component.css" />
+		<title>Tour Of Heroes</title>
 	</head>
 	<body>
-		<%-include('header')-%>
+		<h2>My Heroes</h2>
 
-		<h2><%-title-%></h2>
 
 		<div>
 			<label
@@ -24,14 +24,12 @@
 		</div>
 
 		<ul class="heroes">
-			<% for(let i=0; i< heroes.length ; i++) { %>
+
 			<li>
-				<a href="/heroes/:<%=heroes[i].id%>">
-					<span class="badge"><%-heroes[i].id-%></span><%-heroes[i].name-%>
-				</a>
+				<a> <span class="badge">HERO ID</span> HERO NAME </a>
 				<button class="delete" title="delete hero">x</button>
 			</li>
-			<% } %>
+
 		</ul>
 	</body>
 </html>

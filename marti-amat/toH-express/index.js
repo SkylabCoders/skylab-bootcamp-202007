@@ -1,33 +1,35 @@
 const express = require('express');
 const debug = require('debug')('app');
-const path = require('path');
-const morgan = require('morgan');
 
-const HEROES = require('./heroes');
+const morgan = require('morgan');
+const chalk = require('chalk');
+const path = require('path');
 
 const app = express();
-const PORT = 3000;
-
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', './src/views');
-app.set('view engine', 'ejs');
-
-const nav = [
-	{ link: '/', title: 'Dashboard' },
-	{ link: '/heroes', title: 'Heroes' }
-];
+const port = process.env.PORT || 3000;
 
 app.use(morgan('tiny'));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('views', './src/views')
+app.set('view engine', 'ejs');
+
+
+
 app.get('/', (req, res) => {
-	res.render('dashboard', {
-		nav,
-		title: 'Top Heroes',
-		heroes: HEROES.slice(0, 4)
-	});
+    res.render('dashboard')
 });
-const heroRoutes = require('./src/routes/heroRoutes')(nav, HEROES);
 
-app.use('/heroes', heroRoutes);
 
-app.listen(PORT, () => debug('server is running...'));
+app.get('/heroes', (req, res) => {
+    res.render('heroes')
+});
+
+
+app.get('/hero/:heroId', (req, res) => {
+    res.render('hero-details')
+});
+
+app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
+

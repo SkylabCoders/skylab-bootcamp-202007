@@ -1,0 +1,24 @@
+const fs = require('fs');
+const path = require('path');
+const { ENOENT } = require('constants');
+const util = require('util');
+
+const file = fs.readFileSync(__filename, 'utf-8');
+
+const readFile = util.promisify(fs.readFile);
+const writeFile = util.promisify(fs.writeFile);
+
+async function main() {
+	const data = await readFile(__filename, 'utf-8');
+	console.log('File data is', data);
+	await writeFile(__filename + '_copy', data);
+	await writeFile(__filename + '_copy', data);
+	await writeFile(__filename + '_copy', data);
+	await writeFile(__filename + '_copy', data);
+}
+
+main();
+
+console.log('TEST');
+
+//iterar array de file s y obtener los datos del fichero
