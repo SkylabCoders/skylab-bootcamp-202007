@@ -36,6 +36,6 @@ const dbRoutes = require('./src/routes/dbRoutes')(nav);
 app.use('/db', dbRoutes);
 
 const appRoute = require('./src/routes/appRoute')(nav);
-app.use('/', appRoute);
+app.use('/user', appRoute);
 
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
