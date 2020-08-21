@@ -4,17 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>The Best Organic Market!!</title>
+		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
 	<body>
 		<%- include('header') %>
 		<h2><%=title%></h2>
-		<ul class="nav navbar-nav">
-			<% for(let i = 0; i < nav.length; i++) {%>
-			<li>
-				<a href=""><%=nav[i].title%></a>
-			</li>
-			<%}%>
-		</ul>
 		<div>
 			<form action="" method="POST" name="recipeForm">
 				<h2><%= recipe.title %> Details</h2>
