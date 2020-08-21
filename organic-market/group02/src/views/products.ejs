@@ -1,78 +1,25 @@
 <h2><%= title.toUpperCase() %></h2>
 
 <form action="/products/create" method="POST" name="addProductFromListForm">
-<<<<<<< HEAD
-||||||| merged common ancestors
-<<<<<<<<< Temporary merge branch 1
-	<label for="createHeroWithName">Hero name:</label>
-	<input type="text" value="" name="createProductWithName" placeholder="Your Hero"></input>
-	<button type="submit" title="add product" name="productName" value="">add</button>
-||||||||| cdceebcd
-	<label for="createHeroWithName">Hero name:</label>
-	<input type="text" value="" name="createProductWithName"
-		placeholder="Your Hero"></input>
-	<button type="submit" title="add product" name="productName"
-		value="">add</button>
-=========
-=======
 
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
 	<label for="createHeroWithName">Product name:</label>
-<<<<<<< HEAD
-	<input type="text" value="" name="createProductWithName" placeholder="Your Product"></input>
-	<button type="submit" title="add product" name="productName" value="">add</button>
-||||||| merged common ancestors
 	<input type="text" value="" name="createProductWithName"
 		placeholder="Your Product"></input>
 	<button type="submit" title="add product" name="productName"
 		value="">add</button>
->>>>>>>>> Temporary merge branch 2
-=======
-	<input type="text" value="" name="createProductWithName"
-		placeholder="Your Product"></input>
-	<button type="submit" title="add product" name="productName"
-		value="">add</button>
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
 </form>
 
 <ul class="heroes">
 	<% for(let i= 0; i< products.length; i++) { %>
 	<li>
-<<<<<<< HEAD
-||||||| merged common ancestors
-<<<<<<<<< Temporary merge branch 1
-		<a href="<%=ROUTES.product.path%><%=products[i].slug%>">
-			<span class="badge"><%= products[i].price %></span> <%= products[i].title %>
-||||||||| cdceebcd
-		<a href="<%=ROUTES.product.path%><%=products[i].slug%>">
-			<span class="badge"><%= products[i].id %></span> <%= products[i].name %>
-=========
-=======
 
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
 		<a href="<%=ROUTES.product.path%><%=products[i]._id%>">
 			<span class="badge"><%= products[i].type %></span>
 			<%= products[i].title %>
 		</a>
 		<form action="" method="POST" name="deleteProductFromList">
-<<<<<<< HEAD
-			<button type="submit" class="delete" title="delete product" name="deleteProduct"
-				value="<%=products[i]._id%>">x</button>
-||||||| merged common ancestors
-<<<<<<<<< Temporary merge branch 1
-			<button type="submit" class="delete" title="delete product" name="productSlug"
-				value="<%=products[i].slug%>">x</button>
-||||||||| cdceebcd
-			<button type="submit" class="delete" title="delete product"
-				name="productSlug" value="<%=products[i].slug%>">x</button>
-=========
 			<button type="submit" class="delete" title="delete product"
 				name="deleteProduct" value="<%=products[i]._id%>">x</button>
->>>>>>>>> Temporary merge branch 2
-=======
-			<button type="submit" class="delete" title="delete product"
-				name="deleteProduct" value="<%=products[i]._id%>">x</button>
->>>>>>> db92ba6cd0fba41b83d7576d2a33cb0fd2de2272
 		</form>
 	</li>
 	<% } %>
