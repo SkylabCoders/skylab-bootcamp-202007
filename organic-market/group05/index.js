@@ -55,10 +55,12 @@ app.get('/', (req, res) => {
 
 const mongoRoutes = require('./src/routes/mongoRoutes');
 
+app.use('/getproducts', mongoRoutes);
+
 const authRoutes = require('./src/routes/authRoutes')(nav);
 
 app.use('/auth', authRoutes);
-app.use('/getproducts', mongoRoutes);
+
 
 const productsRoutes = require('./src/routes/productsRoutes')(nav);
 
