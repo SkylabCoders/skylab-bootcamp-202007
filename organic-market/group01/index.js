@@ -9,7 +9,6 @@ const session = require('express-session');
 
 const { MongoClient } = require('mongodb');
 
-
 const app = express();
 const port = 3000;
 
@@ -25,8 +24,10 @@ app.use(morgan('tiny'));
 
 app.use((request, response, next) => {
 	debug('***********************************************');
-	debug('GROUP 01),
-	debug('***********************************************')
+
+	debug('GROUP 01');
+
+	debug('***********************************************');
 
 	next();
 });
@@ -66,11 +67,11 @@ app
 
 				const collection = await db.collection('market');
 
-				heroes = await collection.find().limit(4).toArray();
+				const market = await collection.find().limit(4).toArray();
 				res.render('dashboard', {
 					nav,
 					title: 'INSER APPROPIATE TITLE HERE',
-					heroes
+					market
 				});
 			} catch (error) {
 				debug(error.stack);
@@ -78,12 +79,9 @@ app
 		})();
 	});
 
-const heroRoutes = require('./src/routes/market')(nav);
+const heroRoutes = require('./src/routes/marketRoutes')(nav);
 
 app.use('/market', heroRoutes);
-
-
-
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 

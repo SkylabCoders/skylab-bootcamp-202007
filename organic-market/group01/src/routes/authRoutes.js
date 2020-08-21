@@ -4,9 +4,10 @@ const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
 
 const authRouter = express.Router();
+
 const ip = 'localhost';
 const url = `mongodb://${ip}:27017`;
-const dbName = 'shieldHeroes';
+const dbName = 'market';
 
 function router(nav) {
 	authRouter
