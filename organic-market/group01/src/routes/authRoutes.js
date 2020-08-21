@@ -5,7 +5,7 @@ const passport = require('passport');
 
 const authRouter = express.Router();
 const url = 'mongodb://localhost:27017';
-const dbName = 'shieldHeroes';
+const dbName = 'market';
 
 function router(nav) {
 	authRouter
