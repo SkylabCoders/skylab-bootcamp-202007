@@ -48,4 +48,7 @@ app.use('/products', productRoutes);
 const authRoutes = require('./src/routes/authRoutes')(nav);
 app.use('/auth', authRoutes);
 
+const chartRoutes = require('./src/routes/chartRoutes')(nav);
+app.use('/chart', chartRoutes);
+
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
