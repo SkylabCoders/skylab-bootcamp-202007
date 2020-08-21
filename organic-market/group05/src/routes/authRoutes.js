@@ -63,13 +63,13 @@ function router(nav) {
     });
     authRoutes
         .route('/profile')
-        .all((req, res, next) => {
+        /*.all((req, res, next) => {
             if (req.user) {
                 next();
             } else {
                 res.redirect('/auth/logIn');
             }
-        })
+        })*/
         .get((req, res) => {
             res.render('auth/profile', { nav, user: req.user });
         })

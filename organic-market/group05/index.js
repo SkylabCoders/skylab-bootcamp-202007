@@ -52,13 +52,20 @@ app.get('/', (req, res) => {
 			debug(error.stack);
 		}
 	})();
+
 });
 
 const mongoRoutes = require('./src/routes/mongoRoutes');
+<<<<<<< HEAD
 
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 app.use('/auth', authRoutes);
+=======
+>>>>>>> 3fe17c2281c879af9b14524efda57b80e46b1e53
 app.use('/getproducts', mongoRoutes);
+
+const productsRoutes = require('./src/routes/productsRoutes')(nav);
+app.use('/products', productsRoutes);
 
 app.listen(port, () => debug(`Server is running on port`, chalk.cyan(port)));
