@@ -69,6 +69,7 @@ function router(nav) {
 					debug(error.stack);
 				}
 			})();
+			x;
 		});
 	recipesRouter.route('/detail/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
@@ -77,8 +78,16 @@ function router(nav) {
 		const { title } = req.params;
 
 		(async function query() {
-			client = await MongoClient.connect(url);
-			debug('ok');
+			try {
+				client = await MongoClient.connect(url);
+
+				const db = client.db(dbName);
+
+				const collection = await db.collection('heroes');
+				const filterRecipe = await collection.findOne({ title: title });
+			} catch (error) {
+				debug(error);
+			}
 		})();
 		res.render('detail', {
 			nav,
@@ -93,6 +102,7 @@ function router(nav) {
 				price: 28.1,
 				rating: 4
 			}
+			/* recipe: filterRecipe */
 		});
 	});
 	return recipesRouter;
