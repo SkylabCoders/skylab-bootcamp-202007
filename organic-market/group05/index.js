@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const { MongoClient } = require('mongodb');
+const { MongoClient, Db, DBRef } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 2222;
@@ -32,11 +32,24 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.render('Organic dashboard');
+	const url = 'mongodb://localhost:27017';
+	const dbName = 'organics';
+	const collectionName = 'products';
+	let client;
+	(async function mongo() {
+		try {
+			client = await MongoClient.connect(url);
+			debug('Connection for home works');
+		} catch (error) {
+			debug(error.stack);
+		}
+	})();
+
+	res.render('home', { nav });
 });
 
-const productsRoutes = require('./src/routes/productsRoutes');
+const mongoRoutes = require('./src/routes/mongoRoutes');
 
-app.use('/getproducts', productsRoutes);
+app.use('/getproducts', mongoRoutes);
 
 app.listen(port, () => debug(`Server is running on port`, chalk.cyan(port)));
