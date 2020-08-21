@@ -11,6 +11,16 @@ input {
 	font-size: 1em;
 	padding-left: 0.4em;
 }
+
+/*---------------*/
+.password:invalid {
+	background-color: lightcoral;
+}
+.password:valid {
+	background-color: lightgreen;
+}
+/*---------------*/
+
 button {
 	margin-top: 20px;
 	font-family: Arial;

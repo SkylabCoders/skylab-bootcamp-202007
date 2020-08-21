@@ -2,7 +2,6 @@ const express = require('express');
 const debug = require('debug')('app:authRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
-const { render } = require('ejs');
 
 const authRoutes = express.Router();
 const dbUrl = 'mongodb://localhost:27017';
@@ -37,8 +36,9 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const newUser = {
-				...req.body,
-				user: req.body.user.toLowerCase()
+				// ...req.body,
+				user: req.body.user.toLowerCase(),
+				password: req.body.password
 			};
 
 			(async function mongo() {
@@ -46,21 +46,20 @@ function router(nav) {
 					client = await MongoClient.connect(dbUrl);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
-
 					const user = await collection.findOne({ user: newUser.user });
-
 					if (user) {
 						res.redirect('/auth/signin');
-					} else {
+					} else if (req.body.password === req.body.confirmpassword) {
 						const result = await collection.insertOne(newUser);
 						req.login(result.ops[0], () => {
 							res.redirect('/auth/profile');
 						});
+					} else {
+						res.redirect('/auth/signup');
 					}
 				} catch (error) {
 					debug(error.stack);
 				}
-
 				client.close();
 			})();
 		});
@@ -86,24 +85,26 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const { _id } = req.user;
-			const { password } = req.body;
-
-			(async function mongo() {
-				try {
-					client = await MongoClient.connect(dbUrl);
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-
-					await collection.updateOne(
-						{ _id: ObjectID(_id) },
-						{ $set: { password } }
-					);
-				} catch (error) {
-					debug(error.stack);
-				}
-				client.close();
-			})();
-			res.redirect('../');
+			const { password, confirmpassword } = req.body;
+			if (password === confirmpassword) {
+				(async function mongo() {
+					try {
+						client = await MongoClient.connect(dbUrl);
+						const db = client.db(dbName);
+						const collection = db.collection(collectionName);
+						await collection.updateOne(
+							{ _id: ObjectID(_id) },
+							{ $set: { password } }
+						);
+						res.redirect('../');
+					} catch (error) {
+						debug(error.stack);
+					}
+					client.close();
+				})();
+			} else {
+				res.redirect('/auth/signin');
+			}
 		});
 
 	// SIGN IN
