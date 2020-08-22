@@ -7,23 +7,27 @@
     <title>Mongolitos</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/foodList.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 
 <body>
+    <%- include('header')%>
 
     <ul>
         <% for(let i = 0; i< products.length; i++) { %>
-        <li>
-            <a href="/products/<%=products[i]._id%>">
-                <img
-                    src="https://d36fw6y2wq3bat.cloudfront.net/assets/images/cache/recipes/ensalada-de-quinua-con-manzana-y-alubias/900/ensalada-de-quinua-con-manzana-y-alubias.jpg">
-                <h3><%= products[i].title%></h3>
-            </a>
-            <p><%= products[i].price%> €</p>
-            <form method="POST" action="/products/<%=products[i]._id%>">
-                <button>Add to cart</button>
-            </form>
-        </li>
+        <div>
+            <li>
+                <a href="/products/<%=products[i]._id%>">
+                    <img class="image__food"
+                        src="https://d36fw6y2wq3bat.cloudfront.net/assets/images/cache/recipes/ensalada-de-quinua-con-manzana-y-alubias/900/ensalada-de-quinua-con-manzana-y-alubias.jpg">
+                    <h3><%= products[i].title%></h3>
+                </a>
+                <p>€ <%= products[i].price%></p>
+                <form method="POST" action="/products/<%=products[i]._id%>">
+                    <button>Add to cart</button>
+                </form>
+            </li>
+        </div>
         <% } %>
     </ul>
 </body>
