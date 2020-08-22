@@ -37,7 +37,7 @@
 				<a href="/list/<%=recipes[i].title%>">
 					<span class="badge"><%= recipes[i].title %></span>
 				</a> <%= recipes[i].price %>$
-				<form action="/list/addcart" method="POST">
+				<form action="/list/addcart" method="POST" name="addCart">
 					<button class="add" title="add to cart" type="submit" name="product" value="<%=recipes[i].title%>">
 						+
 					</button>

@@ -71,7 +71,7 @@ function router(nav) {
 		let collectionName = 'recipes';
 		let client;
 
-		(async () => {
+		(async function addCart() {
 			try {
 				// Buscamos la id del producto a añadir
 				client = await MongoClient.connect(url);
