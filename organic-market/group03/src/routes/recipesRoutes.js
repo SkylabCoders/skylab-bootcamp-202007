@@ -43,25 +43,75 @@ function router(nav) {
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
-			(async function mongo() {
+
+			(async function deleteHeroFromList() {
 				try {
 					client = await MongoClient.connect(url);
-
+					debug('Connection to db established...');
 					const db = client.db(dbName);
-
 					const collection = db.collection(collectionName);
-
-					const idProduct = await collection.findOne({
-						_id: new ObjectID(product)
-					});
-					debug(idProduct);
-
+					const { title } = req.body;
+					const filter = { title };
+					await collection.deleteOne(filter);
 					res.redirect('/list');
 				} catch (error) {
 					debug(error.stack);
 				}
 			})();
 		});
+	recipesRouter.route('/addcart').post((req, res) => {
+		const { product } = req.body;
+		debug(req.body);
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'organicMarket';
+		const collectionName = 'recipes';
+		let client;
+
+		(async function mongo() {
+			client = await MongoClient.connect(url);
+
+			const db = client.db(dbName);
+
+			const collection = db.collection(collectionName);
+
+			const idProduct = await collection.findOne({
+				_id: new ObjectID(product)
+			});
+			debug(idProduct);
+		})();
+	});
+
+	recipesRouter.route('/create').post((req, res) => {
+		const { deletedRecipe } = req.body;
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'organicMarket';
+		const collectionName = 'recipes';
+		let client;
+		res.send('Inserting books');
+		(async function mongo() {
+			try {
+				/* client = await MongoClient.connect(url);
+					debug('Connect sucesfully');
+	
+					const db = client.db(dbName);
+	
+					const response = await db.collection('books').insertMany(books);
+					res.json(response); */
+				/* client = await MongoClient.connect(url);
+					debug('Connection to db established...');
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const { title } = req.body;
+					const filter = { title };
+					await collection.deleteOne(filter);
+					res.redirect('/list'); */
+			} catch (error) {
+				debug(error.stack);
+			}
+
+			client.close();
+		})();
+	});
 	recipesRouter.route('/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
@@ -98,6 +148,7 @@ function router(nav) {
 			}
 		})();
 	});
+
 	return recipesRouter;
 }
 
