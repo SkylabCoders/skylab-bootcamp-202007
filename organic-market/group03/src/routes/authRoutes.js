@@ -33,32 +33,36 @@ function router(nav) {
 	authRoutes
 		.route('/signup')
 		.post((req, res) => {
-			const newUser = {
-				password: req.body.password,
-				user: req.body.user.toLowerCase(),
-				admin: req.body.admin,
-				cart: null
-			};
-			(async () => {
-				try {
-					client = await MongoClient.connect(DBurl);
-					const db = client.db(dbName);
-					const collection = await db.collection(collectionName);
+			if (req.body.password === req.body.confirmPassword) {
+				const newUser = {
+					password: req.body.password,
+					user: req.body.user.toLowerCase(),
+					admin: req.body.admin,
+					cart: null
+				};
+				(async () => {
+					try {
+						client = await MongoClient.connect(DBurl);
+						const db = client.db(dbName);
+						const collection = await db.collection(collectionName);
 
-					const user = await collection.findOne({ user: newUser.user });
+						const user = await collection.findOne({ user: newUser.user });
 
-					if (user) {
-						res.redirect('/auth/signin');
-					} else {
-						const result = await collection.insertOne(newUser);
+						if (user) {
+							res.redirect('/auth/signin');
+						} else {
+							const result = await collection.insertOne(newUser);
 
-						req.login(result.ops[0], () => res.redirect('/auth/profile'));
+							req.login(result.ops[0], () => res.redirect('/auth/profile'));
+						}
+					} catch (err) {
+						debug(err.stack);
 					}
-				} catch (err) {
-					debug(err.stack);
-				}
-				client.close();
-			})();
+					client.close();
+				})();
+			} else {
+				res.redirect('/auth/signup');
+			}
 		})
 		.get((req, res) => {
 			res.render('auth/signup', { nav });
