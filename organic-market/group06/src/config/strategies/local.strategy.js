@@ -5,6 +5,8 @@ const { MongoClient } = require('mongodb');
 
 const debug = require('debug')('app:local.strategy');
 
+const MONGO = require('../../../public/mongoConstants');
+
 function localStrategy() {
 	passport.use(
 		new Strategy(
@@ -14,15 +16,13 @@ function localStrategy() {
 			},
 			(username, password, done) => {
 				let client;
-				const mongoUrl = 'mongodb://localhost:27017';
-				const dbName = 'skylab-market';
-				const collectionName = 'users';
+
 				(async function mongo() {
 					try {
-						debug('Entro al try');
-						client = await MongoClient.connect(mongoUrl);
-						const db = client.db(dbName);
-						const collection = await db.collection(collectionName);
+						debug('Entro al try...........');
+						client = await MongoClient.connect(MONGO.url);
+						const db = client.db(MONGO.dbName);
+						const collection = await db.collection(MONGO.usersCollection);
 						const user = await collection.findOne({ user: username });
 
 						if (user && user.password === password) {
@@ -31,7 +31,7 @@ function localStrategy() {
 							done(null, false);
 						}
 					} catch (error) {
-						debug('Entro al catch');
+						debug('Entro al catch.........');
 
 						debug(error.stack);
 					}

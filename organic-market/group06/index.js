@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSession({ secret: 'market' }));
 
-// require('./src/config/passport')(app);
+require('./src/config/passport')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views');
