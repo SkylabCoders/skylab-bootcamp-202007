@@ -4,28 +4,32 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>LogIn</title>
-		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/signin.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
 	</head>
 	<body>
 		<%- include('../header'); -%>
-		<h2>
-			Login or <a href="/auth/signup"><button>Register</button></a>
-		</h2>
-		<form action="/auth/signin" method="POST">
-			<div>
-				<label for="user">
-					User:
-					<input type="text" name="user" />
-				</label>
-			</div>
-			<div>
-				<label for="password">
-					Password:
-					<input type="text" name="password" />
-				</label>
-			</div>
-			<button type="submit">Login</button>
-		</form>
+		<main>
+			<h2>
+				Login or <a href="/auth/signup"><button>Register</button></a>
+			</h2>
+			<form action="/auth/signin" method="POST">
+				<div>
+					<label for="user">
+						User:
+						<input type="text" name="user" />
+					</label>
+				</div>
+				<div>
+					<label for="password">
+						Password:
+						<input type="text" name="password" />
+					</label>
+				</div>
+				<button type="submit">Login</button>
+			</form>
+		</main>
 		<%- include('../footer'); -%>
 	</body>
 </html>
