@@ -42,36 +42,6 @@ function router(nav) {
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
-			/* (async function mongo() {
-				try {
-					client = await MongoClient.connect(url);
-
-					const db = client.db(dbName);
-
-					const collection = db.collection(collectionName);
-					if (deletedRecipe === 'all') {
-						await collection.deleteMany({});
-					} else {
-						const filter = { _id: new ObjectID(deletedRecipe) };
-
-						await collection.deleteOne(filter, (error, response) => {
-							if (error) {
-								throw error;
-							}
-							debug(`${response} deleted!`);
-							res.redirect('/list');
-						});
-					}
-					const recipe = await collection.find().toArray();
-					res.render('list', {
-						nav,
-						title: 'My Heros',
-						recipe
-					});
-				} catch (error) {
-					debug(error.stack);
-				}
-			})(); */
 			(async function deleteHeroFromList() {
 				let client;
 				try {
