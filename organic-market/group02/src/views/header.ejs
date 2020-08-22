@@ -1,6 +1,22 @@
-<h1>Organic Market</h1>
-<nav>
-	<% for (let i = 0; i< nav.length; i++) { %>
-	<a href="<%= nav[i].link %>"><%= nav[i].title %></a>
-	<% } %>
-</nav>
+<header>
+	<div class='limitMaxWidth'>
+		<div class='flexheader'>
+			<div class='header__leftSide'>
+				<h1>Organic Market</h1>
+			</div>
+			<div class='header__rightSide'>
+				<form class='searchbar__form' action='' method='POST'>
+					<input class='searchbar__field' placeholder='Your query' value='' name='queryString'></input>
+					<button class='searchbar__icon' type='submit'>
+						<img class="searchbar__img" src="icons/search.svg" alt=""/>
+					</button>
+				</form>
+				<div class='header__icons'>
+					<img class="icons__img" src="icons/questionmark.svg" alt=""/> 
+					<img class="icons__img" src="icons/addtocart.svg" alt=""/> 
+					<img class="icons__img" src="icons/login.svg" alt=""/> 
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

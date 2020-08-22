@@ -9,7 +9,8 @@ const ROUTES = {
   signup: { path: '/auth/signup', title: 'sign up', page: 'signup', nav: false },
   signout: { path: '/auth/signout', title: 'sign out', page: 'signout', nav: false },
   profile: { path: '/auth/profile', title: 'user profile', page: 'profile', nav: false },
-  chart: { path: '/chart', title: 'chart', page: 'chart', nav: true }
+  chart: { path: '/chart', title: 'chart', page: 'chart', nav: true },
+  aside: { path: '/', title: 'aside', page: 'aside', nav: false }
 }
 
 module.exports = ROUTES;
