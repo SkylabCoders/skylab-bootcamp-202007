@@ -16,27 +16,33 @@ function router(nav) {
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
+			if (req.user && (req.user.admin || !req.user.admin)) {
+				const admin = req.user.admin || 'off';
 
-			(async function query() {
-				try {
-					client = await MongoClient.connect(url);
+				(async function query() {
+					try {
+						client = await MongoClient.connect(url);
 
-					const db = client.db(dbName);
+						const db = client.db(dbName);
 
-					const collection = await db.collection(collectionName);
+						const collection = await db.collection(collectionName);
 
-					const recipe = await collection.find().toArray();
+						const recipe = await collection.find().toArray();
 
-					res.render('list', {
-						nav,
-						title: 'Products List',
-						recipes: recipe
-					});
-				} catch (error) {
-					debug(error.stack);
-				}
-				client.close();
-			})();
+						res.render('list', {
+							nav,
+							title: 'Products List',
+							recipes: recipe,
+							admin
+						});
+					} catch (error) {
+						debug(error.stack);
+					}
+					client.close();
+				})();
+			} else {
+				res.render('permissions', { nav });
+			}
 		})
 		.post((req, res) => {
 			const { product } = req.body;
