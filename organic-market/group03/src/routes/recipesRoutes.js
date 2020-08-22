@@ -61,7 +61,6 @@ function router(nav) {
 		});
 	recipesRouter.route('/addcart').post((req, res) => {
 		const { product } = req.body;
-		debug(req.body);
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
 		const collectionName = 'recipes';
@@ -83,6 +82,7 @@ function router(nav) {
 				debug(error.stack);
 			}
 		})();
+		debug(req.body);
 		res.redirect('/list');
 	});
 
