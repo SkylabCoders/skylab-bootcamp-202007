@@ -90,15 +90,17 @@ function router(nav) {
 
 				// Añadimos a cart lo que tenia más el producto que queremos añadir
 				const { title } = productObject;
-				console.log('<------!!!!> TITLE', title);
-				let { cart } = req.user;
-				cart = [...cart, title];
+				const { cart } = req.user;
+				console.log('<------!!!!> RE USER', req.user);
+
+				//				cart = [...cart, title];
+				const newCart = cart;
+				newCart.push(title);
+				console.log('<------!!!!> NEWCART', newCart);
 
 				await db
 					.collection(collectionName)
 					.updateOne({ _id }, { $set: { cart } });
-
-				debug(cart);
 			} catch (error) {
 				debug(error.stack);
 			}
