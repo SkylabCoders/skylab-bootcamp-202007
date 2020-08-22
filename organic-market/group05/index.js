@@ -34,7 +34,8 @@ const nav = [
 	{ link: '/', title: 'Home' },
 	{ link: '/products', title: 'Products' },
 	{ link: '/auth/profile', title: 'My profile' },
-	{ link: '/auth/signin', title: 'Login' }
+	{ link: '/auth/signin', title: 'Login' },
+	{ link: '/cart', title: 'Cart' }
 	// { link: '/auth/signout', title: 'Sign out' }
 ];
 
@@ -50,7 +51,9 @@ app.get('/', (req, res) => {
 			debug('Connection for home works');
 			const db = client.db(dbName);
 			const collection = db.collection(collectionName);
-			const products = await collection.find({ rating: 5 }).toArray();
+			const products = await collection
+				.find({ rating: 5 } || { rating: '5' })
+				.toArray();
 			res.render('home', { nav, title: 'Home', products });
 		} catch (error) {
 			debug(error.stack);

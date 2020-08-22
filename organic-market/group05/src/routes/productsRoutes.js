@@ -19,9 +19,9 @@ function router(nav) {
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 					const products = await collection.find().toArray();
-					debug(products);
-
-					res.render('products', { nav, products });
+					// debug(products);
+					debug('user:', req.user);
+					res.render('products', { nav, products, user: req.user });
 				} catch (error) {
 					debug(error.stack);
 				}
@@ -52,6 +52,7 @@ function router(nav) {
 					await collection.find().toArray();
 					res.product = await collection.findOne({ _id: ObjectID(id) });
 					debug(res.product);
+					debug('User:', req.user);
 					next();
 				} catch (error) {
 					debug(error.stack);
@@ -60,6 +61,38 @@ function router(nav) {
 				client.close();
 			})();
 		})
+		.post((req, res) => {
+			const updateQuery = { $set: req.body };
+			const filter = { _id: new ObjectID(req.params.id) };
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'organics';
+			const collectionName = 'products';
+			let client;
+
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					debug('---- REQ.BODY -------->', req.body);
+					debug('---- UPDATEQUERY -------->', updateQuery);
+					res.product = await collection.updateOne(
+						filter,
+						updateQuery,
+						(error, response) => {
+							if (error) {
+								throw error;
+							}
+							debug(response);
+							res.redirect('/products');
+						}
+					);
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
+		})
+
 		.get((req, res) => {
 			if (req.user && req.user.usertype === 'admin') {
 				res.render('detailsadmin', { nav, product: res.product });

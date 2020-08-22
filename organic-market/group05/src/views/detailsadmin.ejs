@@ -23,7 +23,7 @@
 						>name:
 						<input
 							value="<%= product.title %>"
-							name="name"
+							name="title"
 							placeholder="<%= product.title %>"
 						/>
 					</label>
@@ -34,7 +34,7 @@
 							>type:
 							<input
 								value="<%= product.type %>"
-								name="name"
+								name="type"
 								placeholder="<%= product.type %>"
 							/>
 						</label>
@@ -44,7 +44,7 @@
 						>description:
 						<input
 							value="<%= product.description %>"
-							name="name"
+							name="description"
 							placeholder="<%= product.description %>"
 						/>
 					</label>
@@ -55,7 +55,7 @@
 						>price: $
 						<input
 							value="<%= product.price %>"
-							name="name"
+							name="price"
 							placeholder="<%= product.price %>"
 						/>
 					</label>
@@ -64,8 +64,8 @@
 					<label
 						>rating:
 						<input
-							value="<%= product.rating %>"
-							name="name"
+							value="<%- parseInt(product.rating) %>"
+							name="rating"
 							placeholder="<%= product.rating %>"
 						/><span>/5</span>
 					</label>
