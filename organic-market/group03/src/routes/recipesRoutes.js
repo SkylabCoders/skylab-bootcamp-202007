@@ -106,7 +106,7 @@ function router(nav) {
 
 				await db
 					.collection(collectionName)
-					.updateOne({ _id }, { $set: { cart } });
+					.updateOne({ _id }, { $push: { cart: [...cart, title] } });
 			} catch (error) {
 				debug(error.stack);
 			}
