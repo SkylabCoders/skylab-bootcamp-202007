@@ -37,31 +37,12 @@ function router(nav) {
 		.route('/')
 
 		.post((req, res) => {
-			const { deleteProduct } = req.body;
 			const { addedProductId } = req.body;
 			const { username } = req.user;
 			const { _id } = req.user;
 
-			if (deleteProduct) {
-				(async function deleteProductFromList() {
-					let client;
-					try {
-						client = await MongoClient.connect(DATABASE_CONFIG.url);
-						debug('Connection to db established...');
-						const db = client.db(DATABASE_CONFIG.dbName);
-						const collection = db.collection(DATABASE_CONFIG.productCollection);
-
-						await collection.deleteOne({ _id: new ObjectID(deleteProduct) });
-						res.redirect(ROUTES.products.path);
-					} catch (error) {
-						debug(error.stack);
-					}
-				})();
-			} else if (addedProductId) {
-				addProductToCart(_id, addedProductId, username);
-				res.redirect(ROUTES.products.path);
-			}
-
+			addProductToCart(_id, addedProductId, username);
+			res.redirect(ROUTES.products.path);
 
 		})
 		.get((req, res) => {
@@ -119,8 +100,6 @@ function router(nav) {
 			const { _id } = req.user;
 			const { username } = req.user;
 			const { quantity } = req.body;
-			console.log(quantity);
-
 
 			addProductToCart(_id, addedProductId, username, quantity);
 			res.redirect(ROUTES.products.path);

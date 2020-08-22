@@ -8,7 +8,7 @@ const validatePasswordFormat = require('./../utils/password_validator');
 
 const authRoutes = express.Router();
 
-function router(nav){
+function router(nav) {
 
   authRoutes
     .route('/signin')
@@ -16,48 +16,49 @@ function router(nav){
       successRedirect: '/auth/profile',
       failureRedirect: '/auth/signin'
     }))
-    .get((req, res)=>{
-      (async function displaySigninPage(){
-        try{
+    .get((req, res) => {
+      (async function displaySigninPage() {
+        try {
           let pageData = {
-              nav,
-              body: ROUTES.signin.page,
-              title: ROUTES.signin.title,
-              ROUTES
-            }
+            nav,
+            body: ROUTES.signin.page,
+            title: ROUTES.signin.title,
+            ROUTES
+          }
           res.render('index', pageData)
         } catch (error) {
           debug(error.stack);
         }
       })();
     })
-  
+
   authRoutes
     .route('/signup')
-    .post((req, res)=>{
-      (async function getSignupData(){
+    .post((req, res) => {
+      (async function getSignupData() {
         let client;
-        try{
+        try {
           client = await MongoClient.connect(DATABASE_CONFIG.url);
           const db = client.db(DATABASE_CONFIG.dbName);
           const collection = db.collection(DATABASE_CONFIG.userCollection);
           const data = req.body;
-          const newUser = { 
-            username: data.signup__userName, 
+          const newUser = {
+            username: data.signup__userName,
             password: data.signup__password,
             name: data.signup__name,
-            email: data.signup__email
+            email: data.signup__email,
+            type: 'user'
           };
           const user = await collection.findOne({ name: data.signup__name });
-          if ( !user && data.signup__password === data.signup__passwordConfirm && validatePasswordFormat(data.signup__password) ) { 
-            await collection.insertOne(newUser); 
-            res.login( {...newUser} );
+          if (!user && data.signup__password === data.signup__passwordConfirm && validatePasswordFormat(data.signup__password)) {
+            await collection.insertOne(newUser);
+            res.login({ ...newUser });
             debug('user created successfully');
           } else {
             let errMessage = 'Error: user creation failed. Reason:';
-            if ( user ) { debug(`${errMessage} username already exists`) }
-            if ( data.signup__password !== data.signup__passwordConfirm ) { debug(`${errMessage} passwords must be equal`) }
-            if ( !validatePasswordFormat(data.signup__pasword) ) { debug(`${errMessage} invalid password format`) }
+            if (user) { debug(`${errMessage} username already exists`) }
+            if (data.signup__password !== data.signup__passwordConfirm) { debug(`${errMessage} passwords must be equal`) }
+            if (!validatePasswordFormat(data.signup__pasword)) { debug(`${errMessage} invalid password format`) }
           }
         } catch (error) {
           debug(error.stack);
@@ -68,15 +69,15 @@ function router(nav){
 
       res.redirect(ROUTES.home.path);
     })
-    .get((req, res)=>{
-      (async function displaySignupPage(){
-        try{
+    .get((req, res) => {
+      (async function displaySignupPage() {
+        try {
           let pageData = {
-              nav,
-              body: ROUTES.signup.page,
-              title: ROUTES.signup.title,
-              ROUTES
-            }
+            nav,
+            body: ROUTES.signup.page,
+            title: ROUTES.signup.title,
+            ROUTES
+          }
           res.render('index', pageData)
         } catch (error) {
           debug(error.stack);
@@ -86,16 +87,16 @@ function router(nav){
 
   authRoutes
     .route('/profile')
-    .all((req, res, next)=>{
-      if(req.user) {
+    .all((req, res, next) => {
+      if (req.user) {
         next();
       } else {
         res.redirect(ROUTES.signin.path);
       }
     })
-    .get((req, res)=>{
-      (function displayProfilePage(){
-        try{
+    .get((req, res) => {
+      (function displayProfilePage() {
+        try {
           res.render('index', {
             nav,
             body: ROUTES.profile.page,
@@ -108,23 +109,23 @@ function router(nav){
         }
       })();
     })
-    .post((req, res)=>{
+    .post((req, res) => {
       res.send('POST works');
     })
 
-    authRoutes
+  authRoutes
     .route('/signout')
-    .all((req, res, next)=>{
-      if(req.user) {
+    .all((req, res, next) => {
+      if (req.user) {
         req.logout();
         next();
       } else {
         res.redirect(ROUTES.signin.path);
       }
     })
-    .get((req, res)=>{
-      (function displaySigninPage(){
-        try{
+    .get((req, res) => {
+      (function displaySigninPage() {
+        try {
           res.render('index', {
             nav,
             body: ROUTES.signin.page,
