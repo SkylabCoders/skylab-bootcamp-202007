@@ -37,11 +37,11 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { buyProduct } = req.body;
+			const { product } = req.body;
 			debug(req.body);
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organicMarket';
-			const collectionName = 'users';
+			const collectionName = 'recipes';
 			let client;
 			(async function mongo() {
 				try {
@@ -50,36 +50,12 @@ function router(nav) {
 					const db = client.db(dbName);
 
 					const collection = db.collection(collectionName);
-					if (buyProduct === '<%=recipes[i].title%>') {
-						const filter = { _id: new ObjectID(buyProduct) };
-						const query = {}
-						await collection.updateOne(filter, {$set:{"chart": ...chart, Object ID(buyProduct)}});
-					} /* else {
-						const filter = { _id: new ObjectID(deletedRecipe) };
 
-						await collection.deleteOne(filter, (error, response) => {
-							if (error) {
-								throw error;
-							}
-							debug(`${response} deleted!`);
-							res.redirect('/list');
-						});
-					} */
-					res.redirect('/list')
-				} catch (error) {
-					debug(error.stack);
-				}
-			})();
-			(async function deleteHeroFromList() {
-				let client;
-				try {
-					client = await MongoClient.connect(url);
-					debug('Connection to db established...');
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-					const { title } = req.body;
-					const filter = { title };
-					await collection.deleteOne(filter);
+					const idProduct = await collection.findOne({
+						_id: new ObjectID(product)
+					});
+					debug(idProduct);
+
 					res.redirect('/list');
 				} catch (error) {
 					debug(error.stack);
