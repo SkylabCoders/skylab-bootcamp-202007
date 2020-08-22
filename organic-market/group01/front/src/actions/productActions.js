@@ -1,4 +1,4 @@
-import productList from "../product.mock.js";
+import productList from "../../src/product.mock";
 import dispatcher from "../appDispatcher";
 import actionTypes from "./actionTypes";
 
