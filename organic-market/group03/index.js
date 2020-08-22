@@ -13,7 +13,7 @@ const PORT = 3002;
 
 const nav = [
 	{ link: '/', title: 'Home' },
-	{ link: '/list', title: 'Recipies' },
+	{ link: '/list', title: 'Products' },
 	{ link: '/auth/signin', title: 'SignIn' },
 	{ link: '/auth/profile', title: 'Profile' }
 ];

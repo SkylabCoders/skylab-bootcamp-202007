@@ -27,7 +27,7 @@ function router(nav) {
 
 					res.render('list', {
 						nav,
-						title: 'Recipes List',
+						title: 'Products List',
 						recipes: recipe
 					});
 				} catch (error) {
@@ -42,7 +42,7 @@ function router(nav) {
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
-			/* (async function mongo() {
+			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
 
@@ -71,7 +71,7 @@ function router(nav) {
 				} catch (error) {
 					debug(error.stack);
 				}
-			})(); */
+			})();
 			(async function deleteHeroFromList() {
 				let client;
 				try {
