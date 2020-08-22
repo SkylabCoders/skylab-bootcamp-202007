@@ -41,12 +41,8 @@ const nav = [
 
 app
 	.get('/', (req, res) => {
-<<<<<<< HEAD
-		const url = 'mongodb://localhost:27017';
-=======
 		const url =
 			'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
->>>>>>> 87d705568c8d8b19ce37927ab9eeca1995417722
 		const dbName = 'organics';
 		const collectionName = 'products';
 		let client;
@@ -57,22 +53,13 @@ app
 				debug('Connection for home works');
 				const db = client.db(dbName);
 				const collection = db.collection(collectionName);
-<<<<<<< HEAD
-				const products = await collection
-					.find({ rating: 5 } || { rating: '5' })
-					.toArray();
-=======
 				const products = await collection.find({ rating: 5 }).toArray();
->>>>>>> 87d705568c8d8b19ce37927ab9eeca1995417722
 				res.render('home', { nav, title: 'Home', products });
 			} catch (error) {
 				debug(error.stack);
 			}
 			client.close();
 		})();
-<<<<<<< HEAD
-	});	
-=======
 	})
 	.post('/', (req, res) => {
 		const { addtocart } = req.body;
@@ -112,7 +99,6 @@ app
 			}
 		})();
 	});
->>>>>>> 87d705568c8d8b19ce37927ab9eeca1995417722
 
 const productsRoutes = require('./src/routes/productsRoutes')(nav);
 
