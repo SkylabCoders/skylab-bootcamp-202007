@@ -56,24 +56,26 @@ function router(nav) {
 		.get((req, res) => {
 			//const { _id } = req.user;
 			let client;
+			let itemlist;
 			(async function mongo() {
 				try {
-					client = MongoClient.connect(MONGO.url);
+					client = await MongoClient.connect(MONGO.url);
 					debug('**********************')
 					debug(client)
 					debug('**********************')
 					const db = client.db(MONGO.dbName);
-					const collection = db.collection(MONGO.usersCollection);
-					debug(collection)
+					const collection = db.collection(MONGO.itemsCollection);
+					console.log(collection)
 
-					const items = collection.find();
-					debug(items)
+					itemlist = await collection.findOne();
+					debug(itemlist)
+					console.log(itemlist)
 				} catch (error) {
 					throw error;
-				} finally {
-					client.close()
 				}
-				res.render('list', { items });
+
+				res.render('list', { items: itemlist });
+				client.close()
 			})();
 		})
 		.post((req, res) => {
@@ -99,7 +101,7 @@ function router(nav) {
 		})
 
 	appRoute
-		.route('/:productId')
+		.route('detail/:productId')
 		.all((req, res, next) => {
 			let client;
 			const id = req.params.productId;
