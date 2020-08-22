@@ -6,7 +6,7 @@ const MONGO = require('../../public/mongoConstants');
 const appRoute = express.Router();
 function findWithAttr(array, attr, value) {
 	let index = -1;
-	for (var i = 0; i < array.length; i += 1) {
+	for (let i = 0; i < array.length; i += 1) {
 		if (array[i][attr] === value) {
 			index = i;
 		}
@@ -87,7 +87,7 @@ function router(nav) {
 					const collection = db.collection(MONGO.itemsCollection);
 					res.items = await collection.find({}).toArray();
 				} catch (error) {
-					throw error;
+					debug(error.stack);
 				}
 
 				client.close();
@@ -131,7 +131,7 @@ function router(nav) {
 						);
 					}
 				} catch (error) {
-					throw error;
+					debug(error.stack);
 				}
 				res.redirect('/users/list');
 				client.close();
