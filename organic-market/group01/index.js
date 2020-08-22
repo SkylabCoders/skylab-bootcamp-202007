@@ -77,9 +77,9 @@ app
 		})();
 	});
 
-const marketRoutes = require('./src/routes/marketRoutes')(nav);
+const marketApi = require('./src/routes/marketApi');
 
-app.use('/market', marketRoutes);
+app.use('/api', marketApi);
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 

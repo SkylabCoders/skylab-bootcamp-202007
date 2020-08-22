@@ -1,42 +1,18 @@
 const express = require('express');
-const debug = require('debug')('app:marketRoutes');
+const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
+const getAllProducts = require('../actions/marketActions');
 
-const marketRoutes = express.Router();
+const heroRoutes = express.Router();
 
 function router(nav) {
-	marketRoutes
-		.route('/')
-		.all((req, res, next) => {
-			if (req.user) {
-				next();
-			} else {
-				res.redirect('/auth/signin');
-			}
-		})
+	heroRoutes
+		.route('/market/productlist')
 		.get((req, res) => {
-			const url = 'mongodb://localhost:27017';
-			const dbName = 'market';
-			let client;
-			(async function query() {
-				try {
-					client = await MongoClient.connect(url);
-					debug('Connection established...');
-
-					const db = client.db(dbName);
-
-					const collection = await db.collection('market');
-
-					const heroes = await collection.find().toArray();
-
-					res.render(' INSERTTEMPLATE', {
-						nav,
-						title: 'market list',
-						heroes
-					});
-				} catch (error) {
-					debug(error.stack);
-				}
+			(async function algo() {
+				const productList = await getAllProducts();
+				debugger;
+				res.send(productList)();
 			})();
 		})
 		.post((req, res) => {
@@ -81,76 +57,14 @@ function router(nav) {
 				}
 			})();
 		});
-	marketRoutes.route('/list')
-	// .post((req, res) => {
-	// 	const url = 'mongodb://localhost:27017';
-	// 	const dbName = 'market';
-	// 	let client;
-	// 	const deleter = { _id: new ObjectID(req.params.productId) };
-
-	// 	(async function deleteOne() {
-	// 		try {
-	// 			client = await MongoClient.connect(url);
-	// 			debug('connection ok');
-
-	// 			const db = client.db(dbName);
-
-	// 			const collection = await db.collection('heroes');
-
-	// 			await collection.deleteOne(deleter);
-
-	// 			debug(deleter);
-	// 			res.render('heroes', {
-	// 				nav,
-	// 				heroes
-	// 			});
-	// 			next();
-	// 		} catch (error) {
-	// 			debug(error.stack);
-	// 		}
-	// 		client.close();
-	// 	})();
-	// });
-	.get((req, res) => {
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'market';
-		let client;
-
-		(async function query() {
-			try {
-				client = await MongoClient.connect(url);
-				debug('connection ok');
-
-				const db = client.db(dbName);
-
-				const collection = await db.collection('market');
-
-				const products = await collection.find().toArray();
-
-				res.render('list', {
-					nav,
-					title: 'Products',
-					products
-				});
-			} catch (error) {
-				debug(error.stack);
-			}
-			client.close();
-		})();
-	});
-
-	marketRoutes.route('/cart').get((req, res) => {
-		const cartUser = 'pepito';
-		res.render('cart', { cartUser });
-	});
-	marketRoutes
-		.route('/:productId')
+	heroRoutes
+		.route('/:heroId')
 		.all((req, res, next) => {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'market';
 			const collecionName = 'market';
 
-			const ID = req.params.productId;
+			const ID = req.params.heroId;
 			let client;
 
 			(async function query() {
@@ -173,7 +87,7 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const updateQuery = { $set: req.body };
-			const filter = { _id: new ObjectID(req.params.productId) };
+			const filter = { _id: new ObjectID(req.params.heroId) };
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'market';
 			const collectName = 'market';
@@ -207,7 +121,7 @@ function router(nav) {
 			});
 		});
 
-	return marketRoutes;
+	return heroRoutes;
 }
 
-module.exports = router;
+module.exports = router();
