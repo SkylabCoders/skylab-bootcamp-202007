@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Register</title>
+		<link rel="stylesheet" href="../../../css/index.css" />
+		<link rel="stylesheet" href="../../../css/register.css" />
+	</head>
+	<body>
+		<form class="register__form" action="/auth/register" method="POST">
+			<div class="register__title">
+				<h1>ADD PRODUCT</h1>
+			</div>
+			<div class="register__label-user">
+				<label for="type"
+					>Type:
+					<div>
+						<input type="text" value="" name="type" />
+					</div>
+				</label>
+			</div>
+			<div class="register__password">
+				<label for="description"
+					>Description:
+					<div>
+						<input
+							type="text"
+							value=""
+							name="description"
+							title="description"
+						/>
+					</div>
+				</label>
+			</div>
+			<div class="register__confirmPassword">
+				<label for="height"
+					>Height:
+					<div>
+						<input type="text" value="" name="height" title="height" />
+					</div>
+				</label>
+			</div>
+			<div class="register__confirmPassword">
+				<label for="width"
+					>Width:
+					<div>
+						<input type="text" value="" name="width" title="width" />
+					</div>
+				</label>
+			</div>
+			<div class="register__confirmPassword">
+				<label for="price"
+					>Price:
+					<div>
+						<input type="text" value="" name="price" title="price" />
+					</div>
+				</label>
+			</div>
+			<div class="register__confirmPassword">
+				<label for="rating"
+					>Rating:
+					<div>
+						<input type="text" value="" name="rating" title="rating" />
+					</div>
+				</label>
+			</div>
+			<div class="register__buttons">
+				<button class="register__button" name="" type="submit" value="">
+					Register
+				</button>
+				<a class="register__anchor" href="/auth/login">Login</a>
+			</div>
+		</form>
+	</body>
+</html>

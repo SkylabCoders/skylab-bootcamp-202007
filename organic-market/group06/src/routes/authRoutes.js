@@ -6,6 +6,25 @@ const authRoutes = express.Router();
 const MONGO = require('../../public/mongoConstants');
 
 function router(nav) {
+	authRoutes.route('/logout').post((req, res) => {
+		if (req.user) {
+			req.logout();
+			res.redirect('/auth/login');
+		}
+	});
+
+	authRoutes
+		.route('/login')
+		.get((req, res) => {
+			res.render('auth/login', { title: 'Login', nav });
+		})
+		.post(
+			passport.authenticate('local', {
+				successRedirect: '/user/list',
+				failureRedirect: '/auth/login'
+			})
+		);
+
 	authRoutes
 		.route('/register')
 		.get((req, res) => {
@@ -27,7 +46,7 @@ function router(nav) {
 					client = await MongoClient.connect(MONGO.url);
 					const db = client.db(MONGO.dbName);
 					const collection = await db.collection(MONGO.usersCollection);
-					const user = await collection.findOne({ user: newUser.user });
+					const user = await collection.findOne({ user: newUser.username });
 					if (user) {
 						res.redirect('/auth/login');
 					} else {
@@ -47,25 +66,6 @@ function router(nav) {
 				client.close();
 			})();
 		});
-
-	authRoutes
-		.route('/login')
-		.get((req, res) => {
-			res.render('auth/login', { title: 'Login', nav });
-		})
-		.post(
-			passport.authenticate('local', {
-				successRedirect: '/user/list',
-				failureRedirect: '/auth/login'
-			})
-		);
-
-	authRoutes.route('/logout').post((req, res) => {
-		if (req.user) {
-			req.logout();
-			res.redirect('/auth/login');
-		}
-	});
 
 	return authRoutes;
 }
