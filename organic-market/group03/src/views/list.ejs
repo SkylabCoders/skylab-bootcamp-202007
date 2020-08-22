@@ -14,14 +14,17 @@
 	<%- include('header')%>
 	<h2><%= title%></h2>
 
-	<div>
-		<label>Recipe title:
-			<input #heroName />
+	<form action="" method="POST" name="deleteHeroFromList">
+		<label for="name">New Name:
+			<input name="name"/>
 		</label>
-		<button>
-			add
+		<label for="price">New Price: 
+			<input name="price"/>
+		<button name="price" type="submit">
+			Add New Product
 		</button>
-	</div>
+	</form>
+
 
 	<ul class="heroes">
 		<% for(let i = 0; i<recipes.length; i++){%>
