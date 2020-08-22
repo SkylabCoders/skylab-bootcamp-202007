@@ -10,22 +10,46 @@ const productRoutes = express.Router();
 function router(nav) {
 	productRoutes
 		.route('/')
-		.post((req, res) => {
-			(async function deleteProductFromList() {
-				let client;
-				try {
-					const { deleteProduct } = req.body;
-					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection to db established...');
-					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.productCollection);
 
-					await collection.deleteOne({ _id: new ObjectID(deleteProduct) });
-					res.redirect(ROUTES.products.path);
-				} catch (error) {
-					debug(error.stack);
-				}
-			})();
+		.post((req, res) => {
+			const { deleteProduct } = req.body;
+			const { addToCart } = req.body;
+			const { username } = req.user;
+
+			if (deleteProduct) {
+				(async function deleteProductFromList() {
+					let client;
+					try {
+						client = await MongoClient.connect(DATABASE_CONFIG.url);
+						debug('Connection to db established...');
+						const db = client.db(DATABASE_CONFIG.dbName);
+						const collection = db.collection(DATABASE_CONFIG.productCollection);
+
+						await collection.deleteOne({ _id: new ObjectID(deleteProduct) });
+						res.redirect(ROUTES.products.path);
+					} catch (error) {
+						debug(error.stack);
+					}
+				})();
+			} else if (addToCart) {
+				console.log('holaa');
+				console.log(addToCart);
+				(async function addProductToCart() {
+					let client;
+					try {
+						client = await MongoClient.connect(DATABASE_CONFIG.url);
+						const db = client.db(DATABASE_CONFIG.dbName);
+						const collection = db.collection(DATABASE_CONFIG.cartsCollection);
+
+						await collection.insertOne({ userName: username, product: [addToCart], active: true });
+						res.redirect(ROUTES.products.path);
+					} catch (error) {
+						debug(error.stack);
+					}
+				}())
+
+
+			}
 		})
 		.get((req, res) => {
 			(async function getAllProducts() {
