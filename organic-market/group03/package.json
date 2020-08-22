@@ -7,7 +7,8 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "set DEBUG=server,server:* & nodemon server.js",
 		"start2": "set DEBUG=server,server:* & nodemon server.js",
-		"lint": "eslint . --fix"
+		"lint": "eslint . --fix",
+		"scss": "node-sass --watch public/scss -o public/css"
 	},
 	"keywords": [],
 	"author": "",
