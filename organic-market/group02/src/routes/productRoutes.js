@@ -122,7 +122,7 @@ function router(nav) {
 			console.log(quantity);
 
 
-			addProductToCart(_id, addedProductId, username, quantity);
+			addProductToCart(_id, addedProductId, username, +quantity);
 			res.redirect(ROUTES.products.path);
 		})
 		.get((req, res) => {
