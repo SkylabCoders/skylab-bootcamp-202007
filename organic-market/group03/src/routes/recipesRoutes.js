@@ -16,7 +16,7 @@ function router(nav) {
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
-
+			const admin = req.user.admin || 'off';
 			(async function query() {
 				try {
 					client = await MongoClient.connect(url);
@@ -30,7 +30,8 @@ function router(nav) {
 					res.render('list', {
 						nav,
 						title: 'Products List',
-						recipes: recipe
+						recipes: recipe,
+						admin
 					});
 				} catch (error) {
 					debug(error.stack);
