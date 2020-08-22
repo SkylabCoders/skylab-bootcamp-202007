@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
+const { dbName } = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
 
@@ -53,8 +54,9 @@ function router(nav) {
 		// })();
 	});
 
+	debug('***************************************');
 	appRoute
-		.route('/:productId')
+		.route('/detail/:productId')
 		.all((req, res, next) => {
 			let client;
 			const id = req.params.productId;
@@ -75,6 +77,36 @@ function router(nav) {
 		.get((req, res) => {
 			[item] = res.item;
 			res.render('detail', { nav, item: item });
+		})
+		.post((req, res) => {
+			if (req.user) {
+				const { _id, title, description, price, rating } = res.item[0];
+				const itemObject = { _id, title, description, price, rating };
+
+				/* quantity */
+				(async function query() {
+					try {
+						client = await MongoClient.connect(MONGO.url);
+						const db = client.db(MONGO.dbName);
+						const collection = await db.collection(MONGO.usersCollection);
+						await collection.updateOne(
+							{ user: req.user.username },
+							{
+								$set: {
+									cart: [...res.user.cart, itemObject]
+								}
+							}
+						);
+					} catch (error) {
+						debug(error.stack);
+					}
+				})();
+			} else {
+				res.redirect(/* to sign up */);
+			}
+
+			client.close();
+			res.send(itemObject);
 		});
 
 	return appRoute;
