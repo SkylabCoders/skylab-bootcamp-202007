@@ -49,8 +49,7 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
-					const products = await collection.find().toArray();
-
+					await collection.find().toArray();
 					res.product = await collection.findOne({ _id: ObjectID(id) });
 					debug(res.product);
 					next();
