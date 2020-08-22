@@ -1,35 +1,39 @@
 const express = require('express');
 const { MongoClient, ObjectID } = require('mongodb');
 const debug = require('debug')('app:foodRoutes');
-// const { MongoClient } = require('mongodb');
 
 const foodRoutes = express.Router();
 
 function router() {
 	foodRoutes
 		.route('/')
-		.all((req, res, next) => {
-			if (req.user) {
-				next();
-			} else {
-				res.redirect('auth/signin');
-			}
-		})
+		// .all((req, res, next) => {
+		// 	if (req.user) {
+		// 		next();
+		// 	} else {
+		// 		res.redirect('auth/signin');
+		// 	}
+		// })
 		.get((req, res) => {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'mongoProducts';
 			const collectionName = 'products';
 			let client;
+
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
-					const db = client - db(dbName);
-					const collection = await db.collection(collectionName);
-
-					res.hero = await collection.findOne({});
-				} catch (error) {}
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const products = await collection.find().toArray();
+					res.render('foodList', {
+						products
+					});
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
 			})();
-			res.render('foodList');
 		});
 
 	foodRoutes

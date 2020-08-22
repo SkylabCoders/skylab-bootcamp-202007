@@ -5,20 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mongolitos</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/foodList.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/foodList.css">
+    <link rel="stylesheet" href="../../css/header.css">
 </head>
 
 <body>
-    <!-- <%- include('header'); -%> -->
-    <h2><%= title%></h2>
+    <%- include('header')%>
 
-    <div>
-        <img src="" alt="image">
-        <p>title food</p>
-        <p>precio</p>
-        <p>estrellitas</p>
-    </div>
+    <ul class="container-products">
+        <% for(let i = 0; i< products.length; i++) { %>
+        <li class="products-card">
+            <a href="/products/<%=products[i]._id%>">
+                <img class="image__product"
+                    src="https://d36fw6y2wq3bat.cloudfront.net/assets/images/cache/recipes/ensalada-de-quinua-con-manzana-y-alubias/900/ensalada-de-quinua-con-manzana-y-alubias.jpg">
+                <p class="text__title"><%= products[i].title%></p>
+            </a>
+            <div>
+                <p class="text__price">€ <%= products[i].price%></p>
+                <form method="POST" action="/products/<%=products[i]._id%>">
+                    <button class="button__addCart">Add to cart</button>
+                </form>
+            </div>
+        </li>
+        <% } %>
+    </ul>
 </body>
 
 </html>
