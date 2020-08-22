@@ -52,6 +52,7 @@ function router(nav) {
 					const collection = db.collection(collectionName);
 					if (buyProduct === '<%=recipes[i].title%>') {
 						const filter = { _id: new ObjectID(buyProduct) };
+						const query = {}
 						await collection.updateOne(filter, {$set:{"chart": ...chart, Object ID(buyProduct)}});
 					} /* else {
 						const filter = { _id: new ObjectID(deletedRecipe) };
