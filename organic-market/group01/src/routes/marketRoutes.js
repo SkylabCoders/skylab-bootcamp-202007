@@ -81,9 +81,64 @@ function router(nav) {
 				}
 			})();
 		});
-	marketRoutes.route('/list').get((req, res) => {
-		res.send('list works');
+	marketRoutes.route('/list')
+	// .post((req, res) => {
+	// 	const url = 'mongodb://localhost:27017';
+	// 	const dbName = 'market';
+	// 	let client;
+	// 	const deleter = { _id: new ObjectID(req.params.productId) };
+
+	// 	(async function deleteOne() {
+	// 		try {
+	// 			client = await MongoClient.connect(url);
+	// 			debug('connection ok');
+
+	// 			const db = client.db(dbName);
+
+	// 			const collection = await db.collection('heroes');
+
+	// 			await collection.deleteOne(deleter);
+
+	// 			debug(deleter);
+	// 			res.render('heroes', {
+	// 				nav,
+	// 				heroes
+	// 			});
+	// 			next();
+	// 		} catch (error) {
+	// 			debug(error.stack);
+	// 		}
+	// 		client.close();
+	// 	})();
+	// });
+	.get((req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'market';
+		let client;
+
+		(async function query() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('connection ok');
+
+				const db = client.db(dbName);
+
+				const collection = await db.collection('market');
+
+				const products = await collection.find().toArray();
+
+				res.render('list', {
+					nav,
+					title: 'Products',
+					products
+				});
+			} catch (error) {
+				debug(error.stack);
+			}
+			client.close();
+		})();
 	});
+
 	marketRoutes.route('/cart').get((req, res) => {
 		const cartUser = 'pepito';
 		res.render('cart', { cartUser });
