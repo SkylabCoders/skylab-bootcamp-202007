@@ -77,9 +77,9 @@ app
 				res.render('food-dashboard', {
 					nav,
 					title: 'Top Products',
-					products: products.slice(0, 4)
-					// Hay que hacer búsqueda de rating 5
+					products: products.filter(product => product.rating === 5)
 				});
+				debug(products)
 			} catch (error) {
 				debug(error.stack);
 			}
