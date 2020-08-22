@@ -9,7 +9,7 @@ const expressSession = require('express-session');
 
 const app = express();
 
-const PORT = 3002;
+const PORT = 3003;
 
 const nav = [
 	{ link: '/', title: 'Home' },

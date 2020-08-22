@@ -106,15 +106,15 @@ function router(nav) {
 
 				await db
 					.collection(collectionName)
-					.updateOne({ _id }, { $push: { cart: [...cart, title] } });
+					.update({ _id }, { $push: { cart: title } });
+				console.log('REQ.USER ACTUALIZED =====>   ', req.user);
 			} catch (error) {
 				debug(error.stack);
 			}
 			client.close();
 		})();
-		console.log('REQ.USER ACTUALIZED =====>   ', req.user);
 
-		res.redirect('/list');
+		//	res.redirect('/list');
 	});
 
 	recipesRouter.route('/create').post((req, res) => {

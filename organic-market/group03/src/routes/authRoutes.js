@@ -38,7 +38,7 @@ function router(nav) {
 					password: req.body.password,
 					user: req.body.user.toLowerCase(),
 					admin: req.body.admin,
-					cart: []
+					cart: null
 				};
 				(async () => {
 					try {
@@ -100,7 +100,6 @@ function router(nav) {
 			res.redirect('/auth/logout');
 		})
 		.get((req, res) => {
-			console.log(req.user);
 			res.render('auth/profile', { nav, user: req.user });
 		});
 
