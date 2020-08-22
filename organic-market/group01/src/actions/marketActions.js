@@ -5,19 +5,18 @@ let cart = [];
 
 module.exports = async function getAllProducts() {
 	let allProducts;
-	//try {
-	const client = await MongoClient.connect(DBCONF.url);
-	const db = client.db(DBCONF.dbName);
-	debugger;
-	const collection = db.collection(DBCONF.marketColl);
-	allProducts = await collection.find().toArray();
-	//} catch (error) {
-	//	throw error.stack;
-	//}
+	try {
+		const client = await MongoClient.connect(DBCONF.url);
+		const db = client.db(DBCONF.dbName);
+		const collection = db.collection(DBCONF.marketColl);
+		allProducts = await collection.find().toArray();
+	} catch (error) {
+		throw error.stack;
+	}
 	return allProducts;
 };
 
-/* module.exports = async function getProductById(_id) {
+module.exports = async function getProductById(_id) {
 	let productById = {};
 
 	try {
@@ -43,4 +42,3 @@ module.exports = async function deleteProductById(_id) {
 		throw error.stack;
 	}
 };
- */

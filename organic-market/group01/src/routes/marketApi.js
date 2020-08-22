@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 const getAllProducts = require('../actions/marketActions');
+const getProductById = require('../actions/marketActions');
 
 const heroRoutes = express.Router();
 
@@ -9,53 +10,17 @@ function router(nav) {
 	heroRoutes
 		.route('/market/productlist')
 		.get((req, res) => {
-			(async function algo() {
+			(async function productList() {
 				const productList = await getAllProducts();
 				debugger;
 				res.send(productList)();
 			})();
 		})
 		.post((req, res) => {
-			const url = 'mongodb://localhost:27017';
-			const dbName = 'market';
-			const { deleteHero, createHero } = req.body;
-			let client;
-			(async function query() {
-				try {
-					client = await MongoClient.connect(url);
-					debug('Connection established...');
-
-					const db = client.db(dbName);
-
-					const collection = await db.collection('market');
-					if (createHero) {
-						const [{ id }] = await collection
-							.find()
-							.sort({ id: -1 })
-							.limit(1)
-							.toArray(); // for MAX
-
-						collection.insertOne({ id: id + 1, name: createHero });
-					}
-
-					if (deleteHero === 'all') {
-						await collection.deleteMany({});
-					} else {
-						await collection.deleteOne({
-							_id: new ObjectID(deleteHero)
-						});
-					}
-					const heroes = await collection.find().toArray();
-
-					res.render('INSERT TEMPLATE', {
-						nav,
-						title: '',
-						heroes
-					});
-				} catch (error) {
-					debug(error.stack);
-				}
+			const { productId } = req.body(async function productById() {
+				const product = await getProductById(productId);
 			})();
+			res.send(product);
 		});
 	heroRoutes
 		.route('/:heroId')
