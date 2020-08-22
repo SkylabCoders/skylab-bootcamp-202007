@@ -1,31 +1,7 @@
-<<<<<<< HEAD
 <ul class="products__list">
 	<% for(let product of products) { %>
 	<li class="productlist__item">
 		<%-include('productlist-item', {product})-%>
-=======
-<h2><%= title.toUpperCase() %></h2>
-
-
-<ul class="heroes">
-	<% for(let i= 0; i< products.length; i++) { %>
-	<li>
-
-		<a href="<%=ROUTES.product.path%><%=products[i]._id%>">
-			<span class="badge"><%= products[i].type %></span>
-			<%= products[i].title %>
-		</a>
-		<form action="" method="POST" name="deleteProductFromList">
-			<button type="submit" class="delete" title="delete product" name="deleteProduct"
-				value="<%=products[i]._id%>">x</button>
-		</form>
-		<form action="" method="POST" name="addedProductId">
-			<button type="submit" class="delete" title="add product" name="addedProductId"
-				value="<%=products[i]._id%>">Add
-				to Cart</button>
-		</form>
->>>>>>> 324bf5f1ea3e4a57155fe7a2f37c86c726c7c834
 	</li>
 	<% } %>
-
 </ul>
