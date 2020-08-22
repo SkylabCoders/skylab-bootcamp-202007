@@ -1,7 +1,10 @@
 const express = require('express');
+<<<<<<< HEAD
 // Encara que no cridem passport el requerim perquè ens passi user
 require('passport');
 
+=======
+>>>>>>> fc564efc32f8a265716325bc1f16facc877eb0f5
 const recipesRouter = express.Router();
 const debug = require('debug')('app:recipesRoutes');
 
@@ -111,42 +114,39 @@ function router(nav) {
 	});
 
 	recipesRouter.route('/create').post((req, res) => {
-		const { deletedRecipe } = req.body;
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
-		const collectionName = 'recipes';
 		let client;
-		res.send('Inserting books');
-		(async function mongo() {
+		(async function query() {
 			try {
-				/* client = await MongoClient.connect(url);
-					debug('Connect sucesfully');
-	
-					const db = client.db(dbName);
-	
-					const response = await db.collection('books').insertMany(books);
-					res.json(response); */
-				/* client = await MongoClient.connect(url);
-					debug('Connection to db established...');
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-					const { title } = req.body;
-					const filter = { title };
-					await collection.deleteOne(filter);
-					res.redirect('/list'); */
-			} catch (error) {
-				debug(error.stack);
-			}
+				const newProduct = {
+					title: req.body.name,
+					type: null,
+					description: null,
+					filename: null,
+					height: null,
+					width: null,
+					price: req.body.item_price,
+					rating: null
+				};
+				client = await MongoClient.connect(url);
+				debug('Connect sucesfully');
+				const db = client.db(dbName);
 
+				const response = await db.collection('recipes').insertOne(newProduct);
+				res.json(response);
+			} catch (error) {
+				debug(error);
+			}
 			client.close();
 		})();
+		res.redirect('/list');
 	});
 	recipesRouter.route('/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
 		let client;
 		const { title } = req.params;
-		const fileName = '0.jpg';
 		(async function query() {
 			try {
 				client = await MongoClient.connect(url);
@@ -160,21 +160,13 @@ function router(nav) {
 				res.render('detail', {
 					nav,
 					title: 'Detail',
-					/* recipe: {
-						title: 'Brown eggs',
-						type: 'dairy',
-						description: 'Raw organic brown eggs in a basket',
-						filename: '0.jpg',
-						height: 600,
-						width: 400,
-						price: 28.1,
-						rating: 4
-					} */
+
 					recipe: filterRecipe
 				});
 			} catch (error) {
 				debug(error);
 			}
+			client.close();
 		})();
 	});
 
