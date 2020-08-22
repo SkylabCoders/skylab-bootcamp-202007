@@ -69,52 +69,33 @@ function router(nav) {
 		});
 	recipesRouter.route('/addcart').post((req, res) => {
 		const { product } = req.body;
-		console.log('REQ.BODY =>   ', req.body);
-		console.log('REQ.USER =>   ', req.user);
-		console.log('============> PRODUCT', product);
+		const { user } = req.user;
 
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
-		let collectionName = 'recipes';
+		const collectionName = 'users';
 		let client;
 
 		(async function addProductToCart() {
 			try {
-				// Buscamos la id del producto a añadir
 				client = await MongoClient.connect(url);
 
 				const db = client.db(dbName);
 
-				const productObject = await db.collection(collectionName).findOne({
-					title: product
-				});
-				console.log('********', productObject);
+				const collection = db.collection(collectionName);
 
-				// Buscamos el user al que añadir el producto
-				collectionName = 'users';
-				const { _id } = req.user;
-
-				// Añadimos a cart lo que tenia más el producto que queremos añadir
-				const { title } = productObject;
-				const { cart } = req.user;
-				console.log('<------!!!!> RE USER', req.user);
-
-				//				cart = [...cart, title];
-				const newCart = cart;
-				newCart.push(title);
-				console.log('<------!!!!> NEWCART', newCart);
-
-				await db
-					.collection(collectionName)
-					.update({ _id }, { $push: { cart: title } });
-				console.log('REQ.USER ACTUALIZED =====>   ', req.user);
+				const a = await collection.updateOne(
+					{ user },
+					{ $push: { cart: product } }
+				);
+				console.log(a.ops);
 			} catch (error) {
 				debug(error.stack);
 			}
 			client.close();
-		})();
 
-		//	res.redirect('/list');
+			res.redirect('/list');
+		})();
 	});
 
 	recipesRouter.route('/create').post((req, res) => {
