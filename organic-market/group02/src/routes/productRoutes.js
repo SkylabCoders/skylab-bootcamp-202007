@@ -4,12 +4,12 @@ const { MongoClient, ObjectID } = require('mongodb');
 const path = require('path');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
-const { products } = require('./ROUTES');
+let { products } = require('./ROUTES');
 
 const productRoutes = express.Router();
 
-function addProductToCart(userId, addedProductId) {
-	(async function addProductToCart() {
+function addProductToCart(userId, addedProductId, username, quantity) {
+	(async function addProductToCartCollection() {
 		let client;
 		try {
 			client = await MongoClient.connect(DATABASE_CONFIG.url);
@@ -20,11 +20,11 @@ function addProductToCart(userId, addedProductId) {
 			const query = await collection.findOne({ userID: userId })
 
 			if (query) {
-				await collection.updateOne({ userID: userId }, { $push: { product: addedProductId } });
-				res.redirect(ROUTES.products.path);
+				await collection.updateOne({ userID: userId }, { $push: { product: { productId: addedProductId, quantity } } });
+
 			} else {
-				await collection.insertOne({ userID: userId, userName: username, product: [addedProductId], active: true });
-				res.redirect(ROUTES.products.path);
+				await collection.insertOne({ userID: userId, userName: username, product: [{ productId: addedProductId, quantity }], active: true });
+
 			}
 		} catch (error) {
 			debug(error.stack);
@@ -58,7 +58,8 @@ function router(nav) {
 					}
 				})();
 			} else if (addedProductId) {
-				addProductToCart(_id, addedProductId)
+				addProductToCart(_id, addedProductId, username);
+				res.redirect(ROUTES.products.path);
 			}
 
 
@@ -73,7 +74,7 @@ function router(nav) {
 
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 
-					const products = await colection.find().sort({ name: 1 }).toArray();
+					products = await colection.find().sort({ name: 1 }).toArray();
 
 					res.render('index', {
 						nav,
@@ -113,32 +114,16 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			// const updateQuery = { $set: req.body };
-			// const { productId } = req.params;
-			// const filter = { _id: productId };
-			// let client;
-			// (async function editProduct() {
-			// 	try {
-			// 		client = await MongoClient.connect(DATABASE_CONFIG.url);
-			// 		debug('Connection to db established...');
-			// 		const db = client.db(DATABASE_CONFIG.dbName);
-			// 		const collection = db.collection(DATABASE_CONFIG.productCollection);
-			// 		collection.updateOne(filter, updateQuery, (error, response) => {
-			// 			if (error) { throw error }
-			// 			debug(response);
-			// 			res.redirect(ROUTES.products.path);
-			// 		});
-			// 		debug(req.body);
-			// 	} catch (error) {
-			// 		debug(error.stack);
-			// 	}
-			// 	debug('Connection to db closed.');
-			// 	client.close();
-			// })();
+
 			const { addedProductId } = req.body;
 			const { _id } = req.user;
-			console.log(_id, addedProductId);
-			addProductToCart(_id, addedProductId)
+			const { username } = req.user;
+			const { quantity } = req.body;
+			console.log(quantity);
+
+
+			addProductToCart(_id, addedProductId, username, quantity);
+			res.redirect(ROUTES.products.path);
 		})
 		.get((req, res) => {
 			res.render('index', {
