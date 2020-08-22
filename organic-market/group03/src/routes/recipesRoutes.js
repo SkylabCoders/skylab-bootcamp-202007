@@ -80,7 +80,7 @@ function router(nav) {
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 					const { title } = req.body;
-					const filter = { title: title };
+					const filter = { title };
 					await collection.deleteOne(filter);
 					res.redirect('/list');
 				} catch (error) {

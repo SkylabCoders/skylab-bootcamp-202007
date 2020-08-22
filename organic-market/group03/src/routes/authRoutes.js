@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId, ObjectID } = require('mongodb');
 const passport = require('passport');
 
 const authRoutes = express.Router();
@@ -35,8 +35,10 @@ function router(nav) {
 		.post((req, res) => {
 			const newUser = {
 				password: req.body.password,
-				user: req.body.user.toLowerCase()
+				user: req.body.user.toLowerCase(),
+				admin: req.body.admin
 			};
+			console.log(newUser);
 			(async () => {
 				try {
 					client = await MongoClient.connect(DBurl);
@@ -50,7 +52,6 @@ function router(nav) {
 					} else {
 						const result = await collection.insertOne(newUser);
 
-						/* Aquest login no funciona */
 						req.login(result.ops[0], () => res.redirect('/auth/profile'));
 					}
 				} catch (err) {
@@ -79,21 +80,22 @@ function router(nav) {
 		.post((req, res) => {
 			(async function mongo() {
 				try {
-					const { _id } = req.user;
+					const { user } = req.user;
 					const { password } = req.body;
-
+					console.log({ user, password });
 					client = await MongoClient.connect(DBurl);
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
 
-					await collection.updateOne(
-						{ _id: ObjectId(_id) },
-						{ $set: { password } }
+					const a = await collection.findOne(
+						{ user } /*, { $set: { password } }*/
 					);
+					console.log(a.ops);
+
+					client.close();
 				} catch (error) {
 					debug(error.stack);
 				}
-				client.close();
 			})();
 			res.redirect('/auth/logout');
 		})
