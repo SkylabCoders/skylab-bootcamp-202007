@@ -1,26 +1,7 @@
-<h2><%= title.toUpperCase() %></h2>
-
-<form action="/products/create" method="POST" name="addProductFromListForm">
-
-	<label for="createHeroWithName">Product name:</label>
-	<input type="text" value="" name="createProductWithName"
-		placeholder="Your Product"></input>
-	<button type="submit" title="add product" name="productName"
-		value="">add</button>
-</form>
-
-<ul class="heroes">
-	<% for(let i= 0; i< products.length; i++) { %>
-	<li>
-
-		<a href="<%=ROUTES.product.path%><%=products[i]._id%>">
-			<span class="badge"><%= products[i].type %></span>
-			<%= products[i].title %>
-		</a>
-		<form action="" method="POST" name="deleteProductFromList">
-			<button type="submit" class="delete" title="delete product"
-				name="deleteProduct" value="<%=products[i]._id%>">x</button>
-		</form>
+<ul class="products__list">
+	<% for(let product of products) { %>
+	<li class="productlist__item">
+		<%-include('productlist-item', {product})-%>
 	</li>
 	<% } %>
 </ul>
