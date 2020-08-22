@@ -8,6 +8,20 @@
 	</head>
 	<body>
 		<header><%- include('header'); -%></header>
+		<% if ( user && user.usertype === 'admin') {%>
+		<form method="POST">
+			<button
+				class="addtocart"
+				name="addtocart"
+				title="Add to cart"
+				type="submit"
+				value=""
+			>
+				+
+			</button>
+		</form>
+
+		<% } %>
 		<main class="products__container">
 			<% products.forEach(product => { %>
 			<div class="products">
