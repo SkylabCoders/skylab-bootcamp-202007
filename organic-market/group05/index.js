@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID, ObjectId } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 2222;
@@ -41,7 +41,12 @@ const nav = [
 
 app
 	.get('/', (req, res) => {
+<<<<<<< HEAD
 		const url = 'mongodb://localhost:27017';
+=======
+		const url =
+			'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
+>>>>>>> 87d705568c8d8b19ce37927ab9eeca1995417722
 		const dbName = 'organics';
 		const collectionName = 'products';
 		let client;
@@ -52,16 +57,62 @@ app
 				debug('Connection for home works');
 				const db = client.db(dbName);
 				const collection = db.collection(collectionName);
+<<<<<<< HEAD
 				const products = await collection
 					.find({ rating: 5 } || { rating: '5' })
 					.toArray();
+=======
+				const products = await collection.find({ rating: 5 }).toArray();
+>>>>>>> 87d705568c8d8b19ce37927ab9eeca1995417722
 				res.render('home', { nav, title: 'Home', products });
 			} catch (error) {
 				debug(error.stack);
 			}
 			client.close();
 		})();
+<<<<<<< HEAD
 	});	
+=======
+	})
+	.post('/', (req, res) => {
+		const { addtocart } = req.body;
+		const { _id } = req.user;
+
+		const url =
+			'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
+		const dbName = 'organics';
+		const collectionName = 'carts';
+		let client;
+		(async function mongo() {
+			try {
+				client = await MongoClient.connect(url);
+				const db = client.db(dbName);
+				const collection = db.collection(collectionName);
+				const result = await collection.findOne({ userid: ObjectId(_id) });
+				debug(result);
+
+				const filter = { userid: ObjectId(_id) };
+				const updateQuery = { $push: { productsid: addtocart } };
+				const insertQuery = { userid: ObjectId(_id), productsid: [addtocart] };
+
+				debug('filter----------->', filter);
+				debug('updatequery----------->', updateQuery);
+				debug('insertquery----------->', insertQuery);
+
+				if (result) {
+					debug('Entro en update');
+					await collection.updateOne(filter, updateQuery);
+				} else {
+					debug('Entro en insert');
+					await collection.insertOne(insertQuery);
+				}
+				res.redirect('/');
+			} catch (error) {
+				debug(error.stack);
+			}
+		})();
+	});
+>>>>>>> 87d705568c8d8b19ce37927ab9eeca1995417722
 
 const productsRoutes = require('./src/routes/productsRoutes')(nav);
 
