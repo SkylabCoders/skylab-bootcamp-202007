@@ -1,4 +1,6 @@
 const express = require('express');
+// Encara que no cridem passport el requerim perquè ens passi user
+require('passport');
 
 const recipesRouter = express.Router();
 const debug = require('debug')('app:recipesRoutes');
@@ -61,28 +63,50 @@ function router(nav) {
 		});
 	recipesRouter.route('/addcart').post((req, res) => {
 		const { product } = req.body;
+		console.log('REQ.BODY =>   ', req.body);
+		console.log('REQ.USER =>   ', req.user);
+
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
-		const collectionName = 'recipes';
+		let collectionName = 'recipes';
 		let client;
 
-		(async function mongo() {
+		(async () => {
 			try {
+				// Buscamos la id del producto a añadir
 				client = await MongoClient.connect(url);
 
 				const db = client.db(dbName);
 
-				const collection = db.collection(collectionName);
-
-				const idProduct = await collection.findOne({
+				const idProduct = await db.collection(collectionName).findOne({
 					_id: new ObjectID(product)
 				});
-				debug(idProduct);
+				console.log('============>', product);
+
+				console.log('********', idProduct);
+
+				// Buscamos el user al que añadir el producto
+				collectionName = 'users';
+				const { _id } = req.user;
+				console.log('USERRRRR =======>', product);
+
+				console.log('idProduct => ', idProduct);
+				console.log('_id => ', _id);
+				// Añadimos a cart lo que tenia más el producto que queremos añadir
+
+				let { cart } = req.user.cart;
+				cart = { ...cart, idProduct };
+				await db
+					.collection(collectionName)
+					.updateOne({ _id }, { $set: { cart } });
+
+				debug(cart);
 			} catch (error) {
 				debug(error.stack);
 			}
 		})();
-		debug(req.body);
+		console.log('REQ.USER ACTUALIZED =>   ', req.user);
+
 		res.redirect('/list');
 	});
 
