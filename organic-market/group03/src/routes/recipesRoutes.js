@@ -94,6 +94,28 @@ function router(nav) {
 			}
 		})();
 	});
+	recipesRouter.route('/create').get((req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'organicMarket';
+
+		(async function mongo() {
+			let client;
+			try {
+				/* client = await MongoClient.connect(url);
+				debug('Connect sucesfully');
+
+				const db = client.db(dbName);
+
+				const response = await db.collection('books').insertMany(books);
+				res.json(response); */
+				res.send('Inserting books');
+			} catch (error) {
+				debug(error.stack);
+			}
+
+			client.close();
+		})();
+	});
 	return recipesRouter;
 }
 
