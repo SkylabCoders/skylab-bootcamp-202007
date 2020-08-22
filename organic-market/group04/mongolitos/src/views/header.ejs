@@ -1,25 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
-</head>
-<body>
-    <section className="main-nav">
-        <nav className="hamburger">
-            <a href="/" className="icon__hamburger"></a>
-            <a className="icon__logo"></a>
-    
-            <div className="main-nav-text">
-                <a href="">Ranking Products</a>
-                <a href="/login" className="icon__login">Login</a>
-                <a href="/cart" className="icon__bag">
-                    <div className="icon__number">0</div>
-                </a>
+<section class="container-header">
+    <nav class="main-nav">
+        <div class="hamburger">
+            <div href="/" class="icon__hamburger">
+                <div class="hamburger__products">
+                    <a  href="/products" class="product">PRODUCTS</a>
+                    <a href="/" class="product ranking">RANKING</a>
+                </div>
             </div>
-        </nav>
-    </section>  
+        </div>
+
+        <h1 class="title">
+            Mongo Products
+        </h1>
+        
+        <a  href="/products" class="menu__product">PRODUCTS</a>
+        <a href="/" class="menu__product">RANKING</a>
+
+        <div class="search">
+            <input type="text" class="input__search">
+            <div class="icon__search"></div>
+            <a href="/login" class="icon__login"></a>
+            <a href="/cart" class="icon__bag">
+                <div class="icon__number">0</div>
+            </a>
+        </div>
+    </nav>
+</section>
+
        
-</body>
-</html>

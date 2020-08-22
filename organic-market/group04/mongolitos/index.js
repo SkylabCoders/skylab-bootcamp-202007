@@ -6,7 +6,7 @@ const path = require('path');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const expressSession = require('express-session')
+const expressSession = require('express-session');
 
 const app = express();
 const port = 3000;
@@ -42,6 +42,7 @@ app.use(expressSession({
  }));
 
 // require('./src/config/passport')(app);
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -88,13 +89,13 @@ app
 });
 
 
-/*const heroRoutes = require('./src/routes/heroRoutes')(nav);
+// const heroRoutes = require('./src/routes/heroRoutes')(nav);
 
-app.use('/products', productsRoutes);
+// app.use('/products', productsRoutes);
 
 const insertRoutes = require('./src/routes/insertRoutes')();
 
-app.use('/insertProducts', insertRoutes); */
+app.use('/insertProducts', insertRoutes); 
 
 
 
