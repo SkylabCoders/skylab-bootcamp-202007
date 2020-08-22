@@ -4,42 +4,38 @@ const debug = require('debug')('app:foodRoutes');
 
 const foodRoutes = express.Router();
 
-function router() {
+function router(nav) {
 	foodRoutes
 		.route('/')
-		// .all((req, res, next) => {
-		// 	if (req.user) {
-		// 		next();
-		// 	} else {
-		// 		res.redirect('auth/signin');
-		// 	}
-		// })
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('auth/signin');
+			}
+		})
 		.get((req, res) => {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'mongoProducts';
 			const collectionName = 'products';
 			let client;
-
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-					const products = await collection.find().toArray();
-					res.render('foodList', {
-						products
-					});
-				} catch (error) {
-					debug(error.stack);
+					const db = client - db(dbName);
+					const collection = await db.collection(collectionName);
+
+					res.hero = await collection.findOne({});
+				} catch (error) { 
+					debug(error.stack)
 				}
-				client.close();
 			})();
+			res.render('foodList');
 		});
 
 	foodRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
-			// para el _id no tenemos que pasar al número, quitamos el +
 			const id = req.params.productId;
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'mongoProducts';
@@ -48,24 +44,17 @@ function router() {
 
 			(async function query() {
 				try {
-					// cliente se conecta a la url
 					client = await MongoClient.connect(url);
-					// obtenemos bd
 					const db = client.db(dbName);
-					// dentro de la bd la colección
 					const collection = db.collection(collectionName);
-					// dentro de esa colec pedimos un héroe cuyo nombre se Superman, perp en vez de poner uno concreto hay que poner el id ({ _id }), pero cogiendo el id que crea mongo y lo tenemos que consumir así
 					res.product = await collection.findOne({
 						_id: new ObjectID(id)
 					});
-					debug(res.product);
 
 					next();
 				} catch (error) {
-					/* debug(error.stack); */
-					debug(error);
+					debug(error.stack);
 				}
-
 				client.close();
 			})();
 		})
@@ -73,11 +62,45 @@ function router() {
 		.get((req, res) => {
 			res.render('food-detail', {
 				nav,
-				product: res.product // pasamos las propiedades que hay que pintar en el navegador
+				product: res.product
 			});
-		});
+		})
+		.post((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'mongoProducts';
+			const userCollection = 'users';
+			const productCollection = 'products'
+			let client;
 
-	return foodRoutes;
+			const idProduct = {
+				_id: ObjectID(req.params.productId)
+			};
+
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const userNameCollection = db.collection(userCollection);
+					const productNameCollection = db.collection(productCollection);
+
+					const product = await productNameCollection.find(idProduct).toArray();
+
+					const [{ title,type,img,price, amount}] = product;
+
+					const cartProducts = [{ title,type,img,price,amount}];
+
+					const result = await userNameCollection.updateOne({user: "Victor"},{$set:{cart:cartProducts}}); 
+					debug(result);
+					
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
+			}())
+		})
+			return foodRoutes;
 }
+
 
 module.exports = router;

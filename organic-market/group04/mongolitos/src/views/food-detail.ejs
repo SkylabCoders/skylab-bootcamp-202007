@@ -4,19 +4,43 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<link rel="stylesheet" href="../css/index.css" />
 		<link rel="stylesheet" href="../css/food-detail.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Noto+Serif:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 
 	<body>
 		<%- include('header')%>
 		<div class="container">
 			<div class="item__container">
-				<h2><%=product && product.title%> details!</h2>
-				<div><span class="item__title">type: </span><%= product.type %></div>
-				<div><span class="item__title">description: </span><%= product.description %></div>
-				<div><span class="item__title">price: </span><%= product.price %></div>
-				<div><span class="item__title">rating: </span><%= product.rating %></div>
+				<div class="inner__left-container">
+					<div>
+						<img
+							src="https://d36fw6y2wq3bat.cloudfront.net/assets/images/cache/recipes/huevos-revueltos-con-queso/900/huevos-revueltos-con-queso.jpg"
+							alt="producto"
+						/>
+					</div>
+				</div>
+				<div class="inner__right-container">
+					<form action="/products/<%= product && product._id %>" method="POST" name="productForm">
+						<div><h3><%= product.type %></h3></div>
+						<div>
+							<h1 class="title__item">
+								<%=product && product.title%> details!
+							</h1>
+						</div>
+						<div class=""><%= product.description %></div>
+						<div class="item__title"><%= product.rating %></div>
+						<div><span class="item__title"></span><%= product.price %>€</div>
+						<hr />
+						<button type="submit" name="productForm " class="add__button">
+							Add to cart
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</body>
