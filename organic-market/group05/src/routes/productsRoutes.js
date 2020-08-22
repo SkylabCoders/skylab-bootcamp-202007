@@ -62,7 +62,11 @@ function router(nav) {
 			})();
 		})
 		.get((req, res) => {
-			res.render('details', { nav, product: res.product });
+			if (req.user && req.user.usertype === 'admin') {
+				res.render('detailsadmin', { nav, product: res.product });
+			} else {
+				res.render('details', { nav, product: res.product });
+			}
 		});
 
 	return productsRoutes;

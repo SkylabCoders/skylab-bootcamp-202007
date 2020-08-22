@@ -14,6 +14,18 @@ body {
 	flex-direction: column;
 }
 
+/*body::after {
+	content: '';
+	background: url(https://previews.123rf.com/images/mobeone/mobeone1906/mobeone190600070/126179232-hand-drawn-organic-food-background-organic-herbs-spices-and-seafood-healthy-food-drawings-set-elemen.jpg);
+	opacity: 0.25;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}*/
+
 .nav {
 	display: flex;
 	justify-content: space-between;
