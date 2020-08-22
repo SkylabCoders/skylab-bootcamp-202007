@@ -27,7 +27,7 @@ function router(nav) {
 
 					res.render('list', {
 						nav,
-						title: 'Recipes List',
+						title: 'Products List',
 						recipes: recipe
 					});
 				} catch (error) {
@@ -37,13 +37,14 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { deletedRecipe } = req.body;
+			const { product } = req.body;
+			debug(req.body);
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
+
 			(async function deleteHeroFromList() {
-				let client;
 				try {
 					client = await MongoClient.connect(url);
 					debug('Connection to db established...');
@@ -58,6 +59,28 @@ function router(nav) {
 				}
 			})();
 		});
+	recipesRouter.route('/addcart').post((req, res) => {
+		const { product } = req.body;
+		debug(req.body);
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'organicMarket';
+		const collectionName = 'recipes';
+		let client;
+
+		(async function mongo() {
+			client = await MongoClient.connect(url);
+
+			const db = client.db(dbName);
+
+			const collection = db.collection(collectionName);
+
+			const idProduct = await collection.findOne({
+				_id: new ObjectID(product)
+			});
+			debug(idProduct);
+		})();
+	});
+
 	recipesRouter.route('/create').post((req, res) => {
 		const { deletedRecipe } = req.body;
 		const url = 'mongodb://localhost:27017';
@@ -66,7 +89,6 @@ function router(nav) {
 		let client;
 		res.send('Inserting books');
 		(async function mongo() {
-			let client;
 			try {
 				/* client = await MongoClient.connect(url);
 					debug('Connect sucesfully');
@@ -75,7 +97,7 @@ function router(nav) {
 	
 					const response = await db.collection('books').insertMany(books);
 					res.json(response); */
-				/*client = await MongoClient.connect(url);
+				/* client = await MongoClient.connect(url);
 					debug('Connection to db established...');
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
