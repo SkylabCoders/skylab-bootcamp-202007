@@ -43,3 +43,13 @@
 	border-radius: 5px;
 	width: 25%;
 }
+
+@media only screen and (min-width: 600px) {
+	.register__confirmPassword {
+		display: flex;
+		flex-direction: row;
+	}
+	.register__form {
+		background-color: red;
+	}
+}
