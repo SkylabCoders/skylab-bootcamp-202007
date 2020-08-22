@@ -74,6 +74,10 @@ const authRoutes = require('./src/routes/authRoutes')(nav);
 
 app.use('/auth', authRoutes);
 
+const cartRoutes = require('./src/routes/cartRoutes')(nav);
+
+app.use('/cart', cartRoutes);
+
 app.listen(port, () =>
 	debug(`Server is running in ${chalk.cyan('port: ')}${chalk.cyan(port)}`)
 );

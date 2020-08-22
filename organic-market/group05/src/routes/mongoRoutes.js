@@ -1,5 +1,4 @@
 const express = require('express');
-
 const debug = require('debug')('app:mongoRoutes');
 const { MongoClient } = require('mongodb');
 const productsdb = require('../../public/mocks/products.json');

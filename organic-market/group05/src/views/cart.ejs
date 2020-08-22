@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product details</title>
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/details.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+	</head>
+
+	<body>
+		<%- include('header')-%>
+		<!-- <main>
+			<form
+				action="/products/<%= product && product._id%>"
+				method="POST"
+				name="productForm"
+			>
+				<h2><%= product.title %> Details</h2>
+
+				<div><span>name: </span><%= product.title %></div>
+				<div><span>type: </span><%= product.type %></div>
+				<div><span>description: </span><%= product.description %></div>
+				<div><span>price: $</span><%= product.price %></div>
+				<div><span>rating: </span><%= product.rating %><span>/5</span></div>
+
+				<button type="button">go back</button>
+				<button type="submit">save</button>
+			</form>
+		</main>-->
+        <%- include('footer')-%>
+	</body>
+</html>
