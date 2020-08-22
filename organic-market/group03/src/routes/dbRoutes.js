@@ -11,8 +11,6 @@ function router() {
 	const collectionName = 'recipes';
 
 	recipeRoutes.route('/').get((req, res) => {
-		debug('aqui estic!');
-		console.log(recipes);
 		(async () => {
 			let client = null;
 
@@ -32,7 +30,7 @@ function router() {
 			client.close();
 		})();
 
-		res.send('cargando recipes');
+		res.send('mongodb updated!');
 	});
 	return recipeRoutes;
 }
