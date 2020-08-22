@@ -17,12 +17,12 @@
         <% for(let i = 0; i< products.length; i++) { %>
         <li class="products-card">
             <a href="/products/<%=products[i]._id%>">
-                <img class="image__product"
-                    src="https://d36fw6y2wq3bat.cloudfront.net/assets/images/cache/recipes/ensalada-de-quinua-con-manzana-y-alubias/900/ensalada-de-quinua-con-manzana-y-alubias.jpg">
+                <img class="image__product box-image" src="<%= products[i].img %>">
+                <p class="text__type"><%=products[i].type%></p>
                 <p class="text__title"><%= products[i].title%></p>
             </a>
             <div>
-                <p class="text__price">€ <%= products[i].price%></p>
+                <p class="text__price"><%= products[i].price%> € </p>
                 <form method="POST" action="/products/<%=products[i]._id%>">
                     <button class="button__addCart">Add to cart</button>
                 </form>
