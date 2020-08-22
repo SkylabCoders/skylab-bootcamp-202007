@@ -4,23 +4,24 @@ const { MongoClient } = require('mongodb');
 const passport = require('passport');
 
 const authRoutes = express.Router();
-
-const url = 'mongodb://localhost:27017';
+const dbUrl = 'mongodb://localhost:27017';
 const dbName = 'mongoProducts';
 const collectionName = 'users';
 let client;
-
 function router(nav) {
-	authRoutes.route('/logout').post((req, res) => {
-		if (req.user) {
-			req.logout();
-			res.redirect('/auth/signin');
-		}
-	});
+    authRoutes
+    .route('/logout')
+    .post((req, res) => {
+        if(req.user) {
+            req.logout();
+            res.redirect('/auth/signin');
+        }
+    })
+    
 	authRoutes
 		.route('/signin')
 		.get((req, res) => {
-			res.render('auth/signin', { nav });
+			res.render('auth/signin', { nav }); 
 		})
 		.post(
 			passport.authenticate('local', {
@@ -34,14 +35,17 @@ function router(nav) {
 			res.render('auth/signup', { nav });
 		})
 		.post((req, res) => {
-			const newUser = { ...req.body, email: req.body.email.toLowerCase() };
+			const newUser = {
+				...req.body,
+				user: req.body.user.toLowerCase()
+			};
 			(async function mongo() {
 				try {
-					client = await MongoClient.connect(url);
+					client = await MongoClient.connect(dbUrl);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
-					const userEmail = await collection.findOne({ email: newUser.email });
-					if (userEmail) {
+					const user = await collection.findOne({ user: newUser.user });
+					if (user) {
 						res.redirect('/auth/signin');
 					} else {
 						const result = await collection.insertOne(newUser);
@@ -55,6 +59,7 @@ function router(nav) {
 				client.close();
 			})();
 		});
+
 	authRoutes
 		.route('/profile')
 		.all((req, res, next) => {
@@ -67,29 +72,25 @@ function router(nav) {
 		.get((req, res) => {
 			res.render('auth/profile', { nav, user: req.user });
 		})
-		.post((req, res) => {
-			const { password, email } = req.body;
-			(async function mongo() {
-				try {
-					client = await MongoClient.connect(url);
+		.post((req) => {
+            let { password } = req.body;
+            [password] = password;
+            const { user } = req.user;
+            
+            (async function mongo (){
+                try {
+                    client = await MongoClient.connect(dbUrl);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 
-					if (email) {
-						const newPassword = await collection.updateOne(
-							{ email },
-							{ $set: { password } }
-						);
-						debug(newPassword);
-						res.redirect('../');
-					}
-				} catch (error) {
-					debug(error.stack);
-				}
+                    await collection.updateOne({user}, {$set: {password}});                        
+
+                } catch (error) {
+                    debug(error.stack);
+                }
 				client.close();
-			})();
+			}())
 		});
 	return authRoutes;
 }
-
 module.exports = router;

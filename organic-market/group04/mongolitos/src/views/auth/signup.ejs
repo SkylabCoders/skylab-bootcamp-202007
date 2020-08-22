@@ -1,48 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mongo Products</title>
-    <link rel="stylesheet" href="../../../css/index.css" />
-    <link rel="stylesheet" href="../../../css/header.css">
+    <title>Signin</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/heroDetail.css" />
 </head>
-
 <body>
-    <!-- <%- include('../header')%> -->
-    <h2>Sign Up! or <a href="/auth/signin">Sign In</a></h2>
+    <%- include('../header'); %>
+    <h2>Sign Up! or <a href="/auth/signin">SignIn</a> </h2>
+
     <form action="/auth/signup" method="POST">
         <div>
-            <label for="name">
-                Name:
-                <input type="text" name="name" required>
+            <label for="user">
+                User:
+                <input type="text" name="user">
             </label>
         </div>
         <div>
             <label for="email">
                 Email:
-                <input type="email" name="email" required>
+                <input type="email" name="email">
             </label>
         </div>
         <div>
             <label for="password">
                 Password:
-                <input type="text" name="password" value="" placeholder="Password" required
-                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!#/=*]).{8,12}$" title=" Letras y números. Tamaño mínimo: 8. Tamaño máximo: 12.
-                Distingue entre Mayúsculas y minusculas">
+                <input type="password" name="password" required minlength="8" maxlength="12" pattern="[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#!/=*]).{8, 12}$" />
             </label>
         </div>
-        <div>
-            <label for="confirmPassword">
-                Confirm Password:
-                <input type="text" name="password" value="" placeholder="Password" minlength="8" maxlength="12" required
-                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!#/=*]).{8,12}$" title=" Letras y números. Tamaño mínimo: 8. Tamaño máximo: 12.
-                Distingue entre Mayúsculas y minusculas">
-            </label>
-        </div>
-        <button type="submit">SignUp</button>
+        <button type="submit">SignUp now</button>
     </form>
 </body>
-
 </html>
+
