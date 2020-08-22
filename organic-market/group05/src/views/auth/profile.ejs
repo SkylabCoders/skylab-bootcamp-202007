@@ -7,25 +7,20 @@
 		<link rel="stylesheet" href="../css/index.css" />
 	</head>
 	<body>
-		<h2><%=user.user.toUpperCase()%> profile</h2>
-
+		<%- include('../header'); -%>
+		<h2><%= user.user.toUpperCase()%> profile</h2>
 		<form action="/auth/profile" method="POST">
-			<div>
-				<label for="user">
-					User:
-					<input type="text" name="user" />
-				</label>
-			</div>
 			<div>
 				<label for="password">
 					Password:
-					<input type="text" name="password" />
+					<input type="text" name="password" value="<%= user.password %>" />
 				</label>
 			</div>
-			<button type="submit">SignIn</button>
+			<button type="submit">Save</button>
 		</form>
-		<form action="/auth/signOut" method="GET">
-			<button type="submit">LogOut</button>
+		<form action="/auth/signout" method="POST">
+			<button type="submit">Sign out</button>
 		</form>
+		<%- include('../footer'); -%>
 	</body>
 </html>
