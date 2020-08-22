@@ -9,7 +9,16 @@
 </head>
 <body class="body">
     <%- include('header')%>
-    <h1>Food Dashboard</h1>
-    
+    <h3><%= title %></h3>
+	<div class="grid grid-pad">
+		<% for(let i=0; i<products.length; i++){ %>
+		<a href="/products/<%=products[i]._id%>" class="col-1-4">
+			<div class="module hero">
+				<h3><%= products[i].type %></h3>
+				<h2><%= products[i].title %></h2>
+			</div>
+		</a>
+		<% } %>
+	</div>    
 </body>
 </html>

@@ -55,14 +55,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app
-	/* .all('/', (req, res, next) => {
-	if(req.user) {
-		next();
-	} else {
-		res.redirect('/auth/signin');
-	}
-}) */
-	.get('/', (req, res) => {
+.get('/', (req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'mongoProducts';
 		const collectionName = 'products';
@@ -71,16 +64,16 @@ app
 		(async function mongo() {
 			try {
 				client = await MongoClient.connect(url);
-				debug('Connection dashboard');
 				const db = client.db(dbName);
 				const collection = db.collection(collectionName);
 				const products = await collection.find().toArray();
 
 				res.render('food-dashboard', {
 					nav,
-					title: 'Top Products'
-					// Hay que hacer búsqueda de rating 5
+					title: 'Top Products',
+					products: products.filter(product => product.rating === 5)
 				});
+				debug(products)
 			} catch (error) {
 				debug(error.stack);
 			}
