@@ -14,10 +14,6 @@ function findWithAttr(array, attr, value) {
 	return index;
 }
 function router(nav) {
-	appRoute.route('/').get((req, res) => {
-		res.send('IT WORKS');
-	});
-
 	appRoute
 		.route('/cart')
 		.get((req, res) => {
