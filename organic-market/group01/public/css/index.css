@@ -1,12 +1,13 @@
+
 /* Global Styles */
 h1 {
-    color: #369;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 250%;
+    color: #c5e623;
+	text-align: center;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
   h2, h3 {
     color: #444;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: lighter;
   }
   body {
@@ -39,6 +40,9 @@ h1 {
   }
   
   /* Navigation link styles */
+nav {
+	padding-left: 41.5vw;
+}
   nav a {
     padding: 5px 10px;
     text-decoration: none;
@@ -49,17 +53,18 @@ h1 {
     border-radius: 4px;
   }
   nav a:visited, a:link {
-    color: #607D8B;
+    color: #c5e623;
   }
   nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
+    color: black;
+	background-color: #cfd8dc;
   }
   nav a.active {
-    color: #039be5;
+    color: green;
   }
   
   /* everywhere else */
   * {
     font-family: Arial, Helvetica, sans-serif;
   }
+
