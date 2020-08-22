@@ -1,7 +1,6 @@
 const express = require('express');
 const { MongoClient, ObjectID } = require('mongodb');
 const debug = require('debug')('app:foodRoutes');
-// const { MongoClient } = require('mongodb');
 
 const foodRoutes = express.Router();
 
@@ -27,7 +26,9 @@ function router(nav) {
 					const collection = await db.collection(collectionName);
 
 					res.hero = await collection.findOne({});
-				} catch (error) { }
+				} catch (error) { 
+					debug(error.stack)
+				}
 			})();
 			res.render('foodList');
 		});
