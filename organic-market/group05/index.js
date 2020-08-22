@@ -39,28 +39,29 @@ const nav = [
 	// { link: '/auth/signout', title: 'Sign out' }
 ];
 
-app.get('/', (req, res) => {
-	const url = 'mongodb://localhost:27017';
-	const dbName = 'organics';
-	const collectionName = 'products';
-	let client;
+app
+	.get('/', (req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'organics';
+		const collectionName = 'products';
+		let client;
 
-	(async function mongo() {
-		try {
-			client = await MongoClient.connect(url);
-			debug('Connection for home works');
-			const db = client.db(dbName);
-			const collection = db.collection(collectionName);
-			const products = await collection
-				.find({ rating: 5 } || { rating: '5' })
-				.toArray();
-			res.render('home', { nav, title: 'Home', products });
-		} catch (error) {
-			debug(error.stack);
-		}
-		client.close();
-	})();
-});
+		(async function mongo() {
+			try {
+				client = await MongoClient.connect(url);
+				debug('Connection for home works');
+				const db = client.db(dbName);
+				const collection = db.collection(collectionName);
+				const products = await collection
+					.find({ rating: 5 } || { rating: '5' })
+					.toArray();
+				res.render('home', { nav, title: 'Home', products });
+			} catch (error) {
+				debug(error.stack);
+			}
+			client.close();
+		})();
+	});	
 
 const productsRoutes = require('./src/routes/productsRoutes')(nav);
 
