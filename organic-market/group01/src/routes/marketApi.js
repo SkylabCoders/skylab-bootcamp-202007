@@ -12,18 +12,18 @@ function router(nav) {
 		.get((req, res) => {
 			(async function productList() {
 				const productList = await getAllProducts();
-				debugger;
+
 				res.send(productList)();
 			})();
 		})
 		.post((req, res) => {
 			const { productId } = req.body(async function productById() {
 				const product = await getProductById(productId);
+				res.send(product);
 			})();
-			res.send(product);
 		});
 	heroRoutes
-		.route('/:heroId')
+		.route('/market/:heroId')
 		.all((req, res, next) => {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'market';
