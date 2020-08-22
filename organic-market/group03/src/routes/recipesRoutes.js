@@ -79,6 +79,7 @@ function router(nav) {
 			});
 			debug(idProduct);
 		})();
+		res.redirect('/list');
 	});
 
 	recipesRouter.route('/create').post((req, res) => {
