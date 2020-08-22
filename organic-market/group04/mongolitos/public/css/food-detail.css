@@ -1,21 +1,26 @@
-* {
+*{
     margin: 0;
     padding: 0;
 }
 
 .container{
     border: solid 1px blue;
-    margin: .5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    padding: 5px;
     width: 100%;
 }
 
 .item__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item__container img{
     width: 100%;
 }
 
@@ -23,8 +28,9 @@
     font-weight: bold;
 }
 
-h2{
-    margin-bottom: 10px;
+hr{
+    border: solid 0.5px rgb(190, 190, 190);
+    width: 80%;
 }
 
 @media (min-width: 666px){
