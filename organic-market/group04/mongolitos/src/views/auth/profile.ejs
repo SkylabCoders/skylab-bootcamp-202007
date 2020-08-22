@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo Products</title>
+    <link rel="stylesheet" href="../../../css/index.css" />
+    <link rel="stylesheet" href="../../../css/header.css">
+
+</head>
+
+<body>
+    <!-- <%- include('../header')%> -->
+    <h2><%user.name.toUpperCase()%> Profile!</h2>
+    <form action="/auth/profile" method="POST">
+        <div>
+            <label for="password">
+                New password:
+                <input type="password" name="password" value="" placeholder="Insert new password" required
+                    pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!#/=*]).{8,12}$" title=" Letras y números. Tamaño mínimo: 8. Tamaño máximo: 12.
+                Distingue entre Mayúsculas y minusculas">>
+            </label>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+    <form method="POST" action="/auth/logout">
+        <button type="submit" name="logout">Sign Out</button>
+    </form>
+</body>
+
+</html>
