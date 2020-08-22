@@ -1,41 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Profile</title>
+		<link rel="stylesheet" href="../css/styles.css" />
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Profile</title>
-	<link rel="stylesheet" href="../css/styles.css" />
-</head>
-
-<body>
-	<%- include('../header')-%>
-	<h2>Welcome <%= user.user.toUpperCase() %></h2>
-	<div>
+	<body>
+		<%- include('../header')-%>
+		<h2>Welcome <%= user.user.toUpperCase() %></h2>
 		<form action="" method="POST">
 			<div>
 				<label for="password">
 					Change your password:
-					<input type="text" name="password" value="<%= user.password %>"
-						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$" required />
+					<input
+						type="password"
+						name="password"
+						value="<%= user.password %>"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$"
+						required
+					/>
 				</label>
 			</div>
 
 			<button type="submit">Save</button>
 		</form>
-	</div>
-	<section class="cart">
-		<% user.cart && cart.forEach(element => { %>
-		<div class="cart__item">
-			<p><%= element.title %></p>
-			<p><%= element.price %></p>
-		</div>
-		<% }) %>
-	</section>
 
-	<form action="/auth/logout" method="POST">
-		<button type="submit">Log Out</button>
-	</form>
-</body>
-
+		<form action="/auth/logout" method="POST">
+			<button type="submit">Log Out</button>
+		</form>
+	</body>
 </html>
