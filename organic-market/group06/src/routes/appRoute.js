@@ -1,38 +1,56 @@
 const express = require('express');
-const debug = require('debug')('app:appRoutes');
+const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
-const MONGO = require('../../public/mongoConstants')
+const MONGO = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
 
 function router(nav) {
-	appRoute.route('/').get((res, req) => {
+	appRoute.route('/').get((req, res) => {
 		res.send('IT WORKS');
 	});
 
-	appRoute.route('/cart').get((res, req) => {
-		//const { _id } = req.user;
-		let client;
-		(async function mongo() {
-			client = MongoClient.connect(MONGO.url);
-			debug(client)
-			const db = client.db(MONGO.dbName);
-			const collection = db.collection(MONGO.usersCollection);
+	appRoute.route('/cart').get((req, res) => {
+		const cart = [
+			{
+				_id: '5f3fc61e9a183552ccc8772d',
+				title: 'Brown eggs',
+				rating: 4,
+				price: 10
+			},
+			{
+				_id: '5f3fc61e9a183552ccc87729',
+				title: 'Sweet fresh stawberry',
+				rating: 5,
+				price: 250
+			},
+			{
+				_id: '5f3fc61e9a183552ccc87727',
+				title: 'Green smoothie',
+				rating: 4.5,
+				price: 1200
+			}
+		];
 
-			//const user = collection.find({ _id: new ObjectID(_id) });
+		res.render('cart', {
+			cart,
+			nav,
+			title: 'Shopping cart'
+		});
 
-			const cart = [
-				{ _id: '5f3fc61e9a183552ccc8772d', quantity: 3 },
-				'5f3fc61e9a183552ccc87729',
-				'5f3fc61e9a183552ccc87727'
-			];
+		// const { _id } = req.user;
+		// (async function mongo() {
+		// 	try {
+		// 		const client = await MongoClient.connect(MONGO.url);
+		// 		const db = client.db(MONGO.dbName);
+		// 		const collection = await db.collection(MONGO.usersCollection);
+		// 		client.close();
+		// 		const user = collection.find({ _id: new ObjectID(_id) });
 
-			res.render('cart', {
-				cart,
-				nav,
-				title: ''
-			});
-		})();
+		// 	} catch (error) {
+		// 		debug(error.stack);
+		// 	}
+		// })();
 	});
 	appRoute.route('/list')
 		.get((req, res) => {
@@ -79,6 +97,31 @@ function router(nav) {
 				res.render('list', { items });
 			})();
 		})
+
+	appRoute
+		.route('/:productId')
+		.all((req, res, next) => {
+			let client;
+			const id = req.params.productId;
+			(async function query() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					debug('Connection stablished...');
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.itemsCollection);
+					const item = await collection.find({ _id: new ObjectID(id) }).toArray;
+					[res.item] = item;
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+			next();
+		})
+		.get((req, res) => {
+			res.send('hi im details');
+			// res.render('detail', { nav, item: res.item });
+		});
 
 	return appRoute;
 }

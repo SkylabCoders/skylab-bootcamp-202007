@@ -1,7 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:dbRoutes');
 const { MongoClient } = require('mongodb');
-const passport = require('passport');
 const products = require('../../public/products.json');
 const MONGO = require('../../public/mongoConstants');
 
