@@ -7,8 +7,7 @@
 		<link rel="stylesheet" href="css/products.css" />
 	</head>
 	<body>
-		<header><%- include('header'); -%></header>
-		<% if ( user && user.usertype === 'admin') {%>
+		<%- include('header'); -%> <% if ( user && user.usertype === 'admin') {%>
 		<form method="POST">
 			<button
 				class="addtocart"
@@ -20,18 +19,26 @@
 				+
 			</button>
 		</form>
-
 		<% } %>
 		<main class="products__container">
 			<% products.forEach(product => { %>
 			<div class="products">
-				<div class="products__title">
-					<a href="/products/<%= product._id %>">
-						<p><%= product.title %></p>
-					</a>
-					<p><%= product.type %></p>
-					<div class="products__description">
-						<p><%= product.description %></p>
+				<div class="products__header">
+					<img
+						class="products__img"
+						src="<%= product.filename %>"
+						alt="Product"
+					/>
+					<div class="products__title">
+						<a href="/products/<%= product._id %>">
+							<p><%= product.title %></p>
+						</a>
+						<p><%= product.type %></p>
+						<div class="flex-child long-and-truncated-with-child-corrected">
+							<p>
+								<%= product.description.substring(0, 50)+'...'; %>
+							</p>
+						</div>
 					</div>
 				</div>
 
@@ -57,6 +64,6 @@
 			</div>
 			<% }) %>
 		</main>
-		<footer><%- include('footer'); -%></footer>
+		<%- include('footer'); -%>
 	</body>
 </html>

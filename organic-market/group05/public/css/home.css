@@ -33,6 +33,7 @@ body {
 
 .featured__container {
 	margin: 0 auto;
+	margin-top: 60px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -46,7 +47,7 @@ body {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	background-color: rgb(230, 230, 210);
 	margin: 10px;
-	height: 15vw;
+	height: 10vh;
 	width: 90%;
 	display: flex;
 	justify-content: space-between;
@@ -55,6 +56,18 @@ body {
 
 .featured:hover {
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.featured__header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.featured__img {
+	object-fit: cover;
+	height: 80px;
+	width: 150px;
 }
 
 .featured__title {
@@ -90,23 +103,29 @@ body {
 
 @media only screen and (min-width: 600px) {
 	.featured__container {
-		width: 85%;
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: space-around;
 	}
 	.featured {
-		width: 85%;
 		height: 100px;
+	}
+	.featured__img {
+		object-fit: cover;
+		width: 20vw;
 	}
 }
 
 @media only screen and (min-width: 1024px) {
 	.featured__container {
-		width: 70%;
+		width: 75%;
 	}
 
 	.featured {
 		width: 47%;
+	}
+	.featured__img {
+		object-fit: cover;
+		width: 10vw;
 	}
 }

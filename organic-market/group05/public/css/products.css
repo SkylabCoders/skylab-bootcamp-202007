@@ -33,6 +33,7 @@ b/*body::after {
 
 .products__container {
 	margin: 0 auto;
+	margin-top: 60px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -55,6 +56,18 @@ b/*body::after {
 
 .products:hover {
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.products__header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.products__img {
+	object-fit: cover;
+	height: 80px;
+	width: 150px;
 }
 
 .products__title {
