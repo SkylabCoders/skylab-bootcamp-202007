@@ -45,8 +45,7 @@ app.use(
 	})
 );
 
-// require('./src/config/passport')(app);
-
+require('./src/config/passport')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -55,7 +54,14 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app
-.get('/', (req, res) => {
+	.all('/', (req, res, next) => {
+		if (req.user) {
+			next();
+		} else {
+			res.redirect('/auth/signin');
+		}
+	})
+	.get('/', (req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'mongoProducts';
 		const collectionName = 'products';
@@ -90,8 +96,8 @@ const insertRoutes = require('./src/routes/insertRoutes')();
 
 app.use('/insertProducts', insertRoutes);
 
-/* const authRoutes = require('./src/routes/authRoutes')(nav);
+const authRoutes = require('./src/routes/authRoutes')(nav);
 
-app.use('/auth', authRoutes); */
+app.use('/auth', authRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
