@@ -47,6 +47,7 @@ app.use(
 
 // require('./src/config/passport')(app);
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', './src/views');
