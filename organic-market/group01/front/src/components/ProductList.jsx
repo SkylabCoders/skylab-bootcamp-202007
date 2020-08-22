@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { loadProducts } from "../actions/productActions";
 import productStore from "../stores/productStore";
-import genreStore from "../stores/genreStore";
 import ProductListItem from "./ProductListItem";
 import "./ProductList.css";
-import cartStore from "../stores/cartStore";
 
-function ProductList(props) {
+function ProductList() {
 
   
   const [products, setProducts] = useState(
     productStore.getProduct()
   );
+  
 
 
   useEffect(() => {
+
     productStore.addChangeListener(onChange);
     setProducts(productStore.getProduct());
+    console.log(products)
     if (products.length === 0) loadProducts();
+    console.log(products)
     return () => productStore.removeChangeListener(onChange);
   }, [products.length]);
 
@@ -25,15 +27,15 @@ function ProductList(props) {
     setProducts(productStore.getProduct());
   }
 
-  function addNumberCart() {
-    cartStore.updateNumberCart();
+  // function addNumberCart() {
+  //   cartStore.updateNumberCart();
 
-  }
+  // }
 
 
   return (
     <>
-      <div className="ProductList__Title">LISTA DE PRODUCTOS</div>
+      <div className="ProductList__Title">PRODUCT LIST</div>
       {products.map((product) => (
         <ProductListItem
           key={product.id}
@@ -42,11 +44,12 @@ function ProductList(props) {
           type={product.type}
           description={product.description}
           price={product.price}
+          cover={product.cover}
           rating={product.rating}
-          addNumberCart={addNumberCart}
+          // addNumberCart={addNumberCart}
         />
       ))}
-    </>
+      </>
   );
 }
 export default ProductList;

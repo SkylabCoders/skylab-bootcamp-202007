@@ -1,27 +1,24 @@
 import React,  {useState} from "react";
 import { Link } from "react-router-dom";
 import "./ProductListItem.css";
-import cartStore from "../stores/cartStore";
-import userStore from '../stores/userStore'
-import authStore from "../stores/authStore";
 
 
-function ProductListItem({ title, id, type,  description, price, rating, addNumberCart }) {
-  const [isLogged, setIsLogged] = useState(authStore.isLogged());
-  function addToCart(id) {
-    cartStore.addCartProduct(id);
-    addNumberCart();
-  }
+function ProductListItem({ title, id, type,  description, price, cover, rating }) {
+  // const [isLogged, setIsLogged] = useState(authStore.isLogged());
+  // function addToCart(id) {
+  //   cartStore.addCartProduct(id);
+  //   addNumberCart();
+  // }
 
 
   return (
     <div className="main-box">
-      <img className="box__image" src={cover} alt="Book" />
+      <img className="box__image" src={cover} alt={title} />
       <div className="box__contain">
         <div className="box__text">
           <h3 className="box__title">{title}</h3>
-          <p className="box__author">{author}</p>
-          <p className="box__sinopsis">Sinopsis</p>
+          {/* <p className="box__author">{author}</p> */}
+          <p className="box__sinopsis">Description</p>
           <p className="box__description">{description}</p>
         </div>
         <div className="box__button">
@@ -30,18 +27,15 @@ function ProductListItem({ title, id, type,  description, price, rating, addNumb
               {price}
               <span>€</span>
             </p>
-            <p className="box__vat">IVA INCLUÍDO</p>
+            <p className="box__vat">VAT INCLUDED</p>
           </div>
           <div className="box__column-button">
-            <Link onClick={() => {
-              addToCart(id);
-    
-            }} className="box__button-cart">
-              Agregar a la cesta
-            </Link>
-            <Link onClick={()=>{isLogged && userStore.addFavouriteProduct(id)}} className="box__button-star">
-              Agregar a favoritos
-            </Link>
+            <p className="box__button-cart">
+              Add to cart
+            </p>
+            <p className="box__button-star">
+              Add to favorites
+            </p>
           </div>
         </div>
       </div>

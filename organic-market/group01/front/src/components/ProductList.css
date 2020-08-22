@@ -1,7 +1,6 @@
 .ProductList__Title {
     height: 2rem;
-    border: 2px yellow;
-    background-color: #FFCC00;
+    background-color: olive;
     color: white;
     text-align: center;
     display: flex;
