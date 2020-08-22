@@ -7,30 +7,32 @@ const foodRoutes = express.Router();
 function router(nav) {
 	foodRoutes
 		.route('/')
-		.all((req, res, next) => {
-			if (req.user) {
-				next();
-			} else {
-				res.redirect('auth/signin');
-			}
-		})
+		// .all((req, res, next) => {
+		// 	if (req.user) {
+		// 		next();
+		// 	} else {
+		// 		res.redirect('auth/signin');
+		// 	}
+		// })
 		.get((req, res) => {
-			const url = 'mongodb://localhost:27017';
+			const url =
+				'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
 			const collectionName = 'products';
 			let client;
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
-					const db = client - db(dbName);
-					const collection = await db.collection(collectionName);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
 
-					res.hero = await collection.findOne({});
-				} catch (error) { 
-					debug(error.stack)
+					const products = await collection.find().toArray();
+					res.render('foodList', { nav, products });
+				} catch (error) {
+					debug(error.stack);
 				}
+				client.close();
 			})();
-			res.render('foodList');
 		});
 
 	foodRoutes
@@ -69,7 +71,7 @@ function router(nav) {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'mongoProducts';
 			const userCollection = 'users';
-			const productCollection = 'products'
+			const productCollection = 'products';
 			let client;
 
 			const idProduct = {
@@ -85,22 +87,23 @@ function router(nav) {
 
 					const product = await productNameCollection.find(idProduct).toArray();
 
-					const [{ title,type,img,price, amount}] = product;
+					const [{ title, type, img, price, amount }] = product;
 
-					const cartProducts = [{ title,type,img,price,amount}];
+					const cartProducts = [{ title, type, img, price, amount }];
 
-					const result = await userNameCollection.updateOne({user: "Victor"},{$set:{cart:cartProducts}}); 
+					const result = await userNameCollection.updateOne(
+						{ user: 'Victor' },
+						{ $set: { cart: cartProducts } }
+					);
 					debug(result);
-					
 				} catch (error) {
 					debug(error.stack);
 				}
 
 				client.close();
-			}())
-		})
-			return foodRoutes;
+			})();
+		});
+	return foodRoutes;
 }
-
 
 module.exports = router;

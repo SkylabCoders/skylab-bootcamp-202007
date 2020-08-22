@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Dashboard</title>
-    <link rel="stylesheet" href="/css/header.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Food Dashboard</title>
+	<link rel="stylesheet" href="/css/header.css" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Noto+Serif:wght@400;700&display=swap"
+		rel="stylesheet">
 </head>
+
 <body class="body">
-    <%- include('header')%>
-    <h3><%= title %></h3>
+	<%- include('header')%>
+	<h3><%= title %></h3>
 	<div class="grid grid-pad">
 		<% for(let i=0; i<products.length; i++){ %>
 		<a href="/products/<%=products[i]._id%>" class="col-1-4">
 			<div class="module hero">
+				<img src="<%=products[i].img%>></img>
 				<h3><%= products[i].type %></h3>
 				<h2><%= products[i].title %></h2>
 			</div>
 		</a>
 		<% } %>
-	</div>    
+	</div>
 </body>
+
 </html>

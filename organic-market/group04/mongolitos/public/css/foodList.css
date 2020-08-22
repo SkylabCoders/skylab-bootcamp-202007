@@ -1,1 +1,98 @@
-*{margin:0;padding:0;box-sizing:border-box}.container-products{display:flex;flex-wrap:wrap;width:100%}.products-card{list-style:none;display:flex;flex-direction:column;align-items:center;margin:0 auto}.image__product{width:217px}.text__title,.text__price{font-size:13px;font-family:'Noto Serif', serif;color:#000;line-height:1.5}.button__addCart{line-height:1.42;text-decoration:none;text-align:center;white-space:normal;font-size:10px;font-weight:bold;text-transform:uppercase;letter-spacing:0.2em;display:inline-block;padding:11px 20px;margin:0;width:auto;min-width:90px;vertical-align:middle;cursor:pointer;border:1px solid transparent;border-radius:0;color:#fff;background:#ffafbb}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+}
+
+.container-products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.products-card {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 1rem 1rem 0;
+    width: 40%;
+}
+
+.box-image {
+    /* imagen vertical "cortada" */
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 340px;
+    height: 170px;
+}
+
+.image__product {
+    width: 100%;
+}
+
+
+.text__title,
+.text__price {
+    font-size: 13px;
+    color: #000;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.text__price {
+    padding-bottom: 0.5rem;
+    color: #999;
+}
+
+.text__type {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.text__title {
+    font-size: 16px;
+    font-family: 'Noto Serif', serif;
+}
+
+.button__addCart {
+    line-height: 1.42;
+    text-decoration: none;
+    text-align: center;
+    white-space: normal;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    display: inline-block;
+    padding: 11px 20px;
+    margin: 0;
+    width: auto;
+    min-width: 90px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    background: #ffafbb;
+    outline: none;
+    cursor: pointer;
+}
+
+.button__addCart:hover {
+    opacity: 0.5
+}
+
+@media screen and (min-width: 769px) {
+
+    .products-card {
+        width: 20%;
+    }
+
+}
