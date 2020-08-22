@@ -6,8 +6,6 @@ const debug = require('debug')('app:local.strategy');
 const MONGO = require('../../../public/mongoConstants');
 
 function localStrategy() {
-	debug('Entra a la funcio....');
-
 	passport.use(
 		new Strategy(
 			{
@@ -15,7 +13,6 @@ function localStrategy() {
 				passwordField: 'password'
 			},
 			(username, password, done) => {
-				debug('Entra a la funcio....');
 				let client;
 				(async function mongo() {
 					try {
@@ -29,8 +26,6 @@ function localStrategy() {
 							done(null, false); // sense error amb false xk l'user no coincideix
 						}
 					} catch (error) {
-						debug('Entra al catch....');
-
 						debug(error.stack);
 					}
 					client.close();

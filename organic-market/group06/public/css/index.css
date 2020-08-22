@@ -51,6 +51,7 @@
 	border-radius: 5px;
 	border: unset;
 	background-color: var(--header-button-bg-color);
+	cursor: pointer;
 }
 
 .flex-spacer {
