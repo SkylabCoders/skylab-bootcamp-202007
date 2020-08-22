@@ -4,28 +4,65 @@ const { MongoClient, ObjectID } = require('mongodb');
 const path = require('path');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
+let { products } = require('./ROUTES');
 
 const productRoutes = express.Router();
+
+function addProductToCart(userId, addedProductId, username, quantity) {
+	(async function addProductToCartCollection() {
+		let client;
+		try {
+			client = await MongoClient.connect(DATABASE_CONFIG.url);
+			const db = client.db(DATABASE_CONFIG.dbName);
+			const collection = db.collection(DATABASE_CONFIG.cartsCollection);
+
+
+			const query = await collection.findOne({ userID: userId })
+
+			if (query) {
+				await collection.updateOne({ userID: userId }, { $push: { product: { productId: addedProductId, quantity } } });
+
+			} else {
+				await collection.insertOne({ userID: userId, userName: username, product: [{ productId: addedProductId, quantity }], active: true });
+
+			}
+		} catch (error) {
+			debug(error.stack);
+		}
+	}())
+}
 
 function router(nav) {
 	productRoutes
 		.route('/')
-		.post((req, res) => {
-			(async function deleteProductFromList() {
-				let client;
-				try {
-					const { deleteProduct } = req.body;
-					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection to db established...');
-					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.productCollection);
 
-					await collection.deleteOne({ _id: new ObjectID(deleteProduct) });
-					res.redirect(ROUTES.products.path);
-				} catch (error) {
-					debug(error.stack);
-				}
-			})();
+		.post((req, res) => {
+			const { deleteProduct } = req.body;
+			const { addedProductId } = req.body;
+			const { username } = req.user;
+			const { _id } = req.user;
+
+			if (deleteProduct) {
+				(async function deleteProductFromList() {
+					let client;
+					try {
+						client = await MongoClient.connect(DATABASE_CONFIG.url);
+						debug('Connection to db established...');
+						const db = client.db(DATABASE_CONFIG.dbName);
+						const collection = db.collection(DATABASE_CONFIG.productCollection);
+
+						await collection.deleteOne({ _id: new ObjectID(deleteProduct) });
+						res.redirect(ROUTES.products.path);
+					} catch (error) {
+						debug(error.stack);
+					}
+				})();
+			} else if (addedProductId) {
+				addProductToCart(_id, addedProductId, username);
+				res.redirect(ROUTES.products.path);
+			}
+
+
 		})
 		.get((req, res) => {
 			(async function getAllProducts() {
@@ -34,9 +71,10 @@ function router(nav) {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
+
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 
-					const products = await colection.find().sort({ name: 1 }).toArray();
+					products = await colection.find().sort({ name: 1 }).toArray();
 
 					res.render('index', {
 						nav,
@@ -53,93 +91,21 @@ function router(nav) {
 			})();
 		});
 
-	productRoutes
-		.route('/create')
-		.all((req, res, next) => {
-			if (req.user) {
-				next();
-			} else {
-				res.redirect(ROUTES.signin.path);
-			}
-		})
-		.post((req, res) => {
-			let client;
-			(async function createHero() {
-				try {
-					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection to db established...');
-					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.productCollection);
-					const objectWithGreatestId = await collection.find().sort({ id: -1 }).limit(1).toArray();
-					const newId = objectWithGreatestId[0].id + 1;
-					const { createHeroWithName } = req.body;
-					const sluggedName = createHeroWithName.replace(/\s/g, '-');
-					const newSlug = `${newId}-${sluggedName}`;
-					await collection.insertOne({ id: newId, name: createHeroWithName, slug: newSlug }, (error, response) => {
-						if (error) { throw error }
-						res.redirect(`/heroes/${newSlug}`);
-					});
-					debug(req.body);
-				} catch (error) {
-					debug(error.stack);
-				}
-				debug('Connection to db closed.');
-				client.close();
-			})();
-		})
-		.get((req, res) => {
-			res.render('index', {
-				nav,
-				body: ROUTES.hero.page,
-				title: ROUTES.hero.title,
-				hero: res.hero,
-				ROUTES
-			});
-		});
 
 	productRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
-			if (req.user) {
-				const { productId } = req.params;
-				(async function getProduct() {
-					let client;
-					try {
-						client = await MongoClient.connect(DATABASE_CONFIG.url);
-						debug('Connection to db established...');
-						const db = client.db(DATABASE_CONFIG.dbName);
-						const collection = db.collection(DATABASE_CONFIG.productCollection);
-						res.hero = await collection.findOne({ _id: productId });
-						debug(res.hero);
-						next();
-					} catch (error) {
-						debug(error.stack);
-					}
-					debug('Connection to db closed.');
-					client.close();
-				})();
-				next();
-			} else {
-				res.redirect(ROUTES.signin.path);
-			}
-		})
-		.post((req, res) => {
-			const updateQuery = { $set: req.body };
 			const { productId } = req.params;
-			const filter = { _id: productId };
-			let client;
-			(async function editHero() {
+			(async function getProduct() {
+				let client;
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const collection = db.collection(DATABASE_CONFIG.productCollection);
-					collection.updateOne(filter, updateQuery, (error, response) => {
-						if (error) { throw error }
-						debug(response);
-						res.redirect(ROUTES.heroes.path);
-					});
-					debug(req.body);
+					res.product = await collection.findOne({ _id: new ObjectID(req.params.productId) });
+					debug(res.product);
+					next();
 				} catch (error) {
 					debug(error.stack);
 				}
@@ -147,12 +113,24 @@ function router(nav) {
 				client.close();
 			})();
 		})
+		.post((req, res) => {
+
+			const { addedProductId } = req.body;
+			const { _id } = req.user;
+			const { username } = req.user;
+			const { quantity } = req.body;
+			console.log(quantity);
+
+
+			addProductToCart(_id, addedProductId, username, quantity);
+			res.redirect(ROUTES.products.path);
+		})
 		.get((req, res) => {
 			res.render('index', {
 				nav,
-				body: ROUTES.hero.page,
-				title: ROUTES.hero.title,
-				hero: res.hero,
+				body: ROUTES.product.page,
+				title: ROUTES.product.title,
+				product: res.product,
 				ROUTES
 			});
 		});
