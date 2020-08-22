@@ -54,13 +54,13 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app
-	.all('/', (req, res, next) => {
+	/* .all('/', (req, res, next) => {
 		if (req.user) {
 			next();
 		} else {
 			res.redirect('/auth/signin');
 		}
-	})
+	}) */
 	.get('/', (req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'mongoProducts';
