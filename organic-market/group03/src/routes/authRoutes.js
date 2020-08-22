@@ -36,9 +36,9 @@ function router(nav) {
 			const newUser = {
 				password: req.body.password,
 				user: req.body.user.toLowerCase(),
-				admin: req.body.admin
+				admin: req.body.admin,
+				cart: null
 			};
-			console.log(newUser);
 			(async () => {
 				try {
 					client = await MongoClient.connect(DBurl);
@@ -82,15 +82,11 @@ function router(nav) {
 				try {
 					const { user } = req.user;
 					const { password } = req.body;
-					console.log({ user, password });
 					client = await MongoClient.connect(DBurl);
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
 
-					const a = await collection.findOne(
-						{ user } /*, { $set: { password } }*/
-					);
-					console.log(a.ops);
+					await collection.updateOne({ user }, { $set: { password } });
 
 					client.close();
 				} catch (error) {

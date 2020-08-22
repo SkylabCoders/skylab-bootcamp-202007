@@ -13,7 +13,7 @@ function localStrategy() {
 			(username, password, done) => {
 				let client = null;
 				const mongoUrl = 'mongodb://localhost:27017';
-				const dbName = 'shieldHeroes';
+				const dbName = 'organicMarket';
 				const collectionName = 'users';
 
 				(async () => {
