@@ -37,10 +37,11 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { deletedRecipe } = req.body;
+			const { buyProduct } = req.body;
+			debug(req.body);
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organicMarket';
-			const collectionName = 'recipes';
+			const collectionName = 'users';
 			let client;
 			(async function mongo() {
 				try {
@@ -49,9 +50,10 @@ function router(nav) {
 					const db = client.db(dbName);
 
 					const collection = db.collection(collectionName);
-					if (deletedRecipe === 'all') {
-						await collection.deleteMany({});
-					} else {
+					if (buyProduct === '<%=recipes[i].title%>') {
+						const filter = { _id: new ObjectID(buyProduct) };
+						await collection.updateOne(filter, {$set:{"chart": ...chart, Object ID(buyProduct)}});
+					} /* else {
 						const filter = { _id: new ObjectID(deletedRecipe) };
 
 						await collection.deleteOne(filter, (error, response) => {
@@ -61,13 +63,8 @@ function router(nav) {
 							debug(`${response} deleted!`);
 							res.redirect('/list');
 						});
-					}
-					const recipe = await collection.find().toArray();
-					res.render('list', {
-						nav,
-						title: 'My Heros',
-						recipe
-					});
+					} */
+					res.redirect('/list')
 				} catch (error) {
 					debug(error.stack);
 				}
