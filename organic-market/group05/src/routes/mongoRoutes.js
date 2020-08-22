@@ -7,7 +7,8 @@ const getProducts = express.Router();
 
 function router() {
 	getProducts.route('/').get((req, res) => {
-		const url = 'mongodb://localhost:27017';
+		const url =
+			'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 		const dbName = 'organics';
 
 		(async function mongo() {

@@ -4,13 +4,13 @@ const { MongoClient } = require('mongodb');
 
 const getCart = express.Router();
 
-const url = 'mongodb://localhost:27017';
-
+const url =
+	'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 
 function router(nav) {
 	getCart.route('/').get((req, res) => {
-        debug(req.user)
-        res.render('cart', { nav })
+		debug(req.user);
+		res.render('cart', { nav });
 	});
 
 	return getCart;
