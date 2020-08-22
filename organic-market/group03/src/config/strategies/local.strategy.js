@@ -22,7 +22,6 @@ function localStrategy() {
 						const db = client.db(dbName);
 						const collection = db.collection(collectionName);
 						const user = await collection.findOne({ user: username });
-						debug("Aqui perdo el fil de l'user", user);
 						if (user && user.password === password) {
 							done(null, user);
 						} else {
