@@ -7,7 +7,7 @@
         "start": "DEBUG=app,app:* nodemon index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint . --fix",
-        "node-sass": "node-sass --output-style compressed -o dist/css src/scss"
+        "sass": "node-sass --output-style compressed -o public/css public/scss"
     },
     "keywords": [],
     "author": "",
