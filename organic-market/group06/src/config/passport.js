@@ -6,11 +6,12 @@ function passportConfig(app) {
 	app.use(passport.initialize());
 	app.use(passport.session());
 
-	// alamacenar el usuario de la sesion
+	// guardar l'usuari a la sessio
 	passport.serializeUser((user, done) => {
 		done(null, user);
 	});
-	// Recuperar el susuario de la sesion
+
+	// Recuperar l'usuari de la sessio
 	passport.deserializeUser((user, done) => {
 		done(null, user);
 	});

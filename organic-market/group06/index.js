@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
-app.use(expressSession({ secret: 'market' }));
+app.use(expressSession({ secret: 'heroes' }));
 
 require('./src/config/passport')(app);
 
@@ -33,7 +33,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.send('Hi I works');
+	res.send('Hi I work');
 });
 
 const dbRoutes = require('./src/routes/dbRoutes')(nav);
