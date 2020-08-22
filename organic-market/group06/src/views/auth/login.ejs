@@ -4,19 +4,25 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Login</title>
-		<link rel="stylesheet" href="index.css" />
-		<link rel="stylesheet" href="login.css" />
+		<link rel="stylesheet" href="../../../css/index.css" />
+		<link rel="stylesheet" href="../../../css/login.css" />
 	</head>
 	<body>
 		<form class="login__form" action="/auth/login" method="POST">
-			<div>
-				<label class="login__label-user" for="user"
+			<div class="login__title">
+				<h1>LOGIN</h1>
+			</div>
+			<div class="login__label-user">
+				<label for="user"
 					>User:
+					<div>
 					<input type="text" value="" name="user" />
+				</div>
 				</label>
 			</div>
 			<label for="password"
 				>Password:
+				<div>
 				<input
 					type="password"
 					value=""
@@ -27,8 +33,13 @@
         8 or more characters"
 					required
 				/>
+			</div>
 			</label>
-			<a class="login__anchor" href="/auth/register">Register</a>
-		</form>
+			<div class="login__buttons">
+				<button class="login__button" name="" type="submit" value="">
+					Login
+				</button>
+				<a class="login__anchor" href="/auth/register">Register</a>
+			</div>
 	</body>
 </html>
