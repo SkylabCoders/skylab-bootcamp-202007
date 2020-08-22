@@ -10,15 +10,22 @@
 </head>
 
 <body>
-    <!-- <%- include('header'); -%> -->
-    <h2><%= title%></h2>
 
-    <div>
-        <img src="" alt="image">
-        <p>title food</p>
-        <p>precio</p>
-        <p>estrellitas</p>
-    </div>
+    <ul>
+        <% for(let i = 0; i< products.length; i++) { %>
+        <li>
+            <a href="/products/<%=products[i]._id%>">
+                <img
+                    src="https://d36fw6y2wq3bat.cloudfront.net/assets/images/cache/recipes/ensalada-de-quinua-con-manzana-y-alubias/900/ensalada-de-quinua-con-manzana-y-alubias.jpg">
+                <h3><%= products[i].title%></h3>
+            </a>
+            <p><%= products[i].price%> €</p>
+            <form method="POST" action="/products/<%=products[i]._id%>">
+                <button>Add to cart</button>
+            </form>
+        </li>
+        <% } %>
+    </ul>
 </body>
 
 </html>
