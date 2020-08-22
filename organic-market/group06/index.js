@@ -14,7 +14,8 @@ const port = 3000;
 
 const nav = [
 	{ link: '/user/products', title: 'Products' },
-	{ link: '/user/cart', title: 'Shopping Cart' }
+	{ link: '/user/cart', title: 'Shopping Cart' },
+	{ link: '/db/insertCart', title: 'InsertCart' }
 ];
 
 app.use(morgan('tiny'));

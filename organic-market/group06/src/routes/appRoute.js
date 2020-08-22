@@ -14,13 +14,20 @@ function router(nav) {
 		.route('/cart')
 		.get((req, res) => {
 			let client = null;
+			let totalPrice = 0;
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.usersCollection);
 
-					const { cart } = await collection.findOne({ username: 'gerard' });
+					let { cart } = await collection.findOne({ username: 'gerard' });
+
+					cart.forEach((item) => {
+						const quantity = item.quantity;
+						totalPrice = item.price * quantity;
+						item.totalPrice = totalPrice;
+					});
 
 					res.render('cart', {
 						cart,
@@ -39,7 +46,6 @@ function router(nav) {
 			const username = 'gerard';
 			let client = null;
 			let { _id } = req.body;
-			debug(_id);
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
