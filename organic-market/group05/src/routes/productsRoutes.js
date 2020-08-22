@@ -19,8 +19,6 @@ function router(nav) {
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 					const products = await collection.find().toArray();
-					// debug(products);
-					debug('user:', req.user);
 					res.render('products', { nav, products, user: req.user });
 				} catch (error) {
 					debug(error.stack);
@@ -31,7 +29,7 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			// añadir al carrito
-			debug(req.body);
+			// debug(req.body);
 			res.send(req.body);
 		});
 
@@ -51,8 +49,8 @@ function router(nav) {
 					const collection = db.collection(collectionName);
 					await collection.find().toArray();
 					res.product = await collection.findOne({ _id: ObjectID(id) });
-					debug(res.product);
-					debug('User:', req.user);
+					// debug(res.product);
+					// debug('User:', req.user);
 					next();
 				} catch (error) {
 					debug(error.stack);
@@ -62,7 +60,12 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const updateQuery = { $set: req.body };
+			
+			const parsedBody = req.body;
+			parsedBody.rating = Number(parsedBody.rating);
+			parsedBody.price = Number(parsedBody.price);
+			const updateQuery = { $set: parsedBody };
+			debug(req.body)
 			const filter = { _id: new ObjectID(req.params.id) };
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organics';
@@ -74,8 +77,9 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
-					debug('---- REQ.BODY -------->', req.body);
-					debug('---- UPDATEQUERY -------->', updateQuery);
+					// debug('---- REQ.BODY -------->', req.body);
+					// debug('---- UPDATEQUERY -------->', updateQuery);
+
 					res.product = await collection.updateOne(
 						filter,
 						updateQuery,
@@ -83,13 +87,16 @@ function router(nav) {
 							if (error) {
 								throw error;
 							}
-							debug(response);
+							// debug(response);
 							res.redirect('/products');
 						}
 					);
+					
+
 				} catch (error) {
 					debug(error.stack);
 				}
+				client.close();	
 			})();
 		})
 
