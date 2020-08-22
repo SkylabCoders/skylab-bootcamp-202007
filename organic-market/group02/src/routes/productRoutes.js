@@ -8,13 +8,37 @@ const { products } = require('./ROUTES');
 
 const productRoutes = express.Router();
 
+function addProductToCart(userId, addedProductId) {
+	(async function addProductToCart() {
+		let client;
+		try {
+			client = await MongoClient.connect(DATABASE_CONFIG.url);
+			const db = client.db(DATABASE_CONFIG.dbName);
+			const collection = db.collection(DATABASE_CONFIG.cartsCollection);
+
+
+			const query = await collection.findOne({ userID: userId })
+
+			if (query) {
+				await collection.updateOne({ userID: userId }, { $push: { product: addedProductId } });
+				res.redirect(ROUTES.products.path);
+			} else {
+				await collection.insertOne({ userID: userId, userName: username, product: [addedProductId], active: true });
+				res.redirect(ROUTES.products.path);
+			}
+		} catch (error) {
+			debug(error.stack);
+		}
+	}())
+}
+
 function router(nav) {
 	productRoutes
 		.route('/')
 
 		.post((req, res) => {
 			const { deleteProduct } = req.body;
-			const { addToCart } = req.body;
+			const { addedProductId } = req.body;
 			const { username } = req.user;
 			const { _id } = req.user;
 
@@ -33,33 +57,11 @@ function router(nav) {
 						debug(error.stack);
 					}
 				})();
-			} else if (addToCart) {
-				(async function addProductToCart() {
-					let client;
-					try {
-						client = await MongoClient.connect(DATABASE_CONFIG.url);
-						const db = client.db(DATABASE_CONFIG.dbName);
-						const collection = db.collection(DATABASE_CONFIG.cartsCollection);
-
-
-						const query = await collection.findOne({ userID: _id })
-
-						if (query) {
-
-							// const { product } = query;
-							await collection.updateOne({ userID: _id }, { $push: { product: addToCart } });
-							res.redirect(ROUTES.products.path);
-						} else {
-							await collection.insertOne({ userID: _id, userName: username, product: [addToCart], active: true });
-							res.redirect(ROUTES.products.path);
-						}
-					} catch (error) {
-						debug(error.stack);
-					}
-				}())
-
-
+			} else if (addedProductId) {
+				addProductToCart(_id, addedProductId)
 			}
+
+
 		})
 		.get((req, res) => {
 			(async function getAllProducts() {
@@ -111,28 +113,32 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const updateQuery = { $set: req.body };
-			const { productId } = req.params;
-			const filter = { _id: productId };
-			let client;
-			(async function editHero() {
-				try {
-					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection to db established...');
-					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.productCollection);
-					collection.updateOne(filter, updateQuery, (error, response) => {
-						if (error) { throw error }
-						debug(response);
-						res.redirect(ROUTES.products.path);
-					});
-					debug(req.body);
-				} catch (error) {
-					debug(error.stack);
-				}
-				debug('Connection to db closed.');
-				client.close();
-			})();
+			// const updateQuery = { $set: req.body };
+			// const { productId } = req.params;
+			// const filter = { _id: productId };
+			// let client;
+			// (async function editProduct() {
+			// 	try {
+			// 		client = await MongoClient.connect(DATABASE_CONFIG.url);
+			// 		debug('Connection to db established...');
+			// 		const db = client.db(DATABASE_CONFIG.dbName);
+			// 		const collection = db.collection(DATABASE_CONFIG.productCollection);
+			// 		collection.updateOne(filter, updateQuery, (error, response) => {
+			// 			if (error) { throw error }
+			// 			debug(response);
+			// 			res.redirect(ROUTES.products.path);
+			// 		});
+			// 		debug(req.body);
+			// 	} catch (error) {
+			// 		debug(error.stack);
+			// 	}
+			// 	debug('Connection to db closed.');
+			// 	client.close();
+			// })();
+			const { addedProductId } = req.body;
+			const { _id } = req.user;
+			console.log(_id, addedProductId);
+			addProductToCart(_id, addedProductId)
 		})
 		.get((req, res) => {
 			res.render('index', {
