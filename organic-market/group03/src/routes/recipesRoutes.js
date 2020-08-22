@@ -68,16 +68,20 @@ function router(nav) {
 		let client;
 
 		(async function mongo() {
-			client = await MongoClient.connect(url);
+			try {
+				client = await MongoClient.connect(url);
 
-			const db = client.db(dbName);
+				const db = client.db(dbName);
 
-			const collection = db.collection(collectionName);
+				const collection = db.collection(collectionName);
 
-			const idProduct = await collection.findOne({
-				_id: new ObjectID(product)
-			});
-			debug(idProduct);
+				const idProduct = await collection.findOne({
+					_id: new ObjectID(product)
+				});
+				debug(idProduct);
+			} catch (error) {
+				debug(error.stack);
+			}
 		})();
 		res.redirect('/list');
 	});
