@@ -12,7 +12,8 @@ function localStrategy() {
 			},
 			(username, password, done) => {
 				let client;
-				const mongoUrl = 'mongodb://localhost:27017';
+				const mongoUrl =
+					'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 				const dbName = 'organics';
 				const collectionName = 'users';
 
