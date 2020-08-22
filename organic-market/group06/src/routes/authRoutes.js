@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app:authRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
+
 const authRoutes = express.Router();
 const MONGO = require('../../public/mongoConstants');
 
@@ -19,15 +20,14 @@ function router(nav) {
 
 			const { username } = newUser;
 			let { password } = newUser;
-			password = password[0];
-
-			debug(newUser);
+			[password] = password;
+			let client;
 			(async () => {
 				try {
 					client = await MongoClient.connect(MONGO.url);
 					const db = client.db(MONGO.dbName);
 					const collection = await db.collection(MONGO.usersCollection);
-					const user = await collection.findOne({ user: newUser.user });
+					const user = await collection.findOne({ user: newUser.username });
 					if (user) {
 						res.redirect('/auth/login');
 					} else {
