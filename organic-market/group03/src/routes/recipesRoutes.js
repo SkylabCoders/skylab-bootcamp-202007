@@ -1,10 +1,7 @@
 const express = require('express');
-<<<<<<< HEAD
 // Encara que no cridem passport el requerim perquè ens passi user
 require('passport');
 
-=======
->>>>>>> fc564efc32f8a265716325bc1f16facc877eb0f5
 const recipesRouter = express.Router();
 const debug = require('debug')('app:recipesRoutes');
 
