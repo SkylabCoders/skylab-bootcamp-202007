@@ -4,23 +4,27 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Profile</title>
-		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/profile.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
 	</head>
 	<body>
 		<%- include('../header'); -%>
-		<h2><%= user.user.toUpperCase()%> profile</h2>
-		<form action="/auth/profile" method="POST">
-			<div>
-				<label for="password">
-					Password:
-					<input type="text" name="password" value="<%= user.password %>" />
-				</label>
-			</div>
-			<button type="submit">Save</button>
-		</form>
-		<form action="/auth/signout" method="POST">
-			<button type="submit">Sign out</button>
-		</form>
+		<main>
+			<h2><%= user.user.toUpperCase()%> profile</h2>
+			<form action="/auth/profile" method="POST">
+				<div>
+					<label for="password">
+						Password:
+						<input type="text" name="password" value="<%= user.password %>" />
+					</label>
+				</div>
+				<button type="submit">Save</button>
+			</form>
+			<form action="/auth/signout" method="POST">
+				<button type="submit">Sign out</button>
+			</form>
+		</main>
 		<%- include('../footer'); -%>
 	</body>
 </html>
