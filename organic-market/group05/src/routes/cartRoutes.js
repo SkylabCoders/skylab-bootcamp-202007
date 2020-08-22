@@ -24,8 +24,11 @@ function router(nav) {
                 
                 const cart = await collection.find({ userid: _id});
 
+                const prods = 
+
                 res.render('cart', { nav , cart, user});
         
+
 
             }catch(error){
                 
