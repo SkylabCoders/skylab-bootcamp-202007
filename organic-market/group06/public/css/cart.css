@@ -1,0 +1,19 @@
+.card-item__container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 80%;
+	margin: 24px auto;
+	padding: 24px;
+}
+
+.card-item__main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card-item__delete {
+	display: flex;
+	align-items: center;
+}

@@ -1,0 +1,36 @@
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.list-card-holder {
+	background-color: #7f8688;
+	margin: auto;
+	border-style: solid;
+	border-radius: 10px;
+	max-width: 1024px;
+}
+.list-card {
+	width: 100%;
+}
+.list-card-stacked {
+	width: 100%;
+	background-color: #929d9e;
+}
+.list-button {
+	background-color: #f3e367;
+	border: none;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 16px;
+	margin: 4px 2px;
+	opacity: 0.6;
+	transition: 0.3s;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+}

@@ -6,6 +6,21 @@
 		<title>Shoping Cart</title>
 	</head>
 	<body>
-		<div></div>
+		<% for(let i= 0; i< cart.length; i++) { %>
+		<div class="card-item__container">
+			<div class="card-item__main">
+				<div>
+					<h3><%=cart[i].title%></h3>
+				</div>
+				<div>
+					<p><%=cart[i].quantity%></p>
+					<p><strong><%=cart[i].price%> €</strong></p>
+				</div>
+			</div>
+			<div class="card-item__delete">
+				<img src="" alt="delete" />
+			</div>
+		</div>
+		<% } %>
 	</body>
 </html>
