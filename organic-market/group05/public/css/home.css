@@ -1,10 +1,12 @@
 * {
+	font-family: 'Ubuntu', sans-serif;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
 body {
+	background-color: white;
 	height: 100vh;
 	min-height: 100%;
 	position: relative;
@@ -23,36 +25,55 @@ body {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
+	justify-content: center;
+	align-items: center;
 }
 
 .featured {
-	border: 1px solid red;
-	margin-top: 10px;
-	height: 10%;
-	width: 100%;
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	background-color: rgb(230, 230, 210);
+	margin: 10px;
+	height: 15vw;
+	width: 90%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.featured:last-child {
-	margin-bottom: 10px;
+.featured:hover {
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.featured__title {
+	margin: 10px;
+}
+
+.featured__title > a > p {
+	font-weight: 500;
 }
 
 .featured__details {
+	margin: 10px;
 	display: flex;
 }
 
+.featured__price {
+	margin: 10px;
+}
+
 .addtocart {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 	border: none;
-	background-color: lightcoral;
+	background-color: rgb(167, 182, 113);
 	border-radius: 50%;
 	height: 50px;
 	width: 50px;
 }
 
-.addtocart:active {
-	background-color: red;
+.addtocart:hover {
+	background-color: rgb(206, 218, 110);
 }
 
 @media only screen and (min-width: 600px) {
@@ -60,9 +81,10 @@ body {
 		width: 85%;
 		flex-direction: row;
 		flex-wrap: wrap;
+		justify-content: space-around;
 	}
 	.featured {
-		width: 50%;
+		width: 85%;
 		height: 100px;
 	}
 }
@@ -73,6 +95,6 @@ body {
 	}
 
 	.featured {
-		width: 33%;
+		width: 47%;
 	}
 }
