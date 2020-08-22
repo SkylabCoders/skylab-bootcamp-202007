@@ -19,13 +19,11 @@ function localStrategy() {
 				let client;
 				(async function mongo() {
 					try {
-						debug('Entra al try....');
 						client = await MongoClient.connect(MONGO.url);
 						const db = client.db(MONGO.dbName);
 						const collection = db.collection(MONGO.usersCollection);
 						const user = await collection.findOne({ username });
-
-						if (user.password === password) {
+						if (user && user.password === password) {
 							done(null, user); // sense error, amb l'usuari
 						} else {
 							done(null, false); // sense error amb false xk l'user no coincideix
