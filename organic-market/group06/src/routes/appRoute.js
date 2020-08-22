@@ -14,7 +14,8 @@ function router(nav) {
 		.route('/cart')
 		.get((req, res) => {
 			let client = null;
-			let totalPrice = 0;
+			let finalPrice = 0;
+
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
@@ -25,12 +26,14 @@ function router(nav) {
 
 					cart.forEach((item) => {
 						const quantity = item.quantity;
-						totalPrice = item.price * quantity;
+						const totalPrice = item.price * quantity;
 						item.totalPrice = totalPrice;
+						finalPrice += totalPrice;
 					});
 
 					res.render('cart', {
 						cart,
+						finalPrice,
 						nav,
 						title: 'Shopping cart'
 					});
