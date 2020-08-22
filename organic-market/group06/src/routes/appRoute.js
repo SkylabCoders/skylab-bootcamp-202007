@@ -11,48 +11,65 @@ function router(nav) {
 		res.send('IT WORKS');
 	});
 
-	appRoute.route('/cart').get((req, res) => {
-		const cart = [
-			{
-				_id: '5f3fc61e9a183552ccc8772d',
-				title: 'Brown eggs',
-				rating: 4,
-				price: 10
-			},
-			{
-				_id: '5f3fc61e9a183552ccc87729',
-				title: 'Sweet fresh stawberry',
-				rating: 5,
-				price: 250
-			},
-			{
-				_id: '5f3fc61e9a183552ccc87727',
-				title: 'Green smoothie',
-				rating: 4.5,
-				price: 1200
-			}
-		];
+	appRoute
+		.route('/cart')
+		.get((req, res) => {
+			let client = null;
+			let finalPrice = 0;
 
-		res.render('cart', {
-			cart,
-			nav,
-			title: 'Shopping cart'
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.usersCollection);
+
+					let { cart } = await collection.findOne({ username: 'gerard' });
+
+					cart.forEach((item) => {
+						const quantity = item.quantity;
+						const totalPrice = item.price * quantity;
+						item.totalPrice = totalPrice;
+						finalPrice += totalPrice;
+					});
+
+					res.render('cart', {
+						cart,
+						finalPrice,
+						nav,
+						title: 'Shopping cart'
+					});
+				} catch (error) {
+					debug(error.stack);
+				} finally {
+					client.close();
+				}
+			})();
+		})
+		.post((req, res) => {
+			//const user = req.user
+			const username = 'gerard';
+			let client = null;
+			let { _id } = req.body;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.usersCollection);
+
+					const { cart } = await collection.findOne({ username });
+
+					await collection.update({ username }, { $pull: { cart: { _id } } });
+
+					//delete item
+
+					res.redirect('/user/cart');
+				} catch (error) {
+					debug(error.stack);
+				} finally {
+					client.close();
+				}
+			})();
 		});
-
-		// const { _id } = req.user;
-		// (async function mongo() {
-		// 	try {
-		// 		const client = await MongoClient.connect(MONGO.url);
-		// 		const db = client.db(MONGO.dbName);
-		// 		const collection = await db.collection(MONGO.usersCollection);
-		// 		client.close();
-		// 		const user = collection.find({ _id: new ObjectID(_id) });
-
-		// 	} catch (error) {
-		// 		debug(error.stack);
-		// 	}
-		// })();
-	});
 
 	debug('***************************************');
 	appRoute

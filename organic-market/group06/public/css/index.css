@@ -3,6 +3,7 @@
 	--header-bg-color: #7f8688;
 	--header-button-bg-color: #f3e367;
 	--header-link-font-color: black;
+	--cart-trash-bg-color: #929d9e;
 }
 
 * {
@@ -17,12 +18,18 @@
 	flex-direction: row;
 	align-items: center;
 	background-color: var(--header-bg-color);
-	padding: 24px;
+	padding: 12px;
+}
+.header__logo {
+	height: 35px;
 }
 
 .navbar {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	padding: 0;
+	margin: 0;
 }
 
 .navbar li {
@@ -35,11 +42,12 @@
 }
 
 .navbar__list-item {
-	padding: 12px;
+	padding: 0 12px;
 }
 
 .nav__logout {
 	padding: 12px;
+	margin: 0 24px;
 	border-radius: 5px;
 	border: unset;
 	background-color: var(--header-button-bg-color);
