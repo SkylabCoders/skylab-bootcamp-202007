@@ -4,6 +4,7 @@ const { MongoClient, ObjectID } = require('mongodb');
 const path = require('path');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
+const { products } = require('./ROUTES');
 
 const productRoutes = express.Router();
 
@@ -15,6 +16,7 @@ function router(nav) {
 			const { deleteProduct } = req.body;
 			const { addToCart } = req.body;
 			const { username } = req.user;
+			const { _id } = req.user;
 
 			if (deleteProduct) {
 				(async function deleteProductFromList() {
@@ -32,8 +34,6 @@ function router(nav) {
 					}
 				})();
 			} else if (addToCart) {
-				console.log('holaa');
-				console.log(addToCart);
 				(async function addProductToCart() {
 					let client;
 					try {
@@ -41,8 +41,18 @@ function router(nav) {
 						const db = client.db(DATABASE_CONFIG.dbName);
 						const collection = db.collection(DATABASE_CONFIG.cartsCollection);
 
-						await collection.insertOne({ userName: username, product: [addToCart], active: true });
-						res.redirect(ROUTES.products.path);
+
+						const query = await collection.findOne({ userID: _id })
+
+						if (query) {
+
+							// const { product } = query;
+							await collection.updateOne({ userID: _id }, { $push: { product: addToCart } });
+							res.redirect(ROUTES.products.path);
+						} else {
+							await collection.insertOne({ userID: _id, userName: username, product: [addToCart], active: true });
+							res.redirect(ROUTES.products.path);
+						}
 					} catch (error) {
 						debug(error.stack);
 					}
@@ -83,7 +93,6 @@ function router(nav) {
 		.route('/:productId')
 		.all((req, res, next) => {
 			const { productId } = req.params;
-			console.log(req.params);
 			(async function getProduct() {
 				let client;
 				try {
@@ -92,7 +101,6 @@ function router(nav) {
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const collection = db.collection(DATABASE_CONFIG.productCollection);
 					res.product = await collection.findOne({ _id: new ObjectID(req.params.productId) });
-					console.log('aqui res.product', await res.product)
 					debug(res.product);
 					next();
 				} catch (error) {
