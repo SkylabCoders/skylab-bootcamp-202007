@@ -24,14 +24,16 @@
 			<button type="submit">Save</button>
 		</form>
 	</div>
+	<% if(user.cart.length !== 0){ %>
 	<section class="cart">
-		<% user.cart && cart.forEach(element => { %>
+		<% user.cart.forEach(element => { %>
 		<div class="cart__item">
 			<p><%= element.title %></p>
 			<p><%= element.price %></p>
 		</div>
 		<% }) %>
 	</section>
+	<% } %>
 
 	<form action="/auth/logout" method="POST">
 		<button type="submit">Log Out</button>
