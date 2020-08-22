@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/hero-detail.css">
+</head>
+
+<body>
+    <%- include('../header'); -%>
+
+    <form name='nuser' action="/auth" method="POST">
+        <div>
+            <label for="user">
+                User:
+                <input name='user' type="text">
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                Password:
+                <input name='password' type="text">
+            </label>
+        </div>
+
+        <button name='nuser' type="submit">Sing-in</button>
+    </form>
+
+    <form method="get" action="/auth/register">
+        <button type="submit">to Register</button>
+    </form>
+
+</body>
+
+</html>

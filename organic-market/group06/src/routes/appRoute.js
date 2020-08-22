@@ -4,7 +4,15 @@ const { MongoClient, ObjectID } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
-
+function findWithAttr(array, attr, value) {
+	let index = -1
+	for (var i = 0; i < array.length; i += 1) {
+		if (array[i][attr] === value) {
+			index = i;
+		}
+	}
+	return index;
+}
 function router(nav) {
 	appRoute.route('/').get((req, res) => {
 		res.send('IT WORKS');
@@ -70,8 +78,69 @@ function router(nav) {
 			})();
 		});
 
+	appRoute.route('/list')
+		.all((req, res, next) => {
+			//const { _id } = req.user;
+			let client;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.itemsCollection);
+					res.items = await collection.find({}).toArray();
+
+				} catch (error) {
+					throw error;
+				}
+
+
+				client.close()
+				next();
+			})();
+		})
+		.get((req, res) => {
+			let items = res.items;
+			res.render('list', { items });
+		}
+
+		)
+		.post((req, res) => {
+			const itemId = req.body.product;
+			const user = req.user
+			let client;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					const db = client.db(MONGO.dbName);
+					const collectionUsers = db.collection(MONGO.usersCollection);
+					const collectionItems = db.collection(MONGO.itemsCollection);
+					const itemarr = await collectionItems.find({ _id: new ObjectID(itemId) }).toArray();
+
+					let quantity = 1;
+					const { _id, title, description, price, rating } = itemarr[0];
+					const item = { _id, title, description, price, rating, quantity }
+
+					const isInCart = findWithAttr(user.cart, '_id', '' + item._id)
+
+					if (isInCart === -1)
+						await collectionUsers.updateOne({ _id: new ObjectID(user._id) }, { $set: { cart: [...user.cart, item] } })
+					else {
+						user.cart[isInCart].quantity += 1;
+						await collectionUsers.updateOne({ _id: new ObjectID(user._id) }, { $set: { cart: [...user.cart] } })
+					}
+
+
+				} catch (error) {
+					throw error;
+				}
+				res.redirect('/users/list');
+				client.close()
+			})();
+		})
+
 	appRoute
-		.route('/:productId')
+		.route('detail/:productId')
 		.all((req, res, next) => {
 			let client;
 			const id = req.params.productId;
