@@ -4,10 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>LogIn</title>
+		<link rel="stylesheet" href="../css/index.css" />
 	</head>
 	<body>
-		<h3>Log in! or <a href="/auth/signUp">Register</a></h3>
-		<form action="/auth/signUp" method="POST">
+		<%- include('../header'); -%>
+		<h2>
+			Login or <a href="/auth/signup"><button>Register</button></a>
+		</h2>
+		<form action="/auth/signin" method="POST">
 			<div>
 				<label for="user">
 					User:
@@ -20,7 +24,8 @@
 					<input type="text" name="password" />
 				</label>
 			</div>
-			<button type="submit">LogIn</button>
+			<button type="submit">Login</button>
 		</form>
+		<%- include('../footer'); -%>
 	</body>
 </html>

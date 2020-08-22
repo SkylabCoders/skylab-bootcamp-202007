@@ -7,8 +7,11 @@
 		<link rel="stylesheet" href="../css/index.css" />
 	</head>
 	<body>
-		<h2>Register or <a href="/auth/signIn">Log In</a></h2>
-		<form action="/auth/signUp" method="POST">
+		<%- include('../header'); -%>
+		<h2>
+			Register or <a href="/auth/signin"><button>Login</button></a>
+		</h2>
+		<form action="/auth/signup" method="POST">
 			<div>
 				<label for="user">
 					User:
@@ -22,13 +25,12 @@
 						type="password"
 						name="password"
 						required
-						title="Must
-					contain at least one number, one uppercase and one sign of the list
-					[!#/()=*], and 8 to 12 characters"
+						title="Must contain at least one number, one uppercase and one sign of the list [!#/()=*], and 8 to 12 characters"
 					/>
 				</label>
 			</div>
-			<button type="submit">Register now!</button>
+			<button type="submit">Register</button>
 		</form>
+		<%- include('../footer'); -%>
 	</body>
 </html>
