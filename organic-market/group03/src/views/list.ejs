@@ -12,26 +12,28 @@
 
 <body>
 	<%- include('header')%>
-	<h2><%= title%></h2>
-
-	<form action="" method="POST" name="deleteHeroFromList">
-		<label for="name">New Name:
-			<input name="name"/>
-		</label>
-		<label for="price">New Price: 
-			<input name="price"/>
-			<button name="price" type="submit">
-				Add New Product
-			</button>
-	</form>
-	
+	 <%if(admin === 'on') {%>
+	<h2>Admin <%= title%></h2>
+	<%} else {%>
+		<h2>User <%= title%></h2>
+	<%}%>
+	<%if(admin === 'on') {%>
+		<form action="/list/create" method="POST" name="createHero">
+			<label for="name">New Name:
+				<input name="name"/>
+			</label>
+			<label for="item_price">New Price: 
+				<input name="item_price"/>
+				<button name="" type="submit">
+					Add New Product
+				</button>
+		</form>
+		<%} else {%>
+		<%}%>
 	<div>
-		<label>Product name:
+		<label>Filter product name:
 			<input #heroName />
 		</label>
-		<button>
-			create product
-		</button>
 	</div>
 
 	<ul class="heroes">
@@ -40,14 +42,17 @@
 				<a href="/list/<%=recipes[i].title%>">
 					<span class="badge"><%= recipes[i].title %></span>
 				</a> <%= recipes[i].price %>$
-				<form action="/addcart" method="POST">
+				<form action="/list/addcart" method="POST" name="addProductToCart">
 					<button class="add" title="add to cart" type="submit" name="product" value="<%=recipes[i].title%>">
 						+
 					</button>
 				</form>
-				<form action="" method="POST" name="deleteHeroFromList">
-					<button type="submit" class="delete" title="delete recipe" name="title" value="<%=recipes[i].title%>">x</button>
-				</form>
+				<%if(admin === 'on') {%>
+					<form action="" method="POST" name="deleteHeroFromList">
+						<button type="submit" class="delete" title="delete recipe" name="title" value="<%=recipes[i].title%>">x</button>
+					</form>
+					<%} else {%>
+					<%}%>
 			</li>
 			<% } %>
 		</ul>

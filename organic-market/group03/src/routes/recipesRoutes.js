@@ -1,4 +1,6 @@
 const express = require('express');
+// Encara que no cridem passport el requerim perquè ens passi user
+require('passport');
 
 const recipesRouter = express.Router();
 const debug = require('debug')('app:recipesRoutes');
@@ -14,27 +16,33 @@ function router(nav) {
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
 			let client;
+			if (req.user && (req.user.admin || !req.user.admin)) {
+				const admin = req.user.admin || 'off';
 
-			(async function query() {
-				try {
-					client = await MongoClient.connect(url);
+				(async function query() {
+					try {
+						client = await MongoClient.connect(url);
 
-					const db = client.db(dbName);
+						const db = client.db(dbName);
 
-					const collection = await db.collection(collectionName);
+						const collection = await db.collection(collectionName);
 
-					const recipe = await collection.find().toArray();
+						const recipe = await collection.find().toArray();
 
-					res.render('list', {
-						nav,
-						title: 'Products List',
-						recipes: recipe
-					});
-				} catch (error) {
-					debug(error.stack);
-				}
-				client.close();
-			})();
+						res.render('list', {
+							nav,
+							title: 'Products List',
+							recipes: recipe,
+							admin
+						});
+					} catch (error) {
+						debug(error.stack);
+					}
+					client.close();
+				})();
+			} else {
+				res.render('permissions', { nav });
+			}
 		})
 		.post((req, res) => {
 			const { product } = req.body;
@@ -61,63 +69,88 @@ function router(nav) {
 		});
 	recipesRouter.route('/addcart').post((req, res) => {
 		const { product } = req.body;
-		debug(req.body);
+		console.log('REQ.BODY =>   ', req.body);
+		console.log('REQ.USER =>   ', req.user);
+		console.log('============> PRODUCT', product);
+
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
-		const collectionName = 'recipes';
+		let collectionName = 'recipes';
 		let client;
 
-		(async function mongo() {
-			client = await MongoClient.connect(url);
-
-			const db = client.db(dbName);
-
-			const collection = db.collection(collectionName);
-
-			const idProduct = await collection.findOne({
-				_id: new ObjectID(product)
-			});
-			debug(idProduct);
-		})();
-	});
-
-	recipesRouter.route('/create').post((req, res) => {
-		const { deletedRecipe } = req.body;
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'organicMarket';
-		const collectionName = 'recipes';
-		let client;
-		res.send('Inserting books');
-		(async function mongo() {
+		(async function addProductToCart() {
 			try {
-				/* client = await MongoClient.connect(url);
-					debug('Connect sucesfully');
-	
-					const db = client.db(dbName);
-	
-					const response = await db.collection('books').insertMany(books);
-					res.json(response); */
-				/* client = await MongoClient.connect(url);
-					debug('Connection to db established...');
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-					const { title } = req.body;
-					const filter = { title };
-					await collection.deleteOne(filter);
-					res.redirect('/list'); */
+				// Buscamos la id del producto a añadir
+				client = await MongoClient.connect(url);
+
+				const db = client.db(dbName);
+
+				const productObject = await db.collection(collectionName).findOne({
+					title: product
+				});
+				console.log('********', productObject);
+
+				// Buscamos el user al que añadir el producto
+				collectionName = 'users';
+				const { _id } = req.user;
+
+				// Añadimos a cart lo que tenia más el producto que queremos añadir
+				const { title } = productObject;
+				const { cart } = req.user;
+				console.log('<------!!!!> RE USER', req.user);
+
+				//				cart = [...cart, title];
+				const newCart = cart;
+				newCart.push(title);
+				console.log('<------!!!!> NEWCART', newCart);
+
+				await db
+					.collection(collectionName)
+					.updateOne({ _id }, { $set: { cart } });
 			} catch (error) {
 				debug(error.stack);
 			}
-
 			client.close();
 		})();
+		console.log('REQ.USER ACTUALIZED =====>   ', req.user);
+
+		res.redirect('/list');
+	});
+
+	recipesRouter.route('/create').post((req, res) => {
+		const url = 'mongodb://localhost:27017';
+		const dbName = 'organicMarket';
+		let client;
+		(async function query() {
+			try {
+				const newProduct = {
+					title: req.body.name,
+					type: null,
+					description: null,
+					filename: null,
+					height: null,
+					width: null,
+					price: req.body.item_price,
+					rating: null
+				};
+				client = await MongoClient.connect(url);
+				debug('Connect sucesfully');
+				const db = client.db(dbName);
+
+				const response = await db.collection('recipes').insertOne(newProduct);
+				res.json(response);
+			} catch (error) {
+				debug(error);
+			}
+			client.close();
+		})();
+		res.redirect('/list');
 	});
 	recipesRouter.route('/:title').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
 		let client;
 		const { title } = req.params;
-		const fileName = '0.jpg';
 		(async function query() {
 			try {
 				client = await MongoClient.connect(url);
@@ -131,21 +164,13 @@ function router(nav) {
 				res.render('detail', {
 					nav,
 					title: 'Detail',
-					/* recipe: {
-						title: 'Brown eggs',
-						type: 'dairy',
-						description: 'Raw organic brown eggs in a basket',
-						filename: '0.jpg',
-						height: 600,
-						width: 400,
-						price: 28.1,
-						rating: 4
-					} */
+
 					recipe: filterRecipe
 				});
 			} catch (error) {
 				debug(error);
 			}
+			client.close();
 		})();
 	});
 

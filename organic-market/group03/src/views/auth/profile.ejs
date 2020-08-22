@@ -11,18 +11,17 @@
 <body>
 	<%- include('../header')-%>
 	<h2>Welcome <%= user.user.toUpperCase() %></h2>
-	<div>
-		<form action="" method="POST">
-			<div>
-				<label for="password">
-					Change your password:
-					<input type="text" name="password" value="<%= user.password %>"
-						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$" required />
-				</label>
-			</div>
+	<form action="" method="POST">
+		<div>
+			<label for="password">
+				Change your password:
+				<input type="password" name="password" value="<%= user.password %>"
+					pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$" required />
+			</label>
+		</div>
 
-			<button type="submit">Save</button>
-		</form>
+		<button type="submit">Save</button>
+	</form>
 	</div>
 	<% if(user.cart.length !== 0){ %>
 	<section class="cart">
