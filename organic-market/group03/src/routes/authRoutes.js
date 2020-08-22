@@ -100,8 +100,22 @@ function router(nav) {
 			res.redirect('/auth/logout');
 		})
 		.get((req, res) => {
-			console.log(req.user);
-			res.render('auth/profile', { nav, user: req.user });
+			(async function mongo() {
+				try {
+					const { cart } = req.user;
+					client = await MongoClient.connect(DBurl);
+					const db = client.db(dbName);
+					const collection = await db.collection('recipes');
+
+					req.fullCart = await collection
+						.find({ title: { $in: cart } })
+						.toArray();
+					client.close();
+				} catch (error) {
+					debug(error.stack);
+				}
+				res.render('auth/profile', { nav, user: req.user, cart: req.fullCart });
+			})();
 		});
 
 	return authRoutes;
