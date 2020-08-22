@@ -17,7 +17,7 @@
 		"nodemon": "^2.0.4",
 		"passport": "^0.4.1",
 		"passport-local": "^1.0.0",
-		"sass": "^1.26.10"
+		"password-validator": "^5.1.0"
 	},
 	"devDependencies": {
 		"eslint": "^7.7.0",
@@ -28,6 +28,7 @@
 	},
 	"scripts": {
 		"start": "set DEBUG=app,app:* & nodemon index.js",
+		"start:linux": "DEBUG=app,app:* nodemon index.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lint": "eslint . --fix",
 		"scss": "node-sass --watch public/scss -o public/css"
