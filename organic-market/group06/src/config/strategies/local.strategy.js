@@ -8,22 +8,23 @@ const debug = require('debug')('app:local.strategy');
 const MONGO = require('../../../public/mongoConstants');
 
 function localStrategy() {
+	debug('Entro al localStrategy............');
 	passport.use(
 		new Strategy(
 			{
-				usernameField: 'user',
+				usernameField: 'username',
 				passwordField: 'password'
 			},
 			(username, password, done) => {
+				debug('Entro al try...........');
 				let client;
 
 				(async function mongo() {
 					try {
-						debug('Entro al try...........');
 						client = await MongoClient.connect(MONGO.url);
 						const db = client.db(MONGO.dbName);
 						const collection = await db.collection(MONGO.usersCollection);
-						const user = await collection.findOne({ user: username });
+						const user = await collection.findOne({ username });
 
 						if (user && user.password === password) {
 							done(null, user);
@@ -37,10 +38,6 @@ function localStrategy() {
 					}
 					client.close();
 				})();
-				// buscar en la base de datos si 2existe el user
-				// si esta logueado done(null, user)
-				// Si no esta logueado done(null, false)
-				// req.user
 			}
 		)
 	);
