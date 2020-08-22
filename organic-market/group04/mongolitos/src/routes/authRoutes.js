@@ -22,26 +22,26 @@ function router(nav) {
 		.get((req, res) => {
 			res.render('auth/signin', { nav });
 		})
-		.post((req, res) => {
+		.post(
 			passport.authenticate('local', {
 				successRedirect: '/auth/profile',
 				failureRedirect: '/auth/signin'
-			});
-		});
+			})
+		);
 	authRoutes
 		.route('/signup')
 		.get((req, res) => {
-			res.render('/auth/signup', { nav });
+			res.render('auth/signup', { nav });
 		})
 		.post((req, res) => {
-			const newUser = { ...req.body, user: req.body.user.toLowerCase() };
+			const newUser = { ...req.body, email: req.body.email.toLowerCase() };
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
-					const user = await collection.findOne({ user: newUser.user });
-					if (user) {
+					const userEmail = await collection.findOne({ email: newUser.email });
+					if (userEmail) {
 						res.redirect('/auth/signin');
 					} else {
 						const result = await collection.insertOne(newUser);
@@ -67,16 +67,22 @@ function router(nav) {
 		.get((req, res) => {
 			res.render('auth/profile', { nav, user: req.user });
 		})
-		.post((req) => {
-			let { password } = req.body;
-			debug(password);
-			let { user } = req.body;
+		.post((req, res) => {
+			const { password, email } = req.body;
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
-					await collection.updateOne({ user }, { $set: { password } });
+
+					if (email) {
+						const newPassword = await collection.updateOne(
+							{ email },
+							{ $set: { password } }
+						);
+						debug(newPassword);
+						res.redirect('../');
+					}
 				} catch (error) {
 					debug(error.stack);
 				}

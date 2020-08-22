@@ -45,8 +45,7 @@ app.use(
 	})
 );
 
-// require('./src/config/passport')(app);
-
+require('./src/config/passport')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -55,13 +54,13 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app
-	/* .all('/', (req, res, next) => {
-	if(req.user) {
-		next();
-	} else {
-		res.redirect('/auth/signin');
-	}
-}) */
+	.all('/', (req, res, next) => {
+		if (req.user) {
+			next();
+		} else {
+			res.redirect('/auth/signin');
+		}
+	})
 	.get('/', (req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'mongoProducts';
@@ -71,14 +70,14 @@ app
 		(async function mongo() {
 			try {
 				client = await MongoClient.connect(url);
-				debug('Connection dashboard');
 				const db = client.db(dbName);
 				const collection = db.collection(collectionName);
 				const products = await collection.find().toArray();
 
 				res.render('food-dashboard', {
 					nav,
-					title: 'Top Products'
+					title: 'Top Products',
+					products: products.slice(0, 4)
 					// Hay que hacer búsqueda de rating 5
 				});
 			} catch (error) {
@@ -97,8 +96,8 @@ const insertRoutes = require('./src/routes/insertRoutes')();
 
 app.use('/insertProducts', insertRoutes);
 
-/* const authRoutes = require('./src/routes/authRoutes')(nav);
+const authRoutes = require('./src/routes/authRoutes')(nav);
 
-app.use('/auth', authRoutes); */
+app.use('/auth', authRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
