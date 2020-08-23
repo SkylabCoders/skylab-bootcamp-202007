@@ -38,7 +38,7 @@ function router(nav) {
 					password: req.body.password,
 					user: req.body.user.toLowerCase(),
 					admin: req.body.admin,
-					cart: null
+					cart: []
 				};
 				(async () => {
 					try {
