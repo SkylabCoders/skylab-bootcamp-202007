@@ -146,7 +146,6 @@ function router(nav) {
 						const collection = await db.collection('recipes');
 						const filterRecipe = await collection.findOne({ title });
 						debug(filterRecipe);
-
 						res.render('detail', {
 							nav,
 							title: 'Product details!',
