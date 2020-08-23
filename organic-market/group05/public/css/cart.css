@@ -14,18 +14,8 @@ body {
 	flex-direction: column;
 }
 
-main {
-	margin-top: 60px;
-	flex: 1;
-}
-
-.nav {
-	display: flex;
-	justify-content: space-between;
-}
-
-@media only screen and (min-width: 600px) {
-}
-
-@media only screen and (min-width: 1024px) {
+.cart__container{
+    flex: 1;
+    margin: 0 auto;
+    margin-top: 60px;
 }

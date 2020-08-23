@@ -25,16 +25,26 @@
     <% } %>
     <main class="products__container">
         <% filteredProducts.forEach(product => { %>
-        <div class="products filteredProducts">
-            <div class="products__title">
-                <a href="/products/details/<%= product._id %>">
-                    <p><%= product.title %></p>
-                </a>
-                <p><%= product.type %></p>
-                <div class="products__description">
-                    <p><%= product.description %></p>
-                </div>
-            </div>
+        
+            <div class="products filteredProducts">
+				<div class="products__header">
+					<img
+						class="products__img"
+						src="<%= product.filename %>"
+						alt="Product"
+					/>
+					<div class="products__title">
+						<a href="/products/<%= product._id %>">
+							<p><%= product.title %></p>
+						</a>
+						<p><%= product.type %></p>
+						<div class="flex-child long-and-truncated-with-child-corrected">
+							<p>
+								<%= product.description.substring(0, 50)+'...'; %>
+							</p>
+						</div>
+					</div>
+				</div>
 
             <div class="products__details">
                 <div class="products__price">

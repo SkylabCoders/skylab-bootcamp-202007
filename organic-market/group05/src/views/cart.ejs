@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cart</title>
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/cart.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+	</head>
+
+	<body>
+        <%- include('header')-%>
+        <main class="cart__container">
+            <h2><%= user%> Cart</h2>
+            <div>
+                <%- cart.forEach(product => { %>
+                    <h3><%= %></h3>
+                <% )}%>
+            </div>
+        </main>
+     
+     
+        <%- include('footer')-%>
+	</body>
+</html>

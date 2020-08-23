@@ -11,11 +11,18 @@
 		<main class="featured__container">
 			<% for (let i = 0; i< products.length; i++) { %>
 			<div class="featured">
-				<div class="featured__title">
-					<a href="/products/details/<%= products[i]._id %>">
-						<p><%= products[i].title %></p>
-					</a>
-					<p><%= products[i].type %></p>
+				<div class="featured__header">
+					<img
+						class="featured__img"
+						src="<%= products[i].filename %>"
+						alt="Product"
+					/>
+					<div class="featured__title">
+						<a href="/products/<%= products[i]._id %>">
+							<p><%= products[i].title %></p>
+						</a>
+						<p><%= products[i].type %></p>
+					</div>
 				</div>
 
 				<div class="featured__details">

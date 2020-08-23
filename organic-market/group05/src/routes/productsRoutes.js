@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:productsRoutes');
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const productsRoutes = express.Router();
 
@@ -8,7 +8,8 @@ function router(nav) {
 	productsRoutes
 		.route('/')
 		.get((req, res) => {
-			const url = 'mongodb://localhost:27017';
+			const url =
+				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 			const collectionName = 'products';
 			const dbName = 'organics';
 			let client;
@@ -19,8 +20,6 @@ function router(nav) {
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 					const products = await collection.find().toArray();
-					// debug(products);
-					debug('user:', req.user);
 					res.render('products', { nav, products, user: req.user });
 				} catch (error) {
 					debug(error.stack);
@@ -30,15 +29,52 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			// añadir al carrito
-			debug(req.body);
-			res.send(req.body);
+			const { addtocart } = req.body;
+			const { _id } = req.user;
+
+			const url =
+				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
+			const dbName = 'organics';
+			const collectionName = 'carts';
+			let client;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const result = await collection.findOne({ userid: ObjectId(_id) });
+					debug(result);
+
+					const filter = { userid: ObjectId(_id) };
+					const updateQuery = { $push: { productsid: addtocart } };
+					const insertQuery = {
+						userid: ObjectId(_id),
+						productsid: [addtocart]
+					};
+
+					debug('filter----------->', filter);
+					debug('updatequery----------->', updateQuery);
+					debug('insertquery----------->', insertQuery);
+
+					if (result) {
+						debug('Entro en update');
+						await collection.updateOne(filter, updateQuery);
+					} else {
+						debug('Entro en insert');
+						await collection.insertOne(insertQuery);
+					}
+					res.redirect('/products');
+				} catch (error) {
+					debug(error.stack);
+				}
+			})();
 		});
 
 	productsRoutes
 		.route('/details/:id')
 		.all((req, res, next) => {
-			const url = 'mongodb://localhost:27017';
+			const url =
+				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 			const collectionName = 'products';
 			const dbName = 'organics';
 			let client;
@@ -50,9 +86,9 @@ function router(nav) {
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 					await collection.find().toArray();
-					res.product = await collection.findOne({ _id: ObjectID(id) });
-					debug(res.product);
-					debug('User:', req.user);
+					res.product = await collection.findOne({ _id: ObjectId(id) });
+					// debug(res.product);
+					// debug('User:', req.user);
 					next();
 				} catch (error) {
 					debug(error.stack);
@@ -62,9 +98,14 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const updateQuery = { $set: req.body };
-			const filter = { _id: new ObjectID(req.params.id) };
-			const url = 'mongodb://localhost:27017';
+			const parsedBody = req.body;
+			parsedBody.rating = Number(parsedBody.rating);
+			parsedBody.price = Number(parsedBody.price);
+			const updateQuery = { $set: parsedBody };
+			debug(req.body);
+			const filter = { _id: new ObjectId(req.params.id) };
+			const url =
+				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 			const dbName = 'organics';
 			const collectionName = 'products';
 			let client;
@@ -74,8 +115,9 @@ function router(nav) {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
-					debug('---- REQ.BODY -------->', req.body);
-					debug('---- UPDATEQUERY -------->', updateQuery);
+					// debug('---- REQ.BODY -------->', req.body);
+					// debug('---- UPDATEQUERY -------->', updateQuery);
+
 					res.product = await collection.updateOne(
 						filter,
 						updateQuery,
@@ -83,13 +125,14 @@ function router(nav) {
 							if (error) {
 								throw error;
 							}
-							debug(response);
+							// debug(response);
 							res.redirect('/products');
 						}
 					);
 				} catch (error) {
 					debug(error.stack);
 				}
+				client.close();
 			})();
 		})
 
