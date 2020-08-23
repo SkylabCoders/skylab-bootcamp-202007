@@ -22,7 +22,8 @@
   margin-bottom: 20px; }
 
 .register__title {
-  padding-bottom: 16%; }
+  padding-bottom: 7%;
+  margin-top: 5%; }
 
 .register__buttons {
   display: flex;

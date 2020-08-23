@@ -142,6 +142,34 @@ function router(nav) {
 				})();
 			}
 		});
+	appRoute
+		.route('/search')
+		.post((req, res) => {
+			let client;
+			let items
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.itemsCollection);
+					const itemsList = await collection.find({}).toArray();
+					items = itemsList.reduce((acc, curr) => {
+						debug(req.body.search.toLowerCase())
+						if (curr.title.toLowerCase().includes(req.body.search.toLowerCase())) {
+							return [...acc, curr]
+						}
+						return acc
+					}, []);
+					debug(items)
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
+				res.render('list', { items, nav })
+			})();
+		})
 
 	appRoute
 		.route('/detail/:productId')
