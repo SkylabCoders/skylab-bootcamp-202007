@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
 import dispatcher from "../appDispatcher";
 import actionTypes from "../actions/actionTypes";
-import productList from "../../src/product.mock";
+
 
 const CHANGE_EVENT = "change";
 let _product = [];
@@ -21,10 +21,6 @@ class ProductStore extends EventEmitter {
 
   getProduct() {
       return _product;
-  }
-
-  getProductById(id) {
-    return productList.find((element) => element.id === id.id);
   }
 }
 

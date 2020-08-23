@@ -5,7 +5,11 @@ import axios from 'axios'
 
 
 export function loadProducts() {
-  axios.get('http://192.168.0.152:3000/market/productlist').then((product) => {
+  axios.get('http://192.168.0.152:3001/market/productlist')
+  // return new Promise((resolve) => {
+  //   resolve(productList);
+  // })
+  .then((product) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_PRODUCTS,
 			data: product

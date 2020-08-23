@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductListItem.css';
-import productList from '../../src/product.mock';
 
 function ProductListItem({
 	title,
@@ -17,8 +16,6 @@ function ProductListItem({
 	//   cartStore.addCartProduct(id);
 	//   addNumberCart();
 	// }
-
-	const product = productList;
 
 	return (
 		<div className="main-box">
