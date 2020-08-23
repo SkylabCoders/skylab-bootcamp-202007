@@ -99,4 +99,9 @@ const adminRoutes = require('./src/routes/adminRoutes')(nav);
 
 app.use('/admin', adminRoutes);
 
+const cartRoutes = require('./src/routes/cartRoutes')(nav);
+
+app.use('/cart', cartRoutes);
+
+
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
