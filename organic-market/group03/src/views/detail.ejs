@@ -13,19 +13,30 @@
 			<% if (admin === 'on'){%>
 			<div>
 				<form action="" method="POST" name="recipeForm">
-<!-- 					<label for="product__Title">Title:</label>
+ 					<label for="product__Title">Title:</label>
 					<input
 						id="product__Title"
-						name="updateTitle"
+						name="updatedTitle"
 						placeholder="New title"
 						value="<%= recipe.title %>"
 					/>
-					</br> -->
+					</br>
 					</br>
 
-					<div><span>Description: </span><%= recipe.description %></div>
+					<label for="product__Description">Description:</label>
+					</br>
+					<textarea class="text-area"
+					minlength="4" maxlength="350"
+						id="product__Description"
+						name="updatedDescription"
+						placeholder="New description"
+						rows="10" cols="50"
+						value="<%= recipe.description %>"
+					><%= recipe.description %></textarea>
 
 					</br>
+					</br>
+
 					<label for="product__Price">Price:</label>
 					<input
 						id="product__Price"
@@ -33,6 +44,9 @@
 						placeholder="New price"
 						value="<%= recipe.price %>"
 					/>$
+				</br>
+				</br>
+
 					<button
 					class="modify"
 					title="modify product"
@@ -40,7 +54,7 @@
 					value="<% recipe.price %>"
 					type="submit"
 					>
-						Modify Price
+						Save changes
 					</button>
 				</form>
 
