@@ -11,66 +11,76 @@
 	<body>
 		<%- include('header') %>
 		<h2><%=title%></h2>
-		<section>
-			<% if (admin === 'on'){%>
-			<div>
-				<form action="" method="POST" name="recipeForm">
- 					<label for="product__Title">Title:</label>
-					<input
-						id="product__Title"
-						name="updatedTitle"
-						placeholder="New title"
-						value="<%= recipe.title %>"
-						required
-					/>
+		<% if (admin === 'on'){%>
+			<section class="mainContainer__admin">
+				<div>
+					<form action="" method="POST" name="recipeForm">
+						<label for="product__Title">Title:</label>
+						<input
+							id="product__Title"
+							name="updatedTitle"
+							placeholder="New title"
+							value="<%= recipe.title %>"
+							required
+						/>
+						</br>
+						</br>
+
+						<label for="product__Description">Description:</label>
+						</br>
+						<textarea class="text-area"
+						minlength="4" maxlength="350"
+							id="product__Description"
+							name="updatedDescription"
+							placeholder="New description"
+							rows="10" cols="50"
+							value="<%= recipe.description %>"
+						><%= recipe.description %></textarea>
+
+						</br>
+						</br>
+
+						<label for="product__Price">Price:</label>
+						<input
+							id="product__Price"
+							name="updatedPrice"
+							placeholder="New price"
+							value="<%= recipe.price %>"
+							required
+						/>$
 					</br>
 					</br>
 
-					<label for="product__Description">Description:</label>
-					</br>
-					<textarea class="text-area"
-					minlength="4" maxlength="350"
-						id="product__Description"
-						name="updatedDescription"
-						placeholder="New description"
-						rows="10" cols="50"
-						value="<%= recipe.description %>"
-					><%= recipe.description %></textarea>
+						<button
+						type="submit"
+						>
+							Save changes
+						</button>
+					</form>
 
-					</br>
-					</br>
-
-					<label for="product__Price">Price:</label>
-					<input
-						id="product__Price"
-						name="updatedPrice"
-						placeholder="New price"
-						value="<%= recipe.price %>"
-						required
-					/>$
-				</br>
-				</br>
-
-					<button
-					type="submit"
-					>
-						Save changes
-					</button>
-				</form>
-
-			</div>
-			<% } else{ %>
-			<h3><span>Title: </span><%= recipe.title %></h3>
-			<p><span>Type: </span><%= recipe.type %></p>
-			<p><span>Rating: </span><%= recipe.rating %></p>
-			<p><span>Description: </span><%= recipe.description %></p>
-			<p><span>Height: </span><%= recipe.height %>cm</p>
-			<p><span>Width: </span><%= recipe.width %>cm</p>
-
-			<p><span>Price: </span><%= recipe.price %>$</p>
-			<img src='<%=recipe.filename%>' alt="<%=recipe.title%>" width="250">
-
-			<%}%>
+				</div>
 			</section>
+		<% } else{ %>
+			<section class="mainContainer">
+				<div class="info">
+					<h3><span>Title: </span><%= recipe.title %></h3>
+					<div class="extras">
+						<p>Type: <span class="type"><%= recipe.type %></span></p>
+						<p><span>Rating: </span><%= recipe.rating %></p>
+<!-- 						<img src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Star_Gold-512.png" alt="start rating">
+ -->					</div>
+					<p><span>Description: </span><%= recipe.description %></p>
+					<div class="specificDetails">
+						<p><span>Height: </span><%= recipe.height %>cm</p>
+						<p><span>Width: </span><%= recipe.width %>cm</p>
+					</div>
+
+					<p><span>Price: </span><%= recipe.price %>$</p>
+				</div>
+				<div class="photo">
+					<img src='<%=recipe.filename%>' alt="<%=recipe.title%>">
+				</div>
+			</section>
+		<%}%>
 	</body>
 </html>
