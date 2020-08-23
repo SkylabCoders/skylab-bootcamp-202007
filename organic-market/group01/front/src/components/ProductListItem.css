@@ -73,8 +73,8 @@
 }
 
 .box__button-cart {
-    background-color: olive;
-    border: .1rem solid olive;
+    background-color: #BCBC3C;
+    border: .1rem solid #BCBC3C;
     margin-top: 1rem;
     width: 180px;
     color: #fff;
@@ -106,7 +106,7 @@
     margin-top: .5rem;
     width: 180px;
     color: #000;
-    border: .1rem solid olive;
+    border: .1rem solid #BCBC3C;
     text-decoration: none;
     padding: .6rem .7rem .6rem 2rem;
     border-radius: .3rem;
@@ -124,7 +124,7 @@
     }
 
         .box__button-star:hover {
-            background-color: olive;
+            background-color: #BCBC3C;
             color: #fff;
         }
 
