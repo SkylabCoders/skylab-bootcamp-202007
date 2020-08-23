@@ -42,7 +42,9 @@
 			<div class="main__item">
 				<img src="<%= element.filename %>" alt="Product image" class="item__img">
 				<div class="item__info">
-					<h4 class="info__text"><%= element.title %> | <%= element.price %> </h4>
+					<h4 class="info__text">
+						<a href="/list/<%=element.title%>"><%= element.title %> </a>
+						| <%= element.price %>$ </h4>
 					<form action="/auth/removeFromCart" method="POST">
 						<button type="submit" name="toDelete" value='<%=element.title%>'>X</button>
 					</form>
