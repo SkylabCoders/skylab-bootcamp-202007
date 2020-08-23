@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { login, signIn } from '../actions/authActions';
+import { login, logout } from '../actions/authActions';
 import authStore from '../stores/authStore';
 
 import TextInput from './TextInput';
@@ -60,21 +60,20 @@ function Login() {
 									<span data-placeholder=""></span>
 								</div>
 								<div className="login-wrap__form__btn">
-									<button onClick={() => signIn(email, password)}>Login</button>
+									<button onClick={() => login(email, password)}>Login</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</>
 			)}
-			{/* {isLogged && (
+			{isLogged && (
 				<>
 					<button className="logout-btn" onClick={() => logout()}>
 						Logout
 					</button>
-					<Profile />
 				</>
-			)} */}
+			)}
 		</>
 	);
 }
