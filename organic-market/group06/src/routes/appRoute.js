@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const express = require('express');
 const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
@@ -71,6 +72,11 @@ function router(nav) {
 
 					await collection.update({ username }, { $pull: { cart: { _id } } });
 
+<<<<<<< HEAD
+=======
+					// delete item
+
+>>>>>>> 792d644c1a35af3e62aba474e23446c2623f3189
 					res.redirect('/user/cart');
 				} catch (error) {
 					debug(error.stack);
@@ -142,7 +148,7 @@ function router(nav) {
 					} catch (error) {
 						debug(error.stack);
 					}
-					res.redirect('/user/list');
+					res.redirect('/user/cart');
 					client.close();
 				})();
 			}
@@ -170,6 +176,14 @@ function router(nav) {
 			const [item] = res.item;
 			res.render('detail', { nav, item });
 		});
+	appRoute.route('/historial').get((req, res) => {
+		if (!req.user) {
+			res.redirect('/auth/login');
+		} else {
+			const items = req.user.history;
+			res.render('historial', { nav, items });
+		}
+	});
 
 	return appRoute;
 }

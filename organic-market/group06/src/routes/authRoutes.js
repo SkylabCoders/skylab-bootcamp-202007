@@ -7,6 +7,25 @@ const authRoutes = express.Router();
 const MONGO = require('../../public/mongoConstants');
 
 function router(nav) {
+	authRoutes.route('/logout').post((req, res) => {
+		if (req.user) {
+			req.logout();
+			res.redirect('/auth/login');
+		}
+	});
+
+	authRoutes
+		.route('/login')
+		.get((req, res) => {
+			res.render('auth/login', { title: 'Login', nav });
+		})
+		.post(
+			passport.authenticate('local', {
+				successRedirect: '/user/list',
+				failureRedirect: '/auth/login'
+			})
+		);
+
 	authRoutes
 		.route('/register')
 		.get((req, res) => {
@@ -48,25 +67,6 @@ function router(nav) {
 				client.close();
 			})();
 		});
-
-	authRoutes
-		.route('/login')
-		.get((req, res) => {
-			res.render('auth/login', { title: 'Login', nav });
-		})
-		.post(
-			passport.authenticate('local', {
-				successRedirect: '/user/list',
-				failureRedirect: '/auth/login'
-			})
-		);
-
-	authRoutes.route('/logout').post((req, res) => {
-		if (req.user) {
-			req.logout();
-			res.redirect('/auth/login');
-		}
-	});
 
 	return authRoutes;
 }
