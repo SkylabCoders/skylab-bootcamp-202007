@@ -71,7 +71,7 @@ function router(nav) {
 		});
 
 	productsRoutes
-		.route('/:id')
+		.route('/details/:id')
 		.all((req, res, next) => {
 			const url =
 				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
@@ -143,8 +143,35 @@ function router(nav) {
 				res.render('details', { nav, product: res.product });
 			}
 		});
+	productsRoutes
+		.route('/filterString')
+		.post((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const collectionName = 'products';
+			const dbName = 'organics';
+			let client;
+			const { filterString } = req.body;
+			const filterSubString = filterString[0];
+			(async function query() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const products = await collection.find().toArray();
+					let filteredProducts = products.filter(i => i.title.toLowerCase().includes(filterSubString.toLowerCase()));
+					console.log('això és el resultat', filteredProducts);
+					res.render('filterProducts', { nav, filteredProducts, user: req.user });
 
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
+			})();
+
+		})
 	return productsRoutes;
+
 }
 
 module.exports = router;

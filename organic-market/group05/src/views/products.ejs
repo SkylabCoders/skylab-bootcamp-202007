@@ -4,10 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Hero list</title>
-		<link rel="stylesheet" href="css/products.css" />
+		<link rel="stylesheet" href="../../css/products.css" />
 	</head>
 	<body>
-		<%- include('header'); -%> <% if ( user && user.usertype === 'admin') {%>
+		<header><%- include('header')-%></header>
+		<% if ( user && user.usertype === 'admin')%>
 		<form method="POST">
 			<button
 				class="addtocart"
