@@ -4,6 +4,7 @@ const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
 
 const authRoutes = express.Router();
+
 const dbUrl =
 	'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 const dbName = 'organics';
