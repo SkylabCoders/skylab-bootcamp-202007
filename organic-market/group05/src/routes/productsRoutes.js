@@ -159,7 +159,7 @@ function router(nav) {
 					const collection = db.collection(collectionName);
 					const products = await collection.find().toArray();
 					let filteredProducts = products.filter(i => i.title.toLowerCase().includes(filterSubString.toLowerCase()));
-					console.log('això és el resultat', filteredProducts);
+
 					res.render('filterProducts', { nav, filteredProducts, user: req.user });
 
 				} catch (error) {

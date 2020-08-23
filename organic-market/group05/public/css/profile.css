@@ -17,4 +17,51 @@ body {
 main {
 	margin-top: 60px;
 	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile__container {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	background-color: rgb(117, 157, 165);
+	width: 40vw;
+	height: 50vh;
+	min-width: 265px;
+	min-height: 350px;
+}
+.profile__title {
+	align-self: center;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.profile__text {
+	margin-left: 20px;
+	font-size: 20px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: rgb(78, 78, 78);
+}
+.profile__password {
+	display: flex;
+
+	justify-content: space-between;
+
+	width: 37vw;
+	min-width: 250px;
+}
+.signout__button {
+	margin-left: 183px;
+	margin-right: 20px;
+}
+.profile__input {
+	width: 10vw;
+}
+.button {
+	height: 4vh;
+	width: 66px;
+	background-color: rgb(167, 182, 113);
 }

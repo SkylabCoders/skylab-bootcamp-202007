@@ -100,19 +100,19 @@ app
 		})();
 	});
 
-const productsRoutes = require('./src/routes/productsRoutes')(nav);
+const productsRoutes = require('./src/routes/productsroutes')(nav);
 
 app.use('/products', productsRoutes);
 
-const mongoRoutes = require('./src/routes/mongoRoutes');
+const mongoRoutes = require('./src/routes/mongoroutes');
 
 app.use('/getproducts', mongoRoutes);
 
-const authRoutes = require('./src/routes/authRoutes')(nav);
+const authRoutes = require('./src/routes/authroutes')(nav);
 
 app.use('/auth', authRoutes);
 
-const cartRoutes = require('./src/routes/cartRoutes')(nav);
+const cartRoutes = require('./src/routes/cartroutes')(nav);
 
 app.use('/cart', cartRoutes);
 
