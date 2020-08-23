@@ -5,6 +5,7 @@ import productList from '../product.mock';
 
 const CHANGE_EVENT = 'change';
 let _product = [];
+let numberCart = 0;
 
 class ProductStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -26,6 +27,10 @@ class ProductStore extends EventEmitter {
 	getProductById(id) {
 		return productList.find((element) => element.id === id.id);
 	}
+
+	getNumberCart() {
+		return numberCart;
+	  }
 }
 
 const productStore = new ProductStore();
