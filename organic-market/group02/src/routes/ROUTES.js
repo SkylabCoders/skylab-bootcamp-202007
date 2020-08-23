@@ -1,6 +1,6 @@
 const ROUTES = {
   home: { path: '/', title: 'dashboard', page: 'dashboard', nav: false },
-  dashboard: { path: '/', title: 'dashboard', page: 'dashboard', nav: true },
+  topProducts: { path: '/', title: 'top products', page: 'top-products', nav: true },
   products: { path: '/products', title: 'products', page: 'products', nav: true },
   product: { path: '/products/', title: 'product detail', page: 'product-detail', nav: false },
   adminProducts: { path: '/admin/products', title: 'products', page: 'products', nav: true },

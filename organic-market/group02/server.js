@@ -32,7 +32,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 const nav = [
-	{ link: '/', title: 'Top products' },
+	{ link: '/', title: 'Top Products' },
 	{ link: '/products', title: 'Products' },
 	{ link: ROUTES.signup.path, title: 'Sign up' },
 	{ link: ROUTES.signin.path, title: 'Sign in' },
@@ -40,9 +40,9 @@ const nav = [
 	{ link: ROUTES.cart.path, title: 'Cart' }
 ];
 
-const dashboardRoutes = require('./src/routes/dashboardRoutes')(nav);
+const topProducts = require('./src/routes/topProductsRoutes')(nav);
 
-app.use('/', dashboardRoutes);
+app.use('/', topProducts);
 
 const productRoutes = require('./src/routes/productRoutes')(nav);
 
