@@ -80,16 +80,17 @@ function router(nav) {
 		.route('/:productId')
 		.all((req, res, next) => {
 			const id = req.params.productId;
-			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const url =
+				'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
-			const collectionName = 'products';
+			const collectionProducts = 'products';
 			let client;
 
 			(async function query() {
 				try {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
+					const collection = db.collection(collectionProducts);
 					res.product = await collection.findOne({
 						_id: new ObjectID(id)
 					});
@@ -109,7 +110,8 @@ function router(nav) {
 			});
 		})
 		.post((req, res) => {
-			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const url =
+				'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
 			const userCollection = 'users';
 			const productCollection = 'products';
@@ -152,45 +154,15 @@ function router(nav) {
 
 				client.close();
 			}())
-		});
-
-	foodRoutes
-		.route('/search')
-		.all((req, res, next) => {
-			const id = req.params.productId;
-			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
-			const dbName = 'mongoProducts';
-			const collectionName = 'products';
-			let client;
-
-			(async function query() {
-				try {
-					client = await MongoClient.connect(url);
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-					res.product = await collection.findOne({
-						_id: new ObjectID(id)
-					});
-
-					next();
-				} catch (error) {
-					debug(error.stack);
-				}
-				client.close();
-			})();
-		})
-
-		.get((req, res) => {
-			if (req.query.search) {
-				// const [ search ] = req.query.search;
-				debug('====>', req.query.search)
-			}
-
-		})
-
-	return foodRoutes;
+		});		
+		
+		return foodRoutes;
 }
 
 module.exports = router;
+
+
+
+
 
 

@@ -61,7 +61,7 @@
     font-family: 'Noto Serif', serif;
 }
 
-.button__addCart {
+.button__delete {
     line-height: 1.42;
     text-decoration: none;
     text-align: center;
@@ -85,7 +85,7 @@
     cursor: pointer;
 }
 
-.button__addCart:hover {
+.button__delete:hover {
     opacity: 0.5
 }
 

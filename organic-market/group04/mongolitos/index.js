@@ -11,20 +11,7 @@ const expressSession = require('express-session');
 const app = express();
 const port = 3000;
 
-const nav = [
-	/* {
-		link: '/products',
-		title: 'Products'
-	},
-	{
-		link: '/auth/signin', // 'auth/signin' si lo ponemos sin / delante de auth no coge la ruta inicial de la raíz
-		title: 'Signin'
-	},
-	{
-		link: '/cart',
-		title: 'Cart'
-	} */
-];
+const nav = [];
 
 app.use(morgan('tiny'));
 
@@ -36,7 +23,7 @@ app.use(
 );
 
 app.use(cookieParser());
-// contiene un obj con una propiedad secret que ponemos lo que queramos
+
 app.use(
 	expressSession({
 		secret: 'food',
@@ -62,7 +49,8 @@ app
 		}
 	}) */
 	.get('/', (req, res) => {
-		const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+		const url =
+			'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 		const dbName = 'mongoProducts';
 		const collectionName = 'products';
 		let client;
@@ -73,19 +61,23 @@ app
 				const db = client.db(dbName);
 				const collection = db.collection(collectionName);
 				const products = await collection.find().toArray();
-
+				
 				res.render('food-dashboard', {
 					nav,
 					title: 'Top Products',
 					products: products.filter((product) => product.rating === 5)
 				});
+
 			} catch (error) {
 				debug(error.stack);
 			}
 
 			client.close();
-		})();
+		})();			
 	});
+
+
+
 
 const foodRoutes = require('./src/routes/foodRoutes')(nav);
 
@@ -95,8 +87,16 @@ const insertRoutes = require('./src/routes/insertRoutes')();
 
 app.use('/insertProducts', insertRoutes);
 
+const searchRoutes = require('./src/routes/searchRoutes')();
+
+app.use('/search', searchRoutes);
+
 const authRoutes = require('./src/routes/authRoutes')(nav);
 
 app.use('/auth', authRoutes);
+
+const adminRoutes = require('./src/routes/adminRoutes')(nav);
+
+app.use('/admin', adminRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));
