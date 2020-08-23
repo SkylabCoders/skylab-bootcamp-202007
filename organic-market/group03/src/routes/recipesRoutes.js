@@ -146,7 +146,6 @@ function router(nav) {
 						const collection = await db.collection('recipes');
 						const filterRecipe = await collection.findOne({ title });
 						debug(filterRecipe);
-
 						res.render('detail', {
 							nav,
 							title: 'Product details!',
@@ -171,6 +170,8 @@ function router(nav) {
 			console.log('REQ PARAMS ======>', req.params);
 			console.log('PRODUCT BODY ======>', req.body);
 			const { updatedPrice } = req.body;
+			const { updatedTitle } = req.body;
+			const { updatedDescription } = req.body;
 
 			let client;
 
@@ -183,6 +184,14 @@ function router(nav) {
 					await collection.updateOne(
 						{ title },
 						{ $set: { price: updatedPrice } }
+					);
+					await collection.updateOne(
+						{ title },
+						{ $set: { title: updatedTitle } }
+					);
+					await collection.updateOne(
+						{ title },
+						{ $set: { description: updatedDescription } }
 					);
 				} catch (error) {
 					debug(error);

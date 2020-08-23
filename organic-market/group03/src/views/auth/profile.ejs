@@ -30,7 +30,10 @@
 		<ul>
 			<% cart.forEach(element => { %>
 			<li class="cart__item">
-				<p><%= element.title %> | <%= element.price %></p>
+				<p><%= element.title %> | <%= element.price %> </p>
+				<form action="/auth/removeFromCart" method="POST">
+					<button type="submit" name="toDelete" value='<%=element.title%>'>X</button>
+				</form>
 			</li>
 			<% }) %>
 

@@ -4,53 +4,73 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>The Best Organic Market!!</title>
-		<link rel="stylesheet" href="/css/styles.css" />
+		<link rel="stylesheet" href="../css/styles.css" />
+		<link rel="stylesheet" href="../css/recipesDetail.css" />
+
 	</head>
 	<body>
 		<%- include('header') %>
 		<h2><%=title%></h2>
-		<div>
+		<section>
 			<% if (admin === 'on'){%>
 			<div>
 				<form action="" method="POST" name="recipeForm">
-<!-- 					<label for="product__Title">Title:</label>
+ 					<label for="product__Title">Title:</label>
 					<input
 						id="product__Title"
-						name="updateTitle"
+						name="updatedTitle"
 						placeholder="New title"
 						value="<%= recipe.title %>"
+						required
 					/>
-					</br> -->
+					</br>
 					</br>
 
-					<div><span>Description: </span><%= recipe.description %></div>
+					<label for="product__Description">Description:</label>
+					</br>
+					<textarea class="text-area"
+					minlength="4" maxlength="350"
+						id="product__Description"
+						name="updatedDescription"
+						placeholder="New description"
+						rows="10" cols="50"
+						value="<%= recipe.description %>"
+					><%= recipe.description %></textarea>
 
 					</br>
+					</br>
+
 					<label for="product__Price">Price:</label>
 					<input
 						id="product__Price"
 						name="updatedPrice"
 						placeholder="New price"
 						value="<%= recipe.price %>"
+						required
 					/>$
+				</br>
+				</br>
+
 					<button
-					class="modify"
-					title="modify product"
-					name="productModif"
-					value="<% recipe.price %>"
 					type="submit"
 					>
-						Modify Price
+						Save changes
 					</button>
 				</form>
 
 			</div>
 			<% } else{ %>
 			<h3><span>Title: </span><%= recipe.title %></h3>
-			<div><span>Description: </span><%= recipe.description %></div>
-		</br>
-			<div><span>Price: </span><%= recipe.price %>$</div>
+			<p><span>Type: </span><%= recipe.type %></p>
+			<p><span>Rating: </span><%= recipe.rating %></p>
+			<p><span>Description: </span><%= recipe.description %></p>
+			<p><span>Height: </span><%= recipe.height %>cm</p>
+			<p><span>Width: </span><%= recipe.width %>cm</p>
+
+			<p><span>Price: </span><%= recipe.price %>$</p>
+			<img src='<%=recipe.filename%>' alt="<%=recipe.title%>" width="250">
+
 			<%}%>
-		</div>
+			</section>
 	</body>
 </html>
