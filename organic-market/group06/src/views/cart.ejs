@@ -62,9 +62,11 @@
 				<% } %>
 			</div>
 
-			<form class="cart__checkout">
-				<p>Total (<%=totalItems%> products): <%=finalPrice%>€</p>
-				<button class="checkout__button">Checkout</button>
+			<form class="cart__checkout" action="/user/cart/checkout" method="POST">
+				<p>
+					Total (<%=totalItems%> products): <strong><%=finalPrice%>€</strong>
+				</p>
+				<button class="checkout__button" type="submit">Checkout</button>
 			</form>
 			<div class="flex-spacer1 mobileNone"></div>
 		</div>

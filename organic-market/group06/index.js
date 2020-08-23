@@ -14,7 +14,8 @@ const port = 3000;
 
 const nav = [
 	{ link: '/user/list', title: 'Products' },
-	{ link: '/user/cart', title: 'Shopping Cart' }
+	{ link: '/user/cart', title: 'Shopping Cart' },
+	{ link: '/user/historial', title: 'Shopping Historial' }
 ];
 
 app.use(morgan('tiny'));
@@ -43,5 +44,8 @@ app.use('/user', appRoute);
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 app.use('/auth', authRoutes);
+
+const adminRoutes = require('./src/routes/adminRoutes')(nav);
+app.use('/admin', adminRoutes);
 
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));

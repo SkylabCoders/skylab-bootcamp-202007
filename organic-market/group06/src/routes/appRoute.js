@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const express = require('express');
 const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
@@ -81,6 +82,51 @@ function router(nav) {
 		});
 
 	appRoute
+		.route('/cart/checkout')
+		.all((req, res, next) => {
+			if (!req.user) {
+				res.redirect('/auth/login');
+			} else {
+				next();
+			}
+		})
+		.post((req, res) => {
+			let client = null;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.usersCollection);
+
+					// Read user actualCart
+					const [{ cart }] = await collection
+						.find({ _id: new ObjectID(req.user._id) })
+						.toArray();
+
+					// Add actualCart to user history
+					cart.forEach(async (item) => {
+						await collection.updateOne(
+							{ _id: new ObjectID(req.user._id) },
+							{ $push: { history: item } }
+						);
+					});
+
+					// Reset shopping cart
+					await collection.updateOne(
+						{ _id: new ObjectID(req.user._id) },
+						{ $set: { cart: [] } }
+					);
+
+					res.redirect('/user/historial');
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
+			})();
+		});
+
+	appRoute
 		.route('/list')
 		.all((req, res, next) => {
 			let client;
@@ -106,45 +152,56 @@ function router(nav) {
 		.post((req, res) => {
 			if (!req.user) {
 				res.redirect('/auth/login');
-			}
-			const itemId = req.body.product;
-			let client;
-			(async function mongo() {
-				try {
-					client = await MongoClient.connect(MONGO.url);
-					const db = client.db(MONGO.dbName);
-					const collectionUsers = db.collection(MONGO.usersCollection);
-					const collectionItems = db.collection(MONGO.itemsCollection);
-					const itemarr = await collectionItems
-						.find({ _id: new ObjectID(itemId) })
-						.toArray();
+			} else {
+				const itemId = req.body.product;
+				let client;
+				(async function mongo() {
+					try {
+						client = await MongoClient.connect(MONGO.url);
+						const db = client.db(MONGO.dbName);
+						const collectionUsers = db.collection(MONGO.usersCollection);
+						const collectionItems = db.collection(MONGO.itemsCollection);
+						const itemarr = await collectionItems
+							.find({ _id: new ObjectID(itemId) })
+							.toArray();
 
-					const quantity = 1;
-					const { _id, title, description, price, rating } = itemarr[0];
-					const item = { _id, title, description, price, rating, quantity };
+						const quantity = 1;
+						const { title, description, price, rating } = itemarr[0];
+						let { _id } = itemarr[0];
+						_id = String(_id);
+						const item = { _id, title, description, price, rating, quantity };
+						const isInCart = findWithAttr(req.user.cart, '_id', '' + item._id);
 
-					const isInCart = findWithAttr(req.user.cart, '_id', '' + item._id);
-
-					if (isInCart === -1) {
-						req.user.cart = [...req.user.cart, item];
-						await collectionUsers.updateOne(
-							{ _id: new ObjectID(req.user._id) },
-							{ $set: { cart: req.user.cart } }
-						);
-					} else {
-						req.user.cart[isInCart].quantity += 1;
-						await collectionUsers.updateOne(
-							{ _id: new ObjectID(req.user._id) },
-							{ $set: { cart: [...req.user.cart] } }
-						);
+						if (isInCart === -1) {
+							req.user.cart = [...req.user.cart, item];
+							await collectionUsers.updateOne(
+								{ _id: new ObjectID(req.user._id) },
+								{ $set: { cart: req.user.cart } }
+							);
+						} else {
+							req.user.cart[isInCart].quantity += 1;
+							await collectionUsers.updateOne(
+								{ _id: new ObjectID(req.user._id) },
+								{ $set: { cart: [...req.user.cart] } }
+							);
+						}
+					} catch (error) {
+						debug(error.stack);
 					}
-				} catch (error) {
-					debug(error.stack);
-				}
-				res.redirect('/user/list');
-				client.close();
-			})();
+					res.redirect('/user/cart');
+					client.close();
+				})();
+			}
 		});
+
+	appRoute.route('/historial').get((req, res) => {
+		if (!req.user) {
+			res.redirect('/auth/login');
+		} else {
+			const items = req.user.history;
+			res.render('historial', { nav, items });
+		}
+	});
 
 	appRoute
 		.route('/detail/:productId')
