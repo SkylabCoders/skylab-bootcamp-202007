@@ -30,52 +30,57 @@ function router(nav) {
 		})
 		.post((req, res) => {
 			const { addtocart, addproduct} = req.body;
-			debug('LOOOOKKKKK!!! HERE IS THE REQ BODYYY', req.body)
-			const { _id } = req.user;
-
-			const url =
+			
+			if(req.user){
+				const { _id } = req.user;
+				const url =
 				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 			const dbName = 'organics';
 			const collectionName = 'carts';
 			let client;
-			if(addproduct){
-				(async function mongo() {
-					try {
-						client = await MongoClient.connect(url);
-						const db = client.db(dbName);
-						const collection = db.collection(collectionName);
-						const result = await collection.findOne({ userid: ObjectId(_id) });
-						debug(result);
-	
-						const filter = { userid: ObjectId(_id) };
-						const updateQuery = { $push: { productsid: addtocart } };
-						const insertQuery = {
-							userid: ObjectId(_id),
-							productsid: [addtocart]
-						};
-	
-						debug('filter----------->', filter);
-						debug('updatequery----------->', updateQuery);
-						debug('insertquery----------->', insertQuery);
-	
-						if (result) {
-							debug('Entro en update');
-							await collection.updateOne(filter, updateQuery);
-						} else {
-							debug('Entro en insert');
-							await collection.insertOne(insertQuery);
+				if(addtocart){
+					(async function mongo() {
+						try {
+							client = await MongoClient.connect(url);
+							const db = client.db(dbName);
+							const collection = db.collection(collectionName);
+							const result = await collection.findOne({ userid: ObjectId(_id) });
+							debug('-- result -->', result);
+							const filter = { userid: ObjectId(_id) };
+							debug('-- filter -->', filter);
+		
+							// CART NOT EXISTS -> CREATE CART
+							const createCart = {
+								userid: ObjectId(_id),
+								status: 'open',
+								products: [{ productid: addtocart, qty: 1 }]
+							};
+		
+							// CART EXISTS BUT PRODUCT NOT IN CART -> PUSH TO CART
+							const pushToCart = {
+								$push: { products: { productid: addtocart, qty: 1 } }
+							};
+		
+							if (result) {
+								debug('-- push to cart -->', pushToCart);
+								await collection.updateOne(filter, pushToCart);
+							} else {
+								debug('-- Go to create cart -->', createCart);
+								await collection.insertOne(createCart);
+							}
+						} catch (error) {
+							debug(error.stack);
 						}
-						res.redirect('/products');
-					} catch (error) {
-						debug(error.stack);
-					}
-				})();
-			} 
+					});
+
+				} else if (addproduct) {
+					res.redirect('/addproduct');
+				}
 			
-			if(addproduct) {
-				res.redirect('/addproduct');
+			} else {
+				res.redirect('/auth/signin');
 			}
-		});
+		})
 
 	productsRoutes
 		.route('/:id')
