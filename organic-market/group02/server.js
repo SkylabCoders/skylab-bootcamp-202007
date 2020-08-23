@@ -60,4 +60,8 @@ const cartRoutes = require('./src/routes/cartRoutes')(nav);
 
 app.use('/cart', cartRoutes);
 
+const apiRoutes = require('./src/routes/apiRoutes')(nav);
+
+app.use('/api', apiRoutes);
+
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
