@@ -91,10 +91,45 @@ function router(nav) {
     })
     .post((req, res) => {
 
-      const { addedProductId } = req.body;
-      const { _id } = req.user;
-      const { username } = req.user;
-      const { quantity } = req.body;
+      const { product_title } = req.body;
+      const { product_type } = req.body;
+      const { product_description } = req.body;
+      const { product_price } = req.body;
+      const { product_rating } = req.body;
+      const { productId } = req.params;
+      console.log(productId);
+
+
+      (async function updateProductInfo() {
+        let client;
+        try {
+          client = await MongoClient.connect(DATABASE_CONFIG.url);
+          const db = client.db(DATABASE_CONFIG.dbName);
+          const collection = db.collection(DATABASE_CONFIG.productCollection);
+
+          await collection.updateOne(
+            { _id: new ObjectID(productId) },
+            {
+              $set: {
+                title: product_title,
+                type: product_type,
+                description: product_description,
+                price: product_price,
+                rating: product_rating
+              }
+            })
+          res.redirect(ROUTES.adminProduct.path)
+
+          client.close();
+        } catch (error) {
+          debug(error.stack)
+        }
+      }())
+
+
+
+
+
 
     })
     .get((req, res) => {

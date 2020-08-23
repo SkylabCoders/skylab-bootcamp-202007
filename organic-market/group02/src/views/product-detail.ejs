@@ -1,28 +1,26 @@
 <div>
 	<form action="/products/<%=product._id%>" method="POST" name="heroForm">
-		<h2><%= product.title %> product details</h2>
+		<h2><%= product.title %></h2>
 
 		<div>
 			<label class="herodetail" for="productField__titile">Product:</label>
-			<input class="herodetail" id="productField__titile" name="product"
-				placeholder="title" value="<%= product.title %>" />
+			<input class="herodetail" id="productField__titile" name="product" placeholder="title"
+				value="<%= product.title %>" />
 		</div>
 		<div>
 			<p>Type: <span><%= product.type %></span></p>
-			<p>Description <span><%=product.description %></span></p>
+			<p>Description: <span><%=product.description %></span></p>
 			<p>Price: <span><%=product.price %></span></p>
 			<p>Rating: <span><%=product.rating %></span></p>
-			<button class="herodetail" type="button"><a
-					href='<%=ROUTES.home.path%>'>navigate back home</a></button>
+			<button class="herodetail" type="button"><a href='<%=ROUTES.home.path%>'>navigate back home</a></button>
 			<button class="herodetail" type="submit">save</button>
 			<form action="" method="POST" name="addedProduct">
 				<label for='quantity'>
-					<input name="quantity" type="number" id='quantity' min="1"
-						value="1" />
+					<input name="quantity" type="number" id='quantity' min="1" value="1" />
 				</label>
 				<label for='addedProductId'>
-					<button type="submit" class="delete" title="add product"
-						name="addedProductId" value="<%=product._id%>">
+					<button type="submit" class="delete" title="add product" name="addedProductId"
+						value="<%=product._id%>">
 						Add to Cart</button>
 				</label>
 			</form>
