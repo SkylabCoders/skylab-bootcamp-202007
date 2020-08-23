@@ -2,46 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organic Market - Product Detail</title>
-    <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/detail.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Organic Market - Product Detail</title>
+	<link rel="stylesheet" href="../../css/index.css" />
+	<link rel="stylesheet" href="../../css/detail.css" />
+	<link rel="stylesheet" href="../../css/list.css">
 </head>
 
 <body>
-    <!-- Change moked for item!!! -->
-    <h2>Product Details</h2>
-    <div>
-        <div>
-            <span class="product__property">Type:</span>
-            <p>Test</p>
-        </div>
-        <div>
-            <span class="product__property">Description:</span>
-            <p>Test</p>
-        </div>
-        <div>
-            <span class="product__property">Heigth:</span>
-            <p>Test</p>
-        </div>
-        <div>
-            <span class="product__property">Width:</span>
-            <p>Test</p>
-        </div>
-        <div>
-            <span class="product__property">Price:</span>
-            <p>Test</p>
-        </div>
-        <div>
-            <span class="product__property">Rating:</span>
-            <p>Test</p>
-        </div>
-    </div>
-    <form method="POST">
-        <button name="item" valor="none">Añadir al carro</button>
-    </form>
-
+	<%-include('header')-%>
+	<h2><%= item.title%> Details</h2>
+	<div>
+		<div class="detail">
+			<span class="product__property">Type:</span>
+			<p><%= item.type%></p>
+		</div>
+		<div class="property__detail">
+			<span class="product__property">Description:</span>
+			<p><%= item.description %></p>
+		</div>
+		<div class="property__detail">
+			<span class="product__property">Height:</span>
+			<p><%= item.height %></p>
+		</div>
+		<div class="property__detail">
+			<span class="product__property">Width:</span>
+			<p><%= item.width %></p>
+		</div>
+		<div class="property__detail">
+			<span class="product__property">Price:</span>
+			<p><%= item.price %>$</p>
+		</div>
+		<div class="property__detail">
+			<span class="product__property">Rating:</span>
+			<p><%= item.rating %></p>
+		</div>
+	</div>
+	<form action="/user/list" method="POST">
+		<input name='product' type="hidden" value="<%= item._id %>">
+		<button class="list-button" type="submit">add to Cart</button>
+	</form>
 </body>
 
 </html>

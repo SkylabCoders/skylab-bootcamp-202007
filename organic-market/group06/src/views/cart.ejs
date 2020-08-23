@@ -16,54 +16,58 @@
 	</head>
 	<body>
 		<%-include('header')-%>
-		<div>
-			<% for(let i= 0; i< cart.length; i++) { %>
-			<div class="card-item__container">
-				<div class="card-item__main">
-					<div>
-						<h3><%=cart[i].title%></h3>
+		<div class="cart">
+			<div class="flex-spacer1 mobileNone"></div>
+			<div class="cart__main">
+				<% for(let i= 0; i< cart.length; i++) { %>
+				<div class="card-item__container">
+					<div class="card-item__main">
+						<div>
+							<h3><%=cart[i].title%></h3>
+						</div>
+						<div class="card-item__bottom">
+							<p>
+								<img
+									src="https://trello-attachments.s3.amazonaws.com/5f40033fb44fda5f6b6b9f34/5f40f07f072dbb4543522170/664a8929478e14df7ff4eaa37a21bb5d/star.png"
+									alt="star"
+									class="card-item__rating-star"
+								/>
+								<%=cart[i].rating%>/5
+							</p>
+
+							<div class="flex-spacer-2"></div>
+							<p>
+								Quant: <%=cart[i].quantity%>
+							</p>
+							<div class="flex-spacer-1"></div>
+
+							<p><strong><%=cart[i].totalPrice.toFixed(2)%> €</strong></p>
+						</div>
 					</div>
-					<div class="card-item__bottom">
-						<p>
+					<form class="card-item__delete" action="/user/cart" method="POST">
+						<button
+							class="card-item__delete--button"
+							type="submit"
+							name="delete"
+							value="<%=cart[i]._id%>"
+						>
+							<input value="<%=cart[i]._id%>" name="_id" class="invisible" />
 							<img
-								src="https://trello-attachments.s3.amazonaws.com/5f40033fb44fda5f6b6b9f34/5f40f07f072dbb4543522170/664a8929478e14df7ff4eaa37a21bb5d/star.png"
-								alt="star"
-								class="card-item__rating-star"
+								src="https://trello-attachments.s3.amazonaws.com/5f40033fb44fda5f6b6b9f34/5f4003523ef82115af773a9f/a261a683ce9b1c8180fb5376395fff96/trashcan.png"
+								alt="delete"
 							/>
-							<%=cart[i].rating%>/5
-						</p>
-
-						<div class="flex-spacer-2"></div>
-						<p>
-							Quantity: <%=cart[i].quantity%>
-						</p>
-						<div class="flex-spacer-1"></div>
-
-						<p><strong><%=cart[i].totalPrice%> €</strong></p>
-					</div>
+						</button>
+					</form>
 				</div>
-				<form class="card-item__delete" action="/user/cart" method="POST">
-					<button
-						class="card-item__delete--button"
-						type="submit"
-						name="delete"
-						value="<%=cart[i]._id%>"
-					>
-						<input value="<%=cart[i]._id%>" name="_id" class="invisible" />
-						<img
-							src="https://trello-attachments.s3.amazonaws.com/5f40033fb44fda5f6b6b9f34/5f4003523ef82115af773a9f/a261a683ce9b1c8180fb5376395fff96/trashcan.png"
-							alt="delete"
-						/>
-					</button>
-				</form>
+				<% } %>
 			</div>
-			<% } %>
-		</div>
 
-		<form class="cart__checkout">
-			<p>Total <%=cart.length%> (products): <%=finalPrice%>€</p>
-			<button class="checkout__button">Checkout</button>
-		</form>
+			<form class="cart__checkout">
+				<p>Total (<%=totalItems%> products): <%=finalPrice%>€</p>
+				<button class="checkout__button">Checkout</button>
+			</form>
+			<div class="flex-spacer1 mobileNone"></div>
+		</div>
 
 		<script
 			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
