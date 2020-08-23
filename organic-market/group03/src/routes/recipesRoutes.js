@@ -187,6 +187,7 @@ function router(nav) {
 				} catch (error) {
 					debug(error);
 				}
+				res.redirect('/list');
 				client.close();
 			})();
 		});
