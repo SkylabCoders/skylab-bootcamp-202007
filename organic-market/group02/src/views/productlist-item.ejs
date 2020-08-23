@@ -20,15 +20,7 @@
             </div>
           </div>
         </div>
-        <% if (type === 'user') { %>
-          <form action="<%=ROUTES.product.path%><%=product._id%>" method="POST" name="addProductToCartFromList"
-            class="productlist__actionsForm">
-            <label for="product__quantity">Quantity:</label>
-            <input id="product__quantity" name="quantity" placeholder="0" value="" class="product__quantity product__action"></input>
-            <button type="submit" class="action__button product__action" title="Add to Cart" name="addedProductId"
-              value="<%=product._id%>">Add</button>
-          </form>
-          <%} else { %>
+        <% if (type === 'admin') { %>
           <form method="POST" class="productlist__actionsForm">
             <label for="product__delete">
               <button name='deleteProduct' id='product__delete' type='submit' class="action__button product__action" title='Delete product'
@@ -36,6 +28,14 @@
       
             </label>
           </form>
+          <%} else { %>
+            <form action="<%=ROUTES.product.path%><%=product._id%>" method="POST" name="addProductToCartFromList"
+              class="productlist__actionsForm">
+              <label for="product__quantity">Quantity:</label>
+              <input id="product__quantity" name="quantity" placeholder="0" value="" class="product__quantity product__action"></input>
+              <button type="submit" class="action__button product__action" title="Add to Cart" name="addedProductId"
+                value="<%=product._id%>">Add</button>
+            </form>
           <% } %>
       </div>
 </div>
