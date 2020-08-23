@@ -97,7 +97,6 @@ function router(nav) {
       const { product_price } = req.body;
       const { product_rating } = req.body;
       const { productId } = req.params;
-      console.log(productId);
 
 
       (async function updateProductInfo() {
