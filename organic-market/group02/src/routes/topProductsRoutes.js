@@ -11,15 +11,20 @@ function router(nav) {
 	topProductsRoutes
 		.route('/')
 		.all((req, res, next) => {
-			if (req.user) {
+			if (req.user && req.user.type === 'admin') {
 				next();
-			} else {
-				res.redirect(ROUTES.signin.path);
-			}
+				// añadir ruta administrador
+			} 
+			next();
 		})
 		.get((req, res) => {
 			let client;
-			const { type } = req.body;
+			if (req.user){
+				const { type } = req.body;
+			} else {
+				type = 'user';
+			}
+
 			(async function query() {
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
