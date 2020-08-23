@@ -3,7 +3,6 @@ const express = require('express');
 const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
-const { dbName } = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
 function findWithAttr(array, attr, value) {
@@ -167,6 +166,14 @@ function router(nav) {
 			const [item] = res.item;
 			res.render('detail', { nav, item });
 		});
+	appRoute.route('/historial').get((req, res) => {
+		if (!req.user) {
+			res.redirect('/auth/login');
+		} else {
+			const items = req.user.history;
+			res.render('historial', { nav, items });
+		}
+	});
 
 	return appRoute;
 }
