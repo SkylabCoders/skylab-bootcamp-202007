@@ -7,7 +7,7 @@ const addProduct = express.Router();
 
 const url = 'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 const dbName = 'organics';
-const collectionName = 'carts'
+const collectionName = 'products'
 let client;
 
 function router(nav){
@@ -15,15 +15,16 @@ function router(nav){
         res.render('addproduct', {nav});
     })
     .post((req, res) => {
-        
+        const { title, type, description, filename, height, width, price, rating } = req.body;
         (async function mongo(){
 
             client = await MongoClient.connect(url);
             const db =  client.db(dbName);
             const collection = db.collection(collectionName);
-    
-            debug(req.body)
-    
+            
+            await collection.insertOne( {title, type, description, filename, height, width, price, rating} );
+            res.redirect('/products');
+          
             client.close();
         }())
        
