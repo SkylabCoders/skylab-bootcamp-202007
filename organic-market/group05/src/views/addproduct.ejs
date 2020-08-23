@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product details</title>
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../../public/css/details.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+	</head>
+
+	<body>
+		<%- include('header')-%>
+		<main class="details__container">
+			<form
+				method="POST"
+				name="addproductForm"
+			>
+				<h2>Add a new Product</h2>
+				<div>
+					<label
+						>Name:
+						<input
+							value=""
+							name="title"
+							placeholder="Name"
+						/>
+					</label>
+				</div>
+				<div>
+					<div>
+						<label
+							>Type:
+							<input
+								value=""
+								name="type"
+								placeholder="Type"
+							/>
+						</label>
+					</div>
+
+					<label
+						>Description:
+						<input
+							value=""
+							name="description"
+							placeholder="Description"
+						/>
+					</label>
+				</div>
+
+				<div>
+					<label
+						>Price: $
+						<input
+							value=""
+							name="price"
+							placeholder="Price"
+						/>
+					</label>
+				</div>
+				<div>
+					<label
+						>Rating:
+						<input
+							value=""
+							name="rating"
+							placeholder= "Rating"
+						/><span>/5</span>
+					</label>
+				</div>
+				<button type="submit">Add Product</button>
+			</form>
+		</main>
+		<%- include('footer')-%>
+	</body>
+</html>

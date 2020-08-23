@@ -29,7 +29,8 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { addtocart } = req.body;
+			const { addtocart, addproduct} = req.body;
+			debug('LOOOOKKKKK!!! HERE IS THE REQ BODYYY', req.body)
 			const { _id } = req.user;
 
 			const url =
@@ -37,37 +38,43 @@ function router(nav) {
 			const dbName = 'organics';
 			const collectionName = 'carts';
 			let client;
-			(async function mongo() {
-				try {
-					client = await MongoClient.connect(url);
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-					const result = await collection.findOne({ userid: ObjectId(_id) });
-					debug(result);
-
-					const filter = { userid: ObjectId(_id) };
-					const updateQuery = { $push: { productsid: addtocart } };
-					const insertQuery = {
-						userid: ObjectId(_id),
-						productsid: [addtocart]
-					};
-
-					debug('filter----------->', filter);
-					debug('updatequery----------->', updateQuery);
-					debug('insertquery----------->', insertQuery);
-
-					if (result) {
-						debug('Entro en update');
-						await collection.updateOne(filter, updateQuery);
-					} else {
-						debug('Entro en insert');
-						await collection.insertOne(insertQuery);
+			if(addproduct){
+				(async function mongo() {
+					try {
+						client = await MongoClient.connect(url);
+						const db = client.db(dbName);
+						const collection = db.collection(collectionName);
+						const result = await collection.findOne({ userid: ObjectId(_id) });
+						debug(result);
+	
+						const filter = { userid: ObjectId(_id) };
+						const updateQuery = { $push: { productsid: addtocart } };
+						const insertQuery = {
+							userid: ObjectId(_id),
+							productsid: [addtocart]
+						};
+	
+						debug('filter----------->', filter);
+						debug('updatequery----------->', updateQuery);
+						debug('insertquery----------->', insertQuery);
+	
+						if (result) {
+							debug('Entro en update');
+							await collection.updateOne(filter, updateQuery);
+						} else {
+							debug('Entro en insert');
+							await collection.insertOne(insertQuery);
+						}
+						res.redirect('/products');
+					} catch (error) {
+						debug(error.stack);
 					}
-					res.redirect('/products');
-				} catch (error) {
-					debug(error.stack);
-				}
-			})();
+				})();
+			} 
+			
+			if(addproduct) {
+				res.redirect('/addproduct');
+			}
 		});
 
 	productsRoutes

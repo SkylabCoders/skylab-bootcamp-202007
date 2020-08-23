@@ -120,6 +120,10 @@ const cartRoutes = require('./src/routes/cartroutes')(nav);
 
 app.use('/cart', cartRoutes);
 
+const addproductRoutes = require('./src/routes/addproductRoutes')(nav);
+
+app.use('/addproduct', addproductRoutes);
+
 app.listen(port, () =>
 	debug(`Server is running in ${chalk.cyan('port: ')}${chalk.cyan(port)}`)
 );
