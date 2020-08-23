@@ -6,7 +6,11 @@ const MONGO = require('../../public/mongoConstants');
 const appRoute = express.Router();
 function findWithAttr(array, attr, value) {
 	let index = -1;
+<<<<<<< HEAD
 	for (var i = 0; i < array.length; i += 1) {
+=======
+	for (let i = 0; i < array.length; i += 1) {
+>>>>>>> 97daa0faf22d97a41c68a2024f674e583848cdae
 		if (array[i][attr] === value) {
 			index = i;
 		}
@@ -14,26 +18,22 @@ function findWithAttr(array, attr, value) {
 	return index;
 }
 function router(nav) {
-	appRoute.route('/').get((req, res) => {
-		res.send('IT WORKS');
-	});
-
 	appRoute
 		.route('/cart')
 		.get((req, res) => {
 			let client = null;
 			let finalPrice = 0;
-
+			const { username } = req.user;
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.usersCollection);
 
-					let { cart } = await collection.findOne({ username: 'gerard' });
+					const { cart } = await collection.findOne({ username });
 
 					cart.forEach((item) => {
-						const quantity = item.quantity;
+						const { quantity } = item;
 						const totalPrice = item.price * quantity;
 						item.totalPrice = totalPrice;
 						finalPrice += totalPrice;
@@ -91,7 +91,7 @@ function router(nav) {
 					const collection = db.collection(MONGO.itemsCollection);
 					res.items = await collection.find({}).toArray();
 				} catch (error) {
-					throw error;
+					debug(error.stack);
 				}
 
 				client.close();
@@ -100,7 +100,11 @@ function router(nav) {
 		})
 		.get((req, res) => {
 			let items = res.items;
+<<<<<<< HEAD
 			res.render('list', { items });
+=======
+			res.render('list', { items, nav });
+>>>>>>> 97daa0faf22d97a41c68a2024f674e583848cdae
 		})
 		.post((req, res) => {
 			const itemId = req.body.product;
@@ -135,7 +139,7 @@ function router(nav) {
 						);
 					}
 				} catch (error) {
-					throw error;
+					debug(error.stack);
 				}
 				res.redirect('/users/list');
 				client.close();

@@ -13,9 +13,8 @@ const app = express();
 const port = 3000;
 
 const nav = [
-	{ link: '/user/products', title: 'Products' },
-	{ link: '/user/cart', title: 'Shopping Cart' },
-	{ link: '/db/insertCart', title: 'InsertCart' }
+	{ link: '/user/list', title: 'Products' },
+	{ link: '/user/cart', title: 'Shopping Cart' }
 ];
 
 app.use(morgan('tiny'));
@@ -33,7 +32,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.send('Hi I work');
+	res.redirect('/auth/login');
 });
 
 const dbRoutes = require('./src/routes/dbRoutes')(nav);
