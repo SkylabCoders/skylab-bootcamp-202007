@@ -34,9 +34,10 @@ app.set('view engine', 'ejs');
 const nav = [
 	{ link: '/', title: 'Top Products' },
 	{ link: '/products', title: 'Products' },
-	{ link: ROUTES.signup.path, title: 'Sign Up' },
-	{ link: ROUTES.signin.path, title: 'Sign In' },
-	{ link: ROUTES.signout.path, title: 'Sign Out' }
+	{ link: ROUTES.signup.path, title: 'Sign up' },
+	{ link: ROUTES.signin.path, title: 'Sign in' },
+	{ link: ROUTES.signout.path, title: 'Sign out' },
+	{ link: ROUTES.cart.path, title: 'Cart' }
 ];
 
 const topProducts = require('./src/routes/topProductsRoutes')(nav);
@@ -55,8 +56,8 @@ const authRoutes = require('./src/routes/authRoutes')(nav);
 
 app.use('/auth', authRoutes);
 
-const chartRoutes = require('./src/routes/chartRoutes')(nav);
+const cartRoutes = require('./src/routes/cartRoutes')(nav);
 
-app.use('/chart', chartRoutes);
+app.use('/cart', cartRoutes);
 
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
