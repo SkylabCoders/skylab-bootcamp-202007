@@ -22,6 +22,13 @@ function router(nav) {
     
 	authRoutes
 		.route('/signin')
+		.all((req, res, next) => {
+            if (req.user) {
+                res.redirect('/auth/profile');
+            } else {
+                next();
+            }
+        })
 		.get((req, res) => {
 			res.render('auth/signin', { nav });
 		})
@@ -100,7 +107,7 @@ function router(nav) {
 			if(req.user && req.user.admin === true) {
 				res.redirect('/admin/crud')
 			} else {
-				res.redirect('/profile')
+				res.redirect('/auth/profile')
 			}
 		})
 		
