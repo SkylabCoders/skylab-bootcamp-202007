@@ -23,6 +23,15 @@
 							value="<%= recipe.title %>"
 							required
 						/>
+						<p>Type: <span class="type"><%= recipe.type %></span></p>
+						<label for="product__Title">Rating:</label>
+						<input
+							id="product__Rating"
+							name="updatedRating"
+							placeholder="New rating"
+							value="<%= recipe.rating %>"
+							required
+						/>
 						</br>
 						</br>
 
@@ -39,7 +48,8 @@
 
 						</br>
 						</br>
-
+						<p><span>Height: </span><%= recipe.height %>cm</p>
+						<p><span>Width: </span><%= recipe.width %>cm</p>
 						<label for="product__Price">Price:</label>
 						<input
 							id="product__Price"
@@ -49,7 +59,18 @@
 							required
 						/>$
 					</br>
+					<p>Image by default:</p>
+					<img src='<%=recipe.filename%>' alt="<%=recipe.title%>">
+					<p>If you want to change the image you can change it by entering an url image. Please, check to enter a correct format, if you enter another format text the image product won't be available.</p>
+					<input class="largeInput"
+					id="product__Filename"
+					name="updatedFilename"
+					placeholder="New filename"
+					value="<%= recipe.filename %>"
+					required
+				/>
 					</br>
+
 
 						<button
 						type="submit"
