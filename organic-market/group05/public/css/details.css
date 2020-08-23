@@ -14,9 +14,21 @@ body {
 	flex-direction: column;
 }
 
-main {
+.details__container {
 	margin-top: 60px;
+	width: 100%;
 	flex: 1;
+	display: flex;
+}
+
+.details__img {
+	height: 200px;
+	width: auto;
+}
+
+.details__data {
+	display: flex;
+	flex-direction: column;
 }
 
 .nav {
