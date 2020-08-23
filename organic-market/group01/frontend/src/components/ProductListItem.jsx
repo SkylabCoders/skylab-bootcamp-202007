@@ -29,7 +29,7 @@ function ProductListItem({
 					</div>
 					<div className="box__column-button">
 						<form
-							action="http://192.168.0.152:3001/cart/add/"
+							action="/api/market/productlist"
 							method="POST"
 							name="productsForm"
 						>
