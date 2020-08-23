@@ -40,9 +40,9 @@ const nav = [
 	{ link: ROUTES.cart.path, title: 'Cart' }
 ];
 
-const topProducts = require('./src/routes/topProductsRoutes')(nav);
+const topProductRoutes = require('./src/routes/topProductRoutes')(nav);
 
-app.use('/top', topProducts);
+app.use('/', topProductRoutes);
 
 const productRoutes = require('./src/routes/productRoutes')(nav);
 

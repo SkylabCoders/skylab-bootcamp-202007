@@ -4,27 +4,14 @@ const { MongoClient } = require('mongodb');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
 
-const topProductsRoutes
+const topProductRoutes
 	= express.Router();
 
 function router(nav) {
-	topProductsRoutes
+	topProductRoutes
 		.route('/')
-		.all((req, res, next) => {
-			if (req.user && req.user.type === 'admin') {
-				next();
-				// añadir ruta administrador
-			} 
-			next();
-		})
 		.get((req, res) => {
 			let client;
-			if (req.user){
-				const { type } = req.body;
-			} else {
-				type = 'user';
-			}
-
 			(async function query() {
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
@@ -39,7 +26,6 @@ function router(nav) {
 						body: ROUTES.topProducts.page,
 						title: ROUTES.topProducts.title,
 						products,
-						type,
 						ROUTES
 					});
 				} catch (error) {
@@ -48,7 +34,7 @@ function router(nav) {
 			})();
 		});
 
-	return topProductsRoutes;
+	return topProductRoutes;
 }
 
 module.exports = router;
