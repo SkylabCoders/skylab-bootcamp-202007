@@ -7,39 +7,37 @@ const foodRoutes = express.Router();
 function router(nav) {
 	foodRoutes
 		.route('/')
-		// .all((req, res, next) => {
-		// 	if (req.user) {
-		// 		next();
-		// 	} else {
-		// 		res.redirect('auth/signin');
-		// 	}
-		// })
+		/* .all((req, res, next) => {
+			if (req.user) {
+		 		next();
+		 	} else {
+		 		res.redirect('auth/signin');
+		 	}
+		}) */
 		.get((req, res) => {
-			const url =
-				'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
-			const dbName = 'mongoProducts';
-			const collectionName = 'products';
-			let client;
-			(async function mongo() {
-				try {
-					client = await MongoClient.connect(url);
-					const db = client.db(dbName);
-					const collection = db.collection(collectionName);
-
-					const products = await collection.find().toArray();
-					res.render('foodList', { nav, products });
-				} catch (error) {
-					debug(error.stack);
-				}
-				client.close();
-			})();
-		});
+            const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+            const dbName = 'mongoProducts';
+            const collectionName = 'products';
+            let client;
+            (async function mongo() {
+                try {
+                    client = await MongoClient.connect(url);
+                    const db = client.db(dbName);
+                    const collection = db.collection(collectionName);
+                    const products = await collection.find().toArray();
+                    res.render('foodList', { nav, products });
+                } catch (error) {
+                    debug(error.stack);
+                }
+                client.close();
+            })();
+        });
 
 	foodRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
 			const id = req.params.productId;
-			const url = 'mongodb://localhost:27017';
+			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
 			const collectionName = 'products';
 			let client;
@@ -68,7 +66,7 @@ function router(nav) {
 			});
 		})
 		.post((req, res) => {
-			const url = 'mongodb://localhost:27017';
+			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
 			const userCollection = 'users';
 			const productCollection = 'products';
@@ -101,9 +99,46 @@ function router(nav) {
 				}
 
 				client.close();
-			})();
+			}())
 		});
-	return foodRoutes;
+
+		foodRoutes
+		.route('/search')
+		.all((req, res, next) => {
+			const id = req.params.productId;
+			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const dbName = 'mongoProducts';
+			const collectionName = 'products';
+			let client;
+
+			(async function query() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					res.product = await collection.findOne({
+						_id: new ObjectID(id)
+					});
+
+					next();
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		})
+
+		.get((req, res) => {
+			if(req.query.search) {
+				// const [ search ] = req.query.search;
+				debug('====>',req.query.search)
+			}
+				
+		})		
+		
+		return foodRoutes;
 }
 
 module.exports = router;
+
+
