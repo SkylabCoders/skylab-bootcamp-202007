@@ -26,6 +26,7 @@ function addProductToCart(userId, addedProductId, username, quantity) {
 				await collection.insertOne({ userID: userId, userName: username, product: [{ productId: addedProductId, quantity }], active: true });
 
 			}
+			client.close();
 		} catch (error) {
 			debug(error.stack);
 		}
@@ -52,6 +53,7 @@ function router(nav) {
 
 		})
 		.get((req, res) => {
+			const { type } = req.user;
 			(async function getAllProducts() {
 				let client;
 				try {
@@ -68,6 +70,7 @@ function router(nav) {
 						body: ROUTES.products.page,
 						title: ROUTES.products.title,
 						products,
+						type,
 						ROUTES
 					});
 				} catch (error) {
@@ -82,23 +85,29 @@ function router(nav) {
 	productRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
-			const { productId } = req.params;
-			(async function getProduct() {
-				let client;
-				try {
-					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection to db established...');
-					const db = client.db(DATABASE_CONFIG.dbName);
-					const collection = db.collection(DATABASE_CONFIG.productCollection);
-					res.product = await collection.findOne({ _id: new ObjectID(req.params.productId) });
-					debug(res.product);
+			if (req.user.type === 'user') {
+				const { productId } = req.params;
+				(async function getProduct() {
+					let client;
+					try {
+						client = await MongoClient.connect(DATABASE_CONFIG.url);
+						debug('Connection to db established...');
+						const db = client.db(DATABASE_CONFIG.dbName);
+						const collection = db.collection(DATABASE_CONFIG.productCollection);
+						res.product = await collection.findOne({ _id: new ObjectID(req.params.productId) });
+						debug(res.product);
+						next();
+					} catch (error) {
+						debug(error.stack);
+					}
+					debug('Connection to db closed.');
+					client.close();
 					next();
-				} catch (error) {
-					debug(error.stack);
-				}
-				debug('Connection to db closed.');
-				client.close();
-			})();
+				})();
+			} else {
+				res.redirect(ROUTES.adminProduct.path);
+			}
+
 		})
 		.post((req, res) => {
 
@@ -111,6 +120,7 @@ function router(nav) {
 			res.redirect(ROUTES.products.path);
 		})
 		.get((req, res) => {
+
 			res.render('index', {
 				nav,
 				body: ROUTES.product.page,

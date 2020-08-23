@@ -19,9 +19,9 @@ function router(nav) {
     })
     .post((req, res) => {
       const { deleteProduct } = req.body;
-      const { addedProductId } = req.body;
-      const { username } = req.user;
-      const { _id } = req.user;
+      // const { addedProductId } = req.body;
+      // const { username } = req.user;
+      // const { _id } = req.user;
 
       (async function deleteProductFromList() {
         let client;
@@ -39,6 +39,7 @@ function router(nav) {
       })();
     })
     .get((req, res) => {
+      const { type } = req.user;
       (async function getAllProducts() {
         let client;
         try {
@@ -55,6 +56,7 @@ function router(nav) {
             body: ROUTES.adminProducts.page,
             title: ROUTES.adminProducts.title,
             products,
+            type,
             ROUTES
           });
         } catch (error) {
