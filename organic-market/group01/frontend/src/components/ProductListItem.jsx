@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './ProductListItem.css';
 
 function ProductListItem({
@@ -11,12 +10,6 @@ function ProductListItem({
 	cover,
 	rating
 }) {
-	// const [isLogged, setIsLogged] = useState(authStore.isLogged());
-	// function addToCart(id) {
-	//   cartStore.addCartProduct(id);
-	//   addNumberCart();
-	// }
-
 	return (
 		<div className="main-box">
 			<img className="box__image" src={cover} alt={title} />
