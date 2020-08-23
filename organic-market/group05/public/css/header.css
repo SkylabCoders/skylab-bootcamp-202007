@@ -6,6 +6,17 @@
 	z-index: 9999;
 	top: 0;
 }
+.filter__input {
+	height: 6vh;
+	width: 12vw;
+}
+.filter__button {
+	font-size: 2vh;
+	height: 5vh;
+	width: 8vw;
+	margin-left: 10px;
+	background-color: grey;
+}
 
 .header {
 	height: 60px;

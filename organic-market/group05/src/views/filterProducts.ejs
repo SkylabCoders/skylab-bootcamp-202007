@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterProducts</title>
+    <link rel="stylesheet" href="../../css/products.css" />
+</head>
+<body>
+  
+    <header><%- include('header')-%></header>
+    <% if ( user && user.usertype === 'admin') {%>
+    <form method="POST">
+        <button
+            class="addtocart"
+            name="addtocart"
+            title="Add to cart"
+            type="submit"
+            value=""
+        >
+            +
+        </button>
+    </form>
+
+    <% } %>
+    <main class="products__container">
+        <% filteredProducts.forEach(product => { %>
+        <div class="products filteredProducts">
+            <div class="products__title">
+                <a href="/products/details/<%= product._id %>">
+                    <p><%= product.title %></p>
+                </a>
+                <p><%= product.type %></p>
+                <div class="products__description">
+                    <p><%= product.description %></p>
+                </div>
+            </div>
+
+            <div class="products__details">
+                <div class="products__price">
+                    <p><span><%= product.rating %></span>/5</p>
+                    <p>$<span><%= product.price %></span></p>
+                </div>
+                <div class="products__cart">
+                    <form method="POST">
+                        <button
+                            class="addtocart"
+                            name="addtocart"
+                            title="Add to cart"
+                            type="submit"
+                            value="<%= product._id %>"
+                        >
+                            +
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </main>
+    <footer><%- include('footer'); -%></footer>
+</body>
+</body>
+</html>

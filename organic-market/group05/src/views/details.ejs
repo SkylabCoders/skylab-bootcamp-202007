@@ -10,10 +10,10 @@
 	</head>
 
 	<body>
-		<%- include('header')-%>
+		<%-include('header')-%>
 		<main>
 			<form
-				action="/products/<%= product && product._id%>"
+				action="/products/<%= product&& product._id%>"
 				method="POST"
 				name="productForm"
 			>
