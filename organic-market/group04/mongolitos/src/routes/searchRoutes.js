@@ -44,7 +44,7 @@ function router(nav) {
 
 					res.render('findProduct', {
                         nav,
-                        title: `Products`
+                        title: `Products`,
                         findProduct,
                         user: req.user
                     });

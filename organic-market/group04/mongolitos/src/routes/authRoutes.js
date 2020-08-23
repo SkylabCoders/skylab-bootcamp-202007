@@ -29,6 +29,7 @@ function router(nav) {
 				failureRedirect: '/auth/signin'
 			})
 		);
+		
 	authRoutes
 		.route('/signup')
 		.get((req, res) => {

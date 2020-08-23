@@ -42,9 +42,9 @@
             <div>
                 <p class="text__price"><%= products[i].price%> € </p>
 
-                <form method="POST">
+                <form method="POST" action="/products/<%=products[i]._id%>">               
                     <button type="submit" name="deleteProduct" class="button__delete"
-                        value="<%=products[i]._id%>">Delete</button>
+                    value="<%=products[i]._id%>">Delete</button>
                 </form>
 
             </div>
