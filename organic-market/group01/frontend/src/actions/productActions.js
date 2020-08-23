@@ -4,8 +4,11 @@ import axios from 'axios';
 
 export async function loadProducts() {
 	const devolver = await axios.get('/api/market/productlist');
-
-	console.log(devolver);
+	dispatcher.dispatch({
+		type: actionTypes.LOAD_PRODUCTS,
+		data: devolver.data
+	});
+	console.log(devolver.data);
 	// .then((product) => {
 	// 	console.log(product);
 	// 	dispatcher.dispatch({
