@@ -1,7 +1,7 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
-const path = require('path');
+// const path = require('path');
 const DATABASE_CONFIG = require("../database/DATABASE_CONFIG");
 const ROUTES = require('./ROUTES');
 let { products } = require('./ROUTES');
@@ -37,7 +37,7 @@ function router(nav) {
 	productRoutes
 		.route('/')
 		.all((req, res, next) => {
-			if (req.user.type === 'user') {
+			if (req.user.type === 'user' || !req.user.type) {
 				next();
 			} else {
 				res.redirect(ROUTES.adminProducts.path);
