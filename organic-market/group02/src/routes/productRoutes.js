@@ -107,7 +107,7 @@ function router(nav) {
 			const { username } = req.user;
 			const { quantity } = req.body;
 
-			addProductToCart(_id, addedProductId, username, quantity);
+			addProductToCart(_id, addedProductId, username, +quantity);
 			res.redirect(ROUTES.products.path);
 		})
 		.get((req, res) => {
