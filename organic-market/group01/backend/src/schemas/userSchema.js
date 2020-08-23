@@ -1,7 +1,7 @@
 const USER_SCHEMA = {
-    username  = req.body.username,
-    password = req.body.password,
-    cart = []
-}
+	username: '',
+	password: '',
+	cart: []
+};
 
-module.exports = USER_SCHEMA
+module.exports = USER_SCHEMA;

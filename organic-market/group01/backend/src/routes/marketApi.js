@@ -3,6 +3,7 @@ const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 const getAllProducts = require('../actions/marketActions');
 const getProductById = require('../actions/marketActions');
+const USER_SCHEMA = require('../schemas/userSchema');
 
 const heroRoutes = express.Router();
 
@@ -22,7 +23,6 @@ function router(nav) {
 				const product = await getProductById(productId);
 				res.send(product);
 			})(); */
-			res.redirect('../user');
 		});
 	heroRoutes
 		.route('/market/:heroId')

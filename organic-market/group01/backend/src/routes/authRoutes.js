@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app:authRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 const passport = require('passport');
+const registerUser = require('../actions/marketActions');
 
 const authRouter = express.Router();
 
@@ -33,42 +34,22 @@ function router(nav) {
 	});
 	authRouter
 		.route('/signup')
-		.all((req, res, next) => {
+		/* 	.all((req, res, next) => {
 			if (!req.user) {
 				next();
 			} else {
 				res.redirect('/auth/profile');
 			}
-		})
+		}) */
 		.get((req, res) => {
 			res.render('auth/signup', { nav });
 		})
 		.post((req, res) => {
-			(async function mongo() {
+			const userInfo = {}(async function mongo() {
 				try {
-					const newUser = {
-						...req.body,
-						user: req.body.user.toLowerCase(),
-						cart: []
-					};
-					const client = await MongoClient.connect(url);
-					const db = client.db(dbName);
-					const collection = await db.collection('users');
-
-					const checkUserExists = await collection.findOne({
-						user: newUser.user
-					});
-
-					if (checkUserExists) {
-						res.redirect('/auth/signin');
-					} else {
-						const answer = await collection.insertOne(newUser);
-						req.login(answer.ops[0], () => {
-							res.redirect('/auth/profile');
-						});
-					}
+					userInfo = await registerUser(req.body);
 				} catch (error) {
-					debug(error.stack);
+					res.send(userInfo);
 				}
 			})();
 		});
