@@ -3,6 +3,7 @@ body {
 }
 .title {
 	margin: 20px 0;
+	background-color: #2a85b3;
 }
 
 .changePassword {
@@ -38,6 +39,7 @@ body {
 				width: 100%;
 			}
 			.item__info {
+				width: 90%;
 				margin: 5px 15px;
 				display: flex;
 				justify-content: space-between;

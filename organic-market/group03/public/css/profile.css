@@ -2,7 +2,8 @@ body {
   padding: 50px 5%; }
 
 .title {
-  margin: 20px 0; }
+  margin: 20px 0;
+  background-color: #2a85b3; }
 
 .changePassword .changePassword__lable {
   color: #358bc6; }
@@ -27,6 +28,7 @@ body {
     .cart .cart__main .main__item .item__img {
       width: 100%; }
     .cart .cart__main .main__item .item__info {
+      width: 90%;
       margin: 5px 15px;
       display: flex;
       justify-content: space-between; }
