@@ -2,7 +2,6 @@ const express = require('express');
 const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
-const { dbName } = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
 function findWithAttr(array, attr, value) {
@@ -20,6 +19,7 @@ function router(nav) {
 		.get((req, res) => {
 			let client = null;
 			let finalPrice = 0;
+			let totalItems = 0;
 			const { username } = req.user;
 			(async function mongo() {
 				try {
@@ -31,14 +31,17 @@ function router(nav) {
 
 					cart.forEach((item) => {
 						const { quantity } = item;
+						totalItems += quantity;
 						const totalPrice = item.price * quantity;
 						item.totalPrice = totalPrice;
 						finalPrice += totalPrice;
 					});
+					finalPrice = finalPrice.toFixed(2);
 
 					res.render('cart', {
 						cart,
 						finalPrice,
+						totalItems,
 						nav,
 						title: 'Shopping cart'
 					});
@@ -50,21 +53,16 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { user } = req.user;
-			const username = 'gerard';
+			const { username } = req.user;
+			const { _id } = req.body;
 			let client = null;
-			let { _id } = req.body;
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.usersCollection);
 
-					const { cart } = await collection.findOne({ username });
-
 					await collection.update({ username }, { $pull: { cart: { _id } } });
-
-					//delete item
 
 					res.redirect('/user/cart');
 				} catch (error) {
@@ -162,8 +160,8 @@ function router(nav) {
 			})();
 		})
 		.get((req, res) => {
-			[item] = res.item;
-			res.render('detail', { nav, item: item });
+			const [item] = res.item;
+			res.render('detail', { nav, item });
 		});
 
 	return appRoute;

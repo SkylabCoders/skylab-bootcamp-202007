@@ -37,11 +37,11 @@
 
 							<div class="flex-spacer-2"></div>
 							<p>
-								Quantity: <%=cart[i].quantity%>
+								Quant: <%=cart[i].quantity%>
 							</p>
 							<div class="flex-spacer-1"></div>
 
-							<p><strong><%=cart[i].totalPrice%> €</strong></p>
+							<p><strong><%=cart[i].totalPrice.toFixed(2)%> €</strong></p>
 						</div>
 					</div>
 					<form class="card-item__delete" action="/user/cart" method="POST">
@@ -63,7 +63,7 @@
 			</div>
 
 			<form class="cart__checkout">
-				<p>Total <%=cart.length%> (products): <%=finalPrice%>€</p>
+				<p>Total (<%=totalItems%> products): <%=finalPrice%>€</p>
 				<button class="checkout__button">Checkout</button>
 			</form>
 			<div class="flex-spacer1 mobileNone"></div>
