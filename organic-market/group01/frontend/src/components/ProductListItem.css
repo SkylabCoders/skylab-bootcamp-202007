@@ -6,7 +6,7 @@
 
 .main-box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     background-color: lightgoldenrodyellow;
     border-radius: .3rem;
