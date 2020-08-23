@@ -12,7 +12,7 @@ function localStrategy() {
 			(username, password, done) => {
 				let client;
 				const url = 'mongodb://localhost:27017';
-				const dbName = 'shieldHeroes';
+				const dbName = 'market';
 				const collectionName = 'user';
 				(async function mongo() {
 					client = await MongoClient.connect(url);
@@ -28,11 +28,6 @@ function localStrategy() {
 
 					client.close();
 				})();
-				// if the user is logged
-				// done(null, user)
-				// if the user is NOT logged
-				// done(null, flase)
-				// req.user
 			}
 		)
 	);
