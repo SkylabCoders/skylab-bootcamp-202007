@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic Market</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/foodListAdmin.css">
+    <link rel="stylesheet" href="../../css/header.css">
+</head>
+
+<body>
+    <%- include('header')%>
+
+    <ul class="container-products">
+        <form method="POST">
+            <label for="title" name="title">Title:
+                <input type="text" name="title">
+            </label>
+            <label for="type" name="type">Type:
+                <input type="text" name="type">
+            </label>
+            <label for="description" name="description">Description:
+                <input type="text" name="description">
+            </label>
+            <label for="image" name="image">Url image:
+                <input type="text" name="image">
+            </label>
+            <label for="price" name="price">Price:
+                <input type="text" name="price">
+            </label>
+            <button type="submit" class="button__delete">Add product</button>
+        </form>
+        <% for(let i = 0; i< products.length; i++) { %>
+        <li class="products-card">
+            <a href="/products/<%=products[i]._id%>">
+                <img class="image__product box-image" src="<%= products[i].img %>">
+                <p class="text__type"><%=products[i].type%></p>
+                <p class="text__title"><%= products[i].title%></p>
+            </a>
+            <div>
+                <p class="text__price"><%= products[i].price%> € </p>
+
+                <form method="POST">
+                    <button type="submit" name="deleteProduct" class="button__delete"
+                        value="<%=products[i]._id%>">Delete</button>
+                </form>
+
+            </div>
+        </li>
+        <% } %>
+    </ul>
+</body>
+
+</html>

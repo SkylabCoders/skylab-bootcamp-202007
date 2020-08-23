@@ -49,7 +49,8 @@ app
 		}
 	}) */
 	.get('/', (req, res) => {
-		const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+		const url =
+			'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 		const dbName = 'mongoProducts';
 		const collectionName = 'products';
 		let client;
@@ -93,5 +94,9 @@ app.use('/search', searchRoutes);
 const authRoutes = require('./src/routes/authRoutes')(nav);
 
 app.use('/auth', authRoutes);
+
+const adminRoutes = require('./src/routes/adminRoutes')(nav);
+
+app.use('/admin', adminRoutes);
 
 app.listen(port, () => debug(`Listener on port ${chalk.yellowBright(port)}`));

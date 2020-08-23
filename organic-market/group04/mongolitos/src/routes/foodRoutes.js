@@ -15,29 +15,31 @@ function router(nav) {
 		 	}
 		}) */
 		.get((req, res) => {
-            const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
-            const dbName = 'mongoProducts';
-            const collectionName = 'products';
-            let client;
-            (async function mongo() {
-                try {
-                    client = await MongoClient.connect(url);
-                    const db = client.db(dbName);
-                    const collection = db.collection(collectionName);
-                    const products = await collection.find().toArray();
-                    res.render('foodList', { nav, products });
-                } catch (error) {
-                    debug(error.stack);
-                }
-                client.close();
-            })();
-        });
+			const url =
+				'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const dbName = 'mongoProducts';
+			const collectionName = 'products';
+			let client;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const products = await collection.find().toArray();
+					res.render('foodList', { nav, products });
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		});
 
 	foodRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
 			const id = req.params.productId;
-			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const url =
+				'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
 			const collectionName = 'products';
 			let client;
@@ -66,7 +68,8 @@ function router(nav) {
 			});
 		})
 		.post((req, res) => {
-			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const url =
+				'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
 			const userCollection = 'users';
 			const productCollection = 'products';
