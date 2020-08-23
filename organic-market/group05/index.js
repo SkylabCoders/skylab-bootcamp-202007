@@ -100,13 +100,17 @@ app
 		})();
 	});
 
-const productsRoutes = require('./src/routes/productsroutes')(nav);
+const mongoRoutes = require('./src/routes/mongoRoutes');
+
+app.use('/getproducts', mongoRoutes);
+
+const productsRoutes = require('./src/routes/productsRoutes')(nav);
 
 app.use('/products', productsRoutes);
 
-const mongoRoutes = require('./src/routes/mongoroutes');
+const findRoutes = require('./src/routes/findRoutes')(nav);
 
-app.use('/getproducts', mongoRoutes);
+app.use('/find', findRoutes);
 
 const authRoutes = require('./src/routes/authroutes')(nav);
 
