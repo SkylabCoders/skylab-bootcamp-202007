@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Skylab Organic Market</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<%- include('header')%>
+			<ul class="heroes">
+				<% for(let i = 0; i<marketList.length; i++){%>
+					<li>
+						<a href="/<%=marketList[i]._id%>">
+							<span class="badge"><%= marketList[i].price %>€</span> <%= marketList[i].title %>
+						</a>
+						<form action="/" method="POST">
+							<button type="submit"  value="<%= marketList[i]._id %>" name="marketListId" class="delete" title="delete hero">
+							<img src="https://image.flaticon.com/icons/png/512/107/107831.png" width="20px" height="20px"/>
+							</button>
+						</form>	
+					</li>
+		<% } %>
+		</ul>
+	</body>
+</html>
