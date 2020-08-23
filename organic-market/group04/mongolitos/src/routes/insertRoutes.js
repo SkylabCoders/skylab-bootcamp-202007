@@ -8,7 +8,7 @@ const insertRoutes = express.Router();
 function router() {
 
     insertRoutes.route('/').get((req, res) => {
-        const url = 'mongodb://localhost:27017';
+        const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
         const dbname = 'mongoProducts';
 
         (async function mongo() {

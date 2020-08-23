@@ -152,9 +152,11 @@ function router(nav) {
 			const updateQuery = {
 				$set: req.body
 			};
+			
 			const filter = {
 				_id: new ObjectID(req.params.heroId)
 			};
+			
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'shieldHeroes';
 			const collectionName = 'heroes';

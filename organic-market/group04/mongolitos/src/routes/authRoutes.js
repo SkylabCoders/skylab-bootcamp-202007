@@ -4,7 +4,7 @@ const { MongoClient } = require('mongodb');
 const passport = require('passport');
 
 const authRoutes = express.Router();
-const dbUrl = 'mongodb://localhost:27017';
+const dbUrl = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 const dbName = 'mongoProducts';
 const collectionName = 'users';
 let client;
@@ -14,7 +14,7 @@ function router(nav) {
     .post((req, res) => {
         if(req.user) {
             req.logout();
-            res.redirect('/auth/signin');
+            res.redirect('/');
         }
     })
     

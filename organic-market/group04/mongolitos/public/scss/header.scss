@@ -115,11 +115,16 @@
     color: rgb(99, 99, 99);
 }
 
-.icon__search {
+/* .icon__search {
     background-image: url(../img/search.svg);
     background-position: center;
     background-size: 1.5em;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;    
+} */
+
+.btn__search {
+    border: none;
+    background-color: red;
 }
 
 .icon__login{

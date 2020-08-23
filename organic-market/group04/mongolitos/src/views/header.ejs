@@ -17,8 +17,10 @@
         <a href="/" class="menu__product">RANKING</a>
 
         <div class="search">
-            <input type="text" class="input__search">
-            <div class="icon__search"></div>
+            <form action="/search" method="GET">
+                <input type="text" class="input__search" name="search">
+                <button class="icon__search btn__search" name="search"></button>
+            </form>
             <a href="/auth/signin" class="icon__login"></a>
             <a href="/cart" class="icon__bag">
                 <div class="icon__number">0</div>
