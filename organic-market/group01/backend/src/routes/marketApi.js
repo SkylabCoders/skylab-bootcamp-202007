@@ -17,10 +17,12 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { productId } = req.body(async function productById() {
+			/* 	const { productId } = req.body;
+			(async function productById() {
 				const product = await getProductById(productId);
 				res.send(product);
-			})();
+			})(); */
+			res.redirect('../user');
 		});
 	heroRoutes
 		.route('/market/:heroId')
