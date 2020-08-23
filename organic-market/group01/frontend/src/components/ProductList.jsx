@@ -10,9 +10,8 @@ function ProductList() {
 	useEffect(() => {
 		productStore.addChangeListener(onChange);
 		setProducts(productStore.getProduct());
-		console.log(products);
 		if (products.length === 0) loadProducts();
-		console.log(products);
+
 		return () => productStore.removeChangeListener(onChange);
 	}, [products]);
 
@@ -30,8 +29,8 @@ function ProductList() {
 			<div className="ProductList__Title">PRODUCT LIST</div>
 			{products.map((product) => (
 				<ProductListItem
-					key={product.id}
-					id={product.id}
+					key={product._id}
+					id={product._id}
 					title={product.title}
 					type={product.type}
 					description={product.description}

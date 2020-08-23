@@ -8,12 +8,4 @@ export async function loadProducts() {
 		type: actionTypes.LOAD_PRODUCTS,
 		data: devolver.data
 	});
-	console.log(devolver.data);
-	// .then((product) => {
-	// 	console.log(product);
-	// 	dispatcher.dispatch({
-	// 		type: actionTypes.LOAD_PRODUCTS,
-	// 		data: product
-	// 	});
-	// });
 }
