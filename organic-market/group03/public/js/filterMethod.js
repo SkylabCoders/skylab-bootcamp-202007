@@ -1,4 +1,5 @@
 let input = document.querySelector('.selectRecipes');
+let originalArray;
 
 function changeArray(e) {
 	let value = e.target.value;
@@ -21,5 +22,15 @@ function changeArray(e) {
 	}
 }
 
+function deleteArray() {
+	const keyName = event.key;
+	console.log(keyName);
+
+	if (keyName === 'Backspace') {
+		// do not alert when only Control key is pressed.
+		return;
+	}
+}
+
 input.addEventListener('input', changeArray);
-input.addEventListener('input', changeArray);
+input.addEventListener('keydown', deleteArray);
