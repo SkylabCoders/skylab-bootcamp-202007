@@ -3,12 +3,16 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import ProductList from './components/ProductList';
 import Login from './components/login';
+
 import SignUp from './components/SignUp';
+
+import Header from './components/Header';
+
 
 function App() {
 	return (
 		<div className="App">
-			<div className="margin-body">
+      <div className="margin-body">
 				<BrowserRouter>
 					<Switch>
 						<Route path="/user" exact component={Login} />
@@ -22,3 +26,4 @@ function App() {
 }
 
 export default App;
+
