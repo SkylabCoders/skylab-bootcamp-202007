@@ -19,8 +19,17 @@ function router(nav) {
 				const db = client.db(dbName);
 				const collection = db.collection(collectionName);
 				const products = await collection.find().toArray();
-				const foundProducts = products.filter((i) =>
-					i.title.toLowerCase().includes(finderSubString.toLowerCase())
+				const foundProducts = products.filter(
+					(element) =>
+						element.title
+							.toLowerCase()
+							.includes(finderSubString.toLowerCase()) ||
+						element.type
+							.toLowerCase()
+							.includes(finderSubString.toLowerCase()) ||
+						element.description
+							.toLowerCase()
+							.includes(finderSubString.toLowerCase())
 				);
 				debug('FOUND PRODUCTS ------->', foundProducts);
 				debug('PRODUCTS -------------->', products);
