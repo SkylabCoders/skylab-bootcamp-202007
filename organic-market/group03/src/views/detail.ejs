@@ -13,26 +13,35 @@
 			<% if (admin === 'on'){%>
 			<div>
 				<form action="" method="POST" name="recipeForm">
-					<label for="product__Title">Title:</label>
+<!-- 					<label for="product__Title">Title:</label>
 					<input
 						id="product__Title"
 						name="updateTitle"
 						placeholder="New title"
 						value="<%= recipe.title %>"
 					/>
+					</br> -->
 					</br>
-				</br>
 
 					<div><span>Description: </span><%= recipe.description %></div>
 
 					</br>
-					<label for="product__Title">Price:</label>
+					<label for="product__Price">Price:</label>
 					<input
-						id="product__Title"
-						name="updatePrice"
+						id="product__Price"
+						name="updatedPrice"
 						placeholder="New price"
-						value="<%= recipe.price %>$"
-					/>
+						value="<%= recipe.price %>"
+					/>$
+					<button
+					class="modify"
+					title="modify product"
+					name="productModif"
+					value="<% recipe.price %>"
+					type="submit"
+					>
+						Modify Price
+					</button>
 				</form>
 
 			</div>
@@ -42,21 +51,6 @@
 		</br>
 			<div><span>Price: </span><%= recipe.price %>$</div>
 			<%}%>
-		</br>
-
-			<form action="" method="POST" name="recipeForm">
-				<% if (admin === 'on'){ %>
-				<button
-					class="modify"
-					title="modify product"
-					name="product"
-					value="<% recipe.tile %>"
-					type="submit"
-				>
-					Modify Product
-				</button>
-				<% } %>
-			</form>
 		</div>
 	</body>
 </html>

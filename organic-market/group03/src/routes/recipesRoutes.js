@@ -166,56 +166,30 @@ function router(nav) {
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organicMarket';
 			const collectionName = 'recipes';
+			const { title } = req.params;
+			// req.body it's undefine so we hace to search Mongo the product
+			console.log('REQ PARAMS ======>', req.params);
+			console.log('PRODUCT BODY ======>', req.body);
+			const { updatedPrice } = req.body;
 
 			let client;
 
 			(async function recipeForm() {
 				try {
-					/* 					res.redirect('/list/:title/modify');
-					 */
-
 					client = await MongoClient.connect(url);
 
 					const db = client.db(dbName);
 					const collection = await db.collection(collectionName);
-					const modifyRecipe = await collection.updateOne();
+					await collection.updateOne(
+						{ title },
+						{ $set: { price: updatedPrice } }
+					);
 				} catch (error) {
 					debug(error);
 				}
 				client.close();
 			})();
 		});
-	/* 	recipesRouter.route('/:title/modify').get((req, res) => {
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'organicMarket';
-		let client;
-		const { title } = req.params;
-		console.log('REQ.PARAMS ======>', req.params);
-		if (req.user && (req.user.admin || !req.user.admin)) {
-			const admin = req.user.admin || 'off';
-			(async function query() {
-				try {
-					client = await MongoClient.connect(url);
-
-					const db = client.db(dbName);
-
-					const collection = await db.collection('recipes');
-					const filterRecipe = await collection.findOne({ title });
-					debug(filterRecipe);
-					res.render('detailToModify', {
-						nav,
-						title: 'Modify Product',
-						recipe: filterRecipe,
-						admin
-					});
-				} catch (error) {
-					debug(error);
-				}
-			})();
-		} else {
-			res.render('permissions', { nav });
-		}
-	}); */
 
 	return recipesRouter;
 }
