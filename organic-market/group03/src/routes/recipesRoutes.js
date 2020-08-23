@@ -127,33 +127,95 @@ function router(nav) {
 		})();
 		res.redirect('/list');
 	});
-	recipesRouter.route('/:title').get((req, res) => {
+	recipesRouter
+		.route('/:title')
+		.get((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'organicMarket';
+			let client;
+			const { title } = req.params;
+			if (req.user && (req.user.admin || !req.user.admin)) {
+				const admin = req.user.admin || 'off';
+
+				(async function query() {
+					try {
+						client = await MongoClient.connect(url);
+
+						const db = client.db(dbName);
+
+						const collection = await db.collection('recipes');
+						const filterRecipe = await collection.findOne({ title });
+						debug(filterRecipe);
+
+						res.render('detail', {
+							nav,
+							title: 'Product details!',
+							recipe: filterRecipe,
+							admin
+						});
+					} catch (error) {
+						debug(error);
+					}
+					client.close();
+				})();
+			} else {
+				res.render('permissions', { nav });
+			}
+		})
+		.post((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'organicMarket';
+			const collectionName = 'recipes';
+
+			let client;
+
+			(async function recipeForm() {
+				try {
+					/* 					res.redirect('/list/:title/modify');
+					 */
+
+					client = await MongoClient.connect(url);
+
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					const modifyRecipe = await collection.updateOne();
+				} catch (error) {
+					debug(error);
+				}
+				client.close();
+			})();
+		});
+	/* 	recipesRouter.route('/:title/modify').get((req, res) => {
 		const url = 'mongodb://localhost:27017';
 		const dbName = 'organicMarket';
 		let client;
 		const { title } = req.params;
-		(async function query() {
-			try {
-				client = await MongoClient.connect(url);
+		console.log('REQ.PARAMS ======>', req.params);
+		if (req.user && (req.user.admin || !req.user.admin)) {
+			const admin = req.user.admin || 'off';
+			(async function query() {
+				try {
+					client = await MongoClient.connect(url);
 
-				const db = client.db(dbName);
+					const db = client.db(dbName);
 
-				const collection = await db.collection('recipes');
-				const filterRecipe = await collection.findOne({ title });
-				debug(filterRecipe);
-
-				res.render('detail', {
-					nav,
-					title: 'Detail',
-
-					recipe: filterRecipe
-				});
-			} catch (error) {
-				debug(error);
-			}
-			client.close();
-		})();
-	});
+					const collection = await db.collection('recipes');
+					const filterRecipe = await collection.findOne({ title });
+					debug(filterRecipe);
+					res.render('detailToModify', {
+						nav,
+						title: 'Modify Product',
+						recipe: filterRecipe,
+						admin
+					});
+				} catch (error) {
+					debug(error);
+				}
+			})();
+		} else {
+			res.render('permissions', { nav });
+		}
+	}); */
 
 	return recipesRouter;
 }
