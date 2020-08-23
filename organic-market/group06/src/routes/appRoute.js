@@ -106,6 +106,7 @@ function router(nav) {
 		.post((req, res) => {
 			if (!req.user) {
 				res.redirect('/auth/login');
+<<<<<<< HEAD
 			}
 			const itemId = req.body.product;
 			let client;
@@ -137,13 +138,48 @@ function router(nav) {
 							{ _id: new ObjectID(req.user._id) },
 							{ $set: { cart: [...req.user.cart] } }
 						);
+=======
+			} else {
+				const itemId = req.body.product;
+				let client;
+				(async function mongo() {
+					try {
+						client = await MongoClient.connect(MONGO.url);
+						const db = client.db(MONGO.dbName);
+						const collectionUsers = db.collection(MONGO.usersCollection);
+						const collectionItems = db.collection(MONGO.itemsCollection);
+						const itemarr = await collectionItems
+							.find({ _id: new ObjectID(itemId) })
+							.toArray();
+
+						const quantity = 1;
+						const { title, description, price, rating } = itemarr[0];
+						let { _id } = itemarr[0];
+						_id = String(_id);
+						const item = { _id, title, description, price, rating, quantity };
+						const isInCart = findWithAttr(req.user.cart, '_id', '' + item._id);
+
+						if (isInCart === -1) {
+							req.user.cart = [...req.user.cart, item];
+							await collectionUsers.updateOne(
+								{ _id: new ObjectID(req.user._id) },
+								{ $set: { cart: req.user.cart } }
+							);
+						} else {
+							req.user.cart[isInCart].quantity += 1;
+							await collectionUsers.updateOne(
+								{ _id: new ObjectID(req.user._id) },
+								{ $set: { cart: [...req.user.cart] } }
+							);
+						}
+					} catch (error) {
+						debug(error.stack);
+>>>>>>> ba16993f6d8ecc027a4dc798c405d688b18c29b9
 					}
-				} catch (error) {
-					debug(error.stack);
-				}
-				res.redirect('/user/list');
-				client.close();
-			})();
+					res.redirect('/user/list');
+					client.close();
+				})();
+			}
 		});
 
 	appRoute

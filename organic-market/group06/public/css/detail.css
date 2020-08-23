@@ -1,4 +1,29 @@
-.property__detail {
-	display: flex;
-	width: fit-content;
-}
+.detail_box {
+  background-color: whitesmoke;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  margin: 10px auto 0 auto;
+  padding: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+  .detail_box .property__detail {
+    width: fit-content; }
+  .detail_box h3,
+  .detail_box p {
+    text-transform: capitalize; }
+  .detail_box img {
+    width: 15px;
+    height: 15px; }
+
+@media only screen and (min-width: 600px) {
+  .detail_box {
+    flex-direction: row; } }
+
+@media only screen and (min-width: 1024px) {
+  .detail_box {
+    width: 80%; } }
