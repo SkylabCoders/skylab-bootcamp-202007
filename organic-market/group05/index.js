@@ -112,11 +112,11 @@ const findRoutes = require('./src/routes/findRoutes')(nav);
 
 app.use('/find', findRoutes);
 
-const authRoutes = require('./src/routes/authRoutes')(nav);
+const authRoutes = require('./src/routes/authroutes')(nav);
 
 app.use('/auth', authRoutes);
 
-const cartRoutes = require('./src/routes/cartRoutes')(nav);
+const cartRoutes = require('./src/routes/cartroutes')(nav);
 
 app.use('/cart', cartRoutes);
 

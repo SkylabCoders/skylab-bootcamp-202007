@@ -11,19 +11,27 @@
 	<body>
 		<%- include('../header'); -%>
 		<main>
-			<h2><%= user.user.toUpperCase()%> profile</h2>
-			<form action="/auth/profile" method="POST">
-				<div>
-					<label for="password">
-						Password:
-						<input type="text" name="password" value="<%= user.password %>" />
-					</label>
-				</div>
-				<button type="submit">Save</button>
-			</form>
-			<form action="/auth/signout" method="POST">
-				<button type="submit">Sign out</button>
-			</form>
+			<div class="profile__container">
+				<h1 class="profile__title">PROFILE</h1>
+				<div class="profile__text">name: <%= user.user.toUpperCase()%></div>
+				<form action="/auth/profile" method="POST">
+					<div class="profile__password">
+						<div class="password profile__text">password</div>
+						<input
+							class="profile__input"
+							type="text"
+							name="password"
+							value="<%= user.password %>"
+						/>
+
+						<button type="submit" class="button">Save</button>
+					</div>
+				</form>
+				<div class="profile__text">user-type: <%=user.usertype%></div>
+				<form action="/auth/signout" method="POST">
+					<button class="signout__button button" type="submit">Sign out</button>
+				</form>
+			</div>
 		</main>
 		<%- include('../footer'); -%>
 	</body>

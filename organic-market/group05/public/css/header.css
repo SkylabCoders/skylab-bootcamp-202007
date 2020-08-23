@@ -8,14 +8,18 @@
 }
 .filter__input {
 	height: 6vh;
-	width: 12vw;
+	width: 120px;
 }
 .filter__button {
 	font-size: 2vh;
 	height: 5vh;
-	width: 8vw;
+	width: 95px;
 	margin-left: 10px;
-	background-color: grey;
+	background-color: rgb(167, 182, 113);
+}
+a {
+	color: rgb(78, 78, 78);
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .header {
