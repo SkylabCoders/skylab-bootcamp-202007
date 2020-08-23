@@ -8,6 +8,8 @@ const dbUrl = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoPro
 const dbName = 'mongoProducts';
 const collectionName = 'users';
 let client;
+
+
 function router(nav) {
     authRoutes
     .route('/logout')
@@ -20,6 +22,13 @@ function router(nav) {
     
 	authRoutes
 		.route('/signin')
+		.all((req, res, next) => {
+            if (req.user) {
+                res.redirect('/auth/profile');
+            } else {
+                next();
+            }
+        })
 		.get((req, res) => {
 			res.render('auth/signin', { nav });
 		})
@@ -63,13 +72,13 @@ function router(nav) {
 
 	authRoutes
 		.route('/profile')
-		// .all((req, res, next) => {
-		// 	if (req.user) {
-		// 		next();
-		// 	} else {
-		// 		res.redirect('/auth/signin');
-		// 	}
-		// })
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
+		})
 		.get((req, res) => {
 			res.render('auth/profile', { nav, user: req.user });
 		})
