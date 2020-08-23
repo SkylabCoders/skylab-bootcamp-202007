@@ -10,17 +10,12 @@
 	</head>
 
 	<body>
-<<<<<<< HEAD
 		<%- include('header')-%>
 		<main class="details__container">
 			<div class="details__header">
 				<img class="details__img" src="<%= product.filename %>" alt="Product" />
 			</div>
 			<div class="details__data">
-=======
-		<%-include('header')-%>
-		<main>
->>>>>>> 82fe0748363c4db0e4122315d7c9fb9e3e75f414
 			<form
 				action="/products/<%= product&& product._id%>"
 				method="POST"
