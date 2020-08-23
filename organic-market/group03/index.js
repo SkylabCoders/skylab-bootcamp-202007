@@ -56,6 +56,7 @@ const dashboardRoutes = require('./src/routes/dashboardRoutes.js')(
 	nav,
 	notLoggedNav
 );
+
 app.use('/dashboard', dashboardRoutes);
 
 app.listen(PORT, () => debug(`Listening in port ${chalk.green(PORT)}...`));
