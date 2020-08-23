@@ -14,7 +14,7 @@
     <%- include('header')%>
 
     <ul class="container-products">
-        <form method="POST">
+        <form method="POST" action="/admin/crud">
             <label for="title" name="title">Title:
                 <input type="text" name="title">
             </label>
@@ -24,15 +24,16 @@
             <label for="description" name="description">Description:
                 <input type="text" name="description">
             </label>
-            <label for="image" name="image">Url image:
-                <input type="text" name="image">
+            <label for="img" name="img">Url image:
+                <input type="text" name="img">
             </label>
             <label for="price" name="price">Price:
                 <input type="text" name="price">
             </label>
-            <button type="submit" class="button__delete">Add product</button>
+            <button type="submit" name="addProduct" class="button__delete">Add product</button>
         </form>
-        <% for(let i = 0; i< products.length; i++) { %>
+
+        <% for(let i = products.length - 1; i >= 0; i--) { %>
         <li class="products-card">
             <a href="/products/<%=products[i]._id%>">
                 <img class="image__product box-image" src="<%= products[i].img %>">
@@ -42,7 +43,7 @@
             <div>
                 <p class="text__price"><%= products[i].price%> € </p>
 
-                <form method="POST" action="/products/<%=products[i]._id%>">               
+                <form method="POST" action="/admin/delete">               
                     <button type="submit" name="deleteProduct" class="button__delete"
                     value="<%=products[i]._id%>">Delete</button>
                 </form>
