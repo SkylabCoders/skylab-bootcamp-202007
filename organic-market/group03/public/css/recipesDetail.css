@@ -64,8 +64,8 @@ img {
 }
 
 h2 {
-	text-align: center;
 	padding: 5px;
+	margin-left: 35px;
 }
 
 .type {
@@ -103,4 +103,10 @@ h2 {
 	.type {
 		display: contents;
 	}
+	/* 	.mainContainer__admin {
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		align-items: center;
+	} */
 }
