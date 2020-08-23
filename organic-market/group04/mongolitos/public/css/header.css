@@ -126,8 +126,9 @@
 .icon__search {
     background-image: url(../img/search.svg);
     background-position: center;
-    background-size: 1.5em;
-    background-repeat: no-repeat
+    background-size: 1.9em;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .icon__login {
@@ -157,6 +158,11 @@
     position: absolute;
     top: 5px;
     left: 5px
+}
+
+.form__button {
+    display: flex;
+    align-items: center;
 }
 
 .menu__product {

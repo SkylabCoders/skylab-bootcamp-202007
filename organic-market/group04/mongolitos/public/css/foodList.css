@@ -6,7 +6,18 @@
     text-decoration: none;
 }
 
-.container-products {
+ .container-search {
+    min-height: calc(100vh - 90px - 90px); 
+}
+
+.title__search {
+    text-align: center;
+    padding-top: 2rem;
+    font-family: 'Noto Serif', serif;
+}
+
+.container-products,
+.container-search {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

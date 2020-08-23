@@ -5,21 +5,29 @@
     text-decoration: none
 }
 
-body {
-    display: flex;
-    justify-content: center;
-
+.container {
+    min-height: calc(100vh - 90px - 80px); 
 }
 
 .signin_container {
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 3rem;
     border: 1px solid black;
-    margin-top: 40%;
+    width: 380px;
+    padding-left: 3rem;
 }
 
-.title {
+.container__button {
+    display: flex;
+    justify-content: center ;
+}
+
+.title__sign {
     font-family: 'Noto Serif', serif;
     font-size: 25px;
     color: #000;
+    padding-bottom: 1rem;
 }
 
 .button {
@@ -44,6 +52,7 @@ body {
     background: #ffafbb;
     outline: none;
     cursor: pointer;
+    margin-top: 1rem;
 }
 
 .button:hover {
@@ -53,3 +62,24 @@ body {
 .input {
     font-family: 'Lato', sans-serif;
 }
+
+.input input {
+    padding: .3rem .5rem;
+    border: .05rem solid #999;
+    border-radius: 5px;
+    outline: none;
+    color: #999;
+}
+
+
+.input__invalid:invalid {
+    border: 1px solid red;
+  }
+  
+
+.input__text {
+    margin-bottom: .7rem;
+}
+
+
+

@@ -8,35 +8,41 @@
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/signin.css" />
 </head>
 
 <body>
     <%- include('../header'); %>
-    <h2>Sign Up! or <a href="/auth/signin">SignIn</a> </h2>
+    <div class="container">
+        <div class="signin_container">
+        <h2 class="title__sign">Sign Up! or <a class="title__sign" href="/auth/signin">SignIn</a> </h2>
 
-    <form action="/auth/signup" method="POST">
-        <div>
-            <label for="user">
-                User:
-                <input type="text" name="user">
-            </label>
+            <form action="/auth/signup" method="POST">
+                <div class="input__text">
+                    <label class="input" for="user">
+                        User:
+                        <input type="text" name="user">
+                    </label>
+                </div>
+                <div class="input__text">
+                    <label class="input" for="email">
+                        Email:
+                        <input class="input__invalid" type="email" name="email">
+                    </label>
+                </div>
+                <div class="input__text">
+                    <label class="input" for="password">
+                        Password:
+                        <input class="input__invalid" type="password" name="password" required minlength="8" maxlength="12"
+                            pattern="[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#!/=*]).{8, 12}$" />
+                    </label>
+                </div>
+                <div class="container__button">
+                    <button class="button" type="submit">SignUp now</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="email">
-                Email:
-                <input type="email" name="email">
-            </label>
-        </div>
-        <div>
-            <label for="password">
-                Password:
-                <input type="password" name="password" required minlength="8" maxlength="12"
-                    pattern="[^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#!/=*]).{8, 12}$" />
-            </label>
-        </div>
-        <button type="submit">SignUp now</button>
-    </form>
-
+    </div>
     <%- include('footer')%>
 </body>
 

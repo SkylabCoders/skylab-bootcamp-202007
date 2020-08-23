@@ -13,8 +13,8 @@
 
 <body>
     <%- include('header')%>
-    <h1>Products find</h1>
-    <ul class="container-products">
+    <h2 class="title__search" ><%=title%></h2>
+    <ul class="container-search">
         <% for(let i = 0; i< findProduct.length; i++) { %>
         <li class="products-card">
             <a href="/products/<%=findProduct[i]._id%>">
