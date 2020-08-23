@@ -10,6 +10,8 @@
 	text-align: center;
 	margin: auto;
 	margin-top: 18%;
+
+	background-color: whitesmoke;
 	border: black 1px solid;
 	height: auto;
 	border-radius: 25px;
@@ -46,13 +48,13 @@
 		width: 24%;
 	}
 	.login__form {
-		width: 43%;
+		width: 38%;
 	}
 }
 
 @media (min-width: 601px) and (max-width: 1023px) {
 	.login__form {
-		width: 24%;
+		width: 35%;
 	}
 }
 
