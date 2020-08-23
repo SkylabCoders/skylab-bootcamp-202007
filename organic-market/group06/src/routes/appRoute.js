@@ -16,6 +16,13 @@ function findWithAttr(array, attr, value) {
 function router(nav) {
 	appRoute
 		.route('/cart')
+		.all((req, res, next) => {
+			if (!req.user) {
+				res.redirect('/auth/login');
+			} else {
+				next();
+			}
+		})
 		.get((req, res) => {
 			let client = null;
 			let finalPrice = 0;
@@ -101,7 +108,6 @@ function router(nav) {
 				res.redirect('/auth/login');
 			}
 			const itemId = req.body.product;
-			debug(req.user);
 			let client;
 			(async function mongo() {
 				try {
@@ -148,7 +154,6 @@ function router(nav) {
 			(async function query() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
-					debug('Connection stablished...');
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.itemsCollection);
 					res.item = await collection.find({ _id: new ObjectID(id) }).toArray();
