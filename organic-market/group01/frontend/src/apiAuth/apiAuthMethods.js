@@ -4,9 +4,9 @@ export const authMethods = {
 	signin: (username, password) => {
 		return axios.post('/api/auth/signin', { username, password });
 	},
-	createUser: async (username, password) => {
+	createUser: (username, password) => {
 		console.log({ username, password });
-		const devolucion = await axios.post('/api/signup', {
+		const devolucion = axios.post('/auth/signup', {
 			username,
 			password
 		});
