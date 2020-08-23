@@ -6,22 +6,30 @@
 
 .main-box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     background-color: lightgoldenrodyellow;
     border-radius: .3rem;
     margin: 1rem auto;
     padding: 1rem;
-    display: flex;
     width: 80%;
 }
 
 .box__image {
     width: 200px;
+    margin-left: 2rem;
+    margin-right: 1rem;
 }
 
 .box__text {
-    margin: 0 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem
+}
+
+.box__hidden {
+    flex-grow: 1;
 }
 
 .box__title {
@@ -37,8 +45,9 @@
 }
 
 .box__sinopsis {
-    font-weight: 700;
+    font-weight: 300;
     margin-top: 1.5rem;
+    text-align: left;
 }
 
 .box__description {
@@ -62,7 +71,8 @@
 
 .box__button {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: 0 2rem;
 } 
@@ -159,7 +169,7 @@
     .box__button {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
 }
