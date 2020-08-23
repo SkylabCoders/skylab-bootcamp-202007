@@ -15,23 +15,66 @@ function router(nav) {
 		 	}
 		}) */
 		.get((req, res) => {
-            const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
-            const dbName = 'mongoProducts';
-            const collectionName = 'products';
-            let client;
-            (async function mongo() {
-                try {
-                    client = await MongoClient.connect(url);
-                    const db = client.db(dbName);
-                    const collection = db.collection(collectionName);
-                    const products = await collection.find().toArray();
-                    res.render('foodList', { nav, products });
-                } catch (error) {
-                    debug(error.stack);
-                }
-                client.close();
-            })();
-        });
+			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const dbName = 'mongoProducts';
+			const collectionName = 'products';
+			let client;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const products = await collection.find().toArray();
+					res.render('foodList', { nav, products });
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		});
+
+	foodRoutes
+		.route('/cart')
+		.all((req, res, next) => {
+			if (req.user) {
+		 		next();
+		 	} else {
+		 		res.redirect('/auth/signin');
+		 	}
+		})
+		.get((req, res) => {
+			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+			const dbName = 'mongoProducts';
+			const collectionName = 'cart';
+			const productCollection = 'products';
+			let client;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					const collection = db.collection(collectionName);
+					const cartItems = await collection.find().toArray();
+
+					const cartProducts = await collection.find().toArray();
+
+					
+
+					console.log(cartItems);
+
+					for(let i = 0;i < cartItems.length; i++){
+						const result = collection.findOneAndDelete(cartItems[i].product);
+						console.log(result);
+					}
+
+					
+
+					res.render('cart', { nav, cartItems });
+				} catch (error) {
+					debug(error.stack);
+				}
+				client.close();
+			})();
+		});
 
 	foodRoutes
 		.route('/:productId')
@@ -70,30 +113,39 @@ function router(nav) {
 			const dbName = 'mongoProducts';
 			const userCollection = 'users';
 			const productCollection = 'products';
+			const cartCollection = 'cart';
 			let client;
 
 			const idProduct = {
 				_id: ObjectID(req.params.productId)
 			};
 
+			const identifyProduct = req.params.productId;
+
+			const { _id } = req.user;
+
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
-					const userNameCollection = db.collection(userCollection);
-					const productNameCollection = db.collection(productCollection);
 
-					const product = await productNameCollection.find(idProduct).toArray();
+					const cartNameCollection = db.collection(cartCollection);
 
-					const [{ title, type, img, price, amount }] = product;
+					const cart = {
+						"user": _id,
+						"product": [{ "idProduct": identifyProduct, amount: req.body.amount }]
+					}
 
-					const cartProducts = [{ title, type, img, price, amount }];
+					const query = await cartNameCollection.findOne({ user: _id })
 
-					const result = await userNameCollection.updateOne(
-						{ user: 'Victor' },
-						{ $set: { cart: cartProducts } }
-					);
-					debug(result);
+					if (query) {
+						await cartNameCollection.updateOne({ user: _id }, { $push: { product: { productId: identifyProduct, amount: req.body.amount } } });
+					} else {
+						await cartNameCollection.insertOne(cart);
+					}
+					
+					res.redirect('/products/');
+
 				} catch (error) {
 					debug(error.stack);
 				}
@@ -102,7 +154,7 @@ function router(nav) {
 			}())
 		});
 
-		foodRoutes
+	foodRoutes
 		.route('/search')
 		.all((req, res, next) => {
 			const id = req.params.productId;
@@ -129,14 +181,14 @@ function router(nav) {
 		})
 
 		.get((req, res) => {
-			if(req.query.search) {
+			if (req.query.search) {
 				// const [ search ] = req.query.search;
-				debug('====>',req.query.search)
+				debug('====>', req.query.search)
 			}
-				
-		})		
-		
-		return foodRoutes;
+
+		})
+
+	return foodRoutes;
 }
 
 module.exports = router;
