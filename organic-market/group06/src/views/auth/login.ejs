@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+		<link rel="stylesheet" href="../../../css/index.css" />
+		<link rel="stylesheet" href="../../../css/login.css" />
+	</head>
+	<body>
+		<form class="login__form" action="/auth/login" method="POST">
+			<div class="login__title">
+				<h1>LOGIN</h1>
+			</div>
+			<div class="login__label-user">
+				<label for="user"
+					>User:
+					<div>
+						<input type="text" value="" name="username" />
+					</div>
+				</label>
+			</div>
+			<label for="password"
+				>Password:
+				<div>
+					<input
+						type="password"
+						value=""
+						name="password"
+						title="Must contain at
+        least one number and one uppercase and lowercase letter, and at least
+        8 or more characters"
+					/>
+				</div>
+			</label>
+			<div class="login__buttons">
+				<button class="login__button" name="" type="submit" value="">
+					Login
+				</button>
+				<a class="login__anchor" href="/auth/register">Register</a>
+			</div>
+		</form>
+	</body>
+</html>

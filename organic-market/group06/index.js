@@ -13,9 +13,8 @@ const app = express();
 const port = 3000;
 
 const nav = [
-	{ link: '/user/products', title: 'Products' },
-	{ link: '/user/cart', title: 'Shopping Cart' },
-	{ link: '/db/insertCart', title: 'InsertCart' }
+	{ link: '/user/list', title: 'Products' },
+	{ link: '/user/cart', title: 'Shopping Cart' }
 ];
 
 app.use(morgan('tiny'));
@@ -24,16 +23,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
-app.use(expressSession({ secret: 'market' }));
+app.use(expressSession({ secret: 'heroes' }));
 
-// require('./src/config/passport')(app);
+require('./src/config/passport')(app);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.send('Hi I works');
+	res.redirect('/auth/login');
 });
 
 const dbRoutes = require('./src/routes/dbRoutes')(nav);
@@ -41,5 +40,8 @@ app.use('/db', dbRoutes);
 
 const appRoute = require('./src/routes/appRoute')(nav);
 app.use('/user', appRoute);
+
+const authRoutes = require('./src/routes/authRoutes')(nav);
+app.use('/auth', authRoutes);
 
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));

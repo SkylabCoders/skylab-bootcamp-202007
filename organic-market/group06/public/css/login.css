@@ -1,0 +1,42 @@
+.login__form {
+	width: 53%;
+	opacity: 0.8;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	box-shadow: 2px 2px #888888;
+	text-align: center;
+	margin: auto;
+	margin-top: 28%;
+	border: black 1px solid;
+	height: 338px;
+	border-radius: 25px;
+}
+
+.login__anchor {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.login__label-user {
+	margin-bottom: 20px;
+}
+.login__title {
+	margin-bottom: 16%;
+}
+.login__buttons {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+	margin-top: 20px;
+}
+.login__password {
+	margin-bottom: 20px;
+}
+.login__button {
+	background-color: var(--header-button-bg-color);
+	border-radius: 5px;
+	width: 25%;
+}
