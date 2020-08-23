@@ -14,7 +14,7 @@
     <%- include('header')%>
 
     <ul class="container-products">
-        <form method="POST">
+        <form method="POST" action="/admin/crud">
             <label for="title" name="title">Title:
                 <input type="text" name="title">
             </label>
@@ -30,9 +30,9 @@
             <label for="price" name="price">Price:
                 <input type="text" name="price">
             </label>
-            <button type="submit" class="button__delete">Add product</button>
+            <button type="submit" name="addProduct" class="button__delete">Add product</button>
         </form>
-        <% for(let i = 0; i< products.length; i++) { %>
+        <% for(let i = products.length - 1; i >= 0; i--) { %>
         <li class="products-card">
             <a href="/products/<%=products[i]._id%>">
                 <img class="image__product box-image" src="<%= products[i].img %>">

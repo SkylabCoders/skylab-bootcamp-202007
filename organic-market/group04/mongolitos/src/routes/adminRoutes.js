@@ -43,7 +43,7 @@ function router(nav) {
 			const dbName = 'mongoProducts';
 			const collectionName = 'products';
 			let client;
-			const { deleteProduct } = req.body;
+			const { title, type, description, image, price } = req.body;
 			
 			(async function mongo() {
 				try {
@@ -51,11 +51,9 @@ function router(nav) {
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 
-					const products = await collection.deleteOne({ _id: 'deleteProduct' });
-					res.render('foodlistAdmin', {
-						nav,
-						products
-					});
+					const response = await collection.insertOne({ title, type, description, image, price });
+					
+					res.redirect('/admin/crud')
 				} catch (error) {
 					debug(error.stack);
 				}
