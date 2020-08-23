@@ -45,4 +45,7 @@ app.use('/user', appRoute);
 const authRoutes = require('./src/routes/authRoutes')(nav);
 app.use('/auth', authRoutes);
 
+const adminRoutes = require('./src/routes/adminRoutes')(nav);
+app.use('/admin', adminRoutes);
+
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
