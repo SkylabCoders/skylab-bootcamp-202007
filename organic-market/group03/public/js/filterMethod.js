@@ -1,5 +1,14 @@
 let input = document.querySelector('.selectRecipes');
 let originalArray;
+let originallisRecipes;
+let originallisRecipesArray;
+
+setTimeout(function () {
+	originalArray = document.querySelector('.heroes');
+	originallisRecipes = originalArray.childNodes;
+	/* originallisRecipes = originalArray.querySelectorAll('li'); */
+	/* originallisRecipesArray = Array.from(lisRecipes); */
+}, 1000);
 
 function changeArray(e) {
 	let value = e.target.value;
@@ -12,7 +21,6 @@ function changeArray(e) {
 		(elem) => acceptedword.test(elem.innerText.toLowerCase()) === true
 	);
 
-	const newLiContainer = document.createElement('ul');
 	recipesContainer.innerHTML = '';
 	for (let liRecipe of lisRecipesArrayFiltered) {
 		const newLi = document.createElement('li');
@@ -27,8 +35,12 @@ function deleteArray() {
 	console.log(keyName);
 
 	if (keyName === 'Backspace') {
-		// do not alert when only Control key is pressed.
-		return;
+		originallisRecipes.innerHTML = '';
+		window.location.href = '';
+
+		setTimeout(function () {
+			document.getElementById('selectRecipe').click();
+		}, 20);
 	}
 }
 
