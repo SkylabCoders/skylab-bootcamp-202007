@@ -16,29 +16,29 @@ module.exports = async function getAllProducts() {
 	return allProducts;
 };
 
-module.exports = async function getProductById(_id) {
-	let productById = {};
+// module.exports = async function getProductById(_id) {
+// 	let productById = {};
 
-	try {
-		const client = await MongoClient.connect(DBCONF.url);
-		const db = client.db(DBCONF.dbName);
-		const collection = await db.collection(DBCONF.marketColl);
-		productById = await collection
-			.findOne({ _id: new ObjectID(_id) })
-			.toArray();
-	} catch (error) {
-		throw error.stack;
-	}
-	return productById;
-};
+// 	try {
+// 		const client = await MongoClient.connect(DBCONF.url);
+// 		const db = client.db(DBCONF.dbName);
+// 		const collection = await db.collection(DBCONF.marketColl);
+// 		productById = await collection
+// 			.findOne({ _id: new ObjectID(_id) })
+// 			.toArray();
+// 	} catch (error) {
+// 		throw error.stack;
+// 	}
+// 	return productById;
+// };
 
-module.exports = async function deleteProductById(_id) {
-	try {
-		const client = await MongoClient.connect(DBCONF.url);
-		const db = client.db(DBCONF.dbName);
-		const collection = await db.collection(DBCONF.marketColl);
-		await collection.deleteOne({ _id: new ObjectID(_id) }).toArray();
-	} catch (error) {
-		throw error.stack;
-	}
-};
+// module.exports = async function deleteProductById(_id) {
+// 	try {
+// 		const client = await MongoClient.connect(DBCONF.url);
+// 		const db = client.db(DBCONF.dbName);
+// 		const collection = await db.collection(DBCONF.marketColl);
+// 		await collection.deleteOne({ _id: new ObjectID(_id) }).toArray();
+// 	} catch (error) {
+// 		throw error.stack;
+// 	}
+// };
