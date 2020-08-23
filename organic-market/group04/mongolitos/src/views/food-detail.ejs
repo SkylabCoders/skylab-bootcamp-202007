@@ -19,9 +19,7 @@
 				<div class="inner__left-container">
 					<div>
 						<img
-							src="https://d36fw6y2wq3bat.cloudfront.net/assets/images/cache/recipes/huevos-revueltos-con-queso/900/huevos-revueltos-con-queso.jpg"
-							alt="producto"
-						/>
+							src="<%= product.img %>" alt="producto" />
 					</div>
 				</div>
 				<div class="inner__right-container">
@@ -36,12 +34,14 @@
 						<div class="item__title"><%= product.rating %></div>
 						<div><span class="item__title"></span><%= product.price %>€</div>
 						<hr />
-						<button type="submit" name="productForm" class="add__button">
+						<button type="submit" name="productForm " class="button">
 							Add to cart
 						</button>
 					</form>
 				</div>
 			</div>
+			<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to list</a></button></div>
 		</div>
 	</body>
+</html>
 </html>
