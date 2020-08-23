@@ -7,20 +7,21 @@
 		<link rel="stylesheet" href="../../css/products.css" />
 	</head>
 	<body>
-		<%- include('header')-%> <% if ( user && user.usertype === 'admin') {%>
-		<form method="POST">
-			<button
-				class="addtocart"
-				name="addtocart"
-				title="Add to cart"
-				type="submit"
-				value=""
-			>
-				+
-			</button>
-		</form>
-		<% } %>
+		<%- include('header')-%> 
 		<main class="products__container">
+			<% if ( user && user.usertype === 'admin') {%>
+				<form method="POST">
+					<button
+						class="addtocart"
+						name="addproduct"
+						title="Add to cart"
+						type="submit"
+						value="true"
+					>
+						+
+					</button>
+				</form>
+				<% } %>
 			<% products.forEach(product => { %>
 			<div class="products">
 				<div class="products__header">
