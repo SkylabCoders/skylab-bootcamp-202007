@@ -4,19 +4,16 @@ import './App.css';
 import ProductList from './components/ProductList';
 import Login from './components/login';
 
-import SignUp from './components/SignUp';
-
 import Header from './components/Header';
-
 
 function App() {
 	return (
 		<div className="App">
-      <div className="margin-body">
+			<div className="margin-body">
 				<BrowserRouter>
 					<Switch>
 						<Route path="/user" exact component={Login} />
-						<Route path="/singup" exact component={SignUp} />
+
 						<Route path="/list" exact component={ProductList} />
 					</Switch>
 				</BrowserRouter>
@@ -26,4 +23,3 @@ function App() {
 }
 
 export default App;
-
