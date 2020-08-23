@@ -1,9 +1,9 @@
 <div class="productlist__itemContainer">
       <div class="itemContent__container">
-        <% if (type === 'user') { %>
-        <a class="productlist__itemContent" href="<%=ROUTES.product.path%><%=product._id%>">
+        <% if (type === 'admin') { %>
+          <a class="productlist__itemContent" href="<%=ROUTES.adminProduct.path%><%=product._id%>">
         <%} else { %>
-        <a class="productlist__itemContent" href="<%=ROUTES.adminProduct.path%><%=product._id%>">
+          <a class="productlist__itemContent" href="<%=ROUTES.product.path%><%=product._id%>">
         <% } %>
         <img class="itemContent__img" src="assets/img/product.jpg" alt="" />
         </a>
