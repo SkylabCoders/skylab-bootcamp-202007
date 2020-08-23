@@ -9,7 +9,6 @@ const dbName = 'mongoProducts';
 const collectionName = 'users';
 let client;
 
-
 function router(nav) {
     authRoutes
     .route('/logout')

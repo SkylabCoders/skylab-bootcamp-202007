@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,31 +20,28 @@
 					<img src="<%= product.img %>" alt="producto" />
 				</div>
 			</div>
-			<div class="inner__right-container">
-				<form action="/products/<%= product && product._id %>" method="POST" name="productForm">
-					<div>
-						<h3><%= product.type %></h3>
-					</div>
-					<div>
-						<h1 class="title__item">
-							<%=product && product.title%> details!
-						</h1>
-					</div>
-					<div class=""><%= product.description %></div>
-					<div class="item__title"><%= product.rating %></div>
-					<div><span class="item__title"></span><%= product.price %>€</div>
-					<hr />
-					<button type="submit" name="productForm " class="button">
-						Add to cart
-					</button>
-				</form>
+				<div class="inner__right-container">
+					<form action="/products/<%= product && product._id %>" method="POST" name="productForm">
+						<div><h3><%= product.type %></h3></div>
+						<div>
+							<h1 class="title__item">
+								<%=product && product.title%> details!
+							</h1>
+						</div>
+						<div class=""><%= product.description %></div>
+						<div class="item__title"><%= product.rating %></div>
+						<div><span class="item__title"></span><%= product.price %>€</div>
+						<hr />
+						<button type="submit" name="productForm " class="button">
+							Add to cart
+						</button>
+						<input type="text" name="amount" value="1"/>
+					</form>
+				</div>
 			</div>
 		</div>
-		<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to
-					list</a></button></div>
+		<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to list</a></button></div>
 	</div>
 </body>
-
 </html>
-
 </html>
