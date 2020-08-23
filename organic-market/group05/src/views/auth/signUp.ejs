@@ -10,9 +10,10 @@
 	</head>
 	<body>
 		<%- include('../header'); -%>
-		<main>
+		<main class="signup__container">
 			<h2>
-				Register or <a href="/auth/signin"><button>Login</button></a>
+				Register or
+				<a href="/auth/signin"><button class="auth__button">Login</button></a>
 			</h2>
 			<form action="/auth/signup" method="POST">
 				<div>
@@ -39,7 +40,7 @@
 						<option value="user" selected>User</option>
 					</select>
 				</div>
-				<button type="submit">Register</button>
+				<button class="auth__button" type="submit">Register</button>
 			</form>
 		</main>
 		<%- include('../footer'); -%>
