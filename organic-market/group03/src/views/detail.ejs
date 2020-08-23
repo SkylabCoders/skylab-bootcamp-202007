@@ -19,6 +19,7 @@
 						name="updatedTitle"
 						placeholder="New title"
 						value="<%= recipe.title %>"
+						required
 					/>
 					</br>
 					</br>
@@ -43,15 +44,12 @@
 						name="updatedPrice"
 						placeholder="New price"
 						value="<%= recipe.price %>"
+						required
 					/>$
 				</br>
 				</br>
 
 					<button
-					class="modify"
-					title="modify product"
-					name="productModif"
-					value="<% recipe.price %>"
 					type="submit"
 					>
 						Save changes
