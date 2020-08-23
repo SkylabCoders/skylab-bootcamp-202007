@@ -17,7 +17,7 @@ module.exports = async function getAllProducts() {
 	return allProducts;
 };
 
-module.exports = async function registerUser(userObject) {
+/* module.exports = async function registerUser(userObject) {
 	(NEW_USER_SCHEMA.username = userObject.username),
 		(NEW_USER_SCHEMA.password = userObject.password);
 	const userInfo = {};
@@ -31,7 +31,7 @@ module.exports = async function registerUser(userObject) {
 		throw error.stack;
 	}
 	return userInfo;
-};
+}; */
 
 // module.exports = async function getProductById(_id) {
 // 	let productById = {};
