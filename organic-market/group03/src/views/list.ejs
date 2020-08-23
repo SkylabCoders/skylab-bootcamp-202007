@@ -40,22 +40,25 @@
 		<% for(let i = 0; i<recipes.length; i++){%>
 			<li>
 				<a href="/list/<%=recipes[i].title%>">
-					<span class="badge"><%= recipes[i].title %></span>
-				</a> <%= recipes[i].price %>$
+					<span class="badge"><%= recipes[i].title%></span>
+					</a> <%= recipes[i].price %> &#8364;
 				<form action="/list/addcart" method="POST" name="addProductToCart">
 					<button class="add" title="add to cart" type="submit" name="product" value="<%=recipes[i].title%>">
-						+
+						&#128722;
 					</button>
 				</form>
 				<%if(admin === 'on') {%>
 					<form action="" method="POST" name="deleteHeroFromList">
-						<button type="submit" class="delete" title="delete recipe" name="title" value="<%=recipes[i].title%>">x</button>
+						<button type="submit" class="delete" title="delete recipe" name="title" value="<%=recipes[i].title%>">
+							&#10060;
+						</button>
 					</form>
 					<%} else {%>
 					<%}%>
 			</li>
 			<% } %>
 		</ul>
+		<script src="../js/filterMethod.js"></script>
 </body>
 
 </html>

@@ -12,10 +12,15 @@ const app = express();
 const PORT = 3002;
 
 const nav = [
-	{ link: '/', title: 'Home' },
+	{ link: '/dashboard', title: 'Dashboard' },
 	{ link: '/list', title: 'Products' },
-	{ link: '/auth/signin', title: 'SignIn' },
+	{ link: '/', title: 'SignIn' },
 	{ link: '/auth/profile', title: 'Profile' }
+];
+
+const notLoggedNav = [
+	{ link: '/dashboard', title: 'Dashboard' },
+	{ link: '/', title: 'SignIn' }
 ];
 
 app.use(morgan('tiny'));
@@ -32,10 +37,10 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-	res.redirect('/list');
+	res.redirect('/auth/signIn');
 });
 
-const recipesRoutes = require('./src/routes/recipesRoutes')(nav);
+const recipesRoutes = require('./src/routes/recipesRoutes')(nav, notLoggedNav);
 
 app.use('/list', recipesRoutes);
 
@@ -43,8 +48,14 @@ const dbRoutes = require('./src/routes/dbRoutes.js')();
 
 app.use('/db', dbRoutes);
 
-const authRoutes = require('./src/routes/authRoutes.js')(nav);
+const authRoutes = require('./src/routes/authRoutes.js')(nav, notLoggedNav);
 
 app.use('/auth', authRoutes);
+
+const dashboardRoutes = require('./src/routes/dashboardRoutes.js')(
+	nav,
+	notLoggedNav
+);
+app.use('/dashboard', dashboardRoutes);
 
 app.listen(PORT, () => debug(`Listening in port ${chalk.green(PORT)}...`));
