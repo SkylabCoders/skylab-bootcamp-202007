@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './ProductListItem.css';
-import productList from '../../src/product.mock';
 
 function ProductListItem({
 	title,
@@ -12,14 +10,6 @@ function ProductListItem({
 	cover,
 	rating
 }) {
-	// const [isLogged, setIsLogged] = useState(authStore.isLogged());
-	// function addToCart(id) {
-	//   cartStore.addCartProduct(id);
-	//   addNumberCart();
-	// }
-
-	const product = productList;
-
 	return (
 		<div className="main-box">
 			<img className="box__image" src={cover} alt={title} />
