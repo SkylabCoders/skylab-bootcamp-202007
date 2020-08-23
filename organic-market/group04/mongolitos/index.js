@@ -12,18 +12,18 @@ const app = express();
 const port = 3000;
 
 const nav = [
-	// {
-	// 	link: '/products',
-	// 	title: 'Products'
-	// },
-	// {
-	// 	link: '/auth/signin', // 'auth/signin' si lo ponemos sin / delante de auth no coge la ruta inicial de la raíz
-	// 	title: 'Signin'
-	// },
-	// {
-	// 	link: '/cart',
-	// 	title: 'Cart'
-	// }
+	/* {
+		link: '/products',
+		title: 'Products'
+	},
+	{
+		link: '/auth/signin', // 'auth/signin' si lo ponemos sin / delante de auth no coge la ruta inicial de la raíz
+		title: 'Signin'
+	},
+	{
+		link: '/cart',
+		title: 'Cart'
+	} */
 ];
 
 app.use(morgan('tiny'));
@@ -62,8 +62,7 @@ app
 		}
 	}) */
 	.get('/', (req, res) => {
-		const url =
-			'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+		const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 		const dbName = 'mongoProducts';
 		const collectionName = 'products';
 		let client;
@@ -80,7 +79,6 @@ app
 					title: 'Top Products',
 					products: products.filter((product) => product.rating === 5)
 				});
-				debug(products);
 			} catch (error) {
 				debug(error.stack);
 			}

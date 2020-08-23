@@ -4,19 +4,20 @@ const { MongoClient } = require('mongodb');
 const passport = require('passport');
 
 const authRoutes = express.Router();
-const dbUrl =
-	'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+const dbUrl = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 const dbName = 'mongoProducts';
 const collectionName = 'users';
 let client;
 function router(nav) {
-	authRoutes.route('/logout').post((req, res) => {
-		if (req.user) {
-			req.logout();
-			res.redirect('/auth/signin');
-		}
-	});
-
+    authRoutes
+    .route('/logout')
+    .post((req, res) => {
+        if(req.user) {
+            req.logout();
+            res.redirect('/');
+        }
+    })
+    
 	authRoutes
 		.route('/signin')
 		.get((req, res) => {
