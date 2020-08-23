@@ -127,33 +127,70 @@ function router(nav) {
 		})();
 		res.redirect('/list');
 	});
-	recipesRouter.route('/:title').get((req, res) => {
-		const url = 'mongodb://localhost:27017';
-		const dbName = 'organicMarket';
-		let client;
-		const { title } = req.params;
-		(async function query() {
-			try {
-				client = await MongoClient.connect(url);
+	recipesRouter
+		.route('/:title')
+		.get((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'organicMarket';
+			let client;
+			const { title } = req.params;
+			if (req.user && (req.user.admin || !req.user.admin)) {
+				const admin = req.user.admin || 'off';
 
-				const db = client.db(dbName);
+				(async function query() {
+					try {
+						client = await MongoClient.connect(url);
 
-				const collection = await db.collection('recipes');
-				const filterRecipe = await collection.findOne({ title });
-				debug(filterRecipe);
+						const db = client.db(dbName);
 
-				res.render('detail', {
-					nav,
-					title: 'Detail',
+						const collection = await db.collection('recipes');
+						const filterRecipe = await collection.findOne({ title });
+						debug(filterRecipe);
 
-					recipe: filterRecipe
-				});
-			} catch (error) {
-				debug(error);
+						res.render('detail', {
+							nav,
+							title: 'Product details!',
+							recipe: filterRecipe,
+							admin
+						});
+					} catch (error) {
+						debug(error);
+					}
+					client.close();
+				})();
+			} else {
+				res.render('permissions', { nav });
 			}
-			client.close();
-		})();
-	});
+		})
+		.post((req, res) => {
+			const url = 'mongodb://localhost:27017';
+			const dbName = 'organicMarket';
+			const collectionName = 'recipes';
+			const { title } = req.params;
+			// req.body it's undefine so we hace to search Mongo the product
+			console.log('REQ PARAMS ======>', req.params);
+			console.log('PRODUCT BODY ======>', req.body);
+			const { updatedPrice } = req.body;
+
+			let client;
+
+			(async function recipeForm() {
+				try {
+					client = await MongoClient.connect(url);
+
+					const db = client.db(dbName);
+					const collection = await db.collection(collectionName);
+					await collection.updateOne(
+						{ title },
+						{ $set: { price: updatedPrice } }
+					);
+				} catch (error) {
+					debug(error);
+				}
+				res.redirect('/list');
+				client.close();
+			})();
+		});
 
 	return recipesRouter;
 }

@@ -10,20 +10,47 @@
 		<%- include('header') %>
 		<h2><%=title%></h2>
 		<div>
-			<form action="" method="POST" name="recipeForm">
-				<h2><%= recipe.title %></h2>
-				<div><span>Description: </span><%= recipe.description %></div>
-				<div>
-					<label for="heroField__name">name:</label>
+			<% if (admin === 'on'){%>
+			<div>
+				<form action="" method="POST" name="recipeForm">
+<!-- 					<label for="product__Title">Title:</label>
 					<input
-						id="heroField__name"
-						name="name"
-						placeholder="name"
-						value="<%= recipe.tile %>"
+						id="product__Title"
+						name="updateTitle"
+						placeholder="New title"
+						value="<%= recipe.title %>"
 					/>
-				</div>
-				<button type="submit">save</button>
-			</form>
+					</br> -->
+					</br>
+
+					<div><span>Description: </span><%= recipe.description %></div>
+
+					</br>
+					<label for="product__Price">Price:</label>
+					<input
+						id="product__Price"
+						name="updatedPrice"
+						placeholder="New price"
+						value="<%= recipe.price %>"
+					/>$
+					<button
+					class="modify"
+					title="modify product"
+					name="productModif"
+					value="<% recipe.price %>"
+					type="submit"
+					>
+						Modify Price
+					</button>
+				</form>
+
+			</div>
+			<% } else{ %>
+			<h3><span>Title: </span><%= recipe.title %></h3>
+			<div><span>Description: </span><%= recipe.description %></div>
+		</br>
+			<div><span>Price: </span><%= recipe.price %>$</div>
+			<%}%>
 		</div>
 	</body>
 </html>
