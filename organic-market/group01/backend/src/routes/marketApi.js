@@ -3,6 +3,7 @@ const debug = require('debug')('app:heroRoutes');
 const { MongoClient, ObjectID } = require('mongodb');
 const getAllProducts = require('../actions/marketActions');
 const getProductById = require('../actions/marketActions');
+const USER_SCHEMA = require('../schemas/userSchema');
 
 const heroRoutes = express.Router();
 
@@ -17,10 +18,11 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { productId } = req.body(async function productById() {
+			/* 	const { productId } = req.body;
+			(async function productById() {
 				const product = await getProductById(productId);
 				res.send(product);
-			})();
+			})(); */
 		});
 	heroRoutes
 		.route('/market/:heroId')
