@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,12 +20,6 @@
 					<img src="<%= product.img %>" alt="producto" />
 				</div>
 			</div>
-			<div class="inner__right-container">
-				<form action="/products/<%= product && product._id %>" method="POST" name="productForm">
-					<div>
-						<h3><%= product.type %></h3>
-					</div>
-				</div>
 				<div class="inner__right-container">
 					<form action="/products/<%= product && product._id %>" method="POST" name="productForm">
 						<div><h3><%= product.type %></h3></div>
@@ -47,11 +40,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to
-					list</a></button></div>
+		<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to list</a></button></div>
 	</div>
 </body>
-
 </html>
-
 </html>

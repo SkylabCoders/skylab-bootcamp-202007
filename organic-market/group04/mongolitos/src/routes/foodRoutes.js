@@ -62,7 +62,7 @@ function router(nav) {
 					console.log(cartItems);
 
 					for(let i = 0;i < cartItems.length; i++){
-						const result = collection.findOneAndDelete(cartItems[i].product);
+						const result = collection.findOne(cartItems[i].product);
 						console.log(result);
 					}
 
@@ -141,7 +141,7 @@ function router(nav) {
 					const query = await cartNameCollection.findOne({ user: _id })
 
 					if (query) {
-						await cartNameCollection.updateOne({ user: _id }, { $push: { product: { productId: identifyProduct, amount: req.body.amount } } });
+						await cartNameCollection.updateOne({ user: _id }, { $set: { product: { productId: identifyProduct, amount: req.body.amount } } });
 					} else {
 						await cartNameCollection.insertOne(cart);
 					}
