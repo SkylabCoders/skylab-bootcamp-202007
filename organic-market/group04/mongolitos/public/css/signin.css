@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none
+}
+
+body {
+    display: flex;
+    justify-content: center;
+
+}
+
+.signin_container {
+    border: 1px solid black;
+    margin-top: 40%;
+}
+
+.title {
+    font-family: 'Noto Serif', serif;
+    font-size: 25px;
+    color: #000;
+}
+
+.button {
+    line-height: 1.42;
+    text-decoration: none;
+    text-align: center;
+    white-space: normal;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    display: inline-block;
+    padding: 11px 20px;
+    margin: 0;
+    width: auto;
+    min-width: 90px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    background: #ffafbb;
+    outline: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.5
+}
+
+.input {
+    font-family: 'Lato', sans-serif;
+}
