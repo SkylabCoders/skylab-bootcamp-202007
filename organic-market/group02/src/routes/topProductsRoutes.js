@@ -11,11 +11,11 @@ function router(nav) {
 	topProductsRoutes
 		.route('/')
 		.all((req, res, next) => {
-			if (req.user) {
+			if (req.user && req.user.type === 'admin') {
 				next();
-			} else {
-				res.redirect(ROUTES.signin.path);
-			}
+				// añadir ruta administrador
+			} 
+			next();
 		})
 		.get((req, res) => {
 			let client;
