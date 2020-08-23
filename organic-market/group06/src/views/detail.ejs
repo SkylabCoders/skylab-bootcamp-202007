@@ -12,37 +12,51 @@
 
 <body>
 	<%-include('header')-%>
-	<h2><%= item.title%> Details</h2>
-	<div>
-		<div class="detail">
-			<span class="product__property">Type:</span>
-			<p><%= item.type%></p>
+	<div class="detail_box">
+		<div class="flex-column">
+			<h2><%= item.title%> Details</h2>
+			<div>
+				<div class="property__detail">
+					<h3 class="product__property">Type:</h3>
+					<p><%= item.type%></p>
+				</div>
+				<div class="property__detail">
+					<h3 class="product__property">Description:</h3>
+					<p><%= item.description %></p>
+				</div>
+				<div class="property__detail">
+					<h3 class="product__property">Height:</h3>
+					<p><%= item.height %></p>
+				</div>
+				<div class="property__detail">
+					<h3 class="product__property">Width:</h3>
+					<p><%= item.width %></p>
+				</div>
+				<div class="property__detail">
+					<h3 class="product__property">Price:</h3>
+					<p><%= item.price %>$</p>
+				</div>
+				<div class="property__detail">
+					<h3 class="product__property">Rating:</h3>
+					<div class="flex-row">
+						<% for (let i =0; i< item.rating; i++){%>
+						<img src="https://trello-attachments.s3.amazonaws.com/5f40033fb44fda5f6b6b9f34/5f40f07f072dbb4543522170/664a8929478e14df7ff4eaa37a21bb5d/star.png"
+							alt="star" class="card-item__rating-star">
+						<%};%>
+						<% for (let i =item.rating; i< 5; i++){%>
+						<img src="https://image.flaticon.com/icons/svg/786/786331.svg" alt="star"
+							class="card-item__rating-star">
+						<%};%>
+
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="property__detail">
-			<span class="product__property">Description:</span>
-			<p><%= item.description %></p>
-		</div>
-		<div class="property__detail">
-			<span class="product__property">Height:</span>
-			<p><%= item.height %></p>
-		</div>
-		<div class="property__detail">
-			<span class="product__property">Width:</span>
-			<p><%= item.width %></p>
-		</div>
-		<div class="property__detail">
-			<span class="product__property">Price:</span>
-			<p><%= item.price %>$</p>
-		</div>
-		<div class="property__detail">
-			<span class="product__property">Rating:</span>
-			<p><%= item.rating %></p>
-		</div>
+		<form action="/user/list" method="POST">
+			<input name='product' type="hidden" value="<%= item._id %>">
+			<button class="list-button" type="submit">add to Cart</button>
+		</form>
 	</div>
-	<form action="/user/list" method="POST">
-		<input name='product' type="hidden" value="<%= item._id %>">
-		<button class="list-button" type="submit">add to Cart</button>
-	</form>
 </body>
 
 </html>
