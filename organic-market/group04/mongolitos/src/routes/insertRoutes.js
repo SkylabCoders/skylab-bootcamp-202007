@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:shieldRoutes');
-const { MongoClient} = require('mongodb');
+const { MongoClient } = require('mongodb');
 const productsData = require('../../public/mocks/foodsData.json');
 
 const insertRoutes = express.Router();
@@ -12,7 +12,7 @@ function router() {
         const dbname = 'mongoProducts';
 
         (async function mongo() {
-            let client;
+            let client;/*   */
 
             try {
                 client = await MongoClient.connect(url);

@@ -54,7 +54,7 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app
-	/* .all('/', (req, res, next) => {
+	/* .('/', (req, res, next) => {
 		if (req.user) {
 			next();
 		} else {
@@ -77,7 +77,7 @@ app
 				res.render('food-dashboard', {
 					nav,
 					title: 'Top Products',
-					products: products.filter(product => product.rating === 5)
+					products: products.filter((product) => product.rating === 5)
 				});
 			} catch (error) {
 				debug(error.stack);

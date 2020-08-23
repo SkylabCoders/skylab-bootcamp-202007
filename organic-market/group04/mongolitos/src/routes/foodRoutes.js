@@ -69,7 +69,7 @@ function router(nav) {
 			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
 			const dbName = 'mongoProducts';
 			const userCollection = 'users';
-			const productCollection = 'products'
+			const productCollection = 'products';
 			let client;
 
 			const idProduct = {
@@ -85,13 +85,15 @@ function router(nav) {
 
 					const product = await productNameCollection.find(idProduct).toArray();
 
-					const [{ title,type,img,price, amount}] = product;
+					const [{ title, type, img, price, amount }] = product;
 
-					const cartProducts = [{ title,type,img,price,amount}];
+					const cartProducts = [{ title, type, img, price, amount }];
 
-					const result = await userNameCollection.updateOne({user: "Victor"},{$set:{cart:cartProducts}}); 
+					const result = await userNameCollection.updateOne(
+						{ user: 'Victor' },
+						{ $set: { cart: cartProducts } }
+					);
 					debug(result);
-					
 				} catch (error) {
 					debug(error.stack);
 				}
@@ -132,13 +134,10 @@ function router(nav) {
 				debug('====>',req.query.search)
 			}
 				
-		})
-
-		
+		})		
 		
 		return foodRoutes;
 }
-
 
 module.exports = router;
 
