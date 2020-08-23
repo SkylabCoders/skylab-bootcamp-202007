@@ -19,7 +19,12 @@ function router(nav) {
 		})
 		.get((req, res) => {
 			let client;
-			const { type } = req.body;
+			if (req.user){
+				const { type } = req.body;
+			} else {
+				type = 'user';
+			}
+
 			(async function query() {
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
