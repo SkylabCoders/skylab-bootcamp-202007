@@ -107,6 +107,21 @@ b/*body::after {
 	background-color: rgb(206, 218, 110);
 }
 
+.deleteproduct {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	border: none;
+	background-color: lightcoral;
+	border-radius: 5%;
+	height: 30px;
+	width: 30px;
+	margin-left: 10px;
+}
+
+.deleteproduct:hover{
+	background-color: rgb(233, 78, 78);
+}
+
 @media only screen and (min-width: 600px) {
 	.products__container {
 		width: 85%;

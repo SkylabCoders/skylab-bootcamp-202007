@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:productsRoutes');
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId, ObjectID } = require('mongodb');
 
 const productsRoutes = express.Router();
 
@@ -29,38 +29,40 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { addtocart, addproduct} = req.body;
-			
-			if(req.user){
-				const { _id } = req.user;
-				const url =
-				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
-			const dbName = 'organics';
-			const collectionName = 'carts';
-			let client;
-				if(addtocart){
+			const { addtocart, addproduct, deleteproduct } = req.body;
+
+			if (req.user) {
+				if (addtocart) {
+					const { _id } = req.user;
+					const url =
+						'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
+					const dbName = 'organics';
+					const collectionName = 'carts';
+					let client;
 					(async function mongo() {
 						try {
 							client = await MongoClient.connect(url);
 							const db = client.db(dbName);
 							const collection = db.collection(collectionName);
-							const result = await collection.findOne({ userid: ObjectId(_id) });
+							const result = await collection.findOne({
+								userid: ObjectId(_id)
+							});
 							debug('-- result -->', result);
 							const filter = { userid: ObjectId(_id) };
 							debug('-- filter -->', filter);
-		
+
 							// CART NOT EXISTS -> CREATE CART
 							const createCart = {
 								userid: ObjectId(_id),
 								status: 'open',
 								products: [{ productid: addtocart, qty: 1 }]
 							};
-		
+
 							// CART EXISTS BUT PRODUCT NOT IN CART -> PUSH TO CART
 							const pushToCart = {
 								$push: { products: { productid: addtocart, qty: 1 } }
 							};
-		
+
 							if (result) {
 								debug('-- push to cart -->', pushToCart);
 								await collection.updateOne(filter, pushToCart);
@@ -71,16 +73,39 @@ function router(nav) {
 						} catch (error) {
 							debug(error.stack);
 						}
+						client.close();
 					});
+				} else if (deleteproduct) {
+					const url =
+						'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
+					const dbName = 'organics';
+					const collectionName = 'products';
+					let client;
+					(async function mongoDelete() {
+						try {
+							client = await MongoClient.connect(url);
+							const db = client.db(dbName);
+							const collection = db.collection(collectionName);
+							debug('MIRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',{ _id: new ObjectID(deleteproduct) });
+							await collection.deleteOne({ _id: new ObjectID(deleteproduct) });
+							
+
+							res.redirect('/products');
+
+						} catch (error) {
+							debug(error.stack);
+						}
+
+						client.close();
+					})();
 
 				} else if (addproduct) {
 					res.redirect('/addproduct');
 				}
-			
 			} else {
 				res.redirect('/auth/signin');
 			}
-		})
+		});
 
 	productsRoutes
 		.route('/:id')
