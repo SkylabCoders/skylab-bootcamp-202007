@@ -10,17 +10,16 @@
 	</head>
 
 	<body>
-        <%- include('header')-%>
-        <main class="cart__container">
-            <h2><%= user%> Cart</h2>
-            <div>
-                <%- cart.forEach(product => { %>
-                    <h3><%= %></h3>
-                <% )}%>
-            </div>
-        </main>
-     
-     
-        <%- include('footer')-%>
+		<%- include('header')-%>
+		<main class="cart__container">
+			<h2><%= user%> Cart</h2>
+			<div>
+				<% cart.forEach ( product => { %>
+				<p><%= cart.products.productid%></p>
+				<% }) %>
+			</div>
+		</main>
+
+		<%- include('footer')-%>
 	</body>
 </html>

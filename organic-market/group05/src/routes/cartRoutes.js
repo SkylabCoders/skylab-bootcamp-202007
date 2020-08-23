@@ -1,44 +1,70 @@
 const express = require('express');
 const debug = require('debug')('app:cartRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const getCart = express.Router();
 
-
-const url = 'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
+const url =
+	'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 const dbName = 'organics';
-const collectionName = 'carts'
+let collectionName = 'carts';
 let client;
 
 function router(nav) {
-	getCart.route('/').get((req, res) => {
-        (async function mongo(){
+	getCart
+		.route('/')
+		.all((req, res, next) => {
+			if (req.user) {
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
+		})
+		.get((req, res) => {
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(url);
+					const db = client.db(dbName);
+					let collection = db.collection(collectionName);
 
-            try{
-                client = await MongoClient.connect(url);
-                const db = client.db(dbName);
-                const collection = db.collection(collectionName);
-        
-                const { _id, user } = req.user;
-                debug(_id);
-                
-                const cart = await collection.find({ userid: _id});
+					const { _id, user } = req.user;
+					debug(_id);
+					const cart = await collection.findOne({ userid: ObjectId(_id) });
 
-                const prods = 
+					client.close();
+					debug('CART', cart);
+					const productids = [];
+					const { products } = cart;
+					debug('PRODUCTIDS', products);
 
-                res.render('cart', { nav , cart, user});
-        
+					products.forEach((e) => {
+						debug('e', e);
+						productids.push(e.productid);
+					});
+					debug('productids', productids);
 
+					collectionName = 'products';
+					collection = db.collection(collectionName);
 
-            }catch(error){
-                
-                debug(error.stack)
-            }
+					/* const allproducts = await collection.find();
+					const filteredProducts = [];
 
-            client.close()
-        }());
-        
-	});
+					for (let i = 0; i < productids.length; i + 1) {
+						filteredProducts.push(
+							allproducts.filter((element) => productids[i] === element._id)
+						);
+					}
+
+					debug('filteredProducts', filteredProducts); */
+
+					res.render('cart', { nav, user });
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
+			})();
+		});
 
 	return getCart;
 }
