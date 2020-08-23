@@ -1,6 +1,6 @@
 const express = require('express');
 const debug = require('debug')('app:authRoutes');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const passport = require('passport');
 
 const authRoutes = express.Router();
@@ -114,9 +114,31 @@ function router(nav) {
 				} catch (error) {
 					debug(error.stack);
 				}
+				console.log(req.fullCart);
 				res.render('auth/profile', { nav, user: req.user, cart: req.fullCart });
 			})();
 		});
+
+	authRoutes.route('/removeFromCart').post((req, res) => {
+		(async function mongo() {
+			try {
+				const { _id } = req.user;
+				const { toDelete } = req.body;
+				client = await MongoClient.connect(DBurl);
+				const db = client.db(dbName);
+				const collection = await db.collection(collectionName);
+				await collection.updateOne(
+					{ _id: ObjectId(_id) },
+					{ $pull: { cart: toDelete } }
+				);
+
+				client.close();
+				res.redirect('/auth/profile');
+			} catch (error) {
+				debug(error.stack);
+			}
+		})();
+	});
 
 	return authRoutes;
 }
