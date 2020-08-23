@@ -17,9 +17,17 @@ function findWithAttr(array, attr, value) {
 function router(nav) {
 	appRoute
 		.route('/cart')
+		.all((req, res, next) => {
+			if (!req.user) {
+				res.redirect('/auth/login');
+			} else {
+				next();
+			}
+		})
 		.get((req, res) => {
 			let client = null;
 			let finalPrice = 0;
+			let totalItems = 0;
 			const { username } = req.user;
 			(async function mongo() {
 				try {
@@ -31,14 +39,17 @@ function router(nav) {
 
 					cart.forEach((item) => {
 						const { quantity } = item;
+						totalItems += quantity;
 						const totalPrice = item.price * quantity;
 						item.totalPrice = totalPrice;
 						finalPrice += totalPrice;
 					});
+					finalPrice = finalPrice.toFixed(2);
 
 					res.render('cart', {
 						cart,
 						finalPrice,
+						totalItems,
 						nav,
 						title: 'Shopping cart'
 					});
@@ -50,21 +61,16 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			const { user } = req.user;
-			const username = 'gerard';
+			const { username } = req.user;
+			const { _id } = req.body;
 			let client = null;
-			let { _id } = req.body;
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.usersCollection);
 
-					const { cart } = await collection.findOne({ username });
-
 					await collection.update({ username }, { $pull: { cart: { _id } } });
-
-					// delete item
 
 					res.redirect('/user/cart');
 				} catch (error) {
@@ -72,6 +78,51 @@ function router(nav) {
 				} finally {
 					client.close();
 				}
+			})();
+		});
+
+	appRoute
+		.route('/cart/checkout')
+		.all((req, res, next) => {
+			if (!req.user) {
+				res.redirect('/auth/login');
+			} else {
+				next();
+			}
+		})
+		.post((req, res) => {
+			let client = null;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.usersCollection);
+
+					// Read user actualCart
+					const [{ cart }] = await collection
+						.find({ _id: new ObjectID(req.user._id) })
+						.toArray();
+
+					// Add actualCart to user history
+					cart.forEach(async (item) => {
+						await collection.updateOne(
+							{ _id: new ObjectID(req.user._id) },
+							{ $push: { history: item } }
+						);
+					});
+
+					// Reset shopping cart
+					await collection.updateOne(
+						{ _id: new ObjectID(req.user._id) },
+						{ $set: { cart: [] } }
+					);
+
+					res.redirect('/user/historial');
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
 			})();
 		});
 
@@ -171,6 +222,15 @@ function router(nav) {
 			})();
 		})
 
+	appRoute.route('/historial').get((req, res) => {
+		if (!req.user) {
+			res.redirect('/auth/login');
+		} else {
+			const items = req.user.history;
+			res.render('historial', { nav, items });
+		}
+	});
+
 	appRoute
 		.route('/detail/:productId')
 		.all((req, res, next) => {
@@ -179,7 +239,6 @@ function router(nav) {
 			(async function query() {
 				try {
 					client = await MongoClient.connect(MONGO.url);
-					debug('Connection stablished...');
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.itemsCollection);
 					res.item = await collection.find({ _id: new ObjectID(id) }).toArray();
@@ -194,14 +253,6 @@ function router(nav) {
 			const [item] = res.item;
 			res.render('detail', { nav, item });
 		});
-	appRoute.route('/historial').get((req, res) => {
-		if (!req.user) {
-			res.redirect('/auth/login');
-		} else {
-			const items = req.user.history;
-			res.render('historial', { nav, items });
-		}
-	});
 
 	return appRoute;
 }
