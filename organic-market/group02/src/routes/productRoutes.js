@@ -16,7 +16,6 @@ function addProductToCart(userId, addedProductId, username, quantity) {
 			const db = client.db(DATABASE_CONFIG.dbName);
 			const collection = db.collection(DATABASE_CONFIG.cartsCollection);
 
-
 			const query = await collection.findOne({ userID: userId })
 
 			if (query) {
@@ -89,27 +88,26 @@ function router(nav) {
 	productRoutes
 		.route('/:productId')
 		.all((req, res, next) => {
-			if (req.user.type === 'user') {
+			if (req.user !== undefined && req.user.type === 'admin') {
+				res.redirect(ROUTES.adminProduct.path);
+			} else {
 				const { productId } = req.params;
 				(async function getProduct() {
-					let client;
 					try {
-						client = await MongoClient.connect(DATABASE_CONFIG.url);
+						let client = await MongoClient.connect(DATABASE_CONFIG.url);
 						debug('Connection to db established...');
 						const db = client.db(DATABASE_CONFIG.dbName);
 						const collection = db.collection(DATABASE_CONFIG.productCollection);
 						res.product = await collection.findOne({ _id: new ObjectID(req.params.productId) });
 						debug(res.product);
+						client.close();
 						next();
 					} catch (error) {
 						debug(error.stack);
 					}
 					debug('Connection to db closed.');
-					client.close();
 					next();
 				})();
-			} else {
-				res.redirect(ROUTES.adminProduct.path);
 			}
 
 		})

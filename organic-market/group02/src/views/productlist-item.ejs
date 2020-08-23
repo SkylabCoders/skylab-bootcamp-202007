@@ -1,6 +1,6 @@
 <div class="productlist__itemContainer">
       <div class="itemContent__container">
-        <% if (type === 'admin') { %>
+        <% if (type && type === 'admin') { %>
           <a class="productlist__itemContent" href="<%=ROUTES.adminProduct.path%><%=product._id%>">
         <%} else { %>
           <a class="productlist__itemContent" href="<%=ROUTES.product.path%><%=product._id%>">
@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <% if (type === 'admin') { %>
+        <% if (type && type === 'admin') { %>
           <form method="POST" class="productlist__actionsForm">
             <label for="product__delete">
               <button name='deleteProduct' id='product__delete' type='submit' class="action__button product__action" title='Delete product'
