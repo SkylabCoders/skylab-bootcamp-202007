@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import ProductList from './components/ProductList';
-import SignIn from './components/signIn';
+import Login from './components/login';
 
 function App() {
 	return (
@@ -10,7 +10,8 @@ function App() {
 			<div className="margin-body">
 				<BrowserRouter>
 					<Switch>
-						<Route path="/user" exact component={SignIn} />
+						<Route path="/user" exact component={Login} />
+
 						<Route path="/list" exact component={ProductList} />
 					</Switch>
 				</BrowserRouter>
