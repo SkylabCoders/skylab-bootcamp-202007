@@ -8,7 +8,8 @@
 		<link rel="stylesheet" href="../../../css/register.css" />
 	</head>
 	<body>
-		<form class="register__form" action="/auth/addProduct" method="POST">
+		<%-include('header')-%>
+		<form class="register__form" action="/admin/addProduct" method="POST">
 			<div class="register__title">
 				<h1>ADD PRODUCT</h1>
 			</div>
@@ -17,6 +18,14 @@
 					>Title:
 					<div>
 						<input type="text" value="" name="title" />
+					</div>
+				</label>
+			</div>
+			<div class="register__label-user">
+				<label for="type"
+					>Type:
+					<div>
+						<input type="text" value="" name="type" />
 					</div>
 				</label>
 			</div>
@@ -67,7 +76,7 @@
 			</div>
 			<div class="register__buttons">
 				<button class="register__button" name="" type="submit" value="">
-					Register
+					Add
 				</button>
 				<a class="register__anchor" href="/auth/login">Login</a>
 			</div>
