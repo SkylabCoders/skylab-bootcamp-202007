@@ -5,7 +5,7 @@ import ProductListItem from './ProductListItem';
 import './ProductList.css';
 
 function ProductList() {
-	const [products, setProducts] = useState(productStore.getProduct());
+	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
 		productStore.addChangeListener(onChange);
@@ -14,7 +14,7 @@ function ProductList() {
 		if (products.length === 0) loadProducts();
 		console.log(products);
 		return () => productStore.removeChangeListener(onChange);
-	}, [products, products.length]);
+	}, [products]);
 
 	function onChange() {
 		setProducts(productStore.getProduct());
