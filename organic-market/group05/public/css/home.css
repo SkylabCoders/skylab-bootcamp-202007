@@ -101,6 +101,11 @@ body {
 	background-color: rgb(206, 218, 110);
 }
 
+.cart__img {
+	margin-top: 5px;
+	width: 50%;
+}
+
 @media only screen and (min-width: 600px) {
 	.featured__container {
 		flex-direction: row;
