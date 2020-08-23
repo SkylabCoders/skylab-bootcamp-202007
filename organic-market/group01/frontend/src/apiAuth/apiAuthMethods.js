@@ -6,7 +6,7 @@ export const authMethods = {
 	},
 	createUser: async (username, password) => {
 		console.log({ username, password });
-		const devolucion = await axios.post('/api/auth/signup', {
+		const devolucion = await axios.post('/api/signup', {
 			username,
 			password
 		});
