@@ -15,12 +15,12 @@ function router(nav) {
 			(async function query() {
 				try {
 					client = await MongoClient.connect(DATABASE_CONFIG.url);
-					debug('Connection stablished...');
 
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const collection = db.collection(DATABASE_CONFIG.productCollection);
 					const products = await collection.find().limit(10).toArray();
 
+					client.close();
 					res.render('index', {
 						nav,
 						body: ROUTES.topProducts.page,
