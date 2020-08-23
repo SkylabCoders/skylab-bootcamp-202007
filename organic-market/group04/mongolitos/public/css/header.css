@@ -111,6 +111,17 @@
     color: #636363
 }
 
+.btn__search {
+    display: inline-block;
+    align-items: center;
+    background-color: #fff;
+}
+
+.btn__search {
+    border: none;
+    background-color: #fff;
+}
+
 .icon__search {
     background-image: url(../img/search.svg);
     background-position: center;
