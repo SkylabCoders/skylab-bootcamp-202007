@@ -5,28 +5,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Food Dashboard</title>
-	<link rel="stylesheet" href="/css/header.css" />
+	<link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/foodList.css">
+    <link rel="stylesheet" href="../../css/header.css">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Noto+Serif:wght@400;700&display=swap"
 		rel="stylesheet">
 </head>
 
-<body class="body">
-	<%- include('header')%>
-	<h3><%= title %></h3>
-	<div class="grid grid-pad">
-		<% for(let i=0; i<products.length; i++){ %>
-			<a href="/products/<%=products[i]._id%>" class="col-1-4">
-				<div >
-					<img src="<%= products[i].img %>"/>
-					<h3><%= products[i].type %></h3>
-					<h2><%= products[i].title %></h2>
-					<h4><%= products[i].price %>€</h4>
-					
-				</div>
-			</a>
-			<% } %>
-	</div>    
+<body>
+    <%- include('header')%>
+
+    <ul class="container-products">
+        <% for(let i = 0; i< products.length; i++) { %>
+        <li class="products-card">
+            <a href="/products/<%=products[i]._id%>">
+                <img class="image__product box-image" src="<%= products[i].img %>">
+                <p class="text__type"><%=products[i].type%></p>
+                <p class="text__title"><%= products[i].title%></p>
+            </a>
+            <div>
+                <p class="text__price"><%= products[i].price%> € </p>
+                <form method="POST" action="/products/<%=products[i]._id%>">
+                    <button class="button__addCart">Add to cart</button>
+                </form>
+            </div>
+        </li>
+        <% } %>
+    </ul>
 </body>
 
 </html>
