@@ -37,10 +37,10 @@ function router(nav) {
 		.route('/cart')
 		.all((req, res, next) => {
 			if (req.user) {
-		 		next();
-		 	} else {
-		 		res.redirect('/auth/signin');
-		 	}
+				next();
+			} else {
+				res.redirect('/auth/signin');
+			}
 		})
 		.get((req, res) => {
 			const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
@@ -57,16 +57,16 @@ function router(nav) {
 
 					const cartProducts = await collection.find().toArray();
 
-					
+
 
 					console.log(cartItems);
 
-					for(let i = 0;i < cartItems.length; i++){
+					for (let i = 0; i < cartItems.length; i++) {
 						const result = collection.findOne(cartItems[i].product);
 						console.log(result);
 					}
 
-					
+
 
 					res.render('cart', { nav, cartItems });
 				} catch (error) {
@@ -135,18 +135,16 @@ function router(nav) {
 
 					const cart = {
 						"user": _id,
-						"product": [{ "idProduct": identifyProduct, amount: req.body.amount }]
+						"product": [{ "productId": identifyProduct, amount: req.body.amount }]
 					}
 
-					const query = await cartNameCollection.findOne({ user: _id })
+					const query = await cartNameCollection.findOne({ user: _id });
 
 					if (query) {
-						await cartNameCollection.updateOne({ user: _id }, { $set: { product: { productId: identifyProduct, amount: req.body.amount } } });
+						await cartNameCollection.updateOne({ user: _id }, { $push: { product: { productId: identifyProduct, amount: req.body.amount } } });
 					} else {
 						await cartNameCollection.insertOne(cart);
 					}
-					
-					res.redirect('/products/');
 
 				} catch (error) {
 					debug(error.stack);
@@ -154,9 +152,9 @@ function router(nav) {
 
 				client.close();
 			}())
-		});		
-		
-		return foodRoutes;
+		});
+
+	return foodRoutes;
 }
 
 module.exports = router;
