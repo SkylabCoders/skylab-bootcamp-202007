@@ -42,15 +42,15 @@ const nav = [
 
 const topProducts = require('./src/routes/topProductsRoutes')(nav);
 
-app.use('/', topProducts);
+app.use('/top', topProducts);
 
 const productRoutes = require('./src/routes/productRoutes')(nav);
 
 app.use('/products', productRoutes);
 
-const adminProductsRoutes = require('./src/routes/adminProductRoutes')(nav);
+const adminRoutes = require('./src/routes/adminRoutes')(nav);
 
-app.use('/admin/products', adminProductsRoutes);
+app.use('/admin', adminRoutes);
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 
