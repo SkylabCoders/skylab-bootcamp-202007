@@ -72,17 +72,57 @@ function router(nav) {
 
 					await collection.update({ username }, { $pull: { cart: { _id } } });
 
-<<<<<<< HEAD
-=======
-					// delete item
-
->>>>>>> 792d644c1a35af3e62aba474e23446c2623f3189
 					res.redirect('/user/cart');
 				} catch (error) {
 					debug(error.stack);
 				} finally {
 					client.close();
 				}
+			})();
+		});
+
+	appRoute
+		.route('/cart/checkout')
+		.all((req, res, next) => {
+			if (!req.user) {
+				res.redirect('/auth/login');
+			} else {
+				next();
+			}
+		})
+		.post((req, res) => {
+			let client = null;
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(MONGO.url);
+					const db = client.db(MONGO.dbName);
+					const collection = db.collection(MONGO.usersCollection);
+
+					// Read user actualCart
+					const [{ cart }] = await collection
+						.find({ _id: new ObjectID(req.user._id) })
+						.toArray();
+
+					// Add actualCart to user history
+					cart.forEach(async (item) => {
+						await collection.updateOne(
+							{ _id: new ObjectID(req.user._id) },
+							{ $push: { history: item } }
+						);
+					});
+
+					// Reset shopping cart
+					await collection.updateOne(
+						{ _id: new ObjectID(req.user._id) },
+						{ $set: { cart: [] } }
+					);
+
+					res.redirect('/user/historial');
+				} catch (error) {
+					debug(error.stack);
+				}
+
+				client.close();
 			})();
 		});
 
@@ -154,6 +194,15 @@ function router(nav) {
 			}
 		});
 
+	appRoute.route('/historial').get((req, res) => {
+		if (!req.user) {
+			res.redirect('/auth/login');
+		} else {
+			const items = req.user.history;
+			res.render('historial', { nav, items });
+		}
+	});
+
 	appRoute
 		.route('/detail/:productId')
 		.all((req, res, next) => {
@@ -176,14 +225,6 @@ function router(nav) {
 			const [item] = res.item;
 			res.render('detail', { nav, item });
 		});
-	appRoute.route('/historial').get((req, res) => {
-		if (!req.user) {
-			res.redirect('/auth/login');
-		} else {
-			const items = req.user.history;
-			res.render('historial', { nav, items });
-		}
-	});
 
 	return appRoute;
 }
