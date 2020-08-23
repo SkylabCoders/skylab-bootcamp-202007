@@ -37,10 +37,8 @@ function router(nav) {
 
 			(async function mongo() {
 				try {
-					debug('before.....');
 					client = await MongoClient.connect(MONGO.url);
 
-					debug('afeter.........');
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.itemsCollection);
 
