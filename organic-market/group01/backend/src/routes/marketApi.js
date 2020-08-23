@@ -13,7 +13,7 @@ function router(nav) {
 			(async function productList() {
 				const productList = await getAllProducts();
 
-				res.send(productList)();
+				res.json(productList)();
 			})();
 		})
 		.post((req, res) => {
