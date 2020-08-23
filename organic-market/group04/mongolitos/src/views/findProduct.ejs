@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongolitos</title>
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/foodList.css">
+    <link rel="stylesheet" href="../../css/header.css">
+</head>
+
+<body>
+    <%- include('header')%>
+    <h1>Products find</h1>
+    <ul class="container-products">
+        <% for(let i = 0; i< findProduct.length; i++) { %>
+        <li class="products-card">
+            <a href="/products/<%=findProduct[i]._id%>">
+                <img class="image__product box-image" src="<%= findProduct[i].img %>">
+                <p class="text__type"><%=findProduct[i].type%></p>
+                <p class="text__title"><%= findProduct[i].title%></p>
+            </a>
+            <div>
+                <p class="text__price"><%= findProduct[i].price%> € </p>
+                <form method="POST" action="/products/<%=findProduct[i]._id%>">
+                    <button class="button__addCart">Add to cart</button>
+                </form>
+            </div>
+        </li>
+        <% } %>
+    </ul> 
+</body>
+
+</html>
