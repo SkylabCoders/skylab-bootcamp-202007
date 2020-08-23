@@ -172,6 +172,8 @@ function router(nav) {
 			const { updatedPrice } = req.body;
 			const { updatedTitle } = req.body;
 			const { updatedDescription } = req.body;
+			const { updatedRating } = req.body;
+			const { updatedFilename } = req.body;
 
 			let client;
 
@@ -192,6 +194,14 @@ function router(nav) {
 					await collection.updateOne(
 						{ title },
 						{ $set: { description: updatedDescription } }
+					);
+					await collection.updateOne(
+						{ title },
+						{ $set: { rating: updatedRating } }
+					);
+					await collection.updateOne(
+						{ title },
+						{ $set: { filename: updatedFilename } }
 					);
 				} catch (error) {
 					debug(error);
