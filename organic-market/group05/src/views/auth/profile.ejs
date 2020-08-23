@@ -10,27 +10,33 @@
 	</head>
 	<body>
 		<%- include('../header'); -%>
-		<main>
-			<div class="profile__container">
-				<h1 class="profile__title">PROFILE</h1>
-				<div class="profile__text">name: <%= user.user.toUpperCase()%></div>
-				<form action="/auth/profile" method="POST">
-					<div class="profile__password">
-						<div class="password profile__text">password</div>
-						<input
-							class="profile__input"
-							type="text"
-							name="password"
-							value="<%= user.password %>"
-						/>
+		<main class="profile__container">
+			<div class="profile__user">
+				<div class="profile__header">
+					<h1 class="profile__title"><%= user.user%> Profile</h1>
+					<form action="/auth/signout" method="POST">
+						<button class="auth__logout" type="submit">Sign out</button>
+					</form>
+				</div>
 
-						<button type="submit" class="button">Save</button>
-					</div>
+				<div class="profile__username">
+					<label for="user">Username</label><br />
+					<input type="text" name="user" value="<%= user.user%>" disabled />
+				</div>
+				<form class="profile__password" action="/auth/profile" method="POST">
+					<label for="password">Password</label><br />
+					<input type="text" name="password" value="" />
+					<button type="submit" class="auth__button">Update password</button>
 				</form>
-				<div class="profile__text">user-type: <%=user.usertype%></div>
-				<form action="/auth/signout" method="POST">
-					<button class="signout__button button" type="submit">Sign out</button>
-				</form>
+				<div class="profile__usertype">
+					<label for="usertype">User type</label><br />
+					<input type="text" name="user" value="<%=user.usertype%>" disabled />
+				</div>
+				<form action="/auth/signout" method="POST"></form>
+			</div>
+
+			<div class="profile__history">
+				Compras
 			</div>
 		</main>
 		<%- include('../footer'); -%>

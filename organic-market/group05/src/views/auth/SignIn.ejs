@@ -10,9 +10,12 @@
 	</head>
 	<body>
 		<%- include('../header'); -%>
-		<main>
+		<main class="signin__container">
 			<h2>
-				Login or <a href="/auth/signup"><button>Register</button></a>
+				Login or
+				<a href="/auth/signup"
+					><button class="auth__button">Register</button></a
+				>
 			</h2>
 			<form action="/auth/signin" method="POST">
 				<div>
@@ -27,7 +30,7 @@
 						<input type="text" name="password" />
 					</label>
 				</div>
-				<button type="submit">Login</button>
+				<button class="auth__button" type="submit">Login</button>
 			</form>
 		</main>
 		<%- include('../footer'); -%>

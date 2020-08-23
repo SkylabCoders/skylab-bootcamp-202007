@@ -57,7 +57,6 @@ function router(nav) {
 				res.redirect('/auth/signin');
 			}
 		} else if (finder) {
-			const finderSubString = finder[0];
 			const url =
 				'mongodb+srv://admin:admin1234@cluster0.rpj2g.mongodb.net/organics?retryWrites=true&w=majority';
 			const dbName = 'organics';
@@ -71,19 +70,13 @@ function router(nav) {
 					const products = await collection.find().toArray();
 					const foundProducts = products.filter(
 						(element) =>
-							element.title
-								.toLowerCase()
-								.includes(finderSubString.toLowerCase()) ||
-							element.type
-								.toLowerCase()
-								.includes(finderSubString.toLowerCase()) ||
-							element.description
-								.toLowerCase()
-								.includes(finderSubString.toLowerCase())
+							element.title.toLowerCase().includes(finder.toLowerCase()) ||
+							element.type.toLowerCase().includes(finder.toLowerCase()) ||
+							element.description.toLowerCase().includes(finder.toLowerCase())
 					);
 					// debug('FOUND PRODUCTS ------->', foundProducts);
 					// debug('PRODUCTS -------------->', products);
-					// debug('FINDER SUBSTRING -------------->', finderSubString);
+					debug('FINDER SUBSTRING -------------->', finder);
 					res.render('find', {
 						nav,
 						foundProducts,
