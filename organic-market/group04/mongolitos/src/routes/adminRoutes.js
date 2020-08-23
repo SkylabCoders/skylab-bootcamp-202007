@@ -6,12 +6,12 @@ const adminRoutes = express.Router();
 
 function router(nav) {
 	adminRoutes
-		.route('/')
+		.route('/crud')
 		.all((req, res, next) => {
             if (req.user.admin === true) {
                 next();
             } else {
-                res.redirect('/user/list');
+                res.redirect('/admin/crud');
             }
         })
 		.get((req, res) => {
@@ -44,6 +44,7 @@ function router(nav) {
 			const collectionName = 'products';
 			let client;
 			const { deleteProduct } = req.body;
+			
 			(async function mongo() {
 				try {
 					client = await MongoClient.connect(url);
