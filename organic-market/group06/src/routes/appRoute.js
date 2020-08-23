@@ -6,11 +6,7 @@ const MONGO = require('../../public/mongoConstants');
 const appRoute = express.Router();
 function findWithAttr(array, attr, value) {
 	let index = -1;
-<<<<<<< HEAD
-	for (var i = 0; i < array.length; i += 1) {
-=======
 	for (let i = 0; i < array.length; i += 1) {
->>>>>>> 97daa0faf22d97a41c68a2024f674e583848cdae
 		if (array[i][attr] === value) {
 			index = i;
 		}
@@ -100,11 +96,7 @@ function router(nav) {
 		})
 		.get((req, res) => {
 			let items = res.items;
-<<<<<<< HEAD
-			res.render('list', { items });
-=======
 			res.render('list', { items, nav });
->>>>>>> 97daa0faf22d97a41c68a2024f674e583848cdae
 		})
 		.post((req, res) => {
 			const itemId = req.body.product;
