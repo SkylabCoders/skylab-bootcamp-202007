@@ -35,7 +35,13 @@ function addProductToCart(userId, addedProductId, username, quantity) {
 function router(nav) {
 	productRoutes
 		.route('/')
-
+		.all((req, res, next) => {
+			if (req.user.type === 'user') {
+				next();
+			} else {
+				res.redirect(ROUTES.adminProducts.path);
+			}
+		})
 		.post((req, res) => {
 			const { addedProductId } = req.body;
 			const { username } = req.user;
