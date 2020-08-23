@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app:appRoute');
 const { MongoClient, ObjectID } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
+const { dbName } = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
 function findWithAttr(array, attr, value) {
@@ -49,7 +50,7 @@ function router(nav) {
 			})();
 		})
 		.post((req, res) => {
-			//const user = req.user
+			const { user } = req.user;
 			const username = 'gerard';
 			let client = null;
 			let { _id } = req.body;
@@ -77,7 +78,6 @@ function router(nav) {
 	appRoute
 		.route('/list')
 		.all((req, res, next) => {
-			//const { _id } = req.user;
 			let client;
 			(async function mongo() {
 				try {
@@ -85,7 +85,7 @@ function router(nav) {
 
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.itemsCollection);
-					res.items = await collection.find({}).toArray();
+					res.itemsList = await collection.find({}).toArray();
 				} catch (error) {
 					debug(error.stack);
 				}
@@ -95,12 +95,15 @@ function router(nav) {
 			})();
 		})
 		.get((req, res) => {
-			let items = res.items;
+			const items = res.itemsList;
 			res.render('list', { items, nav });
 		})
 		.post((req, res) => {
+			if (!req.user) {
+				res.redirect('/auth/login');
+			}
 			const itemId = req.body.product;
-			const user = req.user;
+			debug(req.user);
 			let client;
 			(async function mongo() {
 				try {
@@ -112,34 +115,35 @@ function router(nav) {
 						.find({ _id: new ObjectID(itemId) })
 						.toArray();
 
-					let quantity = 1;
+					const quantity = 1;
 					const { _id, title, description, price, rating } = itemarr[0];
 					const item = { _id, title, description, price, rating, quantity };
 
-					const isInCart = findWithAttr(user.cart, '_id', '' + item._id);
+					const isInCart = findWithAttr(req.user.cart, '_id', '' + item._id);
 
-					if (isInCart === -1)
+					if (isInCart === -1) {
+						req.user.cart = [...req.user.cart, item];
 						await collectionUsers.updateOne(
-							{ _id: new ObjectID(user._id) },
-							{ $set: { cart: [...user.cart, item] } }
+							{ _id: new ObjectID(req.user._id) },
+							{ $set: { cart: req.user.cart } }
 						);
-					else {
-						user.cart[isInCart].quantity += 1;
+					} else {
+						req.user.cart[isInCart].quantity += 1;
 						await collectionUsers.updateOne(
-							{ _id: new ObjectID(user._id) },
-							{ $set: { cart: [...user.cart] } }
+							{ _id: new ObjectID(req.user._id) },
+							{ $set: { cart: [...req.user.cart] } }
 						);
 					}
 				} catch (error) {
 					debug(error.stack);
 				}
-				res.redirect('/users/list');
+				res.redirect('/user/list');
 				client.close();
 			})();
 		});
 
 	appRoute
-		.route('detail/:productId')
+		.route('/detail/:productId')
 		.all((req, res, next) => {
 			let client;
 			const id = req.params.productId;
@@ -149,18 +153,17 @@ function router(nav) {
 					debug('Connection stablished...');
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.itemsCollection);
-					const item = await collection.find({ _id: new ObjectID(id) }).toArray;
-					[res.item] = item;
+					res.item = await collection.find({ _id: new ObjectID(id) }).toArray();
+					next();
 				} catch (error) {
 					debug(error.stack);
 				}
 				client.close();
 			})();
-			next();
 		})
 		.get((req, res) => {
-			res.send('hi im details');
-			// res.render('detail', { nav, item: res.item });
+			[item] = res.item;
+			res.render('detail', { nav, item: item });
 		});
 
 	return appRoute;
