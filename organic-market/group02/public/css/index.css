@@ -204,6 +204,7 @@ a.productlist__itemContent:focus,
 a.productlist__itemContent:active,
 a.productlist__itemContent:visited
 {
+	display: inline-block;
 	text-decoration: none;
 	color: var(--cTxtMain);
 }
@@ -226,6 +227,8 @@ a.productlist__itemContent:visited
 }
 .itemContent__text{
 	padding: 0 1.5rem;
+	width: 100%;
+	flex-grow: 2.2;
 }
 .itemContent__subtitle{
 	display: flex;
@@ -247,7 +250,7 @@ a.productlist__itemContent:visited
 	padding: 0;
 	border: 0;
 	display: inline-block;
-	width: 100px;
+	width: 170px;
 }
 .delete__productFromList{
 	color: var(--cTxtMain);
@@ -260,6 +263,47 @@ a.productlist__itemContent:visited
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
+}
+
+/* forms */
+input,
+select,
+textarea,
+button{
+	box-sizing: border-box;
+}
+input,
+select,
+textarea{
+	background: transparent;
+	border: 1px solid var(--cSmooth);
+	border-radius: .25rem;
+}
+input:focus,
+select:focus,
+textarea:focus{
+	background: transparent;
+	border: 1px solid var(--cHighlight);
+	box-shadow: .05rem .05rem .05rem var(--cSmooth);
+	border-radius: .25rem;
+}
+.product__action{
+	width: 120px;
+	padding: .25rem .75rem;
+	margin: .25rem 0;
+}
+.action__button{
+	background: var(--cHighlight);
+	color: var(--cTxtMain);
+	font-weight: bold;
+	border: 1px solid var(--cSmooth);
+	border-radius: .25rem;
+}
+.action__button:focus{
+	background: var(--cComplementary);
+	color: var(--cTxtWhite);
+	border: 1px solid var(--cTxtWhite);
+	box-shadow: .05rem .05rem .05rem var(--cSmooth);
 }
 
 /* navigation */
@@ -276,6 +320,7 @@ a:active{
 }
 
 /* HeroDetailComponent's private CSS styles */
+
 label.herodetail {
 	display: inline-block;
 	width: 3em;
@@ -307,7 +352,7 @@ button.herodetail:disabled {
 }
 
 /* Products list */
-
+input,
 button {
 	cursor: pointer;
 	cursor: hand;
@@ -330,5 +375,5 @@ button > a:focus,
 button > a:active,
 button > a:visited {
 	text-decoration: none;
-	color: black;
+	color: var(--cTxtMain);
 }
