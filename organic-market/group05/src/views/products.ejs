@@ -23,7 +23,9 @@
 				</form>
 				<% } %>
 			<% products.forEach(product => { %>
-			<div class="products">
+
+				<div class="products">
+
 				<div class="products__header">
 					<img
 						class="products__img"
@@ -61,8 +63,24 @@
 							</button>
 						</form>
 					</div>
+					<% if ( user && user.usertype === 'admin') {%>
+						<form method="POST">
+							<button
+								class="deleteproduct"
+								name="deleteproduct"
+								title="Delete Product"
+								type="submit"
+								value="<%= product._id %>"
+							>
+								-
+							</button>
+						</form>
+						<% } %>
+
 				</div>
+			
 			</div>
+			
 			<% }) %>
 		</main>
 		<%- include('footer'); -%>
