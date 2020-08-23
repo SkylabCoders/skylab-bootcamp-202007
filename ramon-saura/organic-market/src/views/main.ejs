@@ -12,7 +12,7 @@
 			<ul class="heroes">
 				<% for(let i = 0; i<marketList.length; i++){%>
 					<li>
-						<a href="/<%=marketList[i]._id%>">
+						<a href="/marketList/<%=marketList[i]._id%>">
 							<span class="badge"><%= marketList[i].price %>€</span> <%= marketList[i].title %>
 						</a>
 						<form action="/" method="POST">

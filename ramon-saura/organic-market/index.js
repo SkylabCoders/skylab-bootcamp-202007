@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const debug = require('debug');
+const debug = require('debug')('index');
 const chalk = require('chalk');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -16,7 +16,13 @@ index.use(express.static(path.join(__dirname, 'public')));
 index.use(bodyParser.json());
 index.use(bodyParser.urlencoded({ extended: false }));
 index.use(coockieParser());
-index.use(expressSession({ secret: 'marketList' }));
+index.use(
+	expressSession({
+		secret: 'marketList',
+		resave: true,
+		saveUninitialized: true
+	})
+);
 require('./src/config/passport')(index);
 
 index.set('view engine', 'ejs');
@@ -32,11 +38,11 @@ const mainRoutes = require('./src/routes/mainRoutes')(nav);
 
 index.use('/', mainRoutes);
 
-const marketListRoutes = require('./src/routes/marketListRoutes')();
+const marketListRoutes = require('./src/routes/marketListRoutes')(nav);
 
 index.use('/marketList', marketListRoutes);
 
-const authRoutes = require('./src/routes/authRoutes')();
+const authRoutes = require('./src/routes/authRoutes')(nav);
 
 index.use('/auth', authRoutes);
 
