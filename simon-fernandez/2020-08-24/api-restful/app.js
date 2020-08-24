@@ -1,9 +1,13 @@
 const express = require('express');
 const debug = require('debug')('app');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const app = express();
-const { PORT } = process.env;
+const { PORT } = process.env || 3000;
+
+app.unsubscribe(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const db = mongoose.connect('mongodb://localhost:27017/heroAPI');
 
