@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 const express = require('express');
 const debug = require('debug')('app:appRoute');
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient, ObjectID, ObjectId } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
@@ -193,34 +193,34 @@ function router(nav) {
 				})();
 			}
 		});
-	appRoute
-		.route('/search')
-		.post((req, res) => {
-			let client;
-			let items
-			(async function mongo() {
-				try {
-					client = await MongoClient.connect(MONGO.url);
+	appRoute.route('/search').post((req, res) => {
+		let client;
+		let items;
+		(async function mongo() {
+			try {
+				client = await MongoClient.connect(MONGO.url);
 
-					const db = client.db(MONGO.dbName);
-					const collection = db.collection(MONGO.itemsCollection);
-					const itemsList = await collection.find({}).toArray();
-					items = itemsList.reduce((acc, curr) => {
-						debug(req.body.search.toLowerCase())
-						if (curr.title.toLowerCase().includes(req.body.search.toLowerCase())) {
-							return [...acc, curr]
-						}
-						return acc
-					}, []);
-					debug(items)
-				} catch (error) {
-					debug(error.stack);
-				}
+				const db = client.db(MONGO.dbName);
+				const collection = db.collection(MONGO.itemsCollection);
+				const itemsList = await collection.find({}).toArray();
+				items = itemsList.reduce((acc, curr) => {
+					debug(req.body.search.toLowerCase());
+					if (
+						curr.title.toLowerCase().includes(req.body.search.toLowerCase())
+					) {
+						return [...acc, curr];
+					}
+					return acc;
+				}, []);
+				debug(items);
+			} catch (error) {
+				debug(error.stack);
+			}
 
-				client.close();
-				res.render('list', { items, nav })
-			})();
-		})
+			client.close();
+			res.render('list', { items, nav });
+		})();
+	});
 
 	appRoute.route('/historial').get((req, res) => {
 		if (!req.user) {

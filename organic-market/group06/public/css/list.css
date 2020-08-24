@@ -22,10 +22,9 @@
 
 .list-card-stacked {
   width: 100%; }
-
-.list-card-stacked form {
-  display: flex;
-  justify-content: flex-end; }
+  .list-card-stacked form {
+    display: flex;
+    justify-content: flex-end; }
 
 .list-button {
   background-color: #f3e367;

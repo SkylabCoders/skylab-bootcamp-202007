@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 	res.redirect('/auth/login');
 });
 
-const dbRoutes = require('./src/routes/dbRoutes')(nav);
+const dbRoutes = require('./src/routes/dbRoutes')();
 app.use('/db', dbRoutes);
 
 const appRoute = require('./src/routes/appRoute')(nav);
