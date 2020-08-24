@@ -43,7 +43,7 @@ function router(nav) {
           const db = client.db(DATABASE_CONFIG.dbName);
           const colection = db.collection(DATABASE_CONFIG.productCollection);
 
-          products = await colection.find().sort({ name: 1 }).toArray();
+          let products = await colection.find().sort({ name: 1 }).toArray();
           client.close();
 
           res.render('index', {

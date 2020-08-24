@@ -93,9 +93,6 @@ footer,
 header {
 	padding: .85rem 0;
 }
-nav {
-	padding: .5rem 0 1rem 0;
-}
 header h1 {
 	font-family: var(--fRoboto);
 	font-size: 2rem;
@@ -172,6 +169,7 @@ nav {
 	flex-direction: row;
 	justify-content: space-around;
 	align-content: center;
+	padding: .5rem 0 1rem 0;
 }
 
 nav a,
@@ -335,7 +333,6 @@ input.herodetail {
 }
 button.herodetail {
 	margin-top: 20px;
-	font-family: Arial;
 	background-color: #eee;
 	border: none;
 	padding: 5px 10px;

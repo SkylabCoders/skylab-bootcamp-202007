@@ -21,7 +21,7 @@ function router() {
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 
-					products = await colection.find({ type: category }).skip(page * PAGINATION_PARAMETERS.apiItemsPerPage).limit(PAGINATION_PARAMETERS.apiItemsPerPage).sort({ title: 1 }).toArray();
+					let products = await colection.find({ type: category }).skip(page * PAGINATION_PARAMETERS.apiItemsPerPage).limit(PAGINATION_PARAMETERS.apiItemsPerPage).sort({ title: 1 }).toArray();
 
 					const result = JSON.stringify(products);
 					client.close();
@@ -45,7 +45,7 @@ function router() {
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 
-					categoryList = await colection.distinct('type').toArray();
+					let categoryList = await colection.distinct('type').toArray();
 
 					const result = JSON.stringify({ categories: categoryList });
 					client.close();
@@ -70,7 +70,7 @@ function router() {
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const colection = db.collection(DATABASE_CONFIG.productCollection);
 
-					products = await colection.find({ _id: ObjectID(productId) }).toArray();
+					let products = await colection.find({ _id: ObjectID(productId) }).toArray();
 
 					const result = JSON.stringify(products);
 					client.close();
