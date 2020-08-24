@@ -10,7 +10,6 @@ h1 {
   display: flex;
   flex-direction: row; }
 
-.list-button,
 .list-button {
   background-color: #f3e367;
   border: none;

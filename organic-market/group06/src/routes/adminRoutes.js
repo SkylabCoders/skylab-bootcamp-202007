@@ -2,7 +2,7 @@ const express = require('express');
 
 const debug = require('debug')('app:adminRoute');
 
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 const MONGO = require('../../public/mongoConstants');
 
@@ -42,7 +42,7 @@ function router(nav) {
 					const db = client.db(MONGO.dbName);
 					const collection = db.collection(MONGO.itemsCollection);
 
-					const response = await collection.insertOne({
+					await collection.insertOne({
 						title,
 						type,
 						description,
