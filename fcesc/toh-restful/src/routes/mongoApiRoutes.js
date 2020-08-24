@@ -4,10 +4,10 @@ const { MongoClient, ObjectID } = require('mongodb');
 const DATABASE_CONFIG = require('../../database/DATABASE_CONFIG');
 const DB_PARAMETERS = require('../../database/DB_PARAMETERS');
 
-const apiRoutes = express.Router();
+const mongoApiRoutes = express.Router();
 
 function router() {
-	apiRoutes
+	mongoApiRoutes
 		.route('/products/:category/:page')
 		.get((req, res) => {
 			(async function getAllPaginatedProductsByCategory() {
@@ -33,7 +33,7 @@ function router() {
 			})();
 		});
 
-	apiRoutes
+	mongoApiRoutes
 		.route('/info')
 		.get((req, res) => {
 			(async function APIgetAllCategories() {
@@ -57,7 +57,7 @@ function router() {
 			})();
 		});
 
-	apiRoutes
+	mongoApiRoutes
 		.route('/product/:productId')
 		.get((req, res) => {
 			(async function APIgetOneProductById() {
@@ -82,7 +82,7 @@ function router() {
 			})();
 		});
 
-	return apiRoutes;
+	return mongoApiRoutes;
 }
 
 module.exports = router;
