@@ -1,4 +1,5 @@
 const express = require('express');
+const debug = require('debug');
 
 const heroRouter = express.Router();
 
@@ -23,67 +24,56 @@ function routes(Heroes) {
 				res.json(heroes);
 			});
 		});
+	// middleware
 
 	heroRouter
 		.route('/:heroId')
-		.put((req, res) => {
-			//obtener el heroe
-			// obtener los nuevos valores
-			//guardar los valores actualizados
+		.all((req, res, next) => {
 			Heroes.findById(req.params.heroId, (error, hero) => {
 				if (error) {
 					res.send(error);
 				}
+				debug(hero);
 				if (hero) {
-					hero.name = req.body.name;
-					hero.save((err) => {
-						res.send(err);
-					});
+					req.hero = hero;
+					next();
 				}
+			});
+		})
+		.put((req, res) => {
+			const { hero } = req;
+			hero.name = req.body.name;
+			hero.save((err) => {
+				if (err) res.send(err);
+				res.json(hero);
 			});
 		})
 		.patch((req, res) => {
-			Heroes.findById(req.params.heroId, (error, hero) => {
-				if (error) {
-					res.send(error);
-				}
-				if (hero) {
-					Object.entries(req.body).forEach((item) => {
-						const key = item[0];
-						const value = item[1];
-						hero[key] = value;
-					});
-					hero.save((err) => {
-						if (err) {
-							res.send(err);
-						}
-						res.json(hero);
-					});
-				}
+			const { hero } = req;
+			Object.entries(req.body).forEach((item) => {
+				const key = item[0];
+				const value = item[1];
+				hero[key] = value;
 			});
-		})
-		.delete((req, res) => {
-			Heroes.findById(req.params.heroId, (error, hero) => {
-				if (error) {
-					res.send(error);
-				}
-				if (hero) {
-					hero.remove((err) => {
-						if (err) {
-							res.send(err);
-						}
-						res.sendStatus(204);
-					});
-				}
-			});
-		})
-		.get((req, res) => {
-			Heroes.findById(req.params.heroId, (error, hero) => {
-				if (error) {
-					res.send(error);
+			hero.save((err) => {
+				if (err) {
+					res.send(err);
 				}
 				res.json(hero);
 			});
+		})
+		.delete((req, res) => {
+			const { hero } = req;
+			hero.remove((err) => {
+				if (err) {
+					res.send(err);
+				}
+				res.sendStatus(204);
+			});
+		})
+		.get((req, res) => {
+			const { hero } = req;
+			res.json(hero);
 		});
 	return heroRouter;
 }

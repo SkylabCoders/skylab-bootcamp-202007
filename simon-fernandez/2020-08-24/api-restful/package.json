@@ -30,7 +30,6 @@
 		"ignore": [
 			"node_module/**/node_modules"
 		],
-		"delay": "2500",
 		"env": {
 			"PORT": "4200"
 		}
