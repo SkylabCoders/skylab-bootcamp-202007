@@ -62,9 +62,10 @@ function router(nav) {
           }
         } catch (error) {
           debug(error.stack);
+        } finally {
+          client.close();
         }
         debug('Connection to db closed.');
-        client.close();
       })();
 
       res.redirect(ROUTES.home.path);
@@ -120,7 +121,7 @@ function router(nav) {
         req.logout();
         next();
       } else {
-        res.redirect(ROUTES.signin.path);
+        res.redirect(ROUTES.home.path);
       }
     })
     .get((req, res) => {
@@ -128,10 +129,9 @@ function router(nav) {
         try {
           res.render('index', {
             nav,
-            body: ROUTES.signin.page,
-            title: ROUTES.signin.title,
-            ROUTES,
-            user: req.user // viene de la autorización
+            body: ROUTES.home.page,
+            title: ROUTES.home.title,
+            ROUTES
           })
         } catch (error) {
           debug(error.stack);
