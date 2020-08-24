@@ -4,9 +4,7 @@ const { Schema } = mongoose;
 
 const heroModel = new Schema({
 	id: { type: Number },
-	name: { type: String },
-	gender: { type: String },
-	alterEgo: { type: String }
+	name: { type: String }
 });
 
 module.exports = mongoose.model('heroes', heroModel);

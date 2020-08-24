@@ -1,23 +1,24 @@
 const express = require('express');
 const debug = require('debug')('app');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 const { PORT: port } = process.env;
 
-const mongoose = require('mongoose');
-const Hero = require('./models/heroMode');
+const Hero = require('./src/models/heroMode');
 
 mongoose.connect('mongodb://localhost/heroes');
 
-app.route('/heroes').get((req, res) => {
-	Hero.find({}, (err, heroes) => {
-		if (err) res.send(err);
-		res.json(heroes);
-	});
-});
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
 	res.send('My server works!');
 });
 
-app.listen(port, debug(`Server is running at port ${port}...`));
+const heroRouter = require('./src/routes/heroRoutes')(Hero);
+
+app.use('/heroes', heroRouter);
+
+app.listen(port, debug(`Server is running at port ${port}PUT...`));
