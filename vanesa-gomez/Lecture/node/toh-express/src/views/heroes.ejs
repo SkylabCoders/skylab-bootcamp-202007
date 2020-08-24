@@ -2,39 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour of Heroes</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/hero-details.css">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tour of Heroes</title>
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/heroes.css" />
 </head>
 
 <body>
-    <%- include('header'); -%>
-    <h2><%= title %></h2>
+	<%- include('header')%>
+	<h2><%= title%></h2>
 
-    <div>
-        <label>Hero name:
-            <input />
-        </label>
+	<form method="POST">
+		<label>Hero name:
+			<input name="newHero" value="" />
+		</label>
+		<button type=" submit">
+			add
+		</button>
+		<button type="submit" name="deleteAll" value="<%={}%>">
+			delete all
+		</button>
+	</form>
 
-        <button (click)="add(heroName.value); heroName.value=''">
-            add
-        </button>
-    </div>
-
-    <ul class="heroes">
-        <% for (i=0; i<heroes.length; i++) { %>
-
-        <li>
-            <a href="/heroes/<%= heroes[i].id %>">
-                <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
-            </a>
-            <button class="delete" title="delete hero">x</button>
-        </li>
-        <% } %>
-
-    </ul>
+	<ul class="heroes">
+		<% for(let i = 0; i<heroes.length; i++){%>
+		<li>
+			<a href="/heroes/<%=heroes[i]._id%>">
+				<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
+			</a>
+			<form method="POST">
+				<button type="submit" name="heroId" value="<%=heroes[i]._id%>" class="delete" title="delete hero">
+					x
+				</button>
+			</form>
+		</li>
+		<% } %>
+	</ul>
 </body>
 
 </html>

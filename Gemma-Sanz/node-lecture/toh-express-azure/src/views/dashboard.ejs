@@ -12,7 +12,7 @@
 		<h3><%= title%></h3>
 		<div class="grid grid-pad">
 			<% for(let i=0; i<heroes.length; i++){%>
-			<a href="/heroes/<%=heroes[i].id%>" class="col-1-4">
+			<a href="/heroes/<%=heroes[i]._id%>" class="col-1-4">
 				<div class="module hero">
 					<h4><%= heroes[i].name %></h4>
 				</div>
