@@ -12,7 +12,7 @@
     top: 0;
     z-index: 80;
     font-family: 'Lato', sans-serif;
-    border-bottom: 1px solid #d1d1d1
+    border-bottom: 1px solid #D1D1D1
 }
 
 .main-nav {
@@ -60,7 +60,7 @@
 }
 
 .product {
-    border-top: 0.001rem solid #d1d1d1;
+    border-top: 0.001rem solid #D1D1D1;
     font-size: .8rem;
     text-decoration: none;
     color: #000;
@@ -68,11 +68,11 @@
 }
 
 .ranking {
-    border-bottom: 0.001rem solid #d1d1d1
+    border-bottom: 0.001rem solid #D1D1D1
 }
 
 .hamburger__products a:hover {
-    color: #ffafbb
+    color: #FFAFBB
 }
 
 .icon__hamburger {
@@ -148,7 +148,7 @@
 }
 
 .icon__number {
-    background-color: #ffafbb;
+    background-color: #FFAFBB;
     color: #fff;
     width: 20px;
     height: 20px;
@@ -182,8 +182,8 @@
     }
 
     .menu__product:hover {
-        border-top: .09rem solid #ffafbb;
-        border-bottom: .09rem solid #ffafbb;
+        border-top: .09rem solid #FFAFBB;
+        border-bottom: .09rem solid #FFAFBB;
         padding: .5rem 0
     }
 }
