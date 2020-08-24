@@ -5,7 +5,7 @@ require('passport');
 const recipesRouter = express.Router();
 const debug = require('debug')('app:recipesRoutes');
 
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 function router(nav) {
 	recipesRouter
@@ -45,7 +45,6 @@ function router(nav) {
 			}
 		})
 		.post((req, res) => {
-			const { product } = req.body;
 			debug(req.body);
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organicMarket';
@@ -84,11 +83,7 @@ function router(nav) {
 
 				const collection = db.collection(collectionName);
 
-				const a = await collection.updateOne(
-					{ user },
-					{ $push: { cart: product } }
-				);
-				console.log(a.ops);
+				await collection.updateOne({ user }, { $push: { cart: product } });
 			} catch (error) {
 				debug(error.stack);
 			}
@@ -167,8 +162,8 @@ function router(nav) {
 			const collectionName = 'recipes';
 			const { title } = req.params;
 			// req.body it's undefine so we hace to search Mongo the product
-			console.log('REQ PARAMS ======>', req.params);
-			console.log('PRODUCT BODY ======>', req.body);
+			/* console.log('REQ PARAMS ======>', req.params);
+			console.log('PRODUCT BODY ======>', req.body); */
 			const { updatedPrice } = req.body;
 			const { updatedTitle } = req.body;
 			const { updatedDescription } = req.body;

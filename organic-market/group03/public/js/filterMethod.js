@@ -1,18 +1,15 @@
-let input = document.querySelector('.selectRecipes');
+const input = document.querySelector('.selectRecipes');
 let originalArray;
 let originallisRecipes;
-let originallisRecipesArray;
 
-setTimeout(function () {
+setTimeout(() => {
 	originalArray = document.querySelector('.heroes');
 	originallisRecipes = originalArray.childNodes;
-	/* originallisRecipes = originalArray.querySelectorAll('li'); */
-	/* originallisRecipesArray = Array.from(lisRecipes); */
 }, 1000);
 
 function changeArray(e) {
-	let value = e.target.value;
-	var acceptedword = new RegExp(value);
+	const { value } = e.target;
+	const acceptedword = new RegExp(value);
 
 	const recipesContainer = document.querySelector('.heroes');
 	const lisRecipes = recipesContainer.querySelectorAll('li');
@@ -22,24 +19,24 @@ function changeArray(e) {
 	);
 
 	recipesContainer.innerHTML = '';
-	for (let liRecipe of lisRecipesArrayFiltered) {
+
+	lisRecipesArrayFiltered.forEach((liRecipe) => {
 		const newLi = document.createElement('li');
 		newLi.setAttribute('class', 'jumbotron li-product');
 		const liContent = liRecipe.innerHTML;
-		const definiiveLi = (newLi.innerHTML = liContent);
+		newLi.innerHTML = liContent;
 		recipesContainer.appendChild(newLi);
-	}
+	});
 }
 
-function deleteArray() {
-	const keyName = event.key;
-	console.log(keyName);
+function deleteArray(e) {
+	const keyName = e.key;
 
 	if (keyName === 'Backspace') {
 		originallisRecipes.innerHTML = '';
 		window.location.href = '';
 
-		setTimeout(function () {
+		setTimeout(() => {
 			document.getElementById('selectRecipe').click();
 		}, 20);
 	}
