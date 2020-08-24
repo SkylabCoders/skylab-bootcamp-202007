@@ -27,8 +27,7 @@ body {
 
 .profile__user {
 	flex: 1;
-
-	width: 100%;
+	width: 90%;
 	margin: 20px;
 }
 
@@ -69,7 +68,7 @@ body {
 	}
 	.profile__user {
 		height: 100%;
-		width: 50%;
+		width: 33%;
 	}
 	.profile__history {
 		height: 100%;

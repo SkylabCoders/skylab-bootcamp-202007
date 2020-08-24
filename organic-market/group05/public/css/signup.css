@@ -25,6 +25,10 @@ body {
 	align-items: center;
 }
 
+.signup__container * {
+	margin: 5px;
+}
+
 .auth__button {
 	border: none;
 	background-color: rgb(167, 182, 113);
