@@ -21,7 +21,7 @@ const patch = (req, res) => {
 
 		Object.entries(req.body).forEach((item) => {
 			const key = item[0];
-			const value = item[0];
+			const value = item[1];
 			user[key] = value;
 		});
 		user.save((err) => {
