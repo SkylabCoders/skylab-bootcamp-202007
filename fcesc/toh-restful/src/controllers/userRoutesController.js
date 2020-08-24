@@ -1,29 +1,29 @@
-const Hero = require('../../database/models/heroModel');
+const User = require('../../database/models/userModel');
 
 const post = (req, res)=>{
-  const hero = new Hero(req.body);
+  const user = new User(req.body);
   console.log(req.body);
-  hero.save((err)=>{res.send(err)});
-  res.status(201).json(hero);
+  user.save((err)=>{res.send(err)});
+  res.status(201).json(user);
 };
 const get = (req, res)=>{
   const query = {};
   if  (req.query.id) {
     query.id = req.query.id;
-    Hero.find(query, (err, heroes)=>{
+    User.find(query, (err, Useres)=>{
       if (err) { return res.send(err) }
-      return res.json(heroes);
+      return res.json(Useres);
     })
   } else if (req.query.name) {
     query.name = req.query.name;
-    Hero.find(query, (err, heroes)=>{
+    User.find(query, (err, Useres)=>{
       if (err) { return res.send(err) }
-      return res.json(heroes);
+      return res.json(Useres);
     }) 
   } else {
-    Hero.find({}, (err, heroes)=>{
+    User.find({}, (err, Useres)=>{
       if (err) { return res.send(err) }
-      return res.json(heroes);
+      return res.json(Useres);
     })
   }
 };

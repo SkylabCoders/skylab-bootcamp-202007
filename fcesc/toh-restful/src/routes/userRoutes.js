@@ -1,18 +1,16 @@
 const express = require('express');
 const heroRoutesController = require('../controllers/heroRoutesController');
-const herolistRoutesController = require('../controllers/herolistRoutesController');
+const userRoutesController = require('../controllers/userRoutesController');
 
-const heroRoutes = express.Router();
-
-const Hero = require('../../database/models/heroModel');
+const userRoutes = express.Router();
 
 function router(){
-  heroRoutes
+  userRoutes
     .route('/')
-    .post(herolistRoutesController.post)
-    .get(herolistRoutesController.get);
+    .post(userRoutesController.post)
+    .get(userRoutesController.get);
 
-  heroRoutes
+  userRoutes
     .use('/:heroId', (req, res, next) => {
       Hero.findById(req.params.heroId, (error, hero) =>{
         if (error) { res.send(error) }
@@ -25,14 +23,14 @@ function router(){
       })
     });
 
-  heroRoutes
+  userRoutes
     .route('/:heroId')
     .put(heroRoutesController.put)
     .patch(heroRoutesController.patch)
     .delete(heroRoutesController.deleter)
     .get(heroRoutesController.get);
 
-  return heroRoutes;
+  return userRoutes;
 }
 
 module.exports = router;
