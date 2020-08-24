@@ -1,0 +1,39 @@
+{
+	"name": "toh-restful",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "set DEBUG=app,app:* & nodemon app.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"eslint": "eslint app.js --fix",
+		"lint": "eslint . --fix"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"debug": "^4.1.1",
+		"express": "^4.17.1",
+		"jest": "^26.4.2",
+		"mongoose": "^5.10.0",
+		"nodemon": "^2.0.4"
+	},
+	"devDependencies": {
+		"prettier": "^2.0.5",
+		"eslint": "^7.7.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-import": "^2.22.0"
+	},
+	"nodemonConfig": {
+		"restartable": "rs",
+		"ignore": [
+			"node_modules/**/node_modules"
+		],
+		"delay": "2500",
+		"env": {
+			"PORT": 4200
+		}
+	}
+}
