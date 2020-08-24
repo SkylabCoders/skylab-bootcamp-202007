@@ -26,7 +26,6 @@ function changeArray(e) {
 		const newLi = document.createElement('li');
 		newLi.setAttribute('class', 'jumbotron li-product');
 		const liContent = liRecipe.innerHTML;
-		const definiiveLi = (newLi.innerHTML = liContent);
 		recipesContainer.appendChild(newLi);
 	}
 }

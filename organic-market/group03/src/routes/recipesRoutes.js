@@ -45,7 +45,6 @@ function router(nav) {
 			}
 		})
 		.post((req, res) => {
-			const { product } = req.body;
 			debug(req.body);
 			const url = 'mongodb://localhost:27017';
 			const dbName = 'organicMarket';
