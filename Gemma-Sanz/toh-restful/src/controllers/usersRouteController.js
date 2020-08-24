@@ -1,20 +1,22 @@
+const User = require('../models/userModel');
+
 const get = (req, res) => {
 	const query = {};
 	if (req.query.id) {
 		query.id = req.query.id;
 	}
-	Hero.find(query, (error, heroes) => {
+	User.find(query, (error, users) => {
 		if (error) {
 			res.send(error);
 		}
-		res.json(heroes);
+		res.json(users);
 	});
 };
 
 const post = (req, res) => {
-	const hero = new Hero(req.body);
-	hero.save();
-	res.status(201).json(hero);
+	const user = new User(req.body);
+	user.save();
+	res.status(201).json(user);
 };
 
 module.exports = { get, post };

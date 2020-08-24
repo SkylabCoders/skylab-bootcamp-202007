@@ -2,6 +2,7 @@ const express = require('express');
 // const debug = require('debug')('app:heroRoutes');
 const heroRouteController = require('../controllers/heroRouteController');
 const heroesRouteController = require('../controllers/heroesRouteController');
+const Hero = require('../models/heroModel');
 const heroRouter = express.Router();
 function routes(Hero) {
 	heroRouter
