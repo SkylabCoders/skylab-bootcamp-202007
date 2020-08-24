@@ -1,0 +1,15 @@
+<div class='signin'>
+  <form action="<%=ROUTES.signin.path%>" method="POST" name="signinForm">
+    <fieldset>
+      <label for="signin__name">Username:</label>
+      <input type="text" id="signin__name" name="signin__name" value="" required/>
+      <label for="signin__password">Password:</label>
+      <input type="password" id="signin__password" name="signin__password" value="" required/>
+      
+      <button type="submit" name="signinButton">Sign in</button>
+      <button>
+        <a href="<%=ROUTES.signup.path%>">Sign up</a>
+      </button>
+    </fieldset>
+  </form>
+</div>

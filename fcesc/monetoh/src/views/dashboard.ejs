@@ -1,9 +1,9 @@
-<h3><%=title.toUpperCase()%></h3>
+<h3 class="dashboard"><%=title.toUpperCase()%></h3>
 <div class="grid grid-pad">
 	<% for ( let i = 0; i< heroes.length; i++) { %>
-	<a href="<%=ROUTES.hero.path%><%= heroes[i].slug %>" class="col-1-4">
+	<a class="dashboard" href="<%=ROUTES.hero.path%><%= heroes[i].slug %>" class="col-1-4">
 		<div class="module hero">
-			<h4><%= heroes[i].name %></h4>
+			<h4 class="dashboard"><%= heroes[i].name %></h4>
 		</div>
 	</a>
 	<% } %>

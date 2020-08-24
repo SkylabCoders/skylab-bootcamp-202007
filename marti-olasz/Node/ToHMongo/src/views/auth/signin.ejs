@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/detail.css">
+</head>
+
+<body>
+    <%- include('../header')-%>
+    <h2> <a href="/auth/signin">Signin</a> or <a href="/auth/signup">Signup</a> </h2>
+    <form action="" method="POST">
+        <div>
+            <label for="user">
+                User: <input type="text" name="user" required value="marti" />
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                Password: <input type="password" name="password" value="1234ABC%"
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$" required /> </label>
+        </div>
+        <% if(title === 'Signup'){ %>
+        <div>
+            <label for="confirmPassword">
+                Confirm password: <input type="password" name="confirmPassword" />
+            </label>
+
+        </div>
+        <% } %>
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+</html>
