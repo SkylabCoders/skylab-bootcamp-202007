@@ -3,7 +3,7 @@ const ROUTES = {
   topProducts: { path: '/', title: 'top products', page: 'top-products', nav: true },
   products: { path: '/products', title: 'products', page: 'products', nav: true },
   product: { path: '/products/', title: 'product detail', page: 'product-detail', nav: false },
-  adminProducts: { path: '/admin/products', title: 'products', page: 'products', nav: true },
+  adminProducts: { path: '/admin/products', title: 'products', page: 'admin-products', nav: true },
   adminProduct: { path: '/admin/products/', title: 'product detail', page: 'admin-product-detail', nav: false },
   signin: { path: '/auth/signin', title: 'sign in', page: 'signin', nav: false },
   signup: { path: '/auth/signup', title: 'sign up', page: 'signup', nav: false },

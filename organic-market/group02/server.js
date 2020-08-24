@@ -40,17 +40,17 @@ const nav = [
 	{ link: ROUTES.cart.path, title: 'Cart' }
 ];
 
-const topProducts = require('./src/routes/topProductsRoutes')(nav);
+const topProductRoutes = require('./src/routes/topProductRoutes')(nav);
 
-app.use('/', topProducts);
+app.use('/', topProductRoutes);
 
 const productRoutes = require('./src/routes/productRoutes')(nav);
 
 app.use('/products', productRoutes);
 
-const adminProductsRoutes = require('./src/routes/adminProductRoutes')(nav);
+const adminRoutes = require('./src/routes/adminRoutes')(nav);
 
-app.use('/admin/products', adminProductsRoutes);
+app.use('/admin', adminRoutes);
 
 const authRoutes = require('./src/routes/authRoutes')(nav);
 
@@ -59,5 +59,9 @@ app.use('/auth', authRoutes);
 const cartRoutes = require('./src/routes/cartRoutes')(nav);
 
 app.use('/cart', cartRoutes);
+
+const apiRoutes = require('./src/routes/apiRoutes')(nav);
+
+app.use('/api', apiRoutes);
 
 app.listen(port, () => debug(`Listening on port ${chalk.green(port)}`));
