@@ -6,8 +6,8 @@ const cartRoutes = express.Router();
 
 function router(nav) {
 	cartRoutes
-        .route('/')
-        .all((req, res, next) => {
+		.route('/')
+		.all((req, res, next) => {
 			if (req.user) {
 				next();
 			} else {
@@ -15,15 +15,15 @@ function router(nav) {
 			}
 		})
 		.get((req, res) => {
-
 			(async function getAllCartProducts() {
-                const url = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
-			    const dbName = 'mongoProducts';
-			    const cartCollection = 'cart';
-			    const productCollection = 'products';
-			    const userCollection = 'users';
-			    let client;
-		
+				const url =
+					'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+				const dbName = 'mongoProducts';
+				const cartCollection = 'cart';
+				const productCollection = 'products';
+				const userCollection = 'users';
+				let client;
+
 				try {
 					client = await MongoClient.connect(url);
 					const db = client.db(dbName);
@@ -31,16 +31,15 @@ function router(nav) {
 					const collection = db.collection(cartCollection);
 
 					const products = await collection.find().toArray();
-					
+
 					const [{ product }] = products;
 
 					const productIDS = [];
-					
+
 					product.forEach((element) => {
-                        
-                        productIDS.push(element.productId);
+						productIDS.push(element.productId);
 					});
-					
+
 					debug('AQUI LOS ID DE LOS PUTOS PRODUCTOS!!!', productIDS);
 
 					const productCall = db.collection(productCollection);
@@ -48,10 +47,10 @@ function router(nav) {
 					const results = await productCall.find().toArray();
 
 					results.filter((element) => {
-						if(element.ObjectID(_id) === productIDS){
-							return true;
+						if (element._id === productIDS) {
+							return false;
 						}
-					})
+					});
 
 					debug('AQUI TODOS LOS PRODUCTOS!!!', results);
 
