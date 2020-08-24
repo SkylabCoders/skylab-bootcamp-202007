@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/hero-detail.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../header') -%>
+    <h1>SIGN IN</h1>
+    <form method="POST" action="">
+        <label for="user">
+            User:
+            <input type="text" name="user" />
+        </label>
+        <br />
+        <br />
+        <label for="password">
+            Password:
+            <input type="password" name="password" required pattern="^.{8,12}$" />
+        </label>
+        <br />
+        <br />
+        <button type="submit">SignIn</button>
+        <p></p>
+    </form>
+</body>
+
+</html>

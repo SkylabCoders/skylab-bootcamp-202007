@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/css/heroes.css" type="text/css">
+<link rel="stylesheet" href="/css/index.css" type="text/css">
+
+<h1><%-include("header") -%></h1>
+
+<div>
+  <form method="POST" action="/heroes/createHero">
+    <label>name:
+      <input placeholder="name" name="newHero" />
+    </label>
+
+    <button type="submit">
+
+
+      add
+    </button>
+  </form>
+  <!-- (click) passes input value to add() and then clears the input -->
+  </form>
+</div>
+</div>
+
+<ul class=" heroes">
+  <% for(let i=0; i<heroes.length; i++) { %> <li *ngFor="let hero of heroes">
+    <a href='/heroes/<%= heroes[i]._id %>'>
+      <span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %>
+    </a>
+    <form method="POST" action="">
+      <button class="delete" name="hero" type="submit" title="delete-hero" value="<%= heroes[i]._id %>">x</button>
+    </form>
+  </li>
+  <% } %>
+</ul>
