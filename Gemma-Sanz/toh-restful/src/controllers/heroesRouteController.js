@@ -1,48 +1,22 @@
+const Hero = require('../models/heroModel');
+
 const get = (req, res) => {
-	const { hero } = req;
-	res.json(hero);
-};
-
-const put = (req, res) => {
-	const { hero } = req;
-	hero.name = req.body.name;
-	hero.save((error) => {
-		if (error) {
-			res.send(error);
-		}
-		res.json(hero);
-	});
-};
-
-const patch = (req, res) => {
-	const { hero } = req;
-
-	if (req.body._id) {
-		delete req.body._id;
+	const query = {};
+	if (req.query.id) {
+		query.id = req.query.id;
 	}
-
-	Object.entries(req.body).forEach((item) => {
-		const key = item[0];
-		const value = item[1];
-		hero[key] = value;
-	});
-	hero.save((error) => {
+	Hero.find(query, (error, heroes) => {
 		if (error) {
 			res.send(error);
 		}
-		res.json(hero);
+		res.json(heroes);
 	});
 };
 
-const deleter = (req, res) => {
-	const { hero } = req;
-
-	hero.remove((error) => {
-		if (error) {
-			res.send(error);
-		}
-		res.sendStatus(204);
-	});
+const post = (req, res) => {
+	const hero = new Hero(req.body);
+	hero.save();
+	res.status(201).json(hero);
 };
 
-module.exports = { get, put, patch, deleter };
+module.exports = { get, post };
