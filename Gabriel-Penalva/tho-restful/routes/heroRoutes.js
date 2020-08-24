@@ -1,12 +1,14 @@
-
+/* eslint-disable no-underscore-dangle */
 const express = require('express');
+const debug = require('debug')('app:heroRoutes');
+
+const heroesRouteController = require('../controllers/heroesRouteController');
 
 const heroRouter = express.Router();
 
 function routes(Hero) {
-
-    heroRouter.route('/')
-
+    heroRouter
+        .route('/')
         .post((req, res) => {
             const hero = new Hero(req.body);
             hero.save();
@@ -16,87 +18,35 @@ function routes(Hero) {
             const query = {};
             if (req.query.id) {
                 query.id = req.query.id;
-                Hero.find(query, (err, heroes) => {
-                    if (err)
-                        return res.send(err);
-                    return res.json(heroes);
-                })
-            } else if (req.query.name) {
-                query.name = req.query.name;
-                Hero.find(query, (err, heroes) => {
-                    if (err)
-                        return res.send(err);
-                    return res.json(heroes);
-                })
-            } else {
-
-                Hero.find({}, (err, heroes) => {
-                    if (err)
-                        return res.send(err);
-                    return res.json(heroes);
-                })
             }
-
-
-        })
-
-    heroRouter.route('/:heroId')
-        .patch((req, res) => {
-            Hero.findById(req.params.heroId, (error, hero) => {
-                if (error) res.send('error')
-                if (hero) {
-                    if (req.body._id) {
-                        delete req.body._id
-                    }
-                    Object.entries(req.body).forEach(element => {
-                        const key = element[0];
-                        const value = element[1];
-                        hero[key] = value;
-                    });
-                    hero.save(err => {
-                        if (err) res.send(err)
-                        res.json(hero);
-                    })
+            Hero.find(query, (error, heroes) => {
+                if (error) {
+                    res.send(error);
                 }
-
+                res.json(heroes);
             });
+        });
 
-        })
-        .delete((req, res) => {
+    heroRouter
+        .route('/:heroId')
+        .all((req, res, next) => {
             Hero.findById(req.params.heroId, (error, hero) => {
-                if (error) res.send('error')
-                if (hero) {
-                    hero.remove((err) => {
-                        if (err) res.send(err)
-                        res.sendStatus(204)
-                    })
+                if (error) {
+                    res.send(error);
                 }
-            })
-        })
-        .put((req, res) => {
-            Hero.findById(req.params.heroId, (error, hero) => {
-                if (error) res.send(error);
-                if (hero)
-                    hero.name = req.body.name;
-                hero.save(err => {
-                    if (err) res.send(err);
-                    res.json(hero)
-                });
+                if (hero) {
+                    req.hero = hero;
+                    next();
+                }
+                // res.sendStatus(404);
             });
         })
-        .get((req, res) => {
-
-            Hero.findById(req.params.heroId, (error, hero) => {
-                if (error) res.send('error')
-                res.json(hero)
-            });
-        })
-
+        .get(heroesRouteController.get)
+        .put(heroesRouteController.put)
+        .patch(heroesRouteController.patch)
+        .delete(heroesRouteController.deleter);
 
     return heroRouter;
 }
 
 module.exports = routes;
-
-
-
