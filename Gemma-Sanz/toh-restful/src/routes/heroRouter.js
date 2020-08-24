@@ -14,8 +14,7 @@ function routes(Hero) {
 		.get(heroRouteController.get);
 
 	heroRouter
-		.route('/:heroId')
-		.all((req, res, next) => {
+		.route('/:heroId', (req, res, next) => {
 			Hero.findById(req.params.heroId, (error, hero) => {
 				if (error) {
 					res.send(error);
@@ -23,8 +22,9 @@ function routes(Hero) {
 				if (hero) {
 					req.hero = hero;
 					next();
+				} else {
+					res.sendStatus(404);
 				}
-				//res.sendStatus(404);
 			});
 		})
 		.get(heroesRouteController.get)
