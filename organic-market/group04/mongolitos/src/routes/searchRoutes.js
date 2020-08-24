@@ -37,17 +37,22 @@ function router(nav) {
                                 .includes(searchWord.toLowerCase())
                     );
 
-                    debug('FOUND PRODUCTS ------->', findProduct);
-                    debug('PRODUCTS -------------->', products);
-                    debug('FINDER SUBSTRING -------------->', searchWord);
+                    if(findProduct.length !== 0) {
+                        res.render('findProduct', {
+                            nav,
+                            title: `Search product: ${searchWord}`,
+                            findProduct,
+                            user: req.user
+                        });
 
-
-					res.render('findProduct', {
-                        nav,
-                        title: `Products`,
-                        findProduct,
-                        user: req.user
-                    });
+                    } else {
+                        res.render('findProduct', {
+                            nav,
+                            title: `Sorry "${searchWord}" doesn't exist `,
+                            findProduct,
+                            user: req.user
+                        });
+                    }					
 
                 } catch (error) {
                     debug(error.stack);
