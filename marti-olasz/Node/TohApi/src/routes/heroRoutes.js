@@ -1,5 +1,8 @@
-/* eslint-disable no-param-reassign */
 const express = require('express');
+
+const deleter = require('../controllers/hero/heroDelete');
+const deleteAndCreate = require('../controllers/hero/heroPatch');
+const update = require('../controllers/hero/heroUpdate');
 
 const heroRouter = express.Router();
 
@@ -19,7 +22,6 @@ function routes(Hero) {
 				res.json(heroes);
 			});
 		});
-
 	heroRouter.use('/:id', (req, res, next) => {
 		Hero.findById(req.params.id, (err, hero) => {
 			if (err) res.send(err);
@@ -31,43 +33,10 @@ function routes(Hero) {
 	});
 	heroRouter
 		.route('/:id')
-		.put((req, res) => {
-			const { hero } = req;
-			if (hero) {
-				hero.name = req.body.name;
-				hero.save((error) => res.send(error));
-				res.send(hero);
-			}
-			res.sendStatus(404);
-		})
-		.patch((req, res) => {
-			const { hero } = req;
-			if (hero) {
-				// eslint-disable-next-line no-underscore-dangle
-				if (hero._id) delete hero._id;
-				Object.entries(req.body).forEach((item) => {
-					const key = item[0];
-					const value = item[1];
-					hero[key] = value;
-				});
-				hero.save((error) => {
-					if (error) res.send(error);
-					res.json(hero);
-				});
-			}
-		})
-		.delete((req, res) => {
-			const { hero } = req;
-			if (hero) {
-				hero.remove((error) => {
-					if (error) res.send(error);
-					res.sendStatus(204);
-				});
-			}
-		})
-		.get((req, res) => {
-			res.send(req.hero);
-		});
+		.put((req, res) => update(req, res))
+		.patch((req, res) => deleteAndCreate(req, res))
+		.delete((req, res) => deleter(req, res))
+		.get((req, res) => res.send(req.hero));
 	return heroRouter;
 }
 

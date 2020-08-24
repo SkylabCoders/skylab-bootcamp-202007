@@ -7,6 +7,7 @@ const app = express();
 const { PORT: port } = process.env;
 
 const Hero = require('./src/models/heroMode');
+const User = require('./src/models/userModel');
 
 mongoose.connect('mongodb://localhost/heroes');
 
@@ -21,4 +22,8 @@ const heroRouter = require('./src/routes/heroRoutes')(Hero);
 
 app.use('/heroes', heroRouter);
 
-app.listen(port, debug(`Server is running at port ${port}PUT...`));
+const authRouter = require('./src/routes/authRoutes')(User);
+
+app.use('/auth', authRouter);
+
+app.listen(port, debug(`Server is running at port ${port}`));
