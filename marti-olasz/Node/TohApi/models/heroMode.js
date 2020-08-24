@@ -9,4 +9,4 @@ const heroModel = new Schema({
 	alterEgo: { type: String }
 });
 
-module.exports = mongoose.model('Hero', heroModel);
+module.exports = mongoose.model('heroes', heroModel);
