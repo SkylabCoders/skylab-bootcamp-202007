@@ -2,6 +2,7 @@ import heroList from '../hero.mock';
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
 
+
 export function loadHeros() {
 
 	return new Promise((resolve) => {
@@ -24,6 +25,7 @@ export function saveHero(hero) {
 		});
 	});
 }
+
 
 export function deleteHero(id) {
 	return new Promise((resolve) => {

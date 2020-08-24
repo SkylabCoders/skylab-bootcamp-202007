@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of Heroes</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/hero-details.css">
+</head>
+
+<body>
+    <%- include('header'); -%>
+    <form action="/heroes/<%= hero && hero._id %>" method="POST" name="heroForm">
+        <h2><%= hero && hero.name %> Details</h2>
+        <div><span>id: </span><%= hero && hero.id %>
+        </div>
+        <div>
+
+            <label>
+                name:
+                <input placeholder="name" name="name" value="<%=hero && hero.name %> " />
+            </label>
+
+        </div>
+
+        <button type="button">go back</button>
+        <button type="submit">save</button>
+    </form>
+
+</body>
+
+</html>
