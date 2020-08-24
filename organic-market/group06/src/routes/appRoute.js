@@ -5,6 +5,7 @@ const { MongoClient, ObjectID } = require('mongodb');
 const MONGO = require('../../public/mongoConstants');
 
 const appRoute = express.Router();
+
 function findWithAttr(array, attr, value) {
 	let index = -1;
 	for (let i = 0; i < array.length; i += 1) {
@@ -14,6 +15,7 @@ function findWithAttr(array, attr, value) {
 	}
 	return index;
 }
+
 function router(nav) {
 	appRoute
 		.route('/cart')
@@ -41,6 +43,7 @@ function router(nav) {
 						const { quantity } = item;
 						totalItems += quantity;
 						const totalPrice = item.price * quantity;
+						// eslint-disable-next-line no-param-reassign
 						item.totalPrice = totalPrice;
 						finalPrice += totalPrice;
 					});
@@ -170,7 +173,7 @@ function router(nav) {
 						let { _id } = itemarr[0];
 						_id = String(_id);
 						const item = { _id, title, description, price, rating, quantity };
-						const isInCart = findWithAttr(req.user.cart, '_id', '' + item._id);
+						const isInCart = findWithAttr(req.user.cart, '_id', `${item._id}`);
 
 						if (isInCart === -1) {
 							req.user.cart = [...req.user.cart, item];
