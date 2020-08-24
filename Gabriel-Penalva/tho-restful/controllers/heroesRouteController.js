@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const get = (req, res) => {
     const { hero } = req;
     res.json(hero);

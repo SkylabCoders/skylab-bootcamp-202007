@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 const express = require('express');
-const debug = require('debug')('app:heroRoutes');
+// const debug = require('debug')('app:heroRoutes');
 
 const heroesRouteController = require('../controllers/heroesRouteController');
 

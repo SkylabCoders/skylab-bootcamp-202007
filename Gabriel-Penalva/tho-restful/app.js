@@ -10,7 +10,7 @@ const heroRouter = require('./routes/heroRoutes')(Hero);
 
 const app = express();
 const { PORT } = process.env || 3000;
-const db = mongoose.connect('mongodb://localhost:27017/TOH-REST')
+mongoose.connect('mongodb://localhost:27017/TOH-REST')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
