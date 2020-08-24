@@ -11,4 +11,7 @@ server.get(ROUTES.home.root, (req, res)=>{
   res.send('My server works...');
 });
 
+const productRoutes = require('./src/routes/productRoutes')(nav);
+app.use('/products', productRoutes);
+
 server.listen(port, ()=>{debug(`Listening on port, ${chalk.blueBright(port)}`)});
