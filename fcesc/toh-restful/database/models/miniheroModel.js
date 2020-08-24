@@ -7,4 +7,4 @@ const miniheroModel = new Schema({
   name: { type: String }
 });
 
-module.exports = mongoose.model('minihero', miniheroModel);
+module.exports = mongoose.model('miniheroes', miniheroModel); // collectionName, modelName
