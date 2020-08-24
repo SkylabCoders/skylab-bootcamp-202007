@@ -95,11 +95,14 @@ a {
     text-decoration: none;
 }
 
+.title__search {
+    text-align: center;
+    padding-top: 2rem;
+    font-family: 'Noto Serif', serif;
+    margin-bottom: 10px;
+}
+
 .container__back {
-    /* display: flex;
-    /* flex-direction: column; */
-    /*justify-content: center;
-    align-items: center; */
     width: 50%;
     margin: 0 auto;
 }
@@ -139,11 +142,8 @@ a {
 @media (min-width: 1024px) {
 
     .item__container {
-        width: 85vw;
-    }
-
-    .item__container {
         flex-direction: row;
+        width: 85vw;
     }
 
     .add__button {

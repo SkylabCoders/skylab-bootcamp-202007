@@ -13,7 +13,7 @@
 
 <body>
     <%- include('header')%>
-
+    <h2 class="title__search">Products</h2>
     <ul class="container-products">
         <% for(let i = 0; i< products.length; i++) { %>
         <li class="products-card">
@@ -26,9 +26,9 @@
                 <p class="text__price"><%= products[i].price%> € </p>
 
                 <form method="POST" action="/products/<%=products[i]._id%>">
-                    <button class="button__addCart">Add to cart</button>                
+                    <button class="button__addCart">Add to cart</button>
                 </form>
-           
+
             </div>
         </li>
         <% } %>

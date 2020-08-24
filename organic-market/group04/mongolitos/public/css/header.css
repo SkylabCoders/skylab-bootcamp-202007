@@ -34,9 +34,6 @@
     margin-bottom: 2px
 }
 
-.icon__ranking {
-    display: flex
-}
 
 .hamburger {
     position: relative
@@ -88,7 +85,8 @@
     font-size: 1rem;
     text-decoration: none;
     color: #000;
-    text-transform: uppercase
+    text-transform: uppercase;
+    display: flex
 }
 
 .title {
@@ -114,13 +112,9 @@
 
 .btn__search {
     display: inline-block;
-    align-items: center;
-    background-color: #fff;
-}
-
-.btn__search {
     border: none;
     background-color: #fff;
+    align-items: center;
 }
 
 .icon__search {
