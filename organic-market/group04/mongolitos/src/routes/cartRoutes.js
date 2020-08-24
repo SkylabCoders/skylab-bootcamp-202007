@@ -48,7 +48,7 @@ function router(nav) {
 					const results = await productCall.find().toArray();
 
 					results.filter((element) => {
-						if(element.id === productIDS){
+						if(element.ObjectID(_id) === productIDS){
 							return true;
 						}
 					})
