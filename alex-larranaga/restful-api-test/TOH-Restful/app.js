@@ -9,7 +9,7 @@ const { PORT } = process.env;
 const Hero = require('./src/models/heroModel');
 const User = require('./src/models/userModel');
 
-const db = mongoose.connect('mongodb://localhost/heroAPI');
+const db = mongoose.connect('mongodb://localhost/heroes');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

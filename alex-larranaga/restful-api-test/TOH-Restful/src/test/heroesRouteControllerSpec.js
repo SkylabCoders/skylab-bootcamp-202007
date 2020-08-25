@@ -28,5 +28,29 @@ describe('Heroes Controller', () => {
 				.calledWith('Name is required')
 				.should.equal(true, 'Message is not correct');
 		});
+
+		it('should respond 201 with a valid name', () => {
+			const hero = { id: 1, name: 'Bombasto' };
+			const Hero = function heroConstructor() {
+				this.save = () => {};
+			};
+
+			const req = {
+				body: { name: 'Bombasto' }
+			};
+			const res = {
+				status: sinon.spy(),
+				json: sinon.spy(),
+				send: sinon.spy()
+			};
+
+			const controller = heroesController(Hero);
+			controller.post(req, res);
+
+			res.status.calledWith(201).should.equal(true, 'Name is required');
+			res.json.calledWith(hero);
+		});
+
+		it('should show an error if something went wrong', () => {});
 	});
 });

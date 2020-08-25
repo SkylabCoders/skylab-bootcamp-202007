@@ -7,7 +7,9 @@ function heroesController(Hero) {
 			res.status(400);
 			res.send('Name is required');
 		}
-		hero.save();
+		hero.save((error, hero) => {
+			if (error) res.send(error);
+		});
 		res.status(201);
 		return res.json(hero);
 	}
