@@ -4,31 +4,40 @@ const { MongoClient } = require('mongodb');
 const passport = require('passport');
 
 const authRoutes = express.Router();
-const dbUrl = 'mongodb://localhost:27017';
-const dbName = 'shieldHeroes';
+const dbUrl = 'mongodb+srv://admin:1234Abcd!@cluster0.vdzqh.mongodb.net/mongoProducts?retryWrites=true&w=majority';
+const dbName = 'mongoProducts';
 const collectionName = 'users';
 let client;
+
 function router(nav) {
     authRoutes
     .route('/logout')
     .post((req, res) => {
         if(req.user) {
             req.logout();
-            res.redirect('/auth/signin');
+            res.redirect('/');
         }
     })
     
 	authRoutes
 		.route('/signin')
+		.all((req, res, next) => {
+            if (req.user) {
+                res.redirect('/auth/profile');
+            } else {
+                next();
+            }
+        })
 		.get((req, res) => {
-			res.render('auth/signin', { nav }); 
+			res.render('auth/signin', { nav });
 		})
 		.post(
 			passport.authenticate('local', {
-				successRedirect: '/auth/profile',
+				successRedirect: '/auth/typeprofile',
 				failureRedirect: '/auth/signin'
 			})
 		);
+		
 	authRoutes
 		.route('/signup')
 		.get((req, res) => {
@@ -73,28 +82,34 @@ function router(nav) {
 			res.render('auth/profile', { nav, user: req.user });
 		})
 		.post((req) => {
-            // destructuring de todo y cogemos el password nuevo
-            let { password } = req.body;
-            // cojo la primera posición del array que me aparece con 2 posiciones
-            [password] = password;
-            // passport que hemos puesto user.user
-            const { user } = req.user;
-            
-            (async function mongo (){
-                try {
-                    client = await MongoClient.connect(dbUrl);
+			let { password } = req.body;
+			[password] = password;
+			const { user } = req.user;
+
+			(async function mongo() {
+				try {
+					client = await MongoClient.connect(dbUrl);
 					const db = client.db(dbName);
 					const collection = db.collection(collectionName);
 
-                    // para el updateOne primero ponemos todo el objeto y luego le decimos la propiedad que queremos cambiar
-                    await collection.updateOne({user}, {$set: {password}});                        
-
-                } catch (error) {
-                    debug(error.stack);
-                }
+					await collection.updateOne({ user }, { $set: { password } });
+				} catch (error) {
+					debug(error.stack);
+				}
 				client.close();
-			}())
+			})();
 		});
+
+		authRoutes
+		.route('/typeprofile')
+		.all((req, res) => {
+			if(req.user && req.user.admin === true) {
+				res.redirect('/admin/crud')
+			} else {
+				res.redirect('/auth/profile')
+			}
+		})
+		
 	return authRoutes;
 }
 module.exports = router;
