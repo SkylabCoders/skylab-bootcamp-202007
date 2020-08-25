@@ -2,7 +2,6 @@ const User = require('../../database/models/userModel');
 
 const post = (req, res)=>{
   const user = new User(req.body);
-  console.log(req.body);
   user.save((err)=>{res.send(err)});
   res.status(201).json(user);
 };

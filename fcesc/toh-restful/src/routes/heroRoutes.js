@@ -9,11 +9,11 @@ const Hero = require('../../database/models/heroModel');
 function router(){
   heroRoutes
     .route('/')
-    .post(herolistRoutesController.post)
-    .get(herolistRoutesController.get);
+    .post(herolistRoutesController.create)
+    .get(herolistRoutesController.getList);
 
   heroRoutes
-    .use('/:heroId', (req, res, next) => {
+    .all('/:heroId', (req, res, next) => {
       Hero.findById(req.params.heroId, (error, hero) =>{
         if (error) { res.send(error) }
         if (hero) {
@@ -27,10 +27,10 @@ function router(){
 
   heroRoutes
     .route('/:heroId')
-    .put(heroRoutesController.put)
-    .patch(heroRoutesController.patch)
-    .delete(heroRoutesController.deleter)
-    .get(heroRoutesController.get);
+    .put(heroRoutesController.updateOne)
+    .patch(heroRoutesController.updateMany)
+    .delete(heroRoutesController.remove)
+    .get(heroRoutesController.read);
 
   return heroRoutes;
 }

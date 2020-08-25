@@ -1,20 +1,19 @@
-const get = (req, res) => {
+const read = (req, res) => {
 	const { hero } = req;
 	res.json(hero);
 };
 
-const put = (req, res) => {
+const updateOne = (req, res) => {
+	
 	const { hero } = req;
-	hero.name = req.body.name;
+
 	hero.save((error) => {
-		if (error) {
-			res.send(error);
-		}
+		if (error) { res.send(error);	}
 		res.json(hero);
 	});
 };
 
-const patch = (req, res) => {
+const updateMany = (req, res) => {
 	const { hero } = req;
 
 	if (req.body._id) {
@@ -27,22 +26,18 @@ const patch = (req, res) => {
 		hero[key] = value;
 	});
 	hero.save((error) => {
-		if (error) {
-			res.send(error);
-		}
+		if (error) { res.send(error);	}
 		res.json(hero);
 	});
 };
 
-const deleter = (req, res) => {
+const remove = (req, res) => {
 	const { hero } = req;
 
-	hero.remove((error) => {
-		if (error) {
-			res.send(error);
-		}
+	hero.deleteOne((error) => {
+		if (error) { res.send(error); }
 		res.sendStatus(204);
 	});
 };
 
-module.exports = { get, put, patch, deleter };
+module.exports = { read, updateOne, updateMany, remove };

@@ -1,12 +1,11 @@
 const Hero = require('../../database/models/heroModel');
 
-const post = (req, res)=>{
+const create = (req, res)=>{
   const hero = new Hero(req.body);
-  console.log(req.body);
   hero.save((err)=>{res.send(err)});
   res.status(201).json(hero);
 };
-const get = (req, res)=>{
+const getList = (req, res)=>{
   const query = {};
   if  (req.query.id) {
     query.id = req.query.id;
@@ -28,4 +27,4 @@ const get = (req, res)=>{
   }
 };
 
-module.exports = { post, get };
+module.exports = { create, getList };
