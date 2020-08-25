@@ -114,7 +114,6 @@ function router(nav) {
 				} catch (error) {
 					debug(error.stack);
 				}
-				console.log(req.fullCart);
 				res.render('auth/profile', { nav, user: req.user, cart: req.fullCart });
 			})();
 		});
