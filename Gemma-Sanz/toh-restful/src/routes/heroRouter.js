@@ -1,7 +1,7 @@
 const express = require('express');
 // const debug = require('debug')('app:heroRoutes');
-const heroRouteController = require('../controllers/heroRouteController');
-const heroesRouteController = require('../controllers/heroesRouteController');
+const heroRouteController = require('../controllers/hero/heroRouteController');
+const heroesRouteController = require('../controllers/hero/heroesRouteController');
 const Hero = require('../models/heroModel');
 const heroRouter = express.Router();
 function routes(Hero) {
