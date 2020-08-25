@@ -6,7 +6,9 @@ const get = (req, res) => {
 
 const put = (req, res) => {
     const { hero } = req;
-    hero.name = req.body.name;
+    if (req.body.name) hero.name = req.body.name;
+    else hero.user = req.body.user;
+
     hero.save((error) => {
         if (error) {
             res.send(error);

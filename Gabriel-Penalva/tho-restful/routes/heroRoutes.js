@@ -1,12 +1,14 @@
 /* eslint-disable no-underscore-dangle */
 const express = require('express');
+
 // const debug = require('debug')('app:heroRoutes');
 
 const heroesRouteController = require('../controllers/heroesRouteController');
 
-const heroRouter = express.Router();
+
 
 function routes(Hero) {
+    const heroRouter = express.Router();
     heroRouter
         .route('/')
         .post((req, res) => {
@@ -18,14 +20,25 @@ function routes(Hero) {
             const query = {};
             if (req.query.id) {
                 query.id = req.query.id;
+
+            } else if (req.query.name) {
+                query.name = req.query.name;
+
+
+            } else if (req.query.user) {
+                query.user = req.query.user;
+
             }
+
             Hero.find(query, (error, heroes) => {
-                if (error) {
-                    res.send(error);
-                }
+                if (error) res.send(error);
+
                 res.json(heroes);
-            });
-        });
+            })
+
+        })
+
+
 
     heroRouter
         .route('/:heroId')
