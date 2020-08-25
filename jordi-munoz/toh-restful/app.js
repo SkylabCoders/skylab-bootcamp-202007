@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
-const Hero = require('./src/models/heroModel');
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -16,8 +16,12 @@ app.get('/', (req, res) => {
   res.send('My server works...');
 });
 
-const heroRouter = require('./src/routes/heroRouter')(Hero);
+const heroRouter = require('./src/routes/heroRouter')();
 
 app.use('/heroes', heroRouter);
+
+const companyRouter = require('./src/routes/heroRouter')();
+
+app.use('/companies', companyRouter);
 
 app.listen(port, () => debug(`Running on port ${port}`));
