@@ -3,16 +3,14 @@ const express = require('express');
 const debug = require('debug')('app');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 const Hero = require('./models/heroModel');
 const User = require('./models/userModel');
 const Son = require('./models/sonModel');
 
-
 const userRouter = require('./routes/heroRoutes');
 const sonRouter = require('./routes/heroRoutes');
 const heroRouter = require('./routes/heroRoutes');
-
-
 
 const app = express();
 const { PORT } = process.env || 3000;

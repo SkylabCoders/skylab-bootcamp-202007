@@ -5,12 +5,14 @@
 	"main": "app.js",
 	"dependencies": {
 		"body-parser": "^1.19.0",
+		"chai": "^4.2.0",
 		"chalk": "^4.1.0",
 		"cookie-parser": "^1.4.5",
 		"debug": "^4.1.1",
 		"ejs": "^3.1.5",
 		"express": "^4.17.1",
 		"express-session": "^1.17.1",
+		"mocha": "^8.1.1",
 		"mongodb": "^3.6.0",
 		"mongoose": "^5.10.0",
 		"morgan": "^1.10.0",
@@ -19,6 +21,9 @@
 		"passport": "^0.4.1",
 		"passport-local": "^1.0.0",
 		"password-validator": "^5.1.0",
+		"should": "^13.2.3",
+		"sinon": "^9.0.3",
+		"supertest": "^4.0.2",
 		"typescript": "^4.0.2"
 	},
 	"devDependencies": {
@@ -30,7 +35,7 @@
 	},
 	"scripts": {
 		"start": "DEBUG=app,app:* nodemon app.js",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "mocha test/**/*Spec.js",
 		"lint": "eslint . --fix",
 		"scss": "node-sass --watch public/scss -o public/css"
 	},
