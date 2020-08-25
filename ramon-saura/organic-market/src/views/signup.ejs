@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/detail.css" />
+	</head>
+	<body>
+		<%- include('header')%>
+		<form action="/auth/signup" method="POST" name="">
+			<h2>Sign Up or <a href="/auth">Login</a></h2>
+			<div>
+				<label for="user">
+					User name:
+					<input name="user" placeholder="Insert user name" value="" required />
+				</label>
+			</div>
+			<div>
+				<label for="password">
+					Password:
+					<input
+						type="password"
+						name="password"
+						required
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,12}$"
+						placeholder="Insert password"
+					/>
+				</label>
+			</div>
+			<div>
+				<label for="valPassword">
+					Validate password:
+					<input
+						type="password"
+						name="valPassword"
+						placeholder="Repeat password"
+						required
+						value=""
+					/>
+				</label>
+			</div>
+			<button type="submit">
+				Sign Up
+			</button>
+		</form>
+	</body>
+</html>

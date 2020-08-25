@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero list</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+
+<body>
+    <%-include('header')-%>
+    <h2>My Heroes</h2>
+    <form action="/heroes" method="POST" name="heroForm">
+        <label>Hero name:
+            <input name="newName" value="" placeholder="New Name" />
+        </label>
+        <button type="submit">
+            add
+        </button>
+    </form>
+
+    <ul class=" heroes">
+        <% heroList.forEach(hero => { %>
+        <li *ngFor="let hero of heroes">
+            <a href="/heroes/<%= hero._id %>">
+                <span class="badge"><%= hero.id %></span> <%= hero.name %>
+            </a>
+            <form method="POST" name="deleteForm" action="/heroes">
+                <button type="submit" class="delete" value="<%= hero._id %>" name="deleteId"
+                    title="delete hero">x</button>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+    <form method="POST" name="deleteAllForm" action="/heroes">
+        <button type="submit" class="delete" value="destroy" name="deleteAll" title="delete all heroes">
+            DESTROY THE WORLD
+        </button>
+    </form>
+</body>
+
+</html>
