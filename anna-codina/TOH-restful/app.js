@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const Hero = require('./src/models/heroModel');
 const User = require('./src/models/userModel');
+const Worker = require('./src/models/workersModel');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,6 +27,10 @@ app.use('/heroes', heroRouter);
 const authRouter = require('./src/routes/authRoute')(User);
 
 app.use('/auth', authRouter);
+
+const workerRouter = require('./src/routes/workerRoute')(Worker);
+
+app.use('/worker', workerRouter);
 
 app.listen(
 	PORT,
