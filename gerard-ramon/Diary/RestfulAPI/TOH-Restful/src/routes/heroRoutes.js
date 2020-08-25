@@ -2,30 +2,14 @@
 const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 
+const heroRouteController = require('../controllers/heroRouteController');
 const heroesRouteController = require('../controllers/heroesRouteController');
 
 const heroRouter = express.Router();
 
 function routes(Hero) {
-	heroRouter
-		.route('/')
-		.post((req, res) => {
-			const hero = new Hero(req.body);
-			hero.save();
-			res.status(201).json(hero);
-		})
-		.get((req, res) => {
-			const query = {};
-			if (req.query.id) {
-				query.id = req.query.id;
-			}
-			Hero.find(query, (error, heroes) => {
-				if (error) {
-					res.send(error);
-				}
-				res.json(heroes);
-			});
-		});
+	const controller = heroesRouteController(Hero);
+	heroRouter.route('/').post(controller.post).get(controller.get);
 
 	heroRouter
 		.route('/:heroId')
@@ -38,13 +22,12 @@ function routes(Hero) {
 					req.hero = hero;
 					next();
 				}
-				//res.sendStatus(404);
 			});
 		})
-		.get(heroesRouteController.get)
-		.put(heroesRouteController.put)
-		.patch(heroesRouteController.patch)
-		.delete(heroesRouteController.deleter);
+		.get(heroRouteController.get)
+		.put(heroRouteController.put)
+		.patch(heroRouteController.patch)
+		.delete(heroRouteController.deleter);
 
 	return heroRouter;
 }
