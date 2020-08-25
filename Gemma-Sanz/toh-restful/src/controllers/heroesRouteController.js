@@ -17,8 +17,10 @@ function heroesController(Hero) {
 		}
 		Hero.find(query, (error, heroes) => {
 			if (error) {
+				res.status(400);
 				res.send(error);
 			}
+			res.status(201);
 			res.json(heroes);
 		});
 	}

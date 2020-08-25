@@ -45,6 +45,84 @@ describe('Hero Controller', () => {
 			// Hay un error de programación, y es que si el calledWith(201) se deja así pero quitamos el body y lo dejamos:{} pasaria igual, canviamos el código, lo adaptamos con un if(!req.body.name)
 			// En el unitario espiamos los argumentos, que haya sido llamado con este argumento
 		});
-		it('should respond status 201');
+		it('should respond status 201', () => {
+			const Hero = function heroConstructor() {
+				this.save = () => {};
+			};
+			const req = {
+				body: {
+					name: 'Bombasto'
+				}
+			};
+			const hero = req.body;
+			const res = {
+				json: function newHero(hero) {
+					return hero;
+				},
+				status: sinon.spy(),
+				send: sinon.spy()
+			};
+			const controller = heroesController(Hero);
+			controller.post(req, res);
+
+			res.status.calledWith(201).should.equal(true, `Good status`);
+			res
+				.json(hero)
+				.should.equal(hero, `new hero is not the same hero created`);
+		});
+	});
+	describe('GET', () => {
+		it('should respond status 201 with a hero id', () => {
+			const req = {
+				query: {
+					id: 1
+				}
+			};
+			const newQuery = {
+				id: function find(idWanted) {
+					return req.query.id;
+				}
+			};
+			const Hero = [
+				{
+					id: 1,
+					name: 'Bombasto'
+				},
+				{
+					id: 2,
+					name: 'Celeritas'
+				}
+			];
+
+			const res = {
+				json: Hero.find(newQuery, (hero) => {
+					return hero;
+				}),
+				status: sinon.spy()
+			};
+			const controller = heroesController(Hero);
+			controller.get(req, res);
+			res.status.calledWith(201).should.equal(true, `Good status`);
+			res.newQuery.id(2).should.equal.json(hero);
+		});
+		it('should respond status 404 with a non existant id', () => {
+			const req = {
+				query: {
+					id: 1
+				}
+			};
+			const Hero = [
+				{
+					id: 1,
+					name: 'Bombasto'
+				},
+				{
+					id: 2,
+					name: 'Celeritas'
+				}
+			];
+			const findId = 14;
+		});
+		it('should 201 without id', () => {});
 	});
 });
