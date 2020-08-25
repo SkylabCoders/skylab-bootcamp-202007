@@ -45,5 +45,6 @@ describe('Hero Controller', () => {
 			// Hay un error de programación, y es que si el calledWith(201) se deja así pero quitamos el body y lo dejamos:{} pasaria igual, canviamos el código, lo adaptamos con un if(!req.body.name)
 			// En el unitario espiamos los argumentos, que haya sido llamado con este argumento
 		});
+		it('should respond status 201');
 	});
 });
