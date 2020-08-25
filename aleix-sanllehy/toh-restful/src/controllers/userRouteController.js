@@ -1,31 +1,30 @@
-const Hero = require('../models/heroModel');
+const User = require('../models/userModel');
 
 /* eslint-disable no-underscore-dangle */
 const controller = () => {
 	const all = (req, res, next) => {
-		Hero.findById(req.params.heroId, (error, hero) => {
+		User.findById(req.params.userId, (error, user) => {
 			if (error) {
 				res.send(error);
 			}
-			if (hero) {
-				req.hero = hero;
+			if (user) {
+				req.user = user;
 				next();
 			}
 			res.sendStatus(404);
 		});
 	};
-
 	const put = (req, res) => {
 		// retrive a hero, get the new values and store them
-		const { hero } = req;
-		if (hero) {
+		const { user } = req;
+		if (user) {
 			// eslint-disable-next-line no-param-reassign
-			hero.name = req.body.name;
-			hero.save((err) => {
+			user.name = req.body.name;
+			user.save((err) => {
 				if (err) {
 					res.send(err);
 				}
-				res.json(hero);
+				res.json(user);
 			});
 		}
 	};
@@ -38,8 +37,8 @@ const controller = () => {
 		 *
 		 * save model
 		 */
-		const { hero } = req;
-		if (hero) {
+		const { user } = req;
+		if (user) {
 			if (req.body._id) {
 				delete req.body._id;
 			}
@@ -47,33 +46,33 @@ const controller = () => {
 				const key = item[0];
 				const value = item[1];
 				// eslint-disable-next-line no-param-reassign
-				hero[key] = value;
+				user[key] = value;
 			});
-			hero.save((err) => {
+			user.save((err) => {
 				if (err) {
 					res.send(err);
 				}
-				res.json(hero);
+				res.json(user);
 			});
 		}
 	};
 
 	const deleter = (req, res) => {
-		const { hero } = req;
-		if (hero) {
-			hero.remove((err) => {
+		const { user } = req;
+		if (user) {
+			user.remove((err) => {
 				if (err) {
 					res.send(err);
 				}
-				res.json(hero);
+				res.json(user);
 			});
 		}
 	};
 
 	const get = (req, res) => {
-		// res.send('Hero Id works');
-		const { hero } = req;
-		res.json(hero);
+		// res.send('User Id works');
+		const { user } = req;
+		res.json(user);
 	};
 
 	return { all, get, put, patch, deleter };
