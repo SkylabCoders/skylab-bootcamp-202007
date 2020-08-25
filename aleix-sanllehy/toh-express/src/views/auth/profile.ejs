@@ -13,8 +13,26 @@
 		<form action="/auth/profile" method="POST">
 			<div>
 				<label for="password">
-					Password:
-					<input type="text" name="password" value="<%= user.password %>" />
+					Change Password:
+					<input
+						class="password"
+						type="text"
+						name="password"
+						required
+						pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					/>
+				</label>
+			</div>
+			<div>
+				<label for="password">
+					Confirm Password:
+					<input
+						class="password"
+						type="text"
+						name="confirmpassword"
+						required
+						pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					/>
 				</label>
 			</div>
 			<button type="submit">Save</button>

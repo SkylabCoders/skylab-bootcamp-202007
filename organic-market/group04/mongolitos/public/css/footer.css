@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #f7ecee;
+    color: #000;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.footer p {
+    text-align: center;
+    color: #000;
+    font-size: .8rem;
+    line-height: 3rem;
+    font-family: 'Noto Serif', serif;
+}

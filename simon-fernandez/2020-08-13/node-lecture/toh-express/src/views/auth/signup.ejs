@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/heroDetail.css" />
+		<link rel="stylesheet" href="../css/signin.css" />
+	</head>
+	<body>
+		<%- include('../header')%>
+		<h1>
+			Sign up or
+			<a href="/auth/signin" style="text-decoration: none; opacity: 25%;"
+				>Sign in</a
+			>
+		</h1>
+		<form action="/auth/signup" method="POST">
+			<div>
+				<label for="user">
+					New User:
+					<input type="text" name="user" required />
+				</label>
+			</div>
+
+			<div>
+				<label for="user">
+					New Password:
+					<input
+						type="password"
+						name="password"
+						pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+						title="Password must be at least 8 characters, no more than 12 characters, and must include at least one upper case letter, one lower case letter, one numeric digit and one special character [!#/()=*]."
+						required
+					/>
+				</label>
+			</div>
+			<!-- <div>
+				<label for="user">
+					Repeat Password:
+					<input type="password" />
+				</label>
+			</div> -->
+
+			<button type="submit">Enviar</button>
+		</form>
+	</body>
+</html>

@@ -18,9 +18,24 @@ const nav = [
     { link: '/auth', title: 'Singin' },
     { link: '/auth/profile', title: 'Profile' }
 ];
+/*const sql = require('mssql');
+
+const config = {
+    user: 'gaeremtro',
+    password: 'Penalva91',
+    server: 'gaeremtro.database.windows.net',
+    database: 'thodb',
+    option: {
+        encrypt: true // for a azure DB
+    }
+
+}
+
+sql.connect(config).catch(debug);
+
 
 const app = express();
-const PORT = process.env.PORT || 4040;
+const PORT = process.env.PORT || 4040;*/
 
 app.use(cookieParser());
 app.use(expressSession({ secret: 'heroes' }));
@@ -29,6 +44,9 @@ require('./src/config/passport')(app);
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: 'false' }));
+
+app.use(morgan('tiny'));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', './src/views')
@@ -70,6 +88,16 @@ app.use('/shield', shieldRoutes);
 const authRoutes = require('./src/authRoutes')(nav);
 
 app.use('/auth', authRoutes);
+
+
+// function generateRoutes({ pathF, file, title, info, nav }) {
+//     app.get(pathF, (request, response) => {
+//         response.render(file, { nav, title, heroes: info });
+//     });
+// }
+
+// routes.map((x) => generateRoutes(x))
+ 
 
 
 

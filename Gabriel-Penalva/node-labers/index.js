@@ -48,7 +48,13 @@ app.set('view engine', 'ejs');
 app.use('/', laberRoutes);
 
 
-
+//sql.connect(function (err) {
+//    if (err) throw err;
+//    con.query(sql, function (err, result) {
+//        if (err) throw err;
+//        console.log("Number of records deleted: " + result.affectedRows);
+//    });
+//});
 
 
 

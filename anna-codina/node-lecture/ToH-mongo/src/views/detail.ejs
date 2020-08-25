@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero details</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/detail.css">
+
+</head>
+
+<body>
+    <%- include('header')-%>
+    <form action="/heroes/<%= hero && hero._id %>" method="POST" name="heroForm">
+        <h2><%= hero.name %> Details</h2>
+        <div><span>id: </span><%= hero.id %></div>
+        <div>
+            <label>name:
+                <input name="name" value="<%=hero.name %>" placeholder="name">
+            </label>
+        </div>
+        <button type="button">go back</button>
+        <button type="submit">save</button>
+    </form>
+</body>
+
+</html>
