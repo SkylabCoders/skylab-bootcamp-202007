@@ -1,21 +1,33 @@
-const Heroes = require('../models/heroModel');
+function rootHeroRouteController(Heroes) {
+	function post(req, res) {
+		const hero = new Heroes(req.body);
 
-const post = (req, res) => {
-	const hero = new Heroes(req.body);
-	hero.save();
-	res.status(201).json(hero);
-};
-const get = (req, res) => {
-	const query = {};
-	if (req.query.id) {
-		query.id = req.query.id;
-	}
-
-	Heroes.find(query, (error, heroes) => {
-		if (error) {
-			res.send(error);
+		if (!req.body.name) {
+			res.status(400);
+			res.send('Name is required');
 		}
-		res.json(heroes);
-	});
-};
-module.exports = { post, get };
+
+		hero.save();
+		res.status(201);
+		res.send('Created');
+		res.json(hero);
+	}
+	function get(req, res) {
+		const query = {};
+		const hero = new Heroes(req.body);
+		if (req.query.id) {
+			res.status(302);
+			query.id = req.query.id;
+		}
+
+		hero.find(query, (error, heroes) => {
+			if (error) {
+				res.send(error);
+			}
+
+			res.json(heroes);
+		});
+	}
+	return { post, get };
+}
+module.exports = rootHeroRouteController;
