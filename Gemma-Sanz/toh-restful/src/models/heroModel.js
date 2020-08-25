@@ -30,6 +30,8 @@ const heroModel = new Schema({
 	biography: {
 		fullname: { type: String },
 		alterEgos: { type: String },
+
+		// Aqui en el array de string insertamos un array vacio siempre
 		aliases: [String],
 		placeOfBirth: { type: String },
 		firstAppearance: { type: String },
