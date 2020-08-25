@@ -43,7 +43,7 @@ function router(nav) {
 				try {
 					client = await MongoClient.connect(dbUrl);
 					const db = client.db(dbName);
-					const collection = await db.collection(collectionName);
+					const collection = db.collection(collectionName);
 					const user = await collection.findOne({ user: newUser.user });
 					if (user) {
 						res.redirect('/auth/signin');
@@ -59,9 +59,7 @@ function router(nav) {
 				client.close();
 			})();
 		});
-	authRoutes.route('/signout').post((req, res) => {
-		res.send('Hi, signin');
-	});
+
 	authRoutes
 		.route('/profile')
 		.all((req, res, next) => {
@@ -89,14 +87,13 @@ function router(nav) {
 					const collection = db.collection(collectionName);
 
                     // para el updateOne primero ponemos todo el objeto y luego le decimos la propiedad que queremos cambiar
-                    await collection.updateOne({user}, {$set: {password}});
-                   
-                        
+                    await collection.updateOne({user}, {$set: {password}});                        
 
                 } catch (error) {
                     debug(error.stack);
                 }
-            }())
+				client.close();
+			}())
 		});
 	return authRoutes;
 }
