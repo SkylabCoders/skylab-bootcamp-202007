@@ -22,6 +22,7 @@ const companyModel = new Schema({
 	registered: { type: String },
 	latitude: { type: String },
 	longitude: { type: String },
+	// A tags, li diem que contindrá un array de strings
 	tags: [String],
 	range: [Number],
 	friends: [
