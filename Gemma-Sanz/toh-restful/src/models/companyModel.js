@@ -35,4 +35,4 @@ const companyModel = new Schema({
 	favoriteFruit: { type: String }
 });
 
-module.export = mongoose.model('companies', companyModel);
+module.exports = mongoose.model('companies', companyModel);
