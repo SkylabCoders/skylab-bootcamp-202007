@@ -3,7 +3,10 @@ function getHeroes(req, res, Hero) {
 	if (req.query.id) query.id = req.query.id;
 	Hero.find(query, (err, heroes) => {
 		if (err) res.send(err);
-		else res.json(heroes);
+		else {
+			res.sendStatus(200);
+			res.json(heroes);
+		}
 	});
 }
 

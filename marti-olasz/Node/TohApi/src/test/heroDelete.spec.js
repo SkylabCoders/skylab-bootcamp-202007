@@ -25,4 +25,21 @@ describe('Hero delete', () => {
 
 		res.sendStatus.calledWith(400).should.equal(true);
 	});
+
+	it('should throw some remove error', () => {
+		const hero = {
+			remove: (callback) => {
+				const err = 'err';
+				callback(err);
+			}
+		};
+		const req = { hero };
+		const res = {
+			send: sinon.spy(),
+			sendStatus: () => {}
+		};
+		deleter(req, res);
+
+		res.send.called.should.equal(true);
+	});
 });
