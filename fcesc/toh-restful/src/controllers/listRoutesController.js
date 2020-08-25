@@ -1,9 +1,14 @@
 
 function methods(Model){
   function create (req, res) {
-    const hero = new Model(req.body);
-    hero.save((err)=>{res.send(err)});
-    res.status(201).json(hero);
+    const item = new Model(req.body);
+    if(!req.body.name){ 
+      res.status(400);
+      res.send('Item name is required');
+    }
+    item.save((err)=>{res.send(err)});
+    res.status(201);
+    res.json(item);
   }
   function getList (req, res) {
     const query = {};

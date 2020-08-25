@@ -9,4 +9,4 @@ const userModel = new Schema({
   id: { type: Number }
 });
 
-module.exports = mongoose.model(DATABASE_CONFIG.usersCollection, userModel);
+module.exports = mongoose.model(DATABASE_CONFIG.usersTestCollection, userModel);

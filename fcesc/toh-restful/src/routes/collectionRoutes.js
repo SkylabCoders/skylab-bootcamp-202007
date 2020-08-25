@@ -1,5 +1,5 @@
 const express = require('express');
-const itemRoutesController = require('../controllers/itemRoutesController');
+const itemMethods = require('../controllers/itemRoutesController');
 const methods = require('../controllers/listRoutesController');
 
 function router(Model){
@@ -25,10 +25,10 @@ function router(Model){
 
   crudRoutes
     .route('/:itemId')
-    .put(itemRoutesController.updateOne)
-    .patch(itemRoutesController.updateMany)
-    .delete(itemRoutesController.remove)
-    .get(itemRoutesController.read);
+    .put(itemMethods().updateItemName)
+    .patch(itemMethods().updateMany)
+    .delete(itemMethods().remove)
+    .get(itemMethods().readOne);
 
   return crudRoutes;
 }

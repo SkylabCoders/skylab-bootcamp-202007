@@ -54,4 +54,4 @@ const heroModel = new Schema({
   }
 });
 
-module.exports = mongoose.model(DATABASE_CONFIG.heroesCollection, heroModel); // collectionName, modelName
+module.exports = mongoose.model(DATABASE_CONFIG.heroesTestCollection, heroModel); // collectionName, modelName
