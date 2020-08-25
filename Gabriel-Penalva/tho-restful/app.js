@@ -5,10 +5,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Hero = require('./models/heroModel');
 const User = require('./models/userModel');
+const Son = require('./models/sonModel');
 
 
 const userRouter = require('./routes/heroRoutes');
-
+const sonRouter = require('./routes/heroRoutes');
 const heroRouter = require('./routes/heroRoutes');
 
 
@@ -28,9 +29,10 @@ app.use(bodyParser.json());
 //     next();
 // });
 
-
+app.use('/son', sonRouter(Son));
 app.use('/heroes', heroRouter(Hero));
 app.use('/users', userRouter(User));
+
 
 
 app.get('/', (req, res) => {

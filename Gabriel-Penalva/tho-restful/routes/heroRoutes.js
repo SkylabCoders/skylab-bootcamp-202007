@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 const express = require('express');
 
-// const debug = require('debug')('app:heroRoutes');
+const debug = require('debug')('app:heroRoutes');
 
 const heroesRouteController = require('../controllers/heroesRouteController');
 
@@ -29,6 +29,7 @@ function routes(Hero) {
                 query.user = req.query.user;
 
             }
+            debug(query);
 
             Hero.find(query, (error, heroes) => {
                 if (error) res.send(error);
