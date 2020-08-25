@@ -5,20 +5,25 @@ const heroesController = require('../controllers/heroesRouteController');
 
 describe('Heroes Controller', () => {
 	describe('POST', () => {
-		it('should respond 400 when name is missing', () => {
-			// Preparació de l'escenari
-			const Hero = function heroConstructor() {
+		let Hero = {};
+		let res = {};
+		let req = {};
+		beforeEach(() => {
+			Hero = function heroConstructor() {
 				this.save = () => {};
 			};
 
-			const req = {
+			req = {
 				body: {}
 			};
-			const res = {
+			res = {
 				status: sinon.spy(),
 				json: sinon.spy(),
 				send: sinon.spy()
 			};
+		});
+		it('should respond 400 when name is missing', () => {
+			// Preparació de l'escenari
 
 			const controller = heroesController(Hero);
 			controller.post(req, res);
