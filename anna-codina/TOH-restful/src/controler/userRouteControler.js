@@ -8,6 +8,9 @@ const put = (req, res) => {
 			}
 			res.json(user);
 		});
+		res.status(200);
+	} else {
+		res.status(404);
 	}
 };
 const patch = (req, res) => {
@@ -30,6 +33,9 @@ const patch = (req, res) => {
 			}
 			res.json(user);
 		});
+		res.status(200);
+	} else {
+		res.status(404);
 	}
 };
 
@@ -42,11 +48,19 @@ const deleter = (req, res) => {
 			}
 			res.json(user);
 		});
+		res.status(200);
+	} else {
+		res.status(404);
 	}
 };
 
 const get = (req, res) => {
 	const { user } = req;
-	res.json(user);
+	if (user) {
+		res.json(user);
+		res.status(200);
+	} else {
+		res.status(404);
+	}
 };
 module.exports = { put, patch, deleter, get };

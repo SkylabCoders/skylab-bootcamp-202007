@@ -8,6 +8,9 @@ const put = (req, res) => {
 			}
 			res.json(hero);
 		});
+		res.status(200);
+	} else {
+		res.status(404);
 	}
 };
 
@@ -35,6 +38,9 @@ const patch = (req, res) => {
 			// Finaly respond with JSON
 			res.json(hero);
 		});
+		res.status(200);
+	} else {
+		res.status(404);
 	}
 };
 const deleter = (req, res) => {
@@ -46,11 +52,19 @@ const deleter = (req, res) => {
 			}
 			res.json(hero);
 		});
+		res.status(200);
+	} else {
+		res.status(404);
 	}
 };
 const get = (req, res) => {
 	const { hero } = req;
-	res.json(hero);
+	if (hero) {
+		res.json(hero);
+		res.status(200);
+	} else {
+		res.status(404);
+	}
 };
 
 module.exports = { put, patch, deleter, get };
