@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "mocha --recursive src/**/*spec.js",
 		"start": "DEBUG=app,app:* nodemon app.js",
 		"eslint": "eslint . --fix"
 	},
@@ -20,12 +20,15 @@
 	},
 	"dependencies": {
 		"body-parser": "^1.19.0",
-		"chai": "^4.2.0",
 		"debug": "^4.1.1",
 		"express": "^4.17.1",
 		"mocha": "^8.1.1",
 		"mongoose": "^5.10.0",
-		"nodemon": "^2.0.4"
+		"nodemon": "^2.0.4",
+		"nyc": "^15.1.0",
+		"should": "^13.2.3",
+		"sinon": "^9.0.3",
+		"supertest": "^4.0.2"
 	},
 	"nodemonConfig": {
 		"reseteable": "rs",
