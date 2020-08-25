@@ -1,0 +1,36 @@
+// const { expect } = require('chai');
+const { before, beforeEach, describe, expect, it } = require('chai');
+const mongoose = require('mongoose');
+const deleter = require('./heroDelete');
+
+const heroModel = require('../../models/heroModel');
+
+describe('logic delete', () => {
+	before(() => mongoose.connect('mongodb://localhost:27017/heroes-test'));
+
+	const hero = [{ id: 13, name: 'Bombasto' }];
+
+	beforeEach(() => {
+		(async function () {
+			await heroModel.deleteMany();
+			const result = heroModel.insertOne({ hero });
+			expect(result).to.exist();
+			expect(result.ops[0]).to.equal(true);
+		});
+	});
+
+	it('should delete an existing hero', async () => {
+		let req = {};
+		req.hero = hero;
+
+		try {
+			await deleter(req, res);
+			const result = heroModel.find();
+			expect(result.length).to.be(0);
+		} catch (err) {
+			console.log(err);
+		}
+	});
+
+	//todo
+});
