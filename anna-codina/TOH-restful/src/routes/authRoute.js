@@ -1,15 +1,13 @@
 const express = require('express');
 
-const usersRouterControler = require('../controler/usersRouterControler');
+const usersRouterControler = require('../controler/usersRouteControler');
 const userRouteControler = require('../controler/userRouteControler');
 
 const authRouter = express.Router();
 
 function routes(User) {
-	authRouter
-		.route('/')
-		.post(usersRouterControler.post)
-		.get(usersRouterControler.get);
+	const controlerUserList = usersRouterControler(User);
+	authRouter.route('/').post(controlerUserList.post).get(controlerUserList.get);
 
 	authRouter.use('/:userId', (req, res, next) => {
 		User.findById(req.params.userId, (error, user) => {

@@ -6,10 +6,11 @@ const workerRouteControler = require('../controler/workerRouteControler');
 const workerRouter = express.Router();
 
 function routes(Worker) {
+	const controlerWorkerList = workersRouterControler(Worker);
 	workerRouter
 		.route('/')
-		.post(workersRouterControler.post)
-		.get(workersRouterControler.get);
+		.post(controlerWorkerList.post)
+		.get(controlerWorkerList.get);
 
 	workerRouter.use('/:workerId', (req, res, next) => {
 		Worker.findById(req.params.workerId, (error, worker) => {
