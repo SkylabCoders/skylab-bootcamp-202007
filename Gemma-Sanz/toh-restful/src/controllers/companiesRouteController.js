@@ -1,4 +1,4 @@
-const get = (req, res) => {
+/* const get = (req, res) => {
 	const query = {};
 	if (req.query.id) {
 		query.id = req.query.id;
@@ -18,3 +18,4 @@ const post = (req, res) => {
 };
 
 module.exports = { get, post };
+ */

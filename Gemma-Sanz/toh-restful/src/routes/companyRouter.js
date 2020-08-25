@@ -1,4 +1,4 @@
-const express = require('express');
+/* const express = require('express');
 // const debug = require('debug')('app:heroRoutes');
 const companyRouteController = require('../controllers/companyRouteController');
 const companiesRouteController = require('../controllers/companiesRouteController');
@@ -31,3 +31,4 @@ function routes(Company) {
 	return companyRouter;
 }
 module.exports = routes;
+ */

@@ -1,4 +1,4 @@
-const get = (req, res) => {
+/* const get = (req, res) => {
 	const { company } = req;
 	res.json(company);
 };
@@ -46,3 +46,4 @@ const deleter = (req, res) => {
 };
 
 module.exports = { get, put, patch, deleter };
+ */

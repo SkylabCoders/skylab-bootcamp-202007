@@ -7,7 +7,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const Hero = require('./src/models/heroModel');
 const User = require('./src/models/userModel');
-const Company = require('./src/models/companyModel');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,10 +20,8 @@ app.get('/', (req, res) => {
 // Routes
 const heroRouter = require('./src/routes/heroRouter')(Hero);
 const userRouter = require('./src/routes/userRouter')(User);
-const companyRouter = require('./src/routes/companyRouter')(Company);
 
 app.use('/heroes', heroRouter);
 app.use('/users', userRouter);
-app.use('/companies', companyRouter);
 
 app.listen(port, () => debug(`Running on port ${port}`));
