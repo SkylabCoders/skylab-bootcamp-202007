@@ -1,40 +1,40 @@
 const read = (req, res) => {
-	const { hero } = req;
-	res.json(hero);
+	const { item } = req;
+	res.json(item);
 };
 
 const updateOne = (req, res) => {
 	
-	const { hero } = req;
+	const { item } = req;
 
-	hero.save((error) => {
+	item.save((error) => {
 		if (error) { res.send(error);	}
-		res.json(hero);
+		res.json(item);
 	});
 };
 
 const updateMany = (req, res) => {
-	const { hero } = req;
+	const { item } = req;
 
 	if (req.body._id) {
 		delete req.body._id;
 	}
 
-	Object.entries(req.body).forEach((item) => {
-		const key = item[0];
-		const value = item[1];
-		hero[key] = value;
+	Object.entries(req.body).forEach((prop) => {
+		const key = prop[0];
+		const value = prop[1];
+		item[key] = value;
 	});
-	hero.save((error) => {
+	item.save((error) => {
 		if (error) { res.send(error);	}
-		res.json(hero);
+		res.json(item);
 	});
 };
 
 const remove = (req, res) => {
-	const { hero } = req;
+	const { item } = req;
 
-	hero.deleteOne((error) => {
+	item.deleteOne((error) => {
 		if (error) { res.send(error); }
 		res.sendStatus(204);
 	});
