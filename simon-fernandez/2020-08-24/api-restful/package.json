@@ -5,7 +5,7 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "DEBUG=app,app:* nodemon app.js",
-		"test": "nyc --reporter=text mocha src/test/**/*.spec.js"
+		"test": "nyc --reporter=html mocha src/test/**/*.spec.js"
 	},
 	"keywords": [],
 	"author": "",

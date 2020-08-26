@@ -27,7 +27,7 @@ function heroRouteController() {
 			if (err) {
 				res.send(err);
 			}
-			res.sendStatus(204);
+			res.send(204);
 		});
 	}
 	function get(req, res) {

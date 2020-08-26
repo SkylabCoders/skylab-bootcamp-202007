@@ -1,4 +1,5 @@
-const should = require('should'); //no se usa?
+const should = require('should');
+const { expect } = require('chai');
 const sinon = require('sinon');
 
 const rootHeroRouteController = require('../controllers/rootHeroRouteController');
@@ -53,87 +54,31 @@ describe('Root Hero Route Controller', () => {
 		let controller;
 
 		beforeEach(() => {
-			Heroes = function heroConstructor() {
-				this.find = (query, callback) => callback();
+			Heroes = {
+				find: () => {}
 			};
 
-			res = {
-				status: sinon.spy(),
-				json: sinon.spy(),
-				send: sinon.spy()
-			};
+			res = {};
 			controller = rootHeroRouteController(Heroes);
 		});
-		it('should response status 302 when it list a heroes', () => {
-			req = {
-				query: { id: 1 }
-			};
-			// const hero = {
-			// 	powerstats: {
-			// 		intelligence: 38,
-			// 		strength: 100,
-			// 		speed: 17,
-			// 		durability: 80,
-			// 		power: 24,
-			// 		combat: 64
-			// 	},
-			// 	appearance: {
-			// 		height: ["6'8", '203 cm'],
-			// 		weight: ['980 lb', '441 kg'],
-			// 		gender: 'Male',
-			// 		race: 'Human',
-			// 		eyeColor: 'Yellow',
-			// 		hairColor: 'No Hair'
-			// 	},
-			// 	biography: {
-			// 		aliases: ['Rick Jones'],
-			// 		fullName: 'Richard Milhouse Jones',
-			// 		alterEgos: 'No alter egos found.',
-			// 		placeOfBirth: 'Scarsdale, Arizona',
-			// 		firstAppearance: 'Hulk Vol 2 #2 (April, 2008) (as A-Bomb)',
-			// 		publisher: 'Marvel Comics',
-			// 		alignment: 'good'
-			// 	},
-			// 	work: {
-			// 		occupation: 'Musician, adventurer, author; formerly talk show host',
-			// 		base: '-'
-			// 	},
-			// 	connections: {
-			// 		groupAffiliation:
-			// 			'Hulk Family; Excelsior (sponsor), Avengers (honorary member); formerly partner of the Hulk, Captain America and Captain Marvel; Teen Brigade; ally of Rom',
-			// 		relatives:
-			// 			'Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Keith Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased); Jackie Shorr (alleged mother; unconfirmed)'
-			// 	},
-			// 	images: {
-			// 		xs:
-			// 			'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/xs/1-a-bomb.jpg',
-			// 		sm:
-			// 			'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/1-a-bomb.jpg',
-			// 		md:
-			// 			'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/1-a-bomb.jpg',
-			// 		lg:
-			// 			'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/1-a-bomb.jpg'
-			// 	},
-			// 	_id: '5f43fc6ff448dc1ff8a28354',
-			// 	id: 1,
-			// 	name: 'A-Bomb',
-			// 	slug: '1-a-bomb'
-			// };
-			controller = rootHeroRouteController(Heroes);
-			controller.get(req, res);
+		it('should call find without query', () => {
+			const req = {};
 
-			res.status.calledWith(302).should.equal(true, 'Message is not correct');
-			//res.json.calledWith(hero).should.equal(true, 'Message2 is not correct');
+			const findSpy = sinon.spy(Heroes, 'find');
+
+			controller.get(req, res);
+			expect(findSpy.called).to.be.true;
 		});
-		it('should response status 200 when it list a heroes', () => {
-			req = {
-				query: {}
+		it('should call find with a query', () => {
+			const req = {
+				query: {
+					id: 'myId'
+				}
 			};
-
-			controller = rootHeroRouteController(Heroes);
+			const findSpy = sinon.spy(Heroes, 'find');
 			controller.get(req, res);
 
-			res.status.calledWith(200).should.equal(true, 'Message is not correct');
+			expect(findSpy.called).to.be.true;
 		});
 	});
 });
