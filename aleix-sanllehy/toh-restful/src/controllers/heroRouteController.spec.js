@@ -1,7 +1,6 @@
-/* // eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
 const should = require('should');
 const sinon = require('sinon');
-const heroController = require('../heroRouteController');
+const heroController = require('./heroRouteController');
 
-describe('Hero Controller', () => {});
- */
+describe.skip('Hero Controller', () => {});

@@ -4,8 +4,8 @@ const sinon = require('sinon');
 const heroesController = require('./heroesRouteController');
 
 // describe -> test suite
-describe('Heroes Controller', () => {
-	describe('POST', () => {
+describe.skip('heroesRouteController.spec.js', () => {
+	describe('POST - heroesRouteController.spec.js', () => {
 		let Hero = {};
 		let res = {};
 		let req = {};
@@ -74,36 +74,39 @@ describe('Heroes Controller', () => {
 		});
 	});
 
-	describe('GET', () => {
+	describe('GET - heroesRouteController.spec.js', () => {
 		let Hero = {};
-		let res = {};
 		let req = {};
+		let res = {};
 
 		beforeEach(() => {
 			Hero = function heroConstructor() {
-				this.find = () => {};
+				find = () => {};
 			};
 			req = {
-				body: {}
+				query: {}
 			};
 
-			res = {
+			/* res = {
 				status: sinon.spy(),
 				json: sinon.spy(),
 				send: sinon.spy()
-			};
+			}; */
 
 			const controller = heroesController(Hero);
 
 			controller.post(req, res);
 		});
 
-		it('should ', () => {
-			req = { body: {}, query: 1 };
+		it('GET - should get a hero', () => {
+			req = { query: 1 };
+
+			res = { status: 201, json: {} };
+
 			res.status.calledWith(201).should.equal(true);
 		});
 
-		/* it('', () => {});
-		it('', () => {}); */
+		it('', () => {});
+		it('', () => {});
 	});
 });
