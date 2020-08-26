@@ -23,4 +23,37 @@ describe('Heroes controller', () => {
 		// assertion es que el status 201
 		expect(statusSpy.calledWith(201)).to.be.true;
 	});
+	it('sould call find without query', () => {
+		const Hero = {
+			find: () => {}
+		};
+		const req = {};
+		const res = {
+			status: () => {},
+			json: () => {},
+			send: () => {}
+		};
+		const findSpy = sinon.spy(Hero, 'find');
+		controller(Hero).get(req, res);
+
+		// assertion es que el status 201
+		expect(findSpy.called).to.be.true;
+	});
+	it('sould call find with a query', () => {
+		const Hero = {
+			find: () => {}
+		};
+		const req = {
+			query: {
+				id: 'myId'
+			}
+		};
+		const res = {};
+
+		const findSpy = sinon.spy(Hero, 'find');
+		controller(Hero).get(req, res);
+
+		// assertion es que el status 201
+		expect(findSpy.called).to.be.true;
+	});
 });

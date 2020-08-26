@@ -13,7 +13,7 @@ function heroesController(Hero) {
 	}
 	function get(req, res) {
 		const QUERY = {};
-		if (req.query.id) {
+		if (req && req.query && req.query.id) {
 			QUERY.id = req.query.id;
 		}
 		Hero.find(QUERY, (error, heroes) => {
