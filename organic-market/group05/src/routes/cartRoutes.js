@@ -57,6 +57,16 @@ function router(nav) {
 
 					debug('filteredProducts', filteredProducts); */
 
+					/* {
+						$lookup:
+						  {
+							from: carts,
+							localField: <field from the input documents>,
+							foreignField: <field from the documents of the "from" collection>,
+							as: <output array field>
+						  }
+					 } */
+
 					res.render('cart', { nav, user });
 				} catch (error) {
 					debug(error.stack);

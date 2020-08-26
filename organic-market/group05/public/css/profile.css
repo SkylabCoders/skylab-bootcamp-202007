@@ -27,8 +27,7 @@ body {
 
 .profile__user {
 	flex: 1;
-	background-color: rgb(230, 230, 210);
-	width: 100%;
+	width: 90%;
 	margin: 20px;
 }
 
@@ -59,7 +58,7 @@ body {
 .profile__history {
 	width: 100%;
 	flex: 1;
-	background-color: plum;
+
 	display: flex;
 }
 
@@ -69,7 +68,7 @@ body {
 	}
 	.profile__user {
 		height: 100%;
-		width: 50%;
+		width: 33%;
 	}
 	.profile__history {
 		height: 100%;

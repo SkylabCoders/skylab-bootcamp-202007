@@ -12,26 +12,42 @@
 	<body>
 		<%- include('header')-%>
 		<main class="details__container">
-			<div class="details__header">
-				<img class="details__img" src="<%= product.filename %>" alt="Product" />
-			</div>
-			<div class="details__data">
-			<form
-				action="/products/<%= product&& product._id%>"
-				method="POST"
-				name="productForm"
-			>
-				<div>
+			<div class="details">
+				<div class="details__header">
+					<img
+						class="details__img"
+						src="<%= product.filename %>"
+						alt="Product"
+					/>
+				</div>
+				<div class="details__data">
 					<h2><%= product.title %></h2>
-					<div><span>name: </span><%= product.title %></div>
 					<div><span>type: </span><%= product.type %></div>
 					<div><span>description: </span><%= product.description %></div>
 					<div><span>price: $</span><%= product.price %></div>
-					<div><span>rating: </span><%= product.rating %><span>/5</span></div>
+					<div>
+						<span>
+							<img
+								class="rating__img"
+								src="https://image.flaticon.com/icons/svg/616/616655.svg"
+								alt="Cart" /></span
+						><%= product.rating %><span>/5</span>
+					</div>
+					<form
+						action="/products/<%= product&& product._id%>"
+						method="POST"
+						name="productForm"
+					>
+						<button class="addtocart" type="submit">
+							<img
+								class="cart__img"
+								src="https://image.flaticon.com/icons/svg/2606/2606643.svg"
+								alt="Cart"
+							/>Add to cart
+						</button>
+					</form>
 				</div>
 			</div>
-				<button type="submit">Add to cart</button>
-			</form>
 		</main>
 		<%- include('footer')-%>
 	</body>

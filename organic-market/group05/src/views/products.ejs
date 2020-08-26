@@ -3,29 +3,29 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hero list</title>
+		<title>All products</title>
 		<link rel="stylesheet" href="../../css/products.css" />
 	</head>
 	<body>
-		<%- include('header')-%> 
+		<%- include('header')-%>
+
 		<main class="products__container">
+			<h1>All products</h1>
 			<% if ( user && user.usertype === 'admin') {%>
-				<form method="POST">
-					<button
-						class="addtocart"
-						name="addproduct"
-						title="Add to cart"
-						type="submit"
-						value="true"
-					>
-						+
-					</button>
-				</form>
-				<% } %>
-			<% products.forEach(product => { %>
+			<form method="POST">
+				<button
+					class="addtocart"
+					name="addproduct"
+					title="New product"
+					type="submit"
+					value="true"
+				>
+					+
+				</button>
+			</form>
+			<% } %> <% products.forEach(product => { %>
 
-				<div class="products">
-
+			<div class="products">
 				<div class="products__header">
 					<img
 						class="products__img"
@@ -34,7 +34,7 @@
 					/>
 					<div class="products__title">
 						<a href="/products/<%= product._id %>">
-							<p><%= product.title %></p>
+							<%= product.title %>
 						</a>
 						<p><%= product.type %></p>
 						<div class="flex-child long-and-truncated-with-child-corrected">
@@ -59,28 +59,30 @@
 								type="submit"
 								value="<%= product._id %>"
 							>
-								+
+								<img
+									class="cart__img"
+									src="https://image.flaticon.com/icons/svg/2606/2606643.svg"
+									alt="Cart"
+								/>
 							</button>
 						</form>
 					</div>
 					<% if ( user && user.usertype === 'admin') {%>
-						<form method="POST">
-							<button
-								class="deleteproduct"
-								name="deleteproduct"
-								title="Delete Product"
-								type="submit"
-								value="<%= product._id %>"
-							>
-								-
-							</button>
-						</form>
-						<% } %>
-
+					<form method="POST">
+						<button
+							class="deleteproduct"
+							name="deleteproduct"
+							title="Delete Product"
+							type="submit"
+							value="<%= product._id %>"
+						>
+							-
+						</button>
+					</form>
+					<% } %>
 				</div>
-			
 			</div>
-			
+
 			<% }) %>
 		</main>
 		<%- include('footer'); -%>
