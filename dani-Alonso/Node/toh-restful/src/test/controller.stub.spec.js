@@ -21,6 +21,7 @@ describe('Heroes controller', () => {
 			send: () => {}
 		};
 		const statusStub = sinon.stub(res, 'status');
+		const jsonStub = sinon.stub(res, 'json');
 		controller(Hero).post(req, res);
 
 		// assertion es que el status 201

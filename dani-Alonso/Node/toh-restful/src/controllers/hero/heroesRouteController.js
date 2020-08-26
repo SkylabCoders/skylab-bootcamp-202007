@@ -6,10 +6,11 @@ function heroesController(Hero) {
 		if (!req.body.name) {
 			res.status(400);
 			res.send('Name is required!');
+		} else {
+			hero.save();
+			res.status(201);
+			res.json(hero);
 		}
-		hero.save();
-		res.status(201);
-		res.json(hero);
 	}
 	function get(req, res) {
 		const QUERY = {};
