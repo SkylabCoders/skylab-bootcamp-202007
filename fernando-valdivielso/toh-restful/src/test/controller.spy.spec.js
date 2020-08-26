@@ -9,7 +9,6 @@ describe('Heroes controller', () => {
     })
     it('should respond with status 201', () => {
 
-
         const Hero = function () {
             this.save = () => { }
         };
@@ -20,21 +19,45 @@ describe('Heroes controller', () => {
             }
         };
         const res = {
-            status: (code) => { },
+            status: () => { }, // add code as argument??
             json: () => { }
         };
 
-
-
         const statusSpy = sinon.spy(res, 'status'); // res - objeto donde esta el espia, 'status' - que metodo espiar
+        // const jsonSpy = sinon.spy(res, 'json'); ????
 
         controller(Hero).post(req, res);
 
         // assertio that status 201 has been called
         expect(statusSpy.calledWith(201)).to.be.true;
+
+        // expect(jsonSpy.called).to.be.true; ????
     });
 
-    it('should call fins without query', () => {
+    it('should respond with status 400', () => {
+
+        const Hero = function () {
+            this.save = () => { }
+        };
+
+        const req = {
+            body: {}
+        };
+
+        const res = {
+            status: (code) => { },
+            json: () => { },
+            send: () => { }
+        };
+
+        const statusSpy = sinon.spy(res, 'status');
+
+        controller(Hero).post(req, res);
+
+        expect(statusSpy.calledWith(400)).to.be.true;
+    });
+
+    it('should call find  without query', () => {
         const Hero = {
             find: () => { }
         };
@@ -42,8 +65,6 @@ describe('Heroes controller', () => {
         const req = {};
 
         const res = {};
-
-
 
         const findSpy = sinon.spy(Hero, 'find');
 
@@ -71,6 +92,9 @@ describe('Heroes controller', () => {
         expect(findSpy.called).to.be.true;
     })
 })
+
+
+
 
 
 
