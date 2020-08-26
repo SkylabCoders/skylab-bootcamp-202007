@@ -16,17 +16,20 @@ function methods(Model){
       query.id = req.query.id;
       Model.find(query, (err, heroes)=>{
         if (err) { return res.send(err) }
+        res.status(200);
         return res.json(heroes);
       })
     } else if (req.query.name) {
       query.name = req.query.name;
       Model.find(query, (err, heroes)=>{
         if (err) { return res.send(err) }
+        res.status(200);
         return res.json(heroes);
       }) 
     } else {
       Model.find({}, (err, heroes)=>{
         if (err) { return res.send(err) }
+        res.status(200);
         return res.json(heroes);
       })
     }

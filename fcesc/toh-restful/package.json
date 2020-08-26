@@ -5,13 +5,14 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "set DEBUG=server,server:* & nodemon server.js",
-		"test": "mocha **/*spec.js",
+		"test": "nyc --reporter=html mocha **/*spec.js",
 		"lint": "eslint . --fix"
 	},
 	"keywords": [],
 	"author": "Francesc",
 	"license": "ISC",
 	"dependencies": {
+		"@sinonjs/referee-sinon": "^7.1.0",
 		"body-parser": "^1.19.0",
 		"chai": "^4.2.0",
 		"chalk": "^4.1.0",
@@ -38,6 +39,7 @@
 		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-import": "^2.22.0",
+		"nyc": "^15.1.0",
 		"prettier": "^2.0.5"
 	},
 	"nodemonconfig": {
