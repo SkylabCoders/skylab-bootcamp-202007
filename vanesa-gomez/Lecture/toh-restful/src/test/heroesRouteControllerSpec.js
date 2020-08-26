@@ -40,7 +40,7 @@ describe('Heroes Controller', () => {
 				.calledWith('Name is required!')
 				.should.equal(true, 'Message is not correct.');
 		});
-		it('should respond 201 when req.body has a name', () => {
+		it('should respond status 201 when req.body has a name', () => {
 			req.body.name = 'SantiSherardEsther';
 			controller.post(req, res);
 			res.status.calledWith(201).should.equal(true, 'Message is correct');
