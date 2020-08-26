@@ -2,8 +2,6 @@ const should = require('should');
 const sinon = require('sinon');
 const { put, patch, deleter, get } = require('../controler/userRouteControler');
 
-// HOW TEST CALLBACK LINES
-
 describe('UserRouterControlerSpec', () => {
 	describe('PUT', () => {
 		it('Should return status 404 if req has no user', () => {

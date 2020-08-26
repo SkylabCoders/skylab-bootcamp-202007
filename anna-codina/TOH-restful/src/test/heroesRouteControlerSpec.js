@@ -91,7 +91,9 @@ describe('HeroesRouteControler', () => {
 			};
 
 			const Hero = {
-				find: function find() {}
+				find: (query, callback) => {
+					callback();
+				}
 			};
 
 			const controler = heroesControler(Hero);
@@ -120,6 +122,31 @@ describe('HeroesRouteControler', () => {
 			controler.get(req, res);
 
 			res.status.calledWith(200).should.equal(true);
+		});
+		it(`should return error when we calll the hero list`, () => {
+			const req = {
+				query: {
+					id: '13'
+				}
+			};
+
+			const res = {
+				send: sinon.spy(),
+				json: sinon.spy(),
+				status: sinon.spy()
+			};
+
+			const Hero = {
+				find: (query, callback) => {
+					const err = 'err';
+					callback(err);
+				}
+			};
+
+			const controler = heroesControler(Hero);
+			controler.get(req, res);
+
+			res.status.calledWith(400).should.equal(true);
 		});
 	});
 });
