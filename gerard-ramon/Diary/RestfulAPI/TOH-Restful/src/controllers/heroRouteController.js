@@ -1,6 +1,10 @@
 const get = (req, res) => {
-	const { hero } = req;
-	res.json(hero);
+	if (req && req.hero) {
+		const { hero } = req;
+		res.json(hero);
+	} else {
+		res.send('Bad parameters');
+	}
 };
 
 const put = (req, res) => {

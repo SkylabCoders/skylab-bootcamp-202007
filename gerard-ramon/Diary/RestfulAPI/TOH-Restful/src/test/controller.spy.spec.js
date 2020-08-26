@@ -3,7 +3,7 @@ const sinon = require('sinon');
 
 let controller = require('../controllers/heroesRouteController');
 
-describe('Heroes Controller [Spy]', () => {
+describe.skip('Heroes Controller [Spy]', () => {
 	afterEach(() => {
 		sinon.restore();
 	});
