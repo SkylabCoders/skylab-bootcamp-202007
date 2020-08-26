@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot Should match 1`] = `
+Array [
+  <header>
+    <h1>
+      Hero Tour
+    </h1>
+    <a
+      aria-current="page"
+      className="button active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Dashboard
+    </a>
+    <a
+      aria-current={null}
+      className="button"
+      href="/heroes"
+      onClick={[Function]}
+    >
+      Heroes
+    </a>
+  </header>,
+  <div>
+    <ul
+      className="heroDashboard"
+    />
+  </div>,
+]
+`;
