@@ -10,8 +10,9 @@ const controller = () => {
 			if (hero) {
 				req.hero = hero;
 				next();
+			} else {
+				res.sendStatus(404);
 			}
-			res.sendStatus(404);
 		});
 	};
 

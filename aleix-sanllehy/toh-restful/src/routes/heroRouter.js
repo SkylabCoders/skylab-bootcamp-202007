@@ -4,11 +4,9 @@ const heroesRouteController = require('../controllers/heroesRouteController');
 
 const heroRouter = express.Router();
 
-function routes() {
-	heroRouter
-		.route('/')
-		.post(heroesRouteController.post)
-		.get(heroesRouteController.get);
+function routes(Hero) {
+	const controller = heroesRouteController(Hero);
+	heroRouter.route('/').post(controller.post).get(controller.get);
 
 	heroRouter
 		.route('/:heroId')

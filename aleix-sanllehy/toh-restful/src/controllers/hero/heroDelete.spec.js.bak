@@ -1,7 +1,7 @@
 // const { expect } = require('chai');
 const { before, beforeEach, describe, expect, it } = require('chai');
 const mongoose = require('mongoose');
-const deleter = require('./heroDelete');
+const deleter = require('./heroDelete.js.bak');
 
 const heroModel = require('../../models/heroModel');
 
