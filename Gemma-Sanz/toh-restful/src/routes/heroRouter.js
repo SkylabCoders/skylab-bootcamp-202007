@@ -3,6 +3,7 @@ const express = require('express');
 const heroRouteController = require('../controllers/heroRouteController');
 const heroesRouteController = require('../controllers/heroesRouteController');
 const heroRouter = express.Router();
+
 function routes(Hero) {
 	const controller = heroesRouteController(Hero);
 	heroRouter.route('/').post(controller.post).get(controller.get);
