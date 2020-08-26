@@ -3,12 +3,13 @@ const { Strategy } = require('passport-local');
 const { MongoClient } = require('mongodb');
 const DATABASE_CONFIG = require('../../database/DATABASE_CONFIG');
 const debug = require('debug')('app:local.strategy');
+const PARAMETERS_CONFIG = require('./PARAMETERS_CONFIG');
 
 function localStrategy(){ // en la vista hay que tener claro el nam del input
   passport.use(new Strategy(
     {
-      usernameField: 'signin__name',
-      passwordField: 'signin__password'
+      usernameField: PARAMETERS_CONFIG.usernameField,
+      passwordField: PARAMETERS_CONFIG.passwordField
     }, 
     (userName, password, done)=>{ // el middleware escribe en la request después de verificar en la db
     let client;

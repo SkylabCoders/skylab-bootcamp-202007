@@ -81,7 +81,7 @@ function router(nav) {
 					debug('Connection to db established...');
 					const db = client.db(DATABASE_CONFIG.dbName);
 					const collection = db.collection(DATABASE_CONFIG.productCollection);
-					res.product = await collection.findOne({ _id: new ObjectID(req.params.productId) });
+					res.product = await collection.findOne({ _id: new ObjectID(productId) });
 					debug(res.product);
 					client.close();
 					next();
