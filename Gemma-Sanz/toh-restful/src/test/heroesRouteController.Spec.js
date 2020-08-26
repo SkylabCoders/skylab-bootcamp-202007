@@ -78,12 +78,12 @@ describe('Hero Controller', () => {
 					id: 1
 				}
 			};
-			const newQuery = {
+			/* 			const newQuery = {
 				id: function find(idWanted) {
 					return req.query.id;
 				}
-			};
-			const Hero = [
+			}; */
+			/* 			const Hero = [
 				{
 					id: 1,
 					name: 'Bombasto'
@@ -92,18 +92,28 @@ describe('Hero Controller', () => {
 					id: 2,
 					name: 'Celeritas'
 				}
-			];
+			]; */
 
 			const res = {
-				json: Hero.find(newQuery, (hero) => {
+				/* Hero.find(newQuery, (hero) => {
 					return hero;
-				}),
+				}), */
+
+				json: {},
 				status: sinon.spy()
 			};
+			const Hero = {
+				find: (newQuery) => {
+					newQuery = 1;
+				}
+			};
+			//			if (req.query.id === res.json.hero.id) return res.json.hero;
 			const controller = heroesController(Hero);
 			controller.get(req, res);
-			res.status.calledWith(201).should.equal(true, `Good status`);
-			res.newQuery.id(2).should.equal.json(hero);
+
+			res.status.calledWith(200).should.equal(true, `Good status`);
+			/* 			res.newQuery.id(2).should.equal.json(hero);
+			 */
 		});
 		it('should respond status 404 with a non existant id', () => {
 			const req = {

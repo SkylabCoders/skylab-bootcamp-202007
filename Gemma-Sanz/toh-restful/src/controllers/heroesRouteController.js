@@ -20,8 +20,13 @@ function heroesController(Hero) {
 				res.status(400);
 				res.send(error);
 			}
-			res.status(201);
-			res.json(heroes);
+			if (heroes.length === 0) {
+				res.status(404);
+				res.send(`id introduced doesn't match with any hero`);
+			} else {
+				res.status(200);
+				res.json(heroes);
+			}
 		});
 	}
 	return { get, post };
