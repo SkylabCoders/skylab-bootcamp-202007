@@ -6,10 +6,8 @@ const heroesRouteController = require('../controllers/heroesRouteController');
 const heroRouter = express.Router();
 
 function routes(Hero) {
-	heroRouter
-		.route('/')
-		.post(heroesRouteController.post)
-		.get(heroesRouteController.get);
+	const controller = heroesRouteController(Hero);
+	heroRouter.route('/').post(controller.post).get(controller.get);
 
 	heroRouter.use('/:heroId', (req, res, next) => {
 		Hero.findById(req.params.heroId, (error, hero) => {

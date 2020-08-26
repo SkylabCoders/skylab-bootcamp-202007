@@ -5,7 +5,7 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "DEBUG=app,app:* nodemon app.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "mocha src/**/*Spec.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -21,8 +21,12 @@
 		"body-parser": "^1.19.0",
 		"debug": "^4.1.1",
 		"express": "^4.17.1",
+		"mocha": "^8.1.1",
 		"mongoose": "^5.10.0",
-		"nodemon": "^2.0.4"
+		"nodemon": "^2.0.4",
+		"should": "^13.2.3",
+		"sinon": "^9.0.3",
+		"supertest": "^4.0.2"
 	},
 	"nodemonConfig": {
 		"restartable": "rs",
