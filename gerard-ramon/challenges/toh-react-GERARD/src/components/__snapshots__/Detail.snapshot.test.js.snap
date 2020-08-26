@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Detail snapshot Should match 1`] = `
+<div>
+  <h2>
+    Narco
+     details
+  </h2>
+  <form>
+    <p>
+      id: 
+      12
+    </p>
+    <label
+      htmlFor="heroName"
+    >
+      name:
+      <input
+        name="heroName"
+        onChange={[Function]}
+        placeholder="Hero name"
+        value="Narco"
+      />
+    </label>
+  </form>
+</div>
+`;
