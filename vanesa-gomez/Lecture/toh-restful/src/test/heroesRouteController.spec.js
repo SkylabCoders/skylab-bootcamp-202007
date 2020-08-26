@@ -28,7 +28,7 @@ describe('Heroes Controller', () => {
 			};
 			controller = heroesController(Hero);
 		});
-		it('should respond status 400 when name is missing', () => {
+		xit('should respond status 400 when name is missing', () => {
 			controller.post(req, res);
 			res.status
 				.calledWith(400) // que ha sido llamada, cuantas veces ha sido llamada?
@@ -40,7 +40,7 @@ describe('Heroes Controller', () => {
 				.calledWith('Name is required!')
 				.should.equal(true, 'Message is not correct.');
 		});
-		it('should respond status 201 when req.body has a name', () => {
+		xit('should respond status 201 when req.body has a name', () => {
 			req.body.name = 'SantiSherardEsther';
 			controller.post(req, res);
 			res.status.calledWith(201).should.equal(true, 'Message is correct');
@@ -71,7 +71,7 @@ describe('Heroes Controller', () => {
 			};
 			controller = heroesController(Hero);
 		});
-		it('Should respond 200 when query is missing', () => {
+		xit('Should respond 200 when query is missing', () => {
 			query = {};
 			controller.get(req, res);
 		});
