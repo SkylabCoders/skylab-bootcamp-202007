@@ -44,6 +44,9 @@ function routes(User) {
 		.put(usersRouteController.put)
 		.patch(usersRouteController.patch)
 		.delete(usersRouteController.deleter);
+	userRouter.route('/user1').get((req, res) => {
+		res.redirect('../../heroes');
+	});
 
 	return userRouter;
 }

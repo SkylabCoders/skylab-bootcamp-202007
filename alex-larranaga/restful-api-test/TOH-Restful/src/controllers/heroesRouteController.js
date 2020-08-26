@@ -7,7 +7,7 @@ function heroesController(Hero) {
 			res.status(400);
 			res.send('Name is required');
 		}
-		hero.save((error, hero) => {
+		hero.save((error) => {
 			if (error) res.send(error);
 		});
 		res.status(201);
@@ -15,7 +15,7 @@ function heroesController(Hero) {
 	}
 	function get(req, res) {
 		const query = {};
-		if (req.query.id) {
+		if (req && req.query && req.query.id) {
 			query.id = req.query.id;
 		}
 		Hero.find(query, (error, heroes) => {
