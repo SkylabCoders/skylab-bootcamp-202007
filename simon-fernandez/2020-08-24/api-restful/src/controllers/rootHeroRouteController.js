@@ -14,13 +14,13 @@ function rootHeroRouteController(Heroes) {
 	}
 	function get(req, res) {
 		const query = {};
-		const hero = new Heroes(req.body);
+
 		if (req.query.id) {
 			res.status(302);
 			query.id = req.query.id;
 		}
 
-		hero.find(query, (error, heroes) => {
+		Heroes.find(query, (error, heroes) => {
 			if (error) {
 				res.send(error);
 			}
