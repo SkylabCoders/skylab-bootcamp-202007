@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/styles.css" />
+		<link rel="stylesheet" href="../css/detail.css" />
+	</head>
+	<body>
+		<%- include('../header');-%>
+		<h2><%= user.user%> Profile</h2>
+		<form action="/auth/signin" method="POST">
+			<div>
+				<label for="password"
+					>Create new Password:
+					<input type="password" value=" >" name="newPassword" />
+				</label>
+			</div>
+			<button type="submit" value="">
+				Save
+			</button>
+		</form>
+		<form action="/auth/logout" method="POST">
+			<button type="submit" name="logout">Logout</button>
+		</form>
+	</body>
+</html>
