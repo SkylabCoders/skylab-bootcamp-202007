@@ -18,7 +18,7 @@ describe('SPY - Hero controller', () => {
 		const jsonSpy = sinon.spy(res, 'json');
 
 		controller.get(req, res);
-		expect(jsonSpy.called).to.be.true;
+		expect(jsonSpy.calledWith(req.hero)).to.be.true;
 	});
 
 	it('SPY - PUT - 1.- should update a hero', () => {
@@ -35,8 +35,10 @@ describe('SPY - Hero controller', () => {
 		const res = { json: () => {} };
 
 		const jsonSpy = sinon.spy(res, 'json');
+		const saveSpy = sinon.spy(req.hero, 'save');
 
 		controller.put(req, res);
+		expect(saveSpy.called).to.be.true;
 		expect(jsonSpy.called).to.be.true;
 	});
 
@@ -53,8 +55,10 @@ describe('SPY - Hero controller', () => {
 		const res = { json: () => {} };
 
 		const jsonSpy = sinon.spy(res, 'json');
+		const removeSpy = sinon.spy(req.hero, 'remove');
 
 		controller.deleter(req, res);
+		expect(removeSpy.called).to.be.true;
 		expect(jsonSpy.called).to.be.true;
 	});
 
@@ -71,8 +75,10 @@ describe('SPY - Hero controller', () => {
 		const res = { json: () => {} };
 
 		const jsonSpy = sinon.spy(res, 'json');
+		const saveSpy = sinon.spy(req.hero, 'save');
 
 		controller.patch(req, res);
+		expect(saveSpy.called).to.be.true;
 		expect(jsonSpy.called).to.be.true;
 	});
 });

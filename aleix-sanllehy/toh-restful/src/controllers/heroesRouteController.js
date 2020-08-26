@@ -34,12 +34,11 @@ function heroesController(Hero) {
 		}); */
 	}
 
-	function findCallback(error, error) {
+	function findCallback(error, heroes) {
 		if (error) {
 			res.send(error);
 		} else {
-			res.status(201);
-			res.json(hero);
+			res.json(heroes);
 		}
 	}
 
