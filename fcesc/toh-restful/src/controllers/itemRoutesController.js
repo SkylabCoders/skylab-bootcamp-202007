@@ -1,6 +1,7 @@
 function itemMethods(){
 	function readOne (req, res) {
 		const { item } = req;
+		res.status(200);
 		res.json(item);
 	};
 	
@@ -8,10 +9,13 @@ function itemMethods(){
 		
 		const { item } = req;
 
-		if (req.body.name) { item.name = req.body.name }
+		if (req && req.body && req.body.name) { 
+			item.name = req.body.name 
+		}
 	
 		item.save((error) => {
 			if (error) { res.send(error);	}
+			res.status(204);
 			res.json(item);
 		});
 	};
@@ -30,6 +34,7 @@ function itemMethods(){
 		});
 		item.save((error) => {
 			if (error) { res.send(error);	}
+			res.status(204);
 			res.json(item);
 		});
 	};

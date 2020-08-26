@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "set DEBUG=server,server:* & nodemon server.js",
-		"test": "nyc --reporter=html mocha **/*spec.js",
+		"test": "nyc --reporter=lcov --reporter=html --reporter=text mocha **/*spec.js",
 		"lint": "eslint . --fix"
 	},
 	"keywords": [],
@@ -40,7 +40,8 @@
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-import": "^2.22.0",
 		"nyc": "^15.1.0",
-		"prettier": "^2.0.5"
+		"prettier": "^2.0.5",
+		"sinon-chai": "^3.5.0"
 	},
 	"nodemonconfig": {
 		"restartable": "rs",
