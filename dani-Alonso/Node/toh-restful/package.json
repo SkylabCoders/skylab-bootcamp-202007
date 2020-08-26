@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "set DEBUG=app,app:* & nodemon app.js",
 		
-		"test": "nyc --reporter=text mocha src/test/**/*Spec.js"
+		"test": "nyc --reporter=text mocha src/test/**/*.spec.js"
 	},
 	"keywords": [],
 	"author": "",
