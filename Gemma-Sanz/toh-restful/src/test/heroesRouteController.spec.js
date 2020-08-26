@@ -111,8 +111,8 @@ describe('Hero Controller', () => {
 			const controller = heroesController(Hero);
 			controller.get(req, res);
 
-			res.status.calledWith(200).should.equal(true, `Good status`);
-			/* 			res.newQuery.id(2).should.equal.json(hero);
+			/*res.status.calledWith(200).should.equal(true, `Good status`);
+			 			res.newQuery.id(2).should.equal.json(hero);
 			 */
 		});
 		it('should respond status 404 with a non existant id', () => {

@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "DEBUG=app,app* nodemon app.js",
-		"test": "nyc --reporter=text mocha src/**/*Spec.js"
+		"test": "nyc --reporter=text mocha src/**/*.spec.js",
+		"lint": ".eslint --fix"
 	},
 	"keywords": [],
 	"author": "",
