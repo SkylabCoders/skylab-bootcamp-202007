@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "nodemon -w ./index.js",
 		"test": "mocha -R progress ./tests/*.spec.js",
-		"test:coverage": "nyc --reporter=html --reporter=text mocha -R progress ./tests/**/*.spec.js"
+		"test:coverage": "nyc --reporter=html --reporter=text mocha -R progress ./tests/*.spec.js"
 	},
 	"author": "",
 	"license": "ISC",

@@ -13,7 +13,7 @@ module.exports = {
 		if (!filename) throw new Error('missing filename !_!');
 		writeFileSync(`./data/${filename}`, '', { flag: 'wx' });
 	},
-	createFileInjected: (filename, fs) => {},
+	//createFileInjected: (filename, fs) => {},
 	createFileSafe: (filename) => {
 		if (!filename) throw new Error('missing filename !_!');
 		try {
