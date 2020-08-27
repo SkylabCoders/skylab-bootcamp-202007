@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const fs = require('fs');
 const proxyquire = require('proxyquire');
 
-describe.skip('file Management SPY', () => {
+describe('file Management SPY', () => {
 	const errorMessage = 'Filename is require!';
 	afterEach(() => {
 		sinon.restore();

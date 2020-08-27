@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const fs = require('fs');
 const proxyquire = require('proxyquire');
 
-describe.skip('file Management STUB', () => {
+describe('file Management STUB', () => {
 	const errorMessage = 'Filename is require!';
 	const fileName = 'test.txt';
 	afterEach(() => {
