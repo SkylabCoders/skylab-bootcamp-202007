@@ -6,7 +6,7 @@ const {
 	writeFileSync
 } = require('fs');
 
-const util = reqire('util');
+const util = require('util');
 
 module.exports = {
 	createFile: (filename) => {
@@ -22,7 +22,7 @@ module.exports = {
 		}
 
 		try {
-			return writeFileSync('./data' + filename);
+			return writeFileSync('./data/' + filename);
 		} catch (error) {
 			const files = readdirSync('./data');
 			const [name, extension] = filename.split('.');
@@ -49,10 +49,10 @@ module.exports = {
 		if (!filename) {
 			throw new Error('Filename is required');
 		}
-		return readFileSync('./data');
+		return readFileSync(`./data/${filename}`);
 	},
 	getAllFiles: (callback) => {
-		readir('./data', callback);
+		readdir('./data', callback);
 	},
 
 	getAllFilesPromise: () => {
@@ -64,6 +64,6 @@ module.exports = {
 			throw new Error('Filename is required');
 		}
 
-		return writeFileSync('./data' + filename);
+		return writeFileSync(`./data/${filename}`, contents);
 	}
 };
