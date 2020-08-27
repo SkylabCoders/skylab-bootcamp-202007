@@ -1,7 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 const get = (req, res) => {
 	const { hero } = req;
-	res.json(hero);
+	if (req.hero) {
+		res.status(200);
+		res.json(hero);
+	} else {
+		res.status(404);
+	}
 };
 
 const put = (req, res) => {

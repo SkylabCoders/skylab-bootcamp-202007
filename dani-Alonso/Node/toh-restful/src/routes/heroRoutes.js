@@ -8,10 +8,8 @@ const heroesRouteController = require('../controllers/hero/heroesRouteController
 const heroRouter = express.Router();
 
 function routes(Hero) {
-	heroRouter
-		.route('/')
-		.post(heroesRouteController(Hero).post)
-		.get(heroesRouteController(Hero).get);
+	const controller = heroesRouteController(Hero);
+	heroRouter.route('/').post(controller.post).get(controller.get);
 
 	heroRouter
 		.route('/:heroId')
