@@ -58,6 +58,7 @@ module.exports = {
 		return readFileSync(`./data/${filename}`);
 	},
 	getAllFiles: (callback) => {
+		// pinta la lista de elementos dentro de la carpeta data
 		readdir('./data', callback);
 	},
 	getAllFilesPromise: () => {
