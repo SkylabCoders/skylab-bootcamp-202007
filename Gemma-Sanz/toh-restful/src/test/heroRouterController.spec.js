@@ -4,7 +4,7 @@ const sinon = require('sinon');
 
 const controller = require('../controllers/heroRouteController');
 
-describe('Hero controller', () => {
+describe('Hero controller (challenge)', () => {
 	afterEach(() => {
 		sinon.restore();
 	});

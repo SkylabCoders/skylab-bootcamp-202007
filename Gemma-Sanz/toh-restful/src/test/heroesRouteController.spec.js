@@ -5,7 +5,7 @@ const heroesController = require('../controllers/heroesRouteController');
 // Es una suite de test, sirve para agrupar test. No es necesario siempre, se puede obviar a veces
 // describe()
 // podemos modificar el archivo que estamos testeando para poder realizarlo mejor SIN afecta el resultado final
-describe('Hero Controller', () => {
+describe('Heroes Controller (first done)', () => {
 	// dentro del describe podemos poner el describe o el it, eso va a gusto del desarrollador, no importa si usamos + o menos descripción mientras sea directa va a funcionar igual
 	describe('POST', () => {
 		it('should respond status 400 when name is missing', () => {

@@ -17,10 +17,23 @@ function heroesController(Hero) {
 		if (req && req.query && req.query.id) {
 			query.id = req.query.id;
 		}
-		Hero.find(query, findCallback);
+		Hero.find(query, (error, heroes) => {
+			if (error) {
+				res.status(400);
+				res.send(error);
+			} else {
+				if (heroes.length === 0) {
+					res.status(404);
+					res.send(`Id introduced not valid. It doesn't match with any hero`);
+				} else {
+					res.status(200);
+					res.json(heroes);
+				}
+			}
+		});
 	}
 
-	function findCallback(error, heroes) {
+	/* 	function findCallback(error, heroes) {
 		if (error) {
 			res.status(400);
 			res.send(error);
@@ -33,7 +46,7 @@ function heroesController(Hero) {
 				res.json(heroes);
 			}
 		}
-	}
+	} */
 
 	return { get, post };
 }
