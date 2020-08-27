@@ -70,6 +70,22 @@ describe('File management', () => {
 
 			expect(writeFileSyncStub.calledWith('./data/test2.txt')).to.be.true;
 		});
+
+		it('should createa file named test1.txt when text.txt already exists', () => {
+			const writeFileSyncStub = sinon.stub(fs, 'writeFileSync');
+
+			const readdirFake = sinon.fake.returns([]);
+			sinon.replace(fs, 'readdirSync', readdirFake);
+
+			const { createFileSafe } = proxyquire('../file.management', { fs });
+
+			writeFileSyncStub.withArgs('./data/test.txt').throws(new Error());
+
+			const filename = 'test.txt';
+			createFileSafe(filename);
+
+			expect(writeFileSyncStub.calledWith('')).to.be;
+		});
 	});
 	describe('Delete File', () => {
 		afterEach(() => sinon.restore());
@@ -97,13 +113,29 @@ describe('File management', () => {
 		});
 	});
 
-	xdescribe('Get File', () => {
+	describe('Get File', () => {
 		afterEach(() => sinon.restore());
 
-		it('should', () => {
-			const readFileSync = sinon.stub(fs, 'readFileSync');
+		it('should find file', () => {
+			const readFileSyncSpy = sinon.spy(fs, 'readFileSync');
 
 			const { getFile } = proxyquire('../file.management', { fs });
+
+			const fileName = 'test.txt';
+			getFile(fileName);
+
+			expect(readFileSyncSpy.called).to.be.true;
+		});
+		it('should throw error if filename is missing', () => {
+			const readFileSyncSpy = sinon.spy(fs, 'readFileSync');
+
+			const { getFile } = proxyquire('../file.management', { fs });
+
+			try {
+				getFile();
+			} catch (err) {
+				expect(err.message).to.equal('missing filename !_!');
+			}
 		});
 	});
 
