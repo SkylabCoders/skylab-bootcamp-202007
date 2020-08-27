@@ -30,7 +30,7 @@ module.exports = {
                 .sort()
                 .pop() || 0;
 
-            const newName = `${name}_${++max}.${extension}`;
+            const newName = `${name}${++max}.${extension}`;
             writeFileSync(`./data/${newName}`, '', { flag: 'wx' });
         }
     },
