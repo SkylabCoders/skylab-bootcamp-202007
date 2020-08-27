@@ -1,7 +1,7 @@
 const should = require('should');
 const { expect } = require('chai');
 const sinon = require('sinon');
-
+const heroes = require('../models/heroModel');
 const rootHeroRouteController = require('../controllers/rootHeroRouteController');
 
 describe('Root Hero Route Controller', () => {
@@ -59,14 +59,14 @@ describe('Root Hero Route Controller', () => {
 			};
 
 			res = {};
-			controller = rootHeroRouteController(Heroes);
+			controller = rootHeroRouteController;
 		});
 		it('should call find without query', () => {
 			const req = {};
 
 			const findSpy = sinon.spy(Heroes, 'find');
 
-			controller.get(req, res);
+			controller(Heroes).get(req, res);
 			expect(findSpy.called).to.be.true;
 		});
 		it('should call find with a query', () => {
@@ -76,9 +76,33 @@ describe('Root Hero Route Controller', () => {
 				}
 			};
 			const findSpy = sinon.spy(Heroes, 'find');
-			controller.get(req, res);
+			controller(Heroes).get(req, res);
 
 			expect(findSpy.called).to.be.true;
+		});
+		it('should response a hero when there is no errors', () => {
+			const req = {};
+			res = {
+				send: () => {},
+				json: () => {}
+			};
+			const findFaker = sinon.fake.yields(false, { name: 'myHero' });
+			sinon.replace(heroes, 'find', findFaker);
+
+			controller(heroes);
+			controller(heroes).get(req, res);
+		});
+		it('should response a error when there is an errors', () => {
+			const req = {};
+			res = {
+				send: () => {},
+				json: () => {}
+			};
+			const findFaker = sinon.fake.yields(true, { name: 'myHero' });
+			sinon.replace(heroes, 'find', findFaker);
+
+			controller(heroes);
+			controller(heroes).get(req, res);
 		});
 	});
 });

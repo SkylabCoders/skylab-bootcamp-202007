@@ -2,21 +2,22 @@ const sinon = require('sinon');
 
 const heroRouteController = require('../controllers/heroRouteController');
 const { expect } = require('chai');
+const { replace } = require('sinon');
 
 describe('Hero Route Controller', () => {
-	describe(' PUT', () => {
+	describe(' PUT controller', () => {
 		let req = null;
 		let res = null;
 		let controller;
 
 		beforeEach(() => {
 			res = {
-				json: sinon.spy(),
-				send: sinon.spy()
+				json: () => {},
+				send: () => {}
 			};
 			controller = heroRouteController();
 		});
-		it('should respond status 200 when the parameter exists', () => {
+		it('should execute the put fnction', () => {
 			req = {
 				hero: {
 					save: () => {}
@@ -30,22 +31,43 @@ describe('Hero Route Controller', () => {
 
 			expect(changeSpy.called).to.be.true;
 		});
-
-		xit('should respond status 400 when the parameter exists', () => {
-			const error = 'error';
+		it('should respond status 200 when the parameter exists', () => {
 			req = {
 				hero: {
-					save: () => {}
+					save: () => {},
+					name: null
 				},
-				body: {}
+				body: {
+					name: 'newName'
+				}
 			};
-			res = {
-				send: (error) => error
-			};
-			const changeSpy = sinon.spy(res, 'send');
+			const saveFake = sinon.fake.yields(null);
+			sinon.replace(req.hero, 'save', saveFake);
+
+			const jsonSpy = sinon.spy(res, 'json');
+
 			controller.put(req, res);
 
-			expect(changeSpy.called).to.be.true;
+			expect(jsonSpy.called).to.be.true;
+		});
+		it('should respond status 400 when the parameter exists', () => {
+			req = {
+				hero: {
+					save: () => {},
+					name: null
+				},
+				body: {
+					name: 'newName'
+				}
+			};
+			const saveFake = sinon.fake.yields(true, { name: req.body.name });
+			sinon.replace(req.hero, 'save', saveFake);
+
+			const jsonFake = sinon.spy(res, 'json');
+
+			controller.put(req, res);
+
+			expect(jsonFake.called).to.be.true;
 		});
 	});
 	describe(' Patch Controller', () => {
@@ -54,12 +76,12 @@ describe('Hero Route Controller', () => {
 		let controller;
 		beforeEach(() => {
 			res = {
-				json: sinon.spy(),
-				send: sinon.spy()
+				json: () => {},
+				send: () => {}
 			};
 			controller = heroRouteController();
 		});
-		it('should respond status 200 when the parameter exists', () => {
+		it('should execute the function', () => {
 			const req = {
 				hero: { save: () => {} },
 				body: {
@@ -72,6 +94,36 @@ describe('Hero Route Controller', () => {
 			controller.patch(req, res);
 			expect(changeSpy.called).to.be.true;
 		});
+		it('should respond status 200 when the parameter exists', () => {
+			const req = {
+				hero: { save: () => {} },
+				body: {
+					key: 'mykey',
+					value: 'myValue'
+				}
+			};
+			const changeFake = sinon.fake.yields(false);
+			sinon.replace(req.hero, 'save', changeFake);
+
+			const jsonFake = sinon.spy(res, 'json');
+			controller.patch(req, res);
+			expect(jsonFake.called).to.true;
+		});
+		it('should respond status 400 when the parameter exists', () => {
+			const req = {
+				hero: { save: () => {} },
+				body: {
+					key: 'mykey',
+					value: 'myValue'
+				}
+			};
+			const changeFake = sinon.fake.yields(true);
+			sinon.replace(req.hero, 'save', changeFake);
+
+			const jsonFake = sinon.spy(res, 'json');
+			controller.patch(req, res);
+			expect(jsonFake.called).to.true;
+		});
 	});
 	describe(' Deleter Controller', () => {
 		let req = null;
@@ -79,12 +131,12 @@ describe('Hero Route Controller', () => {
 		let controller;
 		beforeEach(() => {
 			res = {
-				json: sinon.spy(),
-				send: sinon.spy()
+				json: () => {},
+				send: () => {}
 			};
 			controller = heroRouteController();
 		});
-		it('should respond status 204 when the parameter exists', () => {
+		it('should execute the function', () => {
 			const req = {
 				hero: { remove: () => {} },
 				body: {
@@ -97,7 +149,7 @@ describe('Hero Route Controller', () => {
 			controller.deleter(req, res);
 			expect(changeSpy.called).to.be.true;
 		});
-		xit('should respond status 204 when the parameter exists', () => {
+		it('should respond status 204 when the parameter exists', () => {
 			const req = {
 				hero: { remove: () => {} },
 				body: {
@@ -105,12 +157,31 @@ describe('Hero Route Controller', () => {
 					value: 'myValue'
 				}
 			};
-			res = {
-				send: () => {}
-			};
-			const changeSpy = sinon.spy(res, 'send');
+
+			const deleterFake = sinon.fake.yields(false);
+			sinon.replace(req.hero, 'remove', deleterFake);
+
+			const sendDeleter = sinon.spy(res, 'send');
+
 			controller.deleter(req, res);
-			expect(changeSpy.called).to.be.true;
+			expect(sendDeleter.called).to.be.true;
+		});
+		it('should respond status 400 when the parameter exists', () => {
+			const req = {
+				hero: { remove: () => {} },
+				body: {
+					key: 'key',
+					value: 'myValue'
+				}
+			};
+
+			const deleterFake = sinon.fake.yields(true);
+			sinon.replace(req.hero, 'remove', deleterFake);
+
+			const sendDeleter = sinon.spy(res, 'send');
+
+			controller.deleter(req, res);
+			expect(sendDeleter.called).to.be.true;
 		});
 	});
 	describe(' Get Controller', () => {
