@@ -23,7 +23,7 @@ module.exports = {
     }
 
     try {
-      writeFileSync(`./data/ ${filename}`, '', { flag: 'wx' });
+      writeFileSync(`./data/${filename}`, '', { flag: 'wx' });
     } catch (error) {
       const files = readdirSync('./data');
       const [name, extension] = filename.split('.');
@@ -33,8 +33,8 @@ module.exports = {
         .sort()
         .pop() || 0;
 
-      const newName = `${name$}${++max}.${extension}`;
-      writeFileSync(`./data/${filename}`, '', { flag: 'wx' });
+      const newName = `${name}${++max}.${extension}`;
+      writeFileSync(`./data/${newName}`, '', { flag: 'wx' });
     }
   },
   deleteFile: (filename) => {
@@ -45,6 +45,7 @@ module.exports = {
     return unlinkSync(`./data/${filename}`);
   },
   getFile: (filename) => {
+
     if (!filename) {
       throw new Error('Filename is required!');
     }

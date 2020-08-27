@@ -34,8 +34,8 @@ app.post('/new-file', (req, res) => {
   res.redirect(`/data/${req.body.filename}`)
 });
 
-app.post('/save-file', (req, res) => {
-  fileManagement.saveFile(filename, content)
+app.post('/save-file', ({ body: { filename, contents } }, res) => {
+  fileManagement.saveFile(filename, contents);
   res.redirect(`/data/${filename}`)
 });
 
