@@ -1,0 +1,14 @@
+{
+  "name": "gabriel.skylaber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Penalva Ibañez",
+  "license": "ISC",
+  "dependencies": {
+    "gabri-laber": "^1.0.2"
+  }
+}

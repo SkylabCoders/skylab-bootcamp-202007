@@ -22,7 +22,24 @@
 			<div>
 				<label for="password">
 					Password:
-					<input type="password" name="password" />
+					<input
+						class="password"
+						type="password"
+						name="password"
+						required
+						pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					/>
+				</label>
+			</div>
+			<div>
+				<label for="password">
+					Confirm password:
+					<input
+						class="password"
+						type="password"
+						name="confirmpassword"
+						required
+					/>
 				</label>
 			</div>
 			<button type="submit">Register</button>
