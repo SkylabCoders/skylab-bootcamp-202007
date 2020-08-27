@@ -1,16 +1,19 @@
 const express = require('express');
+
 const { readdirSync } = require('fs');
-const fileManagement = require('./file.management');
+const { ppid, allowedNodeEnvironmentFlags } = require('process');
+const fileManagementt = require('./file.management.js');
 
 const app = express();
-const port = 4200;
+
+const PORT = 4200;
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
-app.use('/public', express.static(`${__dirname}/public/`));
+app.use('/public', express.static(`${__dirname}/public`));
 
 app.get('/', (req, res) => {
-	fileManagement.getAllFile((error, data) => {
+	fileManagementt.getAllFiles((error, data) => {
 		res.render('pages/index', {
 			articles: data,
 			content: null,
@@ -18,21 +21,27 @@ app.get('/', (req, res) => {
 		});
 	});
 });
+
 app.get('/data/:file', (req, res) => {
 	const files = readdirSync('./data');
-	const data = fileManagement.getFile(req.params.file);
+	const data = fileManagementt.getFile(req.params.file);
 	res.render('pages/index', {
 		articles: files,
 		content: data,
 		selectedFile: req.params.file
 	});
 });
-app.post('/new-file', ({ body: { filename, contents } }, res) => {
-	fileManagement.createFileSafe(filename, contents);
-	res.redirect(`/data/${filename}`);
+
+app.post('/new-file', (req, res) => {
+	fileManagementt.createFileSafe(req.body.filename);
+	res.redirect(`/data/${req.body.filename}`);
 });
+
 app.post('/save-file', ({ body: { filename, contents } }, res) => {
-	fileManagement.saveFile(filename, contents);
+	fileManagementt.saveFile(filename, contents);
 	res.redirect(`/data/${filename}`);
 });
-app.listen(port, () => console.log(`server running on port ${port}`));
+
+app.listen(PORT, () => {
+	console.log(`Server running at port ${PORT}`);
+});
