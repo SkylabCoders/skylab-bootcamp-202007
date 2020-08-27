@@ -2,39 +2,123 @@ const express = require('express');
 const debug = require('debug')('app:heroRoutes');
 
 const heroRoutes = express.Router();
-const sql = require('mssql');
+
+const { MongoClient, ObjectID } = require('mongodb');
 
 function router(nav) {
 
-    heroRoutes.route('/').get((req, res) => {
-        (async function query() {
-            const request = new sql.Request();
-            try {
-                const { recordset } = await request.query('SELECT * FROM Heros');
-                res.render('heroes', { nav, title: 'my Heroes', heroes: recordset });
-            } catch (error) {
-                debug(error);
-            }
-        }())
+    heroRoutes
+        .route('/')
+        .all((req, res, next) => {
+            const url = 'mongodb://localhost:27017';
+            const dbname = 'shieldHeroes';
+            let client;
+            (async function query() {
+                try {
+                    client = await MongoClient.connect(url);
+                    debug('connection stablished')
+                    const db = client.db(dbname);
+                    const collection = await db.collection('heroes');
+                    const heroes = await collection.find().toArray();
+                    res.heroes = heroes;
+                    next();
+
+                } catch (error) {
+                    debug(error.stack);
+                }
+                finally {
+                    client.close();
+                }
+            }())
+        })
+        .post((req, res) => {
+            const newValues = req.body.id;
+            debug(newValues);
+            const url = 'mongodb://localhost:27017';
+            const dbName = 'shieldHeroes';
+            const collectionName = 'heroes';
+            let client;
+            (async function quer() {
+                try {
+                    client = await MongoClient.connect(url);
+                    debug('connection stablished')
+                    const db = client.db(dbName);
+                    const collection = await db.collection(collectionName);
+                    await collection.deleteOne({ _id: new ObjectID(newValues) }, (error) => {
+                        if (error) {
+                            throw error;
+                        }
+                        res.redirect('/heroes');
+                    });
+
+                } catch (error) {
+                    debug(error.stack);
+                }
+                finally {
+                    client.close();
+                }
+
+            }())
+
+        })
+        .get((req, res) => {
+            const { heroes } = res
+            res.render('heroes', { nav, title: 'my Heroes', heroes })
+        });
 
 
-    });
     heroRoutes
         .route('/:heroid')
         .all((req, res, next) => {
-            const ID = +req.params.heroid;
+            const ID = req.params.heroid;
+            const url = 'mongodb://localhost:27017';
+            const dbname = 'shieldHeroes';
+            let client;
             (async function query() {
                 try {
-                    const request = new sql.Request();
-                    const { recordset } = await request
-                        .input('id', sql.Int, ID)
-                        .query(`SELECT * FROM Heros WHERE id = @id`);
-                    [res.hero] = recordset
+                    client = await MongoClient.connect(url);
+                    debug('connection stablished')
+                    const db = client.db(dbname);
+                    const collection = await db.collection('heroes');
+                    const hero = await collection.findOne({ _id: new ObjectID(ID) });
+                    res.hero = hero;
                     next();
                 } catch (error) {
-                    debug(error);
+                    debug(error.stack);
+                }
+                finally {
+                    client.close();
                 }
             }())
+        })
+        .post((req, res) => {
+
+
+            const newValues = { $set: req.body };
+            const filter = { _id: new ObjectID(req.params.heroid) };
+            const url = 'mongodb://localhost:27017';
+            const dbName = 'shieldHeroes';
+            const collectionName = 'heroes';
+            let client;
+            (async function mongo() {
+                try {
+                    client = await MongoClient.connect(url);
+                    const db = client.db(dbName);
+                    const collection = await db.collection(collectionName);
+                    await collection.updateOne(filter, newValues, (error) => {
+                        if (error) {
+                            throw error;
+                        }
+                        res.redirect('/heroes');
+                    })
+                } catch (error) {
+                    debug(error)
+                } finally {
+                    client.close();
+                }
+            }())
+            debug(req.body);
+
         })
         .get((req, res) => {
 
