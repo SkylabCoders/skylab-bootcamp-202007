@@ -2,7 +2,7 @@ const sinon = require('sinon');
 const proxyquire = require('proxyquire');
 
 const fs = require('fs');
-const { describe, afterEach, it, xit } = require('mocha');
+const { describe, afterEach, it } = require('mocha');
 const { expect } = require('chai');
 
 // EL FAKE AUTOMATICAMENTE NO REEMPLAZA AL MÉTODO QUE QUEREMOS USAR
@@ -33,6 +33,8 @@ describe('File Management (WITH FAKE)', () => {
 		expect(() => fileManagement.createFile('test.txt')).to.throws();
 	});
 	it('should return a list of files', () => {
+		// testea ln 60 a 63
+		// callcak tiene 2 argumentos, el error primero (null aqui), i los datos (aqui le pasamos un ejemplo cualquiera)
 		const readDirFake = sinon.fake.yields(null, ['test.txt']);
 
 		sinon.replace(fs, 'readdir', readDirFake);
