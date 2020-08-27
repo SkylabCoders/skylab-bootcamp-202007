@@ -20,15 +20,23 @@ app.get('/', (req, res) => {
 });
 
 app.get('/data/:file', (req, res) => {
-	res.send('File is working');
+	const files = readdirSync('./data');
+	const data = fileManagement.getFile(req.params.file);
+	res.render('pages/index', {
+		articles: files,
+		content: data,
+		selectedFile: req.params.file
+	});
 });
 
 app.post('/new-file', (req, res) => {
-	res.send('New file is working');
+	fileManagement.createFileSafe(req.body.filename);
+	res.redirect(`data/${req.body.filename}`);
 });
 
-app.post('/save-file', (req, res) => {
-	res.send('Save file is working');
+app.post('/save-file', ({ body: { filename, contents } }, res) => {
+	fileManagement.saveFile(filename, contents);
+	res.redirect(`data/${filename}`);
 });
 
 app.listen(port, () => console.log(`Server is listening at port ${port}`));

@@ -10,12 +10,12 @@ const util = require('util');
 
 module.exports = {
 	createFile: (filename) => {
-		if (!filename) throw new Error('missing filename!_!');
+		if (!filename) throw new Error('missing filename !_!');
 		writeFileSync(`./data/${filename}`, '', { flag: 'wx' });
 	},
 	createFileInjected: (filename, fs) => {},
-	createFileSave: (filename) => {
-		if (!filename) throw new Error('missing filename!_!');
+	createFileSafe: (filename) => {
+		if (!filename) throw new Error('missing filename !_!');
 		try {
 			writeFileSync(`./data/${filename}`, '', { flag: 'wx' });
 		} catch (err) {
@@ -35,11 +35,11 @@ module.exports = {
 		}
 	},
 	deleteFile: (filename) => {
-		if (!filename) throw new Error('missing filename!_!');
+		if (!filename) throw new Error('missing filename !_!');
 		return unlinkSync(`./data/${filename}`);
 	},
 	getFile: (filename) => {
-		if (!filename) throw new Error('missing filename!_!');
+		if (!filename) throw new Error('missing filename !_!');
 		return readFileSync(`./data/${filename}`);
 	},
 	getAllFiles: (callback) => {
@@ -50,7 +50,7 @@ module.exports = {
 		return readPromise('./data');
 	},
 	saveFile: (filename, contents) => {
-		if (!filename) throw new Error('missing filename!_!');
+		if (!filename) throw new Error('missing filename !_!');
 		return writeFileSync(`./data/${filename}`, contents);
 	}
 };
