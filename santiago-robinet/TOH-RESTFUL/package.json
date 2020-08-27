@@ -1,0 +1,46 @@
+{
+	"name": "ToH",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "set DEBUG=app,app:* && nodemon app.js",
+		"eslint": "eslint index.js --fix",
+		"lint": "eslint . --fix",
+		"test": "nyc --reporter=text mocha src/test/**/*Spec.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"chai": "^4.2.0",
+		"debug": "^4.1.1",
+		"express": "^4.17.1",
+		"mocha": "^8.1.1",
+		"mongoose": "^5.10.0",
+		"nodemon": "^2.0.4",
+		"nyc": "^15.1.0",
+		"should": "^13.2.3",
+		"sinon": "^9.0.3",
+		"supertest": "^4.0.2",
+		"typescript": "^4.0.2"
+	},
+	"devDependencies": {
+		"eslint": "^7.7.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-import": "^2.22.0",
+		"prettier": "^2.0.5"
+	},
+	"nodemonConfig": {
+		"restartable": "rs",
+		"ignore": [
+			"node_modules/**/node-modules"
+		],
+		"delay": "2000",
+		"env": {
+			"PORT": 1313
+		}
+	}
+}
