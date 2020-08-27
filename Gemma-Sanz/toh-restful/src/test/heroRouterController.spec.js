@@ -3,6 +3,10 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const controller = require('../controllers/heroRouteController');
+const {
+	saveFile
+} = require('../../../node-lecture/file-system/file.management');
+const { spy } = require('sinon');
 
 describe('Hero controller (challenge)', () => {
 	afterEach(() => {
@@ -146,6 +150,31 @@ describe('Hero controller (challenge)', () => {
 
 			expect(sendSpy.callCount).to.equal(1);
 		});
+		xit('should send an error if hero.save have an error', () => {
+			const req = {
+				body: {
+					name: null
+				},
+				hero: {
+					save: () => {}
+				}
+			};
+
+			const res = {
+				json: () => {},
+				status: () => {},
+				send: () => {}
+			};
+
+			const sendSpy = sinon.spy(res, 'send');
+			const saveFake = sinon.fake.yields(true);
+
+			sinon.replace(req.hero, 'save', saveFake);
+
+			controller.put(req, res);
+
+			expect(sendSpy.calledWith(404)).to.be.true;
+		});
 	});
 	describe('DELETER', () => {
 		it('should call sendStatus 204', () => {
@@ -210,6 +239,28 @@ describe('Hero controller (challenge)', () => {
 			controller.deleter(req, res);
 
 			expect(sendSpy.callCount).to.equal(1);
+		});
+		it('should send an error when hero.remove extist an error', () => {
+			const req = {
+				hero: {
+					remove: () => {}
+				}
+			};
+
+			const res = {
+				status: () => {},
+				send: () => {}
+			};
+
+			const removeFake = sinon.fake.yields(true);
+
+			sinon.replace(req.hero, 'remove', removeFake);
+
+			const sendSpy = sinon.spy(res, 'send');
+
+			controller.deleter(req, res);
+
+			expect(sendSpy.called).to.be.true;
 		});
 	});
 	describe('PATCH', () => {
