@@ -11,7 +11,7 @@ const util = require('util');
 module.exports = {
 	createFile: (filename) => {
 		if (!filename) {
-			throw new Error('Filname is required!');
+			throw new Error('Filename is required!');
 		}
 		// flap es una cosa que wx es la w de write i la x ....
 		return writeFileSync(`./data/${filename}`, '', { flap: 'wx' });
