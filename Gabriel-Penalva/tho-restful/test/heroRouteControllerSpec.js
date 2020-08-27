@@ -52,15 +52,13 @@ describe('Hero Controller', () => {
 
                 find: (query, f) => {
                     f()
-                    debug(query);
-                    return query;
+                    expect(query).to.deep.equal({})
                 }
             }
 
             controller = heroController(Hero)
-            const quer = controller.get(req, res);
-            console.log(quer + '************************');
-            expect(quer).to.equal({})
+            controller.get(req, res);
+
 
         })
     });

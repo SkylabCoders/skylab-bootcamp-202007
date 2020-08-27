@@ -4,21 +4,24 @@ function heroController(Hero) {
         if (!req.body.name && !req.body.user) {
             res.status(400);
             res.send('Name is required')
+
+        } else {
+            hero.save();
+            res.status(201)
+            res.json(hero);
         }
-        hero.save();
-        res.status(201)
-        return res.json(hero);
     }
+
     function get(req, res) {
         const query = {};
-        if (req.query.id) {
+        if (req && req.query && req.query.id) {
             query.id = req.query.id;
 
-        } else if (req.query.name) {
+        } else if (req && req.query && req.query.name) {
             query.name = req.query.name;
 
 
-        } else if (req.query.user) {
+        } else if (req && req.query && req.query.user) {
             query.user = req.query.user;
 
         }
