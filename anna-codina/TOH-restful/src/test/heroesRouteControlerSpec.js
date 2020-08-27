@@ -57,26 +57,6 @@ describe('HeroesRouteControler', () => {
 		});
 	});
 	describe('GET', () => {
-		it(`should return the hero list if don't put id or name in the req query`, () => {
-			const req = {
-				query: {}
-			};
-
-			const res = {
-				send: sinon.spy(),
-				json: sinon.spy(),
-				status: sinon.spy()
-			};
-
-			const Hero = {
-				find: function find() {}
-			};
-
-			const controler = heroesControler(Hero);
-			controler.get(req, res);
-
-			res.status.calledWith(200).should.equal(true);
-		});
 		it(`should return the hero list if put id in the req query`, () => {
 			const req = {
 				query: {
@@ -101,28 +81,6 @@ describe('HeroesRouteControler', () => {
 
 			res.status.calledWith(200).should.equal(true);
 		});
-		it(`should return the hero list if put name in the req query`, () => {
-			const req = {
-				query: {
-					name: 'Bombasto'
-				}
-			};
-
-			const res = {
-				send: sinon.spy(),
-				json: sinon.spy(),
-				status: sinon.spy()
-			};
-
-			const Hero = {
-				find: function find() {}
-			};
-
-			const controler = heroesControler(Hero);
-			controler.get(req, res);
-
-			res.status.calledWith(200).should.equal(true);
-		});
 		it(`should return error when we calll the hero list`, () => {
 			const req = {
 				query: {
@@ -136,9 +94,9 @@ describe('HeroesRouteControler', () => {
 				status: sinon.spy()
 			};
 
+			const err = 'err';
 			const Hero = {
 				find: (query, callback) => {
-					const err = 'err';
 					callback(err);
 				}
 			};
@@ -146,7 +104,7 @@ describe('HeroesRouteControler', () => {
 			const controler = heroesControler(Hero);
 			controler.get(req, res);
 
-			res.status.calledWith(400).should.equal(true);
+			res.send.calledWith(err).should.equal(true);
 		});
 	});
 });

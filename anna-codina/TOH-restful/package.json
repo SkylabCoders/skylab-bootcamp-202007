@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"test": "mocha src/**/*Spec.js",
+		"test": "mocha src/**/*.spec.js",
 		"test-coverage": "nyc --reporter=text mocha src/**/*Spec.js",
 		"start": "DEBUG=app,app:* nodemon index.js",
 		"eslint": "eslint index.js --fix"
@@ -40,7 +40,7 @@
 		],
 		"delay": "2500",
 		"env": {
-			"PORT": 3001
+			"PORT": 4200
 		}
 	}
 }
