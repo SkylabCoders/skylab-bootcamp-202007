@@ -14,7 +14,11 @@ const all = (req, res, next) => {
 
 const get = (req, res) => {
   const { hero } = req;
-  res.json(hero);
+  if (req.hero) {
+    res.json(hero);
+  } else {
+    res.send(error);
+  }
 }
 
 const put = (req, res) => {

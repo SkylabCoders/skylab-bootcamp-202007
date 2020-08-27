@@ -1,4 +1,4 @@
-const should = require('should');
+/* const should = require('should');
 const sinon = require('sinon');
 const heroesController = require('../controllers/heroesRouteController');
 
@@ -39,7 +39,7 @@ describe('Hero Controller', () => {
     }
 
     const Hero = {
-      find: (query, callback) => callback();
+      find: (query, callback) => callback()
     };
     const controller = heroesController(Hero);
     controller.get(req, res);
@@ -48,4 +48,4 @@ describe('Hero Controller', () => {
     res.json.calledWith(heroes[0].name).should.equal('Bombasto');
 
   });
-});
+}); */

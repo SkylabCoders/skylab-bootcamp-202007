@@ -1,4 +1,4 @@
-const should = require('should');
+/* const should = require('should');
 const sinon = require('sinon');
 const heroController = require('../controllers/heroRouteController');
 
@@ -23,4 +23,4 @@ describe('Hero Controller', () => {
   });
 
 
-})
+}) */
