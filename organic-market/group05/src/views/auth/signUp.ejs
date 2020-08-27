@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign Up</title>
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/signup.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+	</head>
+	<body>
+		<%- include('../header'); -%>
+		<main class="signup__container">
+			<h2>
+				Register or
+				<a href="/auth/signin"><button class="auth__button">Login</button></a>
+			</h2>
+			<form action="/auth/signup" method="POST">
+				<div>
+					<label for="user">
+						User:
+						<input type="text" name="user" />
+					</label>
+				</div>
+				<div>
+					<label for="password">
+						Password:
+						<input
+							type="password"
+							name="password"
+							required
+							title="Must contain at least one number, one uppercase and one sign of the list [!#/()=*], and 8 to 12 characters"
+						/>
+					</label>
+				</div>
+				<div>
+					<label for="usertype">User type:</label>
+					<select name="usertype">
+						<option value="admin">Admin</option>
+						<option value="user" selected>User</option>
+					</select>
+				</div>
+				<button class="auth__button" type="submit">Register</button>
+			</form>
+		</main>
+		<%- include('../footer'); -%>
+	</body>
+</html>
