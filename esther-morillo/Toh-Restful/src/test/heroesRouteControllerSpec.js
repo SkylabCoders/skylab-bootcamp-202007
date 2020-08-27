@@ -46,7 +46,7 @@ describe('Hero Controler', () => {
             
         })
         
-        it('should respond status 400 when name is missing', () => {
+        xit('should respond status 400 when name is missing', () => {
             // ahora podemos decir que estatus ha sido llamado con status 201
             // si no hay un nombre mostramos mensaje 400 - arriba a const req le quitamos el nombre y dejamos un objeto vacío
             // eslint-disable-next-line no-undef
@@ -60,7 +60,7 @@ describe('Hero Controler', () => {
             .should.equal(true, 'Message is not correct')
         });
 
-        it('should respond status 201 when req.body has a name', () => {
+        xit('should respond status 201 when req.body has a name', () => {
             req.body.name = 'Gerard';
             controller.post(req, res);
 
@@ -100,7 +100,7 @@ describe('Hero Controler', () => {
 
         // el estado 200 es todo correcto, 201 es creado
         // 302 no found
-        it('should respond 400 when query is missing', () => {
+        xit('should respond 400 when query is missing', () => {
             res.status.calledWith(400).should.equal(true, 'Algo')
            
         })
