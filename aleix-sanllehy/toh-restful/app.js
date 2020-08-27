@@ -24,13 +24,16 @@ const heroRouter = require('./src/routes/heroRouter')(Hero);
 
 app.use('/heroes', heroRouter);
 
-const userRouter = require('./src/routes/userRouter')(User);
-
-app.use('/users', userRouter);
-
-// TODO
-// const workerRouter = require('./src/routes/workerRouter')(Worker);
-// app.use('/workers', workerRouter);
+/**
+ * TODO
+ *const userRouter = require('./src/routes/userRouter')(User);
+ * app.use('/users', userRouter);
+ *
+ * const workerRouter = require('./src/routes/workerRouter')(Worker);
+ * app.use('/workers', workerRouter);
+ *
+ *
+ */
 
 // app.listen(3000)
 app.listen(port, () => debug(`Server is running on port ${port}`));

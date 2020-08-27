@@ -5,7 +5,7 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "set DEBUG=app,app:* & nodemon app.js",
-		"test": "nyc --reporter=text mocha src/**/*.spec.js",
+		"test": "nyc --reporter=html mocha src/test/**/*.spec.js",
 		"eslint": "eslint app.js --fix",
 		"lint": "eslint . --fix"
 	},
@@ -37,7 +37,6 @@
 		"ignore": [
 			"node_modules/**/node_modules"
 		],
-		"delay": "2500",
 		"env": {
 			"PORT": 4200
 		}

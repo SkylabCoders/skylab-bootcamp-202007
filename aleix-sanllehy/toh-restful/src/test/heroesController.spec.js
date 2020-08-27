@@ -2,12 +2,12 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const controller = require('../controllers/heroesRouteController');
 
-describe('SPY - Heroes controller', () => {
+describe('Heroes controller', () => {
 	afterEach(() => {
 		sinon.restore();
 	});
 
-	it('SPY - POST - 1.- should respond with status 201', () => {
+	it('POST - 1.- should respond with status 201', () => {
 		const Hero = function () {
 			this.save = () => {};
 		};
@@ -26,7 +26,7 @@ describe('SPY - Heroes controller', () => {
 		expect(statusSpy.calledWith(201)).to.be.true;
 	});
 
-	it('SPY - POST - 2.- should respond with status 400', () => {
+	it('POST - 2.- should respond with status 400', () => {
 		const Hero = function () {
 			this.save = () => {};
 		};
@@ -46,7 +46,7 @@ describe('SPY - Heroes controller', () => {
 		expect(statusSpy.calledWith(400)).to.be.true;
 	});
 
-	it('SPY - GET - 1.- should call find without query', () => {
+	it('GET - 1.- should call find without query', () => {
 		const Hero = {
 			find: () => {}
 		};
@@ -60,14 +60,15 @@ describe('SPY - Heroes controller', () => {
 		expect(findSpy.called).to.be.true;
 	});
 
-	it('SPY - GET - 2.- should call find with a query', () => {
+	it('GET - 2.- should call find with a query', () => {
 		const Hero = {
 			find: () => {}
 		};
 
 		const req = {
 			query: {
-				id: 'myId'
+				id: 'myId',
+				name: 'Bombasto'
 			}
 		};
 
@@ -80,4 +81,6 @@ describe('SPY - Heroes controller', () => {
 		controller(Hero).get(req, res);
 		expect(findSpy.called).to.be.true;
 	});
+
+	it('GET 3 - Use find callback', () => {});
 });

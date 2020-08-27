@@ -40,23 +40,24 @@ const controller = () => {
 		 * save model
 		 */
 		const { hero } = req;
-		if (hero) {
+		/* if (hero) {
 			if (req.body._id) {
 				delete req.body._id;
-			}
-			Object.entries(req.body).forEach((item) => {
-				const key = item[0];
-				const value = item[1];
-				// eslint-disable-next-line no-param-reassign
-				hero[key] = value;
-			});
-			hero.save((err) => {
-				if (err) {
-					res.send(err);
-				}
+			} */
+		Object.entries(req.body).forEach((item) => {
+			const key = item[0];
+			const value = item[1];
+			// eslint-disable-next-line no-param-reassign
+			hero[key] = value;
+		});
+		hero.save((err) => {
+			if (err) {
+				res.send(err);
+			} else {
 				res.json(hero);
-			});
-		}
+			}
+		});
+		//}
 	};
 
 	const deleter = (req, res) => {
