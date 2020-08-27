@@ -57,7 +57,7 @@ describe('File Mangament STUB', () => {
         const fileManagement = proxyquire('../file.management', { fs, util });
         readdirStub.resolves(['test.txt']);
 
-        fileManagement
+        return fileManagement
             .getAllFilesPromise()
             .then((files) => expect(files).to.eql(['test.txt']));
 
