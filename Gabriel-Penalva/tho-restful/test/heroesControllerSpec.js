@@ -24,7 +24,7 @@ describe('Heroes Controller', () => {
             hero: {
                 save: (fn) => {
                     fn();
-                    res.send.calledOnce.should.equal(true);
+                    res.send.should.equal(true);
                 }
             }
         };
