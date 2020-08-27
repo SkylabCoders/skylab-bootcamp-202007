@@ -78,4 +78,28 @@ describe('Heroes Controller', () => {
 
 		expect(statusSpy.called).to.be.true;
 	});
+
+	it('GET METHOD: should show eror if something went wrong', () => {
+		const Hero = {
+			find: (callback) => {
+				const error = 'error';
+				callback(error);
+			}
+		};
+		req = {
+			query: {
+				id: 'myId'
+			}
+		};
+		const res = {
+			send: () => {}
+		};
+
+		const statusSpy = sinon.spy(Hero, 'find');
+
+		controller(Hero).get(req, res);
+		console.log(res.send.called);
+
+		expect(res.send.called).to.be.true;
+	});
 });

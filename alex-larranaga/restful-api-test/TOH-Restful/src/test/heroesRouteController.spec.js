@@ -2,7 +2,7 @@ const should = require('should');
 const sinon = require('sinon');
 const heroesController = require('../controllers/heroesRouteController');
 
-describe.skip('Heroes Controller', () => {
+describe('Heroes Controller', () => {
 	describe('POST', () => {
 		let Hero = {};
 		let res = {};
@@ -55,6 +55,7 @@ describe.skip('Heroes Controller', () => {
 			body = {
 				name: 'Bombasto'
 			};
+
 			Hero = function heroConstructor() {
 				this.save = (callback) => {
 					error = true;
