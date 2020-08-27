@@ -1,6 +1,7 @@
 const should = require('should');
 const sinon = require('sinon');
 const heroesController = require('../controllers/heroesRouteController');
+const { expect } = require('chai');
 
 // Es una suite de test, sirve para agrupar test. No es necesario siempre, se puede obviar a veces
 // describe()
@@ -133,6 +134,35 @@ describe('Heroes Controller (first done)', () => {
 			];
 			const findId = 14;
 		});
-		it('should 201 without id', () => {});
+		it("should call status 400 if there's an error in Hero.find PETAAAAAAAAA", () => {
+			const Hero = {
+				find: () => {}
+			};
+			const heroes = [];
+
+			const query = {};
+
+			const res = {
+				status: () => {},
+				send: () => {},
+				json: () => {}
+			};
+			const req = {
+				query: {
+					id: {}
+				}
+			};
+
+			const heroFindFake = sinon.fake.yields(null, (true, heroes));
+
+			sinon.replace(Hero, 'find', heroFindFake);
+
+			const sendSpy = sinon.spy(res, 'send');
+
+			const controller = heroesController(Hero);
+			controller.get(res, req);
+
+			expect(sendSpy.called.to.be.true);
+		});
 	});
 });
