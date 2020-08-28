@@ -1,0 +1,58 @@
+{
+	"name": "toh-restful",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "set DEBUG=server,server:* & nodemon server.js",
+		"test": "nyc --reporter=lcov --reporter=html --reporter=text mocha **/*spec.js",
+		"lint": "eslint . --fix"
+	},
+	"keywords": [],
+	"author": "Francesc",
+	"license": "ISC",
+	"dependencies": {
+		"@sinonjs/referee-sinon": "^7.1.0",
+		"body-parser": "^1.19.0",
+		"chai": "^4.2.0",
+		"chalk": "^4.1.0",
+		"cookie-parser": "^1.4.5",
+		"debug": "^4.1.1",
+		"ejs": "^3.1.5",
+		"express": "^4.17.1",
+		"express-session": "^1.17.1",
+		"mocha": "^8.1.1",
+		"mongodb": "^3.6.0",
+		"mongoose": "^5.10.0",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.4",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0",
+		"password-validator": "^5.1.0",
+		"should": "^13.2.3",
+		"sinon": "^9.0.3",
+		"supertest": "^4.0.2",
+		"typescript": "^4.0.2"
+	},
+	"devDependencies": {
+		"eslint": "^7.7.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-import": "^2.22.0",
+		"nyc": "^15.1.0",
+		"prettier": "^2.0.5",
+		"sinon-chai": "^3.5.0"
+	},
+	"nodemonconfig": {
+		"restartable": "rs",
+		"ignore": [
+			"node_modules/**/node_modules",
+			".gitignore",
+			"sonar-project.properties"
+		],
+		"delay": 2000,
+		"env": {
+			"PORT": 3010
+		}
+	}
+}

@@ -1,0 +1,65 @@
+.login__form {
+	width: 53%;
+	opacity: 0.8;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	box-shadow: 2px 2px #888888;
+	text-align: center;
+	margin: auto;
+	margin-top: 18%;
+
+	background-color: whitesmoke;
+	border: black 1px solid;
+	height: auto;
+	border-radius: 25px;
+}
+
+.login__anchor {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.login__label-user {
+	margin-bottom: 20px;
+}
+.login__title {
+	margin-bottom: 16%;
+}
+.login__buttons {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+	margin-top: 20px;
+}
+.login__password {
+	margin-bottom: 20px;
+}
+.login__button {
+	background-color: var(--header-button-bg-color);
+	border-radius: 5px;
+	width: 25%;
+}
+
+@media only screen and (min-width: 600px) {
+	.loginr__button {
+		width: 24%;
+	}
+	.login__form {
+		width: 38%;
+	}
+}
+
+@media (min-width: 601px) and (max-width: 1023px) {
+	.login__form {
+		width: 35%;
+	}
+}
+
+@media only screen and (min-width: 1400px) {
+	.login__form {
+		width: 24%;
+	}
+}

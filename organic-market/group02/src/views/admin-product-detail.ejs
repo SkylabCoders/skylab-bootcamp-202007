@@ -1,0 +1,35 @@
+<div>
+    <form action="/admin/products/<%=product._id%>" method="POST" name="heroForm">
+        <h2>Product Details</h2>
+
+        <div>
+            <label class="herodetail" for="productField__title">Product:</label>
+            <input type="text" class="herodetail" id="productField__title" name="product_title" placeholder="title"
+                value="<%= product.title %>" />
+        </div>
+        <div>
+            <label class="herodetail" for="productField__type">Type:</label>
+            <input type="text" class="herodetail" id="productField__type" name="product_type" placeholder="type"
+                value="<%= product.type %>" />
+        </div>
+        <div>
+            <label class="herodetail" for="productField__description">Description:</label>
+            <textarea rows="4" cols="50" class="herodetail" id="productField__description" name="product_description"
+                placeholder="description"><%=product.description %></textarea>
+        </div>
+        <div>
+            <label class="herodetail" for="productField__price">Price:</label>
+            <input type="text" class="herodetail" id="productField__price" name="product_price" placeholder="price"
+                value="<%=product.price %>" />
+        </div>
+        <div>
+            <label class="herodetail" for="productField__rating">Rating:</label>
+            <input type="text" class="herodetail" id="productField__rating" name="product_rating" placeholder="rating"
+                value="<%=product.rating %>" />
+        </div>
+        <div>
+            <button class="herodetail" type="button"><a href='<%=ROUTES.home.path%>'>navigate back home</a></button>
+            <button class="herodetail" type="submit">save</button>
+        </div>
+    </form>
+</div>

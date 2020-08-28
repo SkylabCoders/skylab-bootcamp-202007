@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Product list</title>
+	<link rel="stylesheet" href="../css/list.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+</head>
+
+<body>
+	<%-include('header')-%>
+
+	<div class="list-holder">
+		<% for(let i=0; i < items.length;i++) { %>
+		<div class="flex-col list-card-holder">
+			<div class="list-card flex-row">
+				<div class="list-card-image">
+					<a href="detail/<%=items[i]._id%>"><img src="https://lorempixel.com/100/190/nature/6" /></a>
+				</div>
+				<div class="list-card-stacked">
+					<a class="list-header" href="detail/<%=items[i]._id%>">
+						<h3><%= items[i].title%></h3>
+					</a>
+					<div class="list-card-content">
+						<p><%= items[i].description%></p>
+						<p>Price: <%= items[i].price%> €</p>
+						<h5>Rating:</h5>
+						<div class="flex-row product__property">
+							<% for (let j =0; j< items[i].rating; j++){%>
+							<img src="https://trello-attachments.s3.amazonaws.com/5f40033fb44fda5f6b6b9f34/5f40f07f072dbb4543522170/664a8929478e14df7ff4eaa37a21bb5d/star.png"
+								alt="star" class="card-item__rating-star">
+							<%};%>
+							<% for (let z = items[i].rating; z< 5; z++){%>
+							<img src="https://image.flaticon.com/icons/svg/786/786331.svg" alt="star"
+								class="card-item__rating-star">
+							<%};%>
+
+						</div>
+					</div>
+					<form action="/user/list" method="post">
+						<input name="product" type="hidden" value="<%= items[i]._id %>" />
+						<button class="list-button" type="submit">add to Cart</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<%}%>
+		</div>
+	</body>
+</html>
