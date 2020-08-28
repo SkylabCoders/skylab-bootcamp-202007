@@ -1,9 +1,12 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
+const should = require('should');
+const mongoose = require('mongoose');
+const HeroModel = require('../models/heroModel');
 
 const heroesController = require('../controllers/heroesRouteController');
 
-describe.skip('Heroes Controller', () => {
+describe('Heroes Controller', () => {
 	describe('POST', () => {
 		let req = null;
 		let res = null;
@@ -100,6 +103,39 @@ describe.skip('Heroes Controller', () => {
 			req.query.id = 13;
 			controller.get(req, res);
 			expect(findSpy.called).to.be.true;
+		});
+
+		it('should execute find callback', () => {
+			res.status = () => {};
+			res.send = () => {};
+			res.json = () => {};
+
+			const findFake = sinon.fake.yields(null, (null, [{ name: 'alex' }]));
+			sinon.replace(HeroModel, 'find', findFake);
+
+			const statusSpy = sinon.spy(res, 'status');
+			controller = heroesController(HeroModel);
+
+			controller.get(req, res);
+
+			expect(statusSpy.calledWith(200)).to.be.true;
+		});
+
+		it('should execute find callback with an error', () => {
+			res.status = () => {};
+			res.send = () => {};
+			res.json = () => {};
+
+			const findFake = sinon.fake.yields(true, 'alex');
+			sinon.replace(HeroModel, 'find', findFake);
+
+			const statusSpy = sinon.spy(res, 'status');
+
+			controller = heroesController(HeroModel);
+
+			controller.get(req, res);
+
+			expect(statusSpy.calledWith(400)).to.be.true;
 		});
 	});
 });

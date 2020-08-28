@@ -14,16 +14,9 @@ export function loadHeroes() {
 	});
 }
 
-export function createHero() {
-	return new Promise((resolve) => {
-		const hero = {
-			name: 'Gilbe',
-			id: 99
-		};
-		resolve(hero);
-	}).then((hero) => {
+export function createHero(params) {
+	return axios.post('/api/heroes', params).then((hero) => {
 		dispatcher.dispatch({
-			// per enviar al dispatcher
 			type: actionTypes.CREATE_HERO,
 			data: hero
 		});
@@ -31,9 +24,7 @@ export function createHero() {
 }
 
 export function removeHero(heroId) {
-	return new Promise((resolve) => {
-		resolve(heroId);
-	}).then((heroId) => {
+	return axios.delete(`/api/heroes/${heroId}`).then((heroId) => {
 		dispatcher.dispatch({
 			type: actionTypes.DELETE_HERO,
 			data: heroId
@@ -41,15 +32,11 @@ export function removeHero(heroId) {
 	});
 }
 
-export function updateHero(heroId, newId, newName) {
-	return new Promise((resolve) => {
-		const hero = {
-			id: heroId,
-			newId: newId,
-			newName: newName
-		};
-		resolve(hero);
-	}).then((hero) => {
+export function updateHero(heroId, newName) {
+	const params = {
+		name: newName
+	};
+	return axios.put(`/api/heroes/${heroId}`, params).then((hero) => {
 		dispatcher.dispatch({
 			type: actionTypes.UPDATE_HERO,
 			data: hero

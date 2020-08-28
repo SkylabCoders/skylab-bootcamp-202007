@@ -14,8 +14,9 @@ const put = (req, res) => {
 		hero.save((error) => {
 			if (error) {
 				res.send(error);
+			} else {
+				res.json(hero);
 			}
-			res.json(hero);
 		});
 	}
 };

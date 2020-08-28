@@ -24,5 +24,5 @@ app.listen(PORT, () => debug(`Server running on port ${PORT}`));
 const heroRoutes = require('./src/routes/heroRoutes')(Hero);
 const userRoutes = require('./src/routes/userRoutes')(User);
 
-app.use('/heroes', heroRoutes);
-app.use('/users', userRoutes);
+app.use('/api/heroes', heroRoutes);
+app.use('/api/users', userRoutes);

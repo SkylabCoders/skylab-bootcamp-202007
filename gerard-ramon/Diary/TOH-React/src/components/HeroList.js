@@ -25,13 +25,18 @@ function HeroList(props) {
 	}
 
 	function handleCreateHero() {
-		createHero();
+		const newId = prompt('Enter new hero ID');
+		const newName = prompt('Enter new hero Name');
+		const params = {
+			id: newId,
+			name: newName
+		};
+		createHero(params);
 	}
 
 	function handleUpdateHero(id) {
-		const newId = prompt('Enter new hero ID');
 		const newName = prompt('Enter new hero Name');
-		updateHero(id, newId, newName);
+		updateHero(id, newName);
 	}
 
 	const handleRemoveHero = removeHero;
@@ -46,13 +51,13 @@ function HeroList(props) {
 						</NavLink>
 						<button
 							className="listButton"
-							onClick={() => handleUpdateHero(hero.id)}
+							onClick={() => handleUpdateHero(hero._id)}
 						>
 							Update
 						</button>
 						<button
 							className="listButton"
-							onClick={() => handleRemoveHero(hero.id)}
+							onClick={() => handleRemoveHero(hero._id)}
 						>
 							Delete
 						</button>

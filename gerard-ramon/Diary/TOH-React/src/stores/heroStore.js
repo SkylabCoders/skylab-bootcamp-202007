@@ -61,9 +61,11 @@ dispatcher.register((action) => {
 		case actionTypes.DELETE_HERO:
 			_heroes = heroStore.deleteHeroById(action.data);
 			heroStore.emitChange();
+			break;
 		case actionTypes.UPDATE_HERO:
 			_heroes = heroStore.updateHero(action.data);
 			heroStore.emitChange();
+			break;
 		default:
 			break;
 	}

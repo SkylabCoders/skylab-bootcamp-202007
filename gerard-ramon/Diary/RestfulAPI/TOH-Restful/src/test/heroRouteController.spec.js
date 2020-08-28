@@ -103,6 +103,58 @@ describe('Hero Controller', () => {
 		expect(sendSpy.called).to.be.false;
 	});
 
+	it('[PUT] Should execute hero.save callback', () => {
+		let req = {
+			hero: {
+				save: () => {},
+				name: null
+			},
+			body: {
+				name: 'alex'
+			}
+		};
+
+		let res = {
+			send: () => {},
+			json: () => {}
+		};
+
+		const saveFake = sinon.fake.yields('error exists');
+		sinon.replace(req.hero, 'save', saveFake);
+
+		const jsonSpy = sinon.spy(res, 'json');
+
+		heroController.put(req, res);
+
+		expect(jsonSpy.called).to.be.true;
+	});
+
+	it('[PUT] Should execute res.send when recieving an error', () => {
+		let req = {
+			hero: {
+				save: () => {},
+				name: null
+			},
+			body: {
+				name: 'alex'
+			}
+		};
+
+		let res = {
+			send: () => {},
+			json: () => {}
+		};
+
+		const saveFake = sinon.fake.yields('error exists');
+		sinon.replace(req.hero, 'save', saveFake);
+
+		const sendSpy = sinon.spy(res, 'send');
+
+		heroController.put(req, res);
+
+		expect(sendSpy.called).to.be.true;
+	});
+
 	it('[PATCH] Should call hero.save & _id', () => {
 		let req = {
 			hero: {
