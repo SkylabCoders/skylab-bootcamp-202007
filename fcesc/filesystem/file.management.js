@@ -29,7 +29,7 @@ module.exports = {
       const files = readdirSync(ROOT);
       const [ name, extension ] = filename.split('.');
       let max = files
-        .filter((file)=>{file.match(/.*mockFileName{1}.*[1-9]+/)})
+        .filter((file)=>{file.match(/.*test{1}.*[1-9]+/)})
         .map((file) => { Number(file.replace(name, '').replace(`.${extension}`, ''))})
         .sort()
         .pop() || 0;

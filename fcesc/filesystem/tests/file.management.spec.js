@@ -118,7 +118,7 @@ describe('File Management', () => {
       } catch (thrownerror) {
         expect(thrownerror.message).to.be.string('Filename is required');
       }    
-    })
+    })Q
     xit('Should call readFileSYnc with a given filename - STUB', () => {
       // configuración de escenario
       const readStub = sinon.stub(fs, 'readFileSync'); // el espía no previene los efectos secundarios que puedan causar los métodos
@@ -252,7 +252,6 @@ describe('File Management', () => {
 
       writeStub.withArgs(`${ROOT}/${filename}`).throws(new Error());
       readDirStub.returns([filename, anotherFile]);
-      writeStub.returns(undefined);
 
       fileManagement.createFileSafe(filename);// the stub has no side effects: no file is actually being created
 
