@@ -56,9 +56,16 @@ describe('Heroes Controller', () => {
     });
     describe(`PUT`, () => {
         it('Should send an error', () => {
-            const saveFaker = sinon.fake.throws(new Error());
+
+            const saveFaker = sinon.spy();
             sinon.replace(req.hero, 'save', saveFaker);
+            const sendFaker = sinon.fake();
+            sinon.replace(res, 'send', sendFaker);
+
             heroController.put(req, res);
+            expect(saveFaker.calledOnce).to.be.true;
+
+            expect(sendFaker.calledOnce).to.be.true;
 
 
         })
