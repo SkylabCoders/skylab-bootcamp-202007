@@ -26,13 +26,15 @@ describe('Heroes controlller', () => {
             json: () => { },
             send: () => { }
         };
-        const statusStub = sinon.fake(res, 'json');
+        const statusFaker = sinon.fake();
+        const jsonFaker = sinon.fake();
 
-        const jsonStub = sinon.fake(res, 'status');
+        sinon.replace(res, 'status', statusFaker)
+        sinon.replace(res, 'json', jsonFaker)
         controller(Hero).post(req, res)
 
-        expect(statusStub.callCount).to.equal(1);
-        expect(jsonStub.callCount).to.equal(1);
+        expect(statusFaker.callCount).to.equal(1);
+        expect(jsonFaker.callCount).to.equal(1);
 
     });
 });

@@ -14,9 +14,9 @@ describe('Heroes Controller', () => {
 
 
         res = {
-            status: sinon.spy(),
-            json: sinon.spy(),
-            send: sinon.spy()
+            status: () => { },
+            json: () => { },
+            send: () => { }
         };
         req = {
             body: {},
@@ -35,20 +35,32 @@ describe('Heroes Controller', () => {
 
         it('should call json with hero prop of req', () => {
             // assert psot is undefined
+            const statusFaker = sinon.fake();
+            const jsonFaker = sinon.fake();
+
+            sinon.replace(res, 'status', statusFaker);
+            sinon.replace(res, 'json', jsonFaker);
 
             // const jsonStub = sinon.stub(res, 'json');
             heroController.get(req, res);
-            res.json.calledWith(req.hero).should.equal(true, 'Get doesent find correct type')
+            expect(jsonFaker.calledWith(req.hero)).to.equal(true)
 
         })
         it('Should  be called once', () => {
+
+            const jsonFaker = sinon.fake();
+            sinon.replace(res, 'json', jsonFaker);
             heroController.get(req, res);
-            res.json.calledOnce.should.equal(true)
+            expect(jsonFaker.calledOnce).to.equal(true)
         })
     });
     describe(`PUT`, () => {
         it('Should send an error', () => {
+            const saveFaker = sinon.fake.throws(new Error());
+            sinon.replace(req.hero, 'save', saveFaker);
             heroController.put(req, res);
+
+
         })
         it('Should invoque json wirh hero and once', () => {
 
@@ -65,7 +77,10 @@ describe('Heroes Controller', () => {
             res.json.calledWith(req.body).should.equal(true);
 
         })
-        it('Should get an error', () => {
+        it('Should get an error II', () => {
+            const sendFaker = sinon.fake.throws(new Error());
+
+            sinon.replace(res, 'send', sendFaker);
             req.body = { pepe: 'hola' }
 
             console.log(req.body.name)
