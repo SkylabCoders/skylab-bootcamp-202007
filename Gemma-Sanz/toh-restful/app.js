@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const chalk = require('chalk');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,4 +25,4 @@ const userRouter = require('./src/routes/userRouter')(User);
 app.use('/heroes', heroRouter);
 app.use('/users', userRouter);
 
-app.listen(port, () => debug(`Running on port ${port}`));
+app.listen(port, () => debug(`Running on port ${chalk.yellowBright(port)}`));
