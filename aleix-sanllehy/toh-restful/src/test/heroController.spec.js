@@ -86,23 +86,6 @@ describe('Hero controller', () => {
 		expect(sendSpy.called).to.be.true;
 	});
 
-	it('PUT - 3.- ELSE Scenario', () => {
-		const req = {
-			body: { name: 'sherar' }
-		};
-
-		const res = {
-			json: () => {},
-			send: () => {}
-		};
-
-		const sendSpy = sinon.spy(res, 'send');
-
-		controller.put(req, res);
-
-		expect(sendSpy.called).to.be.false;
-	});
-
 	it('PATCH - 1.- Should create a new hero', () => {
 		const req = {
 			body: {
@@ -182,7 +165,7 @@ describe('Hero controller', () => {
 		expect(sendSpy.called).to.be.true;
 	});
 
-	it('DELETER - 3.- Else scenario ', () => {
+	it('ELSE Scenario', () => {
 		const req = {
 			body: { name: 'sherar' }
 		};
@@ -194,6 +177,7 @@ describe('Hero controller', () => {
 
 		const sendSpy = sinon.spy(res, 'send');
 
+		controller.put(req, res);
 		controller.deleter(req, res);
 
 		expect(sendSpy.called).to.be.false;
