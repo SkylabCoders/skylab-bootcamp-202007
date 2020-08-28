@@ -1,0 +1,7 @@
+<ul class="products__list">
+    <% for(product of products) { %>
+    <li class="productlist__item">
+        <%-include('productlist-item', {product})-%>
+    </li>
+    <% } %>
+</ul>

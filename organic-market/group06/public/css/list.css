@@ -1,0 +1,69 @@
+.flex-col {
+  display: flex;
+  flex-direction: column; }
+
+.flex-row {
+  display: flex;
+  flex-direction: row; }
+
+.list-card-holder {
+  background-color: whitesmoke;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  margin: 10px;
+  padding: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 90%; }
+
+.list-card {
+  width: 100%;
+  align-items: center; }
+
+.list-card-stacked {
+  width: 100%; }
+  .list-card-stacked form {
+    display: flex;
+    justify-content: flex-end; }
+
+.list-button {
+  background-color: #f3e367;
+  border: none;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer; }
+
+.list-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.list-card-image {
+  margin-right: 10px; }
+
+.list-card-content {
+  font-family: sans-serif; }
+
+.list-header {
+  color: black;
+  font-family: sans-serif;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 80%; }
+
+.list-card-content p {
+  margin: 4px 0px; }
+
+.product__property img {
+  max-height: 15px; }
+
+@media only screen and (min-width: 1024px) {
+  .list-card-holder {
+    width: 65%; } }
