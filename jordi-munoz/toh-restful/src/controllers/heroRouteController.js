@@ -17,7 +17,7 @@ const get = (req, res) => {
   if (req.hero) {
     res.json(hero);
   } else {
-    res.send(error);
+    res.send('error');
   }
 }
 
