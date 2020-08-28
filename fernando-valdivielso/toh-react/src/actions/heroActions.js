@@ -3,10 +3,10 @@ import dispatcher from "../appDispatcher";
 import actionTypes from "./actionTypes";
 
 export function loadHeroes() {
-    return axios.get('/api/`heroes').then((heroes) => {
+    return axios.get('/api/heroes').then((heroes) => {
         dispatcher.dispatch({          //dispatcher, ahi tienes una accion
             type: actionTypes.LOAD_HERO,
-            data: heroes,
+            data: heroes.data
         });
     });
 }
@@ -23,12 +23,10 @@ export function saveHero(hero) {
 }
 
 export function deleteHero(id) {
-    return new Promise((resolve) => {
-        resolve(id);
-    }).then((responseId) => {
+    return axios.delete(`/api/heroes/${id}`).then(() => {
         dispatcher.dispatch({
             type: actionTypes.DELETE_HERO,
-            data: { id: responseId },
+            data: id
         });
     });
 }
