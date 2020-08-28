@@ -7,11 +7,14 @@ function deleteAndCrate(req, res) {
 			const value = item[1];
 			hero[key] = value;
 		});
-		hero.save((error) => {
-			if (error) res.send(error);
-			res.json(hero);
+		hero.save((err) => {
+			if (err) res.send(err);
+			else {
+				res.sendStatus(200);
+				res.json(hero);
+			}
 		});
-	}
+	} else res.sendStatus(400);
 }
 
 module.exports = deleteAndCrate;
