@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 const { PORT: port } = process.env;
 
-const Hero = require('./src/models/heroMode');
+const Hero = require('./src/models/heroModel');
 const User = require('./src/models/userModel');
 
 mongoose.connect('mongodb://localhost/heroes');
@@ -22,7 +22,7 @@ const heroRouter = require('./src/routes/heroRoutes')(Hero);
 
 app.use('/heroes', heroRouter);
 
-const authRouter = require('./src/routes/authRoutes')(User);
+const authRouter = require('./src/routes/heroRoutes')(User);
 
 app.use('/auth', authRouter);
 
