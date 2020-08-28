@@ -1,0 +1,23 @@
+<div class="header">
+	<img class="header__logo"
+		src="https://trello-attachments.s3.amazonaws.com/5f40033fb44fda5f6b6b9f34/5f412e6f25b368852a60ec49/a26c43537d957a1e49423328d1d97dc4/logo.png"
+		alt="logo" />
+	<ul class="navbar">
+		<% for(let i= 0; i< nav.length; i++) { %>
+		<li>
+			<a href="<%=nav[i].link%>">
+				<span class="navbar__list-item"><%=nav[i].title%></span>
+			</a>
+		</li>
+		<% } %>
+	</ul>
+	<div class="flex-spacer"></div>
+	<form action="/user/search" method="post" name="search">
+		<input type="search" name="search" class="search" placeholder="  Buscar...">
+	</form>
+	<form action="/auth/logout" method="POST" name="logout">
+		<button type="submit" class="nav__logout" name="logout">
+			Log Out
+		</button>
+	</form>
+</div>
