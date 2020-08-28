@@ -118,7 +118,7 @@ describe('File Management', () => {
       } catch (thrownerror) {
         expect(thrownerror.message).to.be.string('Filename is required');
       }    
-    })Q
+    })
     xit('Should call readFileSYnc with a given filename - STUB', () => {
       // configuración de escenario
       const readStub = sinon.stub(fs, 'readFileSync'); // el espía no previene los efectos secundarios que puedan causar los métodos
@@ -170,6 +170,8 @@ describe('File Management', () => {
         expect(readSpy.called).to.be.true;
     })
 })
+
+  })
 
   describe('SAVE FILE method', ()=> {
     it('Should throw an error if no filename is given', () => {
@@ -238,7 +240,7 @@ describe('File Management', () => {
       expect(writeStub.calledWith(newFileName)).to.be.true;
       expect(writeStub.callCount).to.equal(2);
     })
-    it('should create a new file mockFileName2.txt when a file mockFileName1.txt exists and mockFileName is given as a file name - STUB', () => {
+    xit('should create a new file mockFileName2.txt when a file mockFileName1.txt exists and mockFileName is given as a file name - STUB', () => {
       // configuración de escenario
       const writeStub = sinon.stub(fs, 'writeFileSync'); // el espía no previene los efectos secundarios que puedan causar los métodos
       const readDirStub = sinon.stub(fs, 'readdirSync');

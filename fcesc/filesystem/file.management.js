@@ -35,7 +35,6 @@ module.exports = {
         .pop() || 0;
 
       const newName = `${name}${++max}.${extension}`;
-      console.log('AQUI', newName);
       writeFileSync(`${ROOT}/${newName}`, '', { flag: 'wx' });
     }
   },
