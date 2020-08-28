@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 const heroRouter = require('./src/routes/heroRouter')(Hero);
 const userRouter = require('./src/routes/userRouter')(User);
 
-app.use('/heroes', heroRouter);
+app.use('/api/heroes', heroRouter);
 app.use('/users', userRouter);
 
 app.listen(port, () => debug(`Running on port ${chalk.yellowBright(port)}`));
