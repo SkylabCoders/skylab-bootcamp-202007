@@ -27,9 +27,9 @@ app.use(bodyParser.json());
 //     next();
 // });
 
-app.use('/son', sonRouter(Son));
-app.use('/heroes', heroRouter(Hero));
-app.use('/users', userRouter(User));
+app.use('/api/son', sonRouter(Son));
+app.use('/api/heroes', heroRouter(Hero));
+app.use('/api/users', userRouter(User));
 
 
 

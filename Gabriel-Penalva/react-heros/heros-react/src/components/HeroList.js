@@ -11,7 +11,7 @@ function HeroList() {
         if (heros.length === 0) {
             loadHeros();
         }
-        return () => heroStore.removeChangeListerner(onChange);
+        return () => heroStore.removeChangeListener(onChange);
     }, [heros.length]);
 
     function onChange() {
