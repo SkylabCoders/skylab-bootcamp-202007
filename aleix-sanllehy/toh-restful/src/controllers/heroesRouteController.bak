@@ -1,11 +1,6 @@
-const getLastId = require('../../dbutils');
-
 function heroesController(Hero) {
 	function post(req, res) {
 		const hero = new Hero(req.body);
-		let result = null;
-		//console.log(hero);
-		//console.dir(hero);
 		if (!req.body.name) {
 			res.status(400);
 			res.send('Name is required!');
@@ -15,20 +10,8 @@ function heroesController(Hero) {
 				res.send(error);
 			}
 		}); */
-			(async function mongo() {
-				result = await getLastId();
-				//console.log('result---------->', result);
-				//console.log('--------result id ------------', result.id);
-				hero.id = ++result[0].id;
-				//console.log('this is hero---->', hero);
-				hero.save();
-				res.redirect('/api/heroes');
-			})();
-
-			//hero.id = ++result.id;
-			//console.log('again, this is hero---->', hero);
-
-			//res.status(201);
+			hero.save();
+			res.status(201);
 			// res.json(hero);
 			// res.redirect('');
 		}
