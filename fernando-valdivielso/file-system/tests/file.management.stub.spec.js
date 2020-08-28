@@ -41,8 +41,10 @@ describe('File Mangament STUB', () => {
         const readdirStub = sinon.stub(fs, 'readdir');
         const fileManagement = proxyquire('../file.management', { fs });
 
+        readdirStub.yields(null, ['test.txt']);
+
         fileManagement.getAllFiles((error, data) => {
-            expect(data).to.equal([test.txt])
+            expect(data).to.eql(['test.txt'])
         });
 
     });

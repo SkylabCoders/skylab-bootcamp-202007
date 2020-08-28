@@ -35,6 +35,19 @@ describe('File Management Fake', () => {
         writeMock.verify();
 
     })
+
+    it('should throw an error when creating a file without name', () => {
+        const writeMock = sinon.mock(fs);
+        writeMock.expects('writeFileSync').never();
+        const fileManagement = proxyquire('../file.management', { fs });
+
+        try {
+            fileManagement.createFile();
+        } catch (error) {
+            writeMock.verify();
+        }
+    })
+
 });
 
 
