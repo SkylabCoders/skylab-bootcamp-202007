@@ -5,7 +5,7 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "DEBUG=app,app:* nodemon app.js",
-		"test": "mocha src/**/*Spec.js"
+		"test": "mocha src/**/*.spec.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -19,6 +19,7 @@
 	},
 	"dependencies": {
 		"body-parser": "^1.19.0",
+		"chai": "^4.2.0",
 		"debug": "^4.1.1",
 		"express": "^4.17.1",
 		"mocha": "^8.1.1",
