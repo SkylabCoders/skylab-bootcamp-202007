@@ -1,11 +1,9 @@
-import heroList from '../heroData';
+import axios from 'axios';
 import dispatcher from "../appDispatcher";
 import actionTypes from "./actionTypes";
 
 export function loadHeroes() {
-    return new Promise((resolve) => {
-        resolve(heroList);
-    }).then((heroes) => {
+    return axios.get('/api/`heroes').then((heroes) => {
         dispatcher.dispatch({          //dispatcher, ahi tienes una accion
             type: actionTypes.LOAD_HERO,
             data: heroes,
