@@ -1,0 +1,29 @@
+.footer__container {
+	background-color: rgb(117, 157, 165);
+	bottom: 0;
+	border-top: 1px solid grey;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer {
+	height: 60px;
+	margin: auto;
+	width: 90%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+	.footer {
+		width: 85%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.footer {
+		width: 75%;
+	}
+}
