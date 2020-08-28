@@ -23,10 +23,6 @@ const put = (req, res) => {
 const patch = (req, res) => {
 	const { hero } = req;
 
-	if (req.body._id) {
-		delete req.body._id;
-	}
-
 	Object.entries(req.body).forEach((item) => {
 		const key = item[0];
 		const value = item[1];
@@ -35,8 +31,9 @@ const patch = (req, res) => {
 	hero.save((error) => {
 		if (error) {
 			res.send(error);
+		} else {
+			res.json(hero);
 		}
-		res.json(hero);
 	});
 };
 

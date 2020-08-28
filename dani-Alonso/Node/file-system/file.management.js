@@ -11,6 +11,13 @@ const util = require('util');
 module.exports = {
 	createFile: (filename) => {
 		if (!filename) {
+			throw new Error('Filename is required!');
+		}
+		return writeFileSync(`./data/${filename}`, '', { flag: 'wx' });
+	},
+	createFileInjected: (filename, fs) => {},
+	createFileSafe: (filename) => {
+		if (!filename) {
 			throw new Error('Filename is required');
 		}
 
@@ -29,11 +36,9 @@ module.exports = {
 					.pop() || 0;
 
 			const newName = `${name}${++max}.${extension}`;
-			writeFileSync(`./data/${filename}`, '', { flag: 'wx' });
+			writeFileSync(`./data/${newName}`, '', { flag: 'wx' });
 		}
 	},
-	createFileInjected: (filename, fs) => {},
-	createFileSafe: (filename) => {},
 	deleteFile: (filename) => {
 		if (!filename) {
 			throw new Error('Filename is required');

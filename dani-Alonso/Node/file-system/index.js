@@ -33,7 +33,7 @@ app.get('/data/:file', (req, res) => {
 
 app.post('/new-file', (req, res) => {
 	fileManagement.createFileSafe(req.body.filename);
-	res.redirect(`/data/${filename}`);
+	res.redirect(`/data/${req.body.filename}`);
 });
 
 app.post('/save-file', (req, res) => {
