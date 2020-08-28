@@ -1,14 +1,12 @@
-import heroList from '../ components/list.mock';
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
+import axios from 'axios';
 
 export function loadHeroes() {
-	return new Promise((resolve) => {
-		resolve(heroList);
-	}).then((heroes) => {
+	return axios.get('/api/heroes/').then((heroes) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_HEROES,
-			data: heroes
+			data: heroes.data
 		});
 	});
 }
