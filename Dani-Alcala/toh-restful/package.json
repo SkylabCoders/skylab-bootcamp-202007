@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"test": "nyc --reporter=text mocha src/**/*Spec.js",
+		"test": "nyc --reporter=html mocha src/**/*Spec.js",
 		"start": "DEBUG=app,app:* nodemon app.js",
 		"lint": "eslint . --fix"
 	},

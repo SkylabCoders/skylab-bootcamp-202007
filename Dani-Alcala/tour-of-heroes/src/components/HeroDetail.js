@@ -12,14 +12,16 @@ function HeroDetail(props) {
 
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);
-		const heroId = +props.match.params.heroId;
+		// const heroId = +props.match.params.heroId;
+		const heroId = props.match.params.heroId;
 		if (heroes.length === 0) {
 			loadHeroes();
 		} else if (heroId) {
 			const hero = heroStore.getHeroById(heroId);
 			if (hero) {
 				setHeroName(hero.name);
-				setHeroId(hero.id);
+				// setHeroId(hero.id);
+				setHeroId(hero._id);
 			}
 		}
 		return () => heroStore.removeChangeListener(onChange);
@@ -36,7 +38,7 @@ function HeroDetail(props) {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		saveHero({ name: heroName, id: heroId }).then(() =>
+		saveHero({ name: heroName, _id: heroId }).then(() =>//cambio id por _id
 			props.history.push('/heroes')
 		);
 	}

@@ -17,13 +17,13 @@ app.use(bodyParser.json());
 const db = mongoose.connect('mongodb://localhost/heroesAPI');
 
 app.get('/', (req, res) => {
-	res.send('My server is ok');
+	res.send('My server is running');
 });
 
 const heroRouter = require('./src/routes/heroRouter')(Hero)
 const userRouter = require('./src/routes/userRouter')(User)
 
-app.use('/heroes', heroRouter)
-app.use('/users', userRouter)
+app.use('/api/heroes', heroRouter)
+app.use('/api/users', userRouter)
 
 app.listen(port, () => debug(`running on port ${port}`));

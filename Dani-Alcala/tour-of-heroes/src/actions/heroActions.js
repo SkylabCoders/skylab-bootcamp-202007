@@ -1,36 +1,50 @@
-import heroList from '../hero.mock';
+// import heroList from '../hero.mock';
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
+import axios from 'axios';
 
 export function loadHeroes() {
-	return new Promise((resolve) => {
-		resolve(heroList);
-	}).then((heroes) => {
+	// return new Promise((resolve) => {
+	// 	resolve(heroList);
+	// })
+
+	return axios.get('/api/heroes').then((heroes) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_HEROES,
-			data: heroes
+			// data: heroes
+			data: heroes.data
 		});
 	});
 }
 
 export function saveHero(hero) {
-	return new Promise((resolve) => {
-		resolve(hero);
-	}).then((savedHero) => {
+	// return new Promise((resolve) => {
+	// 	resolve(hero);
+	// })
+
+	if (!hero._id) hero = { name: hero.name };//esto no lo hacía
+
+	return axios.post('/api/heroes', hero).then((savedHero) => {
+		console.log(savedHero)
 		dispatcher.dispatch({
-			type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
+			// type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
+			// data: savedHero
+			type: hero._id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
 			data: savedHero
 		});
 	});
 }
 
-export function deleteHero(id) {
-	return new Promise((resolve) => {
-		resolve();
-	}).then(() => {
+export function deleteHero(_id) {//cambio id por _id
+	// return new Promise((resolve) => {
+	// 	resolve();
+	// })
+	return axios.delete(`/api/heroes/${_id}`)
+	.then(() => {
 		dispatcher.dispatch({
 			type: actionTypes.DELETE_HERO,
-			data: { id }
+			// data: { id }
+			data: { _id }
 		});
 	});
 }

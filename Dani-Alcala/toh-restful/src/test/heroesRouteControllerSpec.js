@@ -5,6 +5,9 @@ const heroesController = require('../controllers/heroesRouteController');
 
 describe('Heroes Controller v1', () => {
 	/* se puede hacer un beforeEach usando el this */
+	afterEach(() => {
+		sinon.restore();
+	});
 	describe('POST', () => {
 		it('should respond status 400 when name is missing', () => {
 			const Hero = function heroConstructor() {
@@ -56,26 +59,70 @@ describe('Heroes Controller v1', () => {
 			res.status.calledWith(201).should.equal(true);
 		});
 	});
-	describe('GET', () => {
-		beforeEach(() => {
+	describe('GET, first part', () => {
+		it('should return a hero', () => {
 			const Hero = { id: 14, find: () => {} };
 
-			this.req = {
+			const req = {
 				query: {
 					id: '14'
 				}
 			};
-			this.res = {
+			const res = {
 				json: sinon.spy(),
 				send: sinon.spy()
 			};
 
 			const controller = heroesController(Hero);
-			controller.get(this.req, this.res);
-		});
+			controller.get(req, res);
 
-		it('shoud return a hero', () => {
-			this.res.should.have.property('json');
+			res.should.have.property('json');
+		});
+	});
+	describe('GET, find, with error true', () => {
+		it('we test the callback inside of find', () => {
+			const Hero = { id: 14, find: () => {} };
+
+			const req = {
+				query: {
+					id: '14'
+				}
+			};
+			const res = {
+				json: sinon.spy(),
+				send: sinon.spy()
+			};
+
+			const findFake = sinon.fake.yields(true, { id: 2 });
+			sinon.replace(Hero, 'find', findFake);
+
+			const controller = heroesController(Hero);
+			controller.get(req, res);
+
+			res.send.called.should.equal(true);
+		});
+	});
+	describe('GET, find, with error false', () => {
+		it('we test the callback inside of find', () => {
+			const Hero = { id: 14, find: () => {} };
+
+			const req = {
+				query: {
+					id: '14'
+				}
+			};
+			const res = {
+				json: sinon.spy(),
+				send: sinon.spy()
+			};
+
+			const findFake = sinon.fake.yields(false, { id: 2 });
+			sinon.replace(Hero, 'find', findFake);
+
+			const controller = heroesController(Hero);
+			controller.get(req, res);
+
+			res.json.called.should.equal(true);
 		});
 	});
 });

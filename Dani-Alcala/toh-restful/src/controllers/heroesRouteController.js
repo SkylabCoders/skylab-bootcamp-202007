@@ -17,18 +17,17 @@ function heroesController(Hero) {
 			query.id = req.query.id;
 		}
 
-		Hero.find(query, findCallback);
+		Hero.find(query, (error, heroes) => {
+			if (error) {
+				res.send(error);
+			} else {
+				res.json(heroes);
+			}
+		});
 	}
 
-	function findCallback(error, heroes) {
-		if (error) {
-			res.send(error);
-		} else {
-			res.json(heroes);
-		}
-	}
 
-	return { get, post, findCallback };
+	return { get, post };
 }
 
 module.exports = heroesController;

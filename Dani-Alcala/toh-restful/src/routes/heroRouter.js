@@ -18,7 +18,7 @@ function routes(Hero) {
 				}
 				if (hero) {
 					req.hero = hero;
-					next();
+					return next();
 				}
 
 				res.sendStatus(404);
