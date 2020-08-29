@@ -1,0 +1,40 @@
+.preferences__icon {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.body__box--main-recomendations {
+	margin-top: 100px;
+}
+
+.other-details__item {
+	width: fit-content;
+	height: fit-content;
+	align-items: center;
+}
+
+.recomendation__other-details {
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+
+	.data__circle {
+		height: 75px;
+		width: 75px;
+	}
+}
+
+
+@media screen and (min-width: 1024px) {
+	.body__box--main-recomendations {
+		margin-top: 5%;
+	}
+
+	.recipe__text--preferences {
+		display: flex;
+	}
+}

@@ -1,0 +1,12 @@
+<div>
+	<form action="/heroes/<%=hero.slug%>" method="POST" name="heroForm">
+		<h2><%= hero.name %> Details</h2>
+		<div><span>id: </span><%= hero.id %></div>
+		<div>
+			<label class="herodetail" for="heroField__name">name:</label>
+			<input class="herodetail" id="heroField__name" name="name" placeholder="name" value="<%= hero.name %>" />
+		</div>
+		<button class="herodetail" type="button"><a href='<%=ROUTES.home.path%>'>navigate back home</a></button>
+		<button class="herodetail" type="submit">save</button>
+	</form>
+</div>

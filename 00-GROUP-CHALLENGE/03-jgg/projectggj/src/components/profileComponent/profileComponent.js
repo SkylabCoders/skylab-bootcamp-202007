@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { logout } from '../../actions/authAction/authAction'
 import { Link } from 'react-router-dom';
-import './profileComponent.css'
+import './profileComponent.scss'
 import authStore from '../../stores/authStore'
 import store from '../../stores/store'
 
@@ -10,9 +10,9 @@ import store from '../../stores/store'
 
 function ProfileComponent() {
 
-    const [isLogged, setIsLogged] = useState(authStore.isLogged());
+    const [isLogged] = useState(authStore.isLogged());
     //     const [user, setUser] = useState(authStore.getUserProfile());
-    const [email, setEmail] = useState('');
+    const [email] = useState('');
     //  const [password, setPassword] = useState('');
     const [userName, setUserName] = useState(authStore.getUserName());
     const [userPhoto, setUserPhoto] = useState(authStore.getUserPhoto());
@@ -55,7 +55,7 @@ function ProfileComponent() {
                                         PROFILE
                                     </div>
                                 </div>
-                                <div className="details-desc-content text-profile">
+                                <div className="profile-desc-content text-profile">
                                     <div className="details-desc">
                                         FULL NAME: <span>{userName || 'Undefined'}</span>
                                     </div>

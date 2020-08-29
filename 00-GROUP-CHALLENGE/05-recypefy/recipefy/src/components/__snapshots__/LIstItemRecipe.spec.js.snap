@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItemRecipe should match with new title 1`] = `
+<a
+  className="recipe-list__item"
+  href="/recipe-page/Abocado"
+  onClick={[Function]}
+>
+  <img
+    alt="Recipe"
+    src=""
+  />
+  <h4>
+    
+  </h4>
+</a>
+`;
+
+exports[`ListItemRecipe should match with title 1`] = `
+<a
+  className="recipe-list__item"
+  href="/recipe-page/Grilled Tofu Salad With Miso Dressing"
+  onClick={[Function]}
+>
+  <img
+    alt="Recipe"
+    src=""
+  />
+  <h4>
+    
+  </h4>
+</a>
+`;

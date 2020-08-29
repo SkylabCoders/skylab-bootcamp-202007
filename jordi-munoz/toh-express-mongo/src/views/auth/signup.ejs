@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/hero-detail.css" />
+</head>
+
+<body>
+  <%- include('../header'); -%>
+  <h2>Sign Up or <a href="/auth/signin">SignIn</a></h2>
+  <form action="/auth/signup" method="POST">
+    <div>
+      <label for="user">User:
+        <input type="text" name="user" required>
+      </label>
+    </div>
+
+    <div>
+      <label for="password">Password:
+        <input type="password" name="password" required
+          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,13}$"
+          id="password">
+      </label>
+    </div>
+    <div>
+      <label for="password">Confirm Password:
+        <input type="password" name="password" required
+          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,13}$"
+          id="password_confirm" oninput="check(this)">
+        <script language='javascript' type='text/javascript'>
+          function check(input) {
+            if (input.value != document.getElementById('password').value) {
+              input.setCustomValidity('Password Must be Matching.');
+            } else {
+              // input is valid -- reset the error message
+              input.setCustomValidity('');
+            }
+          }
+        </script>
+      </label>
+    </div>
+
+    <button type="submit">SignUp</button>
+  </form>
+</body>
+
+</html>

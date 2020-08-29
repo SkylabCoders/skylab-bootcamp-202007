@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Leaderboard snapshot should match 1`] = `
+<div
+  className="leaderboard"
+>
+  <h1>
+    Leaderboard
+  </h1>
+  <ul />
+</div>
+`;

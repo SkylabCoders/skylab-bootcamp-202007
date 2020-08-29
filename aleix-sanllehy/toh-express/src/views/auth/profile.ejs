@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tour of Heroes</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/hero.css" />
+	</head>
+	<body>
+		<%- include('../header'); -%>
+		<h2><%= user.user %> Profile!</h2>
+		<form action="/auth/profile" method="POST">
+			<div>
+				<label for="password">
+					Change Password:
+					<input
+						class="password"
+						type="text"
+						name="password"
+						required
+						pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					/>
+				</label>
+			</div>
+			<div>
+				<label for="password">
+					Confirm Password:
+					<input
+						class="password"
+						type="text"
+						name="confirmpassword"
+						required
+						pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					/>
+				</label>
+			</div>
+			<button type="submit">Save</button>
+		</form>
+		<form action="/auth/signout" method="POST">
+			<button type="submit">Sign out</button>
+		</form>
+	</body>
+</html>

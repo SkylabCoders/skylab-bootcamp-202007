@@ -1,0 +1,12 @@
+.main-carousel {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-width: 1024px;
+  overflow-x: auto;
+}
+.main-carousel::-webkit-scrollbar {
+  display: none;
+}

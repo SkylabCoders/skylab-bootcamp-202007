@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="heroe-detail.component.css">
+</head>
+
+<body>
+  <div>
+    <h2><%= hero.name %> details!</h2>
+    <div><span>id: </span><%= hero.id %></div>
+    <div>
+      <label>name:
+        <input placeholder="name" value="<%= hero.name %>" />
+      </label>
+    </div>
+    <button>go back</button>
+    <button>save</button>
+  </div>
+</body>
+
+</html>

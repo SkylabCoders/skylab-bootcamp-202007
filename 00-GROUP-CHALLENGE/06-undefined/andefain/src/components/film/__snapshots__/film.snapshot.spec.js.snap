@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film snapshot Should match 1`] = `
+<section
+  className="film-container"
+>
+  <div
+    className="trailer-container"
+  >
+    <a
+      href="/film"
+      onClick={[Function]}
+    >
+      <img
+        alt="Poster"
+        className="poster-img"
+      />
+    </a>
+    <a
+      href="/film"
+      onClick={[Function]}
+    >
+      <img
+        alt="Trailer"
+        className="trailer-img"
+        src=""
+      />
+    </a>
+  </div>
+  <div
+    className="details-container"
+  >
+    <div
+      className="details-header"
+    >
+      <h1
+        className="film-details__title"
+      />
+      <img
+        alt="Start icon"
+        className="icon-like-desktop"
+        height="30px"
+        onClick={[Function]}
+        src="https://trello-attachments.s3.amazonaws.com/5f294480df57d910f5d84ab9/512x512/5f83a4529179eef86fac458fd103c413/favorito.png"
+        width="30px"
+      />
+    </div>
+    <span />
+    <div
+      className="film-details__head"
+    >
+      <span>
+        <span />
+        <span>
+           | 
+        </span>
+        <span />
+        <span>
+           | 
+        </span>
+        <span />
+      </span>
+    </div>
+    <div
+      className="film-details__plot"
+    >
+      <h3
+        className="plot-title"
+      >
+        Plot
+      </h3>
+      <p
+        className="plot-details"
+      />
+    </div>
+  </div>
+</section>
+`;

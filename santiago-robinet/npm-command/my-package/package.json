@@ -1,0 +1,11 @@
+{
+  "name": "santiago-robinet-jelou-world",
+  "version": "1.0.0",
+  "description": "My first npm package",
+  "main": "mypackage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Santiago Robinet",
+  "license": "ISC"
+}

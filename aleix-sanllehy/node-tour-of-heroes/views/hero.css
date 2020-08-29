@@ -1,0 +1,59 @@
+/*- HEADER STYLE -*/
+.header__title {
+	color: rgb(194, 165, 165);
+	margin-left: 10px;
+}
+
+.header {
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.header__menu {
+	display: flex;
+}
+
+.header__button {
+	background-color: rgb(238, 238, 238);
+	border-radius: 5px;
+	color: rgb(96, 126, 141);
+	font-weight: 600;
+	margin-right: 10px;
+	width: 100px;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+}
+
+.header-button:hover,
+.nav__link--active,
+.button-back:hover {
+	color: rgb(46, 170, 233);
+	font-weight: 700;
+}
+
+/*- HERO STYLE -*/
+
+.hero-details {
+	margin-left: 10px;
+}
+
+.hero-details__element {
+	width: 500px;
+	display: flex;
+}
+
+.button-back {
+	background-color: rgb(238, 238, 238);
+	border-radius: 5px 5px 5px 5px;
+	color: rgb(131, 131, 131);
+	width: 60px;
+	display: flex;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+}

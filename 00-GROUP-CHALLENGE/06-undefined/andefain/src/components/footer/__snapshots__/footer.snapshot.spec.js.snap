@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer snapshot Should match 1`] = `
+<footer
+  className="footer-container"
+>
+  <a
+    className="footer-link-logo"
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      alt="Andefain Logo"
+      className="image-logo"
+      src="https://trello-attachments.s3.amazonaws.com/5f282a8dc47fa449625898e8/231x81/282f5095873b5824c7bf9db954205c03/logo_sin_margen.png"
+    />
+  </a>
+  <div
+    className="footer--info"
+  >
+    <a
+      className="footer--info-general"
+      href="/about"
+      onClick={[Function]}
+    >
+      <p>
+        About Andefain
+      </p>
+    </a>
+    <a
+      className="footer--info-general"
+      href="/privacy"
+      onClick={[Function]}
+    >
+      <p>
+        Privacy Policy
+      </p>
+    </a>
+  </div>
+  <p
+    className="copyright"
+  >
+    2020 © Andefain, S.L. - Aleix - Martí - Vanesa
+  </p>
+</footer>
+`;

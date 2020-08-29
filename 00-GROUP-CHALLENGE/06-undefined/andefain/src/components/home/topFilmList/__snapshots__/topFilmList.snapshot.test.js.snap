@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film list snapshot Should match 1`] = `
+<div
+  className="list"
+>
+  <h2
+    className="list__title"
+  />
+  <a
+    className="list__item"
+    href="/film/tt8110330"
+    onClick={[Function]}
+  >
+    <div
+      className="item__details"
+    >
+      <img
+        alt="Poster film"
+        className="details__img"
+        src="https://m.media-amazon.com/images/M/MV5BNmI0MTliMTAtMmJhNC00NTJmLTllMzQtMDI3NzA1ODMyZWI1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg"
+      />
+      <div
+        className="details__text"
+      >
+        <h3>
+          Dil Bechara
+        </h3>
+        <h5>
+          2020
+        </h5>
+      </div>
+    </div>
+  </a>
+  <a
+    className="list__item"
+    href="/film/tt9784456"
+    onClick={[Function]}
+  >
+    <div
+      className="item__details"
+    >
+      <img
+        alt="Poster film"
+        className="details__img"
+        src="https://m.media-amazon.com/images/M/MV5BOWQ5ZGU2ZGQtOTJjYi00MWI3LWE1ZDQtM2EzOGI2MzJjNTA4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+      />
+      <div
+        className="details__text"
+      >
+        <h3>
+          The Kissing Booth 2
+        </h3>
+        <h5>
+          2020
+        </h5>
+      </div>
+    </div>
+  </a>
+  <a
+    className="list__item"
+    href="/film/tt7556122"
+    onClick={[Function]}
+  >
+    <div
+      className="item__details"
+    >
+      <img
+        alt="Poster film"
+        className="details__img"
+        src="https://m.media-amazon.com/images/M/MV5BNDJiZDliZDAtMjc5Yy00MzVhLThkY2MtNDYwNTQ2ZTM5MDcxXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg"
+      />
+      <div
+        className="details__text"
+      >
+        <h3>
+          The Old Guard
+        </h3>
+        <h5>
+          2020
+        </h5>
+      </div>
+    </div>
+  </a>
+  <a
+    className="list__item"
+    href="/film/tt10362466"
+    onClick={[Function]}
+  >
+    <div
+      className="item__details"
+    >
+      <img
+        alt="Poster film"
+        className="details__img"
+        src="https://m.media-amazon.com/images/M/MV5BN2UyNGM3MDUtMTIzZi00ZDdkLThlYTktYjk0ZDMzM2JiMjMyXkEyXkFqcGdeQXVyNzE0MjkxMzA@._V1_.jpg"
+      />
+      <div
+        className="details__text"
+      >
+        <h3>
+          After We Collided
+        </h3>
+        <h5>
+          2020
+        </h5>
+      </div>
+    </div>
+  </a>
+  <a
+    className="list__item"
+    href="/film/tt3799232"
+    onClick={[Function]}
+  >
+    <div
+      className="item__details"
+    >
+      <img
+        alt="Poster film"
+        className="details__img"
+        src="https://m.media-amazon.com/images/M/MV5BNjQ0Mzk0OTE5MF5BMl5BanBnXkFtZTgwNDkyOTI0NTM@._V1_.jpg"
+      />
+      <div
+        className="details__text"
+      >
+        <h3>
+          The Kissing Booth
+        </h3>
+        <h5>
+          2018
+        </h5>
+      </div>
+    </div>
+  </a>
+</div>
+`;

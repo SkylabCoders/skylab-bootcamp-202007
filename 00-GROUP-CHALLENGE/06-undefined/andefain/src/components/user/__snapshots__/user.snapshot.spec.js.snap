@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`user snapshot Should match 1`] = `
+<div
+  className="user-container"
+>
+  <section
+    className="user-info"
+  >
+    <div
+      className="user-image"
+    >
+      <img
+        alt="User profile image"
+        src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg"
+      />
+    </div>
+    <div
+      className="user-detail"
+    >
+      <p>
+        JOHN DOE
+      </p>
+      <p>
+        test@gmail.com
+      </p>
+    </div>
+  </section>
+  <section
+    className="user-favorite-movie"
+  >
+    <p
+      className="favorite-movies-title"
+    >
+      FAVORITES MOVIES
+    </p>
+    <section
+      className="movies"
+    />
+  </section>
+</div>
+`;

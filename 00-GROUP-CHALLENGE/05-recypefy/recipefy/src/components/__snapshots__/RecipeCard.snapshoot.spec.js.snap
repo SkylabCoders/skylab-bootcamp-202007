@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeCard snapshot should match 1`] = `
+<div
+  className="body__box"
+>
+  <h2
+    className="box__title"
+  >
+    ¡Your search have no results!
+  </h2>
+  <h3>
+    Try again
+  </h3>
+  <p>
+    Perhaphs is an error with the search or your search don't have any matches.
+  </p>
+</div>
+`;

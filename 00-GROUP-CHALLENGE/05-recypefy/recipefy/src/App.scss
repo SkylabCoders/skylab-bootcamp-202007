@@ -1,0 +1,185 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+
+#root {
+	width: 100%;
+}
+
+body {
+	background-color: #ffff;
+	width: 100%;
+	display: flex;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+h2 {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: rgb(0, 0, 0);
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: rgb(1, 1, 14);
+}
+
+h4 {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: rgb(1, 1, 19);
+}
+
+p {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: rgb(1, 1, 17);
+}
+
+.body__list {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+	align-items: stretch;
+
+	h2 {
+		padding: 15px;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		width: auto;
+	}
+}
+
+.body__box {
+	height: 35vh;
+	height: auto;
+	width: 90%;
+	background-color: #f8f8f0;
+	margin: 5% 2% 5% 2%;
+	padding: 3%;
+	border-radius: 25px;
+	-webkit-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+	box-shadow: 10px 13px 8px -5px rgba(0, 0, 0, 0.08);
+
+	.recipe__text {
+		width: 50%;
+		min-width: 250px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+	}
+
+	.recipe__text--title {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		max-width: 40 vw;
+		color: rgb(24, 1, 1);
+		margin-left: 20px;
+		font-size: 17px;
+	}
+
+	.recipe__image {
+		border-radius: 8%;
+		width: 100%;
+		height: auto;
+		margin-right: 5px;
+	}
+}
+
+.body__box--recipe-details {
+	background-color: #f8f8f0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	a {
+		width: 100%;
+		margin: 15px;
+	}
+}
+
+.preferences__icon {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.preference__peanut-free {
+	filter: invert(51%) sepia(96%) saturate(461%) hue-rotate(329deg) brightness(99%) contrast(94%);
+}
+
+.preference__tree-nut-free {
+	filter: invert(70%) sepia(11%) saturate(3163%) hue-rotate(69deg) brightness(95%) contrast(66%);
+}
+
+.preference__alcohol-free {
+	filter: invert(10%) sepia(57%) saturate(3660%) hue-rotate(226deg) brightness(81%) contrast(92%);
+}
+
+.box__title {
+	margin-top: 20px;
+	margin-left: 20px;
+	color: rgb(1, 1, 19);
+}
+
+.recipe__text--preferences {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.loading {
+	width: 100px;
+	height: 100px;
+}
+
+@media screen and (min-width: 600px) {
+	.body__box {
+		.recipe__image {
+			margin-right: 5px;
+			max-height: 30vw;
+			width: auto;
+		}
+	}
+
+	.body__box--recipe-details {
+		flex-direction: row;
+
+		a {
+			text-align-last: center;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.Main-page {
+		.body__box {
+			width: 62%;
+			margin: 2%;
+			margin-top: 5%;
+		}
+	}
+
+	.body-content {
+		position: relative;
+		width: 80%;
+		margin: auto;
+	}
+}

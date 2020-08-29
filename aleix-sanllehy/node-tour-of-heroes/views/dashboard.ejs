@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tour of Heroes</title>
+		<link rel="stylesheet" href="./dashboard.css" />
+	</head>
+	<body>
+		<h1 class="header__title">Tour of Heroes</h1>
+		<section class="header">
+			<div class="header__menu">
+				<a href="/"><button class="header__button">Dashboard</button></a>
+				<a href="/list"><button class="header__button">Heroes</button></a>
+			</div>
+		</section>
+	
+		<h2 class="title">Top Heroes</h2>
+		<section class="dashboard">
+			<% dashboardList.forEach(element => { %>
+				<a href=<%=`/hero?id=${element.id}` %>>
+					<div class="dashboard__item"><%=element.name%></div>
+				</a>
+			<% }) %>
+		</section>
+	</body>
+</html>

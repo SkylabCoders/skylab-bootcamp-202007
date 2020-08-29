@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <%-include('partials/styles'); %>
+</head>
+
+<body>
+    <%-include('partials/header'); %>
+    <h2><span id="hero-detail__name"></span> details</h2>
+    <p>id: <span id="hero-detail__id"></span></p>
+    <label for="heroName">
+        name:
+        <input id="hero-detail__name-control" type="text" name="heroName"
+            onchange="heroDetailComponent.nameChange(this.value)" />
+    </label>
+    <script src="./hero.mock.js"></script>
+    <script src="./detailsComp.js"></script>
+</body>
+
+</html>

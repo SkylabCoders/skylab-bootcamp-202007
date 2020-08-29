@@ -1,0 +1,6 @@
+{
+  "parserOptions": { "ecmaVersion": 2019 },
+  "extends": ["airbnb-base", "prettier"],
+  "env": { "node": true, "mocha": true, "es6": true },
+  "no_underscore_dangle": "off" 
+}

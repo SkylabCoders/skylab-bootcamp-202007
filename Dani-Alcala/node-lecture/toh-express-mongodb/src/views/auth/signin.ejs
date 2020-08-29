@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/hero-detail.css">
+</head>
+
+<body>
+    <%- include('../header'); -%>
+    <h3>Sign in! or <a href="/auth/signup">Register</a></h3>
+    <form action="/auth/signin" method="POST">
+        <div>
+            <label for=" user">
+                User:
+                <input type="text" name="user">
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                Password:
+                <input type="password" name="password">
+            </label>
+        </div>
+        <button type="submit">SignIn</button>
+    </form>
+
+</body>
+
+</html>

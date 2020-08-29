@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`registerComponent should match 1`] = `
+<section
+  className="text-center container"
+>
+  <form
+    className="form-signin"
+  >
+    <h1
+      className="m-2"
+    >
+      Register
+    </h1>
+    <label>
+      Name
+    </label>
+    <input
+      autoFocus=""
+      className="m-1 form-control"
+      id="inputName"
+      onChange={[Function]}
+      placeholder="Name"
+      required={true}
+      type="text"
+      value=""
+    />
+    <label>
+      Last Name
+    </label>
+    <input
+      autoFocus=""
+      className="m-1 form-control"
+      id="inputLastName"
+      onChange={[Function]}
+      placeholder="Last Name"
+      required={true}
+      type="text"
+      value=""
+    />
+    <label>
+      Birth Date
+    </label>
+    <input
+      autoFocus=""
+      className="m-1 form-control"
+      id="inputBirthDate"
+      onChange={[Function]}
+      placeholder="Date"
+      required={true}
+      type="date"
+      value=""
+    />
+    <label>
+      Email address
+    </label>
+    <input
+      autoFocus=""
+      className="m-1 form-control"
+      id="inputEmail"
+      onChange={[Function]}
+      placeholder="Email address"
+      required={true}
+      type="email"
+      value=""
+    />
+    <label>
+      Password
+    </label>
+    <input
+      className="m-1 form-control"
+      id="inputPassword"
+      maxLength="20"
+      minLength="5"
+      onChange={[Function]}
+      placeholder="Password"
+      required={true}
+      type="password"
+      value=""
+    />
+    <label>
+      Repite password
+    </label>
+    <input
+      className="m-1 form-control"
+      id="inputPassword"
+      maxLength="20"
+      minLength="5"
+      onChange={[Function]}
+      placeholder="Password"
+      required={true}
+      type="password"
+      value=""
+    />
+    <div
+      className="rowflex"
+    >
+      <a
+        className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block"
+        href="/login"
+        onClick={[Function]}
+        type="submit"
+      >
+        Create account!
+      </a>
+      <img
+        alt="capsule"
+        className="capsule"
+        src="https://i.pinimg.com/originals/c8/3e/92/c83e92534f8ce734d123c1445d1adf14.jpg"
+      />
+    </div>
+    <a
+      href="/login"
+      onClick={[Function]}
+    >
+      Go back to login
+    </a>
+  </form>
+</section>
+`;

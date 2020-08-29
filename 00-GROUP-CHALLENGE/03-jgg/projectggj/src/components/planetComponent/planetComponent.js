@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import store from '../../stores/store';
 import { loadPlanets } from '../../actions/actions';
 import { Link } from 'react-router-dom';

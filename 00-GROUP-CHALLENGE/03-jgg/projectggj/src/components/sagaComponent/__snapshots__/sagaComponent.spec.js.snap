@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SagaComponent should match snapshot 1`] = `null`;
+
+exports[`should match snapshot 1`] = `null`;

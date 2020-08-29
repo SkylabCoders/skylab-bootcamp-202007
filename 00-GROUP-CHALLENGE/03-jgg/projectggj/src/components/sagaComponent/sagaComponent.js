@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import store from '../../stores/store';
 import { loadSagaList } from '../../actions/actions';
-import './sagaComponent.css';
+import './sagaComponent.scss';
 import { Link } from 'react-router-dom';
 const useBeforeFirstRender = (f) => {
 	const [hasRendered, setHasRendered] = useState(false)

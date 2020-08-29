@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Snapshot should match 1`] = `
+<div>
+  <div
+    className="header"
+  >
+    <h1>
+      Tour of Heroes
+    </h1>
+    <nav>
+      <a
+        aria-current="page"
+        className="my-active-class"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Dashboard
+      </a>
+       
+      <a
+        aria-current={null}
+        href="/herolist"
+        onClick={[Function]}
+      >
+        Heroes List
+      </a>
+    </nav>
+  </div>
+   
+  <div
+    className="center "
+  >
+    <h3>
+      Top Heros:
+    </h3>
+    <div
+      className="modules"
+    >
+      <div
+        className="module"
+      >
+        <a
+          className="dashlist hero-list_item"
+          href="/id/11"
+        >
+            
+          Dr Nice
+        </a>
+      </div>
+      <div
+        className="module"
+      >
+        <a
+          className="dashlist hero-list_item"
+          href="/id/12"
+        >
+            
+          Narco
+        </a>
+      </div>
+      <div
+        className="module"
+      >
+        <a
+          className="dashlist hero-list_item"
+          href="/id/13"
+        >
+            
+          Bombasto
+        </a>
+      </div>
+      <div
+        className="module"
+      >
+        <a
+          className="dashlist hero-list_item"
+          href="/id/14"
+        >
+            
+          Celeritas
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

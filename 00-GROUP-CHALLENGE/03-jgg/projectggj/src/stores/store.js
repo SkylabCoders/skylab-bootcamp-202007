@@ -111,11 +111,6 @@ dispatcher.register((action) => {
 			store.emitChange();
 			break;
 
-		case actionTypes.UPDATE_PROFILE:
-			//TODO : LOGIC
-			//logic
-			store.emitChange();
-			break;
 		case actionTypes.LOAD_PLANETS:
 			_planets = action.data;
 			store.emitChange();

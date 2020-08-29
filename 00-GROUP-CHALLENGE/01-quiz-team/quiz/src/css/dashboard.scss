@@ -1,0 +1,47 @@
+.dashboard__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__title {
+  color: white;
+  text-align: center;
+}
+
+.topThemes__grid,
+.themes__grid {
+  list-style-type: none;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1;
+  padding: 0;
+}
+
+.dashboard__topThemes {
+  display: none;
+}
+
+@media (min-width: 680px) and (max-width: 1024px) {
+  .topThemes__grid,
+.themes__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dashboard__topThemes {
+    display: contents;
+  }
+}
+@media (min-width: 1024px) {
+  .topThemes__grid,
+.themes__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dashboard__topThemes {
+    display: contents;
+  }
+}
+
+/*# sourceMappingURL=Dashboard.scss.map */
