@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
 import CoursesPage from './courses/CoursesPage';
+import ManageCoursesPage from './courses/ManageCoursesPage';
 import Header from './common/Header';
 import PageNotFound from './PageNotFound';
 
@@ -14,6 +15,8 @@ function App() {
         <Route exact path='/' component={HomePage}/>
         <Route path='/about' component={AboutPage}/>
         <Route path='/courses' component={CoursesPage}/>
+        <Route path='/course/:slug' component={ManageCoursesPage}/>
+        <Route path='/course' component={ManageCoursesPage}/>
         <Route component={PageNotFound}/>
       </Switch>
     </div>
