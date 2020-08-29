@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Organic Market</title>
+	<link rel="stylesheet" href="../css/food-detail.css" />
+	<link rel="stylesheet" href="../css/header.css" />
+	<link rel="stylesheet" href="../css/footer.css">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&family=Noto+Serif:wght@400;700&display=swap"
+		rel="stylesheet" />
+</head>
+
+<body>
+	<%- include('header')%>
+	<h2 class="title__search">Product Detail</h2>
+	<div class="container-search">
+		<div class="container">
+			<div class="item__container">
+				<div class="inner__left-container">
+					<div>
+						<img src="<%= product.img %>" alt="producto" />
+					</div>
+				</div>
+				<div class="inner__right-container">
+					<form action="/products/<%= product && product._id %>" method="POST" name="productForm">
+						<div>
+							<h3><%= product.type %></h3>
+						</div>
+						<div>
+							<h1 class="title__item">
+								<%=product && product.title%> details!
+							</h1>
+						</div>
+						<div class=""><%= product.description %></div>
+						<div class="item__title"><%= product.rating %></div>
+						<div><span class="item__title"></span><%= product.price %>€</div>
+						<hr />
+						<button type="submit" name="productForm " class="button">
+							Add to cart
+						</button>
+						<input type="text" name="amount" value="1" />
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to
+					list</a></button></div>
+	</div>
+	</div>
+
+
+	<%- include('footer')%>
+</body>
+
+</html>
+
+</html>
