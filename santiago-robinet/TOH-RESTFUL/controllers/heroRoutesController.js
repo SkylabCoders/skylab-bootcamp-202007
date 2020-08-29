@@ -6,19 +6,15 @@ const put = ((req, res) => {
         hero.save((err) => {
             if (err) {
                 res.send(err);
+            } else{
+                res.json(hero)
             }
-            res.json(hero);
         });
     }
 });
 
 const patch = ((req, res) => {
     const { hero } = req;
-
-    if(hero && req.body){
-        if(req.body._id){
-            delete req.body._id
-        }
     
         Object.entries(req.body).forEach((item) => {
             const key = item[0];
@@ -29,13 +25,14 @@ const patch = ((req, res) => {
         hero.save((err) => {
             if (err) {
                 res.send(err);
+            } else {
+                res.json(hero);
             }
-            res.json(hero);
         });
-    }
+    });
 
     
-});
+
 
 const deleter = ((req, res) => {
     const { hero } = req;
@@ -44,8 +41,10 @@ const deleter = ((req, res) => {
         hero.remove((err) => {
             if (err) {
                 res.send(err);
+            }else{
+
+                res.sendStatus(204);
             }
-            res.sendStatus(204);
         });
     }
 });

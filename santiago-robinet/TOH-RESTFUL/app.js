@@ -23,7 +23,7 @@ app.get( '/', (req, res) => {
 
 const heroRouter =  require( './src/routes/heroRouter')(Hero);
 
-app.use('/heroes', heroRouter)
+app.use('/api/heroes', heroRouter)
 
 const usersRouter =  require( './src/routes/usersRouter')(User);
 

@@ -25,6 +25,7 @@ class HeroStore extends EventEmitter {
 	}
 
 	getHeroes() {
+		console.log(_heroes)
 		return _heroes;
 	}
 
@@ -43,7 +44,6 @@ dispatcher.register((action) => {
 			nextId = generateNextId(_heroes);
 			break;
 		case actionTypes.UPDATE_HERO:
-			debugger;
 			_heroes = _heroes.map((hero) => {
 				if (hero.id === action.data.id) hero.name = action.data.name;
 				return hero;
@@ -56,7 +56,7 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		case actionTypes.DELETE_HERO:
-			_heroes = _heroes.filter((hero) => hero.id !== action.data.id);
+			_heroes = _heroes.filter((hero) => hero._id !== action.data._id);
 			heroStore.emitChange();
 			break;
 		default:

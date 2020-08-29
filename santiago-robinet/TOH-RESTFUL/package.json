@@ -7,7 +7,7 @@
 		"start": "set DEBUG=app,app:* && nodemon app.js",
 		"eslint": "eslint index.js --fix",
 		"lint": "eslint . --fix",
-		"test": "nyc --reporter=text mocha src/test/**/*Spec.js"
+		"test": "nyc --reporter=html mocha src/test/**/*Spec.js"
 	},
 	"keywords": [],
 	"author": "",
