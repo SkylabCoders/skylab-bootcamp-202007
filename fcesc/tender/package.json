@@ -1,0 +1,115 @@
+{
+	"name": "tender",
+	"version": "1.0.0",
+	"description": "Helping the tendering process",
+	"main": "src/index.js",
+	"private": "true",
+	"scripts": {
+		"start": "set DEBUG=index,index:* & nodemon index.js",
+		"test": "nyc --reporter=lcov --reporter=html --reporter=text mocha **/*spec.js",
+		"lint": "eslint . --fix",
+		"build": "react-scripts build",
+		"eject": "react-scripts eject"
+	},
+	"keywords": [
+		"Skylab",
+		"Bootcamp 202007",
+		"tender",
+		"tendering process"
+	],
+	"author": {
+		"name": "Francesc Brugarolas",
+		"email": "tender@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fcesc-code/tender.git"
+	},
+	"license": "spanish intellectual property law @29th-August-2020",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "body-parser": "^1.19.0",
+		"bootstrap": "^4.5.2",
+		"chalk": "^4.1.0",
+		"create-react-app": "^3.4.1",
+		"debug": "^4.1.1",
+		"express": "^4.17.1",
+		"immer": "^7.0.8",
+		"joi": "^17.2.1",
+		"mongodb": "^3.6.0",
+		"nodemon": "^2.0.4",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0",
+		"passport-validator": "^1.2.3",
+		"prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+		"react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "react-toastify": "^6.0.8",
+		"redux": "^4.0.5",
+		"redux-thunk": "^2.3.0",
+		"typescript": "^4.0.2"
+  },
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.3",
+		"eslint": "^7.7.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"jest": "^26.4.2",
+		"mocha": "^8.1.3",
+		"nyc": "^15.1.0",
+		"prettier": "^2.1.1",
+		"sinon": "^9.0.3",
+		"sinon-chai": "^3.5.0",
+		"supertest": "^4.0.2"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"jest": {
+		"setupFiles": [
+			"./tools/testSetup.js"
+		],
+		"moduleNameMapper": {
+			"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/fileMock.js",
+			"\\.(css|less|sass)$": "<rootDir>/tools/styleMock.js"
+		},
+		"coverageThreshold": {
+			"global": {
+				"branches": 80,
+				"functions": 90,
+				"lines": 80,
+				"statements": -10
+			}
+		}
+	},
+	"nodemonconfig": {
+		"restartable": "rs",
+		"ignore": [
+			"node_modules/**/node_modules",
+			".eslintrc",
+			".gitignore",
+			"sonar-project.properties",
+			"README.md"
+		],
+		"delay": 2000,
+		"env": {
+			"PORT": 3010
+		}
+	}
+}
