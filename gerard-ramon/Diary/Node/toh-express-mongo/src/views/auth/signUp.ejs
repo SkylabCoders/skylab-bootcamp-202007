@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/hero-detail.css" />
+		<title><%=title%></title>
+	</head>
+	<body>
+		<%- include('../header'); -%>
+
+		<form method="POST" action="/auth/signup">
+			<label for="userName"
+				>Username:
+				<input type="text" name="userName" required />
+			</label>
+			<br />
+
+			<label for="userPassword"
+				>Password:
+
+				<input
+					class="password-input"
+					type="text"
+					name="userPassword"
+					pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					required
+				/>
+			</label>
+			<br />
+
+			<label for="userPassword"
+				>Repeat password:
+
+				<input
+					class="password-input"
+					type="password"
+					name="repeatedPassword"
+					minlength="8"
+					maxlength="12"
+					pattern="[a-zA-Z!#\/\(\)=\*&]*"
+					required
+				/>
+			</label>
+			<br />
+
+			<button type="submit" name="submitButton">Sign Up</button>
+		</form>
+	</body>
+</html>

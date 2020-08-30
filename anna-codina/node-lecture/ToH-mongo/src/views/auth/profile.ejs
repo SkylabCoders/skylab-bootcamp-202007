@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToH</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/detail.css">
+
+</head>
+
+<body>
+    <%- include('../header')-%>
+    <h1 class="user"><%= user.user %> Profile</h1>
+    <form action="/auth/profile" method="POST">
+        <div>
+            <label for="password">
+                Password
+                <input class="password" type="password" name="password" value=""
+                    pattern="(?=^.{8,12}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    title="8-12 characters, one special character, one number and one capital letter"
+                    placeholder="8-12 characters, one special character, one number and one capital letter" required />
+            </label>
+            <br>
+            <label for="confirmPassword">
+                Confirm Password
+                <input class="password" type="password" name="confirmPassword" value=""
+                    pattern="(?=^.{8,12}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    title="8-12 characters, one special character, one number and one capital letter"
+                    placeholder="8-12 characters, one special character, one number and one capital letter" required />
+            </label>
+            <br>
+            <% if (errorMessage !== ''){ %>
+            <span class='error'><%= errorMessage %></span>
+            <%};%>
+        </div>
+        <button type="submit">Save</button>
+
+    </form>
+</body>
+
+</html>

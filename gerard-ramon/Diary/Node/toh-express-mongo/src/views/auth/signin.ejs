@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/hero-detail.css" />
+		<title><%=title%></title>
+	</head>
+	<body>
+		<%- include('../header'); -%>
+
+		<form method="POST" action="">
+			<label for="userName"
+				>Username:
+
+				<input type="text" name="userName" />
+			</label>
+
+			<br />
+			<label for="userPassword"
+				>Password:
+
+				<input type="password" name="userPassword" />
+			</label>
+			<br />
+			<button type="submit" name="submitButton">Log In</button>
+		</form>
+	</body>
+</html>
