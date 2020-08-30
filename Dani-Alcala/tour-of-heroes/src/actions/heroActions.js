@@ -29,7 +29,7 @@ export function saveHero(hero) {
 		dispatcher.dispatch({
 			// type: hero.id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
 			// data: savedHero
-			type: hero._id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,
+			type: hero._id ? actionTypes.UPDATE_HERO : actionTypes.CREATE_HERO,//el update no funciona bien, creo que es pq no es un post sino un put o patch
 			data: savedHero
 		});
 	});
