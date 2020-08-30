@@ -43,6 +43,10 @@ agreements/
 planning/
 tech-stack/
 
+#mockdata
+mockdata/
+*.csv
+
 #firebase
 .firebaserc
 firebase.json
