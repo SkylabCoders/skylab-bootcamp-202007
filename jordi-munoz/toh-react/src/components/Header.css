@@ -1,0 +1,30 @@
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	color: rgb(136, 136, 136);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 250%;
+	margin: 20px 0 20px 40px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-evenly;
+	margin-left: 40px;
+	width: 300px;
+}
+
+button {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	color: #444;
+	font-size: 1.2em;
+	font-weight: 400;
+}
+
+button:focus {
+	color: rgb(39, 120, 240);
+}
