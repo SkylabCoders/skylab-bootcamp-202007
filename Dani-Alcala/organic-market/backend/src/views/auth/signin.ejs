@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/index.css" />
+	</head>
+
+	<body>
+		<%- include('header')%>
+
+		<h1>
+			<a href="/auth/signup" style="text-decoration: none; opacity: 25%;"
+				>Sign up</a
+			>
+			or Sign in
+		</h1>
+
+		<form action="/auth/signin" method="POST">
+			<div>
+				<label for="user">
+					User:
+					<input type="text" name="user" required />
+				</label>
+			</div>
+
+			<div>
+				<label for="user">
+					Password:
+					<input
+						type="password"
+						name="password"
+						required
+						minlength="8"
+						title="Pepito"
+					/>
+				</label>
+			</div>
+
+			<button type="submit">Save</button>
+		</form>
+	</body>
+</html>

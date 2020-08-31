@@ -11,8 +11,8 @@ const heroRouter = express.Router();
 function routes() {
   heroRouter
     .route('/')
-    .post(heroesRouteController.post)
-    .get(heroesRouteController.get);
+    .post(heroesRouteController().post)
+    .get(heroesRouteController().get);
   heroRouter
     .route('/:heroId')
     .all(heroRouteController.all)

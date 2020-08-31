@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-	width: 40%;
+	width: 50%;
 	margin: 0px 12px 12px 12px;
 	word-wrap: break-word;
 	max-height: 300px;
@@ -60,4 +60,16 @@
 	padding: 10px 0;
 	background-color: var(--bg-color-repoCard__details);
 	height: 75px;
+}
+
+@media only screen and (min-width: 600px) {
+	.repoCard {
+		width: 40%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.repoCard {
+		width: 25%;
+	}
 }

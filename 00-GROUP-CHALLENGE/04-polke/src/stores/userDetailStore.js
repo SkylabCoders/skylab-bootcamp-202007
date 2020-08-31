@@ -34,7 +34,7 @@ const userDetailStore = new LoginStore();
 
 dispatcher.register((action) => {
 	switch (action.type) {
-		case actionTypes.LOAD_REPO_LIST: // This one is an example
+		case actionTypes.LOAD_REPO_LIST:
 			_repoList = action.data;
 			userDetailStore.emitChange(_repoList);
 			break;
@@ -43,7 +43,9 @@ dispatcher.register((action) => {
 			userDetailStore.emitChange(_userInfo);
 			break;
 		case actionTypes.CREATE_REPO:
-			loadRepoList(landingStore.getGitHubUserName());
+			setTimeout(() => {
+				loadRepoList(landingStore.getGitHubUserName());
+			}, 10000);
 			break;
 		default:
 			break;

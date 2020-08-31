@@ -21,16 +21,16 @@ function HeroList() {
 		event.preventDefault();
 		deleteHero(heroId);
 	}
-
+//cambio a continuación id por _id las 4 veces
 	return (
 		<ul>
 			{heroes.map((hero) => (
-				<li key={hero.id} className="hero-list__item">
-					<Link to={`/hero/${hero.id}`}>
-						{hero.id}: {hero.name}
+				<li key={hero._id} className="hero-list__item">
+					<Link to={`/hero/${hero._id}`}>
+						{hero._id}: {hero.name}
 					</Link>
 					<div className="hero-list__item--delete">
-						<button onClick={(event) => onDelete(event, hero.id)}>X</button>
+						<button onClick={(event) => onDelete(event, hero._id)}>X</button>
 					</div>
 				</li>
 			))}

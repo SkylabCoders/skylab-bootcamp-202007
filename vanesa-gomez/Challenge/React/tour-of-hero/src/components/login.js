@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import authStore from '../stores';
+import authStore from '../stores/authStore';
 import { login, logout } from '../actions/authActions';
 
 function Login() {

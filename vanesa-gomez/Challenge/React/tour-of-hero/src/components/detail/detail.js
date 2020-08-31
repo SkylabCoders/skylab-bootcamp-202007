@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './detail.css';
-import heroList from '../../heroMock';
 import { Prompt } from 'react-router';
+import store from '../../stores/heroStore';
 
 class Detail extends React.Component {
 	constructor(props) {
@@ -22,8 +22,9 @@ class Detail extends React.Component {
 	}
 
 	getHeroById() {
+		const heroes = store.getHeroes();
 		const id = this.props.match.params.heroId;
-		const heroSearch = heroList.find((hero) => hero.id === +id);
+		const heroSearch = heroes.find((hero) => hero.id === +id);
 		return heroSearch;
 	}
 

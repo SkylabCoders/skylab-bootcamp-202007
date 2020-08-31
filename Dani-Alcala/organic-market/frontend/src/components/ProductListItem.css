@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgoldenrodyellow;
+    border-radius: .3rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    width: 80%;
+}
+
+.box__image {
+    width: 200px;
+    margin-left: 2rem;
+    margin-right: 1rem;
+}
+
+.box__text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem
+}
+
+.box__hidden {
+    flex-grow: 1;
+}
+
+.box__title {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.box__author {
+    text-transform: uppercase;
+    text-align: center;
+    color: #686868;
+    font-size: .8rem;
+}
+
+.box__sinopsis {
+    font-weight: 300;
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.box__description {
+    color: #686868;
+    margin-top: .4rem;
+}
+
+.box__number-price {
+    font-size: 2rem;
+}
+
+.box__number-price span{
+    font-size: 1.5rem;
+}
+
+.box__vat {
+    color: #686868;
+    font-size: .7rem;
+}
+
+
+.box__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem;
+} 
+
+.box__column-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.box__button-cart {
+    background-color: #BCBC3C;
+    border: .1rem solid #BCBC3C;
+    margin-top: 1rem;
+    width: 180px;
+    color: #fff;
+    text-decoration: none;
+    padding: .6rem .7rem .6rem 2rem;
+    border-radius: .3rem;
+    position: relative;
+}
+
+    .box__button-cart::before {
+            content: '';
+            display: inline-block;
+            background: url('../icons/bag.svg');
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            filter: invert(1);
+            left: .5rem;
+    }
+
+        .box__button-cart:hover {
+            background-color: #000;
+            border: .1rem solid #000;   
+        }
+
+
+.box__button-star {
+    background-color: #fff;
+    margin-top: .5rem;
+    width: 180px;
+    color: #000;
+    border: .1rem solid #BCBC3C;
+    text-decoration: none;
+    padding: .6rem .7rem .6rem 2rem;
+    border-radius: .3rem;
+    position: relative;
+}
+
+    .box__button-star::before {
+        content: '';
+        display: inline-block;
+        background: url('../icons/star.svg');
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: .5rem;
+    }
+
+        .box__button-star:hover {
+            background-color: #BCBC3C;
+            color: #fff;
+        }
+
+        .box__button-star:hover::before {
+            filter: invert(1);
+        }
+
+
+/* QUERIES */
+@media screen and (min-width: 990px) {
+    .main-box {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .box__image {
+        width: 150px;
+    }
+
+    .box__contain {
+        display: flex;
+    }
+
+    .box__title {
+        text-align: start;
+    }
+
+    .box__author {
+        text-align: start;
+    }
+
+    .box__button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
