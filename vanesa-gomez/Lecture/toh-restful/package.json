@@ -5,7 +5,7 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "DEBUG=app,app:* nodemon app.js",
-		"test": "nyc --reporter=text mocha src/**/*.spec.js"
+		"test": "nyc --reporter=html mocha src/**/*.spec.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -18,6 +18,7 @@
 		"prettier": "^2.0.5"
 	},
 	"dependencies": {
+		"axios": "^0.20.0",
 		"body-parser": "^1.19.0",
 		"chai": "^4.2.0",
 		"debug": "^4.1.1",
