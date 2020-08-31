@@ -119,25 +119,25 @@ describe('File Management', () => {
         expect(thrownerror.message).to.be.string('Filename is required');
       }    
     })
-    it('Should call readFileSYnc with a given filename - STUB', () => {
-      // // configuración de escenario
-      // const readStub = sinon.stub(fs, 'readFileSync'); // el espía no previene los efectos secundarios que puedan causar los métodos
-      // const fileManagement = proxyquire('../file.management', { fs });
+    xit('Should call readFileSYnc with a given filename - STUB', () => {
+      // configuración de escenario
+      const readStub = sinon.stub(fs, 'readFileSync'); // el espía no previene los efectos secundarios que puedan causar los métodos
+      const fileManagement = proxyquire('../file.management', { fs });
       
-      // // invocar las funciones
-      // createFile('test.txt');
-      // const filename = 'test.txt';
-      // const ROOT = './data';
-      // const newFileName = `${ROOT}/${filename}`;
+      // invocar las funciones
+      createFile('test.txt');
+      const filename = 'test.txt';
+      const ROOT = './data';
+      const newFileName = `${ROOT}/${filename}`;
 
-      // readStub.returns(undefined);
+      readStub.returns(undefined);
 
-      // fileManagement.getFile(filename);// the stub has no side effects: no file is actually being created
-      // deleteFile('test.txt');
-      // // asserts LOOK HERE
-      // expect(readStub.calledWith(newFileName)).to.be.true;
+      fileManagement.getFile(filename);// the stub has no side effects: no file is actually being created
+      deleteFile('test.txt');
+      // asserts LOOK HERE
+      expect(readStub.calledWith(newFileName)).to.be.true;
     })
-    it('Should call readFileSYnc with a given filename - MOCK', () => {
+    xit('Should call readFileSYnc with a given filename - MOCK', () => {
       const readMock = sinon.mock(fs);
       const filename = 'test.txt';
       const ROOT = './data';
@@ -157,6 +157,20 @@ describe('File Management', () => {
 
       readMock.verify();
     })
+    it('Should call readFileSYnc with a given filename - SPY', () => {
+        // configuración de escenario
+        const readSpy = sinon.spy(fs, 'readFileSync'); // el espía no previene los efectos secundarios que puedan causar los métodos
+        const fileManagement = proxyquire('../file.management', { fs });
+        
+        // invocar las funciones
+        const filename = 'test.txt';
+        fileManagement.getFile(filename);// the spy has side effects: file is actually being created
+
+        // asserts
+        expect(readSpy.called).to.be.true;
+    })
+})
+
   })
 
   describe('SAVE FILE method', ()=> {
@@ -226,7 +240,27 @@ describe('File Management', () => {
       expect(writeStub.calledWith(newFileName)).to.be.true;
       expect(writeStub.callCount).to.equal(2);
     })
+    xit('should create a new file mockFileName2.txt when a file mockFileName1.txt exists and mockFileName is given as a file name - STUB', () => {
+      // configuración de escenario
+      const writeStub = sinon.stub(fs, 'writeFileSync'); // el espía no previene los efectos secundarios que puedan causar los métodos
+      const readDirStub = sinon.stub(fs, 'readdirSync');
+      const fileManagement = proxyquire('../file.management', { fs });
+      
+      // invocar las funciones
+      const filename = 'test.txt';
+      const anotherFile = 'test1.txt';
+      const ROOT = './data';
+      const newFileName = 'test2.txt';
 
+      writeStub.withArgs(`${ROOT}/${filename}`).throws(new Error());
+      readDirStub.returns([filename, anotherFile]);
+
+      fileManagement.createFileSafe(filename);// the stub has no side effects: no file is actually being created
+
+      // asserts
+      expect(writeStub.calledWith(newFileName)).to.be.true;
+      // expect(writeStub.callCount).to.equal(2);
+    })
   })
 
   describe('GET ALL FILES method', ()=> {
