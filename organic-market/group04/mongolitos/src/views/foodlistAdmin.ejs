@@ -15,7 +15,7 @@
     <%- include('header')%>
 
     <ul class="container-products">
-        <form method="POST" action="/admin/crud">
+        <form class="container-form" method="POST" action="/admin/crud">
             <label for="title" name="title">Title:
                 <input type="text" name="title">
             </label>
@@ -44,9 +44,9 @@
             <div>
                 <p class="text__price"><%= products[i].price%> € </p>
 
-                <form method="POST" action="/admin/delete">               
+                <form method="POST" action="/admin/delete">
                     <button type="submit" name="deleteProduct" class="button__delete"
-                    value="<%=products[i]._id%>">Delete</button>
+                        value="<%=products[i]._id%>">Delete</button>
                 </form>
 
             </div>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour of Heroes</title>
+    <link rel="stylesheet" href="../css/detail.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+    <%- include('../header'); -%>
+    <h2>Register! or <a href="/auth/signin">SigIn</a></h2>
+    <form action="/auth/signup" method="POST">
+        <div>
+            <label for="user">
+                User:
+                <input type="text" name="user" required />
+            </label>
+        </div>
+        <div>
+            <label for="password">
+                Password:
+                <input class="password" type="password" name="password"
+                    pattern="(?=^.{8,12}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    title="8-12 characters, one special character, one number and one capital letter"
+                    placeholder="8-12 characters, one special character, one number and one capital letter" required />
+            </label>
+            <br>
+            <label for="confirmPassword">
+                Confirm Password
+                <input class="password" type="password" name="confirmPassword" value=""
+                    pattern="(?=^.{8,12}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    title="8-12 characters, one special character, one number and one capital letter"
+                    placeholder="8-12 characters, one special character, one number and one capital letter" required />
+            </label>
+            <br>
+            <% if (errorMessage !== ''){ %>
+            <span class='error'><%= errorMessage %></span>
+            <%};%>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+</html>

@@ -16,13 +16,19 @@
 			<div>
 				<label for="user">
 					User:
-					<input type="text" name="user" />
+					<input type="text" name="user" required />
 				</label>
 			</div>
 			<div>
 				<label for="password">
 					Password:
-					<input type="password" name="password" />
+					<input
+						class="password"
+						type="text"
+						name="password"
+						required
+						pattern="^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$"
+					/>
 				</label>
 			</div>
 			<button type="submit">Login</button>

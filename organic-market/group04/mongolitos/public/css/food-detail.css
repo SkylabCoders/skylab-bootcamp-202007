@@ -36,17 +36,17 @@ body {
     width: 100%
 }
 
-.inner__right-container{
+.inner__right-container {
     box-sizing: border-box;
     padding: 50px;
 }
 
-h3{
+h3 {
     text-transform: uppercase;
     color: #999;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +54,8 @@ form{
     width: 100%
 }
 
-.item__container, img{
+.item__container,
+img {
     width: 100%;
 }
 
@@ -72,7 +73,7 @@ hr {
     margin: 10px 0
 }
 
-.button{
+.button {
     background-color: #ffafbb;
     color: white;
     width: 96%;
@@ -86,26 +87,30 @@ hr {
     text-transform: uppercase;
 }
 
-.button:hover{
+.button:hover {
     opacity: 0.5;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.container__back{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.title__search {
+    text-align: center;
+    padding-top: 2rem;
+    font-family: 'Noto Serif', serif;
+    margin-bottom: 10px;
+}
+
+.container__back {
     width: 50%;
+    margin: 0 auto;
 }
 
 
 
-@media (min-width: 666px){
-    .item__container{
+@media (min-width: 666px) {
+    .item__container {
         flex-direction: row;
     }
 
@@ -121,26 +126,24 @@ a{
         width: 60vw
     }
 
-    .inner__right-container{
+    .inner__right-container {
         width: 40vw;
         box-sizing: border-box;
         padding: 5px
     }
 }
 
-@media (max-width: 820px){
-    h1{
+@media (max-width: 820px) {
+    h1 {
         font-size: x-large;
     }
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1024px) {
 
-    .item__container{
-        width: 85vw;
-    }
-    .item__container{
+    .item__container {
         flex-direction: row;
+        width: 85vw;
     }
 
     .add__button {

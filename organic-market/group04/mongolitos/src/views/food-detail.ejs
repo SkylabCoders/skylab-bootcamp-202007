@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,17 +15,20 @@
 
 <body>
 	<%- include('header')%>
+	<h2 class="title__search">Product Detail</h2>
 	<div class="container-search">
-	<div class="container">
-		<div class="item__container">
-			<div class="inner__left-container">
-				<div>
-					<img src="<%= product.img %>" alt="producto" />
+		<div class="container">
+			<div class="item__container">
+				<div class="inner__left-container">
+					<div>
+						<img src="<%= product.img %>" alt="producto" />
+					</div>
 				</div>
-			</div>
 				<div class="inner__right-container">
 					<form action="/products/<%= product && product._id %>" method="POST" name="productForm">
-						<div><h3><%= product.type %></h3></div>
+						<div>
+							<h3><%= product.type %></h3>
+						</div>
 						<div>
 							<h1 class="title__item">
 								<%=product && product.title%> details!
@@ -37,15 +41,18 @@
 						<button type="submit" name="productForm " class="button">
 							Add to cart
 						</button>
-						<input type="text" name="amount" value="1"/>
+						<input type="text" name="amount" value="1" />
 					</form>
 				</div>
 			</div>
 		</div>
-		<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to list</a></button></div>
+		<div class="container__back"><button class="button modifier"><a class="button" href="/products">Back to
+					list</a></button></div>
 	</div>
 </div>
 	<%- include('footer')%>
 </body>
+
 </html>
+
 </html>

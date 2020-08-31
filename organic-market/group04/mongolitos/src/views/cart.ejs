@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mongolitos</title>
+    <title>Organic Market</title>
     <link rel="stylesheet" href="../../css/index.css">
     <link rel="stylesheet" href="../../css/foodList.css">
     <link rel="stylesheet" href="../../css/header.css">
@@ -15,17 +15,15 @@
     <%- include('header')%>
 
     <ul class="container-products">
-        <% for(let i = 0; i< cartItems.length; i++) { %>
+        <% for(let i = 0; i< results.length; i++) { %>
         <li class="products-card">
-            <a href="/products/<%=cartItems[i]._id%>">
-                <img class="image__product box-image" src="<%= cartItems[i].img %>">
-                <p class="text__type"><%=cartItems[i]._id%></p>
+            <a href="/products/<%=results[i]._id%>">
+                <img class="image__product box-image" src="<%= results[i].img %>">
+                <p class="text__type"><%=results[i].type%></p>
+                <p class="text__title"><%= results[i].title%></p>
             </a>
             <div>
-                <p class="text__price"><%= cartItems[i].amount%> € </p>
-                <form method="POST" action="/products/<%=cartItems[i]._id%>">
-                    <button class="button__addCart">Add to cart</button>
-                </form>
+                <p class="text__price"><%= results[i].price%> € </p>
             </div>
         </li>
         <% } %>
