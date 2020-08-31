@@ -11,6 +11,7 @@
 		"build": "react-scripts build",
 		"eject": "react-scripts eject"
 	},
+	"type": "module",
 	"keywords": [
 		"Skylab",
 		"Bootcamp 202007",
