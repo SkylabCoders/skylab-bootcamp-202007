@@ -9,23 +9,23 @@ import * as ROUTES from './../config/routes';
 
 function HeroDetail(){
     let urlQuery = useRouteMatch()
-    let urlId = +urlQuery.params.heroId;
+    let urlId = urlQuery.params.heroId;
     const [currentHero, setcurrentHero] = useState(undefined);
-    const [id] = useState(urlId);
+    const [_id] = useState(urlId);
 
-    console.log('ENTERING HERODETAIL:', urlId, id, currentHero);
+    console.log('ENTERING HERODETAIL:', urlId, _id, currentHero);
 
     useEffect(()=>{
         HeroStore.addChangeListener(onChange);
-        if( currentHero === undefined){ loadHeroById(id) }
+        if( currentHero === undefined){ loadHeroById(_id) }
         return ()=>{HeroStore.removeChangeListener(onChange);}
     }, []);
 
     function onChange(){
-        setcurrentHero(HeroStore.getHeroById(id)); 
+        setcurrentHero(HeroStore.getHeroById(_id)); 
     }
 
-    console.log('AFTER USEEFFECT BEFORE RENDERING:', urlId, id, currentHero);
+    console.log('AFTER USEEFFECT BEFORE RENDERING:', urlId, _id, currentHero);
 
     return (        
         <div className="heroDetail">
