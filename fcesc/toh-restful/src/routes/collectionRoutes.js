@@ -24,7 +24,7 @@ function router(Model){
     });
 
   crudRoutes
-    .route('/:itemId')
+    .route('/:itemId') 
     .put(itemMethods().updateItemName)
     .patch(itemMethods().updateMany)
     .delete(itemMethods().remove)

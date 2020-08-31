@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PRODUCT CART</title>
+</head>
+
+<body>
+
+
+	<form action="" method="POST"></form>
+	<button type="submit" name="removeCart" value="all" class="" title="empty-cart">
+		Remove all
+	</button>
+	</form>
+	<ul class="market">
+		<% for(let i = 0; i<cart.length; i++){%>
+		<li>
+			<a href="/market/<%=cart[i]._id%>">
+				<span class="badge"><%= cart[i].title %></span> <%= cart[i].rating %>
+			</a>
+			<form action="" method="POST">
+				<button type="submit" name="deleteProduct" value="<%= cart[i]._id %>" class="delete"
+					title="delete-product">
+					x
+				</button>
+			</form>
+		</li>
+		<% } %>
+	</ul>
+</body>
+
+</html>

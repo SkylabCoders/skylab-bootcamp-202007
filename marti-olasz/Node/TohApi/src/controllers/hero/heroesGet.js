@@ -4,7 +4,7 @@ function getHeroes(req, res, Hero) {
 	Hero.find(query, (err, heroes) => {
 		if (err) res.send(err);
 		else {
-			res.sendStatus(200);
+			res.status(200);
 			res.json(heroes);
 		}
 	});

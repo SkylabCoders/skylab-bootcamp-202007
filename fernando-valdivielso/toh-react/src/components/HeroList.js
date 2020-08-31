@@ -4,9 +4,6 @@ import heroStore from '../stores/heroStore';
 import { loadHeroes, deleteHero } from '../actions/heroActions';
 import './HeroList.css';
 
-
-
-
 function HeroList() {
 	const [heroes, setHeroes] = useState([]);
 
@@ -29,13 +26,13 @@ function HeroList() {
 
 	return (
 		<ul>
-			{heroes.map((hero) => (
-				<li key={hero.id} className="hero-list__item">
+			{heroes.map((hero) => ( // le pongo _ a id en linea 33 y 38 para que lo encuentre en mongo  / hero = {name: '', _id: xxxxx, id: xx...}
+				<li key={hero._id} className="hero-list__item">
 					<Link to={`/hero/${hero.id}`}>
 						{hero.id}: {hero.name}
 					</Link>
 					<div className="hero-list__item--delete">
-						<button onClick={(event) => onDelete(event, hero.id)}>X</button>
+						<button onClick={(event) => onDelete(event, hero._id)}>X</button>
 					</div>
 				</li>
 			))}

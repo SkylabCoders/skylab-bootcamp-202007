@@ -6,6 +6,7 @@ describe('UserDetail Store', () => {
 	it('should create', () => {
 		expect(userDetailStore).toBeDefined();
 	});
+
 	it('should register LOAD_REPO_LIST', () => {
 		const action = {
 			type: actionTypes.LOAD_REPO_LIST,
@@ -24,6 +25,7 @@ describe('UserDetail Store', () => {
 		dispatcher.dispatch(action);
 		expect(userDetailStore.getRepoList()).toBeDefined();
 	});
+
 	it('should register LOAD_USER_IMG', () => {
 		const action = {
 			type: actionTypes.LOAD_USER_IMG,
@@ -32,6 +34,7 @@ describe('UserDetail Store', () => {
 		dispatcher.dispatch(action);
 		expect(userDetailStore.getUserInfo()).toEqual(action.data);
 	});
+
 	it('should create a new repo', () => {
 		const action = {
 			type: actionTypes.CREATE_REPO,
@@ -48,6 +51,7 @@ describe('UserDetail Store', () => {
 		userDetailStore.emitChange();
 		expect(mockFunct).toHaveBeenCalled();
 	});
+
 	it('should unsubscribe from addChangeListener', () => {
 		const mockFunct = jest.fn();
 		userDetailStore.addChangeListener(mockFunct);

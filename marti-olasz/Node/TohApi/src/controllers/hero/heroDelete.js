@@ -3,9 +3,9 @@ function deleter(req, res) {
 	if (hero) {
 		hero.remove((err) => {
 			if (err) res.send(err);
-			else res.sendStatus(200);
+			else res.status(200);
 		});
-	} else res.sendStatus(400);
+	} else res.status(400);
 }
 
 module.exports = deleter;

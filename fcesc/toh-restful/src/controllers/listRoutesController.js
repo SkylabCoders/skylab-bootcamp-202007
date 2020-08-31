@@ -15,6 +15,8 @@ function methods(Model){
     const query = {};
     if  (req && req.query && req.query.id) {
       query.id = req.query.id;
+    } else if (req && req.query && req.query._id) {
+      query._id = req.query._id;
     } else if (req && req.query && req.query.name) {
       query.name = req.query.name; 
     }
