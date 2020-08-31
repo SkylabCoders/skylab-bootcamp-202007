@@ -8,7 +8,7 @@ describe('Hero create', () => {
 		const req = { body: {} };
 		const res = {
 			json: () => {},
-			sendStatus: sinon.spy()
+			status: sinon.spy()
 		};
 		const Hero = function heroConstructor() {
 			this.id = 13;
@@ -17,28 +17,28 @@ describe('Hero create', () => {
 		};
 		create(req, res, Hero);
 
-		res.sendStatus.calledWith(200).should.equal(true);
+		res.status.calledWith(200).should.equal(true);
 	});
 	it('should not create hero without name or id', () => {
 		const req = { body: {} };
 		const res = {
 			json: () => {},
-			sendStatus: sinon.spy()
+			status: sinon.spy()
 		};
 		const Hero = function heroConstructor() {
 			this.save = (callback) => callback();
 		};
 		create(req, res, Hero);
 
-		res.sendStatus.calledWith(404).should.equal(true);
+		res.status.calledWith(404).should.equal(true);
 	});
 
 	it('should not create hero without data', () => {
 		const req = {};
-		const res = { sendStatus: sinon.spy() };
+		const res = { status: sinon.spy() };
 
 		create(req, res);
 
-		res.sendStatus.calledWith(404).should.equal(true);
+		res.status.calledWith(404).should.equal(true);
 	});
 });

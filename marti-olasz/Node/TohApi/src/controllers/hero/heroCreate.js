@@ -2,12 +2,13 @@ function createHero(req, res, Hero) {
 	if (req.body) {
 		const hero = new Hero(req.body);
 		if (hero.id && hero.name) {
+			console.log(req.body);
 			hero.save(() => {
-				res.sendStatus(200);
+				res.status(200);
 				res.json(hero);
 			});
-		} else res.sendStatus(404);
-	} else res.sendStatus(404);
+		} else res.status(404);
+	} else res.status(404);
 }
 
 module.exports = createHero;

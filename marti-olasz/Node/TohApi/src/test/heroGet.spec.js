@@ -9,14 +9,14 @@ describe('Get Heroes', () => {
 		const res = {
 			json: () => {},
 			send: () => {},
-			sendStatus: sinon.spy()
+			status: sinon.spy()
 		};
 		const Hero = {
 			find: (query, callback) => callback()
 		};
 		get(req, res, Hero);
 
-		res.sendStatus.calledWith(200).should.equal(true);
+		res.status.calledWith(200).should.equal(true);
 	});
 
 	it('should get heroes with specific query', () => {
@@ -24,14 +24,14 @@ describe('Get Heroes', () => {
 		const res = {
 			json: () => {},
 			send: () => {},
-			sendStatus: sinon.spy()
+			status: sinon.spy()
 		};
 		const Hero = {
 			find: (query, callback) => callback()
 		};
 		get(req, res, Hero);
 
-		res.sendStatus.calledWith(200).should.equal(true);
+		res.status.calledWith(200).should.equal(true);
 	});
 
 	it('should throw error by find error', () => {
@@ -39,7 +39,7 @@ describe('Get Heroes', () => {
 		const res = {
 			json: () => {},
 			send: sinon.spy(),
-			sendStatus: () => {}
+			status: () => {}
 		};
 		const Hero = {
 			find: (query, callback) => {
