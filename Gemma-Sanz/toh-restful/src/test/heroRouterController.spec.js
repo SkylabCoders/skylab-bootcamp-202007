@@ -3,6 +3,10 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const controller = require('../controllers/heroRouteController');
+const {
+	saveFile
+} = require('../../../node-lecture/file-system/file.management');
+const { spy } = require('sinon');
 
 describe('Hero controller (challenge)', () => {
 	afterEach(() => {
@@ -101,13 +105,13 @@ describe('Hero controller (challenge)', () => {
 
 			expect(statusSpy.calledWith(201)).to.be.true;
 		});
-		xit('should call status with a 404 CALLBAAAAACK', () => {
+		it('should call send with an error if hero.save have an error', () => {
 			const req = {
-				body: {},
+				body: {
+					name: null
+				},
 				hero: {
-					save: (callback) => {
-						callback();
-					}
+					save: () => {}
 				}
 			};
 
@@ -116,35 +120,40 @@ describe('Hero controller (challenge)', () => {
 				status: () => {},
 				send: () => {}
 			};
+
+			const saveFake = sinon.fake.yields(true);
+
+			sinon.replace(req.hero, 'save', saveFake);
+			const sendSpy = sinon.spy(res, 'send');
+
+			controller.put(req, res);
+
+			expect(sendSpy.called).to.be.true;
+		});
+		it('should call status with a 404 if hero.save have an error', () => {
+			const req = {
+				body: {
+					name: null
+				},
+				hero: {
+					save: () => {}
+				}
+			};
+
+			const res = {
+				json: () => {},
+				status: () => {},
+				send: () => {}
+			};
+
+			const saveFake = sinon.fake.yields(true);
+
+			sinon.replace(req.hero, 'save', saveFake);
 			const statusSpy = sinon.spy(res, 'status');
 
 			controller.put(req, res);
 
 			expect(statusSpy.calledWith(404)).to.be.true;
-		});
-		xit('should call send in error situation REVISAAAAR', () => {
-			const req = {
-				body: {
-					name: 'Bombastooo'
-				},
-				hero: {
-					name: 'Petito',
-					save: (callback) => {
-						callback();
-					}
-				}
-			};
-
-			const res = {
-				json: () => {},
-				status: () => {},
-				send: () => {}
-			};
-			const sendSpy = sinon.spy(res, 'send');
-
-			controller.put(req, res);
-
-			expect(sendSpy.callCount).to.equal(1);
 		});
 	});
 	describe('DELETER', () => {
@@ -211,6 +220,28 @@ describe('Hero controller (challenge)', () => {
 
 			expect(sendSpy.callCount).to.equal(1);
 		});
+		it('should send an error when hero.remove extist an error', () => {
+			const req = {
+				hero: {
+					remove: () => {}
+				}
+			};
+
+			const res = {
+				status: () => {},
+				send: () => {}
+			};
+
+			const removeFake = sinon.fake.yields(true);
+
+			sinon.replace(req.hero, 'remove', removeFake);
+
+			const sendSpy = sinon.spy(res, 'send');
+
+			controller.deleter(req, res);
+
+			expect(sendSpy.called).to.be.true;
+		});
 	});
 	describe('PATCH', () => {
 		it('should call json with a hero', () => {
@@ -236,21 +267,26 @@ describe('Hero controller (challenge)', () => {
 
 			expect(jsonSpy.callCount).to.equal(1);
 		});
-		xit('should call send with error CALLBAAAAACK', () => {
+		it('should call send with error in hero.save with an error', () => {
 			const req = {
 				hero: {
-					name: 'Seleritassss',
-					remove: (callback) => {
+					name: null,
+					save: (callback) => {
 						callback();
 					}
+				},
+				body: {
+					_id: 2543
 				}
 			};
 
 			const res = {
-				send: () => {},
-				send: () => {},
-				sendStatus: () => {}
+				json: () => {},
+				send: () => {}
 			};
+
+			const saveFake = sinon.fake.yields(true);
+			sinon.replace(req.hero, 'save', saveFake);
 
 			const sendSpy = sinon.spy(res, 'send');
 
