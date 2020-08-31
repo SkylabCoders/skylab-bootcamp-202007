@@ -1,25 +1,32 @@
-const Hero = require('../models/heroModel');
 
-function controller() {
-  const post = (req, res) => {
+function heroesController(Hero) {
+  function post(req, res) {
     const hero = new Hero(req.body);
-    hero.save();
-    res.status(201).json(hero);
+    if (!req.body.name) {
+      res.status(400);
+      res.send('name is required')
+    } else {
+      hero.save();
+      res.status(201);
+      res.json(hero);
+    }
   }
 
-  const get = (req, res) => {
+  function get(req, res) {
     const query = {};
-    if (req.query.name) {
-      query.name = req.query.name;
+    if (req && req.body && req.query.id) {
+      query.id = req.query.id;
     }
     Hero.find(query, (error, heroes) => {
       if (error) {
         res.send(error);
+      } else {
+
+        res.json(heroes);
       }
-      res.json(heroes);
     });
   }
   return { post, get }
 }
 
-module.exports = controller();
+module.exports = heroesController;
