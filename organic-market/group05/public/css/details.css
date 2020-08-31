@@ -1,0 +1,87 @@
+* {
+	font-family: 'Ubuntu', sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: white;
+	height: 100vh;
+	min-height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.details__container {
+	margin-top: 100px;
+	width: 100%;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.details {
+	width: 95%;
+	display: flex;
+}
+
+.details_header {
+	margin-right: 10px;
+}
+
+.details__img {
+	height: 200px;
+	width: auto;
+}
+
+.details__data {
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.addtocart {
+	background-color: rgb(167, 182, 113);
+	border: none;
+	font-weight: 600;
+	height: 50px;
+	padding: 10px;
+	width: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.addtocart:hover {
+	background-color: rgb(206, 218, 110);
+}
+
+.rating__img {
+	width: 5%;
+}
+
+.cart__img {
+	margin-right: 10px;
+	width: 20%;
+}
+
+@media only screen and (min-width: 600px) {
+	.details {
+		width: 85%;
+		display: flex;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.details {
+		width: 75%;
+		display: flex;
+	}
+}

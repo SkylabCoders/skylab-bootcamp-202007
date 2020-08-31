@@ -29,8 +29,8 @@ class heroStore extends EventEmitter{
         return _paginated_heroes_list;
     }
 
-    getHeroById(id){
-        return ( _current_hero.id === id ) ? _current_hero : undefined ;
+    getHeroById(_id){
+        return ( _current_hero._id === _id ) ? _current_hero : undefined ;
     }
 
     getHeroByName(name){
@@ -49,6 +49,10 @@ export default HeroStore;
 
 dispatcher.register(action => {
     switch(action.type){
+        case actionTypes.DELETE_HERO:
+            _heroes_list = _heroes_list.filter(el=>el._id !== action.data);
+            HeroStore.emitChange(_heroes_list);
+            break;
         case actionTypes.CREATE_HERO:
             _heroes_list = [..._heroes_list, action.data];
             HeroStore.emitChange(_heroes_list);
