@@ -4,6 +4,12 @@ import actionTypes from '../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
 let _heroes = [];
+let nextId = 0;
+const generateNextId = (heroes) => {
+	return heroes.reduce((nextId, hero) => {
+		return nextId > hero.id ? nextId : hero.id;
+	});
+};
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
 		this.on(CHANGE_EVENT, callback);
@@ -31,6 +37,12 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
 			heroStore.emitChange(_heroes);
+			nextId = generateNextId(_heroes);
+			break;
+		case actionTypes.LOAD_HERO:
+			_heroes = action.data;
+			heroStore.emitChange(_heroes);
+			nextId = generateNextId(_heroes);
 			break;
 		case actionTypes.UPDATE_HERO:
 			_heroes = _heroes.map((hero) => {
@@ -42,7 +54,8 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		case actionTypes.CREATE_HEROES:
-			_heroes = [..._heroes, action.data];
+			_heroes = [..._heroes, { ...action.data, id: nextId }];
+			++nextId;
 			heroStore.emitChange();
 			break;
 

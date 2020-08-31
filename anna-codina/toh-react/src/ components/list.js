@@ -14,7 +14,7 @@ function List(props) {
 					<span className="hero-list__id">{hero.id}</span>
 					<span className="hero-list__name">{hero.name}</span>
 					<div className="hero-list__item--delete">
-						<button onClick={(event) => onDelete(event, hero.id)}>X</button>
+						<button onClick={(event) => onDelete(event, hero._id)}>X</button>
 					</div>
 				</li>
 			</NavLink>
@@ -22,11 +22,11 @@ function List(props) {
 	});
 	useEffect(() => {
 		heroStore.addChangeListener(onChange);
-		if (heroes.length === 0) {
-			loadHeroes();
-		}
+
+		loadHeroes();
+
 		return () => heroStore.removeChangeListener(onChange);
-	}, [heroes.length]);
+	});
 	function onChange() {
 		setHeroes(heroStore.getHeroes());
 	}
