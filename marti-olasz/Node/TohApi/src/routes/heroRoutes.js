@@ -3,25 +3,17 @@ const express = require('express');
 const deleter = require('../controllers/hero/heroDelete');
 const deleteAndCreate = require('../controllers/hero/heroPatch');
 const update = require('../controllers/hero/heroUpdate');
+const create = require('../controllers/hero/heroCreate');
+const getHeroes = require('../controllers/hero/heroesGet');
 
 const heroRouter = express.Router();
 
 function routes(Hero) {
 	heroRouter
 		.route('/')
-		.post((req, res) => {
-			const hero = new Hero(req.body);
-			hero.save();
-			res.status(201).json(hero);
-		})
-		.get((req, res) => {
-			const query = {};
-			if (req.query.id) query.id = req.query.id;
-			Hero.find(query, (err, heroes) => {
-				if (err) res.send(err);
-				res.json(heroes);
-			});
-		});
+		.post((req, res) => create(req, res, Hero))
+		.get((req, res) => getHeroes(req, res, Hero));
+
 	heroRouter.use('/:id', (req, res, next) => {
 		Hero.findById(req.params.id, (err, hero) => {
 			if (err) res.send(err);

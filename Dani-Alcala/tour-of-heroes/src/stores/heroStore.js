@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../appDispatcher';
 import actionTypes from '../actions/actionTypes';
+import { loadHeroes } from '../actions/heroActions';
 
 const CHANGE_EVENT = 'change';
 
@@ -8,7 +9,7 @@ let _heroes = [];
 
 let nextId = 0;
 const generateNextId = (heroes) =>
-	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;
+	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;//ya no lo usaremos
 
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -27,8 +28,12 @@ class HeroStore extends EventEmitter {
 		return _heroes;
 	}
 
-	getHeroById(id) {
-		return _heroes.find((hero) => hero.id === id);
+	// getHeroById(id) {
+	// 	return _heroes.find((hero) => hero.id === id);
+	// }
+
+	getHeroById(_id) {
+		return _heroes.find((hero) => hero._id === _id);
 	}
 }
 
@@ -38,22 +43,25 @@ dispatcher.register((action) => {
 		case actionTypes.LOAD_HEROES:
 			_heroes = action.data;
 			heroStore.emitChange(_heroes);
-			nextId = generateNextId(_heroes);
+			//nextId = generateNextId(_heroes);
 			break;
 		case actionTypes.UPDATE_HERO:
 			_heroes = _heroes.map((hero) => {
-				if (hero.id === action.data.id) hero.name = action.data.name;
+				// if (hero.id === action.data.id) hero.name = action.data.name;
+				if (hero._id === action.data._id) hero.name = action.data.name;
 				return hero;
 			});
 			heroStore.emitChange();
 			break;
 		case actionTypes.CREATE_HERO:
-			_heroes = [..._heroes, { ...action.data, id: nextId }];
-			++nextId;
+			// _heroes = [..._heroes, { ...action.data, id: nextId }];
+			// ++nextId;
+			loadHeroes();//esto es quizá innecesario y quizá viole el flux
 			heroStore.emitChange();
 			break;
 		case actionTypes.DELETE_HERO:
-			_heroes = _heroes.filter((hero) => hero.id !== action.data.id);
+			// _heroes = _heroes.filter((hero) => hero.id !== action.data.id);
+			_heroes = _heroes.filter((hero) => hero._id !== action.data._id);
 			heroStore.emitChange();
 			break;
 		default:

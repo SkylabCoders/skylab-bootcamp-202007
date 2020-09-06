@@ -5,6 +5,7 @@ import { loadHeroes, saveHero } from '../actions/heroActions';
 import TextInput from './TextInput';
 
 function HeroDetail(props) {
+	const actualHero = null;
 	const [heroes, setHeroes] = useState(heroStore.getHeroes());
 	const [heroId, setHeroId] = useState(null);
 	const [heroName, setHeroName] = useState('');
@@ -18,6 +19,7 @@ function HeroDetail(props) {
 		} else if (heroId) {
 			const hero = heroStore.getHeroById(heroId);
 			if (hero) {
+				console.log(hero);
 				setHeroName(hero.name);
 				setHeroId(hero.id);
 			}
@@ -33,6 +35,8 @@ function HeroDetail(props) {
 		setValue(value);
 		setIsFormDirty(true);
 	}
+
+	function onSave(event, id) {}
 
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -50,6 +54,7 @@ function HeroDetail(props) {
 					<p>Id: {heroId}</p>
 				</>
 			)}
+
 			<TextInput
 				name="heroName"
 				value={heroName}
@@ -61,7 +66,9 @@ function HeroDetail(props) {
 				message="Are you sure you want to navigate away?"
 			/>
 			<p>
-				<button type="submit">Save Hero</button>
+				<button type="submit" onClick={(event) => onSave(event, heroId)}>
+					Save Hero
+				</button>
 			</p>
 		</form>
 	);

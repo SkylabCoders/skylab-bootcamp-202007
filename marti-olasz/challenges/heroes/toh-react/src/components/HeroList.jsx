@@ -17,23 +17,24 @@ function HeroList() {
 		setHeroes(heroStore.getHeroes());
 	}
 
-	function onDelete(event, heroId) {
+	function onDelete(event, _id) {
 		event.preventDefault();
-		deleteHero(heroId);
+		deleteHero(_id);
 	}
 
 	return (
 		<ul>
-			{heroes.map((hero) => (
-				<li key={hero.id} className="hero-list__item">
-					<Link to={`/hero/${hero.id}`}>
-						{hero.id}: {hero.name}
-					</Link>
-					<div className="hero-list__item--delete">
-						<button onClick={(event) => onDelete(event, hero.id)}>X</button>
-					</div>
-				</li>
-			))}
+			{heroes &&
+				heroes.map((hero) => (
+					<li key={hero.id} className="hero-list__item">
+						<Link to={`/hero/${hero.id}`}>
+							{hero.id}: {hero.name}
+						</Link>
+						<div className="hero-list__item--delete">
+							<button onClick={(event) => onDelete(event, hero._id)}>X</button>
+						</div>
+					</li>
+				))}
 		</ul>
 	);
 }

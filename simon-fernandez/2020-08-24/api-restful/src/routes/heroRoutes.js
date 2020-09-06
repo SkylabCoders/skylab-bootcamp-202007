@@ -7,8 +7,8 @@ const heroRouter = express.Router();
 function routes(Heroes) {
 	heroRouter
 		.route('/')
-		.post(rootHeroRouteController.post)
-		.get(rootHeroRouteController.get);
+		.post(rootHeroRouteController(Heroes).post)
+		.get(rootHeroRouteController(Heroes).get);
 
 	heroRouter
 		.route('/:heroId')
@@ -23,10 +23,10 @@ function routes(Heroes) {
 				}
 			});
 		})
-		.put(heroRouteController.put)
-		.patch(heroRouteController.patch)
-		.delete(heroRouteController.deleter)
-		.get(heroRouteController.get);
+		.put(heroRouteController().put)
+		.patch(heroRouteController().patch)
+		.delete(heroRouteController().deleter)
+		.get(heroRouteController().get);
 	return heroRouter;
 }
 

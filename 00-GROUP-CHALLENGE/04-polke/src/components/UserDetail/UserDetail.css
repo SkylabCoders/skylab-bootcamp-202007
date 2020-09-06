@@ -49,6 +49,7 @@ body {
 	color: whitesmoke;
 	padding: 15px;
 	min-width: 75%;
+	margin-top: 24px;
 }
 
 .search__container {
@@ -74,4 +75,11 @@ body {
 
 .searchbar__navlink:hover {
 	color: white;
+}
+
+.repocreation__container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
 }

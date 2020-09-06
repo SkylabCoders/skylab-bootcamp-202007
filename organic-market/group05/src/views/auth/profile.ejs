@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My profile</title>
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/profile.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+	</head>
+	<body>
+		<%- include('../header'); -%>
+		<main class="profile__container">
+			<div class="profile__user">
+				<div class="profile__header">
+					<h1 class="profile__title"><%= user.user%> Profile</h1>
+					<form action="/auth/signout" method="POST">
+						<button class="auth__logout" type="submit">Sign out</button>
+					</form>
+				</div>
+
+				<div class="profile__username">
+					<label for="user">Username</label><br />
+					<input type="text" name="user" value="<%= user.user%>" disabled />
+				</div>
+				<form class="profile__password" action="/auth/profile" method="POST">
+					<label for="password">Password</label><br />
+					<input type="password" name="password" value="" />
+					<button type="submit" class="auth__button">Update password</button>
+				</form>
+				<div class="profile__usertype">
+					<label for="usertype">User type</label><br />
+					<input type="text" name="user" value="<%=user.usertype%>" disabled />
+				</div>
+				<form action="/auth/signout" method="POST"></form>
+			</div>
+
+			<div class="profile__history"></div>
+		</main>
+		<%- include('../footer'); -%>
+	</body>
+</html>
