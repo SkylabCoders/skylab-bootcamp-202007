@@ -2,99 +2,90 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const controller = require('../controllers/heroesRouteController');
 
-
 describe('Heroes controller', () => {
-    afterEach(() => {
-        sinon.restore();
-    })
-    it('should respond with status 201', () => {
+	afterEach(() => {
+		sinon.restore();
+	});
+	it('should respond with status 201', () => {
+		const Hero = function heroConstructor() {
+			this.save = () => {};
+		};
 
-        const Hero = function () {
-            this.save = () => { }
-        };
+		const req = {
+			body: {
+				name: 'Bombasto'
+			}
+		};
+		const res = {
+			status: () => {}, // add code as argument??
+			json: () => {}
+		};
 
-        const req = {
-            body: {
-                name: 'Bombasto'
-            }
-        };
-        const res = {
-            status: () => { }, // add code as argument??
-            json: () => { }
-        };
+		const statusSpy = sinon.spy(res, 'status'); // res - objeto donde esta el espia, 'status' - que metodo espiar
+		// const jsonSpy = sinon.spy(res, 'json'); ????
 
-        const statusSpy = sinon.spy(res, 'status'); // res - objeto donde esta el espia, 'status' - que metodo espiar
-        // const jsonSpy = sinon.spy(res, 'json'); ????
+		controller(Hero).post(req, res);
 
-        controller(Hero).post(req, res);
+		// assertio that status 201 has been called
+		expect(statusSpy.calledWith(201)).to.be.true;
 
-        // assertio that status 201 has been called
-        expect(statusSpy.calledWith(201)).to.be.true;
+		// expect(jsonSpy.called).to.be.true; ????
+	});
 
-        // expect(jsonSpy.called).to.be.true; ????
-    });
+	it('should respond with status 400', () => {
+		const Hero = function () {
+			this.save = () => {};
+		};
 
-    it('should respond with status 400', () => {
+		const req = {
+			body: {}
+		};
 
-        const Hero = function () {
-            this.save = () => { }
-        };
+		const res = {
+			status: (code) => {},
+			json: () => {},
+			send: () => {}
+		};
 
-        const req = {
-            body: {}
-        };
+		const statusSpy = sinon.spy(res, 'status');
 
-        const res = {
-            status: (code) => { },
-            json: () => { },
-            send: () => { }
-        };
+		controller(Hero).post(req, res);
 
-        const statusSpy = sinon.spy(res, 'status');
+		expect(statusSpy.calledWith(400)).to.be.true;
+	});
 
-        controller(Hero).post(req, res);
+	it('should call find  without query', () => {
+		const Hero = {
+			find: () => {}
+		};
 
-        expect(statusSpy.calledWith(400)).to.be.true;
-    });
+		const req = {};
 
-    it('should call find  without query', () => {
-        const Hero = {
-            find: () => { }
-        };
+		const res = {};
 
-        const req = {};
+		const findSpy = sinon.spy(Hero, 'find');
 
-        const res = {};
+		controller(Hero).get(req, res);
 
-        const findSpy = sinon.spy(Hero, 'find');
+		expect(findSpy.called).to.be.true;
+	});
+	it('should call find with a query', () => {
+		const Hero = {
+			find: () => {}
+		};
 
-        controller(Hero).get(req, res);
+		const req = {
+			query: {
+				id: 'my id'
+			}
+		};
 
-        expect(findSpy.called).to.be.true;
-    });
-    it('should call find with a query', () => {
-        const Hero = {
-            find: () => { }
-        };
+		const res = {};
 
-        const req = {
-            query: {
-                id: 'my id'
-            }
-        };
+		const findSpy = sinon.spy(Hero, 'find');
 
-        const res = {};
+		controller(Hero).get(req, res);
 
-        const findSpy = sinon.spy(Hero, 'find');
-
-        controller(Hero).get(req, res);
-
-        expect(findSpy.called).to.be.true;
-    })
-})
-
-
-
-
-
-
+		expect(findSpy.called).to.be.true;
+	});
+});
