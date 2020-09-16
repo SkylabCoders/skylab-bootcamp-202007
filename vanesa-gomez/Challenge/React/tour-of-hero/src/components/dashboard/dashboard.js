@@ -1,8 +1,10 @@
 import React from 'react';
 import './dashboard.css';
 import { NavLink } from 'react-router-dom';
+import heroStore from '../../stores/heroStore';
 
-function Dashboard({ heroes }) {
+function Dashboard() {
+	const heroes = heroStore.getHeroes();
 	const heroesTop = heroes.slice(0, 4);
 
 	const promotedHeroList = heroesTop.map((hero) => {

@@ -1,14 +1,12 @@
-import heroList from '../heroMock';
 import dispatcher from '../appDispatcher';
 import actionTypes from './actionTypes';
+import axios from 'axios';
 
 export function loadHeroes() {
-	return new Promise((resolve) => {
-		resolve(heroList);
-	}).then((heroes) => {
+	return axios.get('/api/heroes').then((heroes) => {
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_HEROES,
-			data: heroes
+			data: heroes.data
 		});
 	});
 }
@@ -24,9 +22,7 @@ export function saveHero(hero) {
 	});
 }
 export function deleteHero(id) {
-	return new Promise((resolve) => {
-		resolve();
-	}).then(() => {
+	return axios.delete(`/api/heroes/${id}`).then((id) => {
 		dispatcher.dispatch({
 			type: actionTypes.DELETE_HERO,
 			data: { id }
@@ -35,13 +31,7 @@ export function deleteHero(id) {
 }
 
 export function createHero(hero) {
-	return new Promise((resolve) => {
-		const hero = {
-			name: 'Gilber',
-			id: 99
-		};
-		resolve(hero);
-	}).then((hero) => {
+	return axios.post('/api/heroes').then((hero) => {
 		dispatcher.dispatch({
 			type: actionTypes.CREATE_HERO,
 			data: hero

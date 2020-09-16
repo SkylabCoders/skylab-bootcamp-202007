@@ -1,0 +1,25 @@
+import React, { useState, useEffect } from 'react';
+import apiStore from '../stores/apiStore';
+
+function Home() {
+	const [data, setData] = useState(apiStore.getData());
+
+	useEffect(() => {
+		apiStore.addChangeListener(onChange);
+		if (data.length === 0) apiStore.getData();
+		return () => apiStore.removeChangeListener(onChange);
+	});
+
+	function onChange() {
+		setData(apiStore.getData());
+	}
+
+	return (
+		<main className="home__container">
+			Home works
+			<div>{data.name}</div>
+		</main>
+	);
+}
+
+export default Home;
