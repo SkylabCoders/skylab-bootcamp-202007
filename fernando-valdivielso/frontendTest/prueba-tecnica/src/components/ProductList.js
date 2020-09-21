@@ -27,7 +27,9 @@ export default function ProductList() {
 			<ul className="product-list">
 				{products.map((product) => (
 					<li key={product.price} className="product-list__item">
-						<div className="product-list__item__name">{product.name}</div>
+						<div className="product-list__item__name" data-testid="name">
+							{product.name}
+						</div>
 						<div className="product-list__item__price">{product.price} €</div>
 						<button className="product-list__item__cart">
 							<img className="cart__image" src={cart} alt="shopping cart" />
