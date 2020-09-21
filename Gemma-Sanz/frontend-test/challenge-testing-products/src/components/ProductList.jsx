@@ -5,12 +5,12 @@ import { loadProducts } from '../actions/productActions';
 
 function ProductList() {
 	const [products, setProducts] = useState(productStore.getProducts());
+
 	// 	const [state, setState] = useState(false);
 
 	useEffect(() => {
 		productStore.addChangeListener(onChange);
 		loadProducts();
-		console.log('hey', products);
 		return () => {
 			productStore.removeChangeListener(onChange);
 		};
@@ -31,7 +31,9 @@ function ProductList() {
 					return (
 						<li key={product.name}>
 							<div className="details__product">
-								<p className="product__name">{product.name}</p>
+								<p className="product__name" data-testid="name">
+									{product.name}
+								</p>
 								<p>
 									<span>{product.price} €</span>
 								</p>

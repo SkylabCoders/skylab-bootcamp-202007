@@ -1,8 +1,15 @@
+.main__container {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
 .main__container > ul {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	flex: 1;
 }
 
 img {
@@ -13,15 +20,21 @@ img {
 	margin: 10px;
 	cursor: pointer;
 }
+
 .details__product {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	width: 60vw;
+	max-width: 450px;
 }
 
-.details__product {
-	width: 450px;
+p {
+	min-width: 71px;
+	align-self: center;
+	margin: 2px;
 }
+
 p > span {
 	font-weight: bold;
 	font-size: large;
@@ -34,6 +47,7 @@ li {
 	align-items: center;
 	margin: 10px;
 }
+
 ul {
 	margin: 50px;
 }
@@ -42,5 +56,9 @@ ul {
 	.main__container {
 		display: flex;
 		flex-direction: row;
+	}
+
+	.main__container > ul {
+		justify-content: start;
 	}
 }

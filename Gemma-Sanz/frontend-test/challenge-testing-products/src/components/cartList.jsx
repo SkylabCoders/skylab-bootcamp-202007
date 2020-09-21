@@ -16,7 +16,6 @@ function CartList() {
 	}, [cart]);
 
 	function onChange() {
-		console.log('this is cart..onchange..', cart);
 		setCart(productStore.getCart());
 	}
 	return (

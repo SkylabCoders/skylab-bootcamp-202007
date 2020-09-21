@@ -30,6 +30,9 @@ class ProductStore extends EventEmitter {
 			let product = _products.find((product) => product.id === id);
 			_cart = [..._cart, product];
 		}
+		debugger;
+		console.log('cart modified....', _cart);
+
 		return _cart;
 	}
 }
