@@ -6,6 +6,7 @@
 
 .product-list {
 	list-style: none;
+	padding: 10px;
 }
 
 .product-list__item {
@@ -16,8 +17,28 @@
 .product-list__item__name {
 	width: 60%;
 	margin: 10px;
+	display: flex;
+	align-self: flex-end;
 }
 .product-list__item__price {
-	width: 40%;
+	width: 20%;
 	margin: 10px;
+	display: flex;
+	align-self: flex-end;
+}
+
+.product-list__item__cart {
+	border: none;
+	padding: 0;
+	background-color: white;
+	margin: 5px;
+}
+
+.cart__image {
+	width: 80px;
+	background-color: rgb(13, 204, 13);
+	padding: 5px 15px;
+	border-radius: 5px;
+	display: flex;
+	align-self: flex-end;
 }
