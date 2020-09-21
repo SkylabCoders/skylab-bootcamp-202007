@@ -1,0 +1,32 @@
+img {
+	padding: 10px 15px;
+	background-color: #7fae00;
+	width: 50px;
+	border-radius: 5px;
+	margin: 10px;
+	cursor: pointer;
+}
+.details__product {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.details__product {
+	width: 450px;
+}
+p > span {
+	font-weight: bold;
+	font-size: large;
+	margin: 5px;
+}
+
+li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 10px;
+}
+ul {
+	margin: 50px;
+}
