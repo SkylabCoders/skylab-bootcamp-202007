@@ -2,14 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import ConditionalDisplay from './ConditionalDisplay';
+import Hello from './components/Hello';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<ConditionalDisplay isVisible={true}>
-			<h1>Hello</h1>
-			<p>world!</p>
-		</ConditionalDisplay>
+		<h1>Hello</h1>
+		<Hello />
 	</React.StrictMode>,
 	document.getElementById('root')
 );

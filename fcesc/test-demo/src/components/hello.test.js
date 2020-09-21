@@ -8,7 +8,7 @@ describe('hello test set', ()=> {
   let container = null;
   beforeEach(() => {
     // configurar un elemento del DOM como objetivo del renderizado
-    container = document.createElement("div");
+    container = document.createElement("div"); // usamos div pero podríamos usar cualquier otro elemento. Elegimos div porque semánticamente puede ser cualquier cosa.
     document.body.appendChild(container);
   });
 
