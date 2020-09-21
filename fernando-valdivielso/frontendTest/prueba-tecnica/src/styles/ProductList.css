@@ -25,6 +25,7 @@
 	margin: 10px;
 	display: flex;
 	align-self: flex-end;
+	justify-self: flex-end;
 }
 
 .product-list__item__cart {

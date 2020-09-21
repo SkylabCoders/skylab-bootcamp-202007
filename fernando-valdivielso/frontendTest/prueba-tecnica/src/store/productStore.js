@@ -5,6 +5,7 @@ import actionTypes from '../actions/actionTypes';
 const CHANGE_EVENT = 'change';
 
 let _products = [];
+console.log('_products', _products);
 
 class ProductStore extends EventEmitter {
 	addChangeListener(callback) {
