@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import ProductList from './components/ProductList';
+import Cart from './components/Cart';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<ProductList />
+		<Cart />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
