@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
 
 const heroRouter = require('./src/routes/heroRouter')(Hero);
 
-app.use('/heroes', heroRouter);
+app.use('/api/heroes', heroRouter);
 
 app.listen(port, () => debug(`Running on port ${port}`));

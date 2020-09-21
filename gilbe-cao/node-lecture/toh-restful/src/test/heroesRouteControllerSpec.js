@@ -9,11 +9,9 @@ describe('Heroes Controller', () => {
 			const Hero = function heroContructor() {
 				this.save = () => {};
 			};
-
 			const req = {
 				body: {}
 			};
-
 			const res = {
 				status: sinon.spy(),
 				json: sinon.spy(),

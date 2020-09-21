@@ -28,7 +28,6 @@ class HeroStore extends EventEmitter {
 	}
 
 	getHeroById(id) {
-		console.log(_heroes);
 		return _heroes.find((hero) => hero.id === id);
 	}
 }
