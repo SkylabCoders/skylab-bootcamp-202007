@@ -1,0 +1,23 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.product-list {
+	list-style: none;
+}
+
+.product-list__item {
+	display: flex;
+	flex-direction: row;
+}
+
+.product-list__item__name {
+	width: 60%;
+	margin: 10px;
+}
+.product-list__item__price {
+	width: 40%;
+	margin: 10px;
+}
