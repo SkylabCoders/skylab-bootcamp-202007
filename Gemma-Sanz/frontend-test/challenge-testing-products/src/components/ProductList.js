@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import productStore from '../store/productStore';
 import './productList.css';
 import { loadProducts } from '../actions/productActions';
-import CartList from './cartList';
 
 function ProductList() {
 	const [products, setProducts] = useState(productStore.getProducts());
@@ -49,7 +48,6 @@ function ProductList() {
 					);
 				})}
 			</ul>
-			<CartList />
 		</>
 	);
 }

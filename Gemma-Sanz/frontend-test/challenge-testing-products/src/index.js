@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ProductList from './components/ProductList';
+// import ProductList from './components/ProductList';
+import Dashboard from './components/Dashboard';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<ProductList />
+		<Dashboard />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
