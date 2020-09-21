@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
 import './UserDetail.css';
 import '../../shared/generalStyles.css';
+import { FormControl, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import userDetailStore from '../../stores/userDetailStore';
-import { loadRepoList } from '../../actions/userDetailActions';
 import RepoCard from '../RepoCard/RepoCard';
 import RepoCreation from './RepoCreation/RepoCreation';
 import UserInfo from './UserInfo/UserInfo';
 import landingStore from '../../stores/landingStore';
-import { FormControl, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { loadRepoList } from '../../actions/userDetailActions';
 
 function UserDetail() {
 	const [repoList, setRepoList] = useState([]);
@@ -24,7 +24,6 @@ function UserDetail() {
 		if (userName) {
 			loadRepoList(userName);
 		}
-
 		return () => userDetailStore.removeChangeListener(onChange);
 	}, [repoList.length, userName]);
 
@@ -32,13 +31,28 @@ function UserDetail() {
 		setRepoList(userDetailStore.getRepoList());
 	}
 
-	const createRepoButton = <button className="create__button">New Repo</button>;
+	const createRepoButton = (
+		<button
+			className="create__button"
+			onClick={(event) => {
+				event.preventDefault();
+				document.getElementsByClassName('repocreation__form')[0].style.display =
+					'block';
+			}}
+		>
+			New Repo
+		</button>
+	);
 
 	const repoListLayout = (
 		<div className="userdetail__container">
 			<div className="topContent">
 				<div className="userdetail__user-info">
 					{userName && <UserInfo githubUserName={userName} />}
+					<div className="repocreation__container">
+						{isUserGitHub ? createRepoButton : null}
+						<RepoCreation />
+					</div>
 				</div>
 				<div className="userdetail__repo-list">
 					{repoList.map((repo) => {
@@ -47,12 +61,8 @@ function UserDetail() {
 				</div>
 			</div>
 			<div className="userdetail__repo-creation">
-				<div className="creation__left">
-					{isUserGitHub ? createRepoButton : null}
-				</div>
-				<div className="creation__right">
-					<RepoCreation />
-				</div>
+				<div className="creation__left"></div>
+				<div className="creation__right"></div>
 			</div>
 		</div>
 	);

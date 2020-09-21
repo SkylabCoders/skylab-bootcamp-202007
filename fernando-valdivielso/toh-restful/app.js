@@ -11,7 +11,7 @@ const Hero = require('./src/models/heroModel');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const db = mongoose.connect('mongodb://localhost/heroes-api');
+const db = mongoose.connect('mongodb://localhost/heroes-api').catch(debug);
 
 app.get('/', (req, res) => {
   res.send('My server works...');

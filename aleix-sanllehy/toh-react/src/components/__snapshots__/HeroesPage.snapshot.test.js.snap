@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroesPage snapshot should match 1`] = `
+Array [
+  <p>
+    <a
+      href="/hero"
+      onClick={[Function]}
+    >
+      + Add Hero
+    </a>
+  </p>,
+  <ul />,
+]
+`;

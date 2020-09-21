@@ -8,7 +8,6 @@ export function login() {
 	return authMethods
 		.signIn(email, password)
 		.then((loginResponse) => {
-			debugger;
 			if (loginResponse) {
 				dispatcher.dispatch({
 					type: actionTypes.LOGIN,
@@ -23,7 +22,6 @@ export function logout() {
 	return authMethods
 		.signOut()
 		.then(() => {
-			debugger;
 			dispatcher.dispatch({
 				type: actionTypes.LOGOUT
 			});

@@ -10,11 +10,11 @@ function deleteAndCrate(req, res) {
 		hero.save((err) => {
 			if (err) res.send(err);
 			else {
-				res.sendStatus(200);
+				res.status(200);
 				res.json(hero);
 			}
 		});
-	} else res.sendStatus(400);
+	} else res.status(400);
 }
 
 module.exports = deleteAndCrate;
