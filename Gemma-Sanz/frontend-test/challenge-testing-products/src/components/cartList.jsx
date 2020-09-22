@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import productStore from '../store/productStore';
 import './cartList.css';
-// import { loadProducts } from '../actions/productActions';
 
 function CartList() {
 	const [cart, setCart] = useState(productStore.getCart());
-
 	useEffect(() => {
 		productStore.addChangeListener(onChange);
-		console.log('hey CartList', cart);
 
 		return () => {
 			productStore.removeChangeListener(onChange);
 		};
-	}, [cart]);
+	}, [cart.length]);
 
 	function onChange() {
 		setCart(productStore.getCart());

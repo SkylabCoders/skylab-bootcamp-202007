@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import productStore from '../store/productStore';
 import './productList.css';
-import { loadProducts } from '../actions/productActions';
+import { loadProducts, addToCart } from '../actions/productActions';
 
 function ProductList() {
 	const [products, setProducts] = useState(productStore.getProducts());
@@ -10,18 +10,18 @@ function ProductList() {
 
 	useEffect(() => {
 		productStore.addChangeListener(onChange);
-		loadProducts();
+		if (!products.length) loadProducts();
 		return () => {
 			productStore.removeChangeListener(onChange);
 		};
-	}, [products]);
+	}, [products.length]);
 
 	function onChange() {
 		setProducts(productStore.getProducts());
 	}
 
-	function onClick(id) {
-		productStore.addProductToCart(id);
+	function onClick(product) {
+		addToCart(product);
 	}
 
 	return (
@@ -43,7 +43,7 @@ function ProductList() {
 								alt="cart__img"
 								onClick={(event) => {
 									event.preventDefault();
-									return onClick(product.id);
+									onClick(product);
 								}}
 							></img>
 						</li>
