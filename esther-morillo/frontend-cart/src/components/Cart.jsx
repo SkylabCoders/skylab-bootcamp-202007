@@ -1,0 +1,20 @@
+import React from "react";
+import './cart.scss'
+
+function Cart({ image, productName, price }) {
+
+    return (
+        <>
+            <section className="cart-section">
+                <div className="cart">
+                    <img data-testid="image" className="cart__img" src={image} alt={image}/>
+                    <p className="cart__title">{productName}</p>
+                    <p className="cart__price">{price}€</p>
+                </div>
+                <div className="cart__line"></div>
+            </section>
+        </>
+    )
+}
+
+export default Cart;
