@@ -21,11 +21,7 @@ class ProductStore extends EventEmitter {
 		return _products;
 	}
 	getCart() {
-		console.log('cart Store....', _cart);
 		return _cart;
-	}
-	addProductToCart(id) {
-		console.log('cart modified....', _cart);
 	}
 }
 

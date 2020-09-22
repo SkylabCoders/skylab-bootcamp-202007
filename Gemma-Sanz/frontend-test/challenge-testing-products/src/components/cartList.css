@@ -46,15 +46,19 @@ h3 {
 	.cart__container > ul {
 		display: block;
 		margin: auto;
+		padding: 0;
 	}
 
 	.image__product {
 		border: 1px solid gray;
 		width: 150px;
+		padding: 0;
+		border-radius: 0;
 	}
 
 	.cart__product {
-		border: 1px solid gray;
+		border-bottom: 1px solid gray;
+		padding-bottom: 10px;
 	}
 
 	.cart__product > p > span {

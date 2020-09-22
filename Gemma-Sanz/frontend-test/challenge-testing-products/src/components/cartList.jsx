@@ -4,6 +4,7 @@ import './cartList.css';
 
 function CartList() {
 	const [cart, setCart] = useState(productStore.getCart());
+	let total = 0;
 	useEffect(() => {
 		productStore.addChangeListener(onChange);
 
@@ -21,7 +22,7 @@ function CartList() {
 			<ul>
 				{cart.map((product) => {
 					return (
-						<li className="cart__product">
+						<li key={product.id} className="cart__product">
 							<img
 								className="image__product"
 								src={product.img}
@@ -41,7 +42,11 @@ function CartList() {
 					<span> TOTAL </span>({cart.length} productos)
 				</p>
 				<p>
-					<span> XXX €</span>
+					<span>
+						{' '}
+						{cart.forEach((product) => (total += product.price))}
+						{total.toFixed(2)} €
+					</span>
 				</p>
 			</div>
 		</div>
