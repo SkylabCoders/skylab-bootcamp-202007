@@ -1,29 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import authStore from '../stores/authStore';
-import { login, logout } from '../actions/auth-actions';
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function Login() {
-	const [isLogged, setIsLogged] = useState(authStore.getIsLogged());
-	const [user, setUser] = useState(authStore.getProfile());
+const LoginButton = () => {
+	const { loginWithRedirect } = useAuth0();
 
-	useEffect(() => {
-		authStore.addChangeListener(onLoginChange);
-		return () => authStore.removeChangeListener(onLoginChange);
-	}, [isLogged, user]);
+	return <button onClick={() => loginWithRedirect()}>Log In</button>;
+};
 
-	function onLoginChange() {
-		setIsLogged(authStore.getIsLogged());
-		setUser(authStore.getProfile());
-	}
-
-	return (
-		<>
-			{isLogged && (
-				<button onClick={() => logout()}>Logout {user && user.email}</button>
-			)}
-			{!isLogged && <button onClick={() => login()}>Login</button>}
-		</>
-	);
-}
-
-export default Login;
+export default LoginButton;
