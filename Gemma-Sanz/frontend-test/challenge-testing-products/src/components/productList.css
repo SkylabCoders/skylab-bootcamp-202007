@@ -21,6 +21,10 @@ img {
 	cursor: pointer;
 }
 
+.cart__disabled {
+	background-color: gray;
+}
+
 .details__product {
 	display: flex;
 	flex-direction: row;

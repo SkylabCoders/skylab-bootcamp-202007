@@ -25,11 +25,6 @@ class ProductStore extends EventEmitter {
 		return _cart;
 	}
 	addProductToCart(id) {
-		let check = _cart.some((product) => product.id === id);
-		if (!check) {
-			let product = _products.find((product) => product.id === id);
-			_cart = [..._cart, product];
-		}
 		console.log('cart modified....', _cart);
 	}
 }
@@ -43,8 +38,10 @@ dispatcher.register((action) => {
 			break;
 
 		case actionTypes.ADD_TO_CART:
-			// _cart = action.data;
-			_cart = [..._cart, action.data];
+			let check = _cart.some((product) => product.id === action.data.id);
+			if (!check) {
+				_cart = [..._cart, action.data];
+			}
 			productStore.emitChange();
 			break;
 		default:

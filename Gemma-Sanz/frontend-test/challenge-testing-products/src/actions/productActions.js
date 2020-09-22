@@ -9,22 +9,9 @@ export function loadProducts() {
 	});
 }
 
-/* export function loadCart() {
-	dispatcher.dispatch({
-		type: actionTypes.LOAD_CART
-	});
-}
- */
 export function addToCart(product) {
 	dispatcher.dispatch({
 		type: actionTypes.ADD_TO_CART,
 		data: product
 	});
 }
-
-/* export function loadCart() {
-	dispatcher.dispatch({
-		type: actionTypes.LOAD_PRODUCTS,
-		data: products
-	});
-} */
