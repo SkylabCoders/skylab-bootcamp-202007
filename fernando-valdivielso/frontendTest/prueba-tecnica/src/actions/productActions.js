@@ -1,6 +1,6 @@
 import dispatcher from '../dispatcher';
 import actionTypes from './actionTypes';
-import products from '../products.json';
+import products from '../products';
 
 export function loadProducts() {
 	return new Promise((resolve, reject) => {

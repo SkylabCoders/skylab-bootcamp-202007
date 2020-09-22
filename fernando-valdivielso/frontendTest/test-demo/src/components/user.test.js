@@ -40,7 +40,7 @@ describe('User', () => {
 		expect(container.querySelector('[data-testid="name"]').textContent).toBe(
 			// se pone entre [] por que es un selector de atributos de css o algo asi. div[data-testid="name"] seran los div que tienen ese atributo
 			// data-testid="name" instead of 'summary' html tag. Asi podemos cambiar el elemento (a div por ejemplo) y el test sigue pasando
-			// es u atributo que nos permite desacloparnos de todo lo demas
+			// es u atributo que nos permite desacoplarnos de todo lo demas
 			fakeUser.name
 		);
 		// expect(container.querySelector('strong').textContent).toBe(fakeUser.age); hacemos un expect por test, este deberia ponerse en otro 'it'

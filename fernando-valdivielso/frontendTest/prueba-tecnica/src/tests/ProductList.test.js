@@ -19,17 +19,6 @@ describe('Product List', () => {
 
 	it('should render product name', async () => {
 		//arrange
-		const fakeProduct = {
-			name: 'Cremita buena',
-			price: 20,
-			image: 'imagen'
-		};
-
-		jest.spyOn(global, 'fetch').mockImplementation(() =>
-			Promise.resolve({
-				json: () => Promise.resolve(fakeProduct)
-			})
-		);
 
 		//act
 		await act(async () => {
@@ -38,9 +27,7 @@ describe('Product List', () => {
 
 		//assert
 		expect(container.querySelector('[data-testid="name"]').textContent).toBe(
-			fakeProduct.name
+			'LaJusticia colágeno con magnesio 450comp'
 		);
-
-		global.fetch.mockRestore();
 	});
 });

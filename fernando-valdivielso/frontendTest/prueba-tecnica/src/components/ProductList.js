@@ -9,8 +9,6 @@ const cart =
 export default function ProductList() {
 	const [products, setProducts] = useState([]);
 
-	console.log('products', products);
-
 	useEffect(() => {
 		productStore.addChangeListener(onChange);
 		loadProducts();
