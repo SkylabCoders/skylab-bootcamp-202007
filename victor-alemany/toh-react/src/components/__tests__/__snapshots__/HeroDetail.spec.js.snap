@@ -1,18 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hero Detail snapshot should match 1`] = `
+exports[`HeroDetail should match with a missing hero ID 1`] = `null`;
+
+exports[`HeroDetail should match with hero ID 1`] = `
 <form
   onSubmit={[Function]}
 >
   <h2>
-    Register a new hero:
+    
+     details!
   </h2>
-  <input
-    name="heroName"
-    onChange={[Function]}
-    placeholder="Hero name"
-    value=""
-  />
+  <p>
+    Id: 
+    14
+  </p>
+  <label
+    htmlFor="heroName"
+  >
+    Name: 
+    <input
+      name="heroName"
+      onChange={[Function]}
+      placeholder="Hero name"
+      type="text"
+      value=""
+    />
+  </label>
   <p>
     <button
       type="submit"
@@ -22,3 +35,5 @@ exports[`Hero Detail snapshot should match 1`] = `
   </p>
 </form>
 `;
+
+exports[`HeroDetail should match without hero ID 1`] = `null`;

@@ -1,0 +1,75 @@
+.repoCard {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 50%;
+	margin: 0px 12px 12px 12px;
+	word-wrap: break-word;
+	max-height: 300px;
+	border-radius: 0.25rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	color: var(--font-color-repoCard);
+	background-color: var(--bg-color-repoCard);
+}
+.repoCard__name-private {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: 1px solid #d4d6d7;
+	width: 100%;
+	justify-content: space-around;
+	padding: 3px;
+	background-color: var(--bg-color-repoCard__name-private);
+	height: 75px;
+}
+.repoCard__private {
+	border-right: 1px solid #d4d6d7;
+	width: 16%;
+}
+.padlock {
+	width: 25px;
+	display: flex;
+}
+.repoCard__showlastUpdate-lang {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px solid #d4d6d7;
+	height: 50px;
+}
+.repoCard__name {
+	width: 76%;
+	padding: 10px 0;
+}
+.repoCard__description {
+	text-align: center;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #d4d6d7;
+	white-space: normal;
+	max-height: 150px;
+	padding: 12px;
+	text-overflow: ellipsis;
+	height: 100px;
+}
+.repoCard__details {
+	width: 100%;
+	text-align: center;
+	padding: 10px 0;
+	background-color: var(--bg-color-repoCard__details);
+	height: 75px;
+}
+
+@media only screen and (min-width: 600px) {
+	.repoCard {
+		width: 40%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.repoCard {
+		width: 25%;
+	}
+}

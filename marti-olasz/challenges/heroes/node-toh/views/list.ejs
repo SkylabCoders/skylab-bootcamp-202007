@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero list</title>
+    <link rel="stylesheet" href="/public/css/list.css">
+</head>
+
+<body>
+    <section class="header">
+        <h1 class="header__title">Tour of Heroes</h1>
+        <button class="header__button"><a href="/"> Dasbord </a></button>
+        <button class="header__button"><a href="/list">Heroes</a></button>
+    </section>
+
+    <section class="hero-list">
+        <h2 class="hero-list__title">My Heroes</h2>
+        <div class="hero-list__list">
+            <% heroList.forEach(element => { %>
+            <section class="list__item">
+                <p class="item__id"> id: <%= element.id %> </p>
+                <div class="item__link">
+                    <a href=<%='/hero?id='+element.id %>>
+                        <%=element.name%>
+                    </a>
+                </div>
+                <div class="item__edit">
+                    <button class="button" onclick="">edit hero</button>
+                    <button class="button" onclick="">X</button>
+                </div>
+            </section>
+            <% }) %>
+        </div>
+    </section>
+</body>
+
+</html>

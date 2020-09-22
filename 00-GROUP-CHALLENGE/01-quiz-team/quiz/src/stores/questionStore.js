@@ -1,8 +1,9 @@
 import { EventEmitter } from 'events';
-import dispatcher from './../AppDispatcher';
+import dispatcher from './../dispatcher';
 import actionTypes from './../actions/actionTypes';
 
 const CHANGE_EVENT = 'change';
+let _question = {};
 
 class QuestionStore extends EventEmitter{
 
@@ -18,6 +19,10 @@ class QuestionStore extends EventEmitter{
         this.emit(CHANGE_EVENT);
     }
 
+    getQuestion(){
+        return _question;
+    }
+
 }
 
 const questionStore = new QuestionStore();
@@ -25,25 +30,9 @@ const questionStore = new QuestionStore();
 export default questionStore;
 
 dispatcher.register((action) => {
-    switch (action.type){
-        case actionTypes.GET_QUESTION_ANSWER:
-            _themes_list = action.data;
-            gameStore.emitChange(_themes_list);
-            break;
-        case actionTypes.GET_QUESTION_OPTIONS:
-            _themes_list = action.data;
-            gameStore.emitChange(_themes_list);
-            break;
-        case actionTypes.GET_QUESTION_TITLE:
-            _themes_list = action.data;
-            gameStore.emitChange(_themes_list);
-            break;
-        case actionTypes.GET_QUESTION_RESULT:
-            _themes_list = action.data;
-            gameStore.emitChange(_themes_list);
-            break;
-        default:
-            break;
+    if(action.type === actionTypes.GET_QUESTION){
+        _question = action.data;
+        questionStore.emitChange(_question);
     }    
 })
 

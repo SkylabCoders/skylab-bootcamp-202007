@@ -1,48 +1,47 @@
 .mainContainerAbout {
-    padding: 50px 0;
-    display: flex;
-    flex-direction: row;
+	padding: 50px 0;
+	display: flex;
+	flex-direction: row;
 }
 
-h1 {
-    text-align: center;
-    display: block;
-    margin-top: 150px;
-    font-weight: bold;
+.titleAbout {
+	text-align: center;
+	display: block;
+	margin-top: 150px;
+	font-weight: bold;
 }
 
 p {
-    text-align: justify;
-    margin: 15px 15px;
-    font-style: oblique;
-    color: gray;
+	text-align: justify;
+	margin: 15px 15px;
+	font-style: oblique;
+	color: gray;
 }
 
 h3 {
-    margin: 15px;
+	margin: 15px;
 }
 
 .containerAbout {
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    height: auto;
-    align-items: center;
-    justify-content: center;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	height: auto;
+	align-items: center;
+	justify-content: center;
 }
 
 .profileImage {
-    width: 150px;
-    border-radius: 50%;
+	width: 150px;
+	border-radius: 50%;
 }
 
 .usAbout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    width: 33vw;
-
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	width: 33vw;
 }

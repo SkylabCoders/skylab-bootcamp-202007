@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tour of Heroes</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/heroes.css" />
+	</head>
+	<body>
+		<%- include('header')%>
+		<h2><%= title%></h2>
+		<form action="" method="POST">
+				<label
+					>Hero name:
+					<input #heroName />
+				</label>
+				<button>
+					add
+				</button>
+				<button class="" title="delete all" type="submit" name="deletedHero" value="all">
+					delete all
+				</button>
+		</form>
+
+		<form action="" method="POST">
+			<ul class="heroes">
+				<% for(let i = 0; i<heroes.length; i++){%>
+					<li>
+					<a href="/heroes">
+						<span class="badge"><%= heroes[i].id %></span> <%= heroes[i].name %>
+					</a>
+	<!-- 				el nom te que ser igual aqui i en routes de heroRoutes, lin
+	-->				<button class="delete" title="delete hero" type="submit" name="deletedHero" value="<%= heroes[i]._id%>">
+						x
+					</button>
+				</li>
+				<% } %>
+			</ul>
+	</form>
+	</body>
+</html>

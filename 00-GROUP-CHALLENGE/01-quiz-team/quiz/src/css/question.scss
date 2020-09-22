@@ -1,0 +1,64 @@
+@use 'colors';
+@use 'breakpoints';
+
+.question__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    background-color: colors.$text--white;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.question__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95vw;
+    text-align: center;
+}
+
+.question__item > p{
+    text-decoration: none;
+}
+
+.list__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.list__container li{
+    margin: 5px;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+@media (min-width: breakpoints.$mobile) and (max-width: breakpoints.$desktop){
+    .question__item{
+        width: 70vw;
+    }
+
+    .question__container{
+        flex-direction: row;
+        width: 100vw;
+    }
+    
+}
+
+@media (min-width: breakpoints.$desktop){
+    .question__item{
+        width: 80vw;
+    }
+
+    .question__container{
+        flex-direction: row;
+        width: 100vw;
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/index.css" />
+</head>
+
+<body>
+	<%- include('header')%>
+	<h1>Profile <%=user.user%> works</h1>
+	<form action="/auth/logout" method="POST">
+		<button type="submit">Logout</button>
+	</form>
+	</br>
+	<form action="/auth/Profile" method="POST">
+		<div>
+			<label for="user">
+				New Password:
+				<input type="text" name="password" value="<%=user.password%>"
+					pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,12}$" required />
+			</label>
+		</div>
+		</br>
+		<button type="submit">Save new password</button>
+	</form>
+</body>
+
+</html>

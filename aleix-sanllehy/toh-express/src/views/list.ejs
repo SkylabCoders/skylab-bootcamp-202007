@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tour of Heroes</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/list.css" />
+	</head>
+	<body>
+		<%- include('header'); -%>
+		<h2><%=title%></h2>
+		<div>
+			<form action="" method="POST">
+				<label>
+					Hero name:
+					<input name="createHero" placeholder="insert new hero" />
+				</label>
+				<button name="createHero" type="submit">
+					add
+				</button>
+				<button
+					name="deleteHeroes"
+					title="delete everything"
+					type="submit"
+					value="all"
+				>
+					delete all
+				</button>
+			</form>
+		</div>
+		<ul class="heroes">
+			<% for (let i = 0; i < heroes.length; i++) { %>
+			<li>
+				<a href="/heroes/<%= heroes[i]._id %>">
+					<span class="badge"><%= heroes[i].id %></span><%= heroes[i].name %></a
+				>
+				<form action="" method="POST">
+					<button
+						name="deleteHeroes"
+						class="delete"
+						title="delete hero"
+						type="submit"
+						value="<%= heroes[i]._id %>"
+					>
+						x
+					</button>
+				</form>
+			</li>
+			<% } %>
+		</ul>
+	</body>
+</html>

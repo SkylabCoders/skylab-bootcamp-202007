@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item snapshot should match 1`] = `
+<a
+  aria-current={null}
+  className="anchor__link"
+  href="/themes/undefined"
+  onClick={[Function]}
+>
+  <div
+    className="item__container"
+  >
+    <img
+      alt="item theme"
+      className="img__item"
+    />
+    <h2
+      className="img__title"
+    />
+  </div>
+</a>
+`;

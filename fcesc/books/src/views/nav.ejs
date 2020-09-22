@@ -1,0 +1,7 @@
+<ul class="navlist__container">
+  <% NAVITEMS.forEach((route) => { %>
+  <li class="navlist__item">
+    <a href="<%=route.path%>"><%=route.name%></a>
+  </li>
+  <% }); %>
+</ul>

@@ -8,7 +8,7 @@ let _heroes = [];
 
 let nextId = 0;
 const generateNextId = (heroes) =>
-	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id)) + 1;
+	heroes.reduce((newId, hero) => (newId > hero.id ? newId : hero.id), 0) + 1;
 
 class HeroStore extends EventEmitter {
 	addChangeListener(callback) {
@@ -53,11 +53,11 @@ dispatcher.register((action) => {
 			heroStore.emitChange();
 			break;
 		case actionTypes.DELETE_HERO:
-			_heroes = _heroes.filter((hero) => hero.id !== action.data.id);
+			_heroes = _heroes.filter((hero) => hero._id !== action.data);
 			heroStore.emitChange();
 			break;
 		default:
-			break;
+			throw `The action ${action.type} is unknown `;
 	}
 });
 

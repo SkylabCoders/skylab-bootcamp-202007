@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Finder snapshot Should match 1`] = `
+<section
+  className="finder-container"
+>
+  <div
+    className="finder-no-results"
+  >
+    No results found
+  </div>
+</section>
+`;

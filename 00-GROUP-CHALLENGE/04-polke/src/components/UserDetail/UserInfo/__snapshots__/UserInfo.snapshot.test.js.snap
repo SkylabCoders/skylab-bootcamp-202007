@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInfo snapshot should match 1`] = `
+<div
+  className="user-info-card card"
+>
+  <div
+    className="user-info-card__main-title card-title h5"
+  >
+    USER INFO
+  </div>
+  <img
+    className="card-img-top"
+    roundedCircle={true}
+  />
+  <div
+    className="card-body"
+  >
+    <div
+      className="user-info-card__name-title card-title h5"
+    >
+      <a />
+    </div>
+    <p
+      className="card-text"
+    >
+      <span
+        className="user-info-card__category"
+      >
+        Followers: 
+      </span>
+       
+    </p>
+    <p
+      className="card-text"
+    >
+      <span
+        className="user-info-card__category"
+      >
+        Bio: 
+      </span>
+      No bio available
+    </p>
+    <p
+      className="card-text"
+    >
+      <span
+        className="user-info-card__category"
+      >
+        Location: 
+      </span>
+       
+      No location available
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisplayInlineArray snapshot should match 1`] = `
+<ul
+  className="inline__array"
+>
+  <li
+    className="inline__array"
+  >
+    Rick Jones
+  </li>
+</ul>
+`;

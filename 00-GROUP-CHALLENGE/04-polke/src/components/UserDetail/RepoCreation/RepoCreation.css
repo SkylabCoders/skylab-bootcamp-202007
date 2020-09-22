@@ -1,0 +1,86 @@
+.repocreation__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: var(--bg-color-repoCard);
+	border-radius: 7px;
+	padding: 16px;
+	position: absolute;
+	z-index: 10;
+	margin-bottom: 64px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+	left: 80%;
+	display: none;
+}
+
+.repocreation__form:before {
+	content: '';
+
+	position: absolute;
+	height: 0px;
+	width: 0px;
+	top: 50%;
+	left: -7%;
+	border-width: 15px;
+	border-color: transparent var(--bg-color-repoCard) transparent transparent;
+	border-style: solid;
+}
+
+.form__repo-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: 100%;
+	padding-bottom: 24px;
+}
+
+.form_access-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.form_access-container p {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2px;
+}
+
+.form__repo-access {
+	border-radius: 5px;
+}
+
+.form__text-input {
+	padding: 5px;
+	margin-right: 5px;
+	border-radius: 5px;
+	border: 0.3px solid gray;
+}
+
+.form__readme {
+	margin: 10px;
+}
+
+.form__bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	width: 100%;
+}
+
+.repo__button {
+	background-color: var(--bg-color-button);
+	border-radius: 5px;
+	border: none;
+	color: whitesmoke;
+	width: 25%;
+	cursor: pointer;
+}

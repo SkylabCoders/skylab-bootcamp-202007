@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './registerComponent.css';
+import './registerComponent.scss';
 import { sendAccountRegister } from '../../actions/authAction/authAction'
 import { Link } from 'react-router-dom';
 
@@ -26,17 +26,17 @@ function RegisterComponent() {
                 <h1 className="m-2">Register</h1>
 
                 <label>Name</label>
-                <input value={name} onChange={(event) => handleChange(event, setName)} id="inputName" className="m-1 form-control" type="text" placeholder="Name" required="" autoFocus=""></input>
+                <input value={name} onChange={(event) => handleChange(event, setName)} id="inputName" className="m-1 form-control" type="text" placeholder="Name" autoFocus="" required></input>
                 <label>Last Name</label>
-                <input value={lastName} onChange={(event) => handleChange(event, setLastName)} id="inputLastName" className="m-1 form-control" type="text" placeholder="Last Name" required="" autoFocus=""></input>
+                <input value={lastName} onChange={(event) => handleChange(event, setLastName)} id="inputLastName" className="m-1 form-control" type="text" placeholder="Last Name" autoFocus="" required></input>
                 <label>Birth Date</label>
-                <input value={birthDate} onChange={(event) => handleChange(event, setBirthDate)} id="inputBirthDate" className="m-1 form-control" type="date" placeholder="Date" required="" autoFocus=""></input>
+                <input value={birthDate} onChange={(event) => handleChange(event, setBirthDate)} id="inputBirthDate" className="m-1 form-control" type="date" placeholder="Date" autoFocus="" required></input>
                 <label>Email address</label>
-                <input value={email} onChange={(event) => handleChange(event, setEmail)} id="inputEmail" className="m-1 form-control" type="email" placeholder="Email address" required="" autoFocus=""></input>
+                <input value={email} onChange={(event) => handleChange(event, setEmail)} id="inputEmail" className="m-1 form-control" type="email" placeholder="Email address" autoFocus="" required></input>
                 <label>Password</label>
-                <input value={password1} onChange={(event) => handleChange(event, setPassword)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
+                <input value={password1} onChange={(event) => handleChange(event, setPassword)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" minLength="5" maxLength="20" required></input>
                 <label>Repite password</label>
-                <input value={password2} onChange={(event) => handleChange(event, setPassword2)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" required="" minLength="5" maxLength="20" ></input>
+                <input value={password2} onChange={(event) => handleChange(event, setPassword2)} id="inputPassword" className="m-1 form-control" type="password" placeholder="Password" minLength="5" maxLength="20" required></input>
                 <div className="rowflex">
                     {password1 !== password2 && <button className="m-1 mt-3 mb-3 btn-light btn-lg btn-block" onClick={() => alert("Passwords don't match! Please enter the same password in both fields")}> Create account!</button>}
                     {password1 === password2 && <Link to="/login" className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block" type="submit" onClick={() => sendAccountRegister(email, password1)}>Create account!</Link>}

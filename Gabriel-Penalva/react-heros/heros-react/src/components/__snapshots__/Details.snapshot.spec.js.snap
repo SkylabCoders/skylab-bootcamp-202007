@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Snapshot should match 1`] = `
+Array [
+  "console.log(props)",
+  <div
+    className="hero"
+  >
+    <h2>
+      Celeritas
+       Details
+    </h2>
+    <div>
+      <span>
+        id: 
+      </span>
+      14
+    </div>
+    <div>
+      <label
+        htmlFor="heroName"
+      >
+        name:
+        <input
+          name="heroName"
+          onChange={[Function]}
+          placeholder="hero name"
+          type="text"
+          value="Celeritas"
+        />
+      </label>
+    </div>
+    <nav>
+      <a
+        aria-current="page"
+        className="my-active-class"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Back
+      </a>
+    </nav>
+  </div>,
+]
+`;

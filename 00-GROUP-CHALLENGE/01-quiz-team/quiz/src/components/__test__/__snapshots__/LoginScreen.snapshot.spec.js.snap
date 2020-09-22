@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen snapshot should match 1`] = `
+<a
+  aria-current={null}
+  href="/login"
+  onClick={[Function]}
+>
+  <div
+    className="login__wrapper"
+  >
+    <div
+      className="login__left__container"
+    >
+      <img
+        src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?cs=srgb&dl=pexels-johannes-plenio-1103970.jpg&fm=jpg"
+      />
+    </div>
+    <div
+      className="login__right__container"
+    >
+      <div
+        className="login"
+      >
+        <h1>
+          Login
+        </h1>
+        <form
+          action=""
+          method="post"
+        >
+          <input
+            className="input__item"
+            name="userName"
+            onChange={[Function]}
+            placeholder="Username or Email"
+            type="text"
+            value=""
+          />
+          <input
+            className="input__item"
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+          />
+          <input
+            className="input__item notDisplayed"
+            name="login"
+            type="submit"
+            value="Login"
+          />
+          <input
+            className="input__item notDisplayed"
+            name="logout"
+            type="submit"
+            value="Logout"
+          />
+          <div
+            className="login__set"
+          >
+            <button
+              onClick={[Function]}
+            >
+              Login
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              Sign in with google
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</a>
+`;

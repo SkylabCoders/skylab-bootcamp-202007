@@ -1,0 +1,268 @@
+.time__background {
+	background: url('https://image.flaticon.com/icons/svg/2972/2972562.svg');
+	background-position: center center;
+	background-size: 75%;
+	background-repeat: no-repeat;
+}
+
+p {
+	color: black;
+}
+
+
+.image-recipe {
+	min-width: 250px;
+	margin-top: 10px;
+}
+
+.calories__background {
+	background: url('https://image.flaticon.com/icons/svg/2738/2738728.svg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 60%;
+}
+
+.yield__background {
+	background: url('https://image.flaticon.com/icons/svg/1021/1021444.svg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 60%;
+}
+
+.flex__row {
+	display: flex;
+	flex-direction: row;
+}
+
+.flex__column {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.rate__recipe {
+	align-items: center;
+	justify-content: center;
+}
+
+
+.info__container {
+	margin-top: 70px;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.buttons__container {
+	justify-content: center;
+	width: 100%;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.ingredients__container {
+	text-align: center;
+	align-items: center;
+	height: fit-content;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+.data__container {
+	height: 100%;
+	justify-content: space-evenly;
+}
+
+.data__circle {
+	width: 80px;
+	height: 80px;
+
+	border-radius: 50%;
+	padding: 3px;
+	text-align: center;
+}
+
+.title__img__container {
+	justify-content: center;
+	align-items: center;
+
+	img {
+		margin-top: 15px;
+		width: 40vw;
+		max-width: 250px;
+		border-radius: 15px;
+	}
+
+}
+
+.error_text {
+	text-align: center;
+}
+
+.underphoto__button {
+	padding: 15px;
+	width: 20vw;
+	background-color: #f8f8f0;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+a {
+	text-align: center;
+}
+
+.rate__elem {
+	margin-right: 10px;
+}
+
+.desktop__recipe__title {
+	display: none;
+}
+
+.ingredients__title {
+	margin: 10px;
+	font-size: 25px;
+}
+
+.ingredients__text {
+	margin: 10px;
+	text-align: start;
+	max-width: 300px;
+}
+
+.ingredients__source {
+	margin-top: 20px;
+	color: rgb(55, 55, 131);
+	border: solid 2px rgb(55, 55, 131);
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.text__icon {
+	margin-bottom: 5px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.box__icon {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.recipe__icon-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.desktop__display--left {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.desktop__display--right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.underphoto__button--source {
+	margin-top: 20px;
+	background-color: #65dfc3;
+	padding: 15px;
+	border-radius: 10px;
+}
+
+@media screen and (min-width: 600px) {
+	.underphoto__button {
+		margin-top: 10vh;
+	}
+
+}
+
+@media screen and (min-width: 1024px) {
+	.desktop__display {
+		display: flex;
+		flex-direction: row;
+	}
+
+
+
+	.desktop__display--left {
+		order: 0;
+		display: flex;
+		flex-direction: column;
+		width: 50vw;
+		height: 100%;
+		margin-top: 80px;
+		align-items: center;
+	}
+
+	.desktop__display--right {
+		order: 1;
+		width: 50vw;
+		align-items: center;
+	}
+
+	.buttons__container {
+		justify-content: center;
+		margin-top: 49px;
+		margin-bottom: 20px;
+		height: 100%;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.data__container {
+		flex-direction: column;
+		margin-bottom: 10px;
+		margin-top: 20px;
+	}
+
+	.info__container {
+		flex-direction: column;
+		margin-top: 110px;
+		width: 100%;
+		justify-content: space-around;
+
+		h2 {
+			display: none;
+		}
+
+		img {
+			max-width: 350px;
+		}
+	}
+
+	.ingredients__container {
+		height: 40vh;
+	}
+
+	.underphoto__button {
+		margin-bottom: 10px;
+		margin-top: 5vh;
+	}
+
+	.preference__box {
+		height: 80px;
+		margin-left: 0px;
+	}
+
+	.desktop__recipe__title {
+		display: inline-block;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+
+	.ingredients__text {
+		max-width: 500px;
+	}
+}

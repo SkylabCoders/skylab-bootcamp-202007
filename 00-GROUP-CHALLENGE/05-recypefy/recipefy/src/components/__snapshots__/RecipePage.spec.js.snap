@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipePage should create recipe page without a recipe 1`] = `
+<div
+  className="desktop__display body-content"
+>
+  <div
+    className="desktop__display--right"
+  >
+    <section
+      className="flex__row info__container"
+    >
+      <div
+        className="flex__column data__container"
+      >
+        <div
+          className="recipe__icon-list"
+        >
+          <div
+            className="box__icon"
+          >
+            <p
+              className="text__icon"
+            >
+              
+            </p>
+            <div
+              className="data__circle time__background"
+              id="time"
+            />
+          </div>
+          <div
+            className="box__icon"
+          >
+            <p
+              className="text__icon"
+            >
+              
+            </p>
+            <div
+              className="data__circle calories__background"
+              id="calories"
+            />
+          </div>
+          <div
+            className="box__icon"
+          >
+            <p
+              className="text__icon"
+            >
+              
+            </p>
+            <div
+              className="data__circle yield__background"
+              id="yeld"
+            />
+          </div>
+        </div>
+        <div
+          className="title__img__container flex__column"
+        >
+          <h2>
+            
+          </h2>
+          <img
+            alt=""
+            className="image-recipe"
+            id="image-recipe"
+            src=""
+          />
+          <p
+            className="ingredients__source"
+          >
+            
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div
+    className="desktop__display--left"
+  >
+    <section>
+      <div
+        className="flex__row buttons__container"
+      >
+        <div
+          className="flex__column"
+        >
+          <h2
+            className="desktop__recipe__title"
+            id="title"
+          >
+            
+          </h2>
+          <div
+            className="underphoto__button"
+          >
+            <div
+              className="recipe__text--preferences"
+            />
+            <p
+              className="error_text"
+            >
+              No preferences
+            </p>
+          </div>
+        </div>
+        <a
+          className="underphoto__button--source"
+          href=""
+        >
+          LET'S COOK IT!
+          <br />
+           CLICK HERE
+        </a>
+      </div>
+    </section>
+    <section
+      className="flex__column ingredients__container"
+    >
+      <p
+        className="ingredients__title"
+      >
+        INGREDIENTS
+      </p>
+      <ul
+        className="ingredients__text"
+        id="ingredients"
+      />
+    </section>
+  </div>
+</div>
+`;

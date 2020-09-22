@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard snapshot should match 1`] = `
+<div
+  className="dashboard__container"
+>
+  <div
+    className="dashboard__themes"
+  >
+    <h2
+      className="section__title"
+    >
+      THEMES
+    </h2>
+    <ul
+      className="themes__grid"
+    />
+  </div>
+  <div
+    className="dashboard__topThemes"
+  >
+    <h2
+      className="section__title"
+    >
+      TOP THEMES
+    </h2>
+    <ul
+      className="topThemes__grid"
+    />
+  </div>
+</div>
+`;

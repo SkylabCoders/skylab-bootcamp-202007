@@ -3,9 +3,37 @@
 function HeroListComponent() {
 	this.heroList = heroList;
 
+	var styleEl = document.createElement('style');
+	document.head.appendChild(styleEl);
+	var styleSheet = styleEl.sheet;
+
+	styleSheet.insertRule(
+		':root {--bg-color-hero: red; background-color: black}',
+		0
+	);
+	var isDarkActive = false;
+
 	this.onInit = function () {
 		createDOMElements();
 		printHeroes();
+	};
+
+	this.switchColor = function () {
+		if (isDarkActive) {
+			styleSheet.deleteRule(0);
+			styleSheet.insertRule(
+				':root {--bg-color-hero: green; background-color: purple}',
+				0
+			);
+			isDarkActive = false;
+		} else {
+			styleSheet.deleteRule(0);
+			styleSheet.insertRule(
+				':root {--bg-color-hero: blue; background-color: yellow}',
+				0
+			);
+			isDarkActive = true;
+		}
 	};
 
 	const printHeroes = function () {

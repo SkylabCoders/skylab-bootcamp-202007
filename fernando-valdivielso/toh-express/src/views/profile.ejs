@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of Heroes</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/hero-detail.css">
+</head>
+
+<body>
+
+    <%- include('header'); -%>
+    <h3><%= user.user %> Profile!</h3>
+
+    <form action="/auth/profile" method="POST">
+        <div>
+
+            <label for="password">
+                Password
+                <input type="text" name='password' value="<%= user.password %>">
+            </label>
+        </div>
+        <button type='submit'>Save</button>
+
+    </form>
+
+</body>
+
+</html>

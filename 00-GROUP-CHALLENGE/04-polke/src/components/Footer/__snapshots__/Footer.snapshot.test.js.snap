@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer snapshot should match 1`] = `
+<div
+  className="footer__container footer__container--color fixed-bottom"
+>
+  <p
+    className="footer__item"
+  >
+    Copyright ©
+     
+    <a
+      href="https://github.com/Dani-Alonso"
+    >
+      Dani Alonso
+    </a>
+     |
+     
+    <a
+      href="https://github.com/phortela1n"
+    >
+      Pablo Hortelano
+    </a>
+     |
+     
+    <a
+      href="https://github.com/gerardramonp"
+    >
+      Gerard Ramon
+    </a>
+  </p>
+  <a
+    className="footer__item"
+    href="https://github.com/SkylabCoders/skylab-bootcamp-202007/tree/master/00-GROUP-CHALLENGE/04-polke"
+  >
+    About
+  </a>
+</div>
+`;

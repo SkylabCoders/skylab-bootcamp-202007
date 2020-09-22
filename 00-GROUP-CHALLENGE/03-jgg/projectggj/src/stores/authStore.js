@@ -7,8 +7,6 @@ let _isLogged = false;
 let _userProfile = null;
 let _userName = false;
 let _photoUser = null;
-let _victories = 0;
-let _defeats = 0;
 
 class AuthStore extends EventEmitter {
     addChangeListener(callback) {
@@ -46,8 +44,6 @@ dispatcher.register((action) => {
             _isLogged = !!action.data;
             _userName = action.data.user.displayName;
             _photoUser = action.data.user.photoURL;
-            _victories = 0;
-            _defeats = 0;
             authStore.emitChange();
             break;
         case actionTypes.LOGOUT:
@@ -62,7 +58,7 @@ dispatcher.register((action) => {
             authStore.emitChange();
             break;
         default:
-            break;
+            return (`Action not recognized: ${action.type}`);
     }
 });
 

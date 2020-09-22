@@ -1,0 +1,99 @@
+.carrousel-main-container {
+	h3 {
+		font-size: 1.7em !important;
+	}
+}
+.generic-carrousel {
+	img {
+		height: 65vh;
+	}
+}
+.user-repositorie__category-title {
+	color: black;
+}
+.carousel-caption {
+	top: 10%;
+}
+.user-repositorio__bottom-tittle {
+	padding-bottom: 40px;
+}
+.carrousel-main-container__main-title {
+	text-align: center;
+	color: var(--font-color-carousel);
+}
+.carrousel-main-container__ranking-title {
+	padding-bottom: 15px;
+}
+.user-repositorie__commits-title {
+	color: black;
+	font-size: 0.8em;
+}
+.carrousel-main-container__user-img {
+	border-radius: 50%;
+	width: 120px;
+	height: 120px !important;
+}
+.ranking-repositorie {
+	.user-repositorie__ranking-minor-title {
+		font-size: 1.4em !important;
+	}
+}
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+	.carousel-caption {
+		top: 10%;
+	}
+	.generic-carrousel {
+		img {
+			height: 45vh;
+		}
+	}
+	.carrousel-main-container__user-img {
+		border-radius: 50%;
+		width: 120px;
+		height: 120px !important;
+	}
+	.ranking-repositorie {
+		h3 {
+			font-size: 1.7em !important;
+		}
+	}
+}
+@media only screen and (min-width: 1025px) {
+	.carrousel-main-container {
+		height: 100vh;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-content: center;
+		padding: 10px;
+	}
+	.generic-carrousel {
+		height: 100%;
+		width: 33vw;
+		padding: 10px;
+		img {
+			height: 75vh;
+		}
+	}
+	.carousel-caption {
+		top: 20%;
+		h3 {
+			padding-bottom: 40px;
+		}
+	}
+	.carrousel-main-container__ranking-caption {
+		h3 {
+			padding-bottom: 25px !important;
+		}
+	}
+	.carrousel-main-container__user-img {
+		border-radius: 50%;
+		width: 160px;
+		height: 160px !important;
+	}
+	.ranking-repositorie {
+		h3 {
+			font-size: 1.7em !important;
+		}
+	}
+}

@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepoCreation snapshot should match 1`] = `
+<div
+  className="repocreation__container"
+>
+  <form
+    className="repocreation__form"
+  >
+    <div
+      className="form__repo-info"
+    >
+      <div
+        className="form-section"
+      >
+        <input
+          className="form__repo-name form__text-input"
+          name="repo-name"
+          placeholder="Repo name..."
+          type="text"
+        />
+        <div
+          className="form_access-container"
+        >
+          <p>
+             Repo Access: 
+          </p>
+          <select
+            className="form__repo-access"
+            name="repo-access"
+          >
+            <option
+              selected={true}
+              value="false"
+            >
+              Public
+            </option>
+            <option
+              value="true"
+            >
+              Private
+            </option>
+          </select>
+        </div>
+      </div>
+      <div
+        className="form-section"
+      >
+        <textarea
+          className="form__repo-desc form__text-input"
+          cols="40"
+          name="repo-desc"
+          placeholder="Repo description..."
+          rows="2"
+        />
+      </div>
+    </div>
+    <div
+      className="form__bottom"
+    >
+      <div>
+        <label
+          for="repo-readme"
+        >
+           Add README.md
+        </label>
+        <input
+          className="form__readme"
+          name="repo-readme"
+          type="checkbox"
+          value="readme"
+        />
+      </div>
+      <button
+        className="repo__button"
+        onClick={[Function]}
+      >
+        Create
+      </button>
+    </div>
+  </form>
+</div>
+`;

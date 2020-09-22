@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-nav {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    position: fixed;
+    top: 0;
+    z-index: 80;
+}
+
+.header__logo-text {
+    color:  #BCBC3C;
+    font-family: cursive;
+    font-weight: 500;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.icon__hamburger,
+.icon__search,
+.icon__login,
+.icon__bag {
+    display: inline-block;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 2px;
+}
+
+.hamburger {
+    position: relative;
+}
+
+    .hamburger:hover .hamburger__products {
+        display: flex;
+    }
+
+.hamburger__products {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff  ;
+    width: 150px;
+    height: auto;
+    padding: .5rem;
+    top: 50px;
+    left: .8rem;
+    display: none;
+}
+
+.novels,
+.childish {
+    color: #000;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: .3rem;
+}
+
+    
+    .hamburger__products a:hover {
+        color: red;
+    }
+
+.hidden {
+    flex-grow: 1;
+}
+
+.icon__hamburger {
+    background-image: url(../icons/hamburger.svg);
+    background-position: center;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+}  
+
+
+.icon__logo {
+    display: inline-block;
+    flex-grow: 2;
+    background-image: url(../img/logo.svg); 
+    background-position: center;   
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 60px;
+    margin-left: 3rem;
+} 
+
+.icon__search {
+    background-image: url(../icons/search.svg);
+    background-position: center;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+}
+
+.icon__login{
+    background-image: url(../icons/login.svg);
+    background-position: center;
+    background-size: 1.7em;
+    background-repeat: no-repeat;
+}
+
+.icon__bag{
+    background-image: url(../icons/bag.svg);
+    background-position: center;
+    background-size: 1.75em;
+    background-repeat: no-repeat;
+    margin-right: 3rem;
+    text-decoration: none;
+    position: relative;
+}
+
+.icon__number {
+    background-color: red;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-size: .8rem;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    /* display: none; */
+}
+
+.icon__red {
+    background-color: brown;
+    padding: 3rem;
+}
+
+
+/* Search input */
+
+
+.input__search {
+    display: flex;
+    width: 180px;        
+    padding: .6rem;
+    border: .05rem solid black;
+    border-radius: .3rem;
+}
+
+/* Display None */
+
+.main-nav-text {
+    display: none;
+}
+
+/* QUERIES */
+
+@media screen and (min-width: 990px) {
+    .main-nav-text {
+        display: flex;
+        flex-grow: 2;
+        justify-content: space-evenly;
+    }
+
+    .main-nav-text a {
+        text-decoration: none;
+        color: black;
+        font-size: .9rem;
+    }
+
+        .main-nav-text a:hover {
+            color: red;
+        }
+
+    .icon__logo {
+        flex-grow: 0;
+    } 
+
+    .input__search {
+        display: flex;
+        width: 180px;        
+        padding: .6rem;
+        border: .05rem solid black;
+        border-radius: .3rem;
+    }
+
+    /* Open Menu */
+    .categories {
+        position: relative;
+    }
+
+    .menu__products {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        width: 200px;
+        height: auto;
+        padding: .5rem;
+        display: none;
+    }
+
+    .categories:hover .menu__products {
+        display: flex;
+    }
+
+        .menu__products a:hover {
+            color: red;
+        }
+
+
+    /* Display None */
+    .icon__hamburger {
+        display: none;
+    }
+
+}
+
+
+@media screen and (min-width: 1150px) {
+    .input__search {
+        width: 280px;          
+    }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="/css/dashboard.css" type="text/css" />
+		<link rel="stylesheet" href="/css/index.css" type="text/css" />
+	</head>
+
+	<body>
+		<h1><%-title-%></h1>
+		<h3>Top Skylabers</h3>
+		<div class="grid grid-pad">
+			<% for(let i=0; i< labers.length ; i++) { %>
+			<a class="col-1-4" href="labers/<%=labers[i].id%>">
+				<div class="module hero">
+					<div class="badge"><%-labers[i].name-%></div>
+				</div>
+			</a>
+			<% } %>
+		</div>
+
+		<app-hero-search></app-hero-search>
+	</body>
+</html>

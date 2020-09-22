@@ -1,28 +1,31 @@
 import React, {useState, useEffect} from 'react';
-import './HeroDetail.css';
+import './../css/heroDetail.css';
 import DisplayInlineArray from './DisplayInlineArray';
 import ShowImage from './ShowImage';
 import HeroStore from './../stores/heroStore';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import { loadHeroById } from './../actions/heroActions';
+import * as ROUTES from './../config/routes';
 
 function HeroDetail(){
     let urlQuery = useRouteMatch()
-    let urlId = +urlQuery.params.heroId;
+    let urlId = urlQuery.params.heroId;
     const [currentHero, setcurrentHero] = useState(undefined);
-    const [id] = useState(urlId);
+    const [_id] = useState(urlId);
+
+    console.log('ENTERING HERODETAIL:', urlId, _id, currentHero);
 
     useEffect(()=>{
         HeroStore.addChangeListener(onChange);
-        if( currentHero === undefined){ loadHeroById(id) }
+        if( currentHero === undefined){ loadHeroById(_id) }
         return ()=>{HeroStore.removeChangeListener(onChange);}
     }, []);
 
     function onChange(){
-        setcurrentHero(HeroStore.getHeroById(id)); 
+        setcurrentHero(HeroStore.getHeroById(_id)); 
     }
 
-    console.log(currentHero);
+    console.log('AFTER USEEFFECT BEFORE RENDERING:', urlId, _id, currentHero);
 
     return (        
         <div className="heroDetail">
@@ -39,7 +42,7 @@ function HeroDetail(){
                 <p>Race: {currentHero.appearance.race}, gender: {currentHero.appearance.gender}, height: {currentHero.appearance.height[1]}, weight: {currentHero.appearance.weight[1]}</p>
                 <p>Occupation: {currentHero.work.occupation}, alignment: {currentHero.biography.alignment}</p>
                 <p>First appearance: {currentHero.biography.firstAppearance}, publisher {currentHero.biography.publisher}</p>
-                <NavLink to="/paginated-flux">Go back to list</NavLink>
+                <NavLink to={ROUTES.HERO_LIST_PAGINATED_FIRST}>Go back to list</NavLink>
             </div>
         </div>
     );

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+    <%- include('header'); -%>
+    <h3><%= title %></h3>
+    <div class="grid grid-pad">
+    </div>
+    <% for(let i = 0; i < heroes.length; i++) {%>
+    <a class="col-1-4" href=" /heroes/<%= heroes[i]._id %>">
+        <div class=" module hero">
+            <h4><%= heroes[i].name%></h4>
+
+        </div>
+    </a>
+    <% } %>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+export const HOME = '/';
+export const HERO_LIST_PAGINATED_WILDCARD = '/hero-list/:currentPage';
+export const HERO_LIST_PAGINATED_ROOT = '/hero-list';
+export const HERO_LIST_PAGINATED_FIRST = '/hero-list/0';
+export const TOP_HEROES = '/top-heroes';
+export const HERO_DETAIL_WILDCARD = '/hero/:heroId';
+export const HERO_DETAIL_SOME = '/hero/?heroId=';
+export const HERO_DETAIL_ROOT = '/hero';
+export const HERO_SEARCH = '/hero-search';
+export const HERO_LIST_FULL = '/full-flux';
+export const HERO_DETAIL_RANDOM = '/random-hero';

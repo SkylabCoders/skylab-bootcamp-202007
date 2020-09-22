@@ -1,0 +1,18 @@
+import dispatcher from '../dispatcher';
+import actionTypes from './actionTypes';
+
+export function apiSearch() {
+	let requestOptions = { method: 'GET', mode: 'cors', cache: 'default' };
+
+	fetch(
+		'https://api.boardgameatlas.com/api/search?name=Catan&client_id=JLBr5npPhV',
+		requestOptions
+	)
+		.then((response) => response.json())
+		.then((response) => {
+			dispatcher.dispatch({
+				type: actionTypes.GET_API,
+				data: response.results
+			});
+		});
+}

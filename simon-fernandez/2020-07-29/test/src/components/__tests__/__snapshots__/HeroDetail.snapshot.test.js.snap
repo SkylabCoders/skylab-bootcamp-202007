@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Snapshot should match snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h2>
+    Register a new hero:
+  </h2>
+  <label
+    htmlFor="heroName"
+  >
+    Name: 
+    <input
+      name="heroName"
+      onChange={[Function]}
+      placeholder="Hero name"
+      type="text"
+      value=""
+    />
+  </label>
+  <p>
+    <button
+      type="submit"
+    >
+      Save Hero
+    </button>
+  </p>
+</form>
+`;

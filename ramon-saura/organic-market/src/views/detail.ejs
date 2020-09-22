@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hero Details</title>
+		<link rel="stylesheet" href="../css/index.css" />
+		<link rel="stylesheet" href="../css/detail.css" />
+	</head>
+	<body>
+		<%- include('header')%>
+		<h2><%=detail.title%> details!</h2>
+		<div><span>Price: </span><%= detail.price %>€</div>
+		<button type="button" (click)="goBack()" onclick="history.back(-1)">
+			back
+		</button>
+		<form
+			action="action"
+			="/<%= detail && detail._id%>"
+			method="POST"
+			name="detailForm"
+		>
+			<button
+				type="submit"
+				value="<%= detail._id %>"
+				name="mListId"
+				class="delete"
+				title="delete hero"
+			>
+				<img
+					src="https://image.flaticon.com/icons/png/512/107/107831.png"
+					width="20px"
+					height="20px"
+				/>
+			</button>
+		</form>
+	</body>
+</html>

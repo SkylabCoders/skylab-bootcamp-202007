@@ -1,0 +1,34 @@
+{
+	"name": "node-toh",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon server.js",
+		"test": "jest --watchAll --coverage",
+		"scss": "node-sass --watch views/public/scss -o views/public/css"
+	},
+	"jest": {
+		"coverageThrehold": {
+			"global": {
+				"branches": 80,
+				"statements": 80,
+				"functions": 80,
+				"lines": 80
+			}
+		}
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ejs": "^3.1.3",
+		"express": "^4.17.1",
+		"flux": "^3.1.3",
+		"jest": "^26.4.0",
+		"node-sass": "^4.14.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	}
+}

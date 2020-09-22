@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login snapshot should match 1`] = `
+<div
+  className="login__container"
+>
+  <div
+    className="login__box"
+  >
+    <img
+      className="login__logo--size"
+      src="https://image.flaticon.com/icons/svg/770/770906.svg"
+    />
+    <h2
+      className="login__title"
+    >
+      Login with
+    </h2>
+    <form />
+    <a
+      onClick={[Function]}
+    >
+      EMAIL
+    </a>
+    <a
+      onClick={[Function]}
+    >
+      GOOGLE
+    </a>
+    <a
+      onClick={[Function]}
+    >
+      ANON
+    </a>
+    <h2
+      className="login__title"
+    >
+      OR
+    </h2>
+    <a
+      onClick={[Function]}
+    >
+      REGISTER
+    </a>
+  </div>
+</div>
+`;

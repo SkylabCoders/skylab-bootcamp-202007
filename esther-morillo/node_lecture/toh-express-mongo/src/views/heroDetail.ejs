@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/heroDetail.css" />
+</head>
+
+<body>
+	<%- include('header')%>
+	<form action="/heroes/<%= hero && hero._id %>" method="POST" name="heroForm">
+		<h2><%=hero && hero.name%> details!</h2>
+		<div><span>id: </span><%= hero.id %></div>
+		<div>
+			<label>name:
+				<!-- que el valor del input llegue al sevidor. hay que crear un formulario con label, input y el/los botones - en form crear el método, nombre, acción (donde los enviamos) -- en este caso al valor del id -->
+				<input placeholder="name" name="name" value="<%= hero.name%>" />
+			</label>
+		</div>
+
+		<div>
+			<label>slug:
+				<!-- que el valor del input llegue al sevidor. hay que crear un formulario con label, input y el/los botones - en form crear el método, nombre, acción (donde los enviamos) -- en este caso al valor del id -->
+				<input placeholder="slug" name="slug" value="<%= hero.slug%>" />
+			</label>
+		</div>
+		<!-- tipos de botones - submit significa que si está dentro de un formulario va a invocar una acción y un método -->
+		<button type="button">go back</button>
+		<button type="submit">save</button>
+	</form>
+</body>
+
+</html>

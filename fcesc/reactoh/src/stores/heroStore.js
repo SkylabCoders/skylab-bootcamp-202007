@@ -25,12 +25,12 @@ class heroStore extends EventEmitter{
     }
 
     getPaginatedHeroes(){
+        //console.log('AQUI - ACCESSING METHOD GETPAGINATEDHEROES', _paginated_heroes_list);
         return _paginated_heroes_list;
     }
 
-    getHeroById(id){
-        console.log('HeroStore: getHeroByIde called', id, _heroes_list.find(el=>el.id === id));
-        return _heroes_list.find(el=>el.id === id);
+    getHeroById(_id){
+        return ( _current_hero._id === _id ) ? _current_hero : undefined ;
     }
 
     getHeroByName(name){
@@ -49,6 +49,10 @@ export default HeroStore;
 
 dispatcher.register(action => {
     switch(action.type){
+        case actionTypes.DELETE_HERO:
+            _heroes_list = _heroes_list.filter(el=>el._id !== action.data);
+            HeroStore.emitChange(_heroes_list);
+            break;
         case actionTypes.CREATE_HERO:
             _heroes_list = [..._heroes_list, action.data];
             HeroStore.emitChange(_heroes_list);
@@ -66,6 +70,6 @@ dispatcher.register(action => {
             HeroStore.emitChange(_paginated_heroes_list);
             break;
         default:
-            throw new Error('Action not allowed');
+            throw 'Action not allowed';
     }
 })

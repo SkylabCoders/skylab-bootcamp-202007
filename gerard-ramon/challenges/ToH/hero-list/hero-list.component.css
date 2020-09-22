@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background-color: lightgray;
+	background-color: var(--bg-color-hero);
 	margin: 5px;
 	border: 1px solid grey;
 	width: 35%;

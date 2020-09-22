@@ -1,0 +1,12 @@
+li.inline__array{
+    display: inline-block;
+    list-style-type: none;
+    text-align: left;
+    padding: 0 .25rem;
+}
+ul.inline__array{
+    display: inline-block;
+    text-align: left;
+    padding: 0 .25rem;
+    margin: 0;
+}

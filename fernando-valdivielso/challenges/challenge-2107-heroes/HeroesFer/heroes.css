@@ -1,0 +1,17 @@
+.container {
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: rgb(47, 47, 47);
+    width: 25vw;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 15px;
+}
+
+.container__info__details {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}

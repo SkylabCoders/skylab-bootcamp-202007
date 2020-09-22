@@ -1,0 +1,9 @@
+<nav className="nav__menu">
+  <ul className="menu__list--horizontal">
+    <li className="menu__item--horizontal"><a href='<%- ROUTES.filter(route=>route.name === 'LIST_PAGINATED')[0].path -%>'>Hero list</a></li> 
+    <li className="menu__item--horizontal"><a href='<%- ROUTES.filter(route=>route.name === 'LIST_TOP')[0].path -%>'>Top 5 heroes</a></li>
+    <li className="menu__item--horizontal"><a href='<%- ROUTES.filter(route=>route.name === 'LIST_FULL')[0].path -%>'>Full list</a></li>
+    <li className="menu__item--horizontal"><a href='<%- ROUTES.filter(route=>route.name === 'SEARCH')[0].path -%>'>Heroes search</a></li>
+    <li className="menu__item--horizontal"><a href='<%- ROUTES.filter(route=>route.name === 'HERO_EDIT')[0].path -%>'>Edit hero info</a></li>
+  </ul>
+</nav>

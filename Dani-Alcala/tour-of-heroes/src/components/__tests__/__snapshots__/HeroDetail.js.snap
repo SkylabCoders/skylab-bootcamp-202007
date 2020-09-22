@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroDetail should match with a missing hero ID 1`] = `null`;
+
+exports[`HeroDetail should match with hero ID 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h2>
+    Register a new hero:
+  </h2>
+  <label
+    htmlFor="heroName"
+  >
+    Name: 
+    <input
+      name="heroName"
+      onChange={[Function]}
+      placeholder="Hero name"
+      type="text"
+      value=""
+    />
+  </label>
+  <p>
+    <button
+      type=" bv"
+    >
+      Save Hero
+    </button>
+  </p>
+</form>
+`;
+
+exports[`HeroDetail should match without hero ID 1`] = `null`;

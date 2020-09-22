@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loginComponent should macth 1`] = `
+<section
+  className="text-center container containerLogin"
+>
+  <form
+    className="form-signin"
+  >
+    <h1
+      className="m-2"
+    >
+      Please sign in
+    </h1>
+    <label>
+      Email address
+    </label>
+    <input
+      autoFocus=""
+      className="m-1 form-control"
+      id="inputEmail"
+      onChange={[Function]}
+      placeholder="Email address"
+      required=""
+      type="email"
+      value=""
+    />
+    <label>
+      Password
+    </label>
+    <input
+      className="m-1 form-control"
+      id="inputPassword"
+      onChange={[Function]}
+      placeholder="Password"
+      required=""
+      type="password"
+      value=""
+    />
+    <button
+      className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block"
+      onClick={[Function]}
+      type="submit"
+    >
+      Login
+    </button>
+    <button
+      className="m-1 mt-3 mb-3 btn-warning btn-lg btn-block"
+      type="submit"
+    >
+      <a
+        className="nav-link"
+        href="/register"
+      >
+        Register
+      </a>
+    </button>
+    <div>
+      <div>
+        <p>
+          Or login with:
+        </p>
+        <img
+          alt="google"
+          onClick={[Function]}
+          src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg"
+        />
+      </div>
+    </div>
+  </form>
+</section>
+`;

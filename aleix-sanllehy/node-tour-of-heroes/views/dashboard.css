@@ -1,0 +1,56 @@
+/*- HEADER STYLE -*/
+.header__title {
+	color: rgb(194, 165, 165);
+	margin-left: 10px;
+}
+
+.header {
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.header__menu {
+	display: flex;
+}
+
+.header__button {
+	background-color: rgb(238, 238, 238);
+	border-radius: 5px;
+	color: rgb(96, 126, 141);
+	font-weight: 600;
+	margin-right: 10px;
+	width: 100px;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+}
+
+.header-button:hover,
+.nav__link--active,
+.button-back:hover {
+	color: rgb(46, 170, 233);
+	font-weight: 700;
+}
+
+/*- DASHBOARD STYLE -*/
+
+.dashboard {
+	display: flex;
+	flex-direction: row;
+	margin-left: 10px;
+}
+
+.dashboard__item {
+	background-color: rgb(95, 125, 140);
+	border-radius: 3px;
+	color: rgb(240, 239, 239);
+	font-weight: 600;
+	height: 100px;
+	margin-right: 10px;
+	width: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,59 @@
+.title {
+    margin: 7rem auto 1rem auto;
+    padding-bottom: .5rem;
+    width: 80%;
+    font-weight: 700;
+    border-bottom: 1px solid #000;
+}
+
+.footer-text {
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem 0 2rem 0;
+    border-top: 1px solid #000;
+    width: 50%;
+}
+
+.img__contain {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 2rem 0;
+}
+
+.img__small {
+    width: 250px;
+    margin: 0 .5rem;
+}
+
+.img__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.img__block p {
+    margin-top: .5rem;
+    color: #333;
+    font-weight: 700;
+    padding: .5rem 0;
+    background-color: #ffcc00;
+    width: 200px;
+}
+
+.anchor__skylab {
+    color: #ffcc00;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 780px) {
+    .img__contain {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img__block {
+        margin-top: 2rem;
+    }
+}

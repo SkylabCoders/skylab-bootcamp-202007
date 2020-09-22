@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Top Heroes</title>
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/dashboard.css" />
+	</head>
+
+	<body>
+		<%-include('header')-%>
+		<h3>Top Heroes</h3>
+		<div class="grid grid-pad">
+			<% dashboardList.forEach(element => { %>
+			<a
+				*ngFor="let hero of heroes"
+				class="col-1-4"
+				href="/heroes/<%=element._id%>"
+			>
+				<div class="module hero">
+					<h4><%= element.name %></h4>
+				</div>
+			</a>
+			<% }) %>
+		</div>
+
+		<app-hero-search></app-hero-search>
+	</body>
+</html>

@@ -1,6 +1,5 @@
 import React from 'react';
 import './bannerComponent.css';
-import '../../'
 
 function BannerComponent(props) {
     return (

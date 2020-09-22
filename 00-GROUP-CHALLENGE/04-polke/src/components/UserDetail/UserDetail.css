@@ -1,0 +1,85 @@
+body {
+	background-color: var(--bg-color-body);
+}
+
+.userdetail__container {
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+	margin-bottom: 150px;
+}
+
+.topContent {
+	display: flex;
+	flex-direction: row;
+}
+
+.userdetail__user-info {
+	width: 29%;
+}
+
+.userdetail__repo-list {
+	width: 71%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.userdetail__repo-creation {
+	padding-top: 32px;
+	display: flex;
+	flex-direction: row;
+}
+
+.creation__left {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	width: 29%;
+}
+
+.creation__right {
+	display: flex;
+	width: 71%;
+}
+
+.create__button {
+	background-color: var(--bg-color-button);
+	border-radius: 5px;
+	border: none;
+	color: whitesmoke;
+	padding: 15px;
+	min-width: 75%;
+	margin-top: 24px;
+}
+
+.search__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 32px;
+}
+
+.search__input {
+	width: 50%;
+	margin: 10px;
+}
+
+.repoCard__navlink {
+	color: white;
+	text-decoration: none;
+}
+
+.searchbar__navlink {
+	color: #17a2b8;
+}
+
+.searchbar__navlink:hover {
+	color: white;
+}
+
+.repocreation__container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+}

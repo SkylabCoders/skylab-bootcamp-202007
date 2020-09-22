@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tour of Heroes</title>
+		<link rel="hero-list-stylesheet" href="./hero-list-stylesheet.css" />
+	</head>
+	<body>
+		<section>
+			<div id="hero-list__container">
+				<h1>Tour of Heroes</h1>
+				<button>
+					<a href="/">Dashboard</a>
+				</button>
+				<button><a href="/heroes">Heroes</a></button>
+				<h2>My heroes</h2>
+				<button>
+					<a href="/">Back</a>
+				</button>
+				<input
+					id="hero-detail__name-control"
+					type="text"
+					name="heroName"
+					placeholder="Search item wanted"
+					onkeyup="listComponent.searchInput()"
+				/>
+
+				<div id="mainContainer--list">
+					<li key="{hero.id}">
+						<a key="{hero.id}" href="/hero">
+							<div className="button__list">
+								<span className="element__list__id">{hero.id}</span>
+								<span className="element__list__name">{hero.name}</span>
+							</div>
+						</a>
+						<div className="hero-list__item--delete">
+							<button>X</button>
+						</div>
+					</li>
+				</div>
+
+				<script src="../hero.js"></script>
+				<script src="../service/hero.service.js"></script>
+				<script src="hero-list.component.js"></script>
+			</div>
+		</section>
+	</body>
+</html>

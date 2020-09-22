@@ -5,7 +5,7 @@ class Footer extends React.Component{
     getFooter(){
         let result = (
             <footer>
-                <p>Skylab bootcamp 202007 - Francesc Brugarolas</p>
+                <p><a href='https://www.skylabcoders.com/es/'>Skylab</a> bootcamp 202007 - Francesc Brugarolas</p>
             </footer>
         );
         return result;

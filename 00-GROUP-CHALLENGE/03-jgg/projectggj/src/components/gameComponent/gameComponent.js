@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './gameComponent.css';
 
 import { winIncrement, lossIncrement } from '../../actions/actions';
-import player, { CHARGE, ATTACK, AVOID } from './gameLogic/gameLogic';
+import Player, { CHARGE, ATTACK, AVOID } from './gameLogic/gameLogic';
 
 import useSound from "use-sound";
 import attackSound from '../../sounds/attack.mp3'
@@ -21,10 +21,11 @@ function GameComponent(props) {
     //Instancing the new Players
     let Mname = props.match.params.enemy;
     if (typeof player1 === 'undefined') {
-        player1 = new player('You');
+
+        player1 = new Player('You', false);
     }
     if (typeof machine === 'undefined') {
-        machine = new player(Mname, true);
+        machine = new Player(Mname);
     }
     //enemy image presentation
     const machineImg = 'https://thumbs.gfycat.com/PleasedLividGreyhounddog-size_restricted.gif';

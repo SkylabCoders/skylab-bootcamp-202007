@@ -1,0 +1,28 @@
+<div class="productlist__itemContainer">
+  <div class="itemContent__container">
+    <a class="productlist__itemContent" href="<%=ROUTES.product.path%><%=product._id%>">
+      <img class="itemContent__img" src="assets/img/product.png" alt="" />
+    </a>
+    <div class="itemContent__text">
+      <h2><%=product.title%></h2>
+      <div class="itemContent__subtitle">
+        <h3><%= product.type %></h3>
+        <h2><%=product.price%> €</h2>
+      </div>
+      <div class="itemContent__subtitle">
+        <div class="subtitle__text">
+          <h3>rating: <%= product.rating %></h3>
+          <%= product.description %>
+        </div>
+      </div>
+    </div>
+    <form action="<%=ROUTES.product.path%><%=product._id%>" method="POST" name="addProductToCartFromList"
+      class="productlist__actionsForm">
+      <label for="product__quantity">Quantity:</label>
+      <input id="product__quantity" name="quantity" placeholder="0" value=""
+        class="product__quantity product__action"></input>
+      <button type="submit" class="action__button product__action" title="Add to Cart" name="addedProductId"
+        value="<%=product._id%>">Add</button>
+    </form>
+  </div>
+</div>

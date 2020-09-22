@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./hero.css" />
+    </head>
+    <body>
+		<h1 class="header__title">Tour of Heroes</h1>
+		<section class="header">
+			<div class="header__menu">
+				<a href="/"><button class="header__button">Dashboard</button></a>
+				<a href="/list"><button class="header__button">Heroes</button></a>
+			</div>
+		</section>
+
+        <section class="hero-detail">
+            <h2 class='hero-detail__title'> <%= hero.name %> details!</h2>
+            <h3 class="hero-detail__id">id: <%= hero.id %></span></p>
+                <h3 class='hero-detail__name'>name: <input value=<%= hero.name %>> </h3>
+        </section>
+    </body>
+</html>

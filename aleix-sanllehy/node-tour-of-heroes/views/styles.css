@@ -1,0 +1,158 @@
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	height: 40vmin;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
+}
+
+.App-header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* ---------------------------------------------------------------- */
+
+.hero-title {
+	color: rgb(152, 152, 152);
+	margin-left: 10px;
+}
+
+.hero-header {
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 10px;
+}
+
+.header-button {
+	background-color: rgb(238, 238, 238);
+	border-radius: 5px;
+	color: rgb(96, 126, 141);
+	font-weight: 600;
+	margin-right: 10px;
+	width: 100px;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+}
+
+.header-button:hover,
+.nav__link--active,
+.button-back:hover {
+	color: rgb(46, 170, 233);
+	font-weight: 700;
+}
+
+.hero-dashboard {
+	margin-left: 10px;
+}
+
+.hero-dashboard__elements {
+	display: flex;
+}
+
+.hero-dashboard__elements-anchor {
+	background-color: rgb(95, 125, 140);
+	border-radius: 3px;
+	color: rgb(240, 239, 239);
+	font-weight: 600;
+	height: 100px;
+	margin-right: 10px;
+	width: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero-list {
+	margin-left: 10px;
+}
+
+.hero-list__elements {
+	display: flex;
+	flex-direction: column;
+}
+
+.hero-list__elements-anchor {
+	display: flex;
+}
+
+.hero-element {
+	font-weight: 600;
+	height: 40px;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.hero-id {
+	background-color: rgb(95, 125, 140);
+	border-radius: 5px 0 0 5px;
+	color: rgb(253, 254, 254);
+	width: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.hero-name {
+	background-color: rgb(238, 238, 238);
+	border-radius: 0 5px 5px 0;
+	color: rgb(131, 131, 131);
+	padding-left: 20px;
+	width: 120px;
+}
+.hero-name:hover {
+	background-color: rgb(207, 216, 220);
+	color: rgb(253, 253, 254);
+}
+.hero-name:active {
+	background-color: rgb(187, 216, 220);
+}
+
+.hero-details {
+	margin-left: 10px;
+}
+
+.hero-details__element {
+	width: 500px;
+	display: flex;
+}
+
+.button-back {
+	background-color: rgb(238, 238, 238);
+	border-radius: 5px 5px 5px 5px;
+	color: rgb(131, 131, 131);
+	width: 60px;
+	display: flex;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+}

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero List Snapshot should match 1`] = `
+<div
+  className="header"
+>
+  <h1>
+    Tour of Heroes
+  </h1>
+  <nav>
+    <a
+      aria-current="page"
+      className="my-active-class"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Dashboard
+    </a>
+     
+    <a
+      aria-current={null}
+      href="/herolist"
+      onClick={[Function]}
+    >
+      Heroes List
+    </a>
+  </nav>
+</div>
+`;

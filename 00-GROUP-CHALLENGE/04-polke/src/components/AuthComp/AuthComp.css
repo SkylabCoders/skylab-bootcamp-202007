@@ -1,0 +1,17 @@
+h4 {
+	text-align: center;
+	margin-top: 7px;
+}
+
+.auth__container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.auth__loading {
+	height: 60px;
+	width: 60px;
+}

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header snapshot should match 1`] = `
+<header>
+  <h1>
+    Tour of Heroes
+  </h1>
+</header>
+`;

@@ -1,0 +1,111 @@
+.footer {
+  background-color:#000;
+  color: white;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo__fenizia {
+    background-image: url(../img/blanco-logo.svg);
+    background-position: center;   
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 60px;
+} 
+
+.contain__text {
+    text-align: center;
+}
+
+.footer__about, 
+.footer__phone,
+.footer__email,
+.footer__terms {
+    color: #fff;
+    text-decoration: none;
+    padding: .5rem 0;
+}
+
+.footer__phone {
+    padding-top: 1.2rem;
+}
+
+.footer__about {
+    color: #ffcc00;
+    border-bottom: 1px solid #fff;
+}
+
+.contain__social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__follow {
+    border-top: 1px solid #fff;
+    padding: .5rem 0;
+}
+
+.footer__social-buttons {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.footer__twitter,
+.footer__facebook,
+.footer__instagram {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-size: 100%;
+    margin: 0.5em;
+}
+
+.footer__twitter:hover {
+    background-image: url(../icons/twitter-yellow.svg);
+}
+
+.footer__facebook:hover {
+    background-image: url(../icons/facebook_yellow.svg);
+}
+
+.footer__instagram:hover {
+    background-image: url(../icons/instagram-yellow.svg);
+}
+
+
+.footer__twitter {
+    background-image: url(../icons/twitter-white.svg);
+}
+
+.footer__facebook {
+    background-image: url(../icons/facebook-white.svg);
+}
+
+.footer__instagram {
+    background-image: url(../icons/instagram-white.svg);
+}
+
+
+
+
+/* QUERIES */
+@media screen and (min-width: 780px) {
+    .footer {
+        display: flex;
+        flex-direction: row;
+        height: 150px;
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+
+    .footer__follow {
+        border-top: none;
+    }
+}

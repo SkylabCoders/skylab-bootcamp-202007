@@ -1,0 +1,99 @@
+.navbar--flexNoWrap {
+	display: flex;
+
+	align-items: center;
+}
+
+.navbar__logo {
+	height: 60px;
+}
+
+.navbar--text {
+	margin-top: 6px;
+}
+
+.navbar--logoText {
+	display: flex;
+	color: whitesmoke;
+}
+
+.navBar--flex {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.toggle {
+	width: 56px;
+}
+
+.form-inline {
+	display: flex;
+	flex-wrap: nowrap;
+	margin-top: 4px;
+}
+
+.searchbar--button {
+	width: 23%;
+}
+
+.switch {
+	display: flex;
+	flex-direction: row;
+	height: 41px;
+}
+
+.nav__button {
+	background-color: var(--bg-color-button);
+	margin-left: 20px;
+	border-radius: 2px;
+	width: 120px;
+	padding: 8px;
+	border: none;
+	color: whitesmoke;
+	text-align: center;
+}
+
+.navbar__navlink {
+	color: whitesmoke;
+	margin-left: 40px;
+}
+
+.navbar__button-nav {
+	color: #17a2b8;
+}
+.navbar__button-nav:hover {
+	color: white;
+}
+
+@media only screen and (min-width: 600px) {
+	.form-inline {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+	.spacer {
+		display: flex;
+		flex: 1;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.navBar--flex {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end !important;
+	}
+	.spacer {
+		display: flex;
+		flex: 1;
+	}
+	.switch {
+		height: 21px;
+		align-items: center;
+		margin-top: 5px;
+	}
+	.form-inline {
+		display: flex;
+		flex-wrap: nowrap;
+	}
+}
