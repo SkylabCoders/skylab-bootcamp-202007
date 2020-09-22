@@ -1,0 +1,29 @@
+.product-list {
+	.product-list__item {
+		display: flex;
+		align-items: center;
+
+		.item__name {
+			width: 400px;
+		}
+
+		.item__price {
+			font-size: 20px;
+			padding-right: 20px;
+		}
+
+		.item__button {
+			img {
+				width: 50px;
+			}
+		}
+
+		.gray {
+			background-color: gray;
+		}
+
+		.green {
+			background-color: green;
+		}
+	}
+}
