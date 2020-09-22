@@ -1,0 +1,19 @@
+.cart {
+	.cart__title {
+		width: 100%;
+		color: lime;
+		border-bottom: 2px solid lime;
+	}
+
+	.cart__cart-list {
+		.cart-list__item {
+			display: flex;
+			height: 100px;
+			border-bottom: 2px solid lightgray;
+
+			.item__img {
+				width: 80px;
+			}
+		}
+	}
+}

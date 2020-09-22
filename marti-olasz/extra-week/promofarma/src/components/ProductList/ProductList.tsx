@@ -14,19 +14,13 @@ function ProductList({
 	dispatch
 }: {
 	dispatch: Function;
-	products: {
-		id: number;
-		name: string;
-		price: number;
-		img: string;
-		inCart: boolean;
-	}[];
+	products: any[];
 }): JSX.Element {
 	const list = products.map((element) => {
 		return (
 			<div className="product-list__item" key={element.id}>
 				<p className="item__name">{element.name}</p>
-				<p className="item__price">{element.price}</p>
+				<p className="item__price">{`${element.price / 100}€`}</p>
 
 				<button
 					onClick={() => {

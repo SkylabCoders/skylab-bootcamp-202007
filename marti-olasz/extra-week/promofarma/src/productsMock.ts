@@ -7,7 +7,7 @@ const products: {
 }[] = [
 	{
 		name: 'LaJusticia colágeno con magnesio 450comp',
-		price: 14.35,
+		price: 1435,
 		img:
 			'https://trello-attachments.s3.amazonaws.com/5efafdc8c11d2a7055ac17ca/5f6708afcfada7261d3ec502/d29c8cfc19f76d6339332138f42e6319/lajusticia-colageno.jpg',
 		inCart: false,
@@ -15,7 +15,7 @@ const products: {
 	},
 	{
 		name: 'Xhekpon® crema facial 40ml',
-		price: 6.49,
+		price: 649,
 		img:
 			'https://trello-attachments.s3.amazonaws.com/5efafdc8c11d2a7055ac17ca/5f6708afcfada7261d3ec502/693ba09f6a754330830ef1bfb79c0445/xhekpon-crema.jpg',
 		inCart: false,
@@ -23,7 +23,7 @@ const products: {
 	},
 	{
 		name: 'Cerave® crema hidratante 340ml',
-		price: 11.7,
+		price: 117,
 		img:
 			'https://trello-attachments.s3.amazonaws.com/5efafdc8c11d2a7055ac17ca/5f6708afcfada7261d3ec502/a6715602aa6228c7b2ab83ae75ed8513/cerave-crema.jpg',
 		inCart: false,
@@ -31,7 +31,7 @@ const products: {
 	},
 	{
 		name: 'Hyabak solución 10ml',
-		price: 9.48,
+		price: 948,
 		img:
 			'https://trello-attachments.s3.amazonaws.com/5efafdc8c11d2a7055ac17ca/5f6708afcfada7261d3ec502/db5bf2799807bb258eddcb719f87245f/hyabak-solucion.jpg',
 		inCart: false,
@@ -39,7 +39,7 @@ const products: {
 	},
 	{
 		name: 'Fotoprotector ISDIN® Fusion Water SPF 50+ 50ml',
-		price: 19.74,
+		price: 1974,
 		img:
 			'https://trello-attachments.s3.amazonaws.com/5efafdc8c11d2a7055ac17ca/5f6708afcfada7261d3ec502/e4c2cf7f040f8ce89b5a45a37aae49d8/fotoprotector-isdin.jpg',
 		inCart: false,
@@ -47,7 +47,7 @@ const products: {
 	},
 	{
 		name: 'Piz Buin® Allergy SPF50+ loción 200ml',
-		price: 8.65,
+		price: 865,
 		img:
 			'https://trello-attachments.s3.amazonaws.com/5efafdc8c11d2a7055ac17ca/5f6708afcfada7261d3ec502/26381d76e1e357c8be8a4ccfe2cf6b2b/piz-buin.jpg',
 		inCart: false,
