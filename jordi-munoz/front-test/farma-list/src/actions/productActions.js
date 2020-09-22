@@ -20,7 +20,7 @@ export function loadCart() {
 export function addToCart(product) {
   dispatcher.dispatch({
     type: actionTypes.ADD_TO_CART,
-    data: dataList
+    data: product
   });
 
 }

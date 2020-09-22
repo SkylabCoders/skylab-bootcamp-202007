@@ -28,8 +28,13 @@ const cartStore = new CartStore();
 dispatcher.register((action) => {
   switch (action.type) {
     case actionTypes.ADD_TO_CART:
-      _cartItems = [..._cartItems, action.data];
-      console.log(_cartItems);
+      let checkProduct = _cartItems.some(product => product === action.data);
+      if (!checkProduct) {
+        _cartItems = [..._cartItems, action.data];
+        console.log(_cartItems);
+      } else {
+        return false;
+      }
       cartStore.emitChange();
       break;
     default:

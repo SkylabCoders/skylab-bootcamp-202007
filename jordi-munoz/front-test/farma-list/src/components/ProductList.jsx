@@ -26,7 +26,7 @@ function ProductList() {
             <p className="element-name">{product.name}</p>
             <p className="element-price">{`${product.price} €`}</p>
             <button
-              onClick={() => { addToCart(product.id) }}
+              onClick={() => { addToCart(product) }}
               className="element-button"><img src="https://trello-attachments.s3.amazonaws.com/5efafdc8c11d2a7055ac17ca/5f6708afcfada7261d3ec502/effece3bfc67a6ca5c71e84345f3a583/add-to-cart.png" /></button>
           </li>
         ))}

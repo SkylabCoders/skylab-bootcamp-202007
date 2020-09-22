@@ -15,7 +15,16 @@ export default function Cart() {
 
   return (
     <div>
-      <p>cart works with {cartItems.length}</p>
+      <h2>MI CESTA</h2>
+      <ul>
+        {cartItems.map((cart) => (
+          <li className="container-list__element" key={cart.name}>
+            <img src={cart.img} />
+            <p className="element-name">{cart.name}</p>
+            <p className="element-price">{`${cart.price} €`}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
