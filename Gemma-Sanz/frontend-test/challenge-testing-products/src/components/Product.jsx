@@ -11,7 +11,9 @@ function ProductList({ product, onSubmit }) {
 					{product.name}
 				</p>
 				<p>
-					<span>{product.price} €</span>
+					<span className={state ? 'cart__disabled__text' : ''}>
+						{product.price} €
+					</span>
 				</p>
 			</div>
 			<img
@@ -21,6 +23,7 @@ function ProductList({ product, onSubmit }) {
 				onClick={(event) => {
 					event.preventDefault();
 					onSubmit(product);
+					setState(true);
 				}}
 			></img>
 		</li>

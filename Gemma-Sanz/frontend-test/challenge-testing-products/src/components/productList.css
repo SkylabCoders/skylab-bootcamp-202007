@@ -24,6 +24,9 @@ img {
 .cart__disabled {
 	background-color: gray;
 }
+.cart__disabled__text {
+	color: gray;
+}
 
 .details__product {
 	display: flex;
