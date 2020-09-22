@@ -20,16 +20,13 @@ describe('Product List component', () => {
 
   it('should show a list', () => {
     //define inputs
-    const fakeProduct = {
-      name: 'crema',
-      price: '12'
-    }
+    const name = 'Lajusticia colágeno con magnesio 450comp';
     // act on the component
     act(() => {
       render(<ProductList />, container);
     });
     //assert
-    expect(container.querySelector('p').textContent).toBe(fakeProduct.name);
+    expect(container.querySelector('p').textContent).toBe(name);
   })
 
 })
