@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './productList.css';
 
-function ProductList({ product, onSubmit }) {
+function Product({ product, onSubmit }) {
 	const [state, setState] = useState(false);
 
 	return (
@@ -11,7 +11,10 @@ function ProductList({ product, onSubmit }) {
 					{product.name}
 				</p>
 				<p>
-					<span className={state ? 'cart__disabled__text' : ''}>
+					<span
+						data-testid="price"
+						className={state ? 'cart__disabled__text' : ''}
+					>
 						{product.price} €
 					</span>
 				</p>
@@ -19,6 +22,7 @@ function ProductList({ product, onSubmit }) {
 			<img
 				src="https://trello-attachments.s3.amazonaws.com/5f6708afcfada7261d3ec502/190x104/9b28c893288dfa5ed3eb5e8e0577af80/add-to-cart.png"
 				alt="cart__img"
+				data-testid="image"
 				className={state ? 'cart__disabled' : ''}
 				onClick={(event) => {
 					event.preventDefault();
@@ -30,4 +34,4 @@ function ProductList({ product, onSubmit }) {
 	);
 }
 
-export default ProductList;
+export default Product;

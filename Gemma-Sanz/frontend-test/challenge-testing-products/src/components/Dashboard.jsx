@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductList from './ProductList';
-import CartList from './cartList';
+import CartList from './CartList';
 import './productList.css';
 
 function Dashboard() {
