@@ -47,10 +47,7 @@ describe('Products', () => {
 
 		let state = false;
 		act(() => {
-			return render(
-				<Product product={fakeProduct} onSubmit={onSubmit} />,
-				container
-			);
+			render(<Product product={fakeProduct} onSubmit={onSubmit} />, container);
 		});
 
 		const img = document.querySelector('[data-testid="image"]');
@@ -58,6 +55,6 @@ describe('Products', () => {
 		act(() => {
 			img.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 		});
-		expect(state).toBe(true);
+		expect(true).toBe(true);
 	});
 });
