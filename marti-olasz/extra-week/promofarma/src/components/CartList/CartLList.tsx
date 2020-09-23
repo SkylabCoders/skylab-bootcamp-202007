@@ -1,16 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { stateInterface } from '../../redux/stateInterface';
+
 import './CartList.scss';
 
-function CartList({
-	cart,
-	products
-}: {
-	dispatch: Function;
-	cart: number[];
-	products: any[];
-}): JSX.Element {
+function CartList({ cart, products }: stateInterface): JSX.Element {
 	let totalPrice = 0;
 
 	const list = cart.map((element) => {

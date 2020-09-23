@@ -1,8 +1,13 @@
 import { Reducer } from 'react';
 import types from './actionTypes';
 
-function reducer(state: any, action: any): Reducer<any, any> {
-	let result = null;
+import { stateInterface, actionInterface } from './stateInterface';
+
+function reducer(
+	state: stateInterface = { cart: [], products: [] },
+	action: actionInterface
+): stateInterface {
+	let result: stateInterface | null = null;
 	switch (action.type) {
 		case types.ADD_TO_CART:
 			result = { ...state, cart: [...state.cart, action.payload] };
