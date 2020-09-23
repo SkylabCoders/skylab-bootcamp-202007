@@ -1,0 +1,10 @@
+{{ title }} {{getTitle()}}
+
+<p>{{getArray() | json }}</p>
+
+<p *ngIf="showTitle">Test directiva estructural</p> <!-- directiva estructural ngIF -->
+
+
+<ul>
+  <li *ngFor="let hero of getArray()">{{ hero.id }} - {{ hero.name}}</li>
+</ul>
