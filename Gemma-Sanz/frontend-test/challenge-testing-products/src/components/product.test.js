@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 
 import Product from './Product';
 
-describe('Products', () => {
+describe('Product', () => {
 	let container = null;
 	beforeEach(() => {
 		container = document.createElement('div');
@@ -14,23 +14,12 @@ describe('Products', () => {
 		unmountComponentAtNode(container);
 		container.remove();
 		container = null;
-		// global.fetch.mockRestore();
 	});
-	it('should load a list of product name', async () => {
-		/* 
-		jest.spyOn(global, 'fetch').mockImplementation(() =>
-			Promise.resolve({
-				json: () => Promise.resolve(fakeProduct)
-			})
-		); */
-		const fakeProduct = { name: 'dentrifico', price: 12 };
-		const onSubmit = jest.fn();
+	it('should render a product', () => {
+		const fakeProduct = { name: 'crema', price: 1.0 };
 
 		act(() => {
-			return render(
-				<Product product={fakeProduct} onSubmit={onSubmit} />,
-				container
-			);
+			render(<Product product={fakeProduct} />, container);
 		});
 
 		expect(container.querySelector('[data-testid="name"]').textContent).toBe(
@@ -38,16 +27,15 @@ describe('Products', () => {
 		);
 
 		expect(container.querySelector('[data-testid="price"]').textContent).toBe(
-			fakeProduct.price
+			`${fakeProduct.price} €`
 		);
 	});
-	it('should setState to true and on Submit send the product with onClick', () => {
-		const fakeProduct = { name: 'dentrifico', price: 12 };
-		const onSubmit = jest.fn();
+	xit('should call onClick and go to the addToCart', () => {
+		const addToCart = jest.fn();
 
-		let state = false;
+		const fakeProduct = { name: 'crema', price: 1.0 };
 		act(() => {
-			render(<Product product={fakeProduct} onSubmit={onSubmit} />, container);
+			render(<Product product={fakeProduct} />, container);
 		});
 
 		const img = document.querySelector('[data-testid="image"]');
@@ -55,6 +43,7 @@ describe('Products', () => {
 		act(() => {
 			img.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 		});
-		expect(true).toBe(true);
+
+		expect(addToCart).toHaveBeenCalledTimes(1);
 	});
 });

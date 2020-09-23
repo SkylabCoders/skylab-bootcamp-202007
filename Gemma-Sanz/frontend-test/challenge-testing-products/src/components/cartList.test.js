@@ -2,7 +2,9 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import ProductList from './ProductList';
+import productStore from '../store/productStore';
+
+import CartList from './CartList';
 
 describe('Product List', () => {
 	let container = null;
@@ -16,10 +18,17 @@ describe('Product List', () => {
 		container = null;
 	});
 	xit('should load a list', () => {
+		const fakeProduct = productStore.getCart();
+
 		act(() => {
-			render(<ProductList />, container);
+			render(<CartList />, container);
 		});
 
-		expect(true).toBe(true);
+		expect(container.querySelector('[data-testid="name"]').textContent).toBe(
+			fakeProduct.name
+		);
+		expect(container.querySelector('[data-testid="price"]').textContent).toBe(
+			`${fakeProduct.price} €`
+		);
 	});
 });

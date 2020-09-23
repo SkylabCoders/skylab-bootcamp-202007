@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './productList.css';
+import { addToCart } from '../actions/productActions';
 
-function Product({ product, onSubmit }) {
+function Product({ product }) {
 	const [state, setState] = useState(false);
 
 	return (
@@ -26,7 +27,7 @@ function Product({ product, onSubmit }) {
 				className={state ? 'cart__disabled' : ''}
 				onClick={(event) => {
 					event.preventDefault();
-					onSubmit(product);
+					addToCart(product);
 					setState(true);
 				}}
 			></img>

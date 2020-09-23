@@ -25,12 +25,13 @@ function CartList() {
 						<li key={product.id} className="cart__product">
 							<img
 								className="image__product"
+								data-testid="image"
 								src={product.img}
 								alt="product"
 							></img>
-							<p>{product.name}</p>
+							<p data-testid="name">{product.name}</p>
 							<p>
-								<span>{product.price} €</span>
+								<span data-testid="price">{product.price} €</span>
 							</p>
 						</li>
 					);
