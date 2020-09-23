@@ -1,0 +1,30 @@
+.list__items {
+	list-style: none;
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+.list__right {
+	display: flex;
+	justify-content: space-between;
+	width: 32vw;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+.list__right div {
+	font-weight: bold;
+}
+.list__right button {
+	background-color: rgb(31, 226, 31);
+	border-radius: 5%;
+	border: transparent;
+}
+.list__button--img {
+	height: 24px;
+	width: 30px;
+	margin: 3px;
+}
+.list__left {
+	display: flex;
+	width: 50vw;
+}
