@@ -1,1 +1,10 @@
-<p>heroes works!</p>
+<div *ngIf='hero'>
+    <h2>{{hero.name}} details!</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+        <span>name: </span>
+        <input type="text" [(ngModel)]='hero.name'>
+    </div>
+    <button (click)='save'>Boton</button>
+</div>
+<p *ngElse>No hero data!</p>
