@@ -2,7 +2,8 @@ import React from 'react';
 import { render, unmountComponentAtNode} from 'react-dom';
 import { act } from 'react-dom/test-utils'; 
 
-import User from '../Cart';
+import Cart from '../Cart';
+import CartItem from '../CartItem';
 
 describe('Cart', () => {
     let container = null;
@@ -19,26 +20,28 @@ describe('Cart', () => {
     });
 
     it('render cart', async () => {
-        const fakeCart = {
+        const fakeProduct = {
             image: '',
             productName: 'crema',
-            price: 10,00
+            price: 10.00
         };
 
-        jest.spyOn(global, 'fetch').mockImplementation(() => {
-            Promise.resolve({
-                json: () => Promise.resolve(fakeUser)
-            })
+        act(() => {
+            render(<Cart />, container);
         });
 
-        await act(async () => {
-            render(<Cart productName="crema" />, container);
+        act(() => {
+            render(<CartItem 
+                image={fakeProduct.image}
+                productName={fakeProduct.productName}
+                price={fakeProduct.price}
+                />, container);
         });
 
-        expect(container.querySelector('[data-testid="image"]').textContent).toBe(fakeUser.image);
+      /*  expect(container.querySelector('[data-testid="image"]').textContent).toBe(fakeUser.image);
         expect(container.querySelector('p').textContent).toBe(fakeUser.productName);
-        expect(container.querySelector('p').textContent).toBe(fakeUser.price);
+        expect(container.querySelector('p').textContent).toBe(fakeUser.price);  */
 
-        global.fetch.mockRestore(); 
+        
     });
 })
