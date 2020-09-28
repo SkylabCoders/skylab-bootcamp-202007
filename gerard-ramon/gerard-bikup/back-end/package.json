@@ -1,0 +1,46 @@
+{
+	"name": "bikup-backend",
+	"version": "1.0.0",
+	"description": "bikup-backend",
+	"main": "index.js",
+	"scripts": {
+		"start": "set DEBUG=app,app:* & nodemon app.js",
+		"test": "nyc --reporter=html mocha src/**/*.spec.js"
+	},
+	"dependencies": {
+		"axios": "^0.20.0",
+		"body-parser": "^1.19.0",
+		"chai": "^4.2.0",
+		"cookie-parser": "^1.4.5",
+		"debug": "^4.1.1",
+		"ejs": "^3.1.5",
+		"express": "^4.17.1",
+		"mocha": "^8.1.1",
+		"mongodb": "^3.6.0",
+		"mongoose": "^5.10.2",
+		"nodemon": "^2.0.4",
+		"nyc": "^15.1.0",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0",
+		"sinon": "^9.0.3"
+	},
+	"devDependencies": {
+		"eslint": "^7.7.0",
+		"prettier": "^2.0.5",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-config-prettier": "^6.11.0",
+		"morgan": "^1.10.0"
+	},
+	"author": "gerardramonp",
+	"license": "ISC",
+	"nodemonConfig": {
+		"restartable": "rs",
+		"ignore": [
+			"node_modules/**/node_modules"
+		],
+		"env": {
+			"PORT": "4200"
+		}
+	}
+}

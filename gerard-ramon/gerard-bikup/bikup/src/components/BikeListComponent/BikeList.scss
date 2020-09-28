@@ -1,0 +1,140 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$dark-highlight-color: #393e46;
+
+.bikelist {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 32px;
+}
+
+.desktop {
+	display: none;
+}
+
+.loadingscreen {
+	display: flex;
+	flex-direction: row;
+	width: 400px;
+	justify-content: center;
+	align-items: center;
+	font-size: 28px;
+	margin: auto;
+}
+
+.loading__giff {
+	height: 70px;
+}
+
+.bikelist__nobikes {
+	font-size: 18px;
+	text-align: center;
+}
+
+.connected {
+	color: $main-color;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.bikelist__top {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 24px;
+	padding: 0 12px;
+}
+
+.bikelist__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.strava__connect-btn {
+	height: 40px;
+	cursor: pointer;
+}
+
+.bikelist__cards {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bikelist__add {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 95%;
+	height: 40px;
+	background: none;
+	border: 1px solid $main-color;
+	border-radius: 5px;
+	color: $main-color;
+	font-size: 18px;
+	cursor: pointer;
+	margin-top: 12px;
+	margin-bottom: 32px;
+	text-decoration: none;
+}
+
+.bikelist__add:hover {
+	color: black;
+	background-color: $main-color;
+}
+
+@media only screen and (min-width: 900px) {
+	.mobile {
+		display: none;
+	}
+
+	.desktop {
+		display: flex;
+	}
+
+	.bikelist {
+		flex-direction: row-reverse;
+		align-items: flex-start;
+		padding: 32px 64px;
+		margin-top: 100px;
+	}
+
+	.bikelist__content {
+		padding: 0 32px;
+		margin: 0 auto;
+		width: 900px;
+	}
+
+	.bikelist__cards {
+		align-items: flex-start;
+		padding: 0 12px;
+	}
+
+	.bikelist__add--desktop {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30%;
+		height: 40px;
+		background: none;
+		border: 1px solid $main-color;
+		border-radius: 5px;
+		color: $main-color;
+		text-decoration: none;
+		font-size: 18px;
+		cursor: pointer;
+	}
+
+	.bikelist__add--desktop:hover {
+		color: black;
+		background-color: $main-color;
+	}
+}

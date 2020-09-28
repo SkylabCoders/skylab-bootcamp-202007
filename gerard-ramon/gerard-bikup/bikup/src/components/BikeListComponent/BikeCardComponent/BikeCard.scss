@@ -1,0 +1,145 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$dark-highlight-color: #393e46;
+
+$transition: all 0.2s ease-in-out;
+$transform: scale(1.08);
+
+.bikecard__separator {
+	width: 95%;
+	margin: auto;
+	border-bottom: 0.8px solid $main-color;
+	margin-bottom: 20px;
+}
+
+.bikecard__container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.bikecard__decorator {
+	width: 1%;
+	position: relative;
+	height: inherit;
+	background-color: $main-color;
+}
+
+.bikecard {
+	display: flex;
+	flex-direction: column;
+	width: 98%;
+	background-color: $light-highlight-color;
+	box-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+	border-radius: 5px;
+	padding: 24px 32px;
+	margin-bottom: 16px;
+	border-left: 4px solid $main-color;
+}
+
+.bikecard__top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-weight: bold;
+	margin-bottom: 12px;
+}
+
+.top__name {
+	font-size: 20px;
+}
+
+.bikecard__repair {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 16px;
+}
+
+.repair__labbels {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+
+.displayName {
+	font-weight: 550;
+}
+
+.repair__progress {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#bikecard_progress {
+	width: 60%;
+}
+
+.labbels__value {
+	font-size: 12px;
+}
+
+.bikecard__bottom {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.bottom__likes {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.likes__img {
+	height: 20px;
+	margin: 0 6px 0 0;
+	cursor: pointer;
+}
+
+.bottom__details {
+	display: flex;
+	transition: $transition;
+}
+
+.bottom__details:hover {
+	color: whitesmoke;
+	$transform: $transform;
+}
+
+.details__button {
+	padding: 12px;
+	border: none;
+	background-color: $main-color;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	transition: $transition;
+}
+
+.details__button:hover {
+	color: whitesmoke;
+	$transform: $transform;
+}
+
+@media only screen and (min-width: 900px) {
+	.bikecard__container {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+	}
+
+	#progress {
+		width: 70%;
+	}
+}

@@ -1,0 +1,12 @@
+[
+    {
+        "email": "stravauser@gmail.com",
+        "password": "123456",
+        "username": "",
+        "stravaUserId": "",
+        "stravaAccessToken": "",
+        "stravaRefreshToken": "",
+        "stravaTokenExpire": "12334345345",
+        "stravaLastRoute": "24/07/2020"
+    }
+]

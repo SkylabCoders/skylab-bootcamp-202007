@@ -1,0 +1,42 @@
+$header-bg-color: #222831;
+$main-color: #0c9;
+$header-separator-color: #393e46;
+$light-highlight-color: #eeeeee;
+$menu-bg-color: #393e46;
+
+.auth__loading {
+	display: flex;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	margin-top: 64px;
+}
+
+.auth__header {
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 12px;
+	background: $header-bg-color;
+	color: whitesmoke;
+}
+
+.auth__logo {
+	height: 35px;
+}
+
+.auth__appName {
+	font-size: 20px;
+	margin-left: 24px;
+	font-weight: 550;
+}
+
+.auth__loading-img {
+	height: 80px;
+}
+
+.auth__loading p {
+	font-size: 20px;
+}

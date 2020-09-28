@@ -1,0 +1,68 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$light-line-color: rgb(200, 200, 200);
+$main-color: #0c9;
+
+.standardaside {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+	width: 100%;
+}
+
+.title {
+	margin-bottom: 12px;
+}
+
+.standardaside__card-container {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+}
+
+.standardaside__card {
+	padding: 12px;
+	margin-right: 12px;
+	background-color: $light-highlight-color;
+	width: 100%;
+	border-radius: 5px;
+	margin-bottom: 64px;
+	box-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+}
+
+.challenges__item {
+	margin-bottom: 10px;
+}
+
+.item__title {
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.title__img {
+	height: 18px;
+	margin-right: 10px;
+}
+
+.separator {
+	width: 90%;
+	margin: auto;
+	border-bottom: 0.8px solid $main-color;
+	margin-bottom: 18px;
+}
+
+@media only screen and (min-width: 900px) {
+	.standardaside {
+		flex-direction: column;
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	.standardaside__card-container {
+		width: 100%;
+	}
+}

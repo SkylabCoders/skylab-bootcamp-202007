@@ -1,0 +1,81 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$main-color-border: #01b185;
+$dark-highlight-color: #393e46;
+$header-separator-color: #393e46;
+
+$transition: all 0.2s ease-in-out;
+$transform: scale(1.08);
+
+$card-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+
+.newcompo__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 60%;
+	margin: auto;
+	background-color: $light-highlight-color;
+	padding: 12px;
+	border-radius: 10px;
+	font-size: 18px;
+}
+
+.newcompo__top {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 12px;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.newcompo__main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+}
+
+.newcompo__input {
+	padding: 6px;
+	margin-bottom: 12px;
+	border-radius: 5px;
+	border: 1px solid $header-separator-color;
+	width: 100%;
+	font-size: 16px;
+}
+
+.newcompo__main label {
+	margin-bottom: 3px;
+}
+
+.newcompo__bottom {
+	display: flex;
+	justify-content: center;
+	margin-top: 6px;
+}
+
+.newcompo__createbutton {
+	padding: 12px;
+	border-radius: 5px;
+	border: none;
+	color: whitesmoke;
+	background-color: $main-color;
+	font-size: 16px;
+	font-weight: 500;
+	transition: $transition;
+	cursor: pointer;
+}
+.newcompo__createbutton:hover {
+	color: black;
+	transform: $transform;
+}
+
+@media only screen and (min-width: 900px) {
+	.newcompo__container {
+		width: 350px;
+	}
+}

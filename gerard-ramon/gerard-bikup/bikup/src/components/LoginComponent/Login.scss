@@ -1,0 +1,126 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$dark-highlight-color: #393e46;
+$strava-button-bg-color: #fc4c02;
+$strava-button-color: whitesmoke;
+$standard-button-color: black;
+$header-bg-color: #222831;
+
+$light-login-bg: rgba(238, 238, 238, 0.6);
+
+.login {
+	width: 100%;
+	height: 100%;
+}
+
+.login__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 12px;
+}
+
+.login__container::after {
+	content: '';
+	background-image: url('../../assets/landing1.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center left;
+	opacity: 0.6;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.login__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	padding: 12px;
+	background-color: $light-login-bg;
+	border-radius: 5px;
+	margin-top: 12px;
+}
+
+.input__label {
+	padding: 5px;
+	font-weight: 500;
+}
+
+.login__input {
+	height: 35px;
+	width: 100%;
+	border: 1px solid $light-highlight-color;
+	border-radius: 5px;
+	padding: 6px 24px;
+	margin-bottom: 5px;
+}
+
+input:focus {
+	outline: none;
+	border: 1px solid $main-color;
+}
+
+.form__bottom {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	margin-top: 6px;
+}
+
+.login__external {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	margin-top: 12px;
+}
+
+.register__btn {
+	height: 45px;
+	margin: 6px 0;
+}
+
+.login__submitbutton {
+	padding: 12px;
+	border-radius: 5px;
+	background-color: $main-color;
+	border: none;
+	width: 100px;
+	font-size: 18px;
+	font-weight: 500;
+	color: whitesmoke;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.login__submitbutton:hover {
+	color: black;
+	transform: scale(1.04);
+}
+
+@media only screen and (min-width: 900px) {
+	.mobile {
+		display: none;
+	}
+
+	.login {
+		width: 400px;
+		margin: auto;
+	}
+
+	.header__linkhome {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		text-decoration: none;
+		color: whitesmoke;
+	}
+}

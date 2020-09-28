@@ -1,0 +1,85 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+
+$transition: all 0.2s ease-in-out;
+$transform: scale(1.08);
+
+.compocard {
+	display: flex;
+	flex-direction: row;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 18px;
+	width: 90%;
+	background-color: $light-highlight-color;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+}
+
+.compocard__img {
+	height: 30px;
+	width: 30px;
+	margin-right: 12px;
+}
+
+.compocard__content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 98%;
+	padding: 6px 12px;
+	border-left: 4px solid $main-color;
+	border-radius: 5px;
+}
+
+.compocard__info {
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+}
+
+.info__progressbar {
+	width: 100%;
+}
+
+#progress {
+	width: 100%;
+}
+
+.compocard__labels {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.labels__status {
+	font-size: 10px;
+}
+
+.compocard__button {
+	display: flex;
+	align-items: center;
+	background-color: $main-color;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	transition: $transition;
+}
+
+.compocard__button:hover {
+	color: whitesmoke;
+	transform: $transform;
+}
+
+.button__img {
+	height: 16px;
+}
+
+@media only screen and (min-width: 900px) {
+	#progress {
+		width: 100%;
+	}
+}
