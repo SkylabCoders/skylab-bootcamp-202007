@@ -1,0 +1,33 @@
+[
+    {
+    "id": 1, 
+    "vetname": "Clinica ACE", 
+    "horario": "10:00 to 16:00",
+    "latitude":41.38902836,
+     "longitude": 2.17871815,
+     "tags": ["Dogs", "Cats", "Heart Surgery"],
+     "images": ["https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F17%2F83%2F75%2F1783750b58d0cc0ba3cdd11c11b9a44a.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F651051689863139050%2F&tbnid=FfeybPBMEQ5H2M&vet=12ahUKEwiIjMbloMjrAhVO8IUKHRlHCCAQMygFegUIARC1AQ..i&docid=3OGzaBUm_quFBM&w=750&h=1334&q=funny%20DOG&ved=2ahUKEwiIjMbloMjrAhVO8IUKHRlHCCAQMygFegUIARC1AQ", "https://www.google.com/imgres?imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D385274621578184&imgrefurl=https%3A%2F%2Fes-la.facebook.com%2Ffunnycatpictureslady%2Fphotos%2F&tbnid=21UbBuR7lvCz2M&vet=12ahUKEwiZvq7xoMjrAhUIeRoKHQqPCsUQMygDegUIARC1AQ..i&docid=bLJzPlDb6mSkMM&w=960&h=959&q=funny%20cat&ved=2ahUKEwiZvq7xoMjrAhUIeRoKHQqPCsUQMygDegUIARC1AQ","https://www.google.com/imgres?imgurl=https%3A%2F%2Ffiverr-res.cloudinary.com%2Fvideos%2Ft_main1%2Cq_auto%2Cf_auto%2Fk7fujuhgcjz3h1mi3jxg%2Fmake-funny-chameleon-logo-reveal.png&imgrefurl=https%3A%2F%2Fwww.fiverr.com%2Fkirilbeliy%2Fmake-funny-chameleon-logo-reveal&tbnid=py62BagcZknefM&vet=12ahUKEwjQvdWKocjrAhWV4oUKHRpgB24QMygCegUIARCuAQ..i&docid=pQs8GYySGbYNNM&w=680&h=383&q=funny%20chameleon&ved=2ahUKEwjQvdWKocjrAhWV4oUKHRpgB24QMygCegUIARCuAQ" ]
+
+    },
+
+    {
+        "id": 2, 
+        "vetname": "BalmesVet", 
+        "latitude":41.38685863,
+     "longitude": 2.19154984,
+        "horario": "24h Open",
+         "tags": ["Dogs", "Cats", "Heart Surgery", "exotic animals"],
+         "images": ["https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F17%2F83%2F75%2F1783750b58d0cc0ba3cdd11c11b9a44a.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F651051689863139050%2F&tbnid=FfeybPBMEQ5H2M&vet=12ahUKEwiIjMbloMjrAhVO8IUKHRlHCCAQMygFegUIARC1AQ..i&docid=3OGzaBUm_quFBM&w=750&h=1334&q=funny%20DOG&ved=2ahUKEwiIjMbloMjrAhVO8IUKHRlHCCAQMygFegUIARC1AQ", "https://www.google.com/imgres?imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D385274621578184&imgrefurl=https%3A%2F%2Fes-la.facebook.com%2Ffunnycatpictureslady%2Fphotos%2F&tbnid=21UbBuR7lvCz2M&vet=12ahUKEwiZvq7xoMjrAhUIeRoKHQqPCsUQMygDegUIARC1AQ..i&docid=bLJzPlDb6mSkMM&w=960&h=959&q=funny%20cat&ved=2ahUKEwiZvq7xoMjrAhUIeRoKHQqPCsUQMygDegUIARC1AQ","https://www.google.com/imgres?imgurl=https%3A%2F%2Ffiverr-res.cloudinary.com%2Fvideos%2Ft_main1%2Cq_auto%2Cf_auto%2Fk7fujuhgcjz3h1mi3jxg%2Fmake-funny-chameleon-logo-reveal.png&imgrefurl=https%3A%2F%2Fwww.fiverr.com%2Fkirilbeliy%2Fmake-funny-chameleon-logo-reveal&tbnid=py62BagcZknefM&vet=12ahUKEwjQvdWKocjrAhWV4oUKHRpgB24QMygCegUIARCuAQ..i&docid=pQs8GYySGbYNNM&w=680&h=383&q=funny%20chameleon&ved=2ahUKEwjQvdWKocjrAhWV4oUKHRpgB24QMygCegUIARCuAQ" ]
+    
+        },
+        {
+            "id": 3, 
+            "vetname": "DaniVet", 
+            "latitude":41.391355506,
+         "longitude": 2.180417,
+            "horario": "24h Open",
+             "tags": ["Dogs", "Cats", "Heart Surgery", "Exotic animals", "Ocular surgery"],
+             "images": ["https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F17%2F83%2F75%2F1783750b58d0cc0ba3cdd11c11b9a44a.jpg&imgrefurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F651051689863139050%2F&tbnid=FfeybPBMEQ5H2M&vet=12ahUKEwiIjMbloMjrAhVO8IUKHRlHCCAQMygFegUIARC1AQ..i&docid=3OGzaBUm_quFBM&w=750&h=1334&q=funny%20DOG&ved=2ahUKEwiIjMbloMjrAhVO8IUKHRlHCCAQMygFegUIARC1AQ", "https://www.google.com/imgres?imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D385274621578184&imgrefurl=https%3A%2F%2Fes-la.facebook.com%2Ffunnycatpictureslady%2Fphotos%2F&tbnid=21UbBuR7lvCz2M&vet=12ahUKEwiZvq7xoMjrAhUIeRoKHQqPCsUQMygDegUIARC1AQ..i&docid=bLJzPlDb6mSkMM&w=960&h=959&q=funny%20cat&ved=2ahUKEwiZvq7xoMjrAhUIeRoKHQqPCsUQMygDegUIARC1AQ","https://www.google.com/imgres?imgurl=https%3A%2F%2Ffiverr-res.cloudinary.com%2Fvideos%2Ft_main1%2Cq_auto%2Cf_auto%2Fk7fujuhgcjz3h1mi3jxg%2Fmake-funny-chameleon-logo-reveal.png&imgrefurl=https%3A%2F%2Fwww.fiverr.com%2Fkirilbeliy%2Fmake-funny-chameleon-logo-reveal&tbnid=py62BagcZknefM&vet=12ahUKEwjQvdWKocjrAhWV4oUKHRpgB24QMygCegUIARCuAQ..i&docid=pQs8GYySGbYNNM&w=680&h=383&q=funny%20chameleon&ved=2ahUKEwjQvdWKocjrAhWV4oUKHRpgB24QMygCegUIARCuAQ" ]
+        
+            }
+]
