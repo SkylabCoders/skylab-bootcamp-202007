@@ -1,0 +1,206 @@
+$header-bg-color: #222831;
+$main-color: #00cc99;
+$header-separator-color: #393e46;
+$light-highlight-color: #eeeeee;
+$menu-bg-color: #393e46;
+$transition: all 0.2s ease-in-out;
+$transform: scale(1.08);
+$delete-button-bg: #fe6464;
+
+$form-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+
+.editbike {
+	font-size: 16px;
+}
+
+.editbike__upper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 12px;
+}
+
+.editbike__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 100px;
+}
+
+.editbike__title {
+	padding: 6px;
+}
+
+.editbike__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	background: $light-highlight-color;
+	border-radius: 15px;
+	padding: 12px;
+	box-shadow: $form-shadow;
+	margin-bottom: 12px;
+}
+
+.editbike__element {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 6px;
+	width: 80%;
+	margin-bottom: 3px;
+}
+
+.editbike__element-double {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+	margin-bottom: 3px;
+	padding: 6px;
+}
+
+.element-double__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 45%;
+}
+
+.element-double__item input {
+	text-align: right;
+}
+
+.editbike__label {
+	margin-bottom: 5px;
+	font-size: 16px;
+	font-weight: 450;
+}
+
+.editbike__input {
+	padding: 6px;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid $header-separator-color;
+	font-size: 16px;
+}
+
+.editbike__warning {
+	text-align: right;
+	width: 100%;
+	height: 25px;
+	font-size: 14px;
+	margin-bottom: 6px;
+	color: red;
+	font-weight: 500;
+}
+
+.editbike__create-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+	width: 80%;
+	border-radius: 5px;
+	border: none;
+	background-color: $main-color;
+	color: whitesmoke;
+	font-size: 18px;
+	font-weight: bold;
+	transition: $transition;
+	cursor: pointer;
+}
+
+.editbike__create-button:hover {
+	transform: $transform;
+	color: black;
+}
+
+.editbike__extra {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 12px;
+	padding: 12px;
+	width: 80%;
+}
+
+.extra__addcompo-button {
+	margin-bottom: 12px;
+}
+
+.extra__delete-button {
+	font-size: 18px;
+	padding: 12px;
+	border-radius: 5px;
+	border: none;
+	background-color: $delete-button-bg;
+	color: whitesmoke;
+	font-weight: 500;
+	width: 80%;
+	cursor: pointer;
+	transition: $transition;
+}
+
+.extra__delete-button:hover {
+	color: black;
+	transform: $transform;
+}
+
+.newcompomodal {
+	transform: translateX(-1500px);
+	z-index: 3;
+	position: fixed;
+	top: 15%;
+	width: 100%;
+	margin: auto;
+}
+
+.newcompomodal-show {
+	animation: roadRunnerIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.newcompomodal-hide {
+	animation: roadRunnerOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@media only screen and (min-width: 900px) {
+	.mobile {
+		display: none;
+	}
+
+	.desktop {
+		display: flex;
+	}
+
+	.editbike {
+		width: 450px;
+		margin: auto;
+	}
+}
+
+@keyframes roadRunnerIn {
+	0% {
+		transform: translateX(-1500px) skewX(30deg) scaleX(1.3);
+	}
+	70% {
+		transform: translateX(30px) skewX(0deg) scaleX(0.9);
+	}
+	100% {
+		transform: translateX(0px) skewX(0deg) scaleX(1);
+	}
+}
+
+@keyframes roadRunnerOut {
+	0% {
+		transform: translateX(0px) skewX(0deg) scaleX(1);
+	}
+	30% {
+		transform: translateX(-30px) skewX(-5deg) scaleX(0.9);
+	}
+	100% {
+		transform: translateX(1500px) skewX(30deg) scaleX(1.3);
+	}
+}

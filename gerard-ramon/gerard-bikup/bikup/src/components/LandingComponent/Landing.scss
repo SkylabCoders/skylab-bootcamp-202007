@@ -1,0 +1,314 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$dark-highlight-color: #393e46;
+$strava-button-bg-color: #fc4c02;
+$strava-button-color: whitesmoke;
+$standard-button-color: black;
+$header-bg-color: #222831;
+
+$light-login-bg: rgba(238, 238, 238, 0.6);
+
+$card-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.514);
+
+.landing__header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: whitesmoke;
+	background-color: $header-bg-color;
+}
+
+.landing__upper {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	padding: 12px;
+}
+
+.login__button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	background-color: $main-color;
+	font-size: 18px;
+	font-weight: 500;
+	text-decoration: none;
+	color: whitesmoke;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.login__button:hover {
+	color: black;
+	transform: scale(1.08);
+}
+
+.landing__topContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 450px;
+	width: 100%;
+	padding: 24px;
+}
+
+.landing__topContent::after {
+	content: '';
+	background-image: url('../../assets/landing1.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center left;
+	opacity: 0.6;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.topContent-main {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: space-around;
+	width: 60%;
+	padding: 6px 0 12px 0;
+}
+
+.landing__bikup-logo {
+	height: 50px;
+}
+
+.landing__separator {
+	height: 1px;
+	width: 60%;
+	background-color: $main-color;
+	margin-bottom: 24px;
+}
+
+.subtitle {
+	font-style: italic;
+	font-size: 18px;
+	padding-bottom: 12px;
+}
+
+.landing__register--container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.register__separator {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.registerItem {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 10px;
+}
+
+.button__anchor {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+	text-decoration: none;
+	color: black;
+}
+
+.button__anchor--strava {
+	color: whitesmoke;
+}
+
+.register__btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	border-radius: 5px;
+	width: 90%;
+	height: 50px;
+	padding: 6px;
+	border: none;
+	box-shadow: $card-shadow;
+	font-weight: 500;
+	font-size: 16px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.register__btn:hover {
+	transform: scale(1.08);
+}
+
+.register__btn img {
+	font-size: 10px;
+	height: 30px;
+	padding-left: 10px;
+}
+
+.strava__things {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	padding: 10px;
+}
+
+.compatible__strava {
+	background-color: $light-login-bg;
+	border-radius: 5px;
+	align-self: flex-start;
+	margin-bottom: 24px;
+	margin-left: 5%;
+}
+
+.compatible__strava img {
+	height: 70px;
+}
+
+.btn__logo {
+	width: 20%;
+}
+
+.btn__text {
+	width: 80%;
+	display: flex;
+	justify-content: center;
+}
+
+.strava {
+	background-color: $strava-button-bg-color;
+	color: $strava-button-color;
+}
+
+.google {
+	color: $standard-button-color;
+	background-color: $light-bg-color;
+	border: 0.5px solid gray;
+}
+
+.mail {
+	color: $standard-button-color;
+	background-color: $light-bg-color;
+	border: 0.5px solid gray;
+}
+
+.line {
+	width: 35%;
+	height: 1px;
+	background-color: rgb(90, 84, 84);
+	margin: 12px;
+}
+
+.landing__team {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background-color: whitesmoke;
+	padding: 24px;
+}
+
+.team__title {
+	margin-bottom: 32px;
+}
+
+.team__members {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.members__item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 16px;
+}
+
+.member__img {
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.member__img--mou {
+	clip: (50px, 195px, 50px, 195px);
+}
+
+.member__info {
+	margin-left: 24px;
+	height: 100%;
+	text-align: center;
+}
+
+.member__name {
+	font-size: 18px;
+	font-weight: 550;
+	padding-bottom: 32px;
+}
+
+.members__separator {
+	width: 90%;
+	height: 1px;
+	background-color: lightgray;
+	margin-bottom: 16px;
+}
+
+.landing__footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
+	width: 100%;
+	background-color: $header-bg-color;
+	color: whitesmoke;
+}
+
+.landing-header-login {
+	text-decoration: none;
+}
+
+@media only screen and (min-width: 900px) {
+	.mobile {
+		display: none;
+	}
+
+	.landing__topContent {
+		width: 350px;
+		margin: auto;
+	}
+
+	.team__members {
+		flex-direction: row;
+	}
+
+	.members__item {
+		width: 50%;
+		justify-content: center;
+	}
+}
