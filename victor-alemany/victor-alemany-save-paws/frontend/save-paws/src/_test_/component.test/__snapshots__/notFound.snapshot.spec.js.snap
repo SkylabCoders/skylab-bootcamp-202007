@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert List snapshot should match 1`] = `
+<section>
+  <h1>
+    Error - 404
+  </h1>
+  <p>
+    Nothing to see here !
+  </p>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Dashboard
+  </a>
+</section>
+`;

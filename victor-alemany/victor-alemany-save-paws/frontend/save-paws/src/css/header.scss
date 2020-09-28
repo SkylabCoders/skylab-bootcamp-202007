@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100px;
+    background-color: #A5CBC3;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    top: 0;
+    z-index: 4;
+    margin: 0 20px;
+}
+
+.logo {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    width: 170px;
+}
+
+.logo__loggedin{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.logo__loggedin img {
+    width: 70px;
+    height:70px;
+}
+
+.login__image {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.login__image img{
+    width: 70px;
+    height:70px;
+}
+
+.login__image:hover {
+    filter: contrast(50%) brightness(50%);
+}
+
+
+@media (min-width: 576px){
+
+    header{
+        width: 90%;
+    }
+
+    .logo{
+        display: contents;
+    }
+
+    .logo > img{
+        width: 170px
+    }
+
+}
+
+@media (min-width: 750px){
+
+    header{
+        width: 90%;
+    }
+
+
+    .hamburger__menu{
+        display: none;
+    }
+
+    .header__button__container{
+        display: contents;
+    }
+
+}
+
+@media (min-width: 850px){
+
+    header{
+        width: 90%;
+    }
+
+    .logo{
+        display: contents;
+    }
+}
+
+@media (min-width: 1025px){
+    header{
+        width: 80%;
+    }
+
+    .logo{
+        display: contents;
+    }
+
+}
+
+@media (min-width: 1200px){
+    header{
+        width: 80%;
+    }
+
+    .logo{
+        display: contents;
+    }
+
+}

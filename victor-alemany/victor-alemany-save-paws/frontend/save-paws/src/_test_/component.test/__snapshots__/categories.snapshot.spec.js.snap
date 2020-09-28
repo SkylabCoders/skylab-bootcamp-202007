@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert List snapshot should match 1`] = `
+<div
+  className="main__categories__container"
+>
+  <div
+    className="title__categories__container"
+  >
+    <div
+      className="title__categories__container"
+    >
+      <h2>
+        Categories
+      </h2>
+      <img
+        alt="categories logo"
+        src="https://i.pinimg.com/564x/42/35/9f/42359ff24c392927239a23fe050a484f.jpg"
+      />
+    </div>
+    <div
+      className="categories__head__info"
+    >
+      <p>
+        Choose between the different categories if you want to see all the alerts of a specific animal:
+      </p>
+    </div>
+  </div>
+  <ul
+    className="category__list__container"
+  />
+</div>
+`;

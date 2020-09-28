@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert List snapshot should match 1`] = `
+<div
+  className="hamburger__menu"
+>
+  <input
+    className="openSidebarMenu"
+    id="openSidebarMenu"
+    type="checkbox"
+  />
+  <label
+    className="sidebarIconToggle"
+    htmlFor="openSidebarMenu"
+  >
+    <div
+      className="spinner diagonal part-1"
+    />
+    <div
+      className="spinner horizontal"
+    />
+    <div
+      className="spinner diagonal part-2"
+    />
+  </label>
+  <div
+    id="sidebarMenu"
+  >
+    <ul
+      className="sidebarMenuInner"
+    >
+      <a
+        aria-current="page"
+        className="nav__link--active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <li
+          className="item__menu"
+        >
+          Home
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/categories"
+        onClick={[Function]}
+      >
+        <li
+          className="item__menu"
+        >
+          By categories
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/alerts"
+        onClick={[Function]}
+      >
+        <li
+          className="item__menu"
+        >
+          Show list
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/user/alerts/undefined"
+        onClick={[Function]}
+      >
+        <li
+          className="item__menu"
+        >
+           My alerts
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/About"
+        onClick={[Function]}
+      >
+        <li
+          className="item__menu"
+        >
+          About
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/Contact"
+        onClick={[Function]}
+      >
+        <li
+          className="item__menu"
+        >
+          Contact
+        </li>
+      </a>
+    </ul>
+  </div>
+</div>
+`;

@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.alert__inputs__form{
+    width: 100%;
+    background-color: #ffda542e;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.elements__section{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.additional__section{
+    justify-content: flex-start;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: center;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 0px 5px 0px grey;
+    margin-bottom: 20px;
+}
+
+.additional__section img{
+    max-width: 200px;
+}
+
+.classic__input__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.info__section{
+    padding: 25px;
+}
+
+.info__section p{
+    font-weight: bold;
+    font-family: fantasy;
+    color: #246;
+}
+
+.classic__input__container label{
+    margin: 0 0 10px 0;
+    color: #246;
+    font-family: fantasy;
+    font-weight: bold;
+}
+
+.form__input{
+    width: 30%;
+    height: 50px;
+    min-width: 300px;
+    border: 0;
+    box-shadow: 0px 0px 5px 0px grey;
+}
+
+.form__label{
+    width: 30%;
+    height: 35px;
+    min-width: 300px;
+}
+
+.form__button{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 20px;
+    box-shadow: 0px 4px 5px #838691;
+    border: 0px solid #3866a3;
+    background: #4181c2;
+    background: linear-gradient(to top, #4181c2, #224466);
+    width: 58%;
+    height: 30px;
+    min-width: 250px;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form__button:active{
+    box-shadow: 0 1px 0 0 rgb(53, 73, 92);
+}
+
+@media(min-width: 576px){
+    .alert__inputs__form {
+        width: 90%;
+    }
+}
+
+@media(min-width: 1025px){
+    .alert__inputs__form {
+        width: 80%;
+    }
+}
+
+@media(min-width: 1200px){
+    .alert__inputs__form {
+        width: 80%;
+    }
+}
