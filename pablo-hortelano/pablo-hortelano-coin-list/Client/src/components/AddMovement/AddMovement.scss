@@ -1,0 +1,24 @@
+.big-container--addCoin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.big-container__movements {
+  padding: 20px !important;
+}
+
+.addCoin-box {
+  display: flex;
+  flex-direction: column;
+}
+.big-container__coin-container .button-box {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.addCoin-box--reset-status {
+  height: 160px !important;
+  padding-top: 10px;
+}

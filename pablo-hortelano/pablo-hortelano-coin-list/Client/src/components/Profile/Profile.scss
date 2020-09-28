@@ -1,0 +1,21 @@
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.profile-container__avatar {
+  width: 50%;
+}
+
+.profile-container__avatar--image {
+  min-width: 80%;
+  min-height: 100%;
+}
+
+.profile-container__rest {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+}

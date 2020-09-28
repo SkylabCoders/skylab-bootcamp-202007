@@ -1,0 +1,42 @@
+.full-page {
+  background-color: #ffffff;
+  height: 100%;
+  width: 100vw;
+}
+
+.big-container-default {
+  height: 70%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center !important;
+}
+
+.default-authorization {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 50vw !important;
+}
+
+.default-authorization__authorized-title {
+  font-size: 56px !important;
+  line-height: 70px !important;
+  text-align: center;
+  color: #2e2b29;
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.beautifull-image {
+  width: 40vw;
+  height: 520px;
+  right: 30px;
+  position: absolute;
+  right: 5vw;
+  border-bottom-left-radius: 200px !important;
+}
