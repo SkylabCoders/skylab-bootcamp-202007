@@ -1,0 +1,72 @@
+.flex-item {
+	display: flex;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.icon img {
+	height: 30px;
+	margin: 5px;
+}
+.detail-holder {
+	padding: 5px;
+	margin: auto;
+	margin-top: 20px;
+	box-shadow: 3px 3px 4px 0px #566e6f;
+	max-width: 90%;
+	background-color: #12cdd4;
+	border-radius: 20px;
+}
+.comment-holder {
+	background-color: rgb(250, 199, 16);
+}
+.comment-input {
+	width: -webkit-fill-available;
+	border-style: none;
+}
+.detail-info {
+	justify-content: space-between;
+}
+.detail-bot {
+	justify-content: space-around;
+
+	div {
+		align-items: center;
+		display: flex;
+	}
+	span {
+		margin: 5px;
+		font-size: x-large;
+	}
+}
+.detail-description {
+	background-color: whitesmoke;
+	border-radius: 15px;
+	margin: 5px 0px;
+	padding: 5px 10px;
+	p {
+		margin: 5px;
+
+		font-size: x-large;
+	}
+}
+textarea {
+	font-size: x-large;
+}
+.inputSubmit {
+	align-self: center;
+	background-color: white;
+	border-style: none;
+	padding: 0px 22px;
+	border-radius: 30px;
+	height: 30px;
+}
+.comment-button {
+	text-align: center;
+}
