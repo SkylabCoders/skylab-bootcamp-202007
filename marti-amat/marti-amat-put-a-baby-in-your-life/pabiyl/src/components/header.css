@@ -1,0 +1,87 @@
+.main__header {
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  width: 100%;
+  min-width: 350px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(75, 95, 184);
+}
+.burguer-button {
+  z-index: 200;
+  margin-left: 20px;
+  height: 40px;
+  width: 40px;
+  background-image: url("https://image.flaticon.com/icons/svg/2099/2099153.svg");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.logo {
+  z-index: 50;
+  height: 50px;
+  width: 50px;
+}
+.title__header {
+  display: none;
+}
+.user__name {
+  font-size: 18px;
+  color: black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.user__image {
+  margin-left: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.container__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-out {
+  height: 40px;
+  width: 40px;
+  background-image: url("https://www.flaticon.es/premium-icon/icons/svg/2617/2617254.svg");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+.menu__header {
+  z-index: 500;
+  width: 150px;
+  height: 40px;
+  border: solid 1px black;
+  background-color: rgb(163, 177, 236);
+
+  text-align: center;
+  line-height: 40px;
+}
+.nav__header {
+  text-decoration: none;
+
+  color: black;
+  font-size: 16px;
+}
+.burguer-menu {
+  display: none;
+  list-style: none;
+}
+.burguer-button:hover > .burguer-menu {
+  display: block;
+}
+@media screen and (min-width: 600px) {
+  .title__header {
+    display: inline;
+    margin-right: 10px;
+    font-size: 34px;
+
+    color: rgb(237, 245, 244);
+  }
+}

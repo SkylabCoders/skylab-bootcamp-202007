@@ -1,0 +1,48 @@
+.main__edit--email {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email__container--edit {
+  width: 500px;
+  height: 466px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  word-break: break-word;
+  padding: 20px;
+  background-color: rgb(19, 8, 83);
+  box-shadow: 10px 10px 20px black;
+  border-radius: 22px;
+  margin-bottom: 20px;
+  margin-top: 63px;
+}
+.name__email--edit {
+  font-size: 22px;
+  color: white;
+  margin-bottom: 30px;
+}
+.missage__email--edit {
+  width: 400px;
+  height: 250px;
+  padding: 20px;
+  background-color: rgb(231, 247, 247);
+  color: black;
+  font-size: 20px;
+  align-self: center;
+  text-align: left;
+  padding-bottom: 193px;
+}
+.button__email--edit {
+  margin-top: 30px;
+  width: 80px;
+  height: 40px;
+  color: black;
+  font-size: 22px;
+}
+.navLink__edit--email {
+  align-self: flex-end;
+}

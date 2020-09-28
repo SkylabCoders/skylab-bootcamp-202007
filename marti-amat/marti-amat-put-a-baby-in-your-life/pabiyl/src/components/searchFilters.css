@@ -1,0 +1,74 @@
+.main__window {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__search-filters {
+  width: 400px;
+  height: 483px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(122, 139, 214);
+  box-shadow: 10px 10px 20px black;
+  border-radius: 22px;
+  margin-top: 50px;
+}
+.search-button {
+  margin-left: 59px;
+
+  background-color: rgb(3, 3, 80);
+  color: white;
+}
+.input__filter {
+  width: 50px;
+}
+.icon__civilState {
+  align-self: flex-start;
+  margin-top: 14px;
+}
+
+.filter__container {
+  display: flex;
+  width: auto;
+  margin-top: 20px;
+  align-items: center;
+}
+.filter__submit {
+  width: 100px;
+  height: 36px;
+}
+
+.filter__icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.filter__text {
+  font-size: 18px;
+  font-family: Amethysta;
+  padding: 5px;
+  line-height: 40px;
+}
+.civilState__options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.civilState__options--file {
+  display: flex;
+  align-items: center;
+}
+.civilState__options--section {
+  display: flex;
+}
+.checkbox__input {
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  margin-left: 10px;
+}

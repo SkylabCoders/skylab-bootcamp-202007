@@ -1,0 +1,102 @@
+.main__main {
+  height: 581px;
+  width: 100%;
+  background-image: url("https://freedesignfile.com/upload/2018/05/Parents-with-children-playing-football-Stock-Photo.jpg");
+  background-size: auto 100%;
+  background-position: center 0px;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title__main {
+  padding-top: 20px;
+  margin-right: 40px;
+  text-align: end;
+  font-size: 24px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(3, 3, 80);
+}
+.navigation__container {
+  display: flex;
+  flex-direction: row;
+  height: 130px;
+  width: 100%;
+  padding-top: 392px;
+  margin-bottom: 20px;
+  justify-content: space-around;
+}
+
+.navigation__text {
+  font-size: 16px;
+  color: rgb(7, 7, 7);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.navigation__text:hover {
+  color: white;
+}
+.main__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 385px;
+  height: 56px;
+  background-color: rgb(75, 95, 184);
+}
+.image__footer {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.icon__footer {
+  height: 40px;
+  width: 80px;
+  background-color: rgb(250, 252, 249);
+  margin-left: 60px;
+  margin-right: 60px;
+  padding: 5px;
+}
+.text__footer {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .title__main {
+    display: none;
+  }
+
+  .navigation__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 320px;
+    padding-top: 437px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+  }
+  .navigation__text {
+    font-size: 30px;
+    color: white;
+    box-shadow: 10px 10px 20px black;
+    width: 206px;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (min-width: 730px) {
+  .main__main {
+    background-size: 100% auto;
+    background-position: center;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .main__main {
+    background-position: center -207px;
+  }
+}

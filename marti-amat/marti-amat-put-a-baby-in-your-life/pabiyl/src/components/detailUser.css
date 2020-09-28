@@ -1,0 +1,245 @@
+.main__detail {
+  background-color: rgb(245, 250, 240);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.group-three {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main__detail--top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container__bottom--detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.presentation {
+  width: 70%;
+  background-color: rgb(166, 151, 247);
+  padding: 30px;
+  font-size: 25px;
+  margin: 30px;
+  color: rgb(17, 17, 16);
+}
+.left-side__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title__detail {
+  padding-top: 10px;
+  color: rgb(3, 3, 80);
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  font-family: Alegreya;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.center__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.container__detail {
+  margin-left: 30px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.text__detail {
+  color: rgb(245, 250, 240);
+  font-size: 22px;
+  margin-left: 2vw;
+  padding: 0.5vw;
+  font-family: Amethysta;
+}
+.icon__detail {
+  width: 40px;
+  height: 40px;
+}
+.name__detail {
+  font-size: 45px;
+  text-align: center;
+  color: rgb(247, 241, 167);
+  font-family: Amethysta;
+}
+
+.center-side {
+  margin: 20px;
+}
+.image__secundary {
+  width: 350px;
+  margin-top: 20px;
+
+  height: 265px;
+
+  align-self: center;
+}
+.image__main {
+  width: 108%;
+  min-width: 358px;
+  max-width: 358px;
+  max-height: 512px;
+  height: 450px;
+  text-align: center;
+  margin-top: 20px;
+}
+.right-side__detail {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-around;
+}
+.container__info {
+  padding-top: 20px;
+  width: auto;
+  height: auto;
+  align-self: center;
+  background-color: rgb(19, 8, 83);
+  color: rgb(245, 250, 240);
+  margin-top: 18px;
+}
+.bt__outside {
+  display: none;
+}
+.bt__inside {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding-bottom: 20px;
+}
+.buttonE-mail {
+  width: 100px;
+  height: 50px;
+  padding: 5px;
+  background-color: rgb(195, 194, 197);
+
+  background-image: url("https://www.flaticon.es/svg/static/icons/svg/601/601248.svg");
+  background-size: 100%100%;
+}
+.buttonE-mail--outside {
+  width: 150px;
+  height: 80px;
+  padding: 5px;
+  background-color: rgb(19, 8, 83);
+
+  background-image: url("https://www.flaticon.es/svg/static/icons/svg/601/601248.svg");
+  background-size: 100%100%;
+}
+
+.btn__navLink {
+  width: 100px;
+  height: 50px;
+}
+.btn__navLink--outside {
+  width: 150px;
+  height: 80px;
+  font-size: 24px;
+  background-color: rgb(19, 8, 83);
+  color: white;
+}
+
+@media screen and (min-width: 700px) {
+  .container__bottom--detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .container__info {
+    height: 305px;
+  }
+  .left-side__bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .bt__inside {
+    display: none;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+  .presentation {
+    font-size: 20px;
+    align-self: flex-end;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+  .left-side {
+    width: 698px;
+
+    height: 630px;
+  }
+  .center__left {
+    flex-direction: row;
+  }
+
+  .main__detail--top {
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-side__detail {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 700px;
+  }
+  .bt__outside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .buttonChat {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .container__info {
+    height: 305px;
+  }
+  .right-side__detail {
+    width: auto;
+    flex-direction: column;
+  }
+  .main__detail--top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .bt__outside {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 22px;
+  }
+  .image__main {
+    margin-top: -69px;
+    padding-left: 20px;
+  }
+}
