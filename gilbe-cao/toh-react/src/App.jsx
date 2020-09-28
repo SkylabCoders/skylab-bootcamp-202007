@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound';
 import HeroesPage from './components/HeroesPage';
 import Login from './components/Login';
+import Profile from './components/Profile';
 
 function App(props) {
 	return (
@@ -20,6 +21,7 @@ function App(props) {
 					<Route path="/hero" component={HeroDetail} />
 					<Route path="/heroes" component={HeroesPage} />
 					<Route path="/login" component={Login} />
+					<Route path="/profile" component={Profile} />
 					<Route component={PageNotFound} />
 				</Switch>
 			</div>

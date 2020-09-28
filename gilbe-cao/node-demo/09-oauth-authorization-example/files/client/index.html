@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Skylab</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans"
+			rel="stylesheet"
+		/>
+		<link href="css/style-home.css" rel="stylesheet" />
+		<link rel="shortcut icon" type="image/x-icon" href="images/G.png" />
+
+		<style>
+			.header {
+				padding-bottom: 60px;
+			}
+			.navbar-inverse {
+				background-color: #223;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div class="container">
+				<div class="jumbotron">
+					<p>
+						Access token value:
+						<span class="label label-danger"
+							><%- access_token ? access_token : 'NONE' %></span
+						>
+					</p>
+					<p>
+						Scope value:
+						<span class="label label-danger"
+							><%- scope ? scope : 'NONE' %></span
+						>
+					</p>
+					<p>
+						Refresh token value:
+						<span class="label label-danger"
+							><%- refresh_token ? refresh_token : 'NONE' %></span
+						>
+					</p>
+					<a class="btn btn-default" href="/authorize">Get OAuth Token</a>
+					<a class="btn btn-default" href="/courseStats">Course Stats</a>
+				</div>
+			</div>
+			<!-- /.container -->
+		</div>
+		<!---------- End of Wrapper ----------->
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script>
+			jQuery(document).ready(function () {
+				// alert("wow");
+				//  jQuery("header").addClass("fixed");
+				jQuery('#hamburger').click(function () {
+					//alert("The paragraph was clicked.");
+					jQuery('header').toggleClass('fixed');
+				});
+			});
+		</script>
+	</body>
+</html>

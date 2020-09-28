@@ -18,6 +18,10 @@ function Header() {
 				<NavLink to="/login" activeClassName="nav__link--active">
 					Login
 				</NavLink>
+				{' | '}
+				<NavLink to="/profile" activeClassName="nav__link--active">
+					Profile
+				</NavLink>
 			</nav>
 		</>
 	);

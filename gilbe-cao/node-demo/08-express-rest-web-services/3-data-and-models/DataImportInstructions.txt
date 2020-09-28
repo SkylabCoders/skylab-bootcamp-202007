@@ -1,0 +1,1 @@
+To import Hero data into your mongoDB database. Make sure MongoDB is running then run 'mongo heroAPI < heroesJson.js' from the command line.
