@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<header
+  className="flex-row"
+>
+  <div
+    className="burger-button display-small"
+  >
+    <div
+      className="burger-menu"
+    />
+    <ul
+      className="hidden-content flex-column"
+    >
+      <li>
+        <a
+          href="/search"
+          onClick={[Function]}
+        >
+          Busqueda
+        </a>
+      </li>
+      <li>
+        <a
+          href="/map"
+          onClick={[Function]}
+        >
+          Mapa
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="display-large nav-options"
+  >
+    <ul
+      className="flex-row"
+    >
+      <li>
+        <a
+          href="/search"
+          onClick={[Function]}
+        >
+          Busqueda
+        </a>
+      </li>
+      <li>
+        <a
+          href="/map"
+          onClick={[Function]}
+        >
+          Mapa
+        </a>
+      </li>
+    </ul>
+  </div>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      alt="logo"
+      src="https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/308x178/a4e26f5d42c70cd5f26caef4182cfe91/logo.png"
+    />
+  </a>
+  <div
+    className="display-small burger-button"
+  >
+    <div
+      className="login "
+    />
+    <ul
+      className="hidden-content login-menu flex-column"
+    >
+      <li>
+        <button
+          className="auth-button"
+          onClick={[Function]}
+        >
+          Log In
+        </button>
+      </li>
+    </ul>
+  </div>
+   
+  <div
+    className="display-large nav-options"
+  >
+    <ul
+      className="flex-row"
+    >
+      <li>
+        <button
+          className="auth-button"
+          onClick={[Function]}
+        >
+          Log In
+        </button>
+      </li>
+    </ul>
+  </div>
+</header>
+`;

@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* Mobile  */
+
+.header__logo__img {
+	margin-bottom: 0px;
+	width: 305px;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	background-color: #538ae6;
+	position: relative;
+}
+
+.header__logo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+#header__logo__name {
+	position: absolute;
+	top: 110px;
+	font-family: 'Lobster', cursive;
+	color: rgb(255, 217, 0);
+	font-size: 3.5em;
+	text-align: center;
+	padding: 0;
+	-webkit-text-stroke: 1px black;
+}
+
+.header__navigation {
+	position: absolute;
+	top: 210px;
+	left: 50%;
+	margin-left: -190px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.header__navigation__button {
+	margin: 0 10px 10px 10px;
+	padding: 10px 15px;
+	font-family: 'Poppins', sans-serif;
+	border: 2px solid #00aeff;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 2px;
+	color: #00aeff;
+	background-color: white;
+	width: 170px;
+	display: block;
+	position: relative;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+.header__navigation__button:hover .button__text__wave {
+	top: 0;
+	color: white;
+}
+
+.button__text {
+	position: relative;
+	z-index: 1;
+	transition: 1s;
+}
+
+.button__text__wave {
+	position: absolute;
+	display: block;
+	top: calc(100% + 22px);
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #00e5ff;
+	transition: 1s;
+}
+
+.button__text__wave:before {
+	content: '';
+	position: absolute;
+	top: -22px;
+	left: 0;
+	width: 100%;
+	height: 22px;
+	background: url('../images/wave2.png');
+	animation: animate 0.5s linear infinite;
+}
+
+@keyframes animate {
+	0% {
+		background-position-x: 0;
+	}
+	100% {
+		background-position-x: 118px;
+	}
+}
+
+.header__auth {
+	display: none;
+}
+
+.header__auth__login:hover {
+	color: #00e5ffbe;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 600px) {
+	.header__logo__img {
+		width: 150px;
+		margin-left: 50px;
+	}
+
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		position: relative;
+		height: 150px;
+	}
+
+	.header__auth {
+		display: block;
+		margin: 10px;
+	}
+
+	.header__navigation {
+		position: absolute;
+		top: 80px;
+		right: -120px;
+	}
+
+	.header__navigation__button {
+		height: 50px;
+	}
+
+	#header__logo__name {
+		font-family: 'Lobster', cursive;
+		color: rgb(255, 217, 0);
+		font-size: 2.5em;
+		text-align: center;
+		padding: 0;
+		width: 250px;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		margin-left: 0px;
+	}
+
+	.header__auth__login {
+		color: white;
+	}
+}
+
+/* Big Tablet */
+
+@media screen and (min-width: 800px) {
+	.header__navigation {
+		position: absolute;
+		top: 80px;
+		right: 90px;
+	}
+}
+
+/* Desktop */
+
+@media screen and (min-width: 992px) {
+	.header {
+		height: 60px;
+	}
+
+	.header__logo__img {
+		display: none;
+	}
+
+	#header__logo__name {
+		width: 300px;
+		position: absolute;
+		top: -5px;
+		left: 50%;
+		margin-left: 0px;
+	}
+
+	.header__navigation {
+		position: absolute;
+		top: 3.5px;
+		right: 250px;
+	}
+}

@@ -1,0 +1,39 @@
+.loader,
+.loader:after 
+  border-radius: 50%
+  width: 4rem
+  height: 4rem
+
+.loader 
+  margin: 3rem auto 1.5rem auto
+  font-size: 10px
+  position: relative
+  border-top: .7rem solid rgba(229, 61, 0, 0.2)
+  border-right: .7rem solid rgba(229, 61, 0, 0.2)
+  border-bottom: .7rem solid rgba(229, 61, 0, 0.2)
+  border-left: .7rem solid #e53d00
+  -webkit-transform: translateZ(0)
+  -ms-transform: translateZ(0)
+  transform: translateZ(0)
+  -webkit-animation: load8 1.2s infinite linear
+  animation: load8 1.2s infinite linear
+
+@-webkit-keyframes load8 
+  0% 
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+  
+  100% 
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+  
+
+@keyframes load8 
+  0% 
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+  
+  100% 
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+  

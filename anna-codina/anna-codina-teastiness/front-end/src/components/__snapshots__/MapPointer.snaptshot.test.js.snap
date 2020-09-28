@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<a
+  className="map-pointer"
+  href="/shop/13"
+  onClick={[Function]}
+>
+  <img
+    alt="pointer"
+    className="map-pointer__token"
+    src="https://image.flaticon.com/icons/svg/3043/3043769.svg"
+  />
+</a>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginButton component snapshot should match 1`] = `
+<button
+  className="btn btn-default btn-centered"
+  onClick={[Function]}
+>
+  Log In
+</button>
+`;

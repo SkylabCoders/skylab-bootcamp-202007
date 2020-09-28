@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signin component snapshot should match 1`] = `
+<div
+  className="signIn"
+>
+  <form
+    action=""
+    className="signInForm"
+    method="POST"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="username"
+      >
+        User name
+        <input
+          className="form-control"
+          id="username"
+          name="username"
+          onChange={[Function]}
+          placeholder="email"
+          required={true}
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="password"
+      >
+        Password
+        <input
+          className="form-control"
+          id="password"
+          maxLength="32"
+          minlenght="8"
+          name="password"
+          onChange={[Function]}
+          placeholder="password"
+          required={true}
+          type="password"
+          value=""
+        />
+      </label>
+    </div>
+    <button
+      className="btn btn-default btn-centered"
+      onClick={[Function]}
+    >
+      Log In
+    </button>
+    <button
+      className="btn btn-default btn-centered"
+      onClick={[Function]}
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;

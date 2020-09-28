@@ -1,0 +1,119 @@
+header {
+  justify-content: space-between;
+  padding: 15px 25px 15px 25px;
+  align-items: center;
+
+
+  img {
+    height: 100px;
+    width: auto;
+  }
+
+  .nav-options {
+    li {
+      padding: 15px;
+
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      a:hover,
+      button:hover {
+        color: #d9f9c1;
+      }
+    }
+  }
+
+  .burger-button {
+    position: relative;
+
+    .hidden-content {
+      display: none;
+    }
+
+    .burger-menu {
+      height: 50px;
+      width: 50px;
+      background: url(https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/128x128/069c9eb3a66aff6f1866e4f5c5114510/menu-abierto.png) center no-repeat;
+      background-size: 75%;
+      border-radius: 15px;
+    }
+
+    .login {
+      height: 50px;
+      width: 50px;
+      background: url(https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/128x128/9dd875e6d233854ab93361720e0cd42b/usuario.png) center no-repeat;
+      background-size: 75%;
+      border-radius: 50px;
+    }
+
+    ul {
+      width: fit-content;
+      padding: 15px;
+      position: absolute;
+      top: 0;
+      background-color: #222222;
+      border-radius: 15px;
+
+      li {
+        padding: 10px;
+
+        a {
+          color: #dadada;
+        }
+      }
+    }
+
+    .login-menu {
+      right: 0px;
+    }
+  }
+
+  .burger-button:hover {
+    .hidden-content {
+      transition: ease-in 0.3s;
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      height: fit-content;
+      z-index: 99;
+
+      li {
+
+        a,
+        .auth-button {
+          font-size: 20px;
+          text-decoration: none;
+          font-weight: normal;
+        }
+
+
+      }
+    }
+  }
+
+  .auth-button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  ul {
+    li {
+      margin: auto;
+    }
+  }
+
+  .profile-info {
+    text-align: center;
+    text-decoration: none;
+
+    img {
+      border-radius: 50px;
+    }
+  }
+}

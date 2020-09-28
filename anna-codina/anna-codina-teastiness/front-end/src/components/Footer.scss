@@ -1,0 +1,31 @@
+footer {
+    flex-shrink: 0;
+
+
+    .footer__info {
+        background-color: rgba(216, 216, 216, 0);
+        align-items: center;
+        width: fit-content;
+        margin: 15px;
+
+        .info__icon {
+            background: url(https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/44x45/eae5a67c52a397df521ad9184a5244e0/info.png) center no-repeat;
+            background-size: 100%;
+            width: 30px;
+            height: 30px;
+        }
+
+        .info__hidden-content {
+            display: none;
+        }
+    }
+
+    .footer__info:hover {
+        font-size: 12px;
+
+        .info__hidden-content {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

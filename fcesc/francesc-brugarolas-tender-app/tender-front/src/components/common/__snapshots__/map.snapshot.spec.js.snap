@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map component snapshot should match 1`] = `
+<iframe
+  allowFullScreen={true}
+  className="iframe__map"
+  frameBorder="0"
+  height="450"
+  src=""
+  width="600"
+/>
+`;

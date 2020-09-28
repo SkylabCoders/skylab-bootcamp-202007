@@ -1,0 +1,74 @@
+.profile-info {
+    width: 100%;
+
+    .proflie-info--left {
+        flex-grow: 1;
+
+        .profile-item__button {
+            padding: 10px;
+            background-color: #D9F9C1;
+            border-radius: 15px;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            margin-left: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
+
+.profile-item {
+    margin: 10px;
+
+    ul {
+        li {
+            margin: 15px 0px 15px 20px;
+
+        }
+    }
+}
+
+.own-shops-item {
+    align-items: center;
+    justify-content: space-between;
+    background: #222222;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 50px;
+
+    .own-shops-item__name,
+    .own-shops-item__update {
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .own-shops-item__name {
+        margin-left: 20px;
+        flex-grow: 1;
+    }
+
+    .own-shops-item__update {
+        display: flex;
+        flex-shrink: 1;
+        padding: 20px;
+        height: 100;
+        background: #d9f9c1;
+        color: black;
+    }
+
+    .own-shops-item__delete {
+
+        background: white url(https://image.flaticon.com/icons/svg/709/709519.svg) center no-repeat;
+        background-size: 50%;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.proflie-info--right {
+    flex-grow: 2;
+
+
+}

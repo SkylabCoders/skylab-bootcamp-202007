@@ -1,0 +1,239 @@
+.profile {
+    display: flex;  
+    flex-direction: column;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f5b58f67162f66a114d1e20/1200x800/30066e16f86f2fa859e77fe829a9c4a7/background.jpg');
+    background-position: center;
+    margin: 0 auto;
+    width: 95%;
+    height: 65px;
+}
+
+.profile-contain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem auto 0rem auto;
+    width: 480px;
+}
+
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 30%;
+    padding-right: 5rem;
+}
+
+.profile-menu__column {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-image {
+    width: 250px;
+    height: 220px;
+}
+
+.profile-menu__user {
+    display: flex;
+}
+
+.profile-menu__image {
+    width: 30px;
+    border-radius: 70%;
+}
+
+.profile-menu__text {
+    font-weight: 400;
+    padding-left: .5rem;
+}
+
+.profile-menu__btn {
+    width: 200px;
+    height: 25px;
+    text-decoration: none;
+    color: #999;
+    font-size: .9rem;
+    margin: .3rem 0 .25rem 2rem;
+    padding-left: 1rem;
+    padding-top: .15rem;
+}
+
+.active {
+    background-color: #fc3;
+    color: #fff;
+    width: 200px;
+    height: 25px;
+    text-decoration: none;
+    font-size: .9rem;
+    margin: .3rem 0 .25rem 2rem;
+    padding-left: 1rem;
+    padding-top: .15rem;
+}
+
+
+.profile-menu__btn:hover {
+    background-color: #fc3;
+    color: #fff;
+    height: 25px;
+    border-radius: 2px;
+}
+
+.profile-button__yellow {
+    display: inline-block;
+    background-color: #fc3;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    width: 250px;
+    height: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    padding-top: .7rem;
+    margin-top: .8rem;
+    cursor: pointer;
+}
+
+
+.padding {
+    padding-top: 0;
+}
+
+.profile-button__yellow:hover {
+    background-color: #f7bb08;
+}
+
+.black {
+    background-color: #000;
+    padding-top: .7rem;
+}
+
+.black:hover {
+    background-color: #333;
+}
+
+.profile-text {
+    font-weight: 500;
+    padding-top: 3rem;
+    font-size: 1.1rem;
+}
+
+.label-column {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    font-size: .9rem;
+    padding: .4rem 0;
+}
+
+.label-row {
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.label-text {
+    padding-left: .5rem;
+    font-size: .8rem;
+    color: #999;
+}
+
+.label-column input,
+.label-column textarea,
+.type {
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 2px;
+    padding-left: .8rem;
+    width: 250px;
+    height: 40px;
+    color: #999;
+    outline: none;
+}
+
+.type {
+    margin-bottom: 1.2rem;
+}
+
+.label-column textarea {
+    height: 100px;
+    padding: .5rem;
+}
+
+.space {
+    padding-right: 3rem;
+}
+
+.profile__title {
+    padding-bottom: 1rem;
+}
+
+.type__title {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.bck-image {
+    width: 250px;
+}
+
+.p-colum {
+    display: flex;
+    flex-direction: column;
+}
+
+::placeholder {
+    color: red;
+}
+
+
+/////
+.profile-settings {
+    width: 50%;
+    padding-top: 2rem;
+
+    &__title {
+        padding-bottom: 1rem;
+    }
+}
+
+.profile__categories {
+    padding-top: 3rem;
+}
+
+
+// MEDIA
+@media screen and (min-width: 1024px) {
+    .profile-contain {
+        width: 1024px;
+    }
+
+    .profile-contain {
+        flex-direction: row;
+        align-items: flex-start;
+        width: 800px;
+    }
+
+    .flex-row {
+        display: flex;
+        width: 480px;
+    }
+
+    .label-column textarea {
+        width: 520px;
+        height: 100px;
+    }
+
+    .horari input {
+        width: 520px;
+    }
+
+    .sizes input {
+        width: 550px;
+    }   
+    
+    .description textarea {
+        width: 550px;
+    }
+}

@@ -1,0 +1,19 @@
+/* Desktop */
+
+@media screen and (min-width: 992px) {
+	.main {
+		display: flex;
+		justify-content: row;
+		position: relative;
+	}
+
+	.main__diver img {
+		width: 50vw;
+		height: 100vh;
+	}
+
+	.main__kittiwake img {
+		width: 50vw;
+		height: 100vh;
+	}
+}

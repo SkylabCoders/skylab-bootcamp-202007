@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "5f4d4e15d5895d12e5884d3e"
+  },
+  "name": "desayuno inglés",
+  "img": "https://cdn.shopify.com/s/files/1/1107/9264/articles/5458426672_7a231c435e_b.jpg?v=1488227421",
+  "type": "negro",
+  "time": "3-5 min",
+  "temperature": "100ºC",
+  "description": "De gran cuerpo, robusyo y rico combina perfectamente con azucar y leche y suele ir acompañado de un contundente desayuno inglés.",
+  "benefits": [
+    "renal",
+    "dental",
+    ""
+  ],
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "5f4d4e15d5895d12e5884d3f"
+  },
+  "name": "matcha",
+  "img": "https://www.eluniversal.com.mx/sites/default/files/2018/07/10/matcha_beneficios_te_verde.jpg",
+  "type": "verde",
+  "time": "1-3 min",
+  "temperature": "75ºC",
+  "description": "DE ORIGEN JAPONÉS SU COMPOSICIÓN ES IDEAL PARA LAS PERSONAS QUE BUSCAN PERDER PESO Y TAMBIÉN ES USADO EN LA REPOSTERÍA.",
+  "benefits": [
+    "concentración",
+    "memoria",
+    "peso"
+  ],
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "5f4d4e15d5895d12e5884d40"
+  },
+  "name": "peonía blanca",
+  "img": "https://www.sandaili.es/sites/default/files/styles/imagenproductonew/public/te_blanco_baimudan_china_bio_1.jpg?itok=mahpyhTN",
+  "type": "blanco",
+  "time": "3-8 min",
+  "temperature": "80ºC",
+  "description": "Ofrece agradables infusiones combinando los sabores florales con los dulces. EN boca es sedoso, con mucho cuerpo.",
+  "benefits": [
+    "concentración",
+    "memoria",
+    ""
+  ]
+},{
+  "_id": {
+    "$oid": "5f4d4e15d5895d12e5884d41"
+  },
+  "name": "camomila",
+  "img": "https://royaltipstea.com/blog/wp-content/uploads/2018/05/infusion-de-flor-de-camomila-2.jpg",
+  "type": "tisana",
+  "time": "7-10 min",
+  "temperature": "100ºC",
+  "description": "Se aracteriza por su aroma y ligereza en el sabor amargo y multiples beneficios para la salud.",
+  "benefits": [
+    "cardiobascular",
+    "relajación",
+    "digestión"
+  ]
+},{
+  "_id": {
+    "$oid": "5f4d4e15d5895d12e5884d42"
+  },
+  "name": "dan cong",
+  "img": "https://cdn.shopify.com/s/files/1/0153/1085/products/DongCong1_1024x1024.jpg?v=1571436606",
+  "type": "oolong",
+  "time": "3-5 min",
+  "temperature": "80-95ºC",
+  "description": "Muy aromatico y con notas dulces, florales y afrutadas",
+  "benefits": [
+    "digestión",
+    "concentración",
+    "antioxidantes"
+  ]
+},{
+  "_id": {
+    "$oid": "5f4d4e15d5895d12e5884d43"
+  },
+  "name": "rooibos rojo",
+  "img": "https://cdn5.recetasdeescandalo.com/wp-content/uploads/2018/04/Aprende-a-preparar-te-rooibos-para-disfrutar-de-todo-su-sabor-y-propiedades.jpg",
+  "type": "rooibos",
+  "time": "8-10 min",
+  "temperature": "100ºC",
+  "description": "SON UNA GRAN ALTERNATIVA PARA AQUELLA GENTE QUE NO PUEDE TOMAR TÉ.",
+  "benefits": [
+    "cardiobascular",
+    "diabetes",
+    "hipertensión"
+  ]
+}]

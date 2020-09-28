@@ -1,0 +1,79 @@
+.timeline
+  margin: 2rem 0
+  
+.timeline__item
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: top
+  margin: .5rem 0
+  
+.item__left
+  width: 110px
+  max-width: 110px
+  padding: 0 1rem 1rem 1rem
+  text-align: right
+  margin-left: .7rem
+  color: gray
+  font-weight: 550
+  text-align: right  
+
+  &::after
+  &::before
+    box-sizing: border-box
+
+.item__right
+  width: 180px
+  padding: 0 1rem .4rem 1rem
+  text-align: right
+  margin-right: .7rem
+  text-align: left
+
+  &::after
+  &::before
+    box-sizing: border-box
+
+.item__separator
+  display: flex
+  flex-direction: column
+  flex: 0
+  align-items: center
+  
+.separator__dot
+  display: flex
+  align-self: baseline
+  border: solid 3px #ababab
+  padding: 4px
+  border-radius: 50%
+  margin: 0 auto .5rem
+  background-color: transparent
+  width: 5px
+  height: 5px
+
+  &.danger
+    border: solid 3px #af212f
+  
+  &.warning
+    border: solid 3px #fdbe01
+
+  &.success
+    border: solid 3px #1e9b3b
+
+  &.informative
+    border: solid 3px #1f90a1
+
+  &.delayed
+    border: solid 3px #333333
+
+  &::after
+  &::before
+    box-sizing: border-box
+
+.separator__line
+  width: 2px
+  background-color: #ababab
+  flex-grow: 1
+
+  &::after
+  &::before
+    box-sizing: border-box
