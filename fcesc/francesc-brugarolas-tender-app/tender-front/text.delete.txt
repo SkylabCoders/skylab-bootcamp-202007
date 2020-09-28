@@ -1,0 +1,14 @@
+	"jest": {
+		"moduleNameMapper": {
+			"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/fileMock.js",
+			"\\.(css|less|sass)$": "<rootDir>/tools/styleMock.js"
+		},
+		"coverageThreshold": {
+			"global": {
+				"branches": 80,
+				"functions": 90,
+				"lines": 80,
+				"statements": -10
+			}
+		}
+	}

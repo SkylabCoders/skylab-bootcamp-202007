@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome component snapshot should match 1`] = `
+<p>
+  Loading... please, wait
+</p>
+`;

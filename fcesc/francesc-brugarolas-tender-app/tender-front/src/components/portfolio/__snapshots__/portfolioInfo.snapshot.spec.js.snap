@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PortfolioInfo component snapshot should match 1`] = `
+<div
+  className="portfolioInfo__container"
+>
+  <div
+    className="info__main"
+  >
+    <h2>
+      YOUR PROJECTS
+    </h2>
+    <p>
+      <span>
+        You have 
+        4
+         projects in your portfolio:
+      </span>
+      <span>
+         
+        2
+         ongoing,
+      </span>
+      <span>
+         
+        1
+         planned,
+      </span>
+      <span>
+         
+        1
+         closed.
+      </span>
+    </p>
+  </div>
+  <div
+    className="info__icons"
+  >
+    <div
+      className="icon"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        color="#ffffff"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"
+        />
+      </svg>
+    </div>
+    <div
+      className="icon"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        color="#ffffff"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M14.94 4.66h-4.72l2.36-2.36zm-4.69 14.71h4.66l-2.33 2.33zM6.1 6.27L1.6 17.73h1.84l.92-2.45h5.11l.92 2.45h1.84L7.74 6.27H6.1zm-1.13 7.37l1.94-5.18 1.94 5.18H4.97zm10.76 2.5h6.12v1.59h-8.53v-1.29l5.92-8.56h-5.88v-1.6h8.3v1.26l-5.93 8.6z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

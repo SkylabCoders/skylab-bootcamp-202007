@@ -1,0 +1,66 @@
+.portfolioProjectList__item
+  width: 100%
+  background-color: transparent
+  border-radius: .7rem
+  border: 1px dashed teal
+  margin-top: 1rem
+  padding: 1rem
+
+  &:hover
+    background-color: #f6f6f6
+    box-shadow: 2px 5px 6px 0px rgba(34,34,34,0.5)
+  
+.item__title
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+
+  > h3
+    color: teal
+    font-weight: normal
+
+.project__budgetBoard
+  width: 100%
+
+.board__table
+  width: 100%
+  border-collapse: collapse
+
+  > thead
+    > tr
+      background-color: #06aed5
+      
+      > th
+        font-weight: bold
+        margin: .2rem 1rem
+        padding: .3rem 1rem
+        color: white
+
+  > tbody
+    > tr
+      &:nth-child(odd)
+        background-color: #f6f6f6
+
+      &:hover
+        background-color: #fde74c
+        color: black
+
+      > td
+        margin: .2rem 1rem
+        padding: .2rem 1rem
+
+        &:hover
+          font-weight: bold
+
+.tableCell__left
+  text-align: left
+
+.tableCell__center
+  text-align: center
+
+.tableCell__right
+  text-align: right
+
+.tableCell_default
+  text-align: left
