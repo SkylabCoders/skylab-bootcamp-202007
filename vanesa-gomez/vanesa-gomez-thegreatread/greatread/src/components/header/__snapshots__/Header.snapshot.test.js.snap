@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match 1`] = `
+<header
+  className="header-container"
+>
+  <div
+    className="header"
+  >
+    <a
+      className="header-logo"
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="Logo The Great Read"
+        height="100%"
+        src="https://trello-attachments.s3.amazonaws.com/5f4d74b3457c4e749f4bfea6/847x748/f0abc621274604fc9ce77e7079853efb/GreatRead.png"
+        width="100%"
+      />
+    </a>
+    <form
+      className="header-form"
+      onSubmit={[Function]}
+    >
+      <input
+        className="header-form__search"
+        onChange={[Function]}
+        placeholder="Título, autor o género..."
+        type="text"
+      />
+      <select
+        className="select-css"
+        onChange={[Function]}
+      >
+        <option
+          className="option"
+          value="title"
+        >
+          Título
+        </option>
+        <option
+          className="option"
+          value="author"
+        >
+          Autor
+        </option>
+        <option
+          className="option"
+          value="subject"
+        >
+          Género
+        </option>
+      </select>
+    </form>
+    <div
+      className="header-login"
+    >
+      <div
+        className="header-login__button"
+      >
+        <button
+          onClick={[Function]}
+        >
+          Entrar
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+`;
