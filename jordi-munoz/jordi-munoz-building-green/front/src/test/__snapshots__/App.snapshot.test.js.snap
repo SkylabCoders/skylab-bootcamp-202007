@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="header-container"
+  >
+    <div
+      className="header"
+    >
+      <a
+        aria-current="page"
+        className="logo active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <img
+          alt="Logo"
+          className="header-container__logo"
+          src="logo-blanco.png"
+        />
+      </a>
+      <input
+        className="menu-btn"
+        id="menu-btn"
+        type="checkbox"
+      />
+      <label
+        className="menu-icon"
+        htmlFor="menu-btn"
+      >
+        <span
+          className="navicon"
+        />
+      </label>
+      <ul
+        className="menu"
+      >
+        <li>
+          <a
+            href="/"
+          >
+            HOME
+          </a>
+        </li>
+        <li>
+          <a
+            href="/project-register"
+          >
+            Proyectos
+          </a>
+        </li>
+        <li>
+          <a
+            href="/results"
+          >
+            Resultados
+          </a>
+        </li>
+        <li>
+           
+          <button
+            className="loginButton"
+            onClick={[Function]}
+          >
+            Log In
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "marginBottom": "60px",
+        "marginTop": "80px",
+      }
+    }
+  >
+    <div
+      className="home-container"
+    >
+      <img
+        alt="Logo"
+        className="home-container__logo"
+        src="logo-bg.png"
+      />
+      <p>
+        Cada vez más las personas estamos más concienciados de la importancia de la sostenibilidad. Esta importancia se transmite en la elección de la ciudad y la vivienda donde queremos vivir.
+        <br />
+        <br />
+        Los manuales de sostenibilidad son una herramienta para evaluar la sostenibilidad, la calidad de vida y la eficiencia energética de las viviendas. 
+        <br />
+        <br />
+        Desde Espai Energy, realizamos un manual de sostenibilidad acorde con las necesitades del cliente y cogiendo referencias de las principales certificaciones sostenibles globales, como LEED, BREEAM, WELL o PASSIVHAUS.
+      </p>
+      <img
+        alt="Certificaciones"
+        src="certifications.png"
+        width="400px"
+      />
+      <p>
+        Desde esta aplicación el usuario puede evaluar su edificio/promoción en el manual de sostenibilidad de su empresa.
+        <br />
+        <br />
+        El manual está compuesto, tal como se puede ver en la siguiente imagen, por diversos créditos sostenibles clasificados en varias categorías de sostenibilidad.
+        <br />
+        <br />
+        En función del cumplimiento de cada criterio se obtendrán puntos, al final de toda la evaluación se sumarán los puntos y se obtendrá una clasificación sostenible (≥ 50 puntos edificio sostenible, ≥ 75 puntos edificio verde).
+      </p>
+      <img
+        alt="Categorias"
+        src="categoriesList.png"
+      />
+    </div>
+  </div>
+  <div
+    className="container"
+  >
+    <p>
+      made by Jordi Muñoz for:  
+    </p>
+    <a
+      href="https://.espaienergy.com/"
+    >
+      <img
+        alt="Espai Energy Logo"
+        src="logo_ee_H.png"
+        title="Espai Energy SL"
+      />
+    </a>
+  </div>
+</div>
+`;
