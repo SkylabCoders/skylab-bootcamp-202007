@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login snapshot should match 1`] = `
+<form
+  autoComplete="off"
+  className="makeStyles-root-1"
+  noValidate={true}
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "marginBottom": "60px",
+        "marginTop": "80px",
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      className="MuiContainer-root MuiContainer-maxWidthXs"
+    >
+      <h2>
+        Accede a tu cuenta
+      </h2>
+      <div
+        className="MuiFormControl-root MuiTextField-root"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+          data-shrink={false}
+          htmlFor="outlined-email"
+          id="outlined-email-label"
+        >
+          e-mail
+        </label>
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={true}
+            autoFocus={false}
+            className="MuiInputBase-input MuiOutlinedInput-input"
+            disabled={false}
+            id="outlined-email"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              className="PrivateNotchedOutline-legendLabelled-4"
+            >
+              <span>
+                e-mail
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root MuiTextField-root"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+          data-shrink={false}
+          htmlFor="outlined-ubicacion"
+          id="outlined-ubicacion-label"
+        >
+          Password
+        </label>
+        <div
+          className="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={true}
+            autoFocus={false}
+            className="MuiInputBase-input MuiOutlinedInput-input"
+            disabled={false}
+            id="outlined-ubicacion"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            required={false}
+            type="password"
+            value=""
+          />
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              className="PrivateNotchedOutline-legendLabelled-4"
+            >
+              <span>
+                Password
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Acceder
+          </span>
+        </button>
+      </div>
+      <br />
+      <hr
+        className="MuiDivider-root MuiDivider-middle"
+      />
+      <br />
+      <div
+        style={
+          Object {
+            "display": "flex",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <p
+          className="login-p"
+        >
+          Accede con:
+        </p>
+        <img
+          alt="google"
+          className="login-img"
+          src="https://bookassist.org/wp-content/uploads/elementor/thumbs/google_3_520-oc7dqerwmsbfad0t1gveosa6x2uck2bd7y6l2r7txs.jpg"
+        />
+      </div>
+      <br />
+      <hr
+        className="MuiDivider-root MuiDivider-middle"
+      />
+      <br />
+      <a
+        aria-disabled={false}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+        href="/user-register"
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Registrarse
+        </span>
+      </a>
+    </div>
+  </div>
+</form>
+`;

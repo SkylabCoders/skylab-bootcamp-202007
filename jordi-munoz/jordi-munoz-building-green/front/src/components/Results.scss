@@ -1,0 +1,31 @@
+.results-container {
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.results-container__img img {
+  width: 130px;
+}
+
+.results-container__img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.results-container__img-pics {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.results-container__circle {
+  max-width: 180px;
+}
