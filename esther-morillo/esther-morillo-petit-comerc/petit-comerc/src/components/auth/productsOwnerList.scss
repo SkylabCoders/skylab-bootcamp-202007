@@ -1,0 +1,124 @@
+.owner-section {
+    display: flex;  
+    flex-direction: column;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f5b58f67162f66a114d1e20/1200x800/30066e16f86f2fa859e77fe829a9c4a7/background.jpg');
+    background-position: center;
+    margin: 0 auto;
+    width: 95%;
+    height: 100%;
+}
+
+.owner-container {
+    display: flex; 
+    margin: .6rem auto;
+}
+
+.owner-row {
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    margin: 0 auto;
+    width: 240px;  
+    height: 230px; 
+}
+
+.owner-main__cover {
+    display: flex;
+    justify-content: center;
+}
+
+.owner-main__image {
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 220px;
+    height: 140px;
+    padding-top: .5rem;
+}
+       
+    .owner-main__image:hover {
+        filter: saturate(.2);
+    }
+
+        .owner-main:hover .owner-button {
+            display: flex;
+        }
+
+        .owner-main:hover .owner-components {
+            display: none;
+        }
+
+.owner-text {
+    margin: 0 auto;
+    width: 250px;
+    
+    &__title {
+        margin-top: 5rem;
+    }
+
+    &__paragraph {
+        padding-top: .3rem;
+        padding-bottom: 1rem;
+        font-size: .8rem;
+        width: 250px;
+    }
+
+}
+
+.owner-components {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        padding: .3rem 0;
+        text-align: center; 
+    }
+
+    &__price {
+        padding-bottom: .5rem;
+        font-weight: 600;  
+    }
+}
+
+.owner-button {
+    display: none;
+    justify-content: center;
+    padding-top: 2rem;
+
+    &__black {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        text-decoration: none;
+        width: 120px;
+        height: 40px;
+        font-size: .8rem;
+        font-weight: 500;
+        text-align: center;
+        padding-top: .7rem;
+        cursor: pointer;
+    }
+}
+
+////MEDIA
+@media screen and (min-width: 1024px) {
+    .owner-section {
+        flex-direction: row;
+        justify-content: center;
+
+        &__inside {
+            width: 800px;
+        } 
+    }  
+    
+    .owner-section__inside {
+        display: flex;
+        justify-content: center;
+    }
+
+    .owner-text {
+        width: 800px;
+    }       
+}
+
+

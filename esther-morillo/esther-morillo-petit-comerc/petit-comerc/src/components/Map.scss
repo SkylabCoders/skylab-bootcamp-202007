@@ -1,0 +1,130 @@
+$color-grey: #999;
+$color-line: #ccc;
+
+.info-store {
+    margin: 0 auto;
+    width: 95%;
+} 
+
+.info-main__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.info__title {
+    font-weight: 600;
+}
+
+.info__web {
+    text-decoration: none;
+    font-size: .9rem;
+    padding-left: .5rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.info__description {
+    font-size: .95rem;
+    color: $color-grey;
+}
+
+.info-line {
+    margin: 0 auto;
+    border-bottom: 1px solid $color-line;
+    padding: 1rem 0;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    font-weight: 500;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    padding: .5rem 0;
+}
+
+.check {
+    background-image: url(../assets/icons/check.svg);
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-size: 1.2em;
+    background-repeat: no-repeat;
+}
+
+.info p {
+    font-size: .9rem;
+    padding-left: .5rem;
+}
+
+.web {
+    background-image: url(../assets/icons/arrow-web.svg);
+    width: 20px;
+    height: 22px;
+    background-position: center;
+    background-size: 1.2em;
+    background-repeat: no-repeat;
+}
+
+.address {
+    background-image: url(../assets/icons/location.svg);
+    width: 20px;
+    height: 22px;
+    background-position: center;
+    background-size: 1.2em;
+    background-repeat: no-repeat;
+}
+
+.phone {
+    background-image: url(../assets/icons/phone.svg);
+    width: 21px;
+    height: 20px;
+    background-position: center;
+    background-size: 1.3em;
+    background-repeat: no-repeat;
+}
+
+.email {
+    background-image: url(../assets/icons/mail.svg);
+    width: 22px;
+    height: 20px;
+    background-position: center;
+    background-size: 1.3em;
+    background-repeat: no-repeat;
+}
+
+.pc-city {
+    padding-left: 1.2rem;
+}
+
+.address-spacing {
+    padding-bottom: 0;
+    margin-bottom: -.5rem;
+}
+
+.info-hours {
+    background-color: #fc3;
+    font-size: .9rem;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+
+    &__title {
+        color: #000;
+        font-weight: 500;
+        padding-bottom: .3rem;
+    }
+
+    &__text {
+        color: #fff;
+    }
+}
+
+.map {
+    width: 100%;
+}
