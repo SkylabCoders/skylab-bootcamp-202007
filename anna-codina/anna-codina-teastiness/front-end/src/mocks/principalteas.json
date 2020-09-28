@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "5f4e5f38875a8d17a4ab926f"
+  },
+  "type": "té negro",
+  "oxidizedLevel": "total",
+  "flavorType": "malteado, con cuerpo y fuerte",
+  "theine": "muy alta",
+  "img": "https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/612x408/6dc0bf88a230b584267964dfba38243e/blacktea.jpg",
+  "varieties": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d3e"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5f4e5f38875a8d17a4ab9270"
+  },
+  "type": "té verde",
+  "oxidizedLevel": "no oxidado",
+  "flavorType": "fresco, aromatico y vegetal",
+  "theine": "media",
+  "img": "https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/612x408/29504bd144e7ecfe631b5a79f4155096/green-tea2.jpg",
+  "varieties": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d3f"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5f4e5f38875a8d17a4ab9271"
+  },
+  "type": "té blanco",
+  "oxidizedLevel": "poco oxidado",
+  "flavorType": "floral, delicado y afrutado",
+  "theine": "media baja",
+  "img": "https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/612x420/092d14661ad24118088176bb9ee99a06/whitetea.jpg",
+  "varieties": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d40"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5f4e5f38875a8d17a4ab9272"
+  },
+  "type": "tisana",
+  "oxidizedLevel": "sin oxidación del té, de frutas, flores y hiervas infusionadas",
+  "flavorType": "delicado, afrutado, dulce",
+  "theine": "sin teina",
+  "img": "https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/612x408/241e769984af1b3577dca06f0cdb8094/tisana.jpg",
+  "varieties": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d41"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5f4e5f38875a8d17a4ab9273"
+  },
+  "type": "oolong",
+  "oxidizedLevel": "parcialmente",
+  "flavorType": "amplio espectro de sabores dependiendo del nivel de oxidación",
+  "theine": "medio alto",
+  "img": "https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/612x407/485047690cc752b401d2fb3c4d515368/istockphoto-1125832321-612x612.jpg",
+  "varieties": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d42"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "5f4e5f38875a8d17a4ab9274"
+  },
+  "type": "rooibos",
+  "oxidizedLevel": "parcialmente",
+  "flavorType": "dulce, suabe y terroso",
+  "theine": "sin teina",
+  "img": "https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/612x424/4ee10428a7704fabfc0ed921b6e7597f/roibos.jpg",
+  "varieties": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d43"
+    }
+  ]
+}]

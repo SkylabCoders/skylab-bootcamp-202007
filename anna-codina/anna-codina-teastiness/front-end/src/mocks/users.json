@@ -1,0 +1,58 @@
+[{
+  "_id": {
+    "$oid": "5f574e3f8790ce4269e3716c"
+  },
+  "email": "anna.co91@gmail.com",
+  "sub": "google-oauth2|109347272891301420340",
+  "owner": [
+    {
+      "$oid": "5f50f14ba556472baf77f649"
+    },
+    {
+      "$oid": "5f592734b703a517a4f4ed97"
+    },
+    {
+      "$oid": "5f5a2bb104a69f37cd50c53f"
+    }
+  ],
+  "favouritesTeas": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d3f"
+    },
+    {
+      "$oid": "5f4d4e15d5895d12e5884d40"
+    }
+  ],
+  "favouritesShops": [
+    {
+      "$oid": "5f50f14ba556472baf77f649"
+    },
+    {
+      "$oid": "5f5e66ad72dbf90f1eca7b87"
+    }
+  ],
+  "type": "user",
+  "__v": 146
+},{
+  "_id": {
+    "$oid": "5f5df9d34ee7181e0bf36b7f"
+  },
+  "owner": [],
+  "favouritesTeas": [],
+  "favouritesShops": [],
+  "email": "anna.co91@gmail.com",
+  "sub": "auth0|5f5df92b4eca5f0077b93207",
+  "type": "admin",
+  "__v": 18
+},{
+  "_id": {
+    "$oid": "5f5dfa0e4ee7181e0bf36b80"
+  },
+  "owner": [],
+  "favouritesTeas": [],
+  "favouritesShops": [],
+  "email": "anna.co91@gmail.com",
+  "sub": "facebook|10223470467297658",
+  "type": "user",
+  "__v": 0
+}]

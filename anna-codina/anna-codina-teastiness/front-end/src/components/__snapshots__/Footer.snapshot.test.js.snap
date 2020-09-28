@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Loading snapshot should match 1`] = `
+<footer>
+  <div
+    className="footer__info flex-row"
+  >
+    <div
+      className="info__icon"
+    />
+    <div
+      className="info__hidden-content"
+    >
+      <h3>
+        by: Anna Codina
+      </h3>
+      <p>
+        in SkypabCoders Academy
+      </p>
+    </div>
+  </div>
+</footer>
+`;

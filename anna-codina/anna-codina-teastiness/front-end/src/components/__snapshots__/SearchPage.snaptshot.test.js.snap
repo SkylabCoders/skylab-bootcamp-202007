@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<section
+  className="flex-column "
+>
+  <h1>
+    Realiza tu busqueda
+  </h1>
+  <form
+    className="flex-column flex-row--inlarge"
+  >
+    <select
+      className="flex-row"
+      name="types"
+      onChange={[Function]}
+      required={true}
+    >
+      <option
+        value="tea"
+      >
+        Variedades de té
+      </option>
+      <option
+        value="shop"
+      >
+        Tiendas
+      </option>
+    </select>
+    <select
+      className="flex-row"
+      name="subtypes"
+      onChange={[Function]}
+      required={true}
+    >
+      <option
+        value="name"
+      >
+        Nombre
+      </option>
+      <option
+        value="type"
+      >
+        Tipo
+      </option>
+      <option
+        value="benefits"
+      >
+        Beneficios
+      </option>
+    </select>
+    <div
+      className="flex-row search-bar"
+    >
+      <input
+        className="flex-row"
+        name="search"
+        onChange={[Function]}
+        type="search"
+      />
+      <button
+        onClick={[Function]}
+        type="submit"
+      />
+    </div>
+  </form>
+  <div />
+</section>
+`;

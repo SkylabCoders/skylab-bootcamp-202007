@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot should match 1`] = `
+<section
+  className="flex-column"
+>
+  <h1>
+    Crea tu tienda
+  </h1>
+  <form
+    className="flex-column flex-row--inlarge"
+  >
+    <div
+      className="form--left flex-column"
+    >
+      <label>
+        Nombre:
+      </label>
+      <input
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+      <label>
+        url img:
+      </label>
+      <input
+        onChange={[Function]}
+        type="url"
+        value=""
+      />
+      <label>
+        Horario:
+      </label>
+      <input
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+      <label>
+        CIF:
+      </label>
+      <input
+        maxLength="9"
+        minLength="9"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="form--right flex-column"
+    >
+      <label>
+        dirección:
+      </label>
+      <span>
+         calle:
+      </span>
+      <input
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+      <span>
+        ciudad:
+      </span>
+      <input
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+      <span>
+        código postal:
+      </span>
+      <input
+        maxLength="5"
+        minLength="5"
+        onChange={[Function]}
+        pattern="[0-9]"
+        required={true}
+        title="Sólo números"
+        type="text"
+        value=""
+      />
+      <label>
+        Descripción:
+      </label>
+      <textarea
+        cols="50"
+        maxLength="120"
+        onChange={[Function]}
+        rows="5"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+        type="submit"
+      >
+        ENVIAR
+      </button>
+    </div>
+  </form>
+</section>
+`;
