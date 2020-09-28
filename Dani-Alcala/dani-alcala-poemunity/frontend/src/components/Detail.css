@@ -1,0 +1,123 @@
+.poem__detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.poem__block {
+  width: 400px;
+  margin: 20px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+.poem__title {
+  font-size: 27px;
+}
+
+.poem__author-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px auto;
+}
+
+.poem__picture {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.poem__author {
+  font-size: 24px;
+}
+
+.poem__content {
+  font-size: 22px;
+  margin-bottom: 5px;
+  white-space: pre-line;
+}
+
+.poem__likes {
+  color: black;
+  font-size: 18px;
+  margin-left: 5%;
+}
+
+.poem__date {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: red;
+  font-weight: bold;
+}
+
+.poem__likes-icon {
+  background-image: url(../icons/red-heart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+.poem__likes-icon:focus {
+  background-image: url(../icons/white-heart.svg);
+}
+
+.poem__unlikes-icon {
+  background-image: url(../icons/white-heart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+.poem__unlikes-icon:focus {
+  background-image: url(../icons/red-heart.svg);
+}
+
+.poem__comments-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5%;
+}
+
+.poem__delete-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5%;
+  cursor: pointer;
+}
+
+.poem__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.article-container {
+  background-color: white;
+  width: 50%;
+}
+/*# sourceMappingURL=Detail.css.map */

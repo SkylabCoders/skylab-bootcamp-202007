@@ -1,0 +1,39 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.dashboard__accordion {
+    display: none;
+}
+
+.dashboard__ranking {
+    display: none;
+}
+
+@media screen and (min-width: 1200px) {
+    .dashboard {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .dashboard__accordion {
+        display: block;
+        width: 15%;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    .dashboard__list {
+        width: 65%;
+        border-left: 2px solid #eee;
+    }
+
+    .dashboard__ranking {
+        display: block;
+        width: 15%;
+        margin-right: 4%;
+    }
+    
+}

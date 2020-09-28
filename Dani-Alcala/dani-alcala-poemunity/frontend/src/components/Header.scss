@@ -1,0 +1,135 @@
+.header {
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid black;
+    position: fixed;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 100;
+}
+
+.header__dropdown {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 50px;
+}
+
+.header__login,
+.header__logout,
+.header__profile {
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+.header__login {
+    background-image: url(../icons/login.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    border: 0px;
+    outline: none;
+    margin-right: 4vw;
+}
+
+.header__logout {
+    background-image: url(../icons/logout.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    border: 0px;
+    outline: none;
+    margin-right: 4vw;
+}
+
+.header__profile {
+    background-image: url(../icons/profile.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    margin-right: 1vw;
+    outline: none;
+}
+
+.header__dropdown-categories {
+    font-size: 18px;
+}
+
+.header__dropdown-subcategories {
+    color: #000;
+    font-size: .9rem;
+    text-decoration: none;
+}
+
+.header__logo {
+    display: flex;
+    align-items: flex-end;
+}
+
+.header__logo-icon {
+    display: inline-block;
+    background-image: url(../img/poemunity.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+}
+
+.header__text-logo-first,
+.header__text-logo-second {
+    font-family: 'Quattrocento', serif;
+    font-size: 35px;
+    color: #4F5D73;
+}
+
+.header__text-logo-first {
+    margin-left: 15px;
+    margin-right: -10px;
+}
+
+.header__text-logo-second {
+    margin-left: -9px;
+}
+
+@media screen and (min-width: 1200px) {
+
+    .header__dropdown {
+        display: none;
+    }
+
+    .header__text-logo-first,
+    .header__text-logo-second {
+        font-size: 50px;
+    }
+
+    .header__dropdown-categories {
+        font-size: 22px;
+    }
+
+    .header__dropdown-subcategories {
+        font-size: 1.1rem;
+    }
+
+    .header__dropdown-subcategories:hover {
+        color: red
+    }
+
+    .header__dropdown-subcategories:focus {
+        color: red
+    }
+
+    .header__logo {
+        margin-left: 50px;
+    }
+}
