@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Roller !!!",
+    "photo": "https://www.dkitsport.ie/wp-content/uploads/2015/05/DKIT-Sport-Excercise-Classes-resize.jpg",
+    "description": "SomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSome",
+    "level": "Mid",
+    "duration": 65,
+    "price": 15,
+    "date": "22/9/2020"
+  },
+  {
+    "title": "Learn Something",
+    "photo": "https://www.york-sport.com/wp-content/uploads/2017/10/YSV_classes_Body_pump_Featured-Image.jpg",
+    "description": "SomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSome",
+    "level": "Advanced",
+    "duration": 45,
+    "price":22,
+    "date": "3/10/2020"
+  },
+  {
+    "title": "I dont know what to teach",
+    "photo": "https://www.londonmet.ac.uk/media/london-metropolitan-university/london-met-photos/london-met-buildingsfacilities/sports_2013_039.jpg",
+    "description": "SomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSome",
+    "level": "Advanced",
+    "duration": 45,
+    "price":22,
+    "date": "3/10/2020"
+  },
+  {
+    "title": "Learn everithing",
+    "photo": "https://evolve-massage.ca/wp-content/uploads/2018/06/5-morning-yoga-class-for-wellness.jpg",
+    "description": "SomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSome",
+    "level": "Advanced",
+    "duration": 45,
+    "price":22,
+    "date": "3/10/2020"
+  },
+  {
+    "title": "Hello there!",
+    "photo": "https://www.york-sport.com/wp-content/uploads/2017/10/YSV_classes_Body_pump_Featured-Image.jpg",
+    "description": "SomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSome",
+    "level": "Advanced",
+    "duration": 45,
+    "price":22,
+    "date": "3/10/2020"
+  },
+  {
+    "title": "Tell me what to do",
+    "photo": "https://evolve-massage.ca/wp-content/uploads/2018/06/5-morning-yoga-class-for-wellness.jpg",
+    "description": "SomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSomeSome",
+    "level": "Advanced",
+    "duration": 45,
+    "price":22,
+    "date": "3/10/2020"
+  }
+]

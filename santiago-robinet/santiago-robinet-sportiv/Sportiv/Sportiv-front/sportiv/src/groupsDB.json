@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Downhill morning",
+    "photo": "https://bextremeboards.com/blog/wp-content/uploads/2019/05/Bextreme-Siete-Aguas-2-Ruvi-@ruvidio.jpg",
+    "description": "We are going to ride Tibidabo mountain together, hace fun and share our passion! Don`t forget your helmet and protections!",
+    "members": 26,
+    "category":"longboard",
+    "events":[]
+  },
+  {
+    "title": "Mountain rules",
+    "photo": "https://www.revistaoxigeno.es/uploads/s1/23/62/11/6/5c8f96320de694405134962e-9-razones-por-las-que-la-mountain-bike-se-sale.jpeg",
+    "description": "We are going to ride Tibidabo mountain together, hace fun and share our passion! Don`t forget your helmet and protections!",
+    "members": 12,
+    "category":"mountainbike",
+    "events":[]
+  },
+  {
+    "title": "Something",
+    "photo": "https://estaticos.elperiodico.com/resources/jpg/7/1/roller-derby-una-las-modalidades-los-juegos-del-2019-1523996063117.jpg",
+    "description": "We are going to ride Tibidabo mountain together, hace fun and share our passion! Don`t forget your helmet and protections!",
+    "members": 50,
+    "category":"roller",
+    "events":[]
+  },
+  
+  {
+    "title": "Run Forest, Run",
+    "photo": "https://blog.mapmyrun.com/wp-content/uploads/2017/01/Why-Solo-Runners-Who-Should-Consider-a-Running-Group.jpg",
+    "description": "We are going to ride Tibidabo mountain together, hace fun and share our passion! Don`t forget your helmet and protections!",
+    "members": 26,
+    "category":"runnning",
+    "events":[]
+  },
+  {
+    "title": "Downhill morning",
+    "photo": "https://www.revistaoxigeno.es/uploads/s1/23/62/11/6/5c8f96320de694405134962e-9-razones-por-las-que-la-mountain-bike-se-sale.jpeg",
+    "description": "We are going to ride Tibidabo mountain together, hace fun and share our passion! Don`t forget your helmet and protections!",
+    "members": 12,
+    "category":"mountainbike",
+    "events":[]
+  },
+  {
+    "title": "Downhill morning",
+    "photo": "https://estaticos.elperiodico.com/resources/jpg/7/1/roller-derby-una-las-modalidades-los-juegos-del-2019-1523996063117.jpg",
+    "description": "We are going to ride Tibidabo mountain together, hace fun and share our passion! Don`t forget your helmet and protections!",
+    "members": 50,
+    "category":"roller",
+    "events":[]
+  }
+  
+]

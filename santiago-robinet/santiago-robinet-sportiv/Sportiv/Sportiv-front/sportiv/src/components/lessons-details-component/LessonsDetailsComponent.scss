@@ -1,0 +1,188 @@
+.lesson-detail__container {
+  width: 100%;
+
+  .lesson-detail__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lesson-header__container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    max-width: 604px;
+  }
+
+  .lesson-description__container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .lesson-header__container > img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .lesson-title {
+    position: absolute;
+  }
+
+  .map-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+  .map-title > h3 {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 80%;
+    text-align: center;
+  }
+
+  .lesson-map {
+    width: 100%;
+    max-width: 604px;
+  }
+
+  .lesson-map > img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .lesson-description-title {
+    text-align: center;
+  }
+
+  .lesson-description-paragraph {
+    padding: 20px;
+    width: 100%;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+  }
+
+  .lesson-description-paragraph > p {
+    width: 80%;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .lesson-description-title > h3 {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    width: 80%;
+  }
+
+  .lesson-members {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .lesson-inscription {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 25px;
+  }
+  .lesson-button__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .lesson-title > h2 {
+    color: white;
+    padding: 8px;
+  }
+
+  .lesson-description-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lesson-specifications{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .lesson-level, .lesson-price , .lesson-duration{
+    text-align: center;
+    width: 33.33%;
+  }
+
+  .lesson-detail-buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  
+  .inscription__button, .date__button{
+    height: 55px;
+  }
+
+  .lesson-info__bottom{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media (min-width: 750px) {
+
+  .lesson-detail__container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: 100%;
+  }
+  .lesson-header__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 422px;
+  }
+
+  .lesson-info__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .lesson-title > h2 {
+    color: white;
+    padding: 15px;
+  }
+
+  .lesson-members {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .lesson-description-title > h3 {
+    font-size: 28px;
+  }
+
+  .specification-title__size{
+    font-size: 22px;
+  }
+ 
+  .lesson-detail__container p {
+    font-size: 20px;
+  }
+
+  .lesson-info__bottom{
+    height: 40%;
+    justify-content: space-between;
+  }
+
+ 
+}
