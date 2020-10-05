@@ -5,32 +5,48 @@ import { NavLink } from 'react-router-dom';
 import { loadHeroes } from '../actions/heroActions';
 
 function Dashboard() {
-	const [heroes, setHeroes] = useState([]);
+	let heroes = [
+		{ id: 13, name: 'bombasto' },
+		{ id: 14, name: 'celeritas' },
+		{ id: 15, name: 'mou' },
+		{ id: 16, name: 'xurrat' }
+	];
+
+	const [heroList, setHeroList] = useState([]);
 
 	useEffect(() => {
-		heroStore.addChangeListener(onChange);
-		if (heroes.length === 0) {
-			loadHeroes();
+		if (heroList.length === 0) {
+			setHeroList(heroes);
 		}
-		return () => heroStore.removeChangeListener(onChange);
-	}, [heroes.length]);
+	}, [heroList]);
 
-	function onChange() {
-		setHeroes(heroStore.getNumberOfHeroes(5));
+	function changeName() {
+		//heroes.push({ name: 'mouQuetal' });
+		heroes[1].name = 'mouQuetal';
+		setHeroList(heroes);
 	}
 
 	return (
-		<ul className="heroDashboard">
-			{heroes.map((hero) => (
-				<NavLink
-					to={`/hero/${hero.id}`}
-					key={hero.id}
-					className="heroDashboardLink"
+		heroList && (
+			<ul className="heroDashboard">
+				{heroList.map((hero) => (
+					<NavLink
+						to={`/hero/${hero.id}`}
+						key={hero.id}
+						className="heroDashboardLink"
+					>
+						{hero.name}
+					</NavLink>
+				))}
+				<button
+					onClick={(event) => {
+						changeName();
+					}}
 				>
-					{hero.name}
-				</NavLink>
-			))}
-		</ul>
+					Change Name
+				</button>
+			</ul>
+		)
 	);
 }
 
