@@ -1,0 +1,64 @@
+$color-detail: #f55110;
+$max-banner-width: 600px;
+
+.user-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 200px;
+
+  padding-bottom: 13px;
+  border-bottom: 4px solid $color-detail;
+  margin-bottom: 0px;
+
+  .user-header__photo {
+    width: 200px;
+  }
+  .user-header__banner {
+    display: none;
+
+    flex: 1;
+    justify-content: center;
+
+    margin-left: 30px;
+
+    .banner__img {
+      max-width: $max-banner-width;
+    }
+  }
+  .user-header__edit {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    width: 100px;
+    margin-left: 30px;
+
+    .edit__gear {
+      font-size: 40px;
+      color: $color-detail;
+    }
+
+    .edit__save {
+      font-size: 40px;
+      color: white;
+    }
+
+    .white {
+      color: white;
+    }
+
+    .orange {
+      color: $color-detail;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .user-header {
+    .user-header__banner {
+      display: flex;
+    }
+  }
+}

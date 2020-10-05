@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search snapshot Should match without band data 1`] = `
+<section
+  className="new-disc"
+>
+  <div
+    className="new-disc__top"
+  >
+    <div
+      className="top__cover"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root cover__icon"
+        focusable="false"
+        onClick={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+        />
+      </svg>
+      <input
+        name="file"
+        onChange={[Function]}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        type="file"
+      />
+    </div>
+    <div
+      className="top__content"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root content__icon"
+        focusable="false"
+        onClick={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
+      <div
+        className="content__text"
+      >
+        <input
+          className="text__title"
+          onChange={[Function]}
+          placeholder="Disc title"
+          type="text"
+          value=""
+        />
+        <div
+          className="text__info"
+        >
+          <input
+            className="info__date"
+            onChange={[Function]}
+            type="date"
+            value=""
+          />
+          <p>
+            0 Songs
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="new-disc__middle"
+  />
+  <div
+    className="new-disc__bottom"
+  >
+    <div
+      className="bottom__new-song"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Song title"
+        type="text"
+        value=""
+      />
+      <input
+        onChange={[Function]}
+        type="time"
+        value=""
+      />
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        onClick={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        />
+      </svg>
+    </div>
+    <p
+      className="bottom__create"
+      onClick={[Function]}
+    >
+      Create disc
+    </p>
+  </div>
+</section>
+`;

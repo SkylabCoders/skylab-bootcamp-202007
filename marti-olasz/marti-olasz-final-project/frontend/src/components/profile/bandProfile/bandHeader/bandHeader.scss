@@ -1,0 +1,102 @@
+$color-detail: #f55110;
+$max-banner-width: 600px;
+
+.band-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 200px;
+
+  padding-bottom: 13px;
+  border-bottom: 4px solid $color-detail;
+  margin-bottom: 0px;
+
+  .band-header__logo {
+    width: 200px;
+  }
+  .band-header__banner {
+    display: none;
+    height: 100%;
+    flex: 1;
+    max-width: $max-banner-width;
+  }
+  .band-header__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-left: 30px;
+    .info__name {
+      text-transform: uppercase;
+      font-size: 50px;
+      margin: 0;
+      text-align: end;
+    }
+
+    .info__follow {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .contanier__icon {
+        font-size: 40px;
+        margin-right: 10px;
+      }
+
+      .white {
+        color: white;
+      }
+
+      .orange {
+        color: $color-detail;
+      }
+
+      .follow__count {
+        font-size: 25px;
+        margin: 0;
+
+        .count__number {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .info__edit {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      margin-left: 30px;
+
+      .edit__gear {
+        font-size: 40px;
+        color: $color-detail;
+      }
+
+      .edit__save {
+        font-size: 40px;
+        color: white;
+      }
+      .edit__public {
+        font-size: 40px;
+        color: $color-detail;
+      }
+      .white {
+        color: white;
+      }
+
+      .orange {
+        color: $color-detail;
+      }
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .band-header {
+    .band-header__banner {
+      display: block;
+    }
+  }
+}

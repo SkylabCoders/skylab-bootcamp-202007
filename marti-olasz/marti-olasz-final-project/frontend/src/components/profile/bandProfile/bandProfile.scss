@@ -1,0 +1,36 @@
+$color-detail: #f55110;
+.band-profile {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 20px 10%;
+
+  padding-bottom: 50px;
+
+  .band-profile__middle {
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 20px;
+    border-bottom: 4px solid $color-detail;
+  }
+  .band-profile__bottom {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 550px) {
+  .band-profile {
+    .band-profile__middle {
+      flex-direction: row;
+    }
+
+    .band-profile__bottom {
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+$color-detail: #f55110;
+$main-color: #1a1a1a;
+
+.concerts {
+  width: 200px;
+  margin-right: 30px;
+  .concerts__title {
+    display: flex;
+    align-items: center;
+
+    .title__icon {
+      font-size: 30px;
+      color: $color-detail;
+      margin-right: 10px;
+    }
+  }
+  .concerts__main {
+    display: flex;
+    flex-direction: column;
+
+    .main__item {
+      font-size: 20px;
+      border-bottom: 2px solid white;
+      .item__date {
+        margin: 5px;
+      }
+
+      .item__container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .container__city {
+          margin: 5px;
+          color: #f6544c;
+        }
+        .container__icon:hover {
+          color: $color-detail;
+        }
+      }
+    }
+  }
+
+  .concerts__new-concert {
+    display: flex;
+    align-items: flex-end;
+
+    .new-concert__create {
+      .create__icon {
+        &:hover {
+          color: $color-detail;
+        }
+      }
+    }
+  }
+
+  input {
+    background: $main-color;
+    color: white;
+    font-family: Arial;
+
+    border: 0 solid transparent;
+    border-bottom: 2px solid $color-detail;
+
+    padding: 5px 0;
+    font-size: 15px;
+
+    width: 90%;
+
+    margin-top: 10px;
+  }
+}

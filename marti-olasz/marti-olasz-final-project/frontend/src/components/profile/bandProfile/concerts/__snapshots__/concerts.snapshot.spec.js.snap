@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Concerts snapshot Should match  1`] = `
+<section
+  className="concerts"
+>
+  <div
+    className="concerts__title"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root title__icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+      />
+    </svg>
+    <h1
+      className="title__text"
+    >
+      Concerts
+    </h1>
+  </div>
+  <div
+    className="concerts__main"
+  >
+    <div
+      className="main__item"
+    >
+      <p
+        className="item__date"
+      />
+      <div
+        className="item__container"
+      >
+        <p
+          className="container__city"
+        >
+          My house
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`Concerts snapshot Should match  2`] = `
+<section
+  className="concerts"
+>
+  <div
+    className="concerts__title"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root title__icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+      />
+    </svg>
+    <h1
+      className="title__text"
+    >
+      Concerts
+    </h1>
+  </div>
+  <div
+    className="concerts__main"
+  >
+    <div
+      className="main__item"
+    >
+      <p
+        className="item__date"
+      />
+      <div
+        className="item__container"
+      >
+        <p
+          className="container__city"
+        >
+          My house
+        </p>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root container__icon"
+          focusable="false"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    className="concerts__new-concert"
+  >
+    <div
+      className="new-concert__input"
+    >
+      <input
+        className="input__date"
+        onChange={[Function]}
+        placeholder="Date"
+        type="date"
+        value=""
+      />
+      <input
+        className="input__city"
+        onChange={[Function]}
+        placeholder="City"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="new-concert__create"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root create__icon"
+        focusable="false"
+        onClick={[Function]}
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+        />
+      </svg>
+    </div>
+  </div>
+</section>
+`;

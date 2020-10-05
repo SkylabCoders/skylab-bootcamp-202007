@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile snapshot Should match 1`] = `
+<div
+  className="css-3fvcat"
+>
+  <div
+    className="css-hwvl8z"
+  />
+  <div
+    className="css-16hco3u"
+  />
+</div>
+`;

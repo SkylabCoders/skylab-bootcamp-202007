@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search snapshot Should match without band data 1`] = `
+<section
+  className="songs"
+>
+  <div
+    className="songs__top"
+  >
+    <img
+      alt="Album cover"
+      className="top__img"
+      src="img"
+    />
+    <div
+      className="top__content"
+    >
+      <div
+        className="content__icon"
+      >
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root icon__back"
+          focusable="false"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"
+          />
+        </svg>
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root icon__delete"
+          focusable="false"
+          onClick={[Function]}
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
+      </div>
+      <div
+        className="content__text"
+      >
+        <h3
+          className="text__title"
+        >
+          title
+        </h3>
+        <p
+          className="text__info"
+        >
+          date
+           | 
+          1
+           songs
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="songs__middle"
+  >
+    <p
+      className="middle__item"
+    >
+      <span
+        className="item__number"
+      >
+        1
+        .
+      </span>
+      title
+       | 
+      time
+    </p>
+  </div>
+  <div
+    className="songs__bottom"
+  >
+    
+  </div>
+</section>
+`;
