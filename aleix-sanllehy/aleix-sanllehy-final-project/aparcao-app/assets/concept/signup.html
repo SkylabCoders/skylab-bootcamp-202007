@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo"></div>
+    </header>
+
+    <main class="signup-container">
+      <form class="signup__form" method="post">
+        <label class="label" for="user"
+          ><span>name</span>
+          <input class="input" name="user" type="text" />
+        </label>
+        <label class="label" for="email"
+          ><span>email</span>
+          <input class="input" name="email" type="email" />
+        </label>
+        <label class="label" for="password"
+          ><span>password</span>
+          <input class="input" name="password" type="password" />
+        </label>
+        <label class="label" for="confirm-password">
+          <span>_password</span>
+          <input class="input" name="confirm-password" type="password" />
+        </label>
+
+        <button class="button signup-button">
+          <a href="./signin.html">Sign up</a>
+        </button>
+      </form>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>

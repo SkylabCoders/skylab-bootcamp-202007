@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  color: black;
+  /*font-family: Ubuntu, "Helvetica Neue", Helvetica;*/
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+  font-size: 2.5vh;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.label {
+  font-weight: 500;
+  margin-top: 1vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.label span {
+  padding: 0 5vh 0 5vh;
+}
+
+.input,
+.button,
+.select {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.input:hover,
+.button:hover,
+.select:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.input {
+  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 1vw;
+  margin-top: 1vh;
+  padding: 1vh 5vh 1vh 5vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input:invalid {
+  border: 1px solid red;
+}
+
+.button {
+  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 1vw;
+  padding: 1vh;
+  width: 47%;
+}
+
+.select {
+  margin-top: 1vh;
+  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 1vw;
+  width: 100%;
+  padding: 1vh 4vh 1vh 4vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

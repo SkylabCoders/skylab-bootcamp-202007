@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="actionbar.css" />
+    <link rel="stylesheet" href="sidemenu.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <div id="sidemenu" class="sidemenu">
+      <div class="sidemenu-option">
+        <a href="./settings.html"
+          ><div class="sidemenu-icon settings"></div>
+          User settings</a
+        >
+      </div>
+      <div class="sidemenu-option">
+        <a href="./about.html"
+          ><div class="sidemenu-icon about"></div>
+          About</a
+        >
+      </div>
+      <div class="sidemenu-option">
+        <a href="./signin.html"
+          ><div class="sidemenu-icon signout"></div>
+          Sign out</a
+        >
+      </div>
+    </div>
+
+    <main onclick="closeNav()" class="profile-container">
+      <div class="profile-header">
+        <h1>User profile</h1>
+      </div>
+
+      <form class="profile__form" method="post">
+        <h2>Select your mount</h2>
+        <label class="label" for="make"
+          ><span>Make</span>
+          <select class="select" name="make">
+            <option value="none"></option>
+            <option value="mercedesbenz">Mercedes-Benz</option>
+          </select>
+        </label>
+        <label class="label" for="model"
+          ><span>Model</span>
+          <select class="select" name="model">
+            <option value="none"></option>
+            <option value="papamovil">Papamovil</option>
+          </select>
+        </label>
+        <div class="profile-buttons">
+          <button class="button">
+            <a href="./main.html">Apply</a>
+          </button>
+          <button class="button">
+            <a href="./settings.html">Settings</a>
+          </button>
+        </div>
+        <button class="button signout-button">
+          <a href="./signin.html">Sign out</a>
+        </button>
+      </form>
+    </main>
+
+    <footer class="action-bar">
+      <div class="action-bar__icon action-bar__menu" onclick="openNav()"></div>
+      <a href="./main.html"
+        ><div class="action-bar__icon action-bar__scanner"></div
+      ></a>
+      <a href="./profile.html"
+        ><div class="action-bar__icon action-bar__user"></div
+      ></a>
+    </footer>
+    <script>
+      function openNav() {
+        document.getElementById("sidemenu").style.width = "66%";
+      }
+
+      function closeNav() {
+        document.getElementById("sidemenu").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "aleix",
+    "email": "aleix@mail.com",
+    "password": 1234
+  },
+  {
+    "name": "carreroblanco",
+    "email": "whiterun@spacex.com",
+    "password": 1111
+  },
+  {
+    "name": "juancar",
+    "email": "juancar@casareal.com",
+    "password": 2222
+  }
+]
