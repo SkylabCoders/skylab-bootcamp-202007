@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="signin.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo"></div>
+    </header>
+
+    <main class="signin-container">
+      <form class="signin__form" method="post">
+        <label class="label" for="user">
+          <span>User or email</span>
+          <input class="input" name="user" type="text" />
+        </label>
+        <label class="label" for="password">
+          <span>Password</span>
+          <input class="input" name="password" type="password" />
+        </label>
+        <label class="check-label">
+          <input type="checkbox" /><span>Remember me</span>
+        </label>
+        <div class="signin-buttons">
+          <button class="button">
+            <a href="./main.html">Sign in</a>
+          </button>
+          <button class="button">
+            <a href="./signup.html">Sign up</a>
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <footer class="footer"></footer>
+  </body>
+</html>

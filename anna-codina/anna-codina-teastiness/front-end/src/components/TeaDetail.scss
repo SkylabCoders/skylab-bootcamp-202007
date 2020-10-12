@@ -1,0 +1,85 @@
+.add-product {
+    z-index: 10;
+    bottom: 15px;
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    right: 30px;
+
+
+    &__icon {
+        right: 0px;
+        bottom: 0px;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        z-index: 90;
+        background: url(https://image.flaticon.com/icons/svg/3043/3043769.svg) center no-repeat;
+        background-size: 100%;
+        transition: all 0.2s ease-in-out;
+
+        p {
+            right: 50px;
+            position: absolute;
+            font-size: 12px;
+            top: 13px;
+            width: 165px;
+        }
+    }
+
+    &__shops {
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+        padding: 20px;
+        background: #222222;
+        border-radius: 15px;
+        font-size: 25px;
+        font-weight: bold;
+        display: none;
+        transition: all 0.2s ease-in-out;
+
+        .shops__item {
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+
+
+            .item__add-icon,
+            .item__remove-icon {
+                width: 20px;
+                height: 20px;
+                border: none;
+                margin: 15px;
+            }
+
+            .item__add-icon {
+                background: url(https://image.flaticon.com/icons/svg/1828/1828819.svg) center no-repeat;
+                background-size: 100%;
+            }
+
+            .item__remove-icon {
+                background: url(https://image.flaticon.com/icons/svg/1632/1632708.svg) center no-repeat;
+                background-size: 100%;
+            }
+
+        }
+
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0);
+
+        .add-product__shops {
+            display: flex;
+            flex-direction: column;
+            transform: scale(1, 1);
+            transition: all 3s ease-in-out;
+        }
+
+        .add-product__icon {
+            transition: all 0.2s ease-in-out;
+            opacity: 0%;
+        }
+    }
+}

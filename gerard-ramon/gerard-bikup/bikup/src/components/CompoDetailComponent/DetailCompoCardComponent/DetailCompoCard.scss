@@ -1,0 +1,64 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+
+.detailcompocard {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 18px;
+	width: 88%;
+	background-color: $light-highlight-color;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+}
+
+.detailcompocard__img {
+	height: 30px;
+	width: 30px;
+	margin-right: 12px;
+}
+
+.detailcompocard__content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 98%;
+	padding: 6px 12px;
+	border-left: 4px solid $main-color;
+	border-radius: 5px;
+}
+
+.detailcompocard__info {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+#progress_detail {
+	width: 100%;
+}
+
+.detailcompocard__labels {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.labels__status {
+	font-size: 10px;
+}
+
+.detailcompocard__button {
+	display: flex;
+	align-items: center;
+	background-color: $main-color;
+	border: none;
+	padding: 12px;
+	border-radius: 5px;
+}
+
+.button__img {
+	height: 16px;
+}

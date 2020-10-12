@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert List snapshot should match 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="footer__container"
+  >
+    <div
+      className="back__button__container"
+    >
+      <button
+        className="create__button"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          &lt;
+        </a>
+      </button>
+    </div>
+    <div
+      className="logo__name"
+    >
+      <h5>
+        Save paws -
+        <span
+          className="footer__span"
+        >
+          Animal rescue
+        </span>
+      </h5>
+      <div
+        className="footer__menu"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+        <a
+          href="/categories"
+          onClick={[Function]}
+        >
+          By categories
+        </a>
+        <a
+          href="/alerts"
+          onClick={[Function]}
+        >
+          Show list
+        </a>
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+        <a
+          href="/contact"
+          onClick={[Function]}
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+    <div
+      className="inner__footer"
+    >
+      <small>
+        Copyright 2020 Save paws
+      </small>
+    </div>
+  </div>
+</footer>
+`;

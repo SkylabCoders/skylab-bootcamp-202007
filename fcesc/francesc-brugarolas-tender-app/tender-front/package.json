@@ -1,0 +1,102 @@
+{
+	"name": "tender-frontend",
+	"version": "1.0.0",
+	"description": "Helping the tendering process",
+	"main": "src/index.jsx",
+	"private": "true",
+	"scripts": {
+		"start": "react-scripts start",
+		"test": "react-scripts test --watchAll --coverage",
+		"lint": "eslint . --fix",
+		"build": "react-scripts build",
+		"eject": "react-scripts eject"
+	},
+	"keywords": [
+		"Skylab",
+		"Bootcamp 202007",
+		"tender",
+		"tendering process"
+	],
+	"author": {
+		"name": "Francesc Brugarolas",
+		"email": "tender@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SkylabCoders/francesc-brugarolas-tender-app.git"
+	},
+	"license": "spanish intellectual property law @29th-August-2020",
+	"dependencies": {
+		"@auth0/auth0-react": "^1.0.0",
+		"@material-ui/core": "^4.11.0",
+		"@material-ui/icons": "^4.9.1",
+		"@material-ui/lab": "^4.0.0-alpha.56",
+		"@material-ui/styles": "^4.10.0",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.5.0",
+		"@testing-library/user-event": "^7.2.1",
+		"axios": "^0.20.0",
+		"bootstrap": "^4.5.2",
+		"d3": "^6.1.1",
+		"immer": "^7.0.8",
+		"node-sass": "^4.14.1",
+		"prop-types": "^15.7.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-redux": "^7.2.1",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "3.4.3",
+		"react-test-renderer": "^16.13.1",
+		"react-toastify": "^6.0.8",
+		"redux": "^4.0.5",
+		"redux-immutable-state-invariant": "^2.1.0",
+		"redux-thunk": "^2.3.0",
+		"typescript": "^4.0.2"
+	},
+	"devDependencies": {
+		"@babel/plugin-transform-react-jsx": "^7.10.4",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.3",
+		"eslint": "^6.6.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"fetch-mock": "^9.10.7",
+		"prettier": "^2.1.1",
+		"redux-mock-store": "^1.5.4"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"jest": {
+		"coverageThreshold": {
+			"global": {
+				"branches": 80,
+				"functions": 90,
+				"lines": 80,
+				"statements": -10
+			}
+		},
+		"collectCoverageFrom": [
+			"**/*.{js,jsx}",
+			"!**/node_modules/**",
+			"!**/vendor/**",
+			"!**/coverage/**",
+			"!**/components/**",
+			"!**/*_CONFIG.js",
+			"!**/*_TYPES.js",
+			"!**/*_mock.js",
+			"!**/*.json",
+			"!**/*.spec.js",
+			"!**/*.spec.js.snap"
+		]
+	}
+}

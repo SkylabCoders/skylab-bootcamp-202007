@@ -1,0 +1,44 @@
+$color-detail: #f55110;
+.discography {
+  width: 100%;
+  .discography__title {
+    display: flex;
+    align-items: center;
+
+    .title__icon {
+      font-size: 30px;
+      color: $color-detail;
+      margin-right: 10px;
+    }
+  }
+  .discography__main {
+    display: flex;
+    flex-wrap: wrap;
+
+    .main__edit {
+      width: 200px;
+      height: 200px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      border: 2px solid $color-detail;
+      .edit__icon {
+        font-size: 50px;
+        margin: 20px;
+
+        &:hover {
+          color: $color-detail;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .discography {
+    width: 80%;
+  }
+}

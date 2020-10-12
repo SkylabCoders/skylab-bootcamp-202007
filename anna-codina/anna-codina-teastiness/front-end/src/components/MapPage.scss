@@ -1,0 +1,101 @@
+section {
+  width: 100%;
+
+  .map {
+    flex-grow: 1;
+    height: 70vh;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    .map-component {
+      width: 100%;
+      height: 100%;
+
+      .map-pointer {
+        .map-pointer__token {
+          transition: all 0.3s ease-in-out;
+          width: 50px;
+          height: 50px;
+          margin: auto;
+        }
+
+        .body-box--shop {
+          display: none;
+        }
+      }
+
+      .map-pointer:hover {
+        .map-pointer__token {
+          display: none;
+        }
+
+        .body-box--shop {
+          margin-top: -10px;
+          margin-left: -10px;
+          width: 250px;
+          height: 250px;
+          display: flex;
+          flex-direction: column;
+          background-color: black;
+
+          h1 {
+            font-size: 20px;
+          }
+
+          .body-box__hidden-content {
+            font-size: 14px;
+            margin-top: 25px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  section {
+
+    .map {
+      height: 75vh;
+
+      .map-component {
+        .map-pointer:hover {
+          .body-box--shop {
+            h1 {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  body {
+    #root {
+      main {
+
+        section {
+          .map {
+            .map-component {
+              .map-pointer:hover {
+                .body-box--shop {
+                  h1 {
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

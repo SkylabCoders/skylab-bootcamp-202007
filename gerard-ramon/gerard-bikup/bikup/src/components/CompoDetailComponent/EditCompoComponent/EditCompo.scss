@@ -1,0 +1,165 @@
+$header-bg-color: #222831;
+$main-color: #00cc99;
+$header-separator-color: #393e46;
+$light-highlight-color: #eeeeee;
+$menu-bg-color: #393e46;
+$transition: all 0.2s ease-in-out;
+$transform: scale(1.08);
+$delete-button-bg: #fe6464;
+
+$form-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+
+.editcompo {
+	font-size: 16px;
+}
+
+.editcompo__upper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 12px;
+}
+
+.editcompo__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 100px;
+}
+
+.editcompo__title {
+	padding: 6px;
+}
+
+.editcompo__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	background: $light-highlight-color;
+	border-radius: 15px;
+	padding: 12px;
+	box-shadow: $form-shadow;
+	margin-bottom: 12px;
+}
+
+.editcompo__element {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 6px;
+	width: 80%;
+	margin-bottom: 3px;
+}
+
+.editcompo__element-double {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+	margin-bottom: 3px;
+	padding: 6px;
+}
+
+.element-double__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 45%;
+}
+
+.element-double__item input {
+	text-align: right;
+}
+
+.editcompo__label {
+	margin-bottom: 5px;
+	font-size: 16px;
+	font-weight: 450;
+}
+
+.editcompo__input {
+	padding: 6px;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid $header-separator-color;
+	font-size: 16px;
+}
+
+.editcompo__warning {
+	text-align: right;
+	width: 100%;
+	height: 25px;
+	font-size: 14px;
+	margin-bottom: 6px;
+	color: red;
+	font-weight: 500;
+}
+
+.editcompo__create-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+	width: 80%;
+	border-radius: 5px;
+	border: none;
+	background-color: $main-color;
+	color: whitesmoke;
+	font-size: 18px;
+	font-weight: bold;
+	transition: $transition;
+	cursor: pointer;
+}
+
+.editcompo__create-button:hover {
+	transform: $transform;
+	color: black;
+}
+
+.editcompo__extra {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 12px;
+	padding: 12px;
+	width: 80%;
+}
+
+.extra__addcompo-button {
+	margin-bottom: 12px;
+}
+
+.extra__delete-button {
+	font-size: 18px;
+	padding: 12px;
+	border-radius: 5px;
+	border: none;
+	background-color: $delete-button-bg;
+	color: whitesmoke;
+	font-weight: 500;
+	width: 80%;
+	cursor: pointer;
+	transition: $transition;
+}
+
+.extra__delete-button:hover {
+	color: black;
+	transform: $transform;
+}
+
+@media only screen and (min-width: 900px) {
+	.mobile {
+		display: none;
+	}
+
+	.desktop {
+		display: flex;
+	}
+
+	.editcompo {
+		width: 450px;
+		margin: auto;
+	}
+}

@@ -1,0 +1,81 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$dark-highlight-color: #393e46;
+$strava-button-bg-color: #fc4c02;
+$strava-button-color: whitesmoke;
+$standard-button-color: black;
+$header-bg-color: #222831;
+
+$light-login-bg: rgba(238, 238, 238, 0.6);
+
+$card-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.514);
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+}
+
+.profile__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 32px 12px;
+}
+
+.profile__picture {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 12px;
+}
+
+.picture__img {
+	border-radius: 50%;
+	height: 150px;
+}
+
+.profile__main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.main__info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 24px;
+}
+
+.main__username {
+	margin-bottom: 12px;
+}
+
+.profile__edit {
+	width: 50%;
+}
+
+.edit__button {
+	padding: 12px;
+	border-radius: 5px;
+	border: none;
+	background-color: $main-color;
+	font-size: 18px;
+	font-weight: 500;
+	width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+	.profile {
+		margin: auto;
+	}
+
+	.profile__edit {
+		width: 200px;
+	}
+
+	.edit__button {
+	}
+}

@@ -1,0 +1,28 @@
+.alert__container {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    color: #fff;
+    width: 100%;
+    opacity: 1;
+}
+
+.container__alert {
+    width: 80%;
+    background-color: blue;
+}
+
+.container__alert-hide {
+    opacity: 0;
+    animation: fadeOut ease 5s;
+}
+
+@keyframes fadeOut {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }   
+}

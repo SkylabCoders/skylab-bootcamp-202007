@@ -1,0 +1,161 @@
+.profile__main {
+  height: 550px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 30px;
+}
+
+.profile__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.profile__intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 1600px;
+}
+
+.profile__image {
+  display: inline-block;
+  background-image: url(../icons/profile.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 35%;
+  margin: 35px;
+}
+
+.profile__personal-data {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile__insert-poem {
+  height: 70%;
+}
+
+.profile__insert-poem-title {
+  font-size: 20px;
+}
+
+.profile__insert-poem-inputs {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 90%;
+}
+
+.profile__insert-poem-input {
+  padding: .15rem;
+  font-size: 1.2rem;
+}
+
+.profile__text-area {
+  width: 70%;
+  height: 230px;
+  font-size: 24px;
+  margin-left: 40px;
+  z-index: 150;
+}
+
+.profile__send-poem {
+  font-size: 22px;
+  margin-top: 12px;
+  margin-left: 40px;
+  margin-bottom: 30px;
+  padding: 6px;
+  width: 15rem;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+.profile__send-poem:hover {
+  background-color: green;
+  color: white;
+}
+
+.profile__myPoems {
+  margin-top: -125px;
+}
+
+.profile__tabs {
+  z-index: -100;
+}
+
+@media screen and (min-width: 700px) {
+  .profile__title {
+    font-size: 28px;
+  }
+  .profile__myPoems {
+    margin-top: -72px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .profile__title {
+    font-size: 32px;
+  }
+  .profile__intro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 450px;
+  }
+  .profile__image {
+    height: 65%;
+    width: auto;
+  }
+  .profile__text-area {
+    margin-left: 80px;
+  }
+  .profile__send-poem {
+    margin-left: 80px;
+  }
+}
+/*# sourceMappingURL=Profile.css.map */

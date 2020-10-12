@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer snapshot Should match 1`] = `
+<footer
+  className="footer"
+>
+  <a
+    className="footer__cookies"
+    href="/cookies"
+    onClick={[Function]}
+  >
+    Cookies
+  </a>
+  |
+  <a
+    className="footer__legal"
+    href="/legal"
+    onClick={[Function]}
+  >
+    Legal
+  </a>
+  |
+  <a
+    className="footer__privacy"
+    href="/privacy"
+    onClick={[Function]}
+  >
+    Privacy
+  </a>
+</footer>
+`;

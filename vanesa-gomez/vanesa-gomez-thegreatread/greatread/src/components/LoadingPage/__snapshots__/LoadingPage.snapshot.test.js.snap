@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingPage should match 1`] = `
+<div
+  className="spinner-container"
+>
+  <img
+    alt="spinner"
+    className="spinner"
+    height="150px"
+    src="https://static.wixstatic.com/media/332553_2c00ce4bd4e84416bae88ea4d1405950~mv2.gif"
+    width="150px"
+  />
+</div>
+`;

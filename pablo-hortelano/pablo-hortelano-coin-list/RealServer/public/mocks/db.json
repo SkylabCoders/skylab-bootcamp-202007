@@ -1,0 +1,58 @@
+{
+  "s%3AslYgk4ixhTguyR8M1TzpzoNdU63rTTKl.MkuHdRoDHrnyCw5oX9gO4ZKmaUxZ8McqiRFNHgML3z0": {
+    "Bitcoin": {
+      "description": "BTC",
+      "moves": [
+        { "type": "buy", "buyPrice": 500, "quantity": "100" },
+        { "type": "sell", "sellPrice": 600, "quantity": "200" },
+        { "type": "buy", "buyPrice": 700, "quantity": "150" },
+        { "type": "sell", "sellPrice": 900, "quantity": "300" }
+      ],
+      "img": "https://img2.freepng.es/20171220/bhe/bitcoin-png-5a3a2702388611.73714972151376051423153857.jpg"
+    },
+    "Ethereum": {
+      "description": "ETH",
+      "moves": [
+        { "type": "buy", "buyPrice": 400, "quantity": "100" },
+        { "type": "sell", "sellPrice": 800, "quantity": "100" }
+      ],
+      "img": "https://i0.pngocean.com/files/906/776/980/ethereum-blockchain-bitcoin-logo-see-you-there.jpg"
+    },
+    "Litecoin": {
+      "description": "LTC",
+      "moves": [
+        { "type": "buy", "buyPrice": 800, "quantity": "100" },
+        { "type": "sell", "sellPrice": 600, "quantity": "100" }
+      ],
+      "img": "https://w7.pngwing.com/pngs/777/875/png-transparent-bitcoin-computer-icons-cryptocurrency-litecoin-bitcoin-text-trademark-logo.png"
+    }
+  },
+  "pabloID": {
+    "Bitcoin": {
+      "description": "BTC",
+      "moves": [
+        { "type": "buy", "buyPrice": 500, "quantity": "100" },
+        { "type": "sell", "sellPrice": 600, "quantity": "200" },
+        { "type": "buy", "buyPrice": 700, "quantity": "150" },
+        { "type": "sell", "sellPrice": 900, "quantity": "300" }
+      ],
+      "img": "https://img2.freepng.es/20171220/bhe/bitcoin-png-5a3a2702388611.73714972151376051423153857.jpg"
+    },
+    "Ethereum": {
+      "description": "ETH",
+      "moves": [
+        { "type": "buy", "buyPrice": 400, "quantity": "100" },
+        { "type": "sell", "sellPrice": 800, "quantity": "100" }
+      ],
+      "img": "https://i0.pngocean.com/files/906/776/980/ethereum-blockchain-bitcoin-logo-see-you-there.jpg"
+    },
+    "Litecoin": {
+      "description": "LTC",
+      "moves": [
+        { "type": "buy", "buyPrice": 800, "quantity": "100" },
+        { "type": "sell", "sellPrice": 600, "quantity": "100" }
+      ],
+      "img": "https://w7.pngwing.com/pngs/777/875/png-transparent-bitcoin-computer-icons-cryptocurrency-litecoin-bitcoin-text-trademark-logo.png"
+    }
+  }
+}

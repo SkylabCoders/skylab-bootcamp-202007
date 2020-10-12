@@ -1,0 +1,46 @@
+.add-movements__form-box--radio {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.form-input-box {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-input-box * {
+  padding-right: 10px !important;
+}
+
+.add-movements__form-box--radio {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Mui-focused,
+.PrivateNotchedOutline-root-21,
+.MuiOutlinedInput-notchedOutline {
+  color: #ff3d6b !important;
+}
+
+.PrivateNotchedOutline-root-21,
+.MuiOutlinedInput-notchedOutline {
+  border-color: #ff3d6b !important;
+}
+.MuiFilledInput-underline:after,
+.MuiInput-underline:after {
+  border-color: #ff3d6b !important;
+  border-bottom: 2px solid #ff3d6b !important;
+}
+
+.MuiPickersToolbar-toolbar,
+.MuiPickersClock-pin,
+.MuiPickersClockPointer-pointer,
+.MuiPickersClockPointer-thumb {
+  background-color: #ff3d6b !important;
+}
+
+.MuiPickersClockPointer-thumb {
+  border: 14px solid #ff3d6b !important ;
+}

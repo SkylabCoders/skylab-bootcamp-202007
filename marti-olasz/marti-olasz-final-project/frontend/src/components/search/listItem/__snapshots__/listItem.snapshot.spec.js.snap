@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem snapshot Should match 1`] = `
+<section
+  className="item-list"
+>
+  <img
+    alt="logo"
+    className="item-list__logo"
+    src="logo.com"
+  />
+  <div
+    className="item-list__info"
+  >
+    <div
+      className="info__top"
+    >
+      <p
+        className="top__name"
+      >
+        name
+      </p>
+       |
+      <p
+        className="top__city"
+      >
+        city
+      </p>
+      <p
+        className="top__country"
+      >
+        country
+      </p>
+    </div>
+    <div
+      className="info__middle"
+    >
+      <p
+        className="middle__item"
+      >
+        punk
+      </p>
+      <p
+        className="middle__item"
+      >
+        rock
+      </p>
+      <p
+        className="middle__item"
+      >
+        heavy
+      </p>
+    </div>
+    <p
+      className="info__bio"
+    >
+      blablabla
+    </p>
+    <a
+      href="/band/0"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root bottom__icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+        />
+      </svg>
+    </a>
+  </div>
+</section>
+`;

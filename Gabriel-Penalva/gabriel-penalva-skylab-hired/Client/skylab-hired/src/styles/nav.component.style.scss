@@ -1,0 +1,56 @@
+body {
+	position: relative;
+	min-height: 100vh;
+	zoom: 1;
+}
+
+.navBar {
+	background-color: #12cdd4;
+	height: 60px;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 100%;
+	margin: auto;
+}
+.flex-item {
+	display: flex;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.footer {
+	margin-top: 20px;
+	justify-content: center;
+	max-height: 30px;
+	bottom: 0px;
+	width: 100%;
+	position: absolute;
+	h6 {
+		max-height: 50px;
+		margin: 1px;
+	}
+}
+img {
+	margin: 15px;
+	height: 40px;
+}
+.nav-logout {
+	margin: 10px;
+	button {
+		background-color: rgb(246, 112, 134);
+		border-style: none;
+		border-radius: 5px;
+		padding: 3px 10px;
+		height: 35px;
+		font-size: larger;
+	}
+	button:hover {
+		background-color: rgb(255, 52, 52);
+	}
+}

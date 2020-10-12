@@ -1,0 +1,66 @@
+[
+    {
+        "compoBikeId": "5f4e48d27edd9832f01d6cc4",
+        "compoType": "chain",
+        "compoDisplayName": "Chain",
+        "compoLife": 2000000,
+        "compoAccumulatedMeters": 1345000,
+        "compoAccumulatedMinutes": 1950
+    },
+    {
+        "compoBikeId": "5f4e48d27edd9832f01d6cc4",
+        "compoType": "frontTyre",
+        "compoDisplayName": "Front Tyre",
+        "compoLife": 6000000,
+        "compoAccumulatedMeters": 1345000,
+        "compoAccumulatedMinutes": 1950
+    },
+    {
+        "compoBikeId": "5f4e48d27edd9832f01d6cc4",
+        "compoType": "rearTyre",
+        "compoDisplayName": "Rear Tyre",
+        "compoLife": 5000000,
+        "compoAccumulatedMeters": 1345000,
+        "compoAccumulatedMinutes": 1950
+    },
+    {
+        "compoBikeId": "5f4e48d27edd9832f01d6cc4",
+        "compoType": "fontBrakePads",
+        "compoDisplayName": "Front Brake",
+        "compoLife": 2000000,
+        "compoAccumulatedMeters": 290000,
+        "compoAccumulatedMinutes": 849
+    },
+    {
+        "compoBikeId": "5f4e6c647edd9832f01d6cc7",
+        "compoType": "chain",
+        "compoDisplayName": "Chain",
+        "compoLife": 2000000,
+        "compoAccumulatedMeters": 290000,
+        "compoAccumulatedMinutes": 1950
+    },
+    {
+        "compoBikeId": "5f4e6c647edd9832f01d6cc7",
+        "compoType": "frontTyre",
+        "compoDisplayName": "Front Tyre",
+        "compoLife": 6000000,
+        "compoAccumulatedMeters": 1345000,
+        "compoAccumulatedMinutes": 1950
+    },
+    {
+        "compoBikeId": "5f4e6c647edd9832f01d6cc7",
+        "compoType": "rearTyre",
+        "compoDisplayName": "Rear Tyre",
+        "compoLife": 5000000,
+        "compoAccumulatedMeters": 1345000,
+        "compoAccumulatedMinutes": 1950
+    },
+    {
+        "compoBikeId": "5f4e6c647edd9832f01d6cc7",
+        "compoType": "fontBrakePads",
+        "compoDisplayName": "Front Brake",
+        "compoLife": 2000000,
+        "compoAccumulatedMeters": 290000,
+        "compoAccumulatedMinutes": 849
+    }
+]

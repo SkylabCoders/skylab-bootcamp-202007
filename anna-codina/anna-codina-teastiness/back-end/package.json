@@ -1,0 +1,52 @@
+{
+  "name": "teastiness",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha src/**/*.test.js --coverage",
+    "test-coverage": "nyc --reporter=lcov mocha src/**/*.test.js",
+    "start": "DEBUG=server,server:* nodemon index.js",
+    "eslint": "eslint index.js --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chalk": "^4.1.0",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "mocha": "^8.1.1",
+    "mongoose": "^5.10.0",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "should": "^13.2.3",
+    "sinon": "^9.0.3",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "prettier": "^2.0.5"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node-modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "PORT": 4200
+    }
+  }
+}

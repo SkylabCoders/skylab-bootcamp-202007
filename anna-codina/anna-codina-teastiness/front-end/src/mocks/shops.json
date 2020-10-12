@@ -1,0 +1,62 @@
+[{
+  "_id": {
+    "$oid": "5f50f14ba556472baf77f649"
+  },
+  "ownerId": "5f574e3f8790ce4269e3716c",
+  "products": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d3f"
+    },
+    {
+      "$oid": "5f4d4e15d5895d12e5884d43"
+    },
+    {
+      "$oid": "5f4d4e15d5895d12e5884d41"
+    }
+  ],
+  "name": "usagi",
+  "img": "https://media-cdn.tripadvisor.com/media/photo-s/0a/a8/f9/6e/usagui-barcelona.jpg",
+  "schedule": "13:00 a 20:30",
+  "address": {
+    "street": "c/ Santjoanistes nº28",
+    "city": "barcelona"
+  },
+  "location": {
+    "lat": 41.402213,
+    "lng": 2.146382
+  },
+  "description": "Tés, dulces y platos japoneses en un acogedor café con paredes de ladrillo visto y moderno diseño minimalista",
+  "__v": 42
+},{
+  "_id": {
+    "$oid": "5f5a2bb104a69f37cd50c53f"
+  },
+  "products": [
+    {
+      "$oid": "5f4d4e15d5895d12e5884d40"
+    },
+    {
+      "$oid": "5f4d4e15d5895d12e5884d3e"
+    },
+    {
+      "$oid": "5f4d4e15d5895d12e5884d43"
+    },
+    {
+      "$oid": "5f4d4e15d5895d12e5884d41"
+    }
+  ],
+  "ownerId": "5f574e3f8790ce4269e3716c",
+  "name": "skylab",
+  "img": "https://www.skylabcoders.com/images/46074/image_width_50.jpg",
+  "schedule": "24/7 365",
+  "address": {
+    "street": "calle roc boronat 35",
+    "city": "barcelona"
+  },
+  "description": "Enseñamos a programadores de primera. Pero somos más de café.",
+  "__v": 106,
+  "location": {
+    "lat": "41.398337",
+    "lng": "2.1997869"
+  }
+}]

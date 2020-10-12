@@ -1,0 +1,39 @@
+.dropdown
+  position: relative
+  display: inline-block
+  text-align: left
+
+.dropdown__list
+  margin: 5px 0 0 0
+  padding: 6px 0
+  list-style: none
+  position: absolute
+  top: 125%
+  left: 0
+  width: 100%
+  opacity: 0
+  visibility: hidden
+  border-radius: 3px
+  background: white
+  transition: opacity .25s linear, top .25s linear
+
+  .dropdown.is--open &
+    opacity: 1
+    visibility: visible
+    top: 100%
+
+.dropdown__item
+  padding: 6px 12px
+  font-size: 14px
+  line-height: 20px
+  cursor: pointer
+  color: #434A54
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  transition: background-color .25s linear
+
+  &:hover
+    background-color: #E6E9ED
+  
+

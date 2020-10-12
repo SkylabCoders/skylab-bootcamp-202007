@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: white;
+  height: 100vh;
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  background: url("./2020-08-30 17_37_25-Create your own Google Maps style - Snazzy Maps - Free Styles for Google Maps.png");
+  background-repeat: no-repeat;
+  background-size: auto 100;
+  background-position: 66%;
+  flex: 1;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search__form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  background-color: rgba(255, 255, 255, 0.66);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: white;
+  border-radius: 1vw;
+
+  margin-top: 5vw;
+  padding: 2vh 5vh 2vh 5vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.search-input:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  opacity: 1;
+}
+
+.pointers {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.you {
+  position: absolute;
+  background: url("https://image.flaticon.com/icons/svg/3253/3253113.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+}
+
+.pointer {
+  position: absolute;
+  top: 410px;
+  left: 170px;
+  background: url("https://image.flaticon.com/icons/svg/608/608690.svg");
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+}
+
+.map-buttons {
+  margin-bottom: 10vh;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-button {
+  border: none;
+  /* border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+  height: 10vh;
+  margin-right: 5vw;
+  margin-bottom: 5vw;
+  opacity: 0.5;
+  padding: 2vh;
+  width: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-button:hover {
+  opacity: 1;
+}
+
+.free-spot-icon {
+  background: url("https://image.flaticon.com/icons/svg/709/709002.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.parking-icon {
+  background: url("https://image.flaticon.com/icons/svg/709/709000.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.no-parking-icon {
+  background: url("https://image.flaticon.com/icons/svg/708/708999.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.route-icon {
+  background: url("https://image.flaticon.com/icons/svg/2015/2015306.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.action-bar__scanner {
+  background: url("https://image.flaticon.com/icons/svg/854/854929.svg");
+}

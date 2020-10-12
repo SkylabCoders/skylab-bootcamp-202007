@@ -1,0 +1,67 @@
+.flex-item {
+	display: flex;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.login-holder {
+	align-items: center;
+	margin: auto;
+	width: 70%;
+	background-color: white;
+	margin-top: 33px;
+	padding-bottom: 25px;
+	box-shadow: 0px 0px 10px black;
+}
+.login-holder_img img {
+	height: 150px;
+}
+.login-button_log {
+	margin: 7px;
+	background: #12cdd4;
+	border: unset;
+	height: 30px;
+	margin-top: 15px;
+	width: 89%;
+}
+.login-imputs input {
+	box-shadow: 0px 0px 5px darkgrey;
+	border-style: solid;
+	border-color: darkgray;
+	border-width: 0.2px;
+	height: 25px;
+	padding: 2px;
+	margin: 5px;
+}
+.login-imputs label {
+	font-size: 16px;
+	width: 100%;
+
+	font-weight: 100;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 3px;
+}
+.login-super {
+	background-color: #12cdd4;
+	padding: 1px;
+	padding-bottom: 23vw;
+}
+.login-imputs,
+form {
+	a {
+		margin-top: 15px;
+		font-size: 12px;
+		align-self: center;
+	}
+}
+.login-imputs {
+	align-items: center;
+	width: 90%;
+}

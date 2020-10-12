@@ -1,0 +1,167 @@
+$color-grey: #999;
+$color-line: #ccc;
+$color-red: #c00;
+$color-yellow: #fc3;
+
+.store-section {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 95%;
+}
+
+.image-main {
+    position: relative;
+}
+
+.image {
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 100%;
+    height: 300px;
+}
+
+.white-box {
+    position: absolute;
+    bottom: 15px;
+    width: 350px;
+    padding-left: .5rem;
+    background-color: rgba(255, 255, 255, .5);
+    margin-left: .5rem;
+}
+
+.white-box__category {
+    font-size: .7rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    padding-right: .5rem;
+}
+
+.white-box__line {
+    border-bottom: .13rem solid #fc3;
+}
+
+.white-box__title {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1rem;
+    padding-top: 1rem;
+}
+
+.yellow-box__date {
+    display: flex;
+    align-items: center;
+    background-color: #fc3;
+    color: #fff;
+    width: 250px;
+    height: 40px;
+    font-size: .8rem;
+}
+
+.date__time {
+    background: url('../assets/icons/white-time.svg');
+    background-position: center;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    padding-left: 2rem;
+}
+
+.date__text {
+    font-size: .75rem;
+    padding-left: .5rem;
+    padding-right: 1.5rem;
+    line-height: 1px
+}
+
+.date__next {
+    background: url('../assets/icons/white-next.svg');
+    background-position: center;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+}
+
+.store-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+
+    &__circle {
+        display: flex;
+        background-color: #000;
+        margin-bottom: 1rem;
+        border-radius: 50%;
+        outline: none;
+        color: #fff;
+        border: none;
+        width: 55px;
+        height: 55px;
+        background-image: url(../assets/icons/white-store.svg);
+        background-position: center;
+        background-size: 2em;
+        background-repeat: no-repeat
+    }
+
+    &__home {
+        display: inline-block;
+        padding: .5rem .8rem;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.info__description {
+    text-align: justify;
+}
+
+/* QUERIES */
+@media screen and (min-width: 600px) {
+    .image {
+        height: 350px;
+    }
+
+    .white-box {
+        bottom: 20px;
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .image {
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 924px) {
+    .image {
+        height: 450px;
+    }
+
+    .white-box {
+        bottom: 25px;
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .image {
+        height: 500px;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    .image {
+        height: 550px;
+    }
+}

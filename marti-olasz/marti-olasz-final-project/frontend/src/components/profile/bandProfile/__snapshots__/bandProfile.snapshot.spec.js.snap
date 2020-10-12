@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BandProfile snapshot Should match with data 1`] = `
+<article
+  className="band-profile"
+>
+  <div
+    className="band-profile__middle"
+  />
+  <div
+    className="band-profile__bottom"
+  />
+</article>
+`;
+
+exports[`BandProfile snapshot Should match without data 1`] = `
+<div
+  className="css-3fvcat"
+>
+  <div
+    className="css-hwvl8z"
+  />
+  <div
+    className="css-16hco3u"
+  />
+</div>
+`;

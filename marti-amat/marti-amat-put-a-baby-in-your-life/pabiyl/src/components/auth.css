@@ -1,0 +1,72 @@
+.main__login {
+  height: 581px;
+  display: flex;
+  align-items: center;
+}
+.logo__login {
+  width: 120px;
+  height: 120px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(122, 139, 214);
+  width: 350px;
+  height: 508px;
+  border-radius: 22px;
+  box-shadow: 10px 10px 20px black;
+  margin: auto auto;
+}
+.email__box {
+  width: 277px;
+  height: 40px;
+  border: solid 1px grey;
+  border-radius: 22px;
+  padding: 5px;
+}
+.button__login {
+  width: 70px;
+  height: 70px;
+  background-color: azure;
+  color: rgb(3, 3, 80);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.anon {
+  background-image: url("https://image.flaticon.com/icons/svg/3076/3076297.svg");
+  background-size: 80% 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.google {
+  background-image: url("https://image.flaticon.com/icons/svg/281/281764.svg");
+  background-size: 80% 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.login {
+  background-image: url("https://image.flaticon.com/icons/svg/1828/1828466.svg");
+  background-size: 80% 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.register {
+  background-image: url("https://image.flaticon.com/icons/svg/2921/2921222.svg");
+  background-size: 80% 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.section__bottom {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

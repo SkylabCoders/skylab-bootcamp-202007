@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            border-radius: 50%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 200px;
+        }
+    }
+
+    .nickname-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+
+        .nickname-item {
+            font-size: 23px;
+        }
+    }
+
+    .favorite-books-container {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        background-color: #f5f5f5;
+
+        .pageHeadLine {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .bookShelves {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+
+            .bookShelfList {
+                display: flex;
+
+                .book {
+                    display: flex;
+
+                    .bookCover {
+                        padding: 10px;
+                    }
+
+                    .book-details {
+                        padding: 10px;
+                        text-decoration: none;
+                        color: black;
+                        width: 50%;
+
+                        .bookTitle {
+                            font-size: 15px;
+                            font-weight: 600;
+                        }
+
+                        .bookAuthor {
+                            color: grey;
+                            font-style: italic;
+                            font-size: 13px;
+                            margin-top: 2px;
+                        }
+
+                        .bookRating {
+                            font-size: 30px;
+                            color: #e74a10;
+                            margin-top: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Media queries
+@media screen and (min-width: 1024px) {
+    .favorite-books-container {
+        width: 90%;
+    }
+
+    .bookShelves {
+        display: flex;
+        flex-direction: row !important;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .bookShelves::-webkit-scrollbar {
+        display: none;
+    }
+}

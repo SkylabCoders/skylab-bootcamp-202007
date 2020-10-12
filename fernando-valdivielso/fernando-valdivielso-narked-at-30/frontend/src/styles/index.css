@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins&display=swap');
+* {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 1.03em;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}

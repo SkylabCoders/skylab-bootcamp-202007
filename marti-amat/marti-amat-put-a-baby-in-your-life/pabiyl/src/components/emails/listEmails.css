@@ -1,0 +1,42 @@
+.main__list--email {
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.email-list {
+  width: 600px;
+  height: auto;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(19, 8, 83);
+  box-shadow: 10px 10px 20px black;
+  border-radius: 22px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.email-list__item {
+  margin-bottom: 20px;
+  width: 500px;
+  height: 70px;
+  box-shadow: 10px 10px 20px black;
+  border-radius: 22px;
+  background-color: rgb(213, 217, 238);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.email-text {
+  font-size: 16px;
+  color: black;
+}
+.email-name-text {
+  font-size: 22px;
+  color: black;
+}

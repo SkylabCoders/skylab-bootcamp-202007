@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DonutChart component snapshot should match 1`] = `
+<div
+  className="chart__container"
+>
+  <h2>
+    Donut chart!
+  </h2>
+  <div
+    className="charts chart1"
+  />
+</div>
+`;

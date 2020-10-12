@@ -1,0 +1,66 @@
+{
+    "name": "greatread",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@auth0/auth0-react": "^1.0.0",
+        "@material-ui/core": "^4.11.0",
+        "@material-ui/icons": "^4.9.1",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.5.0",
+        "@testing-library/user-event": "^7.2.1",
+        "axios": "^0.20.0",
+        "debug": "^4.1.1",
+        "firebase": "^7.19.1",
+        "flux": "^3.1.3",
+        "jest": "^26.4.2",
+        "node-sass": "^4.14.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-material-ui-carousel": "^1.8.3",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "3.4.3"
+    },
+    "proxy": "http://localhost:4200",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --watchAll --coverage",
+        "eject": "react-scripts eject"
+    },
+    "jest": {
+        "coveragePathIgnorePatterns": [
+            "src/index",
+            "src/serviceWorker",
+            "src/dispatcher",
+            "src/App",
+            "src/components/home",
+            "src/components/detail",
+            "src/components/auth/userProfile",
+            "src/components/search",
+            "src/components/search/component"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "eslint": "^7.7.0",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-react": "^7.20.6",
+        "eslint-plugin-react-hooks": "^4.1.0",
+        "react-test-renderer": "^16.13.1"
+    }
+}

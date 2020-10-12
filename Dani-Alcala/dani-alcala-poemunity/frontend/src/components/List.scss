@@ -1,0 +1,65 @@
+.list__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list__presentation {
+    display: none;
+    margin-bottom: 35px;
+}
+
+.poems__content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* number of lines to show */
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+}
+
+.poems__read-more {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+}
+
+.list__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.list__sort {
+    margin-right: 5%;
+    margin-bottom: 4px;
+}
+
+.list__search {
+    margin-right: 5%;
+}
+
+@media screen and (min-width: 700px) {
+    .list__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .list__intro {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-around;
+    }
+
+    .list__presentation {
+        display: block;
+        font-size: 20px;
+        margin-left: 5%;
+    }
+}

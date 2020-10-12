@@ -1,0 +1,14 @@
+$color-detail: #f55110;
+
+.user-profile {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 20px 10%;
+  padding-bottom: 50px;
+
+  .user-profile__bottom {
+    display: flex;
+  }
+}

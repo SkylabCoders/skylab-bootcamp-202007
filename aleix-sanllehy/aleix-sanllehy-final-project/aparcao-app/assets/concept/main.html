@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing page</title>
+    <link rel="stylesheet" href="actionbar.css" />
+    <link rel="stylesheet" href="sidemenu.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="sidemenu" class="sidemenu">
+      <div class="sidemenu-option">
+        <a href="./settings.html"
+          ><div class="sidemenu-icon settings"></div>
+          User settings</a
+        >
+      </div>
+      <div class="sidemenu-option">
+        <a href="./about.html"
+          ><div class="sidemenu-icon about"></div>
+          About</a
+        >
+      </div>
+      <div class="sidemenu-option">
+        <a href="./signin.html"
+          ><div class="sidemenu-icon signout"></div>
+          Sign out</a
+        >
+      </div>
+    </div>
+
+    <main class="main-container" onclick="closeNav()">
+      <div class="search-container">
+        <form class="search__form">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="Search location"
+          />
+        </form>
+      </div>
+
+      <div></div>
+
+      <div class="map-buttons">
+        <button class="map-button free-spot-icon"></button>
+        <button class="map-button parking-icon"></button>
+        <button class="map-button no-parking-icon"></button>
+        <button class="map-button route-icon"></button>
+      </div>
+    </main>
+
+    <footer class="action-bar">
+      <div class="action-bar__icon action-bar__menu" onclick="openNav()"></div>
+      <a href="./main.html"
+        ><div class="action-bar__icon action-bar__scanner"></div
+      ></a>
+      <a href="./profile.html"
+        ><div class="action-bar__icon action-bar__user"></div
+      ></a>
+    </footer>
+
+    <script>
+      function openNav() {
+        document.getElementById("sidemenu").style.width = "66%";
+      }
+
+      function closeNav() {
+        document.getElementById("sidemenu").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

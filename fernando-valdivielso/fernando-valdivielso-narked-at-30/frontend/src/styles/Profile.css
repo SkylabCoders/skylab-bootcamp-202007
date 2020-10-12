@@ -1,0 +1,345 @@
+/* Mobile */
+
+.profile {
+	margin: 0 auto;
+	padding: 0;
+	background: white;
+}
+
+.left {
+	left: 25px;
+}
+
+.right {
+	right: 25px;
+}
+
+.center {
+	text-align: center;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 25px;
+}
+
+.profile__background {
+	background: #999955;
+	background-image: linear-gradient(
+		#ffcf00 20%,
+		#00e5ffbe 20%,
+		#00e5ffbe 40%,
+		#538ae6 40%,
+		#538ae6 60%,
+		#090979 60%,
+		#090979 80%,
+		#000000 80%
+	);
+	margin: 0 auto;
+	margin-top: 100px;
+	width: 100%;
+	height: 300px;
+}
+
+.profile__background:after {
+	content: '';
+	position: absolute;
+	background: #928563;
+	left: 50%;
+	margin-top: -80px;
+	margin-left: -200px;
+	padding-left: 20px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	width: 400px;
+	height: 475px;
+	z-index: -1;
+}
+
+.profile__card {
+	position: absolute;
+	width: 375px;
+	height: 450px;
+	padding: 25px;
+	padding-top: 0;
+	padding-bottom: 0;
+	left: 50%;
+	top: 340px;
+	margin-left: -187.5px;
+	background: #ece3cc;
+	box-shadow: -20px 0 35px -25px black, 20px 0 35px -25px black;
+	z-index: 5;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+.user__picture img {
+	width: 150px;
+	float: left;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+
+.profile__card h2 {
+	font-family: 'Poppins', monospace;
+	color: #333;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 15pt;
+}
+
+.profile__card p {
+	font-family: 'Poppins', monospace;
+	color: #555;
+	font-size: 13px;
+	margin: 5px;
+}
+
+.card__diver-info {
+	margin: 10px 0;
+}
+.card__diver-location {
+	margin: 10px 0;
+}
+
+.profile__card span {
+	font-family: 'Poppins', monospace;
+}
+
+.user__picture {
+	margin: 20px 0 0 0;
+}
+
+.profile__buttons {
+	margin: 20px;
+	position: absolute;
+	bottom: -150px;
+	right: 50%;
+	margin-right: -130px;
+}
+
+.profile__buttons__delete {
+	margin: 10px;
+	padding: 4px;
+	height: 100%;
+	font-family: 'Poppins', monospace;
+	color: #005f69;
+	border: 2px solid #005f69;
+	background-color: rgba(12, 98, 235, 0.349);
+}
+
+.profile__buttons__edit {
+	margin: 10px;
+	padding: 4px;
+	height: 100%;
+	font-family: 'Poppins', monospace;
+	color: #005f69;
+	border: 2px solid #005f69;
+	background-color: rgba(12, 98, 235, 0.349);
+}
+
+/* Tablet */
+
+@media screen and (min-width: 600px) {
+	.profile {
+		margin: 0 auto;
+		padding: 0;
+		background: white;
+	}
+
+	.profile__background {
+		background: #999955;
+		background-image: linear-gradient(
+			#ffcf00 20%,
+			#00e5ff 20%,
+			#00e5ff 40%,
+			#538ae6 40%,
+			#538ae6 60%,
+			#090979 60%,
+			#090979 80%,
+			#000000 80%
+		);
+		margin: 0 auto;
+		margin-top: 100px;
+		width: 100%;
+		height: 300px;
+	}
+
+	.profile__background:after {
+		content: '';
+		position: absolute;
+		background: #928563;
+		left: 50%;
+		margin-top: -67.5px;
+		margin-left: -325px;
+		padding-left: 20px;
+		border-radius: 5px;
+		width: 650px;
+		height: 450px;
+		z-index: -1;
+	}
+
+	.profile__card {
+		position: absolute;
+		width: 600px;
+		height: 400px;
+		padding: 25px;
+		padding-top: 0;
+		padding-bottom: 0;
+		left: 50%;
+		top: 200px;
+		margin-left: -300px;
+		background: #ece3cc;
+		box-shadow: -20px 0 35px -25px black, 20px 0 35px -25px black;
+		z-index: 5;
+		border-radius: 5px;
+	}
+
+	.profile__card__user {
+		height: 150px;
+	}
+
+	.user__picture img {
+		width: 150px;
+		float: left;
+		border-radius: 5px;
+		margin: 0 20px 0 0;
+	}
+
+	.profile__card h2 {
+		font-family: 'Poppins', monospace;
+		color: #333;
+		margin: 0 auto;
+		padding: 0;
+		font-size: 15pt;
+	}
+
+	.profile__card p {
+		font-family: 'Poppins', monospace;
+		color: #555;
+		font-size: 13px;
+	}
+
+	.profile__card span {
+		font-family: 'Poppins', monospace;
+	}
+
+	.profile__card__diver {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+
+	.profile__buttons {
+		margin: 20px;
+		position: absolute;
+		bottom: -10px;
+		right: 50%;
+		margin-right: -130px;
+	}
+}
+
+/* Desktop */
+
+@media screen and (min-width: 992px) {
+	.profile {
+		margin: 0 auto;
+		padding: 0;
+		background: white;
+	}
+
+	.profile__background {
+		background: #999955;
+		background-image: linear-gradient(
+			#ffcf00 20%,
+			#00e5ffbe 20%,
+			#00e5ffbe 40%,
+			#538ae6 40%,
+			#538ae6 60%,
+			#090979 60%,
+			#090979 80%,
+			#000000 80%
+		);
+		margin: 0 auto;
+		margin-top: 100px;
+		width: 100%;
+		height: 300px;
+	}
+
+	.profile__background:after {
+		content: '';
+		position: absolute;
+		background: #928563;
+		left: 50%;
+		margin-top: -67.5px;
+		margin-left: -325px;
+		padding-left: 20px;
+		border-radius: 5px;
+		width: 650px;
+		height: 450px;
+		z-index: -1;
+	}
+
+	.profile__card {
+		position: absolute;
+		width: 600px;
+		height: 400px;
+		padding: 25px;
+		padding-top: 0;
+		padding-bottom: 0;
+		left: 50%;
+		top: 115px;
+		margin-left: -300px;
+		background: #ece3cc;
+		box-shadow: -20px 0 35px -25px black, 20px 0 35px -25px black;
+		z-index: 5;
+		border-radius: 5px;
+	}
+
+	.profile__card__user {
+		height: 150px;
+		margin-top: 20px;
+	}
+
+	.user__picture {
+		width: 150px;
+		float: left;
+		border-radius: 5px;
+		margin: 0 20px 0 0;
+	}
+
+	.profile__card h2 {
+		font-family: 'Poppins', monospace;
+		color: #333;
+		margin: 0 auto;
+		padding: 0;
+		font-size: 15pt;
+	}
+
+	.profile__card p {
+		font-family: 'Poppins', monospace;
+		color: #555;
+		font-size: 13px;
+	}
+
+	.profile__card span {
+		font-family: 'Poppins', monospace;
+	}
+
+	.profile__card__diver {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+
+	.profile__buttons {
+		margin: 20px;
+		position: absolute;
+		bottom: 50px;
+		right: 50%;
+		margin-right: -130px;
+	}
+}

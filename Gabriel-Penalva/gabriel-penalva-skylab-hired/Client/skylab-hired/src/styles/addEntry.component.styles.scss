@@ -1,0 +1,32 @@
+.flex-item {
+	display: flex;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+.flex-row {
+	display: flex;
+	flex-direction: row;
+}
+.addEntry-holder {
+	width: 90%;
+	padding: 30px;
+}
+.addEntry-label {
+	margin-top: 20px;
+}
+
+.newEntry-container {
+	align-items: center;
+}
+.newEntry-submit_button {
+	border-style: none;
+	background-color: #12cdd4;
+	border-radius: 30px;
+	height: 30px;
+	padding: 0px 10px;
+	margin: 20px;
+	margin-top: 30px;
+}

@@ -1,0 +1,20 @@
+[{
+emailEmisor:"lolacarrillo@hotmail.com",
+emailReceptor:"martiamat@gmail.com",
+date:13/09/2020,
+hour:10,
+minute:6
+bodyMissage:"Hola Martí sóc la Lola, el teu perfil m'ha semblat molt interessant i m'agradaria conèixe't en persona."},
+{emailEmisor:"lolacarrillo@hotmail.com",
+emailReceptor:"martiamat@gmail.com",
+date:13/09/2020,
+hour:11,
+minute:8
+bodyMissage:"Sí, jo també sóc mare, tinc una nena de 6 anys, l'Ona, però m'agradaria poder tenir un altre fill"},
+{emailEmisor:"lolacarrillo@hotmail.com",
+emailReceptor:"martiamat@gmail.com",
+date:13/09/2020,
+hour:12,
+minute:15
+bodyMissage:"Ja tenim una edat que no ens podem permetre el luxe de seguir intentant tenir una relació sentimental satisfactòria i tenir un fill dins d'aquesta"}
+]

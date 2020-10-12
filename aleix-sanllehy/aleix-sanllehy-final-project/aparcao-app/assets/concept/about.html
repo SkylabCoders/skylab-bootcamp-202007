@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing page</title>
+    <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="actionbar.css" />
+    <link rel="stylesheet" href="sidemenu.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo"></div>
+    </header>
+    <div id="sidemenu" class="sidemenu">
+      <div class="sidemenu-option">
+        <a href="./settings.html"
+          ><div class="sidemenu-icon settings"></div>
+          User settings</a
+        >
+      </div>
+      <div class="sidemenu-option">
+        <a href="./about.html"
+          ><div class="sidemenu-icon about"></div>
+          About</a
+        >
+      </div>
+      <div class="sidemenu-option">
+        <a href="./signin.html"
+          ><div class="sidemenu-icon signout"></div>
+          Sign out</a
+        >
+      </div>
+    </div>
+
+    <main class="about-container" onclick="closeNav()">
+      <section>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus
+          aliquid deleniti amet et nulla ad aut? Dolores, vitae! Sit, non
+          deleniti sint culpa magni quaerat atque dolorum nulla corporis
+          provident.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+          distinctio magni repudiandae inventore expedita modi sequi facilis
+          autem. Omnis ipsum aspernatur accusantium blanditiis autem deleniti
+          ipsam. Totam accusantium numquam tempora?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore,
+          minus cumque culpa ex, quas alias expedita saepe fuga numquam nesciunt
+          quae ipsam laboriosam unde reprehenderit delectus pariatur nostrum!
+          Ullam, soluta.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime soluta
+          quas non suscipit aut quidem nam ab laudantium eius! Eveniet aliquid,
+          cum facere quibusdam asperiores in odio voluptatum perspiciatis
+          exercitationem.
+        </p>
+      </section>
+
+      <div class="social-container">
+        <p>Follow us on...</p>
+        <div class="social-buttons">
+          <a href="#"><div class="social-icon facebook"></div></a>
+          <a href="#"><div class="social-icon github"></div></a>
+          <a href="#"><div class="social-icon linkedin"></div></a>
+          <a href="#"><div class="social-icon twitter"></div></a>
+          <a href="#"><div class="social-icon youtube"></div></a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="action-bar">
+      <div class="action-bar__icon action-bar__menu" onclick="openNav()"></div>
+      <a href="./main.html"
+        ><div class="action-bar__icon action-bar__scanner"></div
+      ></a>
+      <a href="./profile.html"
+        ><div class="action-bar__icon action-bar__user"></div
+      ></a>
+    </footer>
+
+    <script>
+      function openNav() {
+        document.getElementById("sidemenu").style.width = "66%";
+      }
+
+      function closeNav() {
+        document.getElementById("sidemenu").style.width = "0";
+      }
+    </script>
+  </body>
+</html>

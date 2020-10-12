@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'EB Garamond', serif;
+}
+
+
+.margin-body {
+  padding-top: 90px;
+  min-height: calc(100vh - 140px - 0px); 
+}
+
+.separator {
+  flex-grow: 1;
+}

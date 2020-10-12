@@ -1,0 +1,334 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$main-color-border: #01b185;
+$dark-highlight-color: #393e46;
+$header-separator-color: #393e46;
+
+$transition: all 0.2s ease-in-out;
+$transform: scale(1.08);
+
+$card-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+
+.bike-detail {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 24px 24px;
+}
+
+.head__bikename {
+	margin-bottom: 12px;
+}
+
+.bike-detail__upper {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 24px;
+}
+
+.bike-detail__head {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.bike-detail__km-hours {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+	width: 100%;
+}
+
+.km-hours {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5%;
+	width: 130px;
+	padding: 12px;
+	background-color: $light-highlight-color;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+}
+
+.separator-small {
+	width: 95%;
+	margin: auto;
+	border-bottom: 0.8px solid $main-color;
+	margin-bottom: 10px;
+}
+
+.km-hours__title {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.bike-detail__components {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.bike-detail__details {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.details__content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 88%;
+	background-color: $light-highlight-color;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 12px;
+	box-shadow: 5px 5px 5px 0px rgba(209, 205, 209, 1);
+}
+
+.details__type-img {
+	height: 50px;
+	width: 50px;
+	margin-right: 12px;
+}
+
+.details__info {
+	display: flex;
+	flex-direction: column;
+}
+
+.details__info p {
+	padding: 5px 0px;
+}
+
+.info__type {
+	font-weight: bold;
+}
+
+.float__button {
+	position: fixed;
+	width: 100px;
+	height: 40px;
+	bottom: 70px;
+	right: 40px;
+	background-color: $main-color;
+	border: 1px solid $main-color-border;
+	color: whitesmoke;
+	font-size: 16px;
+	border-radius: 50px;
+	text-align: center;
+	box-shadow: 4px 4px 6px #999;
+}
+
+.darken__back {
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	z-index: 1;
+}
+
+.addworkout__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: fixed;
+	top: 30%;
+	background-color: $light-highlight-color;
+	border-radius: 5px;
+	padding: 12px;
+	width: 85%;
+	z-index: 2;
+
+	transform: translateX(-1500px);
+}
+
+.addworkout__container-shown {
+	animation: roadRunnerIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.addworkout__container-hidden {
+	animation: roadRunnerOut 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.addworkout__top {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+.top__close {
+	justify-self: flex-end;
+	font-weight: bolder;
+	transition: $transition;
+}
+
+.top__close:hover {
+	cursor: pointer;
+	color: $main-color;
+}
+
+.addworkout__element {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 10px;
+	width: 45%;
+}
+
+.addworkout__input {
+	padding: 3px;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid $header-separator-color;
+	font-size: 16px;
+	text-align: right;
+}
+
+.addworkout__label {
+	margin-bottom: 3px;
+	font-weight: 450;
+}
+
+.addworkout__element-double {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 12px;
+	justify-content: space-evenly;
+}
+
+.addworkout__element-double div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 12px;
+	width: 35%;
+}
+
+.addworkout__bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.addworkout__button {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding: 12px;
+	border: none;
+	border-radius: 5px;
+	background-color: $main-color;
+	font-weight: 450;
+	font-size: 16px;
+	color: whitesmoke;
+	transition: $transition;
+	cursor: pointer;
+}
+
+.addworkout__button:hover {
+	transform: $transform;
+	color: black;
+}
+
+@media only screen and (min-width: 500px) {
+	.bike-detail {
+		padding: 48px;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	.destkop {
+		display: flex;
+	}
+
+	.mobile {
+		display: none;
+	}
+
+	.general-container {
+		display: flex;
+		flex-direction: row;
+		padding: 32px 48px;
+	}
+
+	.bike-detail {
+		padding: 0 64px;
+		width: 900px;
+		margin: auto;
+	}
+
+	.bike-detail__head {
+		align-items: center;
+		width: 100%;
+		padding: 12px 24px;
+	}
+
+	.float__button {
+		cursor: pointer;
+		position: unset;
+		border-radius: 5px;
+		margin: 5px;
+		color: whitesmoke;
+		transition: $transition;
+	}
+
+	.float__button:hover {
+		color: black;
+		transform: $transform;
+	}
+
+	.km-hours {
+		margin: unset;
+	}
+
+	.darken__back {
+		left: 0;
+	}
+
+	.addworkout__container {
+		width: 375px;
+	}
+}
+
+@keyframes roadRunnerIn {
+	0% {
+		transform: translateX(-1500px) skewX(30deg) scaleX(1.3);
+	}
+	70% {
+		transform: translateX(30px) skewX(0deg) scaleX(0.9);
+	}
+	100% {
+		transform: translateX(0px) skewX(0deg) scaleX(1);
+	}
+}
+
+@keyframes roadRunnerOut {
+	0% {
+		transform: translateX(0px) skewX(0deg) scaleX(1);
+	}
+	30% {
+		transform: translateX(-30px) skewX(-5deg) scaleX(0.9);
+	}
+	100% {
+		transform: translateX(1500px) skewX(30deg) scaleX(1.3);
+	}
+}

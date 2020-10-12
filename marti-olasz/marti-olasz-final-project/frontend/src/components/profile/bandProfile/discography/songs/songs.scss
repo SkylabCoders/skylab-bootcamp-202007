@@ -1,0 +1,53 @@
+$color-detail: #f55110;
+
+.songs {
+  .songs__top {
+    display: flex;
+
+    .top__img {
+      width: 200px;
+      margin-right: 20px;
+    }
+    .top__content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border-bottom: 2px solid $color-detail;
+      .content__icon {
+        display: flex;
+
+        .icon__back,
+        icon__delete {
+          margin-right: 20px;
+          font-size: 30px;
+        }
+      }
+
+      .content__text {
+        .text__info {
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+  .songs__middle {
+    margin-bottom: 50px;
+    .middle__item {
+      margin: 15px 0;
+
+      .item__number {
+        color: $color-detail;
+        margin-right: 10px;
+      }
+    }
+  }
+  .songs__bottom {
+    display: flex;
+    .item {
+      width: 150px;
+      margin-right: 15px;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+	"name": "tender-backend",
+	"version": "1.0.0",
+	"description": "Helping the tendering process",
+	"main": "server.js",
+	"private": "true",
+	"scripts": {
+		"start": "set DEBUG=index,index:* & nodemon index.js",
+		"test": "nyc --reporter=lcov --reporter=html --reporter=text mocha **/*spec.js",
+		"test-watch": "mocha -R list -w ./test/**/*.spec.js",
+		"test-single": "mocha $1",
+		"test-single-watch": "mocha -R list -w $1",
+		"lint": "eslint . --fix"
+	},
+	"keywords": [
+		"Skylab",
+		"Bootcamp 202007",
+		"tender",
+		"tendering process"
+	],
+	"author": {
+		"name": "Francesc Brugarolas",
+		"email": "tender@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SkylabCoders/francesc-brugarolas-tender-app.git"
+	},
+	"license": "spanish intellectual property law @29th-August-2020",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"chalk": "^4.1.0",
+		"cors": "^2.8.5",
+		"debug": "^4.1.1",
+		"express": "^4.17.1",
+		"express-jwt": "^6.0.0",
+		"express-jwt-authz": "^2.4.1",
+		"joi": "^17.2.1",
+		"jsonwebtoken": "^8.5.1",
+		"jwks-rsa": "^1.9.0",
+		"mongodb": "^3.6.0",
+		"nodemon": "^2.0.4",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0",
+		"passport-validator": "^1.2.3",
+		"typescript": "^4.0.2"
+	},
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"chai-match": "^1.1.1",
+		"eslint": "^7.7.0",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"mocha": "^8.1.3",
+		"nyc": "^15.1.0",
+		"prettier": "^2.1.1",
+		"sinon": "^9.0.3",
+		"sinon-chai": "^3.5.0",
+		"supertest": "^4.0.2"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"babel": {
+		"presets": [
+			"babel-preset-react-app"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"nodemonconfig": {
+		"restartable": "rs",
+		"ignore": [
+			"node_modules/**/node_modules",
+			".eslintrc",
+			".gitignore",
+			"sonar-project.properties",
+			"README.md"
+		],
+		"delay": 2000,
+		"env": {
+			"PORT": 3010
+		}
+	},
+	"nyc": {
+		"exclude": [
+			"**/*.spec.js",
+			"build"
+		]
+	}
+}

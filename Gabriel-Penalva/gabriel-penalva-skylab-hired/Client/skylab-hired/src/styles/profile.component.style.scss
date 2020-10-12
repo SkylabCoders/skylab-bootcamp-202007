@@ -1,0 +1,26 @@
+.profile-holder {
+	display: flex;
+	align-items: center;
+	margin: 10% 10%;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	border-radius: 20px;
+	border-color: #fac710;
+	background-color: #fac710;
+	box-shadow: 1px 1px 5px grey;
+	border-style: solid;
+	zoom: 125%;
+}
+.profile-info {
+	a {
+		color: black;
+		text-underline-position: under;
+		text-decoration: underline;
+	}
+	p {
+		font-weight: 600;
+	}
+	span {
+		font-weight: 100;
+	}
+}

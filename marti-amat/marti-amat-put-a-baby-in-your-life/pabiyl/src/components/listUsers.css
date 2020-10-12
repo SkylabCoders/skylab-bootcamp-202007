@@ -1,0 +1,58 @@
+.main__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-list__item {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  width: 700px;
+  border: solid 1 px grey;
+  border-radius: 22px;
+  box-shadow: 10px 10px 20px black;
+  justify-content: space-around;
+}
+.nav-link {
+  text-decoration: none;
+}
+
+.list-image {
+  align-self: center;
+  height: 140px;
+  width: 140px;
+  border-radius: 22px;
+  margin-left: 20px;
+}
+.right-side {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.text {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: rgb(3, 3, 80);
+}
+.name {
+  font-size: 25px;
+  color: blue;
+  text-align: center;
+}
+.box {
+  display: flex;
+  justify-content: center;
+}
+.img__description {
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+}
+.right-side__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

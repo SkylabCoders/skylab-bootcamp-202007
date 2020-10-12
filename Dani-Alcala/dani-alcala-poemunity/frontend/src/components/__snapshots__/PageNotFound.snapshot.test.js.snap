@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound should match without id 1`] = `
+<main
+  className="page-not-found__container"
+>
+  <section
+    className="page-not-found__message"
+  >
+    <h1
+      className="page-not-found__title"
+    >
+      Error - 404
+    </h1>
+    <p
+      className="page-not-found__text"
+    >
+      Nothing to see here
+    </p>
+    <a
+      className="page-not-found__link"
+      href="/"
+      onClick={[Function]}
+    >
+      Back to Dashboard
+    </a>
+  </section>
+</main>
+`;

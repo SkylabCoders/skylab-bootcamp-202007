@@ -1,0 +1,210 @@
+$light-bg-color: white;
+$light-highlight-color: #eeeeee;
+$main-color: #0c9;
+$dark-highlight-color: #393e46;
+$strava-button-bg-color: #fc4c02;
+$strava-button-color: whitesmoke;
+$standard-button-color: black;
+$header-bg-color: #222831;
+
+$light-register-bg: rgba(238, 238, 238, 0.6);
+
+.register {
+	width: 100%;
+	height: 100%;
+}
+
+.register__logo {
+	height: 40px;
+	margin-right: 12px;
+	cursor: pointer;
+}
+
+.register__upper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	padding: 12px;
+}
+
+.register__bikup {
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+}
+
+.flex-spacer {
+	display: flex;
+	flex: 1;
+}
+
+.register__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 24px;
+}
+
+.register__container::after {
+	content: '';
+	background-image: url('../../assets/landing1.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center left;
+	opacity: 0.6;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+.register__form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	padding: 12px;
+	background-color: $light-register-bg;
+	border-radius: 5px;
+	margin-top: 12px;
+}
+
+.input__label {
+	padding: 5px;
+}
+
+.register__input {
+	height: 35px;
+	width: 100%;
+	border: 1px solid $light-highlight-color;
+	border-radius: 5px;
+	padding: 6px 24px;
+	margin-bottom: 5px;
+}
+
+.input__error {
+	outline: none;
+	border: 1px solid red;
+}
+
+input:focus {
+	outline: none;
+	border: 1px solid $main-color;
+}
+
+.register__form__bottom {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 6px;
+}
+
+.register__external {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+	margin-top: 12px;
+}
+
+.login__warning {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 0 24px;
+	font-weight: 500;
+	height: 20px;
+	color: red;
+	font-size: 14px;
+}
+
+.warning__error {
+	color: red;
+}
+
+.warning__warning {
+	color: yellow;
+}
+
+.form-register__button {
+	padding: 12px;
+	border: none;
+	background-color: $main-color;
+	border-radius: 5px;
+	font-weight: bold;
+	color: whitesmoke;
+	font-size: 18px;
+	width: 100%;
+	margin-top: 6px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.form-register__button:hover {
+	transform: scale(1.03);
+	color: black;
+}
+
+.register__btn {
+	height: 45px;
+	margin: 6px 0;
+}
+
+.loading {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.loading__img {
+	height: 30px;
+}
+
+.no-loading {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.hidden {
+	display: none;
+}
+
+.register__button--header {
+	padding: 12px;
+	border: none;
+	background-color: $main-color;
+	border-radius: 5px;
+	font-weight: bold;
+	color: whitesmoke;
+	font-size: 18px;
+	width: 100px;
+	margin-right: 24px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.register__button--header:hover {
+	transform: scale(1.03);
+	color: black;
+}
+
+@media only screen and (min-width: 900px) {
+	.mobile {
+		display: none;
+	}
+
+	.register {
+		width: 400px;
+		margin: auto;
+	}
+}

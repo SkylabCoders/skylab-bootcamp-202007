@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portfolio component snapshot should match 1`] = `
+<div>
+  Redirecting you to the login page...
+</div>
+`;

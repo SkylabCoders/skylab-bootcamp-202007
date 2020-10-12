@@ -1,0 +1,47 @@
+$color-detail: #f55110;
+
+.follow {
+  .follow__title {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+
+    .title__icon {
+      color: $color-detail;
+      margin-right: 10px;
+    }
+  }
+
+  .follow__main {
+    display: flex;
+    flex-wrap: wrap;
+
+    .main__item {
+      display: flex;
+      padding: 20px;
+
+      .item__logo {
+        width: 150px;
+        height: 150px;
+        margin-right: 10px;
+      }
+
+      .item__text {
+        align-self: flex-end;
+
+        .text__name {
+          color: $color-detail;
+          text-transform: uppercase;
+          font-size: 30px;
+          margin: 0;
+        }
+
+        .text__locality {
+          span {
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}

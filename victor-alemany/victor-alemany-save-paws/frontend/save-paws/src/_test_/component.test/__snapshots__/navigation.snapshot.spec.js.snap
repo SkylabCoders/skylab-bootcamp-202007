@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert List snapshot should match 1`] = `
+<div
+  className="navigation__container"
+>
+  <nav
+    className="navigation"
+  >
+    <a
+      aria-current="page"
+      className="nav__link--active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Home
+    </a>
+    <a
+      aria-current={null}
+      href="/categories"
+      onClick={[Function]}
+    >
+      By categories
+    </a>
+    <a
+      aria-current={null}
+      href="/alerts"
+      onClick={[Function]}
+    >
+      Show list
+    </a>
+    <a
+      aria-current={null}
+      href="/about"
+      onClick={[Function]}
+    >
+      About
+    </a>
+    <a
+      aria-current={null}
+      href="/contact"
+      onClick={[Function]}
+    >
+      Contact
+    </a>
+  </nav>
+</div>
+`;

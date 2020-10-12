@@ -1,0 +1,107 @@
+$color-detail: #f55110;
+$main-color: #1a1a1a;
+
+.new-disc {
+  width: 100%;
+  .new-disc__top {
+    height: 200px;
+    display: flex;
+
+    margin-bottom: 20px;
+
+    .top__cover {
+      width: 200px;
+      height: 100%;
+
+      margin-right: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border: 2px solid $color-detail;
+
+      .cover__icon {
+        font-size: 50px;
+
+        &:hover {
+          color: $color-detail;
+        }
+      }
+    }
+
+    .top__content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 15px 0;
+
+      border-bottom: 2px solid $color-detail;
+
+      .content__text {
+        .text__info {
+          margin-top: 20px;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .new-disc__middle {
+    margin-bottom: 20px;
+
+    .middle__item {
+      display: flex;
+
+      .item__text {
+        margin: 15px 0;
+
+        .text__number {
+          color: $color-detail;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .middle__item {
+      display: flex;
+      align-items: center;
+
+      .item__text {
+        margin-right: 10px;
+      }
+
+      .item__icon:hover {
+        color: $color-detail;
+      }
+    }
+  }
+  .new-disc__bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .bottom__new-song {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  input {
+    background: $main-color;
+    color: white;
+    font-family: Arial;
+
+    border: 0 solid transparent;
+    border-bottom: 2px solid $color-detail;
+    padding: 5px 0;
+
+    font-size: 15px;
+
+    margin-right: 10px;
+  }
+}

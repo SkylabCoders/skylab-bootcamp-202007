@@ -1,0 +1,62 @@
+body {
+    #root {
+        main {
+            form {
+                select {
+                    flex-grow: 1;
+                    min-width: 160px;
+                }
+
+                .search-bar {
+                    flex-grow: 2;
+                    min-width: 150px;
+
+                    input {
+                        width: 100%;
+                    }
+
+                    button {
+                        background: url(https://trello-attachments.s3.amazonaws.com/5f49070899527052cd1acbff/128x128/3824ce688eaf9ee30881956abe4c1406/buscar.png) no-repeat center;
+                        background-size: 90%;
+                        border: none;
+                        padding: 15px;
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+
+            .new-product {
+                background-color: #D9F9C1;
+                padding: 15px;
+                margin: auto;
+                margin-top: 30px;
+                border-radius: 15px;
+                color: #222222;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .results-section {
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+
+
+                h1 {
+                    font-size: 20px;
+                }
+
+                .hidden-content__more-info {
+                    top: 20px;
+                }
+
+                a {
+                    align-self: flex-end;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+
+}

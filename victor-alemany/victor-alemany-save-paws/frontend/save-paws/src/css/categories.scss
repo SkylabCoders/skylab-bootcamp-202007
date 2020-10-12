@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main__categories__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.category__list__container{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #8080802e;
+    margin-bottom: 25px;
+}
+
+.category__list__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    max-width: 250px;
+    height: 220px;
+    margin: 20px;
+    background-color: #A5CBC3;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px 2px grey;
+}
+
+.list__category__image {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.list__category__image:hover{
+    filter: contrast(100%) brightness(70%);
+    background-color: black;
+}
+
+.category__title__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 5px;
+    overflow: scroll;
+}
+
+.category__title__container p{
+   color: #246;
+   font-weight: bold;
+   text-transform: capitalize;
+   white-space: nowrap;
+   font-size: x-large;
+}
+
+.title__categories__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.title__categories__container h2 {
+    position: absolute;
+    color: #246;
+    font-size: 34px;
+    font-family: fantasy;
+}
+
+.title__categories__container img{
+    height: 150px;
+    width: 60%;
+}
+
+.categories__head__info p{
+    font-weight: bold;
+    color: #246;
+    font-family: fantasy;
+    margin: 0 0 10px 0;
+    padding: 20px;
+}
+
+@media (min-width: 576px){
+
+    .category__list__container{
+        width: 90%;
+    }
+
+
+
+}
+
+@media (min-width: 1200px){
+    .category__list__container{
+        width: 80%;
+    }
+
+}

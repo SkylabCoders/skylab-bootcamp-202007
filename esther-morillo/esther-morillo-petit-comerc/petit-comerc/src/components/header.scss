@@ -1,0 +1,172 @@
+.header-contain {
+   display: flex;
+   justify-content: center;
+   background-color: #fff;
+   width: 100%;
+   height: 80px;
+   border-bottom: 1px solid #ccc;
+   position: fixed;
+   top: 0;
+   z-index: 5;
+}
+
+.nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   max-width: 1200px;
+   width: 95%;
+   height: 80px;
+}
+
+.nav__hamburger {
+   background-image: url(../assets/icons/hamburger.svg);
+   width: 50px;
+   height: 80px;
+   background-position: center;
+   background-size: 2.2em;
+   background-repeat: no-repeat;
+   position: relative;
+   cursor: pointer;
+}
+
+.menu {
+   position: absolute;  
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   width: 350px;
+   height: 100vh;
+   margin: 80px 0 0 0;
+   padding: 1rem 3rem 3rem 3rem;
+   border-right: .3rem solid #fff;
+   z-index: 0;
+   background: #fc3;   
+   list-style-type: none; 
+   display: none; 
+}
+
+   .nav__hamburger:hover .menu {
+      display: block;
+   }
+
+.nav__logo {
+   background-image: url(../assets/icons/logo.svg);
+   width: 110px;
+   height: 80px;
+   background-position: center;
+   background-size: 5.5em;
+   background-repeat: no-repeat
+}
+
+.nav__cart {
+   background-image: url(../assets/icons/cart.svg);
+   width: 50px;
+   height: 50px;
+   background-position: center;
+   background-size: 2.5em;
+   background-repeat: no-repeat
+}
+
+.nav__arrow {
+   background-image: url(../assets/icons/arrow.svg);
+   width: 50px;
+   height: 50px;
+   background-position: center;
+   background-size: 2.2em;
+   background-repeat: no-repeat
+}
+
+.nav__info {
+   background-image: url(../assets/icons/info.svg);
+   width: 50px;
+   height: 50px;
+   background-position: center;
+   background-size: 2.5em;
+   background-repeat: no-repeat;
+}
+
+
+.menuToggle__link {
+   text-decoration: none;
+   transition: color 0.3s ease;
+   font-size: .5rem;
+}
+
+.menuToggle__link li {
+   margin: .2rem 0;
+   font-size: .5rem;
+   color: #fff;
+}
+
+.menuToggle__link li:hover {
+   color: #333;
+}
+
+.menu__title {
+   display: flex;
+   justify-content: center;
+   text-decoration: none;
+   text-align: center;
+   padding: .5rem 0;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: 600;
+}
+
+.menu li {
+   padding: 9px 0;
+   font-size: 14.5px;
+   border-top: .05rem solid rgba(255, 255, 255, .3);
+}
+
+.flex-grow {
+   flex-grow: 1;
+}
+
+.icon {
+   display: flex;
+   justify-content: space-between;  
+   width: 250px;
+   border-top: .05rem solid rgba(255, 255, 255, .3);
+   padding: 1rem 0 3.2rem 0;
+}
+
+.icon__facebook {
+      background-image: url(../assets/icons/facebook_white.svg);
+      width: 30px;
+      height: 30px;
+      background-position: center;
+      background-size: 1.5em;
+      background-repeat: no-repeat;
+}
+
+   .icon__facebook:hover {
+      background-image: url(../assets/icons/facebook.svg)
+   }
+
+.icon__instagram {
+   background-image: url(../assets/icons/instagram-white.svg);
+   width: 30px;
+   height: 30px;
+   background-position: center;
+   background-size: 1.5em;
+   background-repeat: no-repeat;
+}
+
+   .icon__instagram:hover {
+      background-image: url(../assets/icons/instagram.svg);
+   }
+
+.icon__twitter {
+   background-image: url(../assets/icons/twitter-white.svg);
+   width: 30px;
+   height: 30px;
+   background-position: center;
+   background-size: 1.5em;
+   background-repeat: no-repeat;
+}
+
+   .icon__twitter:hover {
+      background-image: url(../assets/icons/twitter.svg);
+   }

@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Discography snapshot Should create new disc 1`] = `
+<section
+  className="discography"
+>
+  <div
+    className="discography__title"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root title__icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"
+      />
+    </svg>
+    <h1>
+      Discography
+    </h1>
+  </div>
+</section>
+`;
+
+exports[`Discography snapshot Should match with disc selected 1`] = `
+<section
+  className="discography"
+>
+  <div
+    className="discography__title"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root title__icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"
+      />
+    </svg>
+    <h1>
+      Discography
+    </h1>
+  </div>
+</section>
+`;
+
+exports[`Discography snapshot Should match with disc selected 2`] = `
+<section
+  className="discography"
+>
+  <div
+    className="discography__title"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root title__icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"
+      />
+    </svg>
+    <h1>
+      Discography
+    </h1>
+  </div>
+</section>
+`;
+
+exports[`Discography snapshot Should match without disc selected 1`] = `
+<section
+  className="discography"
+>
+  <div
+    className="discography__title"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root title__icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"
+      />
+    </svg>
+    <h1>
+      Discography
+    </h1>
+  </div>
+  <div
+    className="discography__main"
+  />
+</section>
+`;
