@@ -1,0 +1,40 @@
+.container-list {
+	max-width: 550px;
+}
+
+.container-list__element {
+	display: flex;
+	justify-content: flex-end;
+	text-decoration: none;
+	align-items: center;
+}
+
+.container-list__element img {
+	max-width: 30px;
+	padding: 8px;
+	margin: 0 auto;
+}
+
+.element-name {
+	margin-right: auto;
+}
+
+.element-price {
+	margin-left: 8px;
+	font-size: large;
+	font-weight: bold;
+}
+
+.element-button {
+	justify-self: flex-end;
+	margin-left: 8px;
+	max-width: 80px;
+	background-color: rgb(114, 170, 42);
+	border-style: none;
+	border-radius: 5px;
+}
+
+.element-button:hover {
+	background-color: rgb(166, 189, 135);
+	cursor: pointer;
+}
