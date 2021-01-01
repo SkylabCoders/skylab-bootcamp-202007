@@ -1,0 +1,14 @@
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+	<li
+		*ngFor="let hero of heroes"
+		[class.selected]="hero === selectedHero"
+		(click)="onSelect(hero)"
+	>
+		<span class="badge">{{ hero.id }}</span> {{ hero.name }}
+	</li>
+</ul>
+<!-- El hero es una variable que apuntará a un valor, el valor de selectedHero esta en heroes.component, el hero esta en el hero-detail -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<app-message></app-message>
